@@ -254,55 +254,133 @@
     </div>
 
     <script>
-        // Language translations
         const translations = {
-            en: {
-                mainTitle: "Explore India",
-                subtitle: "Discover the incredible diversity of Bharat",
-                states: {
-                    "Andaman and Nicobar Islands": "Where Culture Dances, Nature Sings, and the Sun Smiles First",
-                    "Andhra Pradesh": "Land of Spices and Heritage",
-                    "Arunachal Pradesh": "Where the Sun Rises First, and Every Valley Tells a Story of Peace, Culture, and Nature.",
-                    "Assam": "Where Tea Gardens Bloom, Rhinos Roam, and Culture Flows Like the Brahmaputra",
-                    "Bihar": "The Land of Enlightenment, Ancient Wisdom, and Timeless Heritage.",
-                    "Chandigarh": "Where Beauty Lives in Blueprints and Life Smiles at Every Turn",
-                    "Chhattisgarh": "The Soul of Tribal India, Rooted in Nature and Culture.",
-                    "Dadra and Nagar Haveli and Daman and Diu": "Coastal Gems",
-                    "Delhi": "Where Empires Rose, Cultures Converge, and Every Moment Feels Alive.",
-                    "Goa": "Where Every Sunset Tells a Story, and Every Morning Starts with a Wave",
-                    "Gujarat": "Where Heritage Stands Tall, Lions Roam Free, and Culture Dances in Every Festival.",
-                    "Haryana": "Where Fields Breathe Strength and Tradition Rides with Pride",
-                    "Himachal Pradesh": "Where Mountains Speak Peace and Rivers Sing Devotion",
-                    "Jammu and Kashmir": "Where Heaven Touches Earth, and Culture Blooms in Every Valley.",
-                    "Jharkhand": "Where Earth Shines with Minerals and Forests Sing Ancient Songs.",
-                    "Karnataka": "Where Innovation Thrives, Heritage Lives, and Hills Whisper Serenity.",
-                    "Kerala": "God's Own Country",
-                    "Ladakh": "Where Silence Echoes, Mountains Rule, and Monasteries Watch Over the Sky",
-                    "Lakshadweep": "Where Turquoise Waters Kiss Coral Shores and Life Moves with the Tide.",
-                    "Madhya Pradesh": "Heart of Incredible India",
-                    "Maharashtra": "Where Forts Stand Tall, Films Dream Big, and Culture Beats in Every Street.",
-                    "Manipur": "Where Nature Dances with Grace, and Culture Glows with Pride.",
-                    "Meghalaya": "Where Clouds Touch the Hills, Waterfalls Sing, and Culture Hums in Harmony.",
-                    "Mizoram": "Where Hills Roll Gently, Bamboo Sways, and Harmony Lives in Every Home.",
-                    "Nagaland": "Where Tribes Tell Tales, Drums Speak Loud, and Every Day is a Cultural Celebration.",
-                    "Odisha": "Where Sculpted Temples Meet Serene Beaches, and Dance Moves with Devotion.",
-                    "Puducherry": " Where Colonial Charm Meets Coastal Calm, and Life Slows to Serenity.",
-                    "Punjab": "Where Fields Bloom, Hearts Dance, and Every Meal Feels Like Home.",
-                    "Rajasthan": "Where Forts Whisper Legends and Deserts Dazzle with Colors.",
-                    "Sikkim": "Where Mountains Touch the Sky and Prayer Flags Carry Peace.",
-                    "Tamil Nadu": "Where Dravidian Temples Rise and Classical Arts Thrive.",
-                    "Telangana": "Where Traditions Live Loud and Tech Rises Tall.",
-                    "Tripura": "Where Hills, Heritage, and Harmony Meet in Quiet Beauty.",
-                    "Uttar Pradesh": "Where Faith Breathes, History Stands, and Stories Live Forever.",
-                    "Uttarakhand": "Where Rivers Begin, Faith Awakens, and Mountains Embrace the Sky.",
-                    "West Bengal": " Where Art Speaks, Minds Think, and Festivities Light Up the Soul."
-                }
-            },
-            hi: {
-                mainTitle: "भारत की खोज करें",
-                subtitle: "भारत की अविश्वसनीय विविधता की खोज करें",
-                states: {
-                    "Andaman and Nicobar Islands": "जहाँ संस्कृति नृत्य करती है, प्रकृति गाती है, और सूरज सबसे पहले मुस्कुराता है।",
+  en: {
+     mainTitle: "Explore India",
+    subtitle: "Discover the incredible diversity of Bharat",
+    states: {
+      name: {
+        "Andaman and Nicobar Islands": "Andaman and Nicobar Islands",
+        "Andhra Pradesh": "Andhra Pradesh",
+        "Arunachal Pradesh": "Arunachal Pradesh",
+        "Assam": "Assam",
+        "Bihar": "Bihar",
+        "Chandigarh": "Chandigarh",
+        "Chhattisgarh": "Chhattisgarh",
+        "Dadra and Nagar Haveli and Daman and Diu": "Dadra and Nagar Haveli and Daman and Diu",
+        "Delhi": "Delhi",
+        "Goa": "Goa",
+        "Gujarat": "Gujarat",
+        "Haryana": "Haryana",
+        "Himachal Pradesh": "Himachal Pradesh",
+        "Jammu and Kashmir": "Jammu and Kashmir",
+        "Jharkhand": "Jharkhand",
+        "Karnataka": "Karnataka",
+        "Kerala": "Kerala",
+        "Ladakh": "Ladakh",
+        "Lakshadweep": "Lakshadweep",
+        "Madhya Pradesh": "Madhya Pradesh",
+        "Maharashtra": "Maharashtra",
+        "Manipur": "Manipur",
+        "Meghalaya": "Meghalaya",
+        "Mizoram": "Mizoram",
+        "Nagaland": "Nagaland",
+        "Odisha": "Odisha",
+        "Puducherry": "Puducherry",
+        "Punjab": "Punjab",
+        "Rajasthan": "Rajasthan",
+        "Sikkim": "Sikkim",
+        "Tamil Nadu": "Tamil Nadu",
+        "Telangana": "Telangana",
+        "Tripura": "Tripura",
+        "Uttar Pradesh": "Uttar Pradesh",
+        "Uttarakhand": "Uttarakhand",
+        "West Bengal": "West Bengal"
+      },
+      tagline: {
+        "Andaman and Nicobar Islands": "Where Culture Dances, Nature Sings, and the Sun Smiles First",
+        "Andhra Pradesh": "Land of Spices and Heritage",
+        "Arunachal Pradesh": "Where the Sun Rises First, and Every Valley Tells a Story of Peace, Culture, and Nature.",
+        "Assam": "Where Tea Gardens Bloom, Rhinos Roam, and Culture Flows Like the Brahmaputra",
+        "Bihar": "The Land of Enlightenment, Ancient Wisdom, and Timeless Heritage.",
+        "Chandigarh": "Where Beauty Lives in Blueprints and Life Smiles at Every Turn",
+        "Chhattisgarh": "The Soul of Tribal India, Rooted in Nature and Culture.",
+        "Dadra and Nagar Haveli and Daman and Diu": "Coastal Gems",
+        "Delhi": "Where Empires Rose, Cultures Converge, and Every Moment Feels Alive.",
+        "Goa": "Where Every Sunset Tells a Story, and Every Morning Starts with a Wave",
+        "Gujarat": "Where Heritage Stands Tall, Lions Roam Free, and Culture Dances in Every Festival.",
+        "Haryana": "Where Fields Breathe Strength and Tradition Rides with Pride",
+        "Himachal Pradesh": "Where Mountains Speak Peace and Rivers Sing Devotion",
+        "Jammu and Kashmir": "Where Heaven Touches Earth, and Culture Blooms in Every Valley.",
+        "Jharkhand": "Where Earth Shines with Minerals and Forests Sing Ancient Songs.",
+        "Karnataka": "Where Innovation Thrives, Heritage Lives, and Hills Whisper Serenity.",
+        "Kerala": "God's Own Country",
+        "Ladakh": "Where Silence Echoes, Mountains Rule, and Monasteries Watch Over the Sky",
+        "Lakshadweep": "Where Turquoise Waters Kiss Coral Shores and Life Moves with the Tide.",
+        "Madhya Pradesh": "Heart of Incredible India",
+        "Maharashtra": "Where Forts Stand Tall, Films Dream Big, and Culture Beats in Every Street.",
+        "Manipur": "Where Nature Dances with Grace, and Culture Glows with Pride.",
+        "Meghalaya": "Where Clouds Touch the Hills, Waterfalls Sing, and Culture Hums in Harmony.",
+        "Mizoram": "Where Hills Roll Gently, Bamboo Sways, and Harmony Lives in Every Home.",
+        "Nagaland": "Where Tribes Tell Tales, Drums Speak Loud, and Every Day is a Cultural Celebration.",
+        "Odisha": "Where Sculpted Temples Meet Serene Beaches, and Dance Moves with Devotion.",
+        "Puducherry": "Where Colonial Charm Meets Coastal Calm, and Life Slows to Serenity.",
+        "Punjab": "Where Fields Bloom, Hearts Dance, and Every Meal Feels Like Home.",
+        "Rajasthan": "Where Forts Whisper Legends and Deserts Dazzle with Colors.",
+        "Sikkim": "Where Mountains Touch the Sky and Prayer Flags Carry Peace.",
+        "Tamil Nadu": "Where Dravidian Temples Rise and Classical Arts Thrive.",
+        "Telangana": "Where Traditions Live Loud and Tech Rises Tall.",
+        "Tripura": "Where Hills, Heritage, and Harmony Meet in Quiet Beauty.",
+        "Uttar Pradesh": "Where Faith Breathes, History Stands, and Stories Live Forever.",
+        "Uttarakhand": "Where Rivers Begin, Faith Awakens, and Mountains Embrace the Sky.",
+        "West Bengal": "Where Art Speaks, Minds Think, and Festivities Light Up the Soul."
+      }
+    }
+  },
+  hi: {
+    mainTitle: "भारत की खोज करें",
+     subtitle: "भारत की अविश्वसनीय विविधता की खोज करें",
+    states: {
+      name: {
+        "Andaman and Nicobar Islands": "अंडमान और निकोबार द्वीप समूह",
+        "Andhra Pradesh": "आंध्र प्रदेश",
+        "Arunachal Pradesh": "अरुणाचल प्रदेश",
+        "Assam": "असम",
+        "Bihar": "बिहार",
+        "Chandigarh": "चंडीगढ़",
+        "Chhattisgarh": "छत्तीसगढ़",
+        "Dadra and Nagar Haveli and Daman and Diu": "दादरा और नगर हवेली और दमन और दीव",
+        "Delhi": "दिल्ली",
+        "Goa": "गोवा",
+        "Gujarat": "गुजरात",
+        "Haryana": "हरियाणा",
+        "Himachal Pradesh": "हिमाचल प्रदेश",
+        "Jammu and Kashmir": "जम्मू और कश्मीर",
+        "Jharkhand": "झारखंड",
+        "Karnataka": "कर्नाटक",
+        "Kerala": "केरल",
+        "Ladakh": "लद्दाख",
+        "Lakshadweep": "लक्षद्वीप",
+        "Madhya Pradesh": "मध्य प्रदेश",
+        "Maharashtra": "महाराष्ट्र",
+        "Manipur": "मणिपुर",
+        "Meghalaya": "मेघालय",
+        "Mizoram": "मिज़ोरम",
+        "Nagaland": "नागालैंड",
+        "Odisha": "ओडिशा",
+        "Puducherry": "पुडुचेरी",
+        "Punjab": "पंजाब",
+        "Rajasthan": "राजस्थान",
+        "Sikkim": "सिक्किम",
+        "Tamil Nadu": "तमिलनाडु",
+        "Telangana": "तेलंगाना",
+        "Tripura": "त्रिपुरा",
+        "Uttar Pradesh": "उत्तर प्रदेश",
+        "Uttarakhand": "उत्तराखंड",
+        "West Bengal": "पश्चिम बंगाल"
+      },
+      tagline: {
+     "Andaman and Nicobar Islands": "जहाँ संस्कृति नृत्य करती है, प्रकृति गाती है, और सूरज सबसे पहले मुस्कुराता है।",
   "Andhra Pradesh": "मसालों और विरासत की भूमि।",
   "Arunachal Pradesh": "जहाँ सूरज सबसे पहले उगता है, और हर घाटी शांति, संस्कृति और प्रकृति की कहानी कहती है।",
   "Assam": "जहाँ चाय बागान खिलते हैं, गैंडे घूमते हैं, और संस्कृति ब्रह्मपुत्र की तरह बहती है।",
@@ -338,13 +416,54 @@
   "Uttar Pradesh": "जहाँ आस्था साँस लेती है, इतिहास खड़ा रहता है, और कहानियाँ सदा जीवित रहती हैं।",
   "Uttarakhand": "जहाँ नदियाँ जन्म लेती हैं, आस्था जागती है, और पहाड़ आकाश से गले मिलते हैं।",
   "West Bengal": "जहाँ कला बोलती है, विचार गहराते हैं, और उत्सव आत्मा को रोशन करते हैं।"
-                }
-            },
-            gu: {
-                mainTitle: "ભારતની શોધ કરો",
+      }
+    }
+  },
+  
+  gu: {
+     mainTitle: "ભારતની શોધ કરો",
                 subtitle: "ભારતની અવિશ્વસનીય વિવિધતા શોધો",
-                states: {
-                    "Andaman and Nicobar Islands": "જ્યાં સંસ્કૃતિ નૃત્ય કરે છે, પ્રકૃતિ ગાય છે અને સૌપ્રથમ સૂર્ય હસે છે.",
+    states: {
+      name: {
+        "Andaman and Nicobar Islands": "એન્ડામાન અને નિકોબાર দ্বીપસમૂહ",
+        "Andhra Pradesh": "આંધ્ર પ્રદેશ",
+        "Arunachal Pradesh": "અરુણાચલ પ્રદેશ",
+        "Assam": "આસમ",
+        "Bihar": "બિહાર",
+        "Chandigarh": "ચંડીગઢ",
+        "Chhattisgarh": "છત્તીસગઢ",
+        "Dadra and Nagar Haveli and Daman and Diu": "દાદરા અને નગર હવેલી અને દમણ અને દીવ",
+        "Delhi": "દિલ્હી",
+        "Goa": "ગોવા",
+        "Gujarat": "ગુજરાત",
+        "Haryana": "હરિયાણા",
+        "Himachal Pradesh": "હિમાચલ પ્રદેશ",
+        "Jammu and Kashmir": "જમ્મુ અને કાશ્મીર",
+        "Jharkhand": "ઝારખંડ",
+        "Karnataka": "કર્ણાટક",
+        "Kerala": "કેરળ",
+        "Ladakh": "લદ્દાખ",
+        "Lakshadweep": "લક્ષદ્વીપ",
+        "Madhya Pradesh": "મધ્ય પ્રદેશ",
+        "Maharashtra": "મહારાષ્ટ્ર",
+        "Manipur": "મણિપુર",
+        "Meghalaya": "મેઘાલય",
+        "Mizoram": "મિઝોરમ",
+        "Nagaland": "નાગાલેન્ડ",
+        "Odisha": "ઓડિશા",
+        "Puducherry": "પુડુચેરી",
+        "Punjab": "પંજાબ",
+        "Rajasthan": "રાજસ્થાન",
+        "Sikkim": "સિક્કિમ",
+        "Tamil Nadu": "તમિલનાડુ",
+        "Telangana": "તેલંગાણા",
+        "Tripura": "ત્રિપુરા",
+        "Uttar Pradesh": "ઉત્તર પ્રદેશ",
+        "Uttarakhand": "ઉત્તરાખંડ",
+        "West Bengal": "પશ્ચિમ બંગાળ"
+      },
+      tagline: {
+       "Andaman and Nicobar Islands": "જ્યાં સંસ્કૃતિ નૃત્ય કરે છે, પ્રકૃતિ ગાય છે અને સૌપ્રથમ સૂર્ય હસે છે.",
   "Andhra Pradesh": "મસાલા અને વારસાની ધરતી.",
   "Arunachal Pradesh": "જ્યાં સૌપ્રથમ સૂર્ય ઉગે છે અને દરેક ખીણ શાંતિ, સંસ્કૃતિ અને કુદરતની વાર્તા કહે છે.",
   "Assam": "જ્યાં ચાની બાગાયો ખીલે છે, ગینڈા ભમરે છે અને સંસ્કૃતિ બ્રહ્મપુત્રાની જેમ વહે છે.",
@@ -380,13 +499,53 @@
   "Uttar Pradesh": "જ્યાં શ્રદ્ધા શ્વાસ લે છે, ઇતિહાસ ઊભો છે અને વાર્તાઓ સદા જીવંત રહે છે.",
   "Uttarakhand": "જ્યાં નદીઓ જન્મે છે, શ્રદ્ધા જાગે છે અને પર્વતો આકાશને લગાવે છે.",
   "West Bengal": "જ્યાં કલા બોલે છે, વિચારો ઉંડા જાય છે અને તહેવારો આત્માને પ્રકાશ આપે છે."
-                }
-            },
-            ta: {
-                mainTitle: "இந்தியாவை ஆராயுங்கள்",
+      }
+    }
+  },
+  ta: {
+    mainTitle: "இந்தியாவை ஆராயுங்கள்",
                 subtitle: "பாரதத்தின் நம்பமுடியாத பன்முகத்தன்மையைக் கண்டறியுங்கள்",
-                states: {
-                    "Andaman and Nicobar Islands": "இங்கே கலாசாரம் நடனமாடுகிறது, இயற்கை பாடுகிறது, மற்றும் சூரியன் முதலில் புன்னகைக்கிறான்.",
+    states: {
+      name: {
+        "Andaman and Nicobar Islands": "அந்தமான் மற்றும் நிக்கோபார் தீவுகள்",
+        "Andhra Pradesh": "ஆந்திரப் பிரதேசம்",
+        "Arunachal Pradesh": "அருணாச்சலப் பிரதேசம்",
+        "Assam": "அசாம்",
+        "Bihar": "பீஹார்",
+        "Chandigarh": "சண்டிகர்",
+        "Chhattisgarh": "ச்சத்தீஸ்கர்",
+        "Dadra and Nagar Haveli and Daman and Diu": "தாத்ரா மற்றும் நகர் ஹவேலி மற்றும் தமன் மற்றும் தீவு",
+        "Delhi": "டெல்லி",
+        "Goa": "கோவா",
+        "Gujarat": "குஜராத்",
+        "Haryana": "ஹரியானா",
+        "Himachal Pradesh": "ஹிமாச்சலப்பிரதேசம்",
+        "Jammu and Kashmir": "ஜம்மு மற்றும் காஷ்மீர்",
+        "Jharkhand": "ஜார்கண்ட்",
+        "Karnataka": "கர்நாடகா",
+        "Kerala": "கேரளா",
+        "Ladakh": "லடாக்",
+        "Lakshadweep": "லக்ஷத்வீப்",
+        "Madhya Pradesh": "மத்தியப் பிரதேசம்",
+        "Maharashtra": "மகாராஷ்டிரா",
+        "Manipur": "மணிப்பூர்",
+        "Meghalaya": "மேகாலயா",
+        "Mizoram": "மிசோரம்",
+        "Nagaland": "நாகாலாந்து",
+        "Odisha": "ஒடிசா",
+        "Puducherry": "புதுச்சேரி",
+        "Punjab": "பஞ்சாப்",
+        "Rajasthan": "ராஜஸ்தான்",
+        "Sikkim": "சிக்கிம்",
+        "Tamil Nadu": "தமிழ்நாடு",
+        "Telangana": "தெலங்கானா",
+        "Tripura": "திரிபுரா",
+        "Uttar Pradesh": "உத்தரப்பிரதேசம்",
+        "Uttarakhand": "உத்தரகாண்ட்",
+        "West Bengal": "மேற்கு வங்காளம்"
+      },
+      tagline: {
+        "Andaman and Nicobar Islands": "இங்கே கலாசாரம் நடனமாடுகிறது, இயற்கை பாடுகிறது, மற்றும் சூரியன் முதலில் புன்னகைக்கிறான்.",
   "Andhra Pradesh": "மசாலா மற்றும் பாரம்பரியத்தின் நிலம்.",
   "Arunachal Pradesh": "சூரியன் முதலில் உதிக்கிற இடம், ஒவ்வொரு பள்ளத்தாக்கும் அமைதி, கலாசாரம் மற்றும் இயற்கையின் கதையைக் கூறுகிறது.",
   "Assam": "இங்கு தேயிலை தோட்டங்கள் மலர்கின்றன, ஓநாய்கள் சுற்றிக்கொள்கின்றன, மற்றும் கலாசாரம் பிரம்மபுத்திரா போல் வழிகின்றது.",
@@ -421,14 +580,53 @@
   "Tripura": "மலைகள், பாரம்பரியம் மற்றும் இசை அமைதியாக சந்திக்கின்றன.",
   "Uttar Pradesh": "நம்பிக்கை சுவாசிக்கிறது, வரலாறு நிலைத்திருக்கிறது, கதைகள் என்றும் வாழ்கின்றன.",
   "Uttarakhand": "நதிகள் பிறக்கின்றன, நம்பிக்கை விழிக்கிறது, மலைகள் வானத்தை அணைக்கின்றன.",
-  "West Bengal": "கலை பேசுகிறது, எண்ணங்கள் விரிகின்றன, விழாக்கள் ஆன்மாவை ஒளிரச் செய்கின்றன."
-                }
-            },
-            te: {
-                mainTitle: "భారతదేశాన్ని అన్వేషించండి",
+  "West Bengal": "கலை பேசுகிறது, எண்ணங்கள் விரிகின்றன, விழாக்கள் ஆன்மாவை ஒளிரச் செய்கின்றன."      }
+    }
+  },
+  te: {
+    mainTitle: "భారతదేశాన్ని అన్వేషించండి",
                 subtitle: "భారతదేశం యొక్క అద్భుతమైన వైవిధ్యాన్ని కనుగొనండి",
-                states: {
-                    "Andaman and Nicobar Islands": "ఇక్కడ సంస్కృతి నాట్యం చేస్తుంది, ప్రకృతి పాడుతుంది, మరియు సూర్యుడు మొట్టమొదట చిరునవ్వు చిందిస్తాడు.",
+    states: {
+      name: {
+        "Andaman and Nicobar Islands": "అండమాన్ మరియు నికోబార్ దీవులు",
+        "Andhra Pradesh": "ఆంధ్ర ప్రదేశం",
+        "Arunachal Pradesh": "అరుణాచల్ ప్రదేశం",
+        "Assam": "అస్సాం",
+        "Bihar": "బీహార్",
+        "Chandigarh": "చండీగఢ్",
+        "Chhattisgarh": "ఛత్తీస్‌గఢ్",
+        "Dadra and Nagar Haveli and Daman and Diu": "దాద్రా మరియు నగర్ హవేలీ మరియు దమన్ మరియు దియు",
+        "Delhi": "దిల్లీ",
+        "Goa": "గోవా",
+        "Gujarat": "గుజరాత్",
+        "Haryana": "హర్యానా",
+        "Himachal Pradesh": "హimachal ప్రదేశ్",
+        "Jammu and Kashmir": "జమ్మూ మరియు కాశ్మీర్",
+        "Jharkhand": "ఝార్ఖండ్",
+        "Karnataka": "కర్నాటక",
+        "Kerala": "కేరళ",
+        "Ladakh": "లడాఖ్",
+        "Lakshadweep": "లక్షద్వీప్",
+        "Madhya Pradesh": "మధ్యప్రదేశ్",
+        "Maharashtra": "మహారాష్ట్ర",
+        "Manipur": "మణిపూర్",
+        "Meghalaya": "మెఘాలయ",
+        "Mizoram": "మిజోరాం",
+        "Nagaland": "నాగాలాండ్",
+        "Odisha": "ఒడిశా",
+        "Puducherry": "పుదుచ్చేరి",
+        "Punjab": "పంజాబ్",
+        "Rajasthan": "రాజస్థాన్",
+        "Sikkim": "సిక్కిం",
+        "Tamil Nadu": "తమిళనాడు",
+        "Telangana": "తెలంగాణ",
+        "Tripura": "త్రిపుర",
+        "Uttar Pradesh": "ఉత్తర్ ప్రదేశ్",
+        "Uttarakhand": "ఉత్తరాఖండ్",
+        "West Bengal": "పడమటి బెంగాల్"
+      },
+      tagline: {
+        "Andaman and Nicobar Islands": "ఇక్కడ సంస్కృతి నాట్యం చేస్తుంది, ప్రకృతి పాడుతుంది, మరియు సూర్యుడు మొట్టమొదట చిరునవ్వు చిందిస్తాడు.",
   "Andhra Pradesh": "సుగంధ ద్రవ్యాలు మరియు వారసత్వ భూమి.",
   "Arunachal Pradesh": "ఇక్కడ సూర్యుడు మొట్టమొదట ఉదయిస్తాడు, ప్రతి లోయ శాంతి, సంస్కృతి మరియు ప్రకృతిని చెప్పే కథ.",
   "Assam": "ఇక్కడ టీ తోటలు విరుస్తాయి, గండులు సంచరిస్తాయి, మరియు సంస్కృతి బ్రహ్మపుత్రలా ప్రవహిస్తుంది.",
@@ -464,9 +662,11 @@
   "Uttar Pradesh": "ఇక్కడ నమ్మకం శ్వాసిస్తుంది, చరిత్ర నిలుస్తుంది, కథలు శాశ్వతంగా జీవిస్తాయి.",
   "Uttarakhand": "ఇక్కడ నదులు పుట్టుకొస్తాయి, నమ్మకం మేల్కొంటుంది, కొండలు ఆకాశాన్ని ఆలింగనం చేస్తాయి.",
   "West Bengal": "ఇక్కడ కళ మాట్లాడుతుంది, ఆలోచనలు వికసిస్తాయి, పండుగలు ఆత్మను వెలుగులో ఉంచుతాయి."
-                }
-            }
-        };
+  }
+    }
+  }
+
+};
 
         // State/UT data with images
         const statesData = [
@@ -534,36 +734,35 @@
             }
         }
 
-        function generateCards() {
-            const cardsGrid = document.getElementById('cardsGrid');
-            cardsGrid.innerHTML = '';
+       function generateCards() {
+  const cardsGrid = document.getElementById('cardsGrid');
+  cardsGrid.innerHTML = '';
 
-            statesData.forEach((state, index) => {
-                const card = document.createElement('div');
-                card.className = 'card loading';
-                card.style.backgroundImage = `url(${state.image})`;
-                card.style.animationDelay = `${index * 0.1}s`;
+  statesData.forEach((state, index) => {
+    const card = document.createElement('div');
+    card.className = 'card loading';
+    card.style.backgroundImage = `url(${state.image})`;
+    card.style.animationDelay = `${index * 0.1}s`;
 
-                const cardContent = document.createElement('div');
-                cardContent.className = 'card-content';
+    const cardContent = document.createElement('div');
+    cardContent.className = 'card-content';
 
-                const cardTitle = document.createElement('h3');
-                cardTitle.className = 'card-title';
-                cardTitle.textContent = state.name;
-                cardTitle.setAttribute('data-state', state.name);
+    const cardTitle = document.createElement('h3');
+    cardTitle.className = 'card-title';
+    cardTitle.textContent = translations[currentLanguage].states.name[state.name] || state.name;
+    cardTitle.setAttribute('data-state', state.name);
 
-                const cardTagline = document.createElement('p');
-                cardTagline.className = 'card-tagline';
-                cardTagline.textContent = translations[currentLanguage].states[state.name];
-                cardTagline.setAttribute('data-tagline', state.name);
+    const cardTagline = document.createElement('p');
+    cardTagline.className = 'card-tagline';
+    cardTagline.textContent = translations[currentLanguage].states.tagline[state.name] || '';
+    cardTagline.setAttribute('data-tagline', state.name);
 
-                cardContent.appendChild(cardTitle);
-                cardContent.appendChild(cardTagline);
-                card.appendChild(cardContent);
-                cardsGrid.appendChild(card);
-            });
-        }
-
+    cardContent.appendChild(cardTitle);
+    cardContent.appendChild(cardTagline);
+    card.appendChild(cardContent);
+    cardsGrid.appendChild(card);
+  });
+}
         function setupLanguageSwitcher() {
             const languageSelect = document.getElementById('languageSelect');
             languageSelect.addEventListener('change', function() {
@@ -573,24 +772,32 @@
         }
 
         function updateLanguage() {
-            // Update main title and subtitle
-            document.getElementById('mainTitle').textContent = translations[currentLanguage].mainTitle;
-            document.getElementById('subtitle').textContent = translations[currentLanguage].subtitle;
+  // Update main title and subtitle
+  document.getElementById('mainTitle').textContent = translations[currentLanguage].mainTitle;
+  document.getElementById('subtitle').textContent = translations[currentLanguage].subtitle;
 
-            // Update all card titles and taglines
-            const cardTitles = document.querySelectorAll('.card-title');
-            const cardTaglines = document.querySelectorAll('.card-tagline');
+  // Update all card titles (state display names)
+  const cardTitles = document.querySelectorAll('.card-title');
+  cardTitles.forEach(title => {
+    const stateName = title.getAttribute('data-state'); // Always the English key
+    // Look up the translated name for the selected language, fallback to English
+    title.textContent = translations[currentLanguage].states.name[stateName] ||
+                        translations.en.states.name[stateName] ||
+                        stateName;
+  });
 
-            cardTitles.forEach(title => {
-                const stateName = title.getAttribute('data-state');
-                title.textContent = stateName; // Keep state names in English for consistency
-            });
+  // Update all card taglines (state slogans/descriptions)
+  const cardTaglines = document.querySelectorAll('.card-tagline');
+  cardTaglines.forEach(tagline => {
+    const stateName = tagline.getAttribute('data-tagline'); // English key
+    // Look up the translated tagline for the selected language, fallback to English or empty
+    tagline.textContent = translations[currentLanguage].states.tagline[stateName] ||
+                          translations.en.states.tagline[stateName] ||
+                          '';
+  });
+  generateCards();
+}
 
-            cardTaglines.forEach(tagline => {
-                const stateName = tagline.getAttribute('data-tagline');
-                tagline.textContent = translations[currentLanguage].states[stateName];
-            });
-        }
 
         // Add some interactive effects
         document.addEventListener('DOMContentLoaded', function() {
