@@ -1,833 +1,1096 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore India</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+              * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+              }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e3e0de 0%, #dbd9d8 25%, #dbd9d8 50%, #dbd9d8 75%, #dbd9d8 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+              body {
+                  font-family: 'Arial', sans-serif;
+                  background: linear-gradient(135deg, #e3e0de 0%, #dbd9d8 25%, #dbd9d8 50%, #dbd9d8 75%, #dbd9d8 100%);
+                  background-size: 400% 400%;
+                  animation: gradientShift 15s ease infinite;
+                  min-height: 100vh;
+                  overflow-x: hidden;
+              }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+              @keyframes gradientShift {
+                  0% { background-position: 0% 50%; }
+                  50% { background-position: 100% 50%; }
+                  100% { background-position: 0% 50%; }
+              }
 
-        .header {
-            text-align: center;
-            padding: 2rem 1rem;
-            position: relative;
-        }
+              .header {
+                  text-align: center;
+                  padding: 2rem 1rem;
+                  position: relative;
+              }
 
-        .header h1 {
-            color: white;
-            font-size: 3.5rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-            margin-bottom: 0.5rem;
-            animation: fadeInDown 1.2s ease-out;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
+              .header h1 {
+                  color: white;
+                  font-size: 3.5rem;
+                  text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+                  margin-bottom: 0.5rem;
+                  animation: fadeInDown 1.2s ease-out;
+                  font-weight: bold;
+                  letter-spacing: 2px;
+              }
 
-        .header p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            animation: fadeInUp 1.5s ease-out;
-        }
+              .header p {
+                  color: rgba(255,255,255,0.9);
+                  font-size: 1.2rem;
+                  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+                  animation: fadeInUp 1.5s ease-out;
+              }
 
-        .language-switcher {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            z-index: 1000;
-        }
+              .language-switcher {
+                  position: absolute;
+                  top: 2rem;
+                  right: 2rem;
+                  z-index: 1000;
+              }
 
-        .language-switcher select {
-            padding: 0.8rem 1.2rem;
-            border: none;
-            border-radius: 30px;
-            background: rgba(255,255,255,0.95);
-            color: #333;
-            font-weight: bold;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-size: 1rem;
-        }
+              .language-switcher select {
+                  padding: 0.8rem 1.2rem;
+                  border: none;
+                  border-radius: 30px;
+                  background: rgba(255,255,255,0.95);
+                  color: #333;
+                  font-weight: bold;
+                  cursor: pointer;
+                  outline: none;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                  font-size: 1rem;
+              }
 
-        .language-switcher select:hover {
-            background: white;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
+              .language-switcher select:hover {
+                  background: white;
+                  transform: scale(1.05);
+                  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+              }
 
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
+              .cards-container {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                  gap: 2rem;
+                  padding: 2rem;
+                  max-width: 1600px;
+                  margin: 0 auto;
+              }
 
-        .card {
-            position: relative;
-            height: 220px;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: fadeInUp 0.8s ease-out;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
-        }
+              .card {
+                  position: relative;
+                  height: 220px;
+                  border-radius: 20px;
+                  overflow: hidden;
+                  cursor: pointer;
+                  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  background-size: cover;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  animation: fadeInUp 0.8s ease-out;
+                  backdrop-filter: blur(10px);
+                  border: 2px solid rgba(255,255,255,0.2);
+              }
 
-        .card.unlocked {
-            background: rgba(255,255,255,0.15);
-        }
+              .card.unlocked {
+                  background: rgba(255,255,255,0.15);
+              }
 
-        .card.locked {
-            background: rgba(0,0,0,0.4);
-            filter: blur(1px) grayscale(0.8);
-            opacity: 0.7;
-        }
+              .card.locked {
+                  background: rgba(0,0,0,0.4);
+                  filter: blur(1px) grayscale(0.8);
+                  opacity: 0.7;
+              }
 
-        .card.unlocked:hover {
-            transform: scale(1.08) translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            background: rgba(255,255,255,0.25);
-            border-color: rgba(255,255,255,0.4);
-        }
+              .card.unlocked:hover {
+                  transform: scale(1.08) translateY(-10px);
+                  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                  background: rgba(255,255,255,0.25);
+                  border-color: rgba(255,255,255,0.4);
+              }
 
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
-        }
+              .card-overlay {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+              }
 
-        .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem;
-            color: white;
-            z-index: 2;
-        }
+              .card-content {
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  padding: 2rem;
+                  color: white;
+                  z-index: 2;
+              }
 
-        .card-title {
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin-bottom: 0.8rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            line-height: 1.2;
-        }
+              .card-title {
+                  font-size: 1.6rem;
+                  font-weight: bold;
+                  margin-bottom: 0.8rem;
+                  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+                  line-height: 1.2;
+              }
 
-        .card-tagline {
-            font-size: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s ease;
-            color: rgba(255,255,255,0.9);
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            line-height: 1.4;
-        }
+              .card-tagline {
+                  font-size: 1rem;
+                  opacity: 0;
+                  transform: translateY(20px);
+                  transition: all 0.4s ease;
+                  color: rgba(255,255,255,0.9);
+                  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+                  line-height: 1.4;
+              }
 
-        .card.unlocked:hover .card-tagline {
-            opacity: 1;
-            transform: translateY(0);
-        }
+              .card.unlocked:hover .card-tagline {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
 
-        .lock-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            background: rgba(0,0,0,0.8);
-            padding: 0.8rem;
-            border-radius: 50%;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            animation: pulse 2s infinite;
-        }
+              .lock-icon {
+                  position: absolute;
+                  top: 20px;
+                  right: 20px;
+                  font-size: 2rem;
+                  background: rgba(0,0,0,0.8);
+                  padding: 0.8rem;
+                  border-radius: 50%;
+                  z-index: 10;
+                  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                  animation: pulse 2s infinite;
+              }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
+              @keyframes pulse {
+                  0%, 100% { transform: scale(1); }
+                  50% { transform: scale(1.1); }
+              }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
+              .modal {
+                  display: none;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0,0,0,0.8);
+                  z-index: 2000;
+                  animation: fadeIn 0.3s ease;
+                  backdrop-filter: blur(5px);
+              }
 
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #dbd9d8 0%, #ecebea 100%);
-            padding: 3rem;
-            border-radius: 25px;
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-            animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            color: white;
-        }
+              .modal-content {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: linear-gradient(135deg, #dbd9d8 0%, #ecebea 100%);
+                  padding: 3rem;
+                  border-radius: 25px;
+                  text-align: center;
+                  max-width: 450px;
+                  width: 90%;
+                  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+                  color: white;
+              }
 
-        .modal-content h3 {
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
+              .modal-content h3 {
+                  margin-bottom: 1.5rem;
+                  font-size: 2rem;
+                  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+              }
 
-        .modal-content p {
-            margin-bottom: 2.5rem;
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+              .modal-content p {
+                  margin-bottom: 2.5rem;
+                  font-size: 1.2rem;
+                  opacity: 0.9;
+              }
 
-        .modal-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
+              .modal-buttons {
+                  display: flex;
+                  gap: 1.5rem;
+                  justify-content: center;
+              }
 
-        .modal-btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+              .modal-btn {
+                  padding: 1rem 2.5rem;
+                  border: none;
+                  border-radius: 30px;
+                  cursor: pointer;
+                  font-weight: bold;
+                  font-size: 1.1rem;
+                  transition: all 0.3s ease;
+                  text-decoration: none;
+                  display: inline-block;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+              }
 
-        .btn-signup {
-            background: rgba(255,255,255,0.9);
-            color: #667eea;
-        }
+              .btn-signup {
+                  background: rgba(255,255,255,0.9);
+                  color: #667eea;
+              }
 
-        .btn-login {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255,255,255,0.8);
-        }
+              .btn-login {
+                  background: transparent;
+                  color: white;
+                  border: 2px solid rgba(255,255,255,0.8);
+              }
 
-        .modal-btn:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
+              .modal-btn:hover {
+                  transform: scale(1.05) translateY(-2px);
+                  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+              }
 
-        .btn-signup:hover {
-            background: white;
-            color: #5a6fd8;
-        }
+              .btn-signup:hover {
+                  background: white;
+                  color: #5a6fd8;
+              }
 
-        .btn-login:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: white;
-        }
+              .btn-login:hover {
+                  background: rgba(255,255,255,0.1);
+                  border-color: white;
+              }
 
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: rgba(255,255,255,0.7);
-            transition: all 0.3s ease;
-        }
+              .close-modal {
+                  position: absolute;
+                  top: 15px;
+                  right: 20px;
+                  font-size: 2rem;
+                  cursor: pointer;
+                  color: rgba(255,255,255,0.7);
+                  transition: all 0.3s ease;
+              }
 
-        .close-modal:hover {
-            color: white;
-            transform: scale(1.2);
-        }
+              .close-modal:hover {
+                  color: white;
+                  transform: scale(1.2);
+              }
+      .map-btn {
+        position: relative;
+        z-index: 100;
+        top: 10px;
+        left: 270px;
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+      }
+      .map-btn:hover {
+        background-color: #0c59cf;
+      }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.7);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
+              @keyframes fadeIn {
+                  from { opacity: 0; }
+                  to { opacity: 1; }
+              }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
+              @keyframes fadeInDown {
+                  from {
+                      opacity: 0;
+                      transform: translateY(-50px);
+                  }
+                  to {
+                      opacity: 1;
+                      transform: translateY(0);
+                  }
+              }
 
-            .header p {
-                font-size: 1rem;
-            }
+              @keyframes fadeInUp {
+                  from {
+                      opacity: 0;
+                      transform: translateY(50px);
+                  }
+                  to {
+                      opacity: 1;
+                      transform: translateY(0);
+                  }
+              }
 
-            .language-switcher {
-                position: static;
-                margin-top: 1.5rem;
-                text-align: center;
-            }
+              @keyframes scaleIn {
+                  from {
+                      opacity: 0;
+                      transform: translate(-50%, -50%) scale(0.7);
+                  }
+                  to {
+                      opacity: 1;
+                      transform: translate(-50%, -50%) scale(1);
+                  }
+              }
 
-            .cards-container {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1.5rem;
-                padding: 1.5rem;
-            }
+              /* Mobile Responsive */
+              @media (max-width: 768px) {
+                  .header h1 {
+                      font-size: 2.5rem;
+                  }
+      .map-btn {
+        position: relative;
+        z-index: 100;
+        top: 10px;
+        left:80vw;
+              }
+                  .header p {
+                      font-size: 1rem;
+                  }
 
-            .card {
-                height: 180px;
-            }
+                  .language-switcher {
+                      position: static;
+                      margin-top: 1.5rem;
+                      text-align: center;
+                  }
 
-            .modal-content {
-                padding: 2rem;
-                max-width: 350px;
-            }
+                  .cards-container {
+                      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                      gap: 1.5rem;
+                      padding: 1.5rem;
+                  }
 
-            .modal-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
+                  .card {
+                      height: 180px;
+                  }
 
-            .modal-btn {
-                padding: 0.8rem 2rem;
-            }
-        }
+                  .modal-content {
+                      padding: 2rem;
+                      max-width: 350px;
+                  }
 
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 2rem;
-            }
+                  .modal-buttons {
+                      flex-direction: column;
+                      gap: 1rem;
+                  }
 
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            
-            .card {
-                height: 160px;
-            }
+                  .modal-btn {
+                      padding: 0.8rem 2rem;
+                  }
+              }
 
-            .card-title {
-                font-size: 1.3rem;
-            }
+              @media (max-width: 480px) {
+                  .header h1 {
+                      font-size: 2rem;
+                  }
 
-            .card-content {
-                padding: 1.5rem;
-            }
-        }
+                  .cards-container {
+                      grid-template-columns: 1fr;
+                      gap: 1rem;
+                      padding: 1rem;
+                  }
 
-        /* Card entrance animations with staggered delay */
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(n+5) { animation-delay: 0.5s; }
+                  .card {
+                      height: 160px;
+                  }
+
+                  .card-title {
+                      font-size: 1.3rem;
+                  }
+
+                  .card-content {
+                      padding: 1.5rem;
+                  }.map-btn {
+        position: relative;
+        z-index: 100;
+        top: 10px;
+        left: 80vw;
+              }
+
+              /* Card entrance animations with staggered delay */
+              .card:nth-child(1) { animation-delay: 0.1s; }
+              .card:nth-child(2) { animation-delay: 0.2s; }
+              .card:nth-child(3) { animation-delay: 0.3s; }
+              .card:nth-child(4) { animation-delay: 0.4s; }
+              .card:nth-child(n+5) { animation-delay: 0.5s; }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Background Audio -->
     <audio id="bgAudio" loop>
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-        <!-- Fallback silent audio -->
+      <source
+        src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"
+        type="audio/wav"
+      />
+      <!-- Fallback silent audio -->
     </audio>
 
     <div class="header">
-        <h1 id="pageTitle">Explore India</h1>
-        <p id="pageSubtitle">Discover the incredible diversity of Bharat</p>
-        
-        <div class="language-switcher">
-            <select id="languageSelect">
-                <option value="en">English</option>
-                <option value="hi">हिंदी</option>
-                <option value="gu">ગુજરાતી</option>
-                <option value="ta">தமிழ்</option>
-                <option value="te">తెలుగు</option>
-            </select>
-        </div>
+      <h1 id="pageTitle">Explore India</h1>
+      <p id="pageSubtitle">Discover the incredible diversity of Bharat</p>
+
+      <div class="language-switcher">
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="gu">ગુજરાતી</option>
+          <option value="ta">தமிழ்</option>
+          <option value="te">తెలుగు</option>
+        </select>
+      </div>
     </div>
 
     <div class="cards-container" id="cardsContainer">
-        <!-- Cards will be generated by JavaScript -->
+      <!-- Cards will be generated by JavaScript -->
     </div>
 
     <!-- Modal -->
     <div class="modal" id="lockModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h3 id="modalTitle">🔒 Unlock More States</h3>
-            <p id="modalText">Want to unlock all states and territories? Sign up now to explore the complete beauty of India!</p>
-            <div class="modal-buttons">
-                <a href="signup.html" class="modal-btn btn-signup" id="signupBtn">Sign Up</a>
-                <a href="login.html" class="modal-btn btn-login" id="loginBtn">Login</a>
-            </div>
+      <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <h3 id="modalTitle">🔒 Unlock More States</h3>
+        <p id="modalText">
+          Want to unlock all states and territories? Sign up now to explore the
+          complete beauty of India!
+        </p>
+        <div class="modal-buttons">
+          <a href="signup.html" class="modal-btn btn-signup" id="signupBtn"
+            >Sign Up</a
+          >
+          <a href="login.html" class="modal-btn btn-login" id="loginBtn"
+            >Login</a
+          >
         </div>
+      </div>
     </div>
 
     <script>
-        // Language translations
-        const translations = {
-            en: {
-                pageTitle: "Explore India",
-                pageSubtitle: "Discover the incredible diversity of Bharat",
-                modalTitle: "🔒 Unlock More States",
-                modalText: "Want to unlock all states and territories? Sign up now to explore the complete beauty of India!",
-                signupBtn: "Sign Up",
-                loginBtn: "Login",
-                states: {
-                    "Andaman and Nicobar Islands": "Tropical Paradise",
-                    "Andhra Pradesh": "Land of Spices",
-                    "Arunachal Pradesh": "Land of Dawn-Lit Mountains",
-                    "Assam": "Gateway to Northeast",
-                    "Bihar": "Land of Buddha",
-                    "Chandigarh": "The Beautiful City",
-                    "Chhattisgarh": "Rice Bowl of India",
-                    "Dadra and Nagar Haveli and Daman and Diu": "Coastal Beauty",
-                    "Delhi": "Heart of India",
-                    "Goa": "Pearl of the Orient",
-                    "Gujarat": "Jewel of Western India",
-                    "Haryana": "Land of Rotis",
-                    "Himachal Pradesh": "Dev Bhoomi",
-                    "Jammu and Kashmir": "Paradise on Earth",
-                    "Jharkhand": "Land of Forests",
-                    "Karnataka": "Silicon Valley of India",
-                    "Kerala": "God's Own Country",
-                    "Ladakh": "Land of High Passes",
-                    "Lakshadweep": "Coral Islands",
-                    "Madhya Pradesh": "Heart of India",
-                    "Maharashtra": "Gateway of India",
-                    "Manipur": "Jewel of India",
-                    "Meghalaya": "Abode of Clouds",
-                    "Mizoram": "Land of Blue Mountains",
-                    "Nagaland": "Land of Festivals",
-                    "Odisha": "Soul of India",
-                    "Puducherry": "French Riviera of the East",
-                    "Punjab": "Land of Five Rivers",
-                    "Rajasthan": "Land of Kings",
-                    "Sikkim": "Himalayan Paradise",
-                    "Tamil Nadu": "Land of Temples",
-                    "Telangana": "State of Telugu Culture",
-                    "Tripura": "Land of Diversity",
-                    "Uttar Pradesh": "Heartland of India",
-                    "Uttarakhand": "Land of Gods",
-                    "West Bengal": "Cultural Capital"
-                }
-            },
-            hi: {
-                pageTitle: "भारत की खोज करें",
-                pageSubtitle: "भारत की अविश्वसनीय विविधता की खोज करें",
-                modalTitle: "🔒 अधिक राज्य अनलॉक करें",
-                modalText: "सभी राज्यों और केंद्र शासित प्रदेशों को अनलॉक करना चाहते हैं? भारत की संपूर्ण सुंदरता का पता लगाने के लिए अभी साइन अप करें!",
-                signupBtn: "साइन अप",
-                loginBtn: "लॉगिन",
-                states: {
-                    "Andaman and Nicobar Islands": "उष्णकटिबंधीय स्वर्ग",
-                    "Andhra Pradesh": "मसालों की भूमि",
-                    "Arunachal Pradesh": "उषा-प्रकाशित पर्वतों की भूमि",
-                    "Assam": "पूर्वोत्तर का प्रवेश द्वार",
-                    "Bihar": "बुद्ध की भूमि",
-                    "Chandigarh": "सुंदर शहर",
-                    "Chhattisgarh": "भारत का चावल का कटोरा",
-                    "Dadra and Nagar Haveli and Daman and Diu": "तटीय सुंदरता",
-                    "Delhi": "भारत का दिल",
-                    "Goa": "पूर्व का मोती",
-                    "Gujarat": "पश्चिमी भारत का रत्न",
-                    "Haryana": "रोटियों की भूमि",
-                    "Himachal Pradesh": "देव भूमि",
-                    "Jammu and Kashmir": "धरती पर स्वर्ग",
-                    "Jharkhand": "जंगलों की भूमि",
-                    "Karnataka": "भारत की सिलिकॉन वैली",
-                    "Kerala": "ईश्वर का अपना देश",
-                    "Ladakh": "ऊंचे दर्रों की भूमि",
-                    "Lakshadweep": "प्रवाल द्वीप",
-                    "Madhya Pradesh": "भारत का दिल",
-                    "Maharashtra": "भारत का प्रवेश द्वार",
-                    "Manipur": "भारत का रत्न",
-                    "Meghalaya": "बादलों का निवास",
-                    "Mizoram": "नीले पहाड़ों की भूमि",
-                    "Nagaland": "त्योहारों की भूमि",
-                    "Odisha": "भारत की आत्मा",
-                    "Puducherry": "पूर्व का फ्रेंच रिवेरा",
-                    "Punjab": "पांच नदियों की भूमि",
-                    "Rajasthan": "राजाओं की भूमि",
-                    "Sikkim": "हिमालयी स्वर्ग",
-                    "Tamil Nadu": "मंदिरों की भूमि",
-                    "Telangana": "तेलुगु संस्कृति का राज्य",
-                    "Tripura": "विविधता की भूमि",
-                    "Uttar Pradesh": "भारत का हृदयस्थल",
-                    "Uttarakhand": "देवों की भूमि",
-                    "West Bengal": "सांस्कृतिक राजधानी"
-                }
-            },
-            gu: {
-                pageTitle: "ભારતની શોધ કરો",
-                pageSubtitle: "ભારતની અવિશ્વસનીય વિવિધતાની શોધ કરો",
-                modalTitle: "🔒 વધુ રાજ્યો અનલૉક કરો",
-                modalText: "બધા રાજ્યો અને કેન્દ્ર શાસિત પ્રદેશોને અનલૉક કરવા માંગો છો? ભારતની સંપૂર્ણ સુંદરતાની શોધ કરવા માટે હવે સાઇન અપ કરો!",
-                signupBtn: "સાઇન અપ",
-                loginBtn: "લૉગિન",
-                states: {
-                    "Andaman and Nicobar Islands": "ઉષ્ણકટિબંધીય સ્વર્ગ",
-                    "Andhra Pradesh": "મસાલાની ભૂમિ",
-                    "Arunachal Pradesh": "પ્રભાતે પ્રકાશિત પર્વતોની ભૂમિ",
-                    "Assam": "ઉત્તરપૂર્વનો પ્રવેશદ્વાર",
-                    "Bihar": "બુદ્ધની ભૂમિ",
-                    "Chandigarh": "સુંદર શહેર",
-                    "Chhattisgarh": "ભારતનો ચોખાનો વાટકો",
-                    "Dadra and Nagar Haveli and Daman and Diu": "દરિયાકાંઠાની સુંદરતા",
-                    "Delhi": "ભારતનું હૃદય",
-                    "Goa": "પૂર્વનો મોતી",
-                    "Gujarat": "પશ્ચિમી ભારતનો રત્ન",
-                    "Haryana": "રોટલીની ભૂમિ",
-                    "Himachal Pradesh": "દેવ ભૂમિ",
-                    "Jammu and Kashmir": "પૃથ્વી પર સ્વર્ગ",
-                    "Jharkhand": "જંગલોની ભૂમિ",
-                    "Karnataka": "ભારતની સિલિકોન વેલી",
-                    "Kerala": "ભગવાનનો પોતાનો દેશ",
-                    "Ladakh": "ઊંચા દરવાજાની ભૂમિ",
-                    "Lakshadweep": "કોરલ ટાપુઓ",
-                    "Madhya Pradesh": "ભારતનું હૃદય",
-                    "Maharashtra": "ભારતનો પ્રવેશદ્વાર",
-                    "Manipur": "ભારતનો રત્ન",
-                    "Meghalaya": "વાદળોનું નિવાસસ્થાન",
-                    "Mizoram": "વાદળી પર્વતોની ભૂમિ",
-                    "Nagaland": "તહેવારોની ભૂમિ",
-                    "Odisha": "ભારતની આત્મા",
-                    "Puducherry": "પૂર્વનો ફ્રેન્ચ રિવેરા",
-                    "Punjab": "પાંચ નદીઓની ભૂમિ",
-                    "Rajasthan": "રાજાઓની ભૂમિ",
-                    "Sikkim": "હિમાલયન સ્વર્ગ",
-                    "Tamil Nadu": "મંદિરોની ભૂમિ",
-                    "Telangana": "તેલુગુ સંસ્કૃતિનું રાજ્ય",
-                    "Tripura": "વિવિધતાની ભૂમિ",
-                    "Uttar Pradesh": "ભારતનું હૃદયસ્થાન",
-                    "Uttarakhand": "દેવોની ભૂમિ",
-                    "West Bengal": "સાંસ્કૃતિક રાજધાની"
-                }
-            },
-            ta: {
-                pageTitle: "இந்தியாவை ஆராயுங்கள்",
-                pageSubtitle: "பாரதத்தின் நம்பமுடியாத பன்முகத்தன்மையைக் கண்டறியுங்கள்",
-                modalTitle: "🔒 மேலும் மாநிலங்களைத் திறக்கவும்",
-                modalText: "அனைத்து மாநிலங்களையும் யூனியன் பிரதேசங்களையும் திறக்க விரும்புகிறீர்களா? இந்தியாவின் முழு அழகையும் ஆராய இப்போதே பதிவு செய்யுங்கள்!",
-                signupBtn: "பதிவு செய்யுங்கள்",
-                loginBtn: "உள்நுழைய",
-                states: {
-                    "Andaman and Nicobar Islands": "வெப்பமண்டல சொர்க்கம்",
-                    "Andhra Pradesh": "மசாலாக்களின் நிலம்",
-                    "Arunachal Pradesh": "விடியல் ஒளி மலைகளின் நிலம்",
-                    "Assam": "வடகிழக்கின் நுழைவாயில்",
-                    "Bihar": "புத்தரின் நிலம்",
-                    "Chandigarh": "அழகான நகரம்",
-                    "Chhattisgarh": "இந்தியாவின் அரிசி கிண்ணம்",
-                    "Dadra and Nagar Haveli and Daman and Diu": "கடற்கரை அழகு",
-                    "Delhi": "இந்தியாவின் இதயம்",
-                    "Goa": "கிழக்கின் முத்து",
-                    "Gujarat": "மேற்கு இந்தியாவின் நகை",
-                    "Haryana": "ரொட்டிகளின் நிலம்",
-                    "Himachal Pradesh": "தேவ பூமி",
-                    "Jammu and Kashmir": "பூமியில் சொர்க்கம்",
-                    "Jharkhand": "காடுகளின் நிலம்",
-                    "Karnataka": "இந்தியாவின் சிலிக்கான் பள்ளத்தாக்கு",
-                    "Kerala": "கடவுளின் சொந்த நாடு",
-                    "Ladakh": "உயர் கணவாய்களின் நிலம்",
-                    "Lakshadweep": "பவள தீவுகள்",
-                    "Madhya Pradesh": "இந்தியாவின் இதயம்",
-                    "Maharashtra": "இந்தியாவின் நுழைவாயில்",
-                    "Manipur": "இந்தியாவின் நகை",
-                    "Meghalaya": "மேகங்களின் வாசஸ்தலம்",
-                    "Mizoram": "நீல மலைகளின் நிலம்",
-                    "Nagaland": "திருவிழாக்களின் நிலம்",
-                    "Odisha": "இந்தியாவின் ஆத்மா",
-                    "Puducherry": "கிழக்கின் பிரெஞ்சு ரிவேரா",
-                    "Punjab": "ஐந்து ஆறுகளின் நிலம்",
-                    "Rajasthan": "அரசர்களின் நிலம்",
-                    "Sikkim": "இமயமலை சொர்க்கம்",
-                    "Tamil Nadu": "கோவில்களின் நிலம்",
-                    "Telangana": "தெலுங்கு கலாச்சாரத்தின் மாநிலம்",
-                    "Tripura": "பன்முகத்தன்மையின் நிலம்",
-                    "Uttar Pradesh": "இந்தியாவின் இதய நிலம்",
-                    "Uttarakhand": "கடவுள்களின் நிலம்",
-                    "West Bengal": "கலாச்சார தலைநகரம்"
-                }
-            },
-            te: {
-                pageTitle: "భారతదేశాన్ని అన్వేషించండి",
-                pageSubtitle: "భారతదేశం యొక్క అద్భుతమైన వైవిధ్యాన్ని కనుగొనండి",
-                modalTitle: "🔒 మరిన్ని రాష్ట్రాలను అన్‌లాక్ చేయండి",
-                modalText: "అన్ని రాష్ట్రాలు మరియు కేంద్రపాలిత ప్రాంతాలను అన్‌లాక్ చేయాలనుకుంటున్నారా? భారతదేశం యొక్క పూర్తి అందాన్ని అన్వేషించడానికి ఇప్పుడే సైన్ అప్ చేయండి!",
-                signupBtn: "సైన్ అప్",
-                loginBtn: "లాగిన్",
-                states: {
-                    "Andaman and Nicobar Islands": "ఉష్ణమండల స్వర్గం",
-                    "Andhra Pradesh": "మసాలాల భూమి",
-                    "Arunachal Pradesh": "ఉదయ ప్రకాశ పర్వతాల భూమి",
-                    "Assam": "ఈశాన్య ప్రవేశ ద్వారం",
-                    "Bihar": "బుద్ధుని భూమి",
-                    "Chandigarh": "అందమైన నగరం",
-                    "Chhattisgarh": "భారతదేశం యొక్క వరి గిన్నె",
-                    "Dadra and Nagar Haveli and Daman and Diu": "తీర అందం",
-                    "Delhi": "భారతదేశం యొక్క హృదయం",
-                    "Goa": "తూర్పు ముత్యం",
-                    "Gujarat": "పశ్చిమ భారతదేశం యొక్క రత్నం",
-                    "Haryana": "రొట్టెల భూమి",
-                    "Himachal Pradesh": "దేవ భూమి",
-                    "Jammu and Kashmir": "భూమిపై స్వర్గం",
-                    "Jharkhand": "అడవుల భూమి",
-                    "Karnataka": "భారతదేశం యొక్క సిలికాన్ వ్యాలీ",
-                    "Kerala": "దేవుని స్వంత దేశం",
-                    "Ladakh": "ఎత్తైన కనుమల భూమి",
-                    "Lakshadweep": "పగడపు దీవులు",
-                    "Madhya Pradesh": "భారతదేశం యొక్క హృదయం",
-                    "Maharashtra": "భారతదేశం యొక్క ప్రవేశ ద్వారం",
-                    "Manipur": "భారతదేశం యొక్క రత్నం",
-                    "Meghalaya": "మేఘాల నివాసం",
-                    "Mizoram": "నీలి పర్వతాల భూమి",
-                    "Nagaland": "పండుగల భూమి",
-                    "Odisha": "భారతదేశం యొక్క ఆత్మ",
-                    "Puducherry": "తూర్పు ఫ్రెంచ్ రివేరా",
-                    "Punjab": "ఐదు నదుల భూమి",
-                    "Rajasthan": "రాజుల భూమి",
-                    "Sikkim": "హిమాలయ స్వర్గం",
-                    "Tamil Nadu": "దేవాలయాల భూమి",
-                    "Telangana": "తెలుగు సంస్కృతి రాష్ట్రం",
-                    "Tripura": "వైవిధ్య భూమి",
-                    "Uttar Pradesh": "భారతదేశం యొక్క హృదయ భూమి",
-                    "Uttarakhand": "దేవతల భూమి",
-                    "West Bengal": "సాంస్కృతిక రాజధాని"
-                }
-            }
-        };
+      // Language translations
+      const translations = {
+        en: {
+          pageTitle: "Explore India",
+          pageSubtitle: "Discover the incredible diversity of Bharat",
+          modalTitle: "🔒 Unlock More States",
+          modalText:
+            "Want to unlock all states and territories? Sign up now to explore the complete beauty of India!",
+          signupBtn: "Sign Up",
+          loginBtn: "Login",
+          states: {
+            "Andaman and Nicobar Islands": "Tropical Paradise",
+            "Andhra Pradesh": "Land of Spices",
+            "Arunachal Pradesh": "Land of Dawn-Lit Mountains",
+            Assam: "Gateway to Northeast",
+            Bihar: "Land of Buddha",
+            Chandigarh: "The Beautiful City",
+            Chhattisgarh: "Rice Bowl of India",
+            "Dadra and Nagar Haveli and Daman and Diu": "Coastal Beauty",
+            Delhi: "Heart of India",
+            Goa: "Pearl of the Orient",
+            Gujarat: "Jewel of Western India",
+            Haryana: "Land of Rotis",
+            "Himachal Pradesh": "Dev Bhoomi",
+            "Jammu and Kashmir": "Paradise on Earth",
+            Jharkhand: "Land of Forests",
+            Karnataka: "Silicon Valley of India",
+            Kerala: "God's Own Country",
+            Ladakh: "Land of High Passes",
+            Lakshadweep: "Coral Islands",
+            "Madhya Pradesh": "Heart of India",
+            Maharashtra: "Gateway of India",
+            Manipur: "Jewel of India",
+            Meghalaya: "Abode of Clouds",
+            Mizoram: "Land of Blue Mountains",
+            Nagaland: "Land of Festivals",
+            Odisha: "Soul of India",
+            Puducherry: "French Riviera of the East",
+            Punjab: "Land of Five Rivers",
+            Rajasthan: "Land of Kings",
+            Sikkim: "Himalayan Paradise",
+            "Tamil Nadu": "Land of Temples",
+            Telangana: "State of Telugu Culture",
+            Tripura: "Land of Diversity",
+            "Uttar Pradesh": "Heartland of India",
+            Uttarakhand: "Land of Gods",
+            "West Bengal": "Cultural Capital",
+          },
+        },
+        hi: {
+          pageTitle: "भारत की खोज करें",
+          pageSubtitle: "भारत की अविश्वसनीय विविधता की खोज करें",
+          modalTitle: "🔒 अधिक राज्य अनलॉक करें",
+          modalText:
+            "सभी राज्यों और केंद्र शासित प्रदेशों को अनलॉक करना चाहते हैं? भारत की संपूर्ण सुंदरता का पता लगाने के लिए अभी साइन अप करें!",
+          signupBtn: "साइन अप",
+          loginBtn: "लॉगिन",
+          states: {
+            "Andaman and Nicobar Islands": "उष्णकटिबंधीय स्वर्ग",
+            "Andhra Pradesh": "मसालों की भूमि",
+            "Arunachal Pradesh": "उषा-प्रकाशित पर्वतों की भूमि",
+            Assam: "पूर्वोत्तर का प्रवेश द्वार",
+            Bihar: "बुद्ध की भूमि",
+            Chandigarh: "सुंदर शहर",
+            Chhattisgarh: "भारत का चावल का कटोरा",
+            "Dadra and Nagar Haveli and Daman and Diu": "तटीय सुंदरता",
+            Delhi: "भारत का दिल",
+            Goa: "पूर्व का मोती",
+            Gujarat: "पश्चिमी भारत का रत्न",
+            Haryana: "रोटियों की भूमि",
+            "Himachal Pradesh": "देव भूमि",
+            "Jammu and Kashmir": "धरती पर स्वर्ग",
+            Jharkhand: "जंगलों की भूमि",
+            Karnataka: "भारत की सिलिकॉन वैली",
+            Kerala: "ईश्वर का अपना देश",
+            Ladakh: "ऊंचे दर्रों की भूमि",
+            Lakshadweep: "प्रवाल द्वीप",
+            "Madhya Pradesh": "भारत का दिल",
+            Maharashtra: "भारत का प्रवेश द्वार",
+            Manipur: "भारत का रत्न",
+            Meghalaya: "बादलों का निवास",
+            Mizoram: "नीले पहाड़ों की भूमि",
+            Nagaland: "त्योहारों की भूमि",
+            Odisha: "भारत की आत्मा",
+            Puducherry: "पूर्व का फ्रेंच रिवेरा",
+            Punjab: "पांच नदियों की भूमि",
+            Rajasthan: "राजाओं की भूमि",
+            Sikkim: "हिमालयी स्वर्ग",
+            "Tamil Nadu": "मंदिरों की भूमि",
+            Telangana: "तेलुगु संस्कृति का राज्य",
+            Tripura: "विविधता की भूमि",
+            "Uttar Pradesh": "भारत का हृदयस्थल",
+            Uttarakhand: "देवों की भूमि",
+            "West Bengal": "सांस्कृतिक राजधानी",
+          },
+        },
+        gu: {
+          pageTitle: "ભારતની શોધ કરો",
+          pageSubtitle: "ભારતની અવિશ્વસનીય વિવિધતાની શોધ કરો",
+          modalTitle: "🔒 વધુ રાજ્યો અનલૉક કરો",
+          modalText:
+            "બધા રાજ્યો અને કેન્દ્ર શાસિત પ્રદેશોને અનલૉક કરવા માંગો છો? ભારતની સંપૂર્ણ સુંદરતાની શોધ કરવા માટે હવે સાઇન અપ કરો!",
+          signupBtn: "સાઇન અપ",
+          loginBtn: "લૉગિન",
+          states: {
+            "Andaman and Nicobar Islands": "ઉષ્ણકટિબંધીય સ્વર્ગ",
+            "Andhra Pradesh": "મસાલાની ભૂમિ",
+            "Arunachal Pradesh": "પ્રભાતે પ્રકાશિત પર્વતોની ભૂમિ",
+            Assam: "ઉત્તરપૂર્વનો પ્રવેશદ્વાર",
+            Bihar: "બુદ્ધની ભૂમિ",
+            Chandigarh: "સુંદર શહેર",
+            Chhattisgarh: "ભારતનો ચોખાનો વાટકો",
+            "Dadra and Nagar Haveli and Daman and Diu": "દરિયાકાંઠાની સુંદરતા",
+            Delhi: "ભારતનું હૃદય",
+            Goa: "પૂર્વનો મોતી",
+            Gujarat: "પશ્ચિમી ભારતનો રત્ન",
+            Haryana: "રોટલીની ભૂમિ",
+            "Himachal Pradesh": "દેવ ભૂમિ",
+            "Jammu and Kashmir": "પૃથ્વી પર સ્વર્ગ",
+            Jharkhand: "જંગલોની ભૂમિ",
+            Karnataka: "ભારતની સિલિકોન વેલી",
+            Kerala: "ભગવાનનો પોતાનો દેશ",
+            Ladakh: "ઊંચા દરવાજાની ભૂમિ",
+            Lakshadweep: "કોરલ ટાપુઓ",
+            "Madhya Pradesh": "ભારતનું હૃદય",
+            Maharashtra: "ભારતનો પ્રવેશદ્વાર",
+            Manipur: "ભારતનો રત્ન",
+            Meghalaya: "વાદળોનું નિવાસસ્થાન",
+            Mizoram: "વાદળી પર્વતોની ભૂમિ",
+            Nagaland: "તહેવારોની ભૂમિ",
+            Odisha: "ભારતની આત્મા",
+            Puducherry: "પૂર્વનો ફ્રેન્ચ રિવેરા",
+            Punjab: "પાંચ નદીઓની ભૂમિ",
+            Rajasthan: "રાજાઓની ભૂમિ",
+            Sikkim: "હિમાલયન સ્વર્ગ",
+            "Tamil Nadu": "મંદિરોની ભૂમિ",
+            Telangana: "તેલુગુ સંસ્કૃતિનું રાજ્ય",
+            Tripura: "વિવિધતાની ભૂમિ",
+            "Uttar Pradesh": "ભારતનું હૃદયસ્થાન",
+            Uttarakhand: "દેવોની ભૂમિ",
+            "West Bengal": "સાંસ્કૃતિક રાજધાની",
+          },
+        },
+        ta: {
+          pageTitle: "இந்தியாவை ஆராயுங்கள்",
+          pageSubtitle:
+            "பாரதத்தின் நம்பமுடியாத பன்முகத்தன்மையைக் கண்டறியுங்கள்",
+          modalTitle: "🔒 மேலும் மாநிலங்களைத் திறக்கவும்",
+          modalText:
+            "அனைத்து மாநிலங்களையும் யூனியன் பிரதேசங்களையும் திறக்க விரும்புகிறீர்களா? இந்தியாவின் முழு அழகையும் ஆராய இப்போதே பதிவு செய்யுங்கள்!",
+          signupBtn: "பதிவு செய்யுங்கள்",
+          loginBtn: "உள்நுழைய",
+          states: {
+            "Andaman and Nicobar Islands": "வெப்பமண்டல சொர்க்கம்",
+            "Andhra Pradesh": "மசாலாக்களின் நிலம்",
+            "Arunachal Pradesh": "விடியல் ஒளி மலைகளின் நிலம்",
+            Assam: "வடகிழக்கின் நுழைவாயில்",
+            Bihar: "புத்தரின் நிலம்",
+            Chandigarh: "அழகான நகரம்",
+            Chhattisgarh: "இந்தியாவின் அரிசி கிண்ணம்",
+            "Dadra and Nagar Haveli and Daman and Diu": "கடற்கரை அழகு",
+            Delhi: "இந்தியாவின் இதயம்",
+            Goa: "கிழக்கின் முத்து",
+            Gujarat: "மேற்கு இந்தியாவின் நகை",
+            Haryana: "ரொட்டிகளின் நிலம்",
+            "Himachal Pradesh": "தேவ பூமி",
+            "Jammu and Kashmir": "பூமியில் சொர்க்கம்",
+            Jharkhand: "காடுகளின் நிலம்",
+            Karnataka: "இந்தியாவின் சிலிக்கான் பள்ளத்தாக்கு",
+            Kerala: "கடவுளின் சொந்த நாடு",
+            Ladakh: "உயர் கணவாய்களின் நிலம்",
+            Lakshadweep: "பவள தீவுகள்",
+            "Madhya Pradesh": "இந்தியாவின் இதயம்",
+            Maharashtra: "இந்தியாவின் நுழைவாயில்",
+            Manipur: "இந்தியாவின் நகை",
+            Meghalaya: "மேகங்களின் வாசஸ்தலம்",
+            Mizoram: "நீல மலைகளின் நிலம்",
+            Nagaland: "திருவிழாக்களின் நிலம்",
+            Odisha: "இந்தியாவின் ஆத்மா",
+            Puducherry: "கிழக்கின் பிரெஞ்சு ரிவேரா",
+            Punjab: "ஐந்து ஆறுகளின் நிலம்",
+            Rajasthan: "அரசர்களின் நிலம்",
+            Sikkim: "இமயமலை சொர்க்கம்",
+            "Tamil Nadu": "கோவில்களின் நிலம்",
+            Telangana: "தெலுங்கு கலாச்சாரத்தின் மாநிலம்",
+            Tripura: "பன்முகத்தன்மையின் நிலம்",
+            "Uttar Pradesh": "இந்தியாவின் இதய நிலம்",
+            Uttarakhand: "கடவுள்களின் நிலம்",
+            "West Bengal": "கலாச்சார தலைநகரம்",
+          },
+        },
+        te: {
+          pageTitle: "భారతదేశాన్ని అన్వేషించండి",
+          pageSubtitle: "భారతదేశం యొక్క అద్భుతమైన వైవిధ్యాన్ని కనుగొనండి",
+          modalTitle: "🔒 మరిన్ని రాష్ట్రాలను అన్‌లాక్ చేయండి",
+          modalText:
+            "అన్ని రాష్ట్రాలు మరియు కేంద్రపాలిత ప్రాంతాలను అన్‌లాక్ చేయాలనుకుంటున్నారా? భారతదేశం యొక్క పూర్తి అందాన్ని అన్వేషించడానికి ఇప్పుడే సైన్ అప్ చేయండి!",
+          signupBtn: "సైన్ అప్",
+          loginBtn: "లాగిన్",
+          states: {
+            "Andaman and Nicobar Islands": "ఉష్ణమండల స్వర్గం",
+            "Andhra Pradesh": "మసాలాల భూమి",
+            "Arunachal Pradesh": "ఉదయ ప్రకాశ పర్వతాల భూమి",
+            Assam: "ఈశాన్య ప్రవేశ ద్వారం",
+            Bihar: "బుద్ధుని భూమి",
+            Chandigarh: "అందమైన నగరం",
+            Chhattisgarh: "భారతదేశం యొక్క వరి గిన్నె",
+            "Dadra and Nagar Haveli and Daman and Diu": "తీర అందం",
+            Delhi: "భారతదేశం యొక్క హృదయం",
+            Goa: "తూర్పు ముత్యం",
+            Gujarat: "పశ్చిమ భారతదేశం యొక్క రత్నం",
+            Haryana: "రొట్టెల భూమి",
+            "Himachal Pradesh": "దేవ భూమి",
+            "Jammu and Kashmir": "భూమిపై స్వర్గం",
+            Jharkhand: "అడవుల భూమి",
+            Karnataka: "భారతదేశం యొక్క సిలికాన్ వ్యాలీ",
+            Kerala: "దేవుని స్వంత దేశం",
+            Ladakh: "ఎత్తైన కనుమల భూమి",
+            Lakshadweep: "పగడపు దీవులు",
+            "Madhya Pradesh": "భారతదేశం యొక్క హృదయం",
+            Maharashtra: "భారతదేశం యొక్క ప్రవేశ ద్వారం",
+            Manipur: "భారతదేశం యొక్క రత్నం",
+            Meghalaya: "మేఘాల నివాసం",
+            Mizoram: "నీలి పర్వతాల భూమి",
+            Nagaland: "పండుగల భూమి",
+            Odisha: "భారతదేశం యొక్క ఆత్మ",
+            Puducherry: "తూర్పు ఫ్రెంచ్ రివేరా",
+            Punjab: "ఐదు నదుల భూమి",
+            Rajasthan: "రాజుల భూమి",
+            Sikkim: "హిమాలయ స్వర్గం",
+            "Tamil Nadu": "దేవాలయాల భూమి",
+            Telangana: "తెలుగు సంస్కృతి రాష్ట్రం",
+            Tripura: "వైవిధ్య భూమి",
+            "Uttar Pradesh": "భారతదేశం యొక్క హృదయ భూమి",
+            Uttarakhand: "దేవతల భూమి",
+            "West Bengal": "సాంస్కృతిక రాజధాని",
+          },
+        },
+      };
 
-        // State data with background images
-        const stateData = [
-            { name: "Andaman and Nicobar Islands", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
-            { name: "Andhra Pradesh", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Arunachal Pradesh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Assam", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Bihar", image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop" },
-            { name: "Chandigarh", image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=500&h=300&fit=crop" },
-            { name: "Chhattisgarh", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Dadra and Nagar Haveli and Daman and Diu", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
-            { name: "Delhi", image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop" },
-            { name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=300&fit=crop" },
-            { name: "Gujarat", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Haryana", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Himachal Pradesh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Jammu and Kashmir", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Jharkhand", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Karnataka", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Kerala", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&h=300&fit=crop" },
-            { name: "Ladakh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Lakshadweep", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
-            { name: "Madhya Pradesh", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Maharashtra", image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=500&h=300&fit=crop" },
-            { name: "Manipur", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Meghalaya", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Mizoram", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Nagaland", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Odisha", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Puducherry", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Punjab", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Rajasthan", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=500&h=300&fit=crop" },
-            { name: "Sikkim", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Tamil Nadu", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Telangana", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Tripura", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Uttar Pradesh", image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop" },
-            { name: "Uttarakhand", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "West Bengal", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" }
-        ];
+      // State data with background images
+      const stateData = [
+        {
+          name: "Andaman and Nicobar Islands",
+          image:
+            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop",
+          coords: { lat: 11.7401, lng: 92.6586 },
+        },
+        {
+          name: "Andhra Pradesh",
+          image:
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop",
+          coords: { lat: 15.9129, lng: 79.74 },
+        },
+        {
+          name: "Arunachal Pradesh",
+          image:
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop",
+          coords: { lat: 28.218, lng: 94.7278 },
+        },
+        {
+          name: "Assam",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+          coords: { lat: 26.2006, lng: 92.9376 },
+        },
+        {
+          name: "Bihar",
+          image:
+            "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop",
+            coords: { lat: 25.0961, lng: 85.31},},
+        {
+          name: "Chandigarh",
+          image:
+            "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=500&h=300&fit=crop",
+            coords: { lat: 30.7333, lng: 76.7794},
+        },
+        {
+          name: "Chhattisgarh",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 21.2787, lng: 81.8661},
+        },
+        {
+          name: "Dadra and Nagar Haveli and Daman and Diu",
+          image:
+            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop",
+            coords: { lat: 20.3974, lng: 72.8324},
+        },
+        {
+          name: "Delhi",
+          image:
+            "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop",
+            coords: { lat: 28.6139, lng: 77.209 },
+        },
+        {
+          name: "Goa",
+          image:
+            "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=300&fit=crop",
+            coords: { lat: 15.2993, lng: 74.124 },
+        },
+        {
+          name: "Gujarat",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 22.2587, lng: 71.1924 },
+        },
+        {
+          name: "Haryana",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 29.0588, lng: 76.0856},
+        },
+        {
+          name: "Himachal Pradesh",
+          image:
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop",
+            coords: { lat: 31.1048, lng: 77.1734 },
+        },
+        {
+          name: "Jammu and Kashmir",
+          image:
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop",
+            coords: { lat: 33.7782, lng: 76.5762},
+        },
+        {
+          name: "Jharkhand",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 23.6102, lng: 85.2799 },
+        },
+        {
+          name: "Karnataka",
+          image:
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop",
+            coords: { lat: 15.3173, lng: 75.7139}
+        },
+        {
+          name: "Kerala",
+          image:
+            "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&h=300&fit=crop",
+            coords: { lat: 10.8505, lng: 76.2711}
+        },
+        {
+          name: "Ladakh",
+          image:
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop",
+            coords: { lat: 34.1526, lng: 77.5779}
+        },
+        {
+          name: "Lakshadweep",
+          image:
+            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop",
+            coords: { lat: 10.5726, lng: 72.6417  }
+        },
+        {
+          name: "Madhya Pradesh",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 22.9734, lng: 78.6569}
+        },
+        {
+          name: "Maharashtra",
+          image:
+            "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=500&h=300&fit=crop",
+            coords: { lat: 19.7515, lng: 75.7139}
+        },
+        {
+          name: "Manipur",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 24.6637, lng: 93.9063}
+        },
+        {
+          name: "Meghalaya",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 25.467, lng: 91.3662 }
+        },
+        {
+          name: "Mizoram",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 23.1645, lng: 92.9376  }
+        },
+        {
+          name: "Nagaland",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 26.1584, lng: 94.5624}
+        },
+        {
+          name: "Odisha",
+          image:
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop",
+            coords: { lat: 20.9517, lng: 85.0982}
+        },
+        {
+          name: "Puducherry",
+          image:
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop",
+            coords: { lat: 11.9416, lng: 79.8083}
+        },
+        {
+          name: "Punjab",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 31.1471, lng: 75.3412   }
+        },
+        {
+          name: "Rajasthan",
+          image:
+            "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=500&h=300&fit=crop",
+            coords: { lat: 27.0238, lng: 74.2179}
+        },
+        {
+          name: "Sikkim",
+          image:
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop",
+            coords: { lat: 27.533, lng: 88.6139  }
+        },
+        {
+          name: "Tamil Nadu",
+          image:
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop",
+            coords: { lat: 11.1271, lng: 78.6569}
+        },
+        {
+          name: "Telangana",
+          image:
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop",
+            coords: { lat: 17.1232, lng: 79.208 },
+        },
+        {
+          name: "Tripura",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 23.9408, lng: 91.9882}
+        },
+        {
+          name: "Uttar Pradesh",
+          image:
+            "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop",
+            coords: { lat: 26.8467, lng: 80.9462    }
+        },
+        {
+          name: "Uttarakhand",
+          image:
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop",
+            coords: { lat: 30.0668, lng: 79.0193}
+        },
+        {
+          name: "West Bengal",
+          image:
+            "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop",
+            coords: { lat: 22.9868, lng: 87.855 },
+        },
+      ];
 
-        let currentLanguage = 'en';
+      let currentLanguage = "en";
 
-        // Initialize the page
-        window.onload = function() {
-            initializeAudio();
-            generateCards();
-            setupEventListeners();
-        };
+      // Initialize the page
+      window.onload = function () {
+        initializeAudio();
+        generateCards();
+        setupEventListeners();
+      };
 
-        function initializeAudio() {
-            const audio = document.getElementById('bgAudio');
-            audio.volume = 0.3;
-            
-            // Try to play audio (modern browsers may block autoplay)
-            const playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log('Audio autoplay prevented:', error);
-                });
-            }
+      function initializeAudio() {
+        const audio = document.getElementById("bgAudio");
+        audio.volume = 0.3;
+
+        // Try to play audio (modern browsers may block autoplay)
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.log("Audio autoplay prevented:", error);
+          });
         }
+      }
 
-        function generateCards() {
-            const container = document.getElementById('cardsContainer');
-            container.innerHTML = '';
+      function generateCards() {
+        const container = document.getElementById("cardsContainer");
+        container.innerHTML = "";
 
-            stateData.forEach((state, index) => {
-                const card = document.createElement('div');
-                card.className = `card ${index < 4 ? 'unlocked' : 'locked'}`;
-                card.style.backgroundImage = `url(${state.image})`;
-                
-                const overlay = document.createElement('div');
-                overlay.className = 'card-overlay';
-                
-                const content = document.createElement('div');
-                content.className = 'card-content';
-                
-                const title = document.createElement('div');
-                title.className = 'card-title';
-                title.textContent = state.name;
-                
-                const tagline = document.createElement('div');
-                tagline.className = 'card-tagline';
-                tagline.textContent = translations[currentLanguage].states[state.name] || 'Discover the beauty';
-                
-                content.appendChild(title);
-                content.appendChild(tagline);
-                card.appendChild(overlay);
-                card.appendChild(content);
-                
-                if (index >= 4) {
-                    const lockIcon = document.createElement('div');
-                    lockIcon.className = 'lock-icon';
-                    lockIcon.textContent = '🔒';
-                    card.appendChild(lockIcon);
-                    
-                    card.addEventListener('click', showModal);
-                }
-                
-                container.appendChild(card);
-            });
-        }
+        stateData.forEach((state, index) => {
+          const card = document.createElement("div");
+          card.className = `card ${index < 4 ? "unlocked" : "locked"}`;
+          card.style.backgroundImage = `url(${state.image})`;
 
-        function setupEventListeners() {
-            // Language switcher
-            document.getElementById('languageSelect').addEventListener('change', function(e) {
-                currentLanguage = e.target.value;
-                updateLanguage();
+          if (index < 4 && state.coords) {
+            const bottomBar = document.createElement("div");
+            bottomBar.className = "card-bottom-bar";
+
+            const mapBtn = document.createElement("button");
+            mapBtn.className = "map-btn";
+            mapBtn.title = "View on Google Maps";
+            mapBtn.innerHTML = "📍";
+
+            mapBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const { lat, lng } = state.coords;
+              window.open(
+                `https://www.google.com/maps?q=${lat},${lng}`,
+                "_blank"
+              );
             });
 
-            // Modal events
-            document.getElementById('closeModal').addEventListener('click', hideModal);
-            document.getElementById('lockModal').addEventListener('click', function(e) {
-                if (e.target === this) hideModal();
-            });
+            bottomBar.appendChild(mapBtn);
+            card.appendChild(bottomBar);
+          }
 
-            // Button events (placeholder)
-            document.getElementById('signupBtn').addEventListener('click', function(e) {
-                window.location.href = 'signup.html';
-            });
+          const overlay = document.createElement("div");
+          overlay.className = "card-overlay";
 
-            document.getElementById('loginBtn').addEventListener('click', function(e) {
-                window.location.href = 'login.html';
-            });
-        }
+          const content = document.createElement("div");
+          content.className = "card-content";
 
-        function updateLanguage() {
-            const lang = translations[currentLanguage];
-            
-            document.getElementById('pageTitle').textContent = lang.pageTitle;
-            document.getElementById('pageSubtitle').textContent = lang.pageSubtitle;
-            document.getElementById('modalTitle').textContent = lang.modalTitle;
-            document.getElementById('modalText').textContent = lang.modalText;
-            document.getElementById('signupBtn').textContent = lang.signupBtn;
-            document.getElementById('loginBtn').textContent = lang.loginBtn;
-            
-            // Update card titles and taglines
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                const title = card.querySelector('.card-title');
-                const tagline = card.querySelector('.card-tagline');
-                const stateName = stateData[index].name;
-                
-                title.textContent = stateName;
-                tagline.textContent = lang.states[stateName] || 'Discover the beauty';
-            });
-        }
+          const title = document.createElement("div");
+          title.className = "card-title";
+          title.textContent = state.name;
 
-        function showModal() {
-            document.getElementById('lockModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+          const tagline = document.createElement("div");
+          tagline.className = "card-tagline";
+          tagline.textContent =
+            translations[currentLanguage].states[state.name] ||
+            "Discover the beauty";
 
-        function hideModal() {
-            document.getElementById('lockModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+          content.appendChild(title);
+          content.appendChild(tagline);
+          card.appendChild(overlay);
+          card.appendChild(content);
 
-        // Keyboard accessibility
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                hideModal();
-            }
+          if (index >= 4) {
+            const lockIcon = document.createElement("div");
+            lockIcon.className = "lock-icon";
+            lockIcon.textContent = "🔒";
+            card.appendChild(lockIcon);
+
+            card.addEventListener("click", showModal);
+          }
+
+          container.appendChild(card);
         });
+      }
+
+      function setupEventListeners() {
+        // Language switcher
+        document
+          .getElementById("languageSelect")
+          .addEventListener("change", function (e) {
+            currentLanguage = e.target.value;
+            updateLanguage();
+          });
+
+        // Modal events
+        document
+          .getElementById("closeModal")
+          .addEventListener("click", hideModal);
+        document
+          .getElementById("lockModal")
+          .addEventListener("click", function (e) {
+            if (e.target === this) hideModal();
+          });
+
+        // Button events (placeholder)
+        document
+          .getElementById("signupBtn")
+          .addEventListener("click", function (e) {
+            window.location.href = "signup.html";
+          });
+
+        document
+          .getElementById("loginBtn")
+          .addEventListener("click", function (e) {
+            window.location.href = "login.html";
+          });
+      }
+
+      function updateLanguage() {
+        const lang = translations[currentLanguage];
+
+        document.getElementById("pageTitle").textContent = lang.pageTitle;
+        document.getElementById("pageSubtitle").textContent = lang.pageSubtitle;
+        document.getElementById("modalTitle").textContent = lang.modalTitle;
+        document.getElementById("modalText").textContent = lang.modalText;
+        document.getElementById("signupBtn").textContent = lang.signupBtn;
+        document.getElementById("loginBtn").textContent = lang.loginBtn;
+
+        // Update card titles and taglines
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card, index) => {
+          const title = card.querySelector(".card-title");
+          const tagline = card.querySelector(".card-tagline");
+          const stateName = stateData[index].name;
+
+          title.textContent = stateName;
+          tagline.textContent = lang.states[stateName] || "Discover the beauty";
+        });
+      }
+
+      function showModal() {
+        document.getElementById("lockModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function hideModal() {
+        document.getElementById("lockModal").style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      // Keyboard accessibility
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          hideModal();
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
