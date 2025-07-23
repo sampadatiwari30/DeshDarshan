@@ -250,6 +250,45 @@
             }
         }
 
+        /* Back Button */
+        #backBtn {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10%;
+            cursor: pointer;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #backBtn:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+        }
+
+        #backBtn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 640px) {
+            #backBtn {
+                top: 90px;
+                left: 10px;
+                padding: 0.4rem 0.8rem;
+                font-size: 1rem;
+            }
+        }
+
         /* Festivals Section */
         .festivals-culture {
             padding: 6rem 0;
@@ -547,10 +586,10 @@
                 <h2>DeshDarshan</h2>
             </div>
             <ul class="nav-menu">
-                <li><a href="aboutus.html" class="nav-link" aria-label="About Us">About Us</a></li>
-                <li><a href="explore.html" class="nav-link" aria-label="Explore India">Explore India</a></li>
-                <li><a href="feedback.html" class="nav-link" aria-label="Feedback">Feedback</a></li>
-                <li><a href="contactus.html" class="nav-link" aria-label="Contact Us">Contact Us</a></li>
+                <li><a href="./aboutus.html" class="nav-link" aria-label="About Us">About Us</a></li>
+                <li><a href="./exploreindia.html" class="nav-link" aria-label="Explore India">Explore India</a></li>
+                <li><a href="./feedback.html" class="nav-link" aria-label="Feedback">Feedback</a></li>
+                <li><a href="./contactus.html" class="nav-link" aria-label="Contact Us">Contact Us</a></li>
                 <li class="language-dropdown">
                     <button class="language-btn" aria-label="Select Language">Language <i class="fas fa-globe"></i></button>
                     <div class="language-menu">
@@ -584,49 +623,50 @@
 
     <!-- Festivals Section -->
     <section class="festivals-culture">
+        <button id="backBtn" title="Back to Home" aria-label="Back to Home"><i class="fas fa-arrow-left"></i> Back</button>
         <div class="container">
             <h2 class="section-title">Festivals and Culture of India</h2>
             <div class="search-bar">
                 <input type="text" id="festivalSearch" placeholder="Search for a festival..." aria-label="Search for a festival">
             </div>
             <div class="culture-grid" id="cardsContainer">
-                <div class="culture-item row" data-festival="Diwali">
-                    <img src="images/67.jpg" alt="Diwali celebration" class="lazy">
+                <div class="culture-item animate-scale-in" data-festival="Diwali">
+                    <img src="../images/67.jpg" data-src="../images/67.jpg" alt="Diwali celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Diwali</h3>
                         <p>Festival of lights celebrating the victory of light over darkness.</p>
                     </div>
                 </div>
-                <div class="culture-item row" data-festival="Christmas">
-                    <img src="images/christmas.jpeg" alt="Christmas celebration" class="lazy">
+                <div class="culture-item animate-scale-in" data-festival="Christmas">
+                    <img src="../images/christmas.jpeg" data-src="../images/christmas.jpeg" alt="Christmas celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Christmas</h3>
                         <p>Celebrating peace, love, and the magic of winter.</p>
                     </div>
                 </div>
-                <div class="culture-item row" data-festival="Durga Puja">
-                    <img src="images/durga puja.jpeg" alt="Durga Puja celebration" class="lazy">
+                <div class="culture-item animate-scale-in" data-festival="Durga Puja">
+                    <img src="../images/durga puja.jpeg" data-src="../images/durga puja.jpeg" alt="Durga Puja celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Durga Puja</h3>
                         <p>Grand celebration honoring the divine feminine power.</p>
                     </div>
                 </div>
-                <div class="culture-item row" data-festival="Pongal">
-                    <img src="images/pongal.jpg" alt="Pongal celebration" class="lazy">
+                <div class="culture-item animate-scale-in" data-festival="Pongal">
+                    <img src="../images/pongal.jpg" data-src="../images/pongal.jpg" alt="Pongal celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Pongal</h3>
                         <p>Harvest festival celebrating abundance and gratitude in South India.</p>
                     </div>
                 </div>
-                <div class="culture-item row" data-festival="Eid">
-                    <img src="images/77.jpg" alt="Eid celebration" class="lazy">
+                <div class="culture-item animate-scale-in" data-festival="Eid">
+                    <img src="../images/77.jpg" data-src="../images/77.jpg" alt="Eid celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Eid</h3>
                         <p>Sacred festival marking the end of Ramadan with joy and unity.</p>
                     </div>
                 </div>
-                <div class="culture-item row" data-festival="Baisakhi">
-                    <img src="images/baisakhi.jpeg" alt="Baisakhi celebration" class="lazy">
+                <div class="culture-item animate-scale-in" data-festival="Baisakhi">
+                    <img src="../images/baisakhi.jpeg" data-src="../images/baisakhi.jpeg" alt="Baisakhi celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Baisakhi</h3>
                         <p>Punjabi festival celebrating harvest and community spirit.</p>
@@ -641,9 +681,9 @@
         <div class="container">
             <p>Privacy Policy | All Rights Reserved | Made by Sampada Tiwari ❤</p>
             <div>
-                <a href="aboutus.html" aria-label="About Us">About Us</a>
-                <a href="contactus.html" aria-label="Contact Us">Contact Us</a>
-                <a href="feedback.html" aria-label="Feedback">Feedback</a>
+                <a href="./aboutus.html" aria-label="About Us">About Us</a>
+                <a href="./contactus.html" aria-label="Contact Us">Contact Us</a>
+                <a href="./feedback.html" aria-label="Feedback">Feedback</a>
             </div>
         </div>
     </footer>
@@ -695,6 +735,12 @@
                 console.log(`Language selected: ${lang}`);
                 languageMenu.classList.remove('active');
             });
+        });
+
+        // Back Button
+        const backBtn = document.getElementById('backBtn');
+        backBtn.addEventListener('click', () => {
+            window.location.href = '../index.html';
         });
 
         // Search Bar Filter

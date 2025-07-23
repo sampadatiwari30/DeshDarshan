@@ -517,6 +517,44 @@
                 padding: 1.5rem;
             }
         }
+
+        #backBtn {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10%;
+            cursor: pointer;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #backBtn:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+        }
+
+        #backBtn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 640px) {
+            #backBtn {
+                top: 90px;
+                left: 10px;
+                padding: 0.4rem 0.8rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -538,6 +576,8 @@
                 <option value="te">తెలుగు</option>
             </select>
         </div>
+        <button id="backBtn" title="Back to Home" aria-label="Back to Home"><i class="fas fa-arrow-left"></i>
+            Back</button>
     </div>
 
     <!-- Tutorial Overlay -->
@@ -567,6 +607,10 @@
 
     <!-- Scripts -->
     <script>
+        const backBtn = document.getElementById('backBtn');
+        backBtn.addEventListener('click', () => {
+            window.location.href = '../index.html';
+        });
         // Language translations
         const translations = {
             en: {

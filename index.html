@@ -14,8 +14,16 @@
         }
 
         body {
-            background: linear-gradient(to bottom right, #F9F9F9, #FFA07A20, #5E8B7E20);
+            background: #FFFFFF;
             color: #5E8B7E;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Animations */
@@ -65,474 +73,672 @@
             animation: ripple 0.6s ease-out;
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+        /* Navigation Styles */
+        .navbar {
             background: linear-gradient(to right, #F9F9F9, #FFA07A80);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 20;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .header-container {
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .brand {
-            font-size: 24px;
+        .nav-logo h2 {
+            font-size: 1.8rem;
             font-weight: bold;
             color: #5E8B7E;
         }
 
-        #hamburger {
-            display: none;
-            font-size: 24px;
-            color: #5E8B7E;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
         .nav-menu {
             display: flex;
-            align-items: center;
-            gap: 16px;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .nav-link {
+        .nav-menu a {
             color: #5E8B7E;
             text-decoration: none;
-            font-size: 16px;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
 
-        .nav-link:hover {
+        .nav-menu a:hover {
             color: #FF7F50;
         }
 
-        #languageSelect {
-            background: #5E8B7E;
-            color: white;
-            border: none;
-            padding: 8px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        #languageSelect:focus {
+        .nav-menu a:focus {
             outline: 3px solid #E6B800;
             outline-offset: 2px;
         }
 
-        /* Hamburger menu for mobile and iPad */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #5E8B7E;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Language Dropdown */
+        .language-dropdown {
+            position: relative;
+        }
+
+        .language-btn {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
+        }
+
+        .language-btn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: #F9F9F9;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #D3D3D3;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #5E8B7E;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+        }
+
+        .language-option:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .language-option:first-child {
+            border-radius: 15px 15px 0 0;
+        }
+
+        .language-option:last-child {
+            border-radius: 0 0 15px 15px;
+            border-bottom: none;
+        }
+
+        /* Mobile and iPad Menu */
         @media (max-width: 1024px) {
-            #hamburger {
-                display: block;
+            .hamburger {
+                display: flex;
             }
 
             .nav-menu {
-                position: absolute;
-                top: 64px;
-                right: 0;
-                background: #F9F9F9;
-                width: 250px;
-                height: 100vh;
+                position: fixed;
+                left: -100%;
+                top: 80px;
                 flex-direction: column;
-                padding: 16px;
-                transform: translateX(100%);
-                transition: transform 0.3s ease-in-out;
+                background: #F9F9F9;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
             }
 
-            .nav-menu.open {
-                transform: translateX(0);
+            .nav-menu.active {
+                left: 0;
             }
 
-            .nav-link {
-                display: block;
-                padding: 8px 0;
-            }
-
-            #languageSelect {
-                margin-top: 16px;
+            .language-dropdown {
+                margin-top: 1rem;
             }
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
             position: relative;
+            height: 100vh;
             overflow: hidden;
+            margin-top: 80px;
         }
 
-        .hero::before {
-            content: '';
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('images/hero-bg.jpg') center/cover no-repeat;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             opacity: 0.2;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: bold;
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            text-align: center;
             color: #5E8B7E;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 800px;
         }
 
-        .hero p {
-            font-size: 20px;
-            color: #666;
-            margin: 16px 0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(to right, #FFA07A, #E6B800);
-            color: white;
+        .slide-content h1 {
+            font-size: 60px;
             font-weight: bold;
-            border-radius: 999px;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
         }
 
-        .cta-button:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .slide-content p {
+            font-size: 24px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .cta-button:focus {
+        .slide-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(94, 139, 126, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #5E8B7E;
+            transform: scale(1.2);
+        }
+
+        .dot:focus {
             outline: 3px solid #E6B800;
             outline-offset: 2px;
         }
 
-        /* Sections */
-        .container {
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #5E8B7E;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #E6B800;
+            border-radius: 2px;
+        }
+
+        .section-title.show {
+            opacity: 1;
+            transform: translateY(0);
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+
+        /* Highlights Section */
+        .highlights-section {
+            padding: 5rem 0;
+            background: #F9F9F9;
+            text-align: center;
+        }
+
+        .highlight-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 0 20px;
         }
 
-        section {
-            padding: 64px 0;
-        }
-
-        section h2 {
-            font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-            color: #5E8B7E;
-            margin-bottom: 16px;
-        }
-
-        section p {
-            font-size: 18px;
-            text-align: center;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 32px;
-        }
-
-        .card {
+        .highlight-card {
             background: #F9F9F9;
-            border-radius: 8px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 1.5rem;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .card img {
+        .highlight-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
 
-        .card-content {
-            padding: 16px;
-            position: relative;
-        }
-
-        .card-content::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, #5E8B7E80, transparent);
-        }
-
-        .card h3 {
-            font-size: 24px;
-            font-weight: bold;
+        .highlight-card h3 {
+            font-size: 1.5rem;
             color: #5E8B7E;
-            margin-bottom: 8px;
+            margin-top: 1rem;
         }
 
-        .card p {
-            font-size: 16px;
+        .highlight-card p {
+            padding: 0 1.2rem;
             color: #666;
-            margin-bottom: 16px;
+            margin: 1rem 0;
         }
 
-        .section-button {
+        .card-button {
             display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(to right, #FF7F50, #E6B800);
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
             color: white;
-            font-weight: bold;
-            border-radius: 999px;
+            border-radius: 25px;
             text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease;
+            font-weight: 500;
+            transition: background 0.3s ease;
         }
 
-        .section-button:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .card-button:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
         }
 
-        .section-button:focus {
+        .card-button:focus {
             outline: 3px solid #E6B800;
             outline-offset: 2px;
         }
 
-        /* Card grids */
-        #cardsContainer, #destinationCards, .dance-grid, #stateCards {
-            display: grid;
-            gap: 16px;
-        }
-
-        /* Responsive adjustments */
-        @media (min-width: 1024px) {
-            #cardsContainer, #destinationCards, .dance-grid, #stateCards {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 60px;
-            }
-
-            .hero p {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 1023px) {
-            #cardsContainer, #destinationCards, .dance-grid, #stateCards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            #cardsContainer, #destinationCards, .dance-grid, #stateCards {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            section h2 {
-                font-size: 28px;
-            }
-
-            section p {
-                font-size: 16px;
-            }
-        }
-
         /* Footer */
-        footer {
+        .footer {
             background: #F9F9F9;
             color: #5E8B7E;
-            padding: 32px 16px;
             text-align: center;
+            padding: 2rem 0;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        footer p {
-            font-size: 16px;
-            margin-bottom: 16px;
+        .footer p {
+            font-size: 0.9rem;
         }
 
-        footer a {
+        .footer a {
             color: #5E8B7E;
             text-decoration: none;
             margin: 0 8px;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .footer a:hover {
             color: #FF7F50;
+        }
+
+        /* Scroll Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            height: 2rem;
+            width: 2rem;
+            bottom: 5.625rem;
+            right: 1.875rem;
+            z-index: 100;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0;
+            border-radius: 10%;
+            cursor: pointer;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #scrollTopBtn.show {
+            display: flex;
+        }
+
+        #scrollTopBtn:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+        }
+
+        #scrollTopBtn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .highlight-cards {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .highlight-card img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .highlight-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-content h1 {
+                font-size: 36px;
+            }
+
+            .slide-content p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-title.show {
+                font-size: 2.2rem;
+            }
+
+            #scrollTopBtn {
+                bottom: 6.8rem;
+                right: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header: Fixed Navigation -->
-    <header>
-        <div class="header-container">
-            <div class="brand">DeshDarshan</div>
-            <button id="hamburger" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="nav-menu">
-                <a href="#explore" class="nav-link" aria-label="Explore India">Explore India</a>
-                <a href="#destinations" class="nav-link" aria-label="Hidden Destinations">Hidden Destinations</a>
-                <a href="#dance" class="nav-link" aria-label="Dance Culture">Dance Culture</a>
-                <a href="#facts" class="nav-link" aria-label="Crazy Facts">Crazy Facts</a>
-                <select id="languageSelect" aria-label="Select Language">
-                    <option value="en">English</option>
-                    <option value="hi">हिंदी</option>
-                    <option value="gu">ગુજરાતી</option>
-                    <option value="ta">தமிழ்</option>
-                    <option value="te">తెలుగు</option>
-                </select>
-            </nav>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>DeshDarshan</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="pages/aboutus.html" class="nav-link" aria-label="About Us">About Us</a></li>
+                <li><a href="pages/exploreindia.html" class="nav-link" aria-label="Explore India">Explore India</a></li>
+                <li><a href="pages/feedback.html" class="nav-link" aria-label="Feedback">Feedback</a></li>
+                <li><a href="pages/contactus.html" class="nav-link" aria-label="Contact Us">Contact Us</a></li>
+                <li class="language-dropdown">
+                    <button class="language-btn" aria-label="Select Language">Language <i class="fas fa-globe"></i></button>
+                    <div class="language-menu">
+                        <div class="language-option" data-lang="en">English</div>
+                        <div class="language-option" data-lang="hi">हिंदी</div>
+                        <div class="language-option" data-lang="gu">ગુજરાતી</div>
+                        <div class="language-option" data-lang="ta">தமிழ்</div>
+                        <div class="language-option" data-lang="te">తెలుగు</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Slideshow -->
     <section class="hero">
-        <div class="hero-content animate-slide-in">
-            <h1>Welcome to DeshDarshan</h1>
-            <p>Discover the vibrant soul of India</p>
-            <a href="#sections" class="cta-button animate-ripple" aria-label="Explore Sections">Discover Now</a>
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="images/beauty.jpg" alt="Indian cultural scene">
+                <div class="slide-content animate-slide-in" data-lang="en">
+                    <h1>Discover the Beauty of India</h1>
+                    <p>Experience the rich heritage, vibrant culture, and timeless traditions</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/festival.jpg" alt="Indian festival">
+                <div class="slide-content animate-slide-in" style="animation-delay: 0.1s;">
+                    <h1>A Land of 1000 Festivals</h1>
+                    <p>Festivals that honor nature, gods, and traditions.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/food.jpg" alt="Indian cuisine">
+                <div class="slide-content animate-slide-in" style="animation-delay: 0.2s;">
+                    <h1>A Taste You’ll Never Forget</h1>
+                    <p>Food that connects hearts and homes.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/culture.jpg" alt="Indian culture">
+                <div class="slide-content animate-slide-in" style="animation-delay: 0.3s;">
+                    <h1>India’s Heart Beats in Its Culture</h1>
+                    <p>A land where heritage lives in every corner.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/theme.jpg" alt="Indian landmark">
+                <div class="slide-content animate-slide-in" style="animation-delay: 0.4s;">
+                    <h1>Pride of the Nation</h1>
+                    <p>Explore the iconic symbols that define India.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-indicators">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </section>
 
-    <!-- Main Sections -->
-    <main id="sections" class="container">
-        <!-- Explore India Section -->
-        <section id="explore" class="animate-slide-in" style="animation-delay: 0.1s;">
-            <h2>Explore India</h2>
-            <p>Dive into the rich diversity of India’s states and union territories.</p>
-            <div id="cardsContainer">
-                <div class="card animate-scale-in">
-                    <img src="images/explore-bg.jpg" alt="Indian cultural scene">
-                    <div class="card-content">
-                        <h3>Explore India</h3>
-                        <p>Discover the unique culture and heritage of India's states.</p>
-                        <a href="explore.html" class="section-button animate-ripple" aria-label="Explore All States">Explore All States</a>
-                    </div>
-                </div>
-                <!-- JavaScript will populate additional cards here -->
+    <!-- Highlights Section -->
+    <section class="highlights-section">
+        <h2 class="section-title">Experience Indian Diversity</h2>
+        <div class="highlight-cards">
+            <!-- Festivals Card -->
+            <div class="highlight-card animate-scale-in" id="cardsContainer">
+                <img src="images/festival.jpg" alt="Festivals of India">
+                <h3>Festivals</h3>
+                <p>Celebrate the colors, lights, and joy that unite the nation throughout the year.</p>
+                <a href="pages/festivals.html" class="card-button animate-ripple" aria-label="Explore Festivals">Explore Festivals</a>
             </div>
-        </section>
-
-        <!-- Hidden Destinations Section -->
-        <section id="destinations" class="animate-slide-in" style="animation-delay: 0.2s;">
-            <h2>Hidden Destinations</h2>
-            <p>Uncover the lesser-known gems of India’s landscapes.</p>
-            <div id="destinationCards" class="row">
-                <div class="card animate-scale-in">
-                    <img src="images/destinations-bg.jpg" alt="Hidden destination in India">
-                    <div class="card-content">
-                        <h3>Hidden Gems</h3>
-                        <p>Explore offbeat locations across India’s diverse regions.</p>
-                        <a href="destination.html" class="section-button animate-ripple" aria-label="Discover Hidden Gems">Discover Hidden Gems</a>
-                    </div>
-                </div>
-                <!-- JavaScript will populate additional cards here -->
+            <!-- Food Card -->
+            <div class="highlight-card animate-scale-in" id="destinationCards">
+                <img src="images/food.jpg" alt="Indian Food">
+                <h3>Food</h3>
+                <p>Savor the spice and flavors that define India's culinary heritage.</p>
+                <a href="pages/food.html" class="card-button animate-ripple" aria-label="Explore Food">Explore Food</a>
             </div>
-        </section>
-
-        <!-- Dance Culture Section -->
-        <section id="dance" class="animate-slide-in" style="animation-delay: 0.3s;">
-            <h2>Dance Culture</h2>
-            <p>Celebrate the grace and rhythm of India’s classical dances.</p>
-            <div class="dance-grid">
-                <div class="card dance-item animate-scale-in">
-                    <img src="images/dance-preview.jpg" alt="Bharatanatyam dancer">
-                    <div class="card-content dance-overlay">
-                        <h3>Bharatanatyam</h3>
-                        <p>Classical dance from Tamil Nadu</p>
-                        <a href="dance.html" class="section-button animate-ripple" aria-label="Explore Dance Culture">Explore Dance Culture</a>
-                    </div>
-                </div>
-                <!-- JavaScript can add more dynamically -->
+            <!-- Dance Card -->
+            <div class="highlight-card animate-scale-in dance-item">
+                <img src="images/culture.jpg" alt="Indian Dance">
+                <h3>Dance</h3>
+                <p>Witness the rhythm and grace of India’s classical and folk dance forms.</p>
+                <a href="pages/dance.html" class="card-button animate-ripple dance-overlay" aria-label="Explore Dance">Explore Dance</a>
             </div>
-        </section>
-
-        <!-- Crazy Facts Section -->
-        <section id="facts" class="animate-slide-in" style="animation-delay: 0.4s;">
-            <h2>Crazy Facts</h2>
-            <p>Learn surprising facts about India’s states and territories.</p>
-            <div id="stateCards" class="row">
-                <div class="card animate-scale-in">
-                    <img src="images/facts-bg.jpg" alt="Interesting fact about India">
-                    <div class="card-content">
-                        <h3>Crazy Facts</h3>
-                        <p>Discover fun and surprising facts about India.</p>
-                        <a href="crazyfacts.html" class="section-button animate-ripple" aria-label="Discover Crazy Facts">Discover Crazy Facts</a>
-                    </div>
-                </div>
-                <!-- JavaScript will populate additional cards here -->
+            <!-- Crazy Facts Card -->
+            <div class="highlight-card animate-scale-in" id="stateCards">
+                <img src="images/theme.jpg" alt="Interesting fact about India">
+                <h3>Crazy Facts</h3>
+                <p>Discover fun and surprising facts about India’s states and territories.</p>
+                <a href="pages/crazyfacts.html" class="card-button animate-ripple" aria-label="Discover Crazy Facts">Discover Crazy Facts</a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>© 2025 DeshDarshan. Discover the soul of India.</p>
-        <div>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact</a>
-            <a href="feedback.html">Feedback</a>
+    <footer class="footer">
+        <div class="container">
+            <p>Privacy Policy | All Rights Reserved | Made by Sampada Tiwari ❤</p>
+            <div>
+                <a href="pages/aboutus.html" aria-label="About Us">About Us</a>
+                <a href="pages/contactus.html" aria-label="Contact Us">Contact Us</a>
+                <a href="pages/feedback.html" aria-label="Feedback">Feedback</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Hamburger Menu Script -->
+    <!-- Scroll Top Button -->
+    <button id="scrollTopBtn" title="Go to top" aria-label="Scroll to Top">⬆</button>
+
+    <!-- Scripts -->
     <script>
-        const hamburger = document.getElementById('hamburger');
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-times');
+            navMenu.classList.toggle('active');
+            hamburger.querySelectorAll('span').forEach(span => {
+                span.classList.toggle('active');
+            });
         });
 
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-times');
+                navMenu.classList.remove('active');
+                hamburger.querySelectorAll('span').forEach(span => {
+                    span.classList.remove('active');
+                });
             });
         });
+
+        // Language Dropdown
+        const languageBtn = document.querySelector('.language-btn');
+        const languageMenu = document.querySelector('.language-menu');
+        const languageDropdown = document.querySelector('.language-dropdown');
+
+        languageBtn.addEventListener('click', () => {
+            languageMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!languageDropdown.contains(e.target)) {
+                languageMenu.classList.remove('active');
+            }
+        });
+
+        // Fallback Slideshow Script (in case home1.js fails)
+        let slideIndex = 1;
+        let slideInterval;
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName('slide');
+            let dots = document.getElementsByClassName('dot');
+
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+                dots[i].classList.remove('active');
+            }
+
+            slides[slideIndex - 1].classList.add('active');
+            dots[slideIndex - 1].classList.add('active');
+        }
+
+        function currentSlide(n) {
+            clearInterval(slideInterval);
+            slideIndex = n;
+            showSlides(slideIndex);
+            slideInterval = setInterval(() => {
+                slideIndex++;
+                showSlides(slideIndex);
+            }, 5000);
+        }
+
+        // Initialize slideshow
+        showSlides(slideIndex);
+        slideInterval = setInterval(() => {
+            slideIndex++;
+            showSlides(slideIndex);
+        }, 5000);
     </script>
+    <script src="home1.js"></script>
 </body>
 </html>

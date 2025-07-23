@@ -633,6 +633,45 @@
         .lang-content.active {
             display: block;
         }
+         #backBtn {
+        position: fixed;
+        top: 100px;
+        left: 20px;
+        z-index: 100;
+        font-size: 1.25rem;
+        background: linear-gradient(135deg, #FFA07A, #E6B800);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 10%;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #backBtn:hover {
+        background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+        transform: scale(1.1);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    #backBtn:focus {
+        outline: 3px solid #E6B800;
+        outline-offset: 2px;
+    }
+
+    @media (max-width: 576px) {
+        #backBtn {
+            top: 90px;
+            left: 10px;
+            padding: 0.4rem 0.8rem;
+            font-size: 1rem;
+        }
+    }
     </style>
 </head>
 
@@ -646,6 +685,7 @@
                 <li><a href="crazyfacts.html" id="navFacts">Crazy Facts</a></li>
                 <li><a href="contactus.html" id="navContact">Contact Us</a></li>
             </ul>
+            <button id="backBtn" title="Back to Home" aria-label="Back to Home"><i class="fas fa-arrow-left"></i> Back</button>
             <div class="language-dropdown">
                 <button class="language-btn" id="languageBtn">
                     🌐 Language ▾
@@ -1666,6 +1706,10 @@
                     slideDesc5: "స్వర్గాన్ని ప్రతిబింబించే శాంతమైన నీరు మరియు స్వేచ్ఛగా సంచరించే సౌమ్య జీవులు"
                 }
             };
+            const backBtn = document.getElementById('backBtn');
+            backBtn.addEventListener('click', () => {
+                window.location.href = '../index.html';
+            });
 
             function updateLanguageContent(lang) {
                 document.getElementById('logoTitle').textContent = translations[lang].logoTitle;

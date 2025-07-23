@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,8 +25,13 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes scaleIn {
@@ -33,6 +39,7 @@
                 opacity: 0;
                 transform: scale(0.9);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -40,9 +47,17 @@
         }
 
         @keyframes ripple {
-            0% { box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(255, 127, 80, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 127, 80, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 127, 80, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 127, 80, 0);
+            }
         }
 
         .animate-scale-in {
@@ -367,9 +382,11 @@
             .page-title {
                 font-size: 2.8rem;
             }
+
             .card-title {
                 font-size: 1.2rem;
             }
+
             .card-tagline {
                 font-size: 0.85rem;
             }
@@ -380,18 +397,23 @@
                 font-size: 2.4rem;
                 margin: 2rem 0 1.5rem 0;
             }
+
             .carousel-image {
                 height: 400px;
             }
+
             .image-overlay {
                 padding: 2rem;
             }
+
             .overlay-title {
                 font-size: 1.6rem;
             }
+
             .overlay-text {
                 font-size: 1rem;
             }
+
             .close-modal {
                 top: 20px;
                 right: 20px;
@@ -399,6 +421,7 @@
                 height: 50px;
                 font-size: 2rem;
             }
+
             .tutorial-content {
                 max-width: 90%;
                 padding: 1.5rem;
@@ -409,18 +432,23 @@
             .page-title {
                 font-size: 2rem;
             }
+
             .card-overlay {
                 padding: 1.5rem 1rem 1rem;
             }
+
             .card-title {
                 font-size: 1.1rem;
             }
+
             .card-tagline {
                 font-size: 0.8rem;
             }
+
             .carousel-image {
                 height: 300px;
             }
+
             .audio-control {
                 width: 55px;
                 height: 55px;
@@ -434,17 +462,60 @@
         html {
             scroll-behavior: smooth;
         }
+
+        #backBtn {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #backBtn:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        #backBtn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 576px) {
+            #backBtn {
+                top: 90px;
+                left: 10px;
+                padding: 0.4rem 0.8rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Background Music -->
+    <button id="backBtn" title="Back to Home" aria-label="Back to Home"><i class="fas fa-arrow-left"></i> Back</button>
     <audio id="backgroundMusic" loop>
         <source src="audio/indian-flute.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <!-- Audio Control Button -->
-    <button class="audio-control animate-ripple" id="audioToggle" title="Toggle Background Music" aria-label="Toggle Background Music">
+    <button class="audio-control animate-ripple" id="audioToggle" title="Toggle Background Music"
+        aria-label="Toggle Background Music">
         <i class="fas fa-volume-up"></i>
     </button>
 
@@ -480,11 +551,13 @@
                         <div class="carousel-inner" id="carouselContent">
                             <!-- Carousel items will be dynamically generated -->
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#destinationCarousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#destinationCarousel"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#destinationCarousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#destinationCarousel"
+                            data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -498,6 +571,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        const backBtn = document.getElementById('backBtn');
+        backBtn.addEventListener('click', () => {
+            window.location.href = '../index.html';
+        });
         // Destination data
         const destinations = [
             // States (28)
@@ -777,7 +854,7 @@
         }
 
         // Close modal when clicking outside
-        document.getElementById('destinationModal').addEventListener('click', function(e) {
+        document.getElementById('destinationModal').addEventListener('click', function (e) {
             if (e.target === this) {
                 const modalInstance = bootstrap.Modal.getInstance(this);
                 if (modalInstance) {
@@ -787,7 +864,7 @@
         });
 
         // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
                 if (modal) {
@@ -811,4 +888,5 @@
         });
     </script>
 </body>
+
 </html>
