@@ -360,6 +360,7 @@ body {
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    text-decoration: none;
 }
 
 .food-item:hover {

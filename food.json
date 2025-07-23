@@ -1,0 +1,227 @@
+{
+  "biryani": {
+    "name": "Biryani",
+    "image": "download (39).jpeg",
+   "description": "Welcome to the world of Biryani — not just a dish, but a full-blown culinary blockbuster.",
+   "sections": [
+    {
+      "heading": "What Makes Biryani So Special?",
+      "content": "Biryani is more than a recipe — it’s an experience. A slow-cooked, layered labor of love that tells the story of its ingredients with every bite."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "First, the chicken is marinated — lovingly — in yogurt and spices. Meanwhile, onions are slowly fried to golden perfection. Basmati rice is cooked until just shy of done, waiting patiently for its moment in the spotlight.\n\nThen comes the magic: layering. Chicken goes in first, followed by rice, then onions, herbs, a drizzle of saffron milk, maybe a knob of ghee for good measure. This masterpiece is sealed and slow-cooked on dum — locking in every ounce of aroma and flavor.\n\nWhen the lid lifts, so do hearts."
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "Perfect for festivals, family dinners, or impressing that one friend who “doesn’t usually like spicy food.”\n\nA one-pot meal that’s rich, filling, and deeply satisfying.\n\nEvery bite is different — juicy chicken here, crispy onion there, a surprise hit of clove or mint. It’s like edible jazz."
+    }
+  ],
+  "funFact": [
+    "Temporary food-induced euphoria",
+    "The urge to Instagram every spoonful",
+    "Fierce loyalty to your family’s secret recipe",
+    "A strong desire to nap immediately after"
+  ],
+  "Link":[
+    "Ready to cook your best biryani yet? <br><br><a href=\"https://www.indianhealthyrecipes.com/chicken-biryani-recipe/\" target=\"_blank\" style=\"color: #ff9933; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+  ]
+  },
+  "butter-chicken": {
+    "name": "Butter Chicken",
+    "image": "download (31).jpeg",
+    "description": "Say hello to Butter Chicken — India’s velvety, tomato-kissed answer to comfort food. It's rich, creamy, and outrageously flavorful, making every bite a smooth, buttery delight.",
+  "sections": [
+    {
+      "heading": "What Makes Butter Chicken So Irresistible?",
+      "content": "It’s a beautiful balance of tangy tomatoes, bold spices, and a generous swirl of cream. Butter Chicken isn’t just food — it’s an embrace in a bowl. Whether scooped up with naan or poured over rice, it’s always a crowd-pleaser."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "First, the chicken is marinated in yogurt, lemon juice, and warm spices like garam masala and chili powder. Then it's grilled or pan-fried to smoky perfection.\n\nNext, a rich tomato-based gravy is simmered with butter, garlic, and cream until smooth and luxurious. The grilled chicken is added in, soaking up all that flavor like a sponge.\n\nThe result? A dish that’s both indulgent and unforgettable."
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "Mild enough for picky eaters but flavorful enough for spice lovers.\n\nPairs perfectly with naan, rice, or even a sneaky spoon.\n\nThe creaminess, the spice balance, the aroma — it’s culinary magic in every mouthful."
+    }
+  ],
+  "funFact": [
+    "Despite its royal taste, it was created by accident in Delhi!",
+    "Known as 'Murgh Makhani' in Hindi.",
+    "A top-ordered dish in Indian restaurants worldwide.",
+    "Even non-spice lovers fall in love with it."
+  ],
+  "Link": [
+    "Craving the creaminess? <br><br><a href=\"https://www.indianhealthyrecipes.com/butter-chicken/\" target=\"_blank\" style=\"color: #d2691e; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+  ]
+  },
+  "masala-dosa": {
+  "name": "Masala Dosa",
+  "image": "download (40).jpeg",
+  "description": "Meet Masala Dosa — South India’s most iconic, crispy golden crepe with a spiced potato hug inside. Crunchy on the outside, soft and savory on the inside, it’s a breakfast legend turned anytime treat.",
+  "sections": [
+    {
+      "heading": "What Makes Masala Dosa So Special?",
+      "content": "It’s the perfect combination of textures and flavors — crispy dosa made from fermented rice-lentil batter, filled with mildly spiced, turmeric-tinted mashed potatoes. Served with coconut chutney and piping hot sambar, it's a wholesome, flavorful feast in every bite."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "First, the dosa batter is made by soaking and fermenting rice and urad dal overnight. This gives the dosa its signature tang and airy texture.\n\nThe potato filling is cooked with mustard seeds, curry leaves, green chilies, turmeric, and onions for that comforting, earthy flavor.\n\nThe batter is spread thin on a hot griddle, cooked to crisp perfection, then topped with the potato masala and folded with care. Served hot with chutneys and sambar — it's a celebration on a plate."
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "Gluten-free, naturally vegan (unless ghee is added), and packed with flavor.\n\nPerfect as a light meal, weekend brunch, or a street food indulgence.\n\nEvery element — dosa, filling, chutney, and sambar — works together like a culinary symphony."
+    }
+  ],
+  "funFact": [
+    "Masala Dosa originated in Karnataka, India.",
+    "The dosa batter ferments naturally — no yeast needed!",
+    "It’s one of the most loved Indian dishes globally, often appearing on international 'must-try' food lists.",
+    "Dosas are now being made in creative ways — cheese, chocolate, pizza-style, and more!"
+  ],
+  "Link": [
+    "Hungry for that golden crisp? <br><br><a href=\"https://www.indianhealthyrecipes.com/masala-dosa-recipe/\" target=\"_blank\" style=\"color: #cc6600; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+  ]
+},
+"mithai": {
+  "name": "Mithai",
+  "image": "download (10).jpeg",
+  "description": "Welcome to the colorful world of Mithai — a joyful assortment of traditional Indian sweets that mark every celebration, festival, and special moment. From laddoos and barfis to peda and sandesh, there’s a mithai for every mood.",
+  "sections": [
+    {
+      "heading": "What Makes Mithai So Special?",
+      "content": "Mithai isn’t just about sugar — it’s about culture, craftsmanship, and celebration. Each sweet tells a story, often passed down through generations, handcrafted with love and precision."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "Most mithai begins with simple ingredients — milk, sugar, ghee, and nuts — but is transformed into culinary magic through technique and tradition.\n\nSome are cooked down to thick fudges like barfi and peda. Others are rolled into balls like laddoo or shaped into delicate forms like sandesh. Spices like cardamom, saffron, and rose water add aroma, while silver leaf (varak) adds festive shine.\n\nThey are shared in ornate boxes during Diwali, Holi, weddings, and every sweet occasion in between."
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "There’s incredible variety — from syrup-soaked to dry, creamy to crunchy.\n\nMade with wholesome ingredients and flavors like rose, coconut, pistachio, and cardamom.\n\nThey’re not just desserts — they’re edible emotions shared with family and friends."
+    }
+  ],
+  "funFact": [
+    "The word 'Mithai' comes from the Sanskrit word 'Mithya' which means sweet or pleasurable.",
+    "Some mithai recipes date back over a thousand years!",
+    "Silver leaf (varak) used on mithai is edible and symbolizes royalty.",
+    "India has over 500 types of traditional sweets — each region with its own specialties."
+  ],
+  "Link": [
+    "Want to try a variety of Indian sweets? <br><br><a href=\"https://www.vegrecipesofindia.com/indian-sweets-recipes/\" target=\"_blank\" style=\"color: #d2691e; text-decoration: underline;\">Jump to Mithai Recipes ⬇️</a>"
+  ]
+},
+
+"gujhiya": {
+  "name": "Gujiya",
+  "image": "images (8).jpeg",
+  "description": "Say hello to Gujiya — the crescent-shaped, golden-crusted sweet treat that defines Indian festivals like Holi and Diwali. Stuffed with a rich, aromatic filling of khoya, dry fruits, and coconut, every bite of gujiya is pure joy.",
+  "sections": [
+    {
+      "heading": "What Makes Gujiya So Special?",
+      "content": "Gujiya is more than just a sweet — it’s a nostalgic treat steeped in tradition. With its flaky crust and luscious stuffing, it captures the essence of festive indulgence and homemade warmth."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "The outer dough is made with all-purpose flour and ghee, kneaded into a soft, pliable base. The filling is a heavenly mix of khoya (milk solids), sugar, cardamom, nuts, and shredded coconut.\n\nEach gujiya is carefully filled, sealed in its classic half-moon shape, and deep-fried to golden perfection. Some are even dipped in sugar syrup for that extra sparkle and sweetness.\n\nServed warm or at room temperature, it’s a festive favorite across generations."
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "Perfectly sweet, rich, and satisfying — like a dessert dumpling with Indian flair.\n\nA festival essential, especially during Holi, Diwali, and weddings.\n\nCustomizable with chocolate, jaggery, or even baked versions for a modern twist."
+    }
+  ],
+  "funFact": [
+    "Gujiya has Mughal roots and is believed to be inspired by Turkish Baklava.",
+    "Every region has its own version — Karanji in Maharashtra, Pedakiya in Bihar, and Nevri in Goa.",
+    "Some modern versions are baked instead of fried.",
+    "They're often prepared in large batches as a community or family activity."
+  ],
+  "Link": [
+    "Ready to sweeten your day? <br><br><a href=\"https://www.indianhealthyrecipes.com/gujiya-recipe/\" target=\"_blank\" style=\"color: #a0522d; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+  ]
+},
+"gulab-jamun": {
+  "name": "Gulab Jamun",
+  "image": "download (1).jpeg",
+  "description": "Meet Gulab Jamun — the king of Indian sweets. Soft, spongy, golden-brown balls soaked in fragrant sugar syrup. Whether it’s a wedding, festival, or just a sweet craving, Gulab Jamun never fails to impress.",
+  "sections": [
+    {
+      "heading": "What Makes Gulab Jamun So Special?",
+      "content": "It’s the perfect blend of texture and flavor — melt-in-your-mouth softness on the inside, with a delicately crisp golden crust on the outside. Infused with rose, cardamom, and saffron, every bite is a rich celebration of tradition."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "Traditionally made with khoya (reduced milk solids), the dough is gently kneaded and rolled into small balls. These are deep-fried slowly on low heat until golden-brown.\n\nMeanwhile, a syrup is prepared using sugar, water, cardamom, and a hint of rose or saffron. Once the fried balls are added to the warm syrup, they soak up all the goodness — becoming soft, syrupy, and irresistible."
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "Sweet, juicy, and indulgent — it’s comfort food in dessert form.\n\nCan be served warm, chilled, or with ice cream for a modern twist.\n\nUniversally loved — from grandmothers to kids to international guests."
+    }
+  ],
+  "funFact": [
+    "Gulab Jamun comes from Persian words: 'Gulab' (rose water) and 'Jamun' (a purple fruit it resembles).",
+    "There’s even a baked version called 'Kala Jamun' which is darker and richer.",
+    "It’s believed to have originated in medieval India, inspired by Turkish and Persian sweets.",
+    "It’s one of the most popular desserts served at Indian restaurants worldwide."
+  ],
+  "Link": [
+    "Craving something sweet and iconic? <br><br><a href=\"https://www.indianhealthyrecipes.com/gulab-jamun-recipe/\" target=\"_blank\" style=\"color: #b22222; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+  ]
+},
+"samosa": {
+  "name": "Samosa",
+  "image": "download (46).jpeg",
+  "description": "Say hello to Samosa — India’s favorite tea-time snack and street food legend. Crisp on the outside, spicy and savory on the inside, this golden triangle is loved by millions across the globe.",
+  "sections": [
+    {
+      "heading": "What Makes Samosa So Special?",
+      "content": "It’s the perfect harmony of texture and taste — flaky pastry filled with a warm, spiced potato-pea mixture. Whether baked or deep-fried, every bite is a mini explosion of comfort and flavor."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "First, a dough is made using flour, ghee or oil, and carom seeds. The filling is usually a mixture of boiled potatoes, green peas, green chili, ginger, and a medley of spices like cumin, garam masala, and amchur (dry mango powder).\n\nThe dough is rolled out, filled, and folded into its signature triangle shape before being fried until golden-brown and crispy. Served hot with tamarind or mint chutney, it's a complete experience!"
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "Perfect as a snack, appetizer, or even a light meal.\n\nPairs beautifully with chai, chutneys, and rainy days.\n\nCustomizable filling — from classic potato to paneer, keema (minced meat), or even cheese."
+    }
+  ],
+  "funFact": [
+    "Samosas didn’t originate in India — they traveled from the Middle East and Central Asia as ‘Sambusak’.",
+    "In Indian literature, samosas were mentioned as early as the 13th century.",
+    "Every region in India has its own take — Punjabi, Bengali, Hyderabadi, and even sweet samosas!",
+    "Samosas have inspired everything from fusion tacos to samosa burgers in global cuisine."
+  ],
+  "Link": [
+    "Craving a crispy bite? <br><br><a href=\"https://www.vegrecipesofindia.com/punjabi-samosa-recipe/\" target=\"_blank\" style=\"color: #cc6600; text-decoration: underline;\">Jump to Samosa Recipe ⬇️</a>"
+  ]
+},
+"daal-chawal": {
+  "name": "Daal Chawal",
+  "image": "images (21).jpeg",
+  "description": "Welcome to the warm embrace of Daal Chawal — the ultimate comfort food that unites households across India. Simple, soulful, and deeply satisfying, it's a dish that feels like home in every bite.",
+  "sections": [
+    {
+      "heading": "What Makes Daal Chawal So Special?",
+      "content": "It’s not fancy, but it’s magical. A combination of lentils (daal) and rice (chawal), this dish is nourishing, wholesome, and easy to love. Whether it’s your first bite or your hundredth, it never disappoints."
+    },
+    {
+      "heading": "How It All Comes Together",
+      "content": "The daal is usually made with lentils like toor (split pigeon peas), moong, or masoor — cooked until soft and then tempered with ghee, mustard seeds, cumin, garlic, onions, tomatoes, and a pinch of asafoetida.\n\nThe chawal — simple basmati or long-grain rice — is steamed to fluffy perfection. When poured together, the result is a harmonious blend of texture and flavor. Often served with a side of pickle, papad, or a dollop of ghee."
+    },
+    {
+      "heading": "Why You'll Love It",
+      "content": "It’s nutritious, protein-rich, and easy to digest.\n\nPerfect for a light lunch, quick dinner, or rainy day craving.\n\nYou can spice it up or keep it mild — totally customizable to your mood."
+    }
+  ],
+  "funFact": [
+    "Daal Chawal is one of the first solid meals introduced to Indian toddlers.",
+    "Almost every Indian state has its own version — from Gujarati dal to Bengali tok dal.",
+    "In many households, it's the go-to 'sick day' meal because of its comfort and nutrition.",
+    "It’s one of the simplest dishes in Indian cuisine — yet one of the most emotionally rich."
+  ],
+  "Link": [
+    "Ready for a soulful meal? <br><br><a href=\"https://www.vegrecipesofindia.com/dal-fry-recipe/\" target=\"_blank\" style=\"color: #996600; text-decoration: underline;\">Jump to Daal Chawal Recipe ⬇️</a>"
+  ]
+}
+}
