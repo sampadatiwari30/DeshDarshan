@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bharatanatyam Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#fef6f2] text-gray-800">
+    <div class="flex flex-col items-center min-h-screen px-4 py-6">
+      <!-- Header -->
+      <header class="text-center mb-6">
+        <h1 class="text-4xl font-bold">
+          Embark on the Bharatanatyam Challenge!
+        </h1>
+      </header>
+
+      <!-- Main Card -->
+      <div
+        class="bg-white w-full max-w-5xl rounded-2xl shadow-xl p-6 transition-all duration-500"
+      >
+        <div class="mb-4">
+          <a
+            href="index.html"
+            class="text-base text-orange-600 hover:underline flex items-center space-x-1"
+          >
+            <svg
+              class="w-5 h-5 inline-block text-orange-600"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span>Back to Home</span>
+          </a>
+        </div>
+
+        <!-- Intro Section -->
+        <div id="introSection">
+          <h2 class="text-3xl font-semibold text-center mb-4 pb-5">
+            Are you ready to take the challenge?
+          </h2>
+          <p class="text-lg text-center text-gray-600 mb-6 pb-6">
+            Learn about the vibrant and classical
+            <strong>Bharatanatyam</strong> dance culture of India, test your
+            knowledge, and earn exciting badges upon completion!
+          </p>
+          <div class="text-center">
+            <button
+              onclick="goToStage('learn')"
+              class="bg-orange-500 text-white text-base px-6 py-2 rounded-lg hover:bg-orange-600"
+            >
+              Let's Begin
+            </button>
+          </div>
+        </div>
+
+        <!-- Learn Section -->
+        <div id="learnSection" class="hidden space-y-6">
+          <nav
+            class="flex space-x-6 text-base font-medium text-gray-500 border-b mb-4"
+          >
+            <span class="text-orange-500 border-b-2 border-orange-500 pb-2"
+              >1. Learn</span
+            >
+            <span class="opacity-50">2. Quiz</span>
+            <span class="opacity-50">3. Badge</span>
+          </nav>
+
+          <div>
+            <h1 class="text-3xl font-bold">Bharatanatyam</h1>
+            <p class="text-lg text-gray-600">
+              A classical dance form from Tamil Nadu
+            </p>
+          </div>
+
+          <div class="space-y-6 text-[17px] text-gray-700 leading-relaxed">
+            <p>
+              Bharatanatyam is a revered classical dance form from the South
+              Indian state of Tamil Nadu. Known for its grace, purity, and
+              emotional depth, it is considered one of the oldest dance
+              traditions in India, with roots stretching back over 2,000 years.
+            </p>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Origin and History</h2>
+              <p>
+                Bharatanatyam originated in the temples of Tamil Nadu as a form
+                of devotional expression. It was traditionally performed by
+                temple dancers called <em>devadasis</em>, who dedicated their
+                lives to temple service and performed the dance as a part of
+                religious rituals. Over time, the dance transitioned from
+                temples to theatres, especially during the 20th century, due to
+                efforts by artists and revivalists who aimed to preserve India's
+                classical arts.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Meaning of the Name</h2>
+              <p>
+                The term "Bharatanatyam" is often broken down into three
+                syllables derived from Sanskrit:
+              </p>
+              <ul class="list-disc ml-6 mt-2 space-y-1">
+                <li><strong>Bhava</strong> – expression or emotion</li>
+                <li><strong>Raga</strong> – melody or musical note</li>
+                <li><strong>Tala</strong> – rhythmic pattern</li>
+                <li><strong>Natyam</strong> – dance</li>
+              </ul>
+              <p class="mt-2">
+                Together, these elements form the essence of Bharatanatyam,
+                representing a holistic art that combines music, expression, and
+                rhythm into a single powerful performance. Bharatanatyam is
+                characterized by a fixed upper torso, bent legs (aramandi
+                posture), intricate footwork, and a sophisticated vocabulary of
+                hand gestures and facial expressions used to convey emotions and
+                stories. The dance is typically structured into a repertoire
+                known as the <em>Margam</em>, which includes items like
+                Alarippu, Varnam, and Tillana.
+              </p>
+              <ul class="list-disc ml-6 mt-2 space-y-1">
+                <li>
+                  <strong>Nritta</strong>: Pure dance movements, focused on
+                  rhythm and form
+                </li>
+                <li>
+                  <strong>Nritya</strong>: Expressive dance, combining rhythm
+                  with emotion
+                </li>
+                <li>
+                  <strong>Natya</strong>: Dramatic storytelling through dance
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Costume and Makeup</h2>
+              <p>
+                Performers wear vibrant silk sarees stitched into a special
+                costume with pleats that fan out during movements. Jewelry
+                includes headpieces, necklaces, earrings, bangles, and waist
+                belts, often made of gold or imitation metal. Makeup is
+                exaggerated for stage visibility, especially around the eyes to
+                highlight expressions. The dancer also wears
+                <em>ghungroos</em> (ankle bells) to accentuate footwork.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Music and Instruments</h2>
+              <p>
+                Bharatanatyam is typically accompanied by Carnatic music, with
+                live musicians playing instruments such as the mridangam (drum),
+                violin, flute, and veena. A vocalist sings compositions in
+                Tamil, Sanskrit, or Telugu, guiding the dancer through emotional
+                and narrative expressions.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Modern Relevance</h2>
+              <p>
+                Today, Bharatanatyam is practiced by dancers around the world
+                and is performed on global stages, festivals, and competitions.
+                It has become a medium for both traditional religious expression
+                and contemporary storytelling. Institutions and dance schools
+                continue to train students in this discipline, keeping the art
+                form alive and evolving.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Cultural Significance</h2>
+              <p>
+                Beyond performance, Bharatanatyam is a spiritual experience for
+                both the dancer and the audience. It is considered a form of
+                <em>Bhakti Yoga</em>, or devotion through art. The dance not
+                only preserves ancient stories and rituals but also embodies a
+                rich heritage that connects generations through culture,
+                discipline, and divine expression.
+              </p>
+            </div>
+
+            <div class="text-center mt-6">
+              <button
+                onclick="goToStage('quiz')"
+                class="bg-orange-500 text-white text-base px-6 py-2 rounded-lg hover:bg-orange-600"
+              >
+                Great! Take Me to the Quiz!
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quizSection" class="hidden">
+          <nav
+            class="flex space-x-6 text-base font-medium text-gray-500 border-b mb-4"
+          >
+            <span class="opacity-50">1. Learn</span>
+            <span class="text-orange-500 border-b-2 border-orange-500 pb-2"
+              >2. Quiz</span
+            >
+            <span class="opacity-50">3. Badge</span>
+          </nav>
+          <h3 class="text-2xl font-bold mb-4">Quiz Time!</h3>
+
+          <form id="quizForm" class="space-y-6 text-[17px]">
+            <!-- Questions -->
+            <fieldset>
+              <legend class="font-medium">
+                1. Where did Bharatanatyam originate?
+              </legend>
+              <label><input type="radio" name="q1" value="A" /> A) Kerala</label
+              ><br />
+              <label
+                ><input type="radio" name="q1" value="B" /> B) Tamil Nadu</label
+              ><br />
+              <label
+                ><input type="radio" name="q1" value="C" /> C) Karnataka</label
+              ><br />
+              <label
+                ><input type="radio" name="q1" value="D" /> D) Andhra
+                Pradesh</label
+              >
+            </fieldset>
+
+            <fieldset>
+              <legend class="font-medium">
+                2. Who were the traditional performers of Bharatanatyam in
+                temples?
+              </legend>
+              <label
+                ><input type="radio" name="q2" value="A" /> A)
+                Natyashastris</label
+              ><br />
+              <label><input type="radio" name="q2" value="B" /> B) Gurus</label
+              ><br />
+              <label
+                ><input type="radio" name="q2" value="C" /> C) Devadasis</label
+              ><br />
+              <label
+                ><input type="radio" name="q2" value="D" /> D) Sutradhars</label
+              >
+            </fieldset>
+
+            <fieldset>
+              <legend class="font-medium">
+                3. What does the "Bhava" in Bharatanatyam refer to?
+              </legend>
+              <label><input type="radio" name="q3" value="A" /> A) Rhythm</label
+              ><br />
+              <label><input type="radio" name="q3" value="B" /> B) Melody</label
+              ><br />
+              <label
+                ><input type="radio" name="q3" value="C" /> C) Emotion or
+                expression</label
+              ><br />
+              <label
+                ><input type="radio" name="q3" value="D" /> D) Dance
+                posture</label
+              >
+            </fieldset>
+
+            <fieldset>
+              <legend class="font-medium">
+                4. Which of the following is NOT typically part of the Margam?
+              </legend>
+              <label
+                ><input type="radio" name="q4" value="A" /> A) Alarippu</label
+              ><br />
+              <label><input type="radio" name="q4" value="B" /> B) Varnam</label
+              ><br />
+              <label><input type="radio" name="q4" value="C" /> C) Kathak</label
+              ><br />
+              <label
+                ><input type="radio" name="q4" value="D" /> D) Tillana</label
+              >
+            </fieldset>
+
+            <fieldset>
+              <legend class="font-medium">
+                5. What type of music traditionally accompanies Bharatanatyam?
+              </legend>
+              <label
+                ><input type="radio" name="q5" value="A" /> A) Hindustani
+                music</label
+              ><br />
+              <label
+                ><input type="radio" name="q5" value="B" /> B) Bollywood
+                music</label
+              ><br />
+              <label
+                ><input type="radio" name="q5" value="C" /> C) Carnatic
+                music</label
+              ><br />
+              <label
+                ><input type="radio" name="q5" value="D" /> D) Folk music</label
+              >
+            </fieldset>
+
+            <fieldset>
+              <legend class="font-medium">
+                6. What is the purpose of exaggerated makeup in Bharatanatyam?
+              </legend>
+              <label
+                ><input type="radio" name="q6" value="A" /> A) To look
+                glamorous</label
+              ><br />
+              <label
+                ><input type="radio" name="q6" value="B" /> B) To match the
+                costume</label
+              ><br />
+              <label
+                ><input type="radio" name="q6" value="C" /> C) To highlight
+                expressions</label
+              ><br />
+              <label
+                ><input type="radio" name="q6" value="D" /> D) To protect the
+                skin</label
+              >
+            </fieldset>
+
+            <div class="text-center mt-6">
+              <button
+                id="submitBtn"
+                type="button"
+                onclick="submitQuiz()"
+                class="bg-green-500 text-white text-base px-6 py-2 rounded-lg hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled
+              >
+                Submit Quiz & View Badge
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Badge Section -->
+        <div id="badgeSection" class="hidden text-center">
+          <nav
+            class="flex space-x-6 text-base font-medium text-gray-500 border-b mb-4"
+          >
+            <span class="opacity-50">1. Learn</span>
+            <span class="opacity-50">2. Quiz</span>
+            <span class="text-orange-500 border-b-2 border-orange-500 pb-2"
+              >3. Badge</span
+            >
+          </nav>
+          <h3 class="text-3xl font-bold text-green-600 mb-4">
+            Congratulations!
+          </h3>
+          <p class="text-lg text-gray-700 mb-2">
+            You've earned the <strong>Dance Culture Explorer</strong> badge!
+          </p>
+          <p class="text-xl font-semibold text-gray-800 mb-4">
+            Your Score: <span id="userScore">0</span>/6
+          </p>
+          <div class="inline-block p-6 bg-orange-100 rounded-full text-6xl">
+            🏅
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      function goToStage(stage) {
+        ["intro", "learn", "quiz", "badge"].forEach((id) => {
+          document.getElementById(id + "Section").classList.add("hidden");
+        });
+        document.getElementById(stage + "Section").classList.remove("hidden");
+
+        if (stage === "quiz") {
+          checkAllAnswered();
+        }
+      }
+
+      function submitQuiz() {
+        const answers = {
+          q1: "B",
+          q2: "C",
+          q3: "C",
+          q4: "C",
+          q5: "C",
+          q6: "C",
+        };
+
+        let score = 0;
+        for (const [q, correct] of Object.entries(answers)) {
+          const selected = document.querySelector(`input[name="${q}"]:checked`);
+          if (selected && selected.value === correct) {
+            score++;
+          }
+        }
+
+        document.getElementById("userScore").innerText = score;
+        goToStage("badge");
+      }
+
+      function checkAllAnswered() {
+        const total = 6;
+        let answered = 0;
+
+        for (let i = 1; i <= total; i++) {
+          if (document.querySelector(`input[name="q${i}"]:checked`)) {
+            answered++;
+          }
+        }
+
+        document.getElementById("submitBtn").disabled = answered !== total;
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const radios = document.querySelectorAll(
+          '#quizSection input[type="radio"]'
+        );
+        radios.forEach((radio) => {
+          radio.addEventListener("change", checkAllAnswered);
+        });
+      });
+    </script>
+  </body>
+</html>

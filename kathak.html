@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kathak Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#fef6f2] text-gray-800">
+    <div class="flex flex-col items-center min-h-screen px-4 py-6">
+      <!-- Header -->
+      <header class="text-center mb-6">
+        <h1 class="text-4xl font-bold">Embark on the Kathak Challenge!</h1>
+      </header>
+
+      <!-- Main Card -->
+      <div
+        class="bg-white w-full max-w-5xl rounded-2xl shadow-xl p-6 transition-all duration-500"
+      >
+        <div class="mb-4">
+          <a
+            href="index.html"
+            class="text-base text-orange-600 hover:underline flex items-center space-x-1"
+          >
+            <svg
+              class="w-5 h-5 inline-block text-orange-600"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span>Back to Home</span>
+          </a>
+        </div>
+
+        <!-- Intro Section -->
+        <div id="introSection">
+          <h2 class="text-3xl font-semibold text-center mb-4 pb-5">
+            Are you ready to take the challenge?
+          </h2>
+          <p class="text-lg text-center text-gray-600 mb-6 pb-6">
+            Discover the elegance of <strong>Kathak</strong> – the storytelling
+            dance of North India. Learn, quiz, and earn your badge!
+          </p>
+          <div class="text-center">
+            <button
+              onclick="goToStage('learn')"
+              class="bg-orange-500 text-white text-base px-6 py-2 rounded-lg hover:bg-orange-600"
+            >
+              Let's Begin
+            </button>
+          </div>
+        </div>
+
+        <!-- Learn Section -->
+        <div id="learnSection" class="hidden space-y-6">
+          <nav
+            class="flex space-x-6 text-base font-medium text-gray-500 border-b mb-4"
+          >
+            <span class="text-orange-500 border-b-2 border-orange-500 pb-2"
+              >1. Learn</span
+            >
+            <span class="opacity-50">2. Quiz</span>
+            <span class="opacity-50">3. Badge</span>
+          </nav>
+
+          <h1 class="text-3xl font-bold">Kathak</h1>
+          <p class="text-lg text-gray-700">
+            Kathak is one of the eight major forms of Indian classical dance,
+            originating from North India. Known for its intricate footwork,
+            graceful spins, and expressive storytelling, Kathak blends rhythm,
+            drama, and devotion into a captivating performance style.
+          </p>
+
+          <div class="space-y-6 text-[17px] text-gray-700 leading-relaxed">
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Origin and History</h2>
+              <p>
+                The word "Kathak" is derived from the Sanskrit word
+                <em>Katha</em>, meaning "story." The dance began as a
+                storytelling tradition performed by traveling bards known as
+                <em>Kathakars</em> who recounted mythological and religious
+                tales in temples and village squares. During the Mughal era,
+                Kathak underwent a transformation, adopting Persian and Islamic
+                influences, which added stylized movements and courtly elegance.
+                It evolved further in the courts of Lucknow, Jaipur, and
+                Banaras, each giving rise to distinct <em>gharanas</em> or
+                schools.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Meaning of the Name</h2>
+              <p>
+                The name "Kathak" comes from "Katha" (story) and "Kathakar"
+                (storyteller), emphasizing its narrative foundation. Unlike
+                other classical dance forms, Kathak places equal importance on
+                both
+                <strong>nritta</strong> (pure dance) and
+                <strong>abhinaya</strong> (expression).
+              </p>
+              <ul class="list-disc list-inside mt-2">
+                <li>
+                  <strong>Nritta</strong> – Rhythmic footwork, spins, and swift
+                  movements
+                </li>
+                <li>
+                  <strong>Nritya</strong> – Expressive storytelling through
+                  facial gestures and hand movements
+                </li>
+                <li>
+                  <strong>Natya</strong> – Dramatic enactment of mythological
+                  and emotional narratives
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Costume and Makeup</h2>
+              <p>
+                Kathak dancers wear traditional Mughal-inspired attire. Female
+                dancers typically wear long, flowing <em>anarkali</em> suits
+                with churidar leggings, adorned with dupattas and jewelry. Male
+                dancers wear a kurta-churidar with angavastram. Makeup is subtle
+                but enhances the eyes and facial expressions.
+                <em>Ghungroos</em> (ankle bells) play a central role in
+                highlighting rhythmic footwork.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Music and Instruments</h2>
+              <p>
+                Kathak is performed to Hindustani classical music. Key
+                instruments include the tabla and pakhawaj (for rhythm), along
+                with harmonium, sarangi, sitar, and flute. The
+                <em>nattuvanar</em> or conductor provides vocal cues and
+                rhythmic syllables (<em>bols</em>) that guide the dancer's
+                movements and improvisation.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Modern Relevance</h2>
+              <p>
+                Kathak continues to thrive on contemporary and global stages. It
+                is taught in prestigious institutions across India and abroad.
+                Modern choreographers often blend Kathak with other dance forms
+                to explore new themes while maintaining its traditional roots.
+                It is performed in festivals, theatres, and even in experimental
+                formats.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-semibold mb-2">Cultural Significance</h2>
+              <p>
+                Kathak is more than a dance; it is a living tradition of
+                storytelling that bridges the spiritual, cultural, and
+                historical narratives of India. From temple courtyards to royal
+                courts and modern stages, it remains a symbol of grace,
+                intellect, and devotion. Through its rhythmic elegance and
+                expressive richness, Kathak connects generations to India's
+                diverse cultural fabric.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-6">
+            <button
+              onclick="goToStage('quiz')"
+              class="bg-orange-500 text-white text-base px-6 py-2 rounded-lg hover:bg-orange-600"
+            >
+              Great! Take Me to the Quiz!
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quizSection" class="hidden">
+          <nav
+            class="flex space-x-6 text-base font-medium text-gray-500 border-b mb-4"
+          >
+            <span class="opacity-50">1. Learn</span>
+            <span class="text-orange-500 border-b-2 border-orange-500 pb-2"
+              >2. Quiz</span
+            >
+            <span class="opacity-50">3. Badge</span>
+          </nav>
+          <h3 class="text-2xl font-bold mb-4">Quiz Time!</h3>
+
+          <form id="quizForm" class="space-y-6 text-[17px]">
+            <fieldset>
+              <legend class="font-medium">
+                1. What is the origin of the word "Kathak"?
+              </legend>
+              <label
+                ><input type="radio" name="q1" value="A" /> A) A Persian word
+                for rhythm</label
+              ><br />
+              <label
+                ><input type="radio" name="q1" value="B" /> B) Derived from
+                "Katha," meaning story</label
+              ><br />
+              <label
+                ><input type="radio" name="q1" value="C" /> C) Named after a
+                famous Kathak dancer</label
+              ><br />
+              <label
+                ><input type="radio" name="q1" value="D" /> D) A Hindi word for
+                music</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend class="font-medium">
+                2. Which of the following is not one of the main components of
+                Kathak dance?
+              </legend>
+              <label><input type="radio" name="q2" value="A" /> A) Nritta</label
+              ><br />
+              <label><input type="radio" name="q2" value="B" /> B) Nritya</label
+              ><br />
+              <label><input type="radio" name="q2" value="C" /> C) Natya</label
+              ><br />
+              <label
+                ><input type="radio" name="q2" value="D" /> D)
+                Natyashastra</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend class="font-medium">
+                3. During which period did Kathak adopt Persian and Islamic
+                influences?
+              </legend>
+              <label
+                ><input type="radio" name="q3" value="A" /> A) Vedic Era</label
+              ><br />
+              <label
+                ><input type="radio" name="q3" value="B" /> B) British Colonial
+                Period</label
+              ><br />
+              <label
+                ><input type="radio" name="q3" value="C" /> C) Mughal Era</label
+              ><br />
+              <label
+                ><input type="radio" name="q3" value="D" /> D)
+                Post-Independence</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend class="font-medium">
+                4. What is the primary role of ghungroos in Kathak?
+              </legend>
+              <label
+                ><input type="radio" name="q4" value="A" /> A) Decorative
+                accessory</label
+              ><br />
+              <label
+                ><input type="radio" name="q4" value="B" /> B) Tool for
+                storytelling</label
+              ><br />
+              <label
+                ><input type="radio" name="q4" value="C" /> C) Emphasizing
+                facial expressions</label
+              ><br />
+              <label
+                ><input type="radio" name="q4" value="D" /> D) Highlighting
+                rhythmic footwork</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend class="font-medium">
+                5. Which instrument is not commonly associated with Kathak
+                music?
+              </legend>
+              <label><input type="radio" name="q5" value="A" /> A) Tabla</label
+              ><br />
+              <label><input type="radio" name="q5" value="B" /> B) Violin</label
+              ><br />
+              <label
+                ><input type="radio" name="q5" value="C" /> C) Pakhawaj</label
+              ><br />
+              <label
+                ><input type="radio" name="q5" value="D" /> D) Sarangi</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend class="font-medium">
+                6. What makes Kathak unique among Indian classical dance forms?
+              </legend>
+              <label
+                ><input type="radio" name="q6" value="A" /> A) It uses only hand
+                gestures</label
+              ><br />
+              <label
+                ><input type="radio" name="q6" value="B" /> B) It originated in
+                South India</label
+              ><br />
+              <label
+                ><input type="radio" name="q6" value="C" /> C) It balances pure
+                dance and expression equally</label
+              ><br />
+              <label
+                ><input type="radio" name="q6" value="D" /> D) It has no musical
+                accompaniment</label
+              >
+            </fieldset>
+            <div class="text-center mt-6">
+              <button
+                id="submitBtn"
+                type="button"
+                onclick="submitQuiz()"
+                class="bg-green-500 text-white text-base px-6 py-2 rounded-lg hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled
+              >
+                Submit Quiz & View Badge
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Badge Section -->
+        <div id="badgeSection" class="hidden text-center">
+          <nav
+            class="flex space-x-6 text-base font-medium text-gray-500 border-b mb-4"
+          >
+            <span class="opacity-50">1. Learn</span>
+            <span class="opacity-50">2. Quiz</span>
+            <span class="text-orange-500 border-b-2 border-orange-500 pb-2"
+              >3. Badge</span
+            >
+          </nav>
+          <h3 class="text-3xl font-bold text-green-600 mb-4">
+            Congratulations!
+          </h3>
+          <p class="text-lg text-gray-700 mb-2">
+            You've earned the <strong>Dance Culture Explorer</strong> badge!
+          </p>
+          <p class="text-xl font-semibold text-gray-800 mb-4">
+            Your Score: <span id="userScore">0</span>/6
+          </p>
+          <div class="inline-block p-6 bg-orange-100 rounded-full text-6xl">
+            🏅
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function goToStage(stage) {
+        ["intro", "learn", "quiz", "badge"].forEach((id) => {
+          document.getElementById(id + "Section").classList.add("hidden");
+        });
+        document.getElementById(stage + "Section").classList.remove("hidden");
+        if (stage === "quiz") checkAllAnswered();
+      }
+
+      function submitQuiz() {
+        const answers = {
+          q1: "B",
+          q2: "D",
+          q3: "C",
+          q4: "D",
+          q5: "B",
+          q6: "C",
+        };
+        let score = 0;
+        for (const [q, correct] of Object.entries(answers)) {
+          const selected = document.querySelector(`input[name="${q}"]:checked`);
+          if (selected && selected.value === correct) score++;
+        }
+        document.getElementById("userScore").innerText = score;
+        goToStage("badge");
+      }
+
+      function checkAllAnswered() {
+        const total = 6;
+        let answered = 0;
+        for (let i = 1; i <= total; i++) {
+          if (document.querySelector(`input[name="q${i}"]:checked`)) answered++;
+        }
+        document.getElementById("submitBtn").disabled = answered !== total;
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const radios = document.querySelectorAll(
+          '#quizSection input[type="radio"]'
+        );
+        radios.forEach((radio) =>
+          radio.addEventListener("change", checkAllAnswered)
+        );
+      });
+    </script>
+  </body>
+</html>
