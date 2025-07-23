@@ -19,7 +19,7 @@ body {
 
 /* Navigation Styles */
 .navbar {
-    background: rgba(149, 149, 149, 0.298);
+    background: rgba(0, 0, 0, 0.9);  /* Solid black by default */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 1rem 0;
@@ -42,7 +42,7 @@ body {
 }
 
 .nav-logo h2 {
-    color: white;
+    color: #ff9933;
     font-size: 1.8rem;
     font-weight: bold;
 }
@@ -54,14 +54,16 @@ body {
 }
 
 .nav-menu a {
+    display: inline-block;
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-menu a:hover {
-    color: yellow;
+    color: #ff9933;
+    transform: scale(1.05);
 }
 
 .nav-buttons {
@@ -141,9 +143,8 @@ body {
 }
 
 .navbar.scrolled {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    background-color: rgba(93, 93, 93, 0.377);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.7); /* Faded black on scroll */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .hamburger {
@@ -166,6 +167,18 @@ body {
     height: 100vh;
     overflow: hidden;
     margin-top: 80px;
+    z-index:0
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px); /* Adjust blur level here */
+    background: rgba(0, 0, 0, 0.1); /* Optional: adds subtle dark tint */
+    z-index: 1; /* Below content but above images */
 }
 
 .slideshow-container {
@@ -200,20 +213,30 @@ body {
     text-align: center;
     color: white;
     z-index: 2;
+    padding: 20px;
 }
 
+
 .slide-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    animation: fadeInUp 1s ease-out;
+    font-size: 60px;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7),
+        2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .slide-content p {
-    font-size: 1.3rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    animation: fadeInUp 1s ease-out 0.3s both;
+    font-size: 24px;
+    color: white;
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7),
+        2px 2px 6px rgba(0, 0, 0, 0.8);
 }
+
+
 
 .slide-indicators {
     position: absolute;
@@ -305,6 +328,10 @@ body {
     line-height: 1.6;
 }
 
+button, a, .culture-item, .food-item, .dance-item {
+    transition: all 0.3s ease-in-out;
+}
+
 /* Taste of India Section */
 .taste-india {
     padding: 5rem 0;
@@ -323,7 +350,7 @@ body {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .food-item:hover {
@@ -361,7 +388,7 @@ body {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dance-item:hover {
@@ -451,11 +478,11 @@ body {
     }
 
     .slide-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .slide-content p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .section-title {
