@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Destinations in India</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes ripple {
+            0% { box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 127, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 127, 80, 0); }
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .animate-ripple:hover {
+            animation: ripple 0.6s ease-out;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            font-size: 3.2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 3rem 0 2rem 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Georgia', serif;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            padding: 2rem 1rem 4rem 1rem;
+            background: #FFFFFF;
+        }
+
+        /* Destination Card */
+        .destination-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .card-image-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .card-image-bg img.lazy {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .card-image-bg img.lazy.loaded {
+            opacity: 1;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem 1.5rem 1.5rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .card-tagline {
+            color: #f0f0f0;
+            font-size: 0.95rem;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .destination-card:hover .card-title {
+            font-weight: 900;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .destination-card:hover .card-tagline {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Modal Styling */
+        .modal-fullscreen-custom {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal-content-custom {
+            background: transparent;
+            border: none;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1070;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .close-modal:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 15px;
+        }
+
+        .carousel-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .overlay-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #f0f0f0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 8%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            border-radius: 50%;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .carousel-control-prev:hover .carousel-control-prev-icon,
+        .carousel-control-next:hover .carousel-control-next-icon {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Audio Control */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .audio-control:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Tutorial Overlay */
+        .tutorial-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .tutorial-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tutorial-content {
+            background: #FFFFFF;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tutorial-content h3 {
+            font-size: 1.5rem;
+            color: #5E8B7E;
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .tutorial-btn {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .tutorial-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
+        }
+
+        .tutorial-btn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .tutorial-highlight {
+            position: relative;
+            z-index: 2001;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.8rem;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+            .card-tagline {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.4rem;
+                margin: 2rem 0 1.5rem 0;
+            }
+            .carousel-image {
+                height: 400px;
+            }
+            .image-overlay {
+                padding: 2rem;
+            }
+            .overlay-title {
+                font-size: 1.6rem;
+            }
+            .overlay-text {
+                font-size: 1rem;
+            }
+            .close-modal {
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            .tutorial-content {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            .card-overlay {
+                padding: 1.5rem 1rem 1rem;
+            }
+            .card-title {
+                font-size: 1.1rem;
+            }
+            .card-tagline {
+                font-size: 0.8rem;
+            }
+            .carousel-image {
+                height: 300px;
+            }
+            .audio-control {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="audio/indian-flute.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control animate-ripple" id="audioToggle" title="Toggle Background Music" aria-label="Toggle Background Music">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorialOverlay">
+        <div class="tutorial-content">
+            <h3 id="tutorialTitle">Welcome to Hidden Destinations</h3>
+            <p id="tutorialText">Explore India's lesser-known treasures! Let's take a quick tour.</p>
+            <div class="tutorial-buttons">
+                <button class="tutorial-btn" id="nextTutorialStep" aria-label="Next Tutorial Step">Next</button>
+                <button class="tutorial-btn" id="skipTutorial" aria-label="Skip Tutorial">Skip</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="page-title">Hidden Destinations in India</h1>
+
+    <!-- Cards Section -->
+    <div class="container-fluid cards-section">
+        <div class="row" id="destinationCards">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Full-Screen Modal -->
+    <div class="modal fade" id="destinationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen modal-fullscreen-custom">
+            <div class="modal-content modal-content-custom">
+                <span class="close-modal" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+                <div class="carousel-container">
+                    <div id="destinationCarousel" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner" id="carouselContent">
+                            <!-- Carousel items will be dynamically generated -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#destinationCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#destinationCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Destination data
+        const destinations = [
+            // States (28)
+            { name: "Andhra Pradesh", tagline: "Where Temples Meet the Sea", image: "images/Andhra Pradesh.jpeg" },
+            { name: "Arunachal Pradesh", tagline: "Land of the Rising Sun", image: "images/Arunachal Pradesh.jpeg" },
+            { name: "Assam", tagline: "Gateway to Northeast India", image: "images/Assam.jpeg" },
+            { name: "Bihar", tagline: "Cradle of Ancient Wisdom", image: "images/Bihar.jpeg" },
+            { name: "Chhattisgarh", tagline: "Heart of Incredible India", image: "images/Chhattisgarh.jpeg" },
+            { name: "Goa", tagline: "Pearl of the Orient", image: "images/Goa.jpeg" },
+            { name: "Gujarat", tagline: "Jewel of Western India", image: "images/Gujarat.jpeg" },
+            { name: "Haryana", tagline: "Land of Rotis and Legends", image: "images/Haryana.jpeg" },
+            { name: "Himachal Pradesh", tagline: "Dev Bhoomi - Land of Gods", image: "images/Himachal Pradesh.jpeg" },
+            { name: "Jharkhand", tagline: "Land of Forests and Minerals", image: "images/Jharkhand.jpeg" },
+            { name: "Karnataka", tagline: "One State, Many Worlds", image: "images/Karnataka.jpeg" },
+            { name: "Kerala", tagline: "God's Own Country", image: "images/Kerala.jpeg" },
+            { name: "Madhya Pradesh", tagline: "Heart of Incredible India", image: "images/Madhya Pradesh.jpeg" },
+            { name: "Maharashtra", tagline: "Gateway of India", image: "images/Maharashtra.jpeg" },
+            { name: "Manipur", tagline: "Jewel of India", image: "images/Manipur.jpeg" },
+            { name: "Meghalaya", tagline: "Abode of Clouds", image: "images/Meghalaya.jpeg" },
+            { name: "Mizoram", tagline: "Land of Blue Mountains", image: "images/Mizoram.jpeg" },
+            { name: "Nagaland", tagline: "Land of Festivals", image: "images/Nagaland.jpeg" },
+            { name: "Odisha", tagline: "Soul of Incredible India", image: "images/Odisha.jpeg" },
+            { name: "Punjab", tagline: "Land of Five Rivers", image: "images/Punjab.jpeg" },
+            { name: "Rajasthan", tagline: "Land of Kings", image: "images/Rajasthan.jpeg" },
+            { name: "Sikkim", tagline: "Paradise Unexplored", image: "images/Sikkim.jpeg" },
+            { name: "Tamil Nadu", tagline: "Cradle of Culture", image: "images/Tamil Nadu.jpeg" },
+            { name: "Telangana", tagline: "State of Innovation", image: "images/Telangana.jpeg" },
+            { name: "Tripura", tagline: "Hill Tippera", image: "images/Tripura.jpeg" },
+            { name: "Uttar Pradesh", tagline: "Heartland of India", image: "images/Uttar Pradesh.jpeg" },
+            { name: "Uttarakhand", tagline: "Simply Heaven", image: "images/Uttarakhand.jpeg" },
+            { name: "West Bengal", tagline: "Beautiful Bengal", image: "images/West Bengal.jpeg" },
+            // Union Territories (8)
+            { name: "Andaman and Nicobar Islands", tagline: "Emerald Isles of India", image: "images/Andaman and Nicobar Islands.jpeg" },
+            { name: "Chandigarh", tagline: "The City Beautiful", image: "images/Chandigarh.jpeg" },
+            { name: "Dadra and Nagar Haveli and Daman and Diu", tagline: "Coastal Paradise", image: "images/Dadra and Nagar Haveli and Daman and Diu.jpeg" },
+            { name: "Delhi", tagline: "Dil Walon Ki Dilli", image: "images/Delhi.jpeg" },
+            { name: "Jammu and Kashmir", tagline: "Paradise on Earth", image: "images/Jammu and Kashmir.jpeg" },
+            { name: "Ladakh", tagline: "Land of High Passes", image: "images/Ladakh.jpeg" },
+            { name: "Lakshadweep", tagline: "Coral Paradise of India", image: "images/Lakshadweep.jpeg" },
+            { name: "Puducherry", tagline: "French Riviera of the East", image: "images/Puducherry.jpeg" }
+        ];
+
+        // Hidden gems data for modal carousel (example for Rajasthan and Kerala, fallback for others)
+        const hiddenGems = {
+            "Rajasthan": [
+                { title: "Kuldhara Ghost Village", image: "images/Rajasthan/Kuldhara.jpeg", text: "Why hidden: Abandoned overnight 200 years ago by Paliwal Brahmins. Why famous: Mysterious disappearance with no trace of inhabitants. Why visit: Eerie atmosphere, ancient architecture, and unsolved historical mystery." },
+                { title: "Bhangarh Fort", image: "images/Rajasthan/Bhangarh.jpeg", text: "Why hidden: Archaeological Survey of India prohibits entry after sunset. Why famous: Most haunted place in India with supernatural legends. Why visit: Medieval architecture, historical significance, and thrilling ghost stories." },
+                { title: "Sambhar Salt Lake", image: "images/Rajasthan/Sambhar.jpeg", text: "Why hidden: Remote location away from tourist circuits. Why famous: Largest inland salt lake in India with pink waters. Why visit: Flamingo watching, salt harvesting experience, and stunning sunset photography." },
+                { title: "Kumbhalgarh Fort", image: "images/Rajasthan/Kumbhalgarh.jpeg", text: "Why hidden: Difficult mountain terrain kept it isolated. Why famous: Second longest wall in the world after Great Wall of China. Why visit: Panoramic views, light and sound show, and Mewar history." },
+                { title: "Mandawa Havelis", image: "images/Rajasthan/Mandawa.jpeg", text: "Why hidden: Small town in Shekhawati region off main routes. Why famous: Open-air art gallery with stunning frescoes. Why visit: Heritage walks, traditional Rajasthani art, and authentic cultural experience." },
+                { title: "Ranakpur Jain Temple", image: "images/Rajasthan/Ranakpur.jpeg", text: "Why hidden: Deep in Aravalli hills with limited accessibility. Why famous: 1444 uniquely carved marble pillars. Why visit: Architectural marvel, spiritual atmosphere, and intricate stone craftsmanship." },
+                { title: "Osian Desert Temple", image: "images/Rajasthan/Osian.jpeg", text: "Why hidden: Remote desert location 65km from Jodhpur. Why famous: 8th-12th century temples called 'Khajuraho of Rajasthan'. Why visit: Desert safari, camel rides, and ancient temple architecture." }
+            ],
+            "Kerala": [
+                { title: "Bekal Fort Beach", image: "images/Kerala/Bekal.jpeg", text: "Why hidden: Northern Kerala location away from popular southern beaches. Why famous: Bollywood movie shooting location with pristine coastline. Why visit: Untouched beaches, historical fort, and peaceful atmosphere." },
+                { title: "Athirappilly Waterfalls", image: "images/Kerala/Athirappilly.jpeg", text: "Why hidden: Dense forest location requiring trek to reach. Why famous: 'Niagara of India' with 80-foot cascading falls. Why visit: Natural swimming pools, wildlife spotting, and monsoon photography." },
+                { title: "Vagamon Hills", image: "images/Kerala/Vagamon.jpeg", text: "Why hidden: High altitude meadows accessible only by winding roads. Why famous: Rolling green hills resembling Scotland. Why visit: Paragliding, trekking, and cool climate retreat." },
+                { title: "Kumbakonam Backwaters", image: "images/Kerala/Kumbakonam.jpeg", text: "Why hidden: Lesser-known backwater route compared to Alleppey. Why famous: Pristine waterways with traditional village life. Why visit: Authentic houseboat experience, bird watching, and local fishing." },
+                { title: "Silent Valley National Park", image: "images/Kerala/Silent Valley.jpeg", text: "Why hidden: Restricted access to protect endangered species. Why famous: Last remaining tropical rainforest in India. Why visit: Rare wildlife, pristine ecosystem, and conservation education." },
+                { title: "Marari Beach", image: "images/Kerala/Marari.jpeg", text: "Why hidden: Fishing village location with no commercial development. Why famous: Untouched coastline with swaying palms. Why visit: Authentic fishing village experience, pristine sands, and local seafood." },
+                { title: "Wayanad Caves", image: "images/Kerala/Wayanad.jpeg", text: "Why hidden: Dense forest caves requiring guided exploration. Why famous: Neolithic age cave paintings and formations. Why visit: Archaeological significance, adventure caving, and historical exploration." }
+            ],
+            // Fallback for other destinations
+            "default": [
+                { title: "Hidden Temple Complex", image: "images/default/Temple.jpeg", text: "Why hidden: Remote location in dense forests away from main roads. Why famous: Ancient architecture with intricate carvings recently discovered. Why visit: Spiritual experience, historical significance, and architectural marvel." },
+                { title: "Secret Waterfall", image: "images/default/Waterfall.jpeg", text: "Why hidden: Accessible only through challenging trek routes. Why famous: Multi-tier cascading falls with natural pools. Why visit: Adventure trekking, natural swimming, and photography paradise." },
+                { title: "Ancient Cave Network", image: "images/default/Cave.jpeg", text: "Why hidden: Concealed entrances in rocky terrain. Why famous: Prehistoric cave paintings and Buddhist meditation chambers. Why visit: Archaeological exploration, historical learning, and adventure caving." },
+                { title: "Forgotten Hill Station", image: "images/default/Hill.jpeg", text: "Why hidden: No direct connectivity until recent infrastructure development. Why famous: Colonial-era architecture and pristine mountain views. Why visit: Cool climate retreat, heritage walks, and panoramic vistas." },
+                { title: "Traditional Village", image: "images/default/Village.jpeg", text: "Why hidden: Protected tribal area with restricted access. Why famous: Preserved traditional lifestyle and ancient customs. Why visit: Cultural immersion, traditional crafts learning, and authentic experiences." },
+                { title: "Wildlife Sanctuary", image: "images/default/Sanctuary.jpeg", text: "Why hidden: Remote forest location with limited permits. Why famous: Rare species and biodiversity hotspot. Why visit: Wildlife photography, nature conservation, and ecological education." },
+                { title: "Heritage Monument", image: "images/default/Monument.jpeg", text: "Why hidden: Off-the-beaten-path location with minimal promotion. Why famous: Unique architectural style and historical importance. Why visit: Heritage exploration, cultural learning, and architectural appreciation." }
+            ]
+        };
+
+        // DOM Elements
+        const destinationCards = document.getElementById('destinationCards');
+        const carouselContent = document.getElementById('carouselContent');
+        const audioToggle = document.getElementById('audioToggle');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const tutorialOverlay = document.getElementById('tutorialOverlay');
+        const tutorialTitle = document.getElementById('tutorialTitle');
+        const tutorialText = document.getElementById('tutorialText');
+        const nextTutorialStep = document.getElementById('nextTutorialStep');
+        const skipTutorial = document.getElementById('skipTutorial');
+
+        // Tutorial Logic
+        let currentStep = 0;
+        const tutorialSteps = [
+            {
+                title: "Welcome to Hidden Destinations",
+                text: "Explore India's lesser-known treasures! Let's take a quick tour.",
+                highlight: null
+            },
+            {
+                title: "Discover the Title",
+                text: "The page title introduces you to India's hidden gems.",
+                highlight: '.page-title'
+            },
+            {
+                title: "Destination Cards",
+                text: "Click on any card to explore hidden gems in each state or union territory.",
+                highlight: '.destination-card:first-child'
+            },
+            {
+                title: "Modal Carousel",
+                text: "View detailed information about hidden destinations in a full-screen carousel.",
+                highlight: null // Will open modal for this step
+            },
+            {
+                title: "Audio Control",
+                text: "Toggle soothing background music to enhance your experience.",
+                highlight: '.audio-control'
+            }
+        ];
+
+        function startTutorial() {
+            if (localStorage.getItem('tutorialCompleted') === 'true') {
+                tutorialOverlay.classList.remove('active');
+                return;
+            }
+            tutorialOverlay.classList.add('active');
+            showTutorialStep(0);
+        }
+
+        function showTutorialStep(step) {
+            currentStep = step;
+            const stepData = tutorialSteps[step];
+            tutorialTitle.textContent = stepData.title;
+            tutorialText.textContent = stepData.text;
+
+            // Remove previous highlights
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+            });
+
+            // Handle modal step
+            const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
+            if (modal) {
+                modal.hide();
+            }
+            if (stepData.highlight === null && step === 3) {
+                openModal('Rajasthan'); // Open modal for carousel step
+                document.querySelector('.carousel-container').classList.add('tutorial-highlight');
+            } else if (stepData.highlight) {
+                const element = document.querySelector(stepData.highlight);
+                if (element) {
+                    element.classList.add('tutorial-highlight');
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            // Update button text
+            if (step === tutorialSteps.length - 1) {
+                nextTutorialStep.textContent = 'Done';
+            } else {
+                nextTutorialStep.textContent = 'Next';
+            }
+        }
+
+        nextTutorialStep.addEventListener('click', () => {
+            if (currentStep < tutorialSteps.length - 1) {
+                showTutorialStep(currentStep + 1);
+            } else {
+                tutorialOverlay.classList.remove('active');
+                localStorage.setItem('tutorialCompleted', 'true');
+                document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                    el.classList.remove('tutorial-highlight');
+                });
+                const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
+                if (modal) {
+                    modal.hide();
+                }
+            }
+        });
+
+        skipTutorial.addEventListener('click', () => {
+            tutorialOverlay.classList.remove('active');
+            localStorage.setItem('tutorialCompleted', 'true');
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+            });
+            const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
+            if (modal) {
+                modal.hide();
+            }
+        });
+
+        // Create destination cards
+        function createDestinationCards() {
+            destinationCards.innerHTML = '';
+            destinations.forEach((destination, index) => {
+                const card = document.createElement('div');
+                card.className = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12';
+                card.innerHTML = `
+                    <div class="destination-card animate-scale-in" onclick="openModal('${destination.name}')" style="animation-delay: ${index * 0.1}s">
+                        <div class="card-image-bg">
+                            <img src="${destination.image}" alt="${destination.name} destination view" class="lazy" loading="lazy">
+                            <div class="card-overlay">
+                                <h5 class="card-title">${destination.name}</h5>
+                                <p class="card-tagline">${destination.tagline}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                destinationCards.appendChild(card);
+            });
+            setupLazyLoading();
+        }
+
+        // Lazy Loading Images
+        function setupLazyLoading() {
+            const lazyImages = document.querySelectorAll('img.lazy');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '0px 0px 200px 0px' });
+            lazyImages.forEach(img => observer.observe(img));
+        }
+
+        // Open modal with carousel
+        function openModal(destinationName) {
+            const modal = new bootstrap.Modal(document.getElementById('destinationModal'));
+            carouselContent.innerHTML = '';
+            const gems = hiddenGems[destinationName] || hiddenGems['default'];
+            gems.forEach((gem, index) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+                carouselItem.innerHTML = `
+                    <img src="${gem.image}" class="carousel-image" alt="${gem.title}" loading="lazy">
+                    <div class="image-overlay">
+                        <div class="overlay-title">${gem.title}</div>
+                        <div class="overlay-text">${gem.text}</div>
+                    </div>
+                `;
+                carouselContent.appendChild(carouselItem);
+            });
+            modal.show();
+        }
+
+        // Audio control functionality
+        function setupAudioControl() {
+            let isPlaying = false;
+            const playAudio = () => {
+                backgroundMusic.volume = 0.2;
+                backgroundMusic.play().then(() => {
+                    isPlaying = true;
+                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    audioToggle.title = 'Pause Music';
+                    audioToggle.setAttribute('aria-label', 'Pause Background Music');
+                }).catch(() => {
+                    isPlaying = false;
+                    audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    audioToggle.title = 'Play Music';
+                    audioToggle.setAttribute('aria-label', 'Play Background Music');
+                    document.addEventListener('click', playAudio, { once: true });
+                });
+            };
+
+            playAudio();
+            audioToggle.addEventListener('click', () => {
+                if (isPlaying) {
+                    backgroundMusic.pause();
+                    audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    audioToggle.title = 'Play Music';
+                    audioToggle.setAttribute('aria-label', 'Play Background Music');
+                    isPlaying = false;
+                } else {
+                    playAudio();
+                }
+            });
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('destinationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                const modalInstance = bootstrap.Modal.getInstance(this);
+                if (modalInstance) {
+                    modalInstance.hide();
+                }
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
+                if (modal) {
+                    modal.hide();
+                }
+                if (tutorialOverlay.classList.contains('active')) {
+                    tutorialOverlay.classList.remove('active');
+                    localStorage.setItem('tutorialCompleted', 'true');
+                    document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                        el.classList.remove('tutorial-highlight');
+                    });
+                }
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            createDestinationCards();
+            setupAudioControl();
+            startTutorial();
+        });
+    </script>
+</body>
+</html>
