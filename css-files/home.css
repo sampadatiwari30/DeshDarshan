@@ -122,7 +122,7 @@ body {
 .btn-login:hover {
     background-color: #ffcc00;
     color: black;
-    padding-right: 2.8rem;
+    padding-right: 3.5rem;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
 }
@@ -137,7 +137,7 @@ body {
 
 .btn-signup:hover {
     background-color: #ff8c1a;
-    padding-right: 2.8rem;
+    padding-right: 3.8rem;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 117, 24, 0.3);
 }
