@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spirit of India</title>
     <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -30,20 +34,14 @@
           </li>
         </ul>
         <div class="nav-buttons">
-          <a href="login.html"
-            ><button
-              class="btn-login"
-              href="login.html"
-              data-translate="nav-login"
-            >
-              Login
-            </button></a
-          >
-          <a href="signup.html"
-            ><button class="btn-signup" data-translate="nav-signup">
-              Signup
-            </button></a
-          >
+          <a href="login.html" class="btn-login">
+            <span>Login</span>
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
+          <a href="signup.html" class="btn-signup">
+            <span>Signup</span>
+            <i class="fas fa-user-plus"></i>
+          </a>
         </div>
         <div class="hamburger">
           <span></span>
@@ -132,7 +130,7 @@
             </div>
           </div>
           <div class="culture-item">
-            <img src="christmas.jpeg" alt="Holi colors" />
+            <img src="christmas.jpeg" alt="Christmas" />
             <div class="culture-caption">
               <h3 data-translate="christmas-title">Christmas</h3>
               <p data-translate="christmas-desc">
@@ -150,12 +148,11 @@
             </div>
           </div>
           <div class="culture-item">
-            <img src="pongal.jpg" alt="Ganesh Chaturthi" />
+            <img src="pongal.jpg" alt="Pongal" />
             <div class="culture-caption">
-              <h3 data-translate="pongal-title">pongal</h3>
+              <h3 data-translate="pongal-title">Pongal</h3>
               <p data-translate="pongal-desc">
-                Joyous festival celebrating Lord Ganesha, the remover of
-                obstacles
+                Harvest festival celebrating prosperity and nature
               </p>
             </div>
           </div>
@@ -169,7 +166,7 @@
             </div>
           </div>
           <div class="culture-item">
-            <img src="baisakhi.jpeg" alt="baisakhi" />
+            <img src="baisakhi.jpeg" alt="Baisakhi" />
             <div class="culture-caption">
               <h3 data-translate="baisakhi-title">Baisakhi</h3>
               <p data-translate="baisakhi-desc">
@@ -181,7 +178,7 @@
       </div>
     </section>
 
-    <!-- The Taste of India Section -->
+    <!-- Taste of India Section -->
     <section class="taste-india">
       <div class="container">
         <h2 class="section-title" data-translate="taste-title">
@@ -201,12 +198,12 @@
             <h3 data-translate="dosa-title">Masala Dosa</h3>
           </div>
           <div class="food-item">
-            <img src="images (8).jpeg" alt="Chole Bhature" />
-            <h3 data-translate="gujhiya-title">gujhiya</h3>
+            <img src="images (8).jpeg" alt="Gujhiya" />
+            <h3 data-translate="gujhiya-title">Gujhiya</h3>
           </div>
           <div class="food-item">
-            <img src="download (10).jpeg" alt="Rajma Rice" />
-            <h3 data-translate="mithai-title">mithai</h3>
+            <img src="download (10).jpeg" alt="Mithai" />
+            <h3 data-translate="mithai-title">Mithai</h3>
           </div>
           <div class="food-item">
             <img src="download (1).jpeg" alt="Gulab Jamun" />
@@ -217,7 +214,7 @@
             <h3 data-translate="samosa-title">Samosa</h3>
           </div>
           <div class="food-item">
-            <img src="images (21).jpeg" alt="Samosa" />
+            <img src="images (21).jpeg" alt="Daal Chawal" />
             <h3 data-translate="daal-title">Daal Chawal</h3>
           </div>
         </div>
@@ -231,61 +228,68 @@
           Dance Culture of India
         </h2>
         <div class="dance-grid">
-          <a href="./bharatnatyam.html" class="dance-item">
-            <img src="br2.jpg" alt="Bharatanatyam dancer" />
-            <div class="dance-overlay">
-              <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
-              <p data-translate="bharatanatyam-desc">
-                Classical dance from Tamil Nadu
-              </p>
+          <a href="bharatanatyam.html" class="dance-link">
+            <div class="dance-item">
+              <img src="br2.jpg" alt="Bharatanatyam dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
+                <p data-translate="bharatanatyam-desc">
+                  Classical dance from Tamil Nadu
+                </p>
+              </div>
             </div>
           </a>
-
-          <a href="./kathak.html" class="dance-item">
-            <img src="kr1.jpg" alt="Kathak dancer" />
-            <div class="dance-overlay">
-              <h3 data-translate="kathak-title">Kathak</h3>
-              <p data-translate="kathak-desc">
-                Storytelling dance from North India
-              </p>
+          <a href="kathak.html" class="dance-link">
+            <div class="dance-item">
+              <img src="kr1.jpg" alt="Kathak dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="kathak-title">Kathak</h3>
+                <p data-translate="kathak-desc">
+                  Storytelling dance from North India
+                </p>
+              </div>
             </div>
           </a>
-
-          <a href="odissi.html" class="dance-item">
-            <img src="od2.jpg" alt="Odissi dancer" />
-            <div class="dance-overlay">
-              <h3 data-translate="odissi-title">Odissi</h3>
-              <p data-translate="odissi-desc">Graceful dance from Odisha</p>
+          <a href="odissi.html" class="dance-link">
+            <div class="dance-item">
+              <img src="od2.jpg" alt="Odissi dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="odissi-title">Odissi</h3>
+                <p data-translate="odissi-desc">Graceful dance from Odisha</p>
+              </div>
             </div>
           </a>
-
-          <a href="kuchipudi.html" class="dance-item">
-            <img src="ap3.jpg" alt="Kuchipudi dancer" />
-            <div class="dance-overlay">
-              <h3 data-translate="kuchipudi-title">Kuchipudi</h3>
-              <p data-translate="kuchipudi-desc">
-                Dynamic dance from Andhra Pradesh
-              </p>
+          <a href="kuchipudi.html" class="dance-link">
+            <div class="dance-item">
+              <img src="ap3.jpg" alt="Kuchipudi dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="kuchipudi-title">Kuchipudi</h3>
+                <p data-translate="kuchipudi-desc">
+                  Dynamic dance from Andhra Pradesh
+                </p>
+              </div>
             </div>
           </a>
-
-          <a href="manipuri.html" class="dance-item">
-            <img src="mani1.jpg" alt="Manipuri dancer" />
-            <div class="dance-overlay">
-              <h3 data-translate="manipuri-title">Manipuri</h3>
-              <p data-translate="manipuri-desc">
-                Devotional dance from Manipur
-              </p>
+          <a href="manipuri.html" class="dance-link">
+            <div class="dance-item">
+              <img src="mani1.jpg" alt="Manipuri dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="manipuri-title">Manipuri</h3>
+                <p data-translate="manipuri-desc">
+                  Devotional dance from Manipur
+                </p>
+              </div>
             </div>
           </a>
-
-          <a href="mohiniyattam.html" class="dance-item">
-            <img src="K-Dance7.jpg" alt="Mohiniyattam dancer" />
-            <div class="dance-overlay">
-              <h3 data-translate="mohiniyattam-title">Mohiniyattam</h3>
-              <p data-translate="mohiniyattam-desc">
-                Enchanting dance from Kerala
-              </p>
+          <a href="mohiniyattam.html" class="dance-link">
+            <div class="dance-item">
+              <img src="K-Dance7.jpg" alt="Mohiniyattam dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="mohiniyattam-title">Mohiniyattam</h3>
+                <p data-translate="mohiniyattam-desc">
+                  Enchanting dance from Kerala
+                </p>
+              </div>
             </div>
           </a>
         </div>
