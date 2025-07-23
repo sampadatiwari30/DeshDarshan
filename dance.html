@@ -1,14 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dance culture</title>
+    <title>Dance Culture of India</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes ripple {
+            0% { box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 127, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 127, 80, 0); }
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .animate-ripple:hover {
+            animation: ripple 0.6s ease-out;
+        }
+
+        /* Dance Culture Section */
         .dance-culture {
             padding: 5rem 0;
-            background: linear-gradient(135deg, #f8f4ff, #fff0f5);
+            background: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease-in;
         }
 
         .dance-grid {
@@ -21,6 +86,7 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
+            background: #FFFFFF;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
@@ -33,6 +99,15 @@
             width: 100%;
             height: 350px;
             object-fit: cover;
+        }
+
+        .dance-item img.lazy {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .dance-item img.lazy.loaded {
+            opacity: 1;
         }
 
         .dance-overlay {
@@ -54,67 +129,385 @@
         .dance-overlay h3 {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
         .dance-overlay p {
             font-size: 0.9rem;
             opacity: 0.9;
+            color: #f0f0f0;
+        }
+
+        /* Audio Control */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .audio-control:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Tutorial Overlay */
+        .tutorial-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .tutorial-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tutorial-content {
+            background: #FFFFFF;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tutorial-content h3 {
+            font-size: 1.5rem;
+            color: #5E8B7E;
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .tutorial-btn {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .tutorial-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
+        }
+
+        .tutorial-btn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .tutorial-highlight {
+            position: relative;
+            z-index: 2001;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.4rem;
+                margin-bottom: 2rem;
+            }
+            .dance-item img {
+                height: 300px;
+            }
+            .dance-overlay {
+                padding: 1.5rem 1rem;
+            }
+            .dance-overlay h3 {
+                font-size: 1.2rem;
+            }
+            .dance-overlay p {
+                font-size: 0.85rem;
+            }
+            .tutorial-content {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .dance-item img {
+                height: 250px;
+            }
+            .audio-control {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-
 <body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="audio/indian-flute.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control animate-ripple" id="audioToggle" title="Toggle Background Music" aria-label="Toggle Background Music">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorialOverlay">
+        <div class="tutorial-content">
+            <h3 id="tutorialTitle">Welcome to Dance Culture</h3>
+            <p id="tutorialText">Discover the vibrant dance forms of India! Let's take a quick tour.</p>
+            <div class="tutorial-buttons">
+                <button class="tutorial-btn" id="nextTutorialStep" aria-label="Next Tutorial Step">Next</button>
+                <button class="tutorial-btn" id="skipTutorial" aria-label="Skip Tutorial">Skip</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Dance Culture Section -->
     <section class="dance-culture">
         <div class="container">
             <h2 class="section-title">Dance Culture of India</h2>
-            <div class="dance-grid">
-                <div class="dance-item">
-                    <img src="br2.jpg" alt="Bharatanatyam dancer">
-                    <div class="dance-overlay">
-                        <h3>Bharatanatyam</h3>
-                        <p>Classical dance from Tamil Nadu</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="kr1.jpg" alt="Kathak dancer">
-                    <div class="dance-overlay">
-                        <h3>Kathak</h3>
-                        <p>Storytelling dance from North India</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="od2.jpg" alt="Odissi dancer">
-                    <div class="dance-overlay">
-                        <h3>Odissi</h3>
-                        <p>Graceful dance from Odisha</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="ap3.jpg" alt="Kuchipudi dancer">
-                    <div class="dance-overlay">
-                        <h3>Kuchipudi</h3>
-                        <p>Dynamic dance from Andhra Pradesh</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="mani1.jpg" alt="Manipuri dancer">
-                    <div class="dance-overlay">
-                        <h3>Manipuri</h3>
-                        <p>Devotional dance from Manipur</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="K-Dance7.jpg" alt="Mohiniyattam dancer">
-                    <div class="dance-overlay">
-                        <h3>Mohiniyattam</h3>
-                        <p>Enchanting dance from Kerala</p>
-                    </div>
-                </div>
+            <div class="dance-grid" id="danceGrid">
+                <!-- Dance items will be dynamically generated here -->
             </div>
         </div>
     </section>
 
-</body>
+    <script>
+        // Dance data
+        const dances = [
+            { name: "Bharatanatyam", description: "Classical dance from Tamil Nadu", image: "images/Bharatanatyam.jpeg" },
+            { name: "Kathak", description: "Storytelling dance from North India", image: "images/dances/Kathak.jpeg" },
+            { name: "Odissi", description: "Graceful dance from Odisha", image: "images/dances/Odissi.jpeg" },
+            { name: "Kuchipudi", description: "Dynamic dance from Andhra Pradesh", image: "images/dances/Kuchipudi.jpeg" },
+            { name: "Manipuri", description: "Devotional dance from Manipur", image: "images/dances/Manipuri.jpeg" },
+            { name: "Mohiniyattam", description: "Enchanting dance from Kerala", image: "images/dances/Mohiniyattam.jpeg" }
+        ];
 
+        // DOM Elements
+        const danceGrid = document.getElementById('danceGrid');
+        const audioToggle = document.getElementById('audioToggle');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const tutorialOverlay = document.getElementById('tutorialOverlay');
+        const tutorialTitle = document.getElementById('tutorialTitle');
+        const tutorialText = document.getElementById('tutorialText');
+        const nextTutorialStep = document.getElementById('nextTutorialStep');
+        const skipTutorial = document.getElementById('skipTutorial');
+
+        // Tutorial Logic
+        let currentStep = 0;
+        const tutorialSteps = [
+            {
+                title: "Welcome to Dance Culture",
+                text: "Discover the vibrant dance forms of India! Let's take a quick tour.",
+                highlight: null
+            },
+            {
+                title: "Explore the Title",
+                text: "The section title introduces India's rich dance heritage.",
+                highlight: '.section-title'
+            },
+            {
+                title: "Dance Items",
+                text: "Hover over each card to learn about India's classical dance forms.",
+                highlight: '.dance-item:first-child'
+            },
+            {
+                title: "Audio Control",
+                text: "Toggle soothing background music to enhance your experience.",
+                highlight: '.audio-control'
+            }
+        ];
+
+        function startTutorial() {
+            if (localStorage.getItem('tutorialCompleted') === 'true') {
+                tutorialOverlay.classList.remove('active');
+                return;
+            }
+            tutorialOverlay.classList.add('active');
+            showTutorialStep(0);
+        }
+
+        function showTutorialStep(step) {
+            currentStep = step;
+            const stepData = tutorialSteps[step];
+            tutorialTitle.textContent = stepData.title;
+            tutorialText.textContent = stepData.text;
+
+            // Remove previous highlights
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+            });
+
+            // Add highlight to current element
+            if (stepData.highlight) {
+                const element = document.querySelector(stepData.highlight);
+                if (element) {
+                    element.classList.add('tutorial-highlight');
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            // Update button text
+            if (step === tutorialSteps.length - 1) {
+                nextTutorialStep.textContent = 'Done';
+            } else {
+                nextTutorialStep.textContent = 'Next';
+            }
+        }
+
+        nextTutorialStep.addEventListener('click', () => {
+            if (currentStep < tutorialSteps.length - 1) {
+                showTutorialStep(currentStep + 1);
+            } else {
+                tutorialOverlay.classList.remove('active');
+                localStorage.setItem('tutorialCompleted', 'true');
+                document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                    el.classList.remove('tutorial-highlight');
+                });
+            }
+        });
+
+        skipTutorial.addEventListener('click', () => {
+            tutorialOverlay.classList.remove('active');
+            localStorage.setItem('tutorialCompleted', 'true');
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+            });
+        });
+
+        // Create dance items
+        function createDanceItems() {
+            danceGrid.innerHTML = '';
+            dances.forEach((dance, index) => {
+                const item = document.createElement('div');
+                item.className = 'dance-item animate-scale-in';
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.innerHTML = `
+                    <img src="${dance.image}" alt="${dance.name} dancer" class="lazy" loading="lazy">
+                    <div class="dance-overlay">
+                        <h3>${dance.name}</h3>
+                        <p>${dance.description}</p>
+                    </div>
+                `;
+                danceGrid.appendChild(item);
+            });
+            setupLazyLoading();
+        }
+
+        // Lazy Loading Images
+        function setupLazyLoading() {
+            const lazyImages = document.querySelectorAll('img.lazy');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '0px 0px 200px 0px' });
+            lazyImages.forEach(img => observer.observe(img));
+        }
+
+        // Audio control functionality
+        function setupAudioControl() {
+            let isPlaying = false;
+            const playAudio = () => {
+                backgroundMusic.volume = 0.2;
+                backgroundMusic.play().then(() => {
+                    isPlaying = true;
+                    audioToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    audioToggle.title = 'Pause Music';
+                    audioToggle.setAttribute('aria-label', 'Pause Background Music');
+                }).catch(() => {
+                    isPlaying = false;
+                    audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    audioToggle.title = 'Play Music';
+                    audioToggle.setAttribute('aria-label', 'Play Background Music');
+                    document.addEventListener('click', playAudio, { once: true });
+                });
+            };
+
+            playAudio();
+            audioToggle.addEventListener('click', () => {
+                if (isPlaying) {
+                    backgroundMusic.pause();
+                    audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    audioToggle.title = 'Play Music';
+                    audioToggle.setAttribute('aria-label', 'Play Background Music');
+                    isPlaying = false;
+                } else {
+                    playAudio();
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && tutorialOverlay.classList.contains('active')) {
+                tutorialOverlay.classList.remove('active');
+                localStorage.setItem('tutorialCompleted', 'true');
+                document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                    el.classList.remove('tutorial-highlight');
+                });
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            createDanceItems();
+            setupAudioControl();
+            startTutorial();
+        });
+    </script>
+</body>
 </html>
