@@ -1,39 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festivals</title>
+    <title>DeshDarshan - Festivals and Culture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #FFFFFF;
+            color: #5E8B7E;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 127, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 127, 80, 0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-slide-in {
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .animate-ripple:hover {
+            animation: ripple 0.6s ease-out;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background: #FFFFFF;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #5E8B7E;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #5E8B7E;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #FF7F50;
+        }
+
+        .nav-menu a:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #5E8B7E;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Language Dropdown */
+        .language-dropdown {
+            position: relative;
+        }
+
+        .language-btn {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
+        }
+
+        .language-btn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .language-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #D3D3D3;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #5E8B7E;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+        }
+
+        .language-option:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .language-option:first-child {
+            border-radius: 15px 15px 0 0;
+        }
+
+        .language-option:last-child {
+            border-radius: 0 0 15px 15px;
+            border-bottom: none;
+        }
+
+        /* Mobile and iPad Menu */
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: #FFFFFF;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .language-dropdown {
+                margin-top: 1rem;
+            }
+        }
+
+        /* Festivals Section */
         .festivals-culture {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #fff5f5, #f0f8ff);
+            padding: 6rem 0;
+            margin-top: 80px;
+            background: #FFFFFF;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #5E8B7E;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section-title.show {
+            opacity: 1;
+            transform: translateY(0);
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #E6B800;
+            border-radius: 2px;
+        }
+
+        .search-bar {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 0.8rem 1.2rem;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #D3D3D3;
+            border-radius: 25px;
+            font-size: 1rem;
+            color: #5E8B7E;
+            background: #FFFFFF;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #E6B800;
+            box-shadow: 0 0 8px rgba(230, 184, 0, 0.3);
         }
 
         .culture-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .culture-item {
-            background: white;
+            background: #FFFFFF;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .culture-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            cursor: pointer;
         }
 
         .culture-item img {
             width: 100%;
             height: 250px;
             object-fit: cover;
+            display: block;
+        }
+
+        .culture-item img.lazy {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .culture-item img.lazy.loaded {
+            opacity: 1;
         }
 
         .culture-caption {
@@ -43,74 +348,502 @@
         .culture-caption h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: #ff9933;
+            color: white;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            padding: 0.5rem;
+            border-radius: 5px;
         }
 
         .culture-caption p {
             color: #666;
             line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
         }
 
-        button,
-        a,
-        .culture-item,
-        .food-item,
-        .dance-item {
-            transition: all 0.3s ease-in-out;
+        .culture-item:hover .culture-caption p {
+            max-height: 100px;
+        }
+
+        /* Tutorial Overlay */
+        .tutorial-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .tutorial-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tutorial-content {
+            background: #FFFFFF;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tutorial-content h3 {
+            font-size: 1.5rem;
+            color: #5E8B7E;
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .tutorial-btn {
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .tutorial-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
+        }
+
+        .tutorial-btn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        .tutorial-highlight {
+            position: relative;
+            z-index: 2001;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #FFFFFF;
+            color: #5E8B7E;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #5E8B7E;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FF7F50;
+        }
+
+        /* Scroll Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            height: 2rem;
+            width: 2rem;
+            bottom: 5.625rem;
+            right: 1.875rem;
+            z-index: 100;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #FFA07A, #E6B800);
+            color: white;
+            border: none;
+            padding: 0;
+            border-radius: 10%;
+            cursor: pointer;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #scrollTopBtn.show {
+            display: flex;
+        }
+
+        #scrollTopBtn:hover {
+            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
+            transform: scale(1.1);
+        }
+
+        #scrollTopBtn:focus {
+            outline: 3px solid #E6B800;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .culture-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .culture-item img {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-title.show {
+                font-size: 2.2rem;
+            }
+
+            .culture-item img {
+                height: 200px;
+            }
+
+            #scrollTopBtn {
+                bottom: 6.8rem;
+                right: 1rem;
+            }
+
+            .tutorial-content {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
-
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>DeshDarshan</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="aboutus.html" class="nav-link" aria-label="About Us">About Us</a></li>
+                <li><a href="explore.html" class="nav-link" aria-label="Explore India">Explore India</a></li>
+                <li><a href="feedback.html" class="nav-link" aria-label="Feedback">Feedback</a></li>
+                <li><a href="contactus.html" class="nav-link" aria-label="Contact Us">Contact Us</a></li>
+                <li class="language-dropdown">
+                    <button class="language-btn" aria-label="Select Language">Language <i class="fas fa-globe"></i></button>
+                    <div class="language-menu">
+                        <div class="language-option" data-lang="en">English</div>
+                        <div class="language-option" data-lang="hi">हिंदी</div>
+                        <div class="language-option" data-lang="gu">ગુજરાતી</div>
+                        <div class="language-option" data-lang="ta">தமிழ்</div>
+                        <div class="language-option" data-lang="te">తెలుగు</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorialOverlay">
+        <div class="tutorial-content">
+            <h3 id="tutorialTitle">Welcome to Festivals & Culture</h3>
+            <p id="tutorialText">Explore India's vibrant festivals! Let's take a quick tour.</p>
+            <div class="tutorial-buttons">
+                <button class="tutorial-btn" id="nextTutorialStep" aria-label="Next Tutorial Step">Next</button>
+                <button class="tutorial-btn" id="skipTutorial" aria-label="Skip Tutorial">Skip</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Festivals Section -->
     <section class="festivals-culture">
         <div class="container">
             <h2 class="section-title">Festivals and Culture of India</h2>
-            <div class="culture-grid">
-                <div class="culture-item">
-                    <img src="67.jpg" alt="Diwali celebration">
+            <div class="search-bar">
+                <input type="text" id="festivalSearch" placeholder="Search for a festival..." aria-label="Search for a festival">
+            </div>
+            <div class="culture-grid" id="cardsContainer">
+                <div class="culture-item row" data-festival="Diwali">
+                    <img src="images/67.jpg" alt="Diwali celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Diwali</h3>
-                        <p>Festival of lights celebrating the victory of light over darkness</p>
+                        <p>Festival of lights celebrating the victory of light over darkness.</p>
                     </div>
                 </div>
-                <div class="culture-item">
-                    <img src="christmas.jpeg" alt="Holi colors">
+                <div class="culture-item row" data-festival="Christmas">
+                    <img src="images/christmas.jpeg" alt="Christmas celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Christmas</h3>
-                        <p>Celebrating peace, love, and the magic of winter</p>
+                        <p>Celebrating peace, love, and the magic of winter.</p>
                     </div>
                 </div>
-                <div class="culture-item">
-                    <img src="durga puja.jpeg" alt="Durga Puja">
+                <div class="culture-item row" data-festival="Durga Puja">
+                    <img src="images/durga puja.jpeg" alt="Durga Puja celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Durga Puja</h3>
-                        <p>Grand celebration honoring the divine feminine power</p>
+                        <p>Grand celebration honoring the divine feminine power.</p>
                     </div>
                 </div>
-                <div class="culture-item">
-                    <img src="pongal.jpg" alt="Ganesh Chaturthi">
+                <div class="culture-item row" data-festival="Pongal">
+                    <img src="images/pongal.jpg" alt="Pongal celebration" class="lazy">
                     <div class="culture-caption">
-                        <h3>pongal</h3>
-                        <p>Joyous festival celebrating Lord Ganesha, the remover of obstacles</p>
+                        <h3>Pongal</h3>
+                        <p>Harvest festival celebrating abundance and gratitude in South India.</p>
                     </div>
                 </div>
-                <div class="culture-item">
-                    <img src="77.jpg" alt="Eid celebration">
+                <div class="culture-item row" data-festival="Eid">
+                    <img src="images/77.jpg" alt="Eid celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Eid</h3>
-                        <p>Sacred festival marking the end of Ramadan with joy and unity</p>
+                        <p>Sacred festival marking the end of Ramadan with joy and unity.</p>
                     </div>
                 </div>
-                <div class="culture-item">
-                    <img src="baisakhi.jpeg" alt="baisakhi">
+                <div class="culture-item row" data-festival="Baisakhi">
+                    <img src="images/baisakhi.jpeg" alt="Baisakhi celebration" class="lazy">
                     <div class="culture-caption">
                         <h3>Baisakhi</h3>
-                        <p>Where fields bloom and hearts rejoice</p>
+                        <p>Punjabi festival celebrating harvest and community spirit.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-</body>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Privacy Policy | All Rights Reserved | Made by Sampada Tiwari ❤</p>
+            <div>
+                <a href="aboutus.html" aria-label="About Us">About Us</a>
+                <a href="contactus.html" aria-label="Contact Us">Contact Us</a>
+                <a href="feedback.html" aria-label="Feedback">Feedback</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button id="scrollTopBtn" title="Go to top" aria-label="Scroll to Top">⬆</button>
+
+    <!-- Scripts -->
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.querySelectorAll('span').forEach(span => {
+                span.classList.toggle('active');
+            });
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelectorAll('span').forEach(span => {
+                    span.classList.remove('active');
+                });
+            });
+        });
+
+        // Language Dropdown
+        const languageBtn = document.querySelector('.language-btn');
+        const languageMenu = document.querySelector('.language-menu');
+        const languageDropdown = document.querySelector('.language-dropdown');
+
+        languageBtn.addEventListener('click', () => {
+            languageMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!languageDropdown.contains(e.target)) {
+                languageMenu.classList.remove('active');
+            }
+        });
+
+        // Language Toggle (Placeholder)
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.dataset.lang;
+                console.log(`Language selected: ${lang}`);
+                languageMenu.classList.remove('active');
+            });
+        });
+
+        // Search Bar Filter
+        const searchInput = document.getElementById('festivalSearch');
+        const cultureItems = document.querySelectorAll('.culture-item');
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            cultureItems.forEach(item => {
+                const festivalName = item.dataset.festival.toLowerCase();
+                if (festivalName.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    item.classList.add('animate-scale-in');
+                    item.style.transform = 'none';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Lazy Loading Images
+        const lazyImages = document.querySelectorAll('img.lazy');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: '0px 0px 100px 0px' });
+
+        lazyImages.forEach(img => {
+            observer.observe(img);
+        });
+
+        // Scroll Animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.culture-item, .section-title');
+            elements.forEach((el, index) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.8) {
+                    el.classList.add('animate-scale-in');
+                    if (el.classList.contains('section-title')) {
+                        el.classList.add('show');
+                    }
+                    el.style.animationDelay = `${index * 0.1}s`;
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Tutorial Functionality
+        const tutorialOverlay = document.getElementById('tutorialOverlay');
+        const tutorialTitle = document.getElementById('tutorialTitle');
+        const tutorialText = document.getElementById('tutorialText');
+        const nextTutorialStep = document.getElementById('nextTutorialStep');
+        const skipTutorial = document.getElementById('skipTutorial');
+
+        const tutorialSteps = [
+            {
+                title: 'Welcome to Festivals & Culture',
+                text: 'Explore India\'s vibrant festivals! Let\'s take a quick tour.',
+                highlight: null
+            },
+            {
+                title: 'Navigation Bar',
+                text: 'Use the header to navigate to other sections or change the language.',
+                highlight: '.navbar'
+            },
+            {
+                title: 'Search Festivals',
+                text: 'Type in the search bar to find your favorite festivals quickly.',
+                highlight: '.search-bar'
+            },
+            {
+                title: 'Festival Cards',
+                text: 'Hover over cards to learn about each festival\'s significance.',
+                highlight: '.culture-item:first-child'
+            }
+        ];
+
+        let currentStep = 0;
+
+        function showTutorialStep(step) {
+            tutorialTitle.textContent = tutorialSteps[step].title;
+            tutorialText.textContent = tutorialSteps[step].text;
+
+            // Remove previous highlight
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+            });
+
+            // Add highlight to current element
+            if (tutorialSteps[step].highlight) {
+                const element = document.querySelector(tutorialSteps[step].highlight);
+                if (element) {
+                    element.classList.add('tutorial-highlight');
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            if (step === tutorialSteps.length - 1) {
+                nextTutorialStep.textContent = 'Finish';
+            } else {
+                nextTutorialStep.textContent = 'Next';
+            }
+        }
+
+        function closeTutorial() {
+            tutorialOverlay.classList.remove('active');
+            document.querySelectorAll('.tutorial-highlight').forEach(el => {
+                el.classList.remove('tutorial-highlight');
+            });
+            localStorage.setItem('tutorialSkipped', 'true');
+        }
+
+        if (!localStorage.getItem('tutorialSkipped')) {
+            tutorialOverlay.classList.add('active');
+            showTutorialStep(currentStep);
+        }
+
+        nextTutorialStep.addEventListener('click', () => {
+            currentStep++;
+            if (currentStep < tutorialSteps.length) {
+                showTutorialStep(currentStep);
+            } else {
+                closeTutorial();
+            }
+        });
+
+        skipTutorial.addEventListener('click', closeTutorial);
+    </script>
+</body>
 </html>
