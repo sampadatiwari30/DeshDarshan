@@ -102,15 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(0);
 });
 
-// Scroll-to-Top Button Logic
+// Scroll-top button
+
 window.onscroll = function () {
   const btn = document.getElementById("scrollTopBtn");
   if (!btn) return;
 
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    btn.style.display = "block";
+  if (window.scrollY > 300) {
+    btn.classList.add("show");
   } else {
-    btn.style.display = "none";
+    btn.classList.remove("show");
   }
 };
 
@@ -122,3 +123,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

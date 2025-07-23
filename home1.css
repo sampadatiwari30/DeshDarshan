@@ -227,20 +227,29 @@ body {
     text-align: center;
     color: white;
     z-index: 2;
+    padding: 20px;
 }
 
+
 .slide-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    animation: fadeInUp 1s ease-out;
+    font-size: 60px;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7),
+        2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .slide-content p {
-    font-size: 1.3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-    animation: fadeInUp 1s ease-out 0.3s both;
+    font-size: 24px;
+    color: white;
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7),
+        2px 2px 6px rgba(0, 0, 0, 0.8);
 }
+
 
 .slide-indicators {
     position: absolute;
@@ -479,11 +488,11 @@ body {
     }
     
     .slide-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
     .slide-content p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
     
     .section-title {
@@ -523,28 +532,41 @@ body {
 
 #scrollTopBtn {
   position: fixed;
-  display: flex;
-  align-items: center; /* Added for vertical centering */
+  align-items: center;
   justify-content: center;
-  padding: 0%;
   height: 2rem;
   width: 2rem;
-  bottom: 5.625rem; /* 90px converted to rem (90/16) */
-  right: 1.875rem; /* 30px converted to rem (30/16) */
+  bottom: 5.625rem;
+  right: 1.875rem;
   z-index: 100;
-  font-size: 1.25rem; /* 20px converted to rem */
+  font-size: 1.25rem;
   background: linear-gradient(135deg, #ff9933, #ffb366);
   color: white;
   border: none;
-  padding: 0; /* Changed from 10px 14px to 0 since we're using flex centering */
+  padding: 0;
   border-radius: 10%;
   cursor: pointer;
-  display: none;
+  display: none; /* default hidden */
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, transform 0.3s;
 }
 
+/* This class makes it visible and keeps flex */
+#scrollTopBtn.show {
+  display: flex;
+}
+
 #scrollTopBtn:hover {
-  background: linear-gradient(135deg, #e86800, #ff9933); /* Updated to match gradient pattern */
+  background: linear-gradient(135deg, #e86800, #ff9933);
   transform: scale(1.1);
 }
+
+
+/* Small screens (phones) */
+@media screen and (max-width: 500px) {
+  #scrollTopBtn {
+    bottom: 6.8rem;   /* Raised slightly above footer for phones */
+    right: 1rem;
+  }
+}
+

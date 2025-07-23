@@ -672,19 +672,35 @@
 
         function validatePassword() {
             const value = password.value;
-            const isValid = value.length >= 6;
-            
-            updateFieldValidation('password', isValid, 
-                isValid ? '' : 'Password must be at least 6 characters long');
-            
-            // Re-validate confirm password if it has a value
-            if (confirmPassword.value) {
-                validateConfirmPassword();
-            }
-            
-            return isValid;
-        }
+            let isValid = true;
+            let errorMessage = '';
 
+            if (value.length < 8) {
+            isValid = false;
+            errorMessage = 'Password must be at least 8 characters long';
+            } else if (!/[A-Z]/.test(value)) {
+            isValid = false;
+            errorMessage = 'Password must have at least one uppercase letter';
+            } else if (!/[a-z]/.test(value)) {
+            isValid = false;
+            errorMessage = 'Password must have at least one lowercase letter';
+            } else if (!/[0-9]/.test(value)) {
+            isValid = false;
+            errorMessage = 'Password must have at least one number';
+            } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
+            isValid = false;
+            errorMessage = 'Password must have at least one special character';
+            }
+
+    updateFieldValidation('password', isValid, errorMessage);
+
+    // Re-validate confirm password if it has a value
+    if (confirmPassword.value) {
+        validateConfirmPassword();
+    }
+
+    return isValid;
+}
         function validateConfirmPassword() {
             const value = confirmPassword.value;
             const isValid = value === password.value && value.length > 0;

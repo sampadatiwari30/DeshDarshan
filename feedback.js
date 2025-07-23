@@ -169,3 +169,65 @@
                 }, 100);
             });
         });
+
+// Translation logic
+const translations = {
+    hi: {
+        header: 'देश दर्शन',
+        'nav-about': 'हमारे बारे में',
+        'nav-explore': 'भारत का अन्वेषण करें',
+        'nav-feedback': 'प्रतिक्रिया',
+        'nav-contact': 'संपर्क करें',
+        'nav-login': 'लॉगिन',
+        'nav-signup': 'साइनअप',
+        'footer': 'गोपनीयता नीति | सर्वाधिकार सुरक्षित | संपदा तिवारी द्वारा निर्मित ❤',
+        // Add more keys as needed for your page
+        'feedback-title': 'अपनी प्रतिक्रिया साझा करें',
+        'feedback-desc': 'हमें बताएं कि आपको हमारा प्लेटफार्म कैसा लगा!',
+        'name-label': 'नाम',
+        'email-label': 'ईमेल',
+        'phone-label': 'फ़ोन',
+        'message-label': 'संदेश',
+        'submit-btn': 'सबमिट',
+        'rating-label': 'रेटिंग',
+        'popup-success': 'धन्यवाद! आपकी प्रतिक्रिया सफलतापूर्वक सबमिट हो गई है।'
+    },
+    en: {
+        header: 'Desh Darshan',
+        'nav-about': 'About Us',
+        'nav-explore': 'Explore India',
+        'nav-feedback': 'Feedback',
+        'nav-contact': 'Contact Us',
+        'nav-login': 'Login',
+        'nav-signup': 'Signup',
+        'footer': 'Privacy Policy | All Rights Reserved | Made by Sampada Tiwari ❤',
+        // Add more keys as needed for your page
+        'feedback-title': 'Share Your Feedback',
+        'feedback-desc': 'Let us know how you liked our platform!',
+        'name-label': 'Name',
+        'email-label': 'Email',
+        'phone-label': 'Phone',
+        'message-label': 'Message',
+        'submit-btn': 'Submit',
+        'rating-label': 'Rating',
+        'popup-success': 'Thank you! Your feedback has been submitted successfully.'
+    }
+};
+
+function setLanguage(lang) {
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+}
+
+const translateBtn = document.getElementById('translate-btn');
+if (translateBtn) {
+    let currentLang = 'en';
+    translateBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'hi' : 'en';
+        setLanguage(currentLang);
+    });
+}
