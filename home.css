@@ -969,3 +969,29 @@ backdrop-filter: blur(8px) brightness(80%);
     }
     
 }
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+#backToTopBtn:hover {
+  background-color: transparent;
+}
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    font-size: 50px;
+    padding: 8px 10px;
+    bottom: 60px;
+    right:5px;
+  }
+}

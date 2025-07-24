@@ -35,7 +35,32 @@
           transform: translateY(-20px) rotate(10deg);
         }
       }
-
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 40px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+#backToTopBtn:hover {
+  background-color: transparent;
+}
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    font-size: 50px;
+    padding: 8px 10px;
+    bottom: 60px;
+    right:5px;
+  }
+}
       .hover-scale {
         transition: transform 0.3s ease;
       }
@@ -121,7 +146,8 @@
       }
     </style>
   </head>
-  <body class="bg-[#fffaf3] text-gray-800 relative overflow-hidden">
+  <body 
+  class="bg-[#fffaf3] text-gray-800 relative overflow-hidden">
     <!-- ✨ FLOATING EMOJIS -->
     <span class="floating-emoji" style="top: 5%; left: 8%">💃</span>
     <span class="floating-emoji" style="top: 15%; right: 12%">🪘</span>
@@ -343,8 +369,27 @@
         </div>
       </div>
     </section>
-
+<button id="backToTopBtn" title="Go to top">🔝</button>
     <script>
+      // Show/hide Back to Top button on scroll
+window.onscroll = function () {
+  const btn = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+// Scroll to top when the button is clicked
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("backToTopBtn");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
       const quizData = [
         {
           question: "What does the word 'Kathak' originally mean?",

@@ -557,7 +557,35 @@ body {
     right: 1rem;
   }
 }
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
 
+  #backToTopBtn:hover {
+    background-color: transparent;
+    transform: translateY(-5px);
+  }
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    font-size: 50px;
+    padding: 8px 10px;
+    bottom: 60px;
+    right:5px;
+  }
+}
 
 
 

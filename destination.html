@@ -9,6 +9,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
+        #backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom:90px;
+  right: 30px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+#backToTopBtn:hover {
+  background-color: transparent;
+}
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    font-size: 50px;
+    padding: 8px 10px;
+    bottom: 60px;
+    right:5px;
+  }
+}
         /* Base Styling */
         * {
             margin: 0;
@@ -350,7 +376,8 @@
     </style>
 </head>
 <body>
-            <nav class="navbar navbar-expand-lg navbar-dark fixed-top "style="background-color:black">
+    <button id="backToTopBtn" title="Go to top">🔝</button>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
   <div class="container-fluid">
     <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -436,6 +463,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Show button on scroll
+  window.onscroll = function () {
+    const btn = document.getElementById("backToTopBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll to top on click
+  document.getElementById("backToTopBtn").addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
         // Complete data for all 36 destinations (28 States + 8 UTs) in alphabetical order
         const destinations = [
             // States (28)

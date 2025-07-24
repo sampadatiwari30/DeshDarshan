@@ -215,3 +215,18 @@ ctaButton.addEventListener("click", function() {
         block: "start"
     });
 });
+  // Show button on scroll
+  window.onscroll = function () {
+    const btn = document.getElementById("backToTopBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll to top on click
+  document.getElementById("backToTopBtn").addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
