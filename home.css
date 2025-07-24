@@ -427,6 +427,33 @@ button, a, .culture-item, .food-item, .dance-item {
     opacity: 0.9;
 }
 
+/* Comments Section */
+.comments-section {
+  margin-top: 16px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+}
+.comments-list {
+  margin-bottom: 10px;
+}
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.comment-form button {
+  padding: 6px 16px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /* Footer */
 .footer {
     background: #333;

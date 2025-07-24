@@ -101,3 +101,40 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '0';
     showSlide(0);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.comments-section').forEach((section, idx) => {
+    const list = section.querySelector('.comments-list');
+    const form = section.querySelector('.comment-form');
+    const nameInput = form.querySelector('.comment-name');
+    const textInput = form.querySelector('.comment-text');
+    const storageKey = 'comments-' + idx;
+
+    // Load comments from localStorage
+    function loadComments() {
+      list.innerHTML = '';
+      const comments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.innerHTML = `<strong>${comment.name}</strong>: ${comment.text}`;
+        list.appendChild(div);
+      });
+    }
+
+    // Handle form submit
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = nameInput.value.trim();
+      const text = textInput.value.trim();
+      if (!name || !text) return;
+      const comments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      comments.push({ name, text });
+      localStorage.setItem(storageKey, JSON.stringify(comments));
+      nameInput.value = '';
+      textInput.value = '';
+      loadComments();
+    });
+
+    loadComments();
+  });
+});
