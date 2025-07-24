@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore India</title>
+    <link rel="icon" href="data:,"> <!-- this line silences the favicon 404 -->
     <style>
         * {
             margin: 0;
@@ -388,10 +389,20 @@
         .card:nth-child(3) { animation-delay: 0.3s; }
         .card:nth-child(4) { animation-delay: 0.4s; }
         .card:nth-child(n+5) { animation-delay: 0.5s; }
+
+        #audioToggle {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+        
     </style>
 </head>
 <body>
     <!-- Background Audio -->
+     <!-- mic icon -->
+     <span id="audioToggle" onclick="toggleAudio()" title="Toggle Sound">🔊</span>
     <audio id="bgAudio" loop>
         <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
         <!-- Fallback silent audio -->
@@ -828,6 +839,22 @@
                 hideModal();
             }
         });
+
+//background-audio and icon toggle feature
+        const audio = document.getElementById('bgAudio');
+    const toggleIcon = document.getElementById('audioToggle');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        toggleIcon.textContent = "🔇"; // show mute icon
+      } else {
+        audio.play();
+        toggleIcon.textContent = "🔊"; // show speaker icon
+      }
+      isPlaying = !isPlaying;
+    }
     </script>
 </body>
 </html>

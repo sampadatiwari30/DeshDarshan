@@ -336,10 +336,53 @@
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
+        }         
+        .navbarhover:hover {
+            color: rgb(241, 150, 14)
         }
+        .page-title-loading{
+            text-align: center;
+            color: orange;
+            text-shadow: 0 0 3px  rgb(194, 161, 101);
+            padding-top: 16px;
+        }
+        
     </style>
 </head>
 <body>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top "style="background-color:black">
+  <div class="container-fluid">
+    <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link  navbarhover" aria-current="page" href="about us.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  navbarhover" href="crazyfacts.html">Crazy Facts </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  navbarhover" href="exploreindia.html">Explore India </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  navbarhover" href="destination.html">Hidden Destinations </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link  navbarhover" href="contactus.html">Contact Us</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link  navbarhover" href="feedback.html">Feedback</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br><br>
     <!-- Background Music -->
     <audio id="backgroundMusic" loop>
         
@@ -353,7 +396,7 @@
     </button>
 
     <!-- Page Title -->
-    <h1 class="page-title loading">Hidden Destinations in India</h1>
+    <h1 class="page-title-loading">Hidden Destinations in India</h1>
 
     <!-- Cards Section -->
     <div class="container-fluid cards-section">
@@ -389,6 +432,7 @@
     </div>
 
     <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -429,6 +473,7 @@
                 name: "Gujarat",
                 tagline: "Jewel of Western India",
                 image: "https://images.unsplash.com/photo-1620103143245-9efb3e4a7553?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3VqYXJhdCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D"
+              
             },
             {
                 name: "Haryana",
@@ -448,6 +493,7 @@
             {
                 name: "Karnataka",
                 tagline: "One State, Many Worlds",
+
                 image: "https://plus.unsplash.com/premium_photo-1697730337612-8bd916249e30?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FybmF0YWthfGVufDB8fDB8fHww"
             },
             {
