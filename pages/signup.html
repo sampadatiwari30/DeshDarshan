@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeshDarshan - Sign Up</title>
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -22,21 +25,20 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: 
+            background:
                 radial-gradient(ellipse at top left, rgba(160, 82, 45, 0.3) 0%, transparent 50%),
                 radial-gradient(ellipse at top right, rgba(139, 69, 19, 0.25) 0%, transparent 50%),
                 radial-gradient(ellipse at bottom left, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
                 radial-gradient(ellipse at bottom right, rgba(205, 133, 63, 0.3) 0%, transparent 50%),
-                linear-gradient(135deg, 
-                    #8B4513 0%, 
-                    #A0522D 15%, 
+                linear-gradient(135deg,
+                    #8B4513 0%,
+                    #A0522D 15%,
                     #CD853F 30%,
                     #D2B48C 45%,
                     #DEB887 60%,
                     #F5DEB3 75%,
                     #F5E6D3 90%,
-                    #FDF5E6 100%
-                );
+                    #FDF5E6 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -45,7 +47,7 @@
             overflow-x: hidden;
             padding: 1rem;
         }
-        
+
         /* Enhanced Monument Background with multiple Indian architectural elements */
         body::before {
             content: '';
@@ -62,7 +64,7 @@
             z-index: -2;
             opacity: 0.7;
         }
-        
+
         /* Enhanced texture overlay with earthy tones */
         body::after {
             content: '';
@@ -71,22 +73,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 15% 85%, rgba(160, 82, 45, 0.08) 0%, transparent 60%),
                 radial-gradient(circle at 85% 15%, rgba(139, 69, 19, 0.06) 0%, transparent 60%),
                 radial-gradient(circle at 45% 45%, rgba(205, 133, 63, 0.04) 0%, transparent 50%),
                 radial-gradient(circle at 75% 75%, rgba(222, 184, 135, 0.05) 0%, transparent 55%),
                 radial-gradient(circle at 25% 25%, rgba(245, 222, 179, 0.03) 0%, transparent 45%),
-                linear-gradient(45deg, 
-                    rgba(139, 69, 19, 0.02) 0%, 
-                    transparent 25%, 
-                    rgba(160, 82, 45, 0.02) 50%, 
-                    transparent 75%, 
-                    rgba(205, 133, 63, 0.02) 100%
-                );
+                linear-gradient(45deg,
+                    rgba(139, 69, 19, 0.02) 0%,
+                    transparent 25%,
+                    rgba(160, 82, 45, 0.02) 50%,
+                    transparent 75%,
+                    rgba(205, 133, 63, 0.02) 100%);
             z-index: -1;
         }
-        
+
         .container {
             width: 100%;
             max-width: 500px;
@@ -99,7 +100,7 @@
             backdrop-filter: blur(25px);
             padding: 3rem 2.5rem;
             border-radius: 20px;
-            box-shadow: 
+            box-shadow:
                 0 25px 50px rgba(139, 69, 19, 0.25),
                 0 15px 35px rgba(160, 82, 45, 0.15),
                 0 5px 15px rgba(205, 133, 63, 0.1),
@@ -116,6 +117,7 @@
                 opacity: 0;
                 transform: translateY(40px) scale(0.9);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -132,7 +134,7 @@
             background: linear-gradient(90deg, #8B4513, #A0522D, #CD853F, #DEB887, #F5DEB3);
         }
 
-        .brand-header {	
+        .brand-header {
             text-align: center;
             margin-bottom: 2.5rem;
             position: relative;
@@ -200,7 +202,8 @@
             letter-spacing: 0.3px;
         }
 
-        .form-input, .form-select {
+        .form-input,
+        .form-select {
             width: 100%;
             padding: 1.1rem 1.3rem;
             border: 2px solid rgba(160, 82, 45, 0.3);
@@ -213,11 +216,12 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .form-input:focus, .form-select:focus {
+        .form-input:focus,
+        .form-select:focus {
             outline: none;
             border-color: #A0522D;
             background-color: white;
-            box-shadow: 
+            box-shadow:
                 0 0 0 4px rgba(160, 82, 45, 0.15),
                 0 4px 12px rgba(139, 69, 19, 0.2);
             transform: translateY(-1px);
@@ -321,7 +325,7 @@
             margin-bottom: 1.5rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            box-shadow: 
+            box-shadow:
                 0 8px 20px rgba(139, 69, 19, 0.3),
                 0 4px 10px rgba(160, 82, 45, 0.2);
             position: relative;
@@ -342,7 +346,7 @@
 
         .signup-button:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px rgba(139, 69, 19, 0.4),
                 0 8px 15px rgba(160, 82, 45, 0.3);
             background: linear-gradient(135deg, #A0522D 0%, #8B4513 30%, #CD853F 70%, #654321 100%);
@@ -406,7 +410,8 @@
                 font-size: 1.6rem;
             }
 
-            .form-input, .form-select {
+            .form-input,
+            .form-select {
                 padding: 1rem 1.1rem;
             }
 
@@ -422,6 +427,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- ===== MAIN CONTAINER ===== -->
     <div class="container">
@@ -440,7 +446,8 @@
                 <!-- Full Name Field -->
                 <div class="form-group">
                     <label class="form-label" for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+                    <input type="text" id="fullName" name="fullName" class="form-input"
+                        placeholder="Enter your full name" required>
                     <span class="validation-status" id="fullNameStatus"></span>
                     <div class="error-text" id="fullNameError"></div>
                 </div>
@@ -448,7 +455,8 @@
                 <!-- Email Field -->
                 <div class="form-group">
                     <label class="form-label" for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                    <input type="email" id="email" name="email" class="form-input"
+                        placeholder="Enter your email address" required>
                     <span class="validation-status" id="emailStatus"></span>
                     <div class="error-text" id="emailError"></div>
                 </div>
@@ -456,7 +464,8 @@
                 <!-- Phone Number Field -->
                 <div class="form-group">
                     <label class="form-label" for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number" pattern="[6-9][0-9]{9}" required>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number"
+                        pattern="[6-9][0-9]{9}" required>
                     <span class="validation-status" id="phoneStatus"></span>
                     <div class="error-text" id="phoneError"></div>
                 </div>
@@ -464,7 +473,8 @@
                 <!-- Password Field -->
                 <div class="form-group">
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-input" placeholder="Create a password" required>
+                    <input type="password" id="password" name="password" class="form-input"
+                        placeholder="Create a password" required>
                     <span class="validation-status" id="passwordStatus"></span>
                     <div class="error-text" id="passwordError"></div>
                 </div>
@@ -472,7 +482,8 @@
                 <!-- Confirm Password Field -->
                 <div class="form-group">
                     <label class="form-label" for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
+                        placeholder="Confirm your password" required>
                     <span class="validation-status" id="confirmPasswordStatus"></span>
                     <div class="error-text" id="confirmPasswordError"></div>
                 </div>
@@ -559,7 +570,7 @@
         // Get form elements
         const form = document.getElementById('signupForm');
         const submitBtn = document.getElementById('submitBtn');
-        
+
         // Get all input fields
         const fullName = document.getElementById('fullName');
         const email = document.getElementById('email');
@@ -584,10 +595,10 @@
         function validateFullName() {
             const value = fullName.value.trim();
             const isValid = value.length >= 2 && /^[a-zA-Z\s]+$/.test(value);
-            
-            updateFieldValidation('fullName', isValid, 
+
+            updateFieldValidation('fullName', isValid,
                 isValid ? '' : 'Please enter your full name (minimum 2 characters, letters only)');
-            
+
             return isValid;
         }
 
@@ -595,10 +606,10 @@
             const value = email.value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const isValid = emailRegex.test(value);
-            
-            updateFieldValidation('email', isValid, 
+
+            updateFieldValidation('email', isValid,
                 isValid ? '' : 'Please enter a valid email address');
-            
+
             return isValid;
         }
 
@@ -606,10 +617,10 @@
             const value = phone.value.trim();
             const phoneRegex = /^[6-9][0-9]{9}$/;
             const isValid = phoneRegex.test(value);
-            
-            updateFieldValidation('phone', isValid, 
+
+            updateFieldValidation('phone', isValid,
                 isValid ? '' : 'Please enter a valid 10-digit Indian mobile number');
-            
+
             return isValid;
         }
 
@@ -621,72 +632,72 @@
             const hasLower = /[a-z]/.test(value);
             const hasNumber = /\d/.test(value);
             const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
-            
+
             const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
-            
+
             let errorMsg = '';
             if (!isValid) {
                 errorMsg = 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character';
             }
-            
+
             updateFieldValidation('password', isValid, errorMsg);
-            
+
             // Also validate confirm password when password changes
             if (confirmPassword.value) {
                 validateConfirmPassword();
             }
-            
+
             return isValid;
         }
 
-            let isValid = true;
-            let errorMessage = '';
+        let isValid = true;
+        let errorMessage = '';
 
 
-            if (value.length < 8) {
+        if (value.length < 8) {
             isValid = false;
             errorMessage = 'Password must be at least 8 characters long';
-            } else if (!/[A-Z]/.test(value)) {
+        } else if (!/[A-Z]/.test(value)) {
             isValid = false;
             errorMessage = 'Password must have at least one uppercase letter';
-            } else if (!/[a-z]/.test(value)) {
+        } else if (!/[a-z]/.test(value)) {
             isValid = false;
             errorMessage = 'Password must have at least one lowercase letter';
-            } else if (!/[0-9]/.test(value)) {
+        } else if (!/[0-9]/.test(value)) {
             isValid = false;
             errorMessage = 'Password must have at least one number';
-            } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
+        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
             isValid = false;
             errorMessage = 'Password must have at least one special character';
-            }
+        }
 
-    updateFieldValidation('password', isValid, errorMessage);
+        updateFieldValidation('password', isValid, errorMessage);
 
-    // Re-validate confirm password if it has a value
-    if (confirmPassword.value) {
-        validateConfirmPassword();
-    }
+        // Re-validate confirm password if it has a value
+        if (confirmPassword.value) {
+            validateConfirmPassword();
+        }
 
-    return isValid;
-    
+        return isValid;
+
 
 
         function validateConfirmPassword() {
             const value = confirmPassword.value;
             const isValid = value === password.value && value.length > 0;
-            
-            updateFieldValidation('confirmPassword', isValid, 
+
+            updateFieldValidation('confirmPassword', isValid,
                 isValid ? '' : 'Passwords do not match');
-            
+
             return isValid;
         }
 
         function validateGender() {
             const isValid = Array.from(genderInputs).some(input => input.checked);
-            
+
             validationState.gender = isValid;
             const errorElement = document.getElementById('genderError');
-            
+
             if (!isValid) {
                 errorElement.textContent = 'Please select your gender';
                 errorElement.classList.add('visible');
@@ -694,34 +705,34 @@
                 errorElement.textContent = '';
                 errorElement.classList.remove('visible');
             }
-            
+
             updateSubmitButton();
             return isValid;
         }
 
         function validateState() {
             const isValid = state.value !== '';
-            
-            updateFieldValidation('state', isValid, 
+
+            updateFieldValidation('state', isValid,
                 isValid ? '' : 'Please select your state');
-            
+
             return isValid;
         }
 
         // Helper function to update field validation UI
         function updateFieldValidation(fieldName, isValid, errorMessage) {
             validationState[fieldName] = isValid;
-            
+
             const field = document.getElementById(fieldName);
             const statusElement = document.getElementById(fieldName + 'Status');
             const errorElement = document.getElementById(fieldName + 'Error');
-            
+
             // Update field classes
             field.classList.remove('valid', 'invalid');
             if (field.value.trim() !== '') {
                 field.classList.add(isValid ? 'valid' : 'invalid');
             }
-            
+
             // Update status icon
             if (statusElement) {
                 statusElement.classList.remove('visible', 'valid', 'invalid');
@@ -730,13 +741,13 @@
                     statusElement.textContent = isValid ? '✓' : '✗';
                 }
             }
-            
+
             // Update error message
             if (errorElement) {
                 errorElement.textContent = errorMessage;
                 errorElement.classList.toggle('visible', !isValid && field.value.trim() !== '');
             }
-            
+
             updateSubmitButton();
         }
 
@@ -744,7 +755,7 @@
         function updateSubmitButton() {
             const allValid = Object.values(validationState).every(state => state);
             submitBtn.disabled = !allValid;
-            
+
             if (allValid) {
                 submitBtn.textContent = 'Begin Your Journey';
             } else {
@@ -775,23 +786,23 @@
         state.addEventListener('change', validateState);
 
         // Form submission
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Validate all fields
-            const isValidForm = validateFullName() && 
-                               validateEmail() && 
-                               validatePhone() && 
-                               validatePassword() && 
-                               validateConfirmPassword() && 
-                               validateGender() && 
-                               validateState();
-            
+            const isValidForm = validateFullName() &&
+                validateEmail() &&
+                validatePhone() &&
+                validatePassword() &&
+                validateConfirmPassword() &&
+                validateGender() &&
+                validateState();
+
             if (isValidForm) {
                 // Show loading state
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Creating Account...';
-                
+
                 // Simulate API call
                 setTimeout(() => {
                     showSuccessMessage();
@@ -805,7 +816,7 @@
                     background: '#F5E6D3',
                     color: '#654321'
                 });
-                
+
                 // Reset button
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Complete All Fields';
@@ -816,7 +827,7 @@
         function showSuccessMessage() {
             const formData = new FormData(form);
             const userData = Object.fromEntries(formData);
-            
+
             Swal.fire({
                 icon: 'success',
                 title: 'Welcome to DeshDarshan!',
@@ -844,24 +855,24 @@
                     Object.keys(validationState).forEach(key => {
                         validationState[key] = false;
                     });
-                    
+
                     // Reset all field states
                     document.querySelectorAll('.form-input, .form-select').forEach(field => {
                         field.classList.remove('valid', 'invalid');
                     });
-                    
+
                     document.querySelectorAll('.validation-status').forEach(status => {
                         status.classList.remove('visible', 'valid', 'invalid');
                         status.textContent = '';
                     });
-                    
+
                     document.querySelectorAll('.error-text').forEach(error => {
                         error.classList.remove('visible');
                         error.textContent = '';
                     });
-                    
+
                     updateSubmitButton();
-                    
+
                     // Show dashboard preview
                     showDashboardPreview();
                 }
@@ -917,23 +928,23 @@
         updateSubmitButton();
 
         // Add some interactive enhancements
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Add smooth focus transitions
             const inputs = document.querySelectorAll('.form-input, .form-select');
             inputs.forEach(input => {
-                input.addEventListener('focus', function() {
+                input.addEventListener('focus', function () {
                     this.parentElement.style.transform = 'translateY(-2px)';
                 });
-                
-                input.addEventListener('blur', function() {
+
+                input.addEventListener('blur', function () {
                     this.parentElement.style.transform = 'translateY(0)';
                 });
             });
-            
+
             // Add typing effect to brand name (optional enhancement)
             const brandName = document.querySelector('.brand-name');
             const originalText = brandName.textContent;
-            
+
             // Animate page load
             setTimeout(() => {
                 document.querySelector('.signup-container').style.transform = 'scale(1)';
@@ -949,7 +960,7 @@
                 medium: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value),
                 strong: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /\d/.test(value) && /[!@#$%^&*(),.?":{}|<>]/.test(value)
             };
-            
+
             // You can add visual strength indicator here if needed
         }
 
@@ -957,4 +968,5 @@
         password.addEventListener('input', updatePasswordStrength);
     </script>
 </body>
+
 </html>

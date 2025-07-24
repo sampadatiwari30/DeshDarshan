@@ -1,34 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Desh Darshan</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: 
+            background:
                 radial-gradient(ellipse at top left, rgba(160, 82, 45, 0.3) 0%, transparent 50%),
                 radial-gradient(ellipse at top right, rgba(139, 69, 19, 0.25) 0%, transparent 50%),
                 radial-gradient(ellipse at bottom left, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
                 radial-gradient(ellipse at bottom right, rgba(205, 133, 63, 0.3) 0%, transparent 50%),
-                linear-gradient(135deg, 
-                    #8B4513 0%, 
-                    #A0522D 15%, 
+                linear-gradient(135deg,
+                    #8B4513 0%,
+                    #A0522D 15%,
                     #CD853F 30%,
                     #D2B48C 45%,
                     #DEB887 60%,
                     #F5DEB3 75%,
                     #F5E6D3 90%,
-                    #FDF5E6 100%
-                );
+                    #FDF5E6 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -37,7 +38,7 @@
             overflow-x: hidden;
             padding: 1rem;
         }
-        
+
         /* Enhanced Monument Background with multiple Indian architectural elements */
         body::before {
             content: '';
@@ -54,7 +55,7 @@
             z-index: -2;
             opacity: 0.7;
         }
-        
+
         /* Enhanced texture overlay with earthy tones */
         body::after {
             content: '';
@@ -63,34 +64,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 15% 85%, rgba(160, 82, 45, 0.08) 0%, transparent 60%),
                 radial-gradient(circle at 85% 15%, rgba(139, 69, 19, 0.06) 0%, transparent 60%),
                 radial-gradient(circle at 45% 45%, rgba(205, 133, 63, 0.04) 0%, transparent 50%),
                 radial-gradient(circle at 75% 75%, rgba(222, 184, 135, 0.05) 0%, transparent 55%),
                 radial-gradient(circle at 25% 25%, rgba(245, 222, 179, 0.03) 0%, transparent 45%),
-                linear-gradient(45deg, 
-                    rgba(139, 69, 19, 0.02) 0%, 
-                    transparent 25%, 
-                    rgba(160, 82, 45, 0.02) 50%, 
-                    transparent 75%, 
-                    rgba(205, 133, 63, 0.02) 100%
-                );
+                linear-gradient(45deg,
+                    rgba(139, 69, 19, 0.02) 0%,
+                    transparent 25%,
+                    rgba(160, 82, 45, 0.02) 50%,
+                    transparent 75%,
+                    rgba(205, 133, 63, 0.02) 100%);
             z-index: -1;
         }
-        
+
         .container {
             width: 100%;
             max-width: 450px;
             position: relative;
             z-index: 10;
         }
+
         .login-container {
             background: rgba(245, 230, 211, 0.96);
             backdrop-filter: blur(25px);
             padding: 3rem 2.5rem;
             border-radius: 20px;
-            box-shadow: 
+            box-shadow:
                 0 25px 50px rgba(139, 69, 19, 0.25),
                 0 15px 35px rgba(160, 82, 45, 0.15),
                 0 5px 15px rgba(205, 133, 63, 0.1),
@@ -100,6 +101,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .login-container::before {
             content: '';
             position: absolute;
@@ -109,16 +111,19 @@
             height: 4px;
             background: linear-gradient(90deg, #8B4513, #A0522D, #CD853F, #DEB887, #F5DEB3);
         }
+
         .login-container.hide {
             opacity: 0;
             transform: translateY(-20px);
             pointer-events: none;
         }
+
         .brand-header {
             text-align: center;
             margin-bottom: 2.5rem;
             position: relative;
         }
+
         .brand-name {
             font-family: 'Cinzel', serif;
             font-size: 2.8rem;
@@ -131,6 +136,7 @@
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(139, 69, 19, 0.3);
         }
+
         .brand-tagline {
             font-family: 'Playfair Display', serif;
             color: #8B4513;
@@ -139,6 +145,7 @@
             margin-bottom: 0.5rem;
             font-style: italic;
         }
+
         .cultural-subtitle {
             color: #A0522D;
             font-size: 0.9rem;
@@ -146,6 +153,7 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
+
         .login-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
@@ -154,6 +162,7 @@
             margin: 1.5rem 0 0.5rem 0;
             text-align: center;
         }
+
         .login-subtitle {
             color: #8B4513;
             font-size: 1rem;
@@ -162,10 +171,12 @@
             font-weight: 400;
             opacity: 0.8;
         }
+
         .form-group {
             margin-bottom: 1.5rem;
             position: relative;
         }
+
         .form-label {
             display: block;
             margin-bottom: 0.6rem;
@@ -174,6 +185,7 @@
             font-size: 0.95rem;
             letter-spacing: 0.3px;
         }
+
         .form-input {
             width: 100%;
             padding: 1.1rem 1.3rem;
@@ -186,19 +198,22 @@
             position: relative;
             font-family: 'Inter', sans-serif;
         }
+
         .form-input:focus {
             outline: none;
             border-color: #A0522D;
             background-color: white;
-            box-shadow: 
+            box-shadow:
                 0 0 0 4px rgba(160, 82, 45, 0.15),
                 0 4px 12px rgba(139, 69, 19, 0.2);
             transform: translateY(-1px);
         }
+
         .form-input::placeholder {
             color: rgba(139, 69, 19, 0.6);
             font-weight: 400;
         }
+
         .login-button {
             width: 100%;
             padding: 1.3rem;
@@ -213,13 +228,14 @@
             margin-bottom: 1.5rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            box-shadow: 
+            box-shadow:
                 0 8px 20px rgba(139, 69, 19, 0.3),
                 0 4px 10px rgba(160, 82, 45, 0.2);
             position: relative;
             overflow: hidden;
             font-family: 'Inter', sans-serif;
         }
+
         .login-button::before {
             content: '';
             position: absolute;
@@ -230,25 +246,30 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
+
         .login-button:hover {
             transform: translateY(-2px);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px rgba(139, 69, 19, 0.4),
                 0 8px 15px rgba(160, 82, 45, 0.3);
             background: linear-gradient(135deg, #A0522D 0%, #8B4513 30%, #CD853F 70%, #654321 100%);
         }
+
         .login-button:hover::before {
             left: 100%;
         }
+
         .login-button:active {
             transform: translateY(0);
         }
+
         .form-footer {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 1rem;
         }
+
         .forgot-password {
             color: #A0522D;
             text-decoration: none;
@@ -257,10 +278,12 @@
             transition: all 0.3s ease;
             padding: 0.3rem 0;
         }
+
         .forgot-password:hover {
             color: #8B4513;
             text-decoration: underline;
         }
+
         .signup-link {
             text-align: center;
             color: #8B4513;
@@ -268,16 +291,19 @@
             line-height: 1.5;
             font-weight: 400;
         }
+
         .signup-link a {
             color: #654321;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
         }
+
         .signup-link a:hover {
             color: #A0522D;
             text-decoration: underline;
         }
+
         .error-message {
             color: #cd5c5c;
             font-size: 0.85rem;
@@ -285,20 +311,24 @@
             display: none;
             font-weight: 500;
         }
+
         .form-group.error .form-input {
             border-color: #cd5c5c;
             background-color: #fdf5f5;
             box-shadow: 0 0 0 4px rgba(205, 92, 92, 0.1);
         }
+
         .form-group.error .error-message {
             display: block;
         }
+
         /* Loading state */
         .login-button.loading {
             opacity: 0.8;
             cursor: not-allowed;
             position: relative;
         }
+
         .login-button.loading::after {
             content: '';
             position: absolute;
@@ -312,22 +342,28 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
+
         @keyframes spin {
-            0% { transform: translateY(-50%) rotate(0deg); }
-            100% { transform: translateY(-50%) rotate(360deg); }
+            0% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-50%) rotate(360deg);
+            }
         }
+
         /* Welcome Card Styles */
         .welcome-card {
-            background: linear-gradient(135deg, 
-                rgba(139, 69, 19, 0.96), 
-                rgba(160, 82, 45, 0.94), 
-                rgba(205, 133, 63, 0.92), 
-                rgba(101, 67, 33, 0.95)
-            );
+            background: linear-gradient(135deg,
+                    rgba(139, 69, 19, 0.96),
+                    rgba(160, 82, 45, 0.94),
+                    rgba(205, 133, 63, 0.92),
+                    rgba(101, 67, 33, 0.95));
             backdrop-filter: blur(25px);
             padding: 3rem 2.5rem;
             border-radius: 20px;
-            box-shadow: 
+            box-shadow:
                 0 30px 60px rgba(139, 69, 19, 0.4),
                 0 15px 30px rgba(160, 82, 45, 0.3),
                 0 5px 15px rgba(205, 133, 63, 0.2);
@@ -344,6 +380,7 @@
             pointer-events: none;
             overflow: hidden;
         }
+
         .welcome-card::before {
             content: '';
             position: absolute;
@@ -353,11 +390,13 @@
             height: 4px;
             background: linear-gradient(90deg, #F5E6D3, #DEB887, #CD853F, #A0522D, #8B4513);
         }
+
         .welcome-card.show {
             opacity: 1;
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+
         .welcome-icon {
             width: 80px;
             height: 80px;
@@ -370,6 +409,7 @@
             font-size: 2.5rem;
             border: 3px solid rgba(245, 230, 211, 0.3);
         }
+
         .welcome-title {
             font-family: 'Cinzel', serif;
             font-size: 2.4rem;
@@ -378,6 +418,7 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             color: #F5E6D3;
         }
+
         .welcome-message {
             font-size: 1.1rem;
             font-weight: 400;
@@ -386,6 +427,7 @@
             opacity: 0.9;
             color: rgba(245, 230, 211, 0.9);
         }
+
         .explore-button {
             background: rgba(245, 230, 211, 0.25);
             color: #F5E6D3;
@@ -402,6 +444,7 @@
             letter-spacing: 0.5px;
             font-family: 'Inter', sans-serif;
         }
+
         .explore-button:hover {
             background: rgba(245, 230, 211, 0.4);
             border-color: rgba(245, 230, 211, 0.7);
@@ -409,6 +452,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             color: white;
         }
+
         .back-button {
             background: transparent;
             color: rgba(245, 230, 211, 0.8);
@@ -421,39 +465,48 @@
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
         }
+
         .back-button:hover {
             color: #F5E6D3;
             border-color: rgba(245, 230, 211, 0.6);
             transform: translateY(-2px);
             background: rgba(245, 230, 211, 0.1);
         }
+
         /* Responsive design */
         @media (max-width: 480px) {
+
             .login-container,
             .welcome-card {
                 padding: 2rem 1.5rem;
                 border-radius: 16px;
             }
+
             .brand-name {
                 font-size: 2.2rem;
             }
+
             .login-title,
             .welcome-title {
                 font-size: 1.6rem;
             }
+
             .form-input {
                 padding: 1rem 1.1rem;
             }
+
             .welcome-icon {
                 width: 60px;
                 height: 60px;
                 font-size: 2rem;
             }
+
             .form-footer {
                 flex-direction: column;
                 gap: 0.5rem;
                 align-items: center;
             }
+
             .explore-button,
             .back-button {
                 display: block;
@@ -463,6 +516,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Login Form -->
@@ -477,38 +531,20 @@
             <form id="loginForm" novalidate>
                 <div class="form-group">
                     <label for="fullName" class="form-label">Full Name</label>
-                    <input 
-                        type="text" 
-                        id="fullName" 
-                        name="fullName" 
-                        class="form-input" 
-                        placeholder="Enter your full name"
-                        required
-                    >
+                    <input type="text" id="fullName" name="fullName" class="form-input"
+                        placeholder="Enter your full name" required>
                     <div class="error-message">Please enter your full name</div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">Email Address</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        class="form-input" 
-                        placeholder="Enter your email address"
-                        required
-                    >
+                    <input type="email" id="email" name="email" class="form-input"
+                        placeholder="Enter your email address" required>
                     <div class="error-message">Please enter a valid email address</div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        class="form-input" 
-                        placeholder="Enter your password"
-                        required
-                    >
+                    <input type="password" id="password" name="password" class="form-input"
+                        placeholder="Enter your password" required>
                     <div class="error-message">Please enter your password</div>
                 </div>
                 <div class="form-footer">
@@ -531,13 +567,13 @@
                 Welcome back to Desh Darshan! Ready to explore India's rich cultural heritage and timeless traditions?
             </p>
             <div>
-               <a href="home1.html"><button class="explore-button" id="exploreBtn">Start Exploring</button></a>
+                <a href="home1.html"><button class="explore-button" id="exploreBtn">Start Exploring</button></a>
                 <button class="back-button" id="backBtn">Back to Login</button>
             </div>
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('loginForm');
             const loginBtn = document.getElementById('loginBtn');
             const createAccountLink = document.getElementById('createAccountLink');
@@ -548,20 +584,20 @@
             const backBtn = document.getElementById('backBtn');
 
             // Form validation and submission
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 // Clear previous errors
                 clearErrors();
-                
+
                 // Get form data
                 const formData = new FormData(form);
                 const fullName = formData.get('fullName').trim();
                 const email = formData.get('email').trim();
                 const password = formData.get('password').trim();
-                
+
                 let isValid = true;
-                
+
                 // Validate full name
                 if (!fullName) {
                     showError('fullName', 'Please enter your full name');
@@ -570,7 +606,7 @@
                     showError('fullName', 'Name must be at least 2 characters long');
                     isValid = false;
                 }
-                
+
                 // Validate email
                 if (!email) {
                     showError('email', 'Please enter your email address');
@@ -579,7 +615,7 @@
                     showError('email', 'Please enter a valid email address');
                     isValid = false;
                 }
-                
+
                 // Validate password
                 if (!password) {
                     showError('password', 'Please enter your password');
@@ -614,10 +650,10 @@
                 // Update welcome message with user's name
                 const firstName = fullName.split(' ')[0];
                 welcomeMessage.textContent = `Welcome back, ${firstName}! Ready to explore India's rich cultural heritage and timeless traditions?`;
-                
+
                 // Hide login container
                 loginContainer.classList.add('hide');
-                
+
                 // Show welcome card after login container is hidden
                 setTimeout(() => {
                     welcomeCard.classList.add('show');
@@ -625,10 +661,10 @@
             }
 
             // Back to login functionality
-            backBtn.addEventListener('click', function() {
+            backBtn.addEventListener('click', function () {
                 // Hide welcome card
                 welcomeCard.classList.remove('show');
-                
+
                 // Show login container after welcome card is hidden
                 setTimeout(() => {
                     loginContainer.classList.remove('hide');
@@ -643,7 +679,7 @@
             });
 
             // Explore button functionality
-            exploreBtn.addEventListener('click', function() {
+            exploreBtn.addEventListener('click', function () {
                 // In a real app, this would redirect to the main dashboard
                 console.log('Redirecting to main dashboard...');
                 // You can uncomment the line below when you have a home page
@@ -651,18 +687,18 @@
             });
 
             // Create account link functionality
-            createAccountLink.addEventListener('click', function(e) {
+            createAccountLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 // In a real app, this would redirect to signup page
                 console.log('Redirecting to signup page...');
                 // You can uncomment the line below when you have a signup page
-                 window.location.href = 'signup.html';
+                window.location.href = 'signup.html';
             });
 
-            document.getElementById('forgotPasswordLink').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.location.href = 'forgot-password.html';  // redirect to your page
-});
+            document.getElementById('forgotPasswordLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                window.location.href = 'forgot-password.html';  // redirect to your page
+            });
 
 
             // Helper functions
@@ -670,10 +706,10 @@
                 const field = document.getElementById(fieldName);
                 const formGroup = field.closest('.form-group');
                 const errorMessage = formGroup.querySelector('.error-message');
-                
+
                 formGroup.classList.add('error');
                 errorMessage.textContent = message;
-                
+
                 // Focus on the first error field
                 if (document.querySelectorAll('.form-group.error').length === 1) {
                     field.focus();
@@ -695,11 +731,11 @@
             // Real-time validation
             const inputs = document.querySelectorAll('.form-input');
             inputs.forEach(input => {
-                input.addEventListener('blur', function() {
+                input.addEventListener('blur', function () {
                     validateField(this);
                 });
 
-                input.addEventListener('input', function() {
+                input.addEventListener('input', function () {
                     // Clear error state when user starts typing
                     const formGroup = this.closest('.form-group');
                     if (formGroup.classList.contains('error')) {
@@ -751,16 +787,16 @@
             }
 
             // Enhanced user experience features
-            
+
             // Auto-focus first input
             document.getElementById('fullName').focus();
 
             // Handle Enter key across form
-            form.addEventListener('keydown', function(e) {
+            form.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter') {
                     const inputs = Array.from(form.querySelectorAll('.form-input'));
                     const currentIndex = inputs.indexOf(document.activeElement);
-                    
+
                     if (currentIndex < inputs.length - 1) {
                         // Move to next input
                         e.preventDefault();
@@ -784,4 +820,5 @@
         });
     </script>
 </body>
+
 </html>

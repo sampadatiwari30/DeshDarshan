@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuchipudi - Indian Dance Culture</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <style>
+    html,
+    body {
+      height: auto;
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+
+    .floating-emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(10deg);
+      }
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
+    .pulse-glow {
+      animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.9);
+      }
+
+      100% {
+        box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
+      }
+    }
+
+    #quiz-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-out-left {
+      animation: slideOutLeft 0.5s forwards;
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.5s forwards;
+    }
+
+    @keyframes slideOutLeft {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(-100%) rotate(-10deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(100%) rotate(10deg);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .option-btn {
+      background-color: #fee2e2;
+      color: #b91c1c;
+      padding: 1.5rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      min-width: 120px;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background-color: #fecaca;
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body class="bg-[#fffaf3] text-gray-800 relative overflow-hidden">
+  <!-- ✨ FLOATING EMOJIS -->
+  <span class="floating-emoji" style="top: 5%; left: 8%">💃</span>
+  <span class="floating-emoji" style="top: 15%; right: 12%">🪘</span>
+  <span class="floating-emoji" style="top: 35%; right: 8%">🎶</span>
+  <span class="floating-emoji" style="top: 45%; left: 12%">🌸</span>
+  <span class="floating-emoji" style="top: 55%; right: 6%">🕺</span>
+  <span class="floating-emoji" style="top: 75%; right: 14%">🎭</span>
+  <span class="floating-emoji" style="top: 85%; left: 7%">🌟</span>
+  <span class="floating-emoji" style="bottom: 15%; left: 15%">🎤</span>
+  <span class="floating-emoji" style="bottom: 35%; left: 25%">🌺</span>
+  <span class="floating-emoji" style="bottom: 45%; right: 10%">🪷</span>
+  <span class="floating-emoji" style="bottom: 65%; right: 20%">💫</span>
+  <span class="floating-emoji" style="bottom: 75%; left: 12%">🎉</span>
+  <span class="floating-emoji" style="bottom: 85%; right: 20%">🧡</span>
+  <span class="floating-emoji" style="top: 10%; left: 20%">🎵</span>
+  <span class="floating-emoji" style="top: 25%; right: 15%">💃🏽</span>
+  <span class="floating-emoji" style="top: 40%; left: 5%">🥁</span>
+  <span class="floating-emoji" style="top: 60%; right: 30%">🎻</span>
+  <span class="floating-emoji" style="bottom: 20%; left: 35%">🎷</span>
+  <span class="floating-emoji" style="bottom: 50%; right: 5%">🎺</span>
+  <span class="floating-emoji" style="top: 70%; left: 15%">🎼</span>
+  <span class="floating-emoji" style="top: 90%; right: 20%">🎬</span>
+
+  <!-- CAROUSEL images -->
+  <div class="container my-5 position-relative">
+    <div class="mx-auto" style="max-width: 800px; position: relative">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/kuchipudi1.webp" class="w-100 h-100 object-fit-cover" alt="Slide 1" />
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/kuchipudi2.png" class="w-100 h-100 object-fit-cover" alt="Slide 2" />
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/kuchipudi3.png" class="w-100 h-100 object-fit-cover" alt="Slide 3" />
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/kuchipudi4.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 4" />
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9">
+              <img src="../assets/images/kuchipudi5.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 5" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Fact Box Overlaying Carousel -->
+      <div id="fun-fact-box"
+        class="relative left-1/2 -translate-x-1/2 md:absolute md:bottom-[-40px] bg-white bg-opacity-90 px-4 py-3 py-md-4 ps-5 rounded-5 shadow d-flex align-items-center w-100 md:w-75"
+        style="max-width: 720px; z-index: 2; margin-top: 1rem">
+        <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" class="me-3"
+          style="width: 80px; height: 80px; flex-shrink: 0" />
+
+        <div>
+          <div class="text-uppercase fw-bold text-warning small mb-1">
+            Did you know?
+          </div>
+          <p id="fun-fact-text" class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+            Kuchipudi dancers traditionally performed on brass plates
+            balancing a pot on their head.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="text-center mt-6 pt-6">
+    <h1 class="text-4xl font-bold text-orange-500 drop-shadow-md">
+      Let's Dance Kuchipudi!
+    </h1>
+    <p class="text-lg text-gray-600 mt-1">
+      Quick fun facts & a challenge await!
+    </p>
+  </div>
+
+  <!-- FUN FACT CARDS -->
+  <section class="max-w-6xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white shadow-xl rounded-xl p-6 transform hover:scale-105 transition duration-300 hover:rotate-1">
+        <h3 class="text-xl font-semibold mb-3 text-orange-500">
+          Andhra Roots 🌾
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          Kuchipudi originated in a small village named <b>Kuchipudi</b> in
+          Andhra Pradesh — blending drama and dance since the 10th century.
+        </p>
+      </div>
+
+      <div class="bg-white shadow-xl rounded-xl p-6 transform hover:scale-105 transition duration-300 hover:-rotate-1">
+        <h3 class="text-xl font-semibold mb-3 text-orange-500">
+          Dance on a Plate 🥁
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          One of Kuchipudi’s iconic acts features a dancer performing
+          intricate steps <b>on a brass plate</b> — while balancing a pot on
+          the head!
+        </p>
+      </div>
+
+      <div class="bg-white shadow-xl rounded-xl p-6 transform hover:scale-105 transition duration-300 hover:rotate-1">
+        <h3 class="text-xl font-semibold mb-3 text-orange-500">
+          Bhakti & Storytelling 📜
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          Deeply rooted in <b>Vaishnavism</b>, Kuchipudi tells stories of
+          Krishna and Rama with expressive acting and graceful movement.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-10">
+      <div class="bg-white shadow-xl rounded-xl p-6 transform hover:scale-105 transition duration-300 hover:-rotate-1">
+        <h3 class="text-xl font-semibold mb-3 text-orange-500">
+          From Brahmins to All 🎭
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          Kuchipudi was once performed only by <b>male Brahmin troupes</b>.
+          Today, it is practiced worldwide by dancers of all genders.
+        </p>
+      </div>
+
+      <div class="bg-white shadow-xl rounded-xl p-6 transform hover:scale-105 transition duration-300 hover:rotate-1">
+        <h3 class="text-xl font-semibold mb-3 text-orange-500">
+          Revival & Recognition 🌟
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          The 20th-century revival of Kuchipudi was led by
+          <b>Vedantam Lakshminarayana</b> and others — helping it gain
+          classical status across India.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ SECTION WITH SWIPE ANIMATION -->
+  <section class="max-w-4xl mx-auto px-6 py-10 mt-12" id="quiz-section" data-aos="fade-left">
+    <h2 class="text-3xl font-bold text-center text-orange-500 mb-6">
+      Ready for a Quick Quiz? 🤔
+    </h2>
+
+    <div id="quiz-card" class="bg-white shadow-lg rounded-xl p-6">
+      <p id="question" class="text-xl font-semibold mb-6">
+        Loading question...
+      </p>
+      <div id="options" class="grid grid-cols-2 gap-4 pt-5 max-w-md mx-auto"></div>
+      <p id="feedback" class="text-lg font-semibold mt-6 min-h-[2rem] text-center"></p>
+      <div class="text-center mt-8">
+        <button id="next-btn"
+          class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition hidden"
+          onclick="nextQuestion()">
+          Next Question
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const quizData = [
+      {
+        question: "Which state is Kuchipudi from?",
+        options: ["Andhra Pradesh", "Karnataka", "Odisha", "Kerala"],
+        answer: "Andhra Pradesh",
+      },
+      {
+        question: "What is unique about traditional Kuchipudi performances?",
+        options: [
+          "Performed on a rope",
+          "Performed by priests",
+          "Dance on brass plate",
+          "Involves acrobatics",
+        ],
+        answer: "Dance on brass plate",
+      },
+      {
+        question: "What language are most Kuchipudi dramas written in?",
+        options: ["Telugu", "Tamil", "Sanskrit", "Hindi"],
+        answer: "Telugu",
+      },
+      {
+        question:
+          "Who was a key revivalist of Kuchipudi in the 20th century?",
+        options: [
+          "Rukmini Devi",
+          "Vedantam Lakshminarayana",
+          "Birju Maharaj",
+          "Kelucharan Mohapatra",
+        ],
+        answer: "Vedantam Lakshminarayana",
+      },
+      {
+        question: "Kuchipudi was originally performed by...?",
+        options: [
+          "Male troupes",
+          "Female soloists",
+          "Royal dancers",
+          "Monks",
+        ],
+        answer: "Male troupes",
+      },
+    ];
+
+    let currentQuestionIndex = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const nextBtn = document.getElementById("next-btn");
+    const quizCard = document.getElementById("quiz-card");
+
+    function loadQuestion() {
+      feedbackEl.textContent = "";
+      nextBtn.classList.add("hidden");
+      quizCard.classList.remove("slide-in-right");
+      quizCard.classList.remove("slide-out-left");
+
+      const current = quizData[currentQuestionIndex];
+      questionEl.textContent = current.question;
+      optionsEl.innerHTML = "";
+
+      current.options.forEach((option) => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.className = "option-btn";
+        btn.onclick = () => selectOption(option, btn);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function selectOption(selected, btn) {
+      const current = quizData[currentQuestionIndex];
+
+      [...optionsEl.children].forEach((b) => (b.disabled = true));
+
+      if (selected === current.answer) {
+        feedbackEl.textContent = "Correct! 🎉";
+        feedbackEl.style.color = "green";
+      } else {
+        feedbackEl.textContent = `Oops! The correct answer is: ${current.answer}`;
+        feedbackEl.style.color = "red";
+        [...optionsEl.children].forEach((b) => {
+          if (b.textContent === current.answer) {
+            b.style.backgroundColor = "#bbf7d0";
+            b.style.color = "green";
+          }
+        });
+      }
+      nextBtn.classList.remove("hidden");
+    }
+
+    function nextQuestion() {
+      quizCard.classList.add("slide-out-left");
+
+      quizCard.addEventListener(
+        "animationend",
+        () => {
+          quizCard.classList.remove("slide-out-left");
+
+          currentQuestionIndex++;
+          if (currentQuestionIndex >= quizData.length) {
+            questionEl.textContent =
+              "You completed the quiz! Thank you for playing! 🎉";
+            quizCard.innerHTML = `
+<p class="text-xl font-semibold text-orange-600 flex items-center justify-center h-full">
+  🎉 You completed the quiz! Thank you for playing!
+</p>
+`;
+            optionsEl.innerHTML = "";
+            feedbackEl.textContent = "";
+            nextBtn.classList.add("hidden");
+            return;
+          }
+
+          loadQuestion();
+          quizCard.classList.add("slide-in-right");
+
+          quizCard.addEventListener(
+            "animationend",
+            () => {
+              quizCard.classList.remove("slide-in-right");
+            },
+            { once: true }
+          );
+        },
+        { once: true }
+      );
+    }
+
+    loadQuestion();
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: "ease-out-back",
+      once: true,
+    });
+  </script>
+  <script>
+    const facts = [
+      "Kuchipudi dancers balance on brass plates while performing.",
+      "It originated as a dance-drama performed by male Brahmins.",
+      "The dance is deeply linked to Vaishnavism and Krishna devotion.",
+      "Kuchipudi scripts are often written in classical Telugu.",
+      "Modern revival was led by Vedantam Lakshminarayana Sastri.",
+    ];
+
+    const carousel = document.getElementById("carouselExample");
+    const factText = document.getElementById("fun-fact-text");
+
+    carousel.addEventListener("slid.bs.carousel", function (e) {
+      const index = e.to;
+      factText.textContent = facts[index];
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
