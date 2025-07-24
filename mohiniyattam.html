@@ -25,7 +25,32 @@
         font-size: 2rem;
         animation: float 5s ease-in-out infinite;
       }
-
+ #backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+#backToTopBtn:hover {
+  background-color: transparent;
+}
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    font-size: 50px;
+    padding: 8px 10px;
+    bottom: 60px;
+    right:5px;
+  }
+}
       @keyframes float {
         0%,
         100% {
@@ -312,7 +337,7 @@
         </div>
       </div>
     </section>
-
+<button id="backToTopBtn" title="Go to top">🔝</button>
     <!-- QUIZ SECTION WITH SWIPE ANIMATION -->
     <section
       class="max-w-4xl mx-auto px-6 py-10 mt-12"
@@ -348,6 +373,25 @@
     </section>
 
     <script>
+      // Show/hide Back to Top button on scroll
+window.onscroll = function () {
+  const btn = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+// Scroll to top when the button is clicked
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("backToTopBtn");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
       const quizData = [
         {
           question: "Mohiniyattam is a classical dance from which state?",

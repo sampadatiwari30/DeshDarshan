@@ -7,6 +7,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <style>
+        #backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+#backToTopBtn:hover {
+  background-color: transparent;
+}
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    font-size: 50px;
+    padding: 8px 10px;
+    bottom: 60px;
+    right:5px;
+  }
+}
         /* Your existing CSS styles */
         * {
             margin: 0;
@@ -289,8 +315,9 @@
     </style>
 </head>
 <body>
+        <button id="backToTopBtn" title="Go to top">🔝</button>
         <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top "style="background-color:black">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
   <div class="container-fluid">
     <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -353,6 +380,20 @@
     </div>
 
     <script>
+        // Show button on scroll
+  window.onscroll = function () {
+    const btn = document.getElementById("backToTopBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll to top on click
+  document.getElementById("backToTopBtn").addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
         // Language translations - EXISTING
         const translations = {
             en: {
