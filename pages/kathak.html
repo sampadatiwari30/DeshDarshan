@@ -448,6 +448,59 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"></script>
+    <!-- Back to Top Button -->
+<button id="backToTopBtn" title="Go to top">🔝</button>
+
+<style>
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  #backToTopBtn:hover {
+    background-color: transparent;
+    transform: translateY(-5px);
+  }
+
+  @media screen and (max-width: 480px) {
+    #backToTopBtn {
+      font-size: 50px;
+      padding: 8px 10px;
+      bottom: 60px;
+      right: 5px;
+    }
+  }
+</style>
+
+<script>
+  // Show button on scroll
+  window.onscroll = function () {
+    const btn = document.getElementById("backToTopBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll to top on click
+  document.getElementById("backToTopBtn").addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
 </body>
 
 </html>

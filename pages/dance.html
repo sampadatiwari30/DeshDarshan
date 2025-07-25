@@ -350,37 +350,75 @@
 </head>
 
 <body>
-    <button id="backBtn" title="Back to Home" aria-label="Back to Home"><i class="fas fa-arrow-left"></i> Back</button>
-    <!-- Background Music -->
-    <audio id="backgroundMusic" loop>
-        <source src="audio/indian-flute.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
 
-    <!-- Audio Control Button -->
-    <button class="audio-control animate-ripple" id="audioToggle" title="Toggle Background Music"
-        aria-label="Toggle Background Music">
-        <i class="fas fa-volume-up"></i>
-    </button>
-
-    <!-- Tutorial Overlay -->
-    <div class="tutorial-overlay" id="tutorialOverlay">
-        <div class="tutorial-content">
-            <h3 id="tutorialTitle">Welcome to Dance Culture</h3>
-            <p id="tutorialText">Discover the vibrant dance forms of India! Let's take a quick tour.</p>
-            <div class="tutorial-buttons">
-                <button class="tutorial-btn" id="nextTutorialStep" aria-label="Next Tutorial Step">Next</button>
-                <button class="tutorial-btn" id="skipTutorial" aria-label="Skip Tutorial">Skip</button>
-            </div>
-        </div>
-    </div>
-
+    
     <!-- Dance Culture Section -->
     <section class="dance-culture">
         <div class="container">
             <h2 class="section-title">Dance Culture of India</h2>
-            <div class="dance-grid" id="danceGrid">
-                <!-- Dance items will be dynamically generated here -->
+
+            <div class="dance-grid">
+                <div class="dance-item">
+                    <img src="../assets/images/br2.jpg" alt="Bharatanatyam dancer">
+                    <div className="dance-card">
+                         <h3>Bharatanatyam</h3>
+                    </div>
+                    <div class="dance-overlay">
+                        <h3>Bharatanatyam</h3>
+                        <p>Classical dance from Tamil Nadu</p>
+                    </div>
+                </div>
+                <div class="dance-item">
+                    <img src="../assets/images/kr1.jpg" alt="Kathak dancer">
+                    <div className="dance-card">
+                         <h3>Kathak</h3>
+                    </div>
+                    <div class="dance-overlay">
+                        <h3>Kathak</h3>
+                        <p>Storytelling dance from North India</p>
+                    </div>
+                </div>
+                <div class="dance-item">
+                    <img src="../assets/images/od2.jpg" alt="Odissi dancer">
+                    <div className="dance-card">
+                         <h3>Odissi</h3>
+                    </div>
+                    <div class="dance-overlay">
+                        <h3>Odissi</h3>
+                        <p>Graceful dance from Odisha</p>
+                    </div>
+                </div>
+                <div class="dance-item">
+                    <img src="../assets/images/ap3.jpg" alt="Kuchipudi dancer">
+                    <div className="dance-card">
+                         <h3>Kuchipudi</h3>
+                    </div>
+                    <div class="dance-overlay">
+                        <h3>Kuchipudi</h3>
+                        <p>Dynamic dance from Andhra Pradesh</p>
+                    </div>
+                </div>
+                <div class="dance-item">
+                    <img src="../assets/images/mani1.jpg" alt="Manipuri dancer">
+                    <div className="dance-card">
+                         <h3>Manipuri</h3>
+                    </div>
+                    <div class="dance-overlay">
+                        <h3>Manipuri</h3>
+                        <p>Devotional dance from Manipur</p>
+                    </div>
+                </div>
+                <div class="dance-item">
+                    <img src="../assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer">
+                    <div className="dance-card">
+                         <h3>Mohiniyattam</h3>
+                    </div>
+                    <div class="dance-overlay">
+                        <h3>Mohiniyattam</h3>
+                        <p>Enchanting dance from Kerala</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

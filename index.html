@@ -262,6 +262,9 @@
           <a href="./pages/bharatanatyam.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/br2.jpg" alt="Bharatanatyam dancer" />
+              <div class="dance-card">
+                         <h3>Bharatanatyam</h3>
+                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
                 <p data-translate="bharatanatyam-desc">
@@ -273,6 +276,9 @@
           <a href="./pages/kathak.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/kr1.jpg" alt="Kathak dancer" />
+              <div class="dance-card">
+                         <h3>Kathak</h3>
+                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="kathak-title">Kathak</h3>
                 <p data-translate="kathak-desc">
@@ -284,6 +290,9 @@
           <a href="./pages/odissi.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/od2.jpg" alt="Odissi dancer" />
+              <div class="dance-card">
+                         <h3>Odissi</h3>
+                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="odissi-title">Odissi</h3>
                 <p data-translate="odissi-desc">Graceful dance from Odisha</p>
@@ -293,6 +302,9 @@
           <a href="./pages/kuchipudi.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/ap3.jpg" alt="Kuchipudi dancer" />
+              <div class="dance-card">
+                         <h3>Kuchipudi</h3>
+                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="kuchipudi-title">Kuchipudi</h3>
                 <p data-translate="kuchipudi-desc">
@@ -304,6 +316,9 @@
           <a href="./pages/manipuri.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/mani1.jpg" alt="Manipuri dancer" />
+              <div class="dance-card">
+                         <h3>Manipuri</h3>
+                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="manipuri-title">Manipuri</h3>
                 <p data-translate="manipuri-desc">
@@ -315,6 +330,9 @@
           <a href="./pages/mohiniyattam.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer" />
+              <div class="dance-card">
+                         <h3>Mohiniyattam</h3>
+                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="mohiniyattam-title">Mohiniyattam</h3>
                 <p data-translate="mohiniyattam-desc">
@@ -413,5 +431,58 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
     <script src="./js/home.js"></script>
+    <!-- Back to Top Button -->
+<button id="backToTopBtn" title="Go to top">🔝</button>
+
+<style>
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  #backToTopBtn:hover {
+    background-color: transparent;
+    transform: translateY(-5px);
+  }
+
+  @media screen and (max-width: 480px) {
+    #backToTopBtn {
+      font-size: 50px;
+      padding: 8px 10px;
+      bottom: 60px;
+      right: 5px;
+    }
+  }
+</style>
+
+<script>
+  // Show button on scroll
+  window.onscroll = function () {
+    const btn = document.getElementById("backToTopBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll to top on click
+  document.getElementById("backToTopBtn").addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
   </body>
 </html>

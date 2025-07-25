@@ -431,6 +431,22 @@ button, a, .culture-item, .food-item, .dance-item {
     font-size: 0.9rem;
     opacity: 0.9;
 }
+.dance-card {
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color:  #ff9933;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+.dance-card h3 {
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: rgb(242, 239, 239);
+    background: linear-gradient(135deg, #ff9933, #ffb366);
+    margin: 0;
+    align-items: center;
+}
 
 /*footer */
 
