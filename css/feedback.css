@@ -234,6 +234,8 @@ body::before {
     display: flex;
     gap: 0.5rem;
     margin: 0.5rem 0;
+    justify-content: center; 
+    align-items: center;    
 }
 
 .star {
@@ -242,13 +244,25 @@ body::before {
     cursor: pointer;
     transition: all 0.3s ease;
     user-select: none;
+    
 }
 
 .star:hover,
 .star.active {
     color: #ff9933;
-    transform: scale(1.1);
+    transform: scale(1.2);
+     transition: 0.2s;
 }
+.star.clicked {
+    animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1.2); }
+}
+
 
 .star.active {
     text-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
