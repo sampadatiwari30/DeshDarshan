@@ -2,10 +2,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeshDarshan - Collaborate with us</title>
     <style>
         * {
             margin: 0;
@@ -408,14 +408,74 @@
     </div>
 
     <script>
-        // Handle radio button selection visual feedback
-        document.querySelectorAll('input[name="category"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                document.querySelectorAll('.radio-item').forEach(item => {
-                    item.classList.remove('selected');
-                });
-                this.closest('.radio-item').classList.add('selected');
-            });
+
+      // Form elements
+      const form = document.getElementById("collaborationForm");
+      const radioButtons = document.querySelectorAll(
+        'input[name="collaborationType"]'
+      );
+      const conditionalFields = {
+        student: document.getElementById("studentField"),
+        researcher: document.getElementById("researcherField"),
+        job: document.getElementById("jobField"),
+        other: document.getElementById("otherField"),
+      };
+
+      // Handle radio button changes for conditional fields
+      radioButtons.forEach((radio) => {
+        radio.addEventListener("change", function () {
+          // Hide all conditional fields
+          Object.values(conditionalFields).forEach((field) => {
+            field.classList.remove("show");
+          });
+
+          // Show the selected field
+          if (conditionalFields[this.value]) {
+            conditionalFields[this.value].classList.add("show");
+          }
+
+          // Clear collaboration error if one is selected
+          document
+            .getElementById("collaborationError")
+            .classList.remove("show");
+        });
+      });
+
+
+      // Form validation and submission
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+
+        // Clear previous errors
+        document
+          .querySelectorAll(".error")
+          .forEach((el) => el.classList.remove("error"));
+        document
+          .querySelectorAll(".error-message")
+          .forEach((el) => el.classList.remove("show"));
+
+        // Validate required fields
+        const requiredFields = [
+          { id: "name", message: "Please enter your name" },
+          { id: "email", message: "Please enter a valid email address" },
+          { id: "phone", message: "Please enter your phone number" },
+          { id: "state", message: "Please select your state/UT" },
+          { id: "message", message: "Please enter your message" },
+        ];
+
+        requiredFields.forEach((field) => {
+          const element = document.getElementById(field.id);
+          const errorElement = document.getElementById(field.id + "Error");
+
+          if (!element.value.trim()) {
+            element.classList.add("error");
+            errorElement.textContent = field.message;
+            errorElement.classList.add("show");
+            isValid = false;
+          }
+
         });
 
         // Handle form submission
