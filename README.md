@@ -24,7 +24,7 @@ There's **no single, interactive platform** that educates people about:
 
 **DeshDarshan** is a web-based app that helps you explore **India’s cultural roots** and travel destinations in a smarter way:
 
-- 🗺️ **State-wise Exploration** — Places, food, art, festivals  
+- 🗺️ **State-wise Exploration** — Places, food, art, festivals, Heritage Places
 - 📸 **Visual Gallery** — Images & videos of heritage spots  
 - 🔍 **Personalized Travel Suggestions**  
 - 🧠 **Cultural Quiz Section**  
