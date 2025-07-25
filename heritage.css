@@ -1,0 +1,66 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 0 20px;
+}
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.heritage-section {
+    padding: 5rem 0 7rem;
+    background: linear-gradient(135deg, #f0f8ff, #fff5f5);
+    
+}
+
+.heritage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.heritage-item{
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.heritage-item:hover {
+    transform: translateY(-5px);
+}
+
+.heritage-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.heritage-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.heritage-item:hover .heritage-overlay {
+    transform: translateY(0);
+}
+
+.heritage-overlay h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.heritage-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
