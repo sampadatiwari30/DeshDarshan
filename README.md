@@ -13,14 +13,14 @@ DeshDarshan is a cultural web platform designed to help explore all 28 States an
 
 📂 **Folder Structure**
 
-DeshDarshan/
-│
-├── assets/               # Images and other static resources
-├── states/               # Individual state detail pages
-├── index.html            # Main homepage
-├── style.css             # Custom styles
-├── script.js             # JS for state linking
-└── README.md             # Project documentation
+DeshDarshan/<br>
+│<br>
+├── assets/               # Images and other static resources<br>
+├── states/               # Individual state detail pages<br>
+├── index.html            # Main homepage<br>
+├── style.css             # Custom styles<br>
+├── script.js             # JS for state linking<br>
+└── README.md             # Project documentation<br>
 
 🗂️ **Table of Contents**
 
@@ -61,49 +61,49 @@ DeshDarshan is a web-based app that helps you explore **India’s cultural roots
  🛠️ **Installation**
 
 1. Fork this repository 🍴  
-2. Clone it locally:
-   in bash
+2. Clone it locally:<br>
+   in bash<br>
    git clone https://github.com/sampadatiwari30/DeshDarshan.git
 
    cd DeshDarshan
 
 💵 **How to Contribute**
 
-We ❤️ Open Source and beginner-friendly contributions!  
+We ❤️ Open Source and beginner-friendly contributions! <br> 
 Follow these steps to get started:
 
 1. Check existing issues or create one describing your feature/bug.
 2. Commnet on the issue to get assigned.
 3. Fork🍴→ Clone👥→ Create a new branch:
 
-   - fork in your account: 
+   - fork in your account:<br>
       Fork the Repository
 
-   - Clone:
-      bash...
+   - Clone:<br>
+      bash...<br>
       git clone https://github.com/sampadatiwari30/DeshDarshan.git
 
       cd DeshDarshan
 
       git checkout -b feature/your-feature-name  
 
-   - Create a new branch:
-      bash...
-      Copy
-      Edit
-      git checkout -b feature/your-feature
+   - Create a new branch:<br>
+      bash...<br>
+      Copy<br>
+      Edit<br>
+      git checkout -b feature/your-feature<br>
       Make your changes
 
-   - Add & commit:
-      bash...
-      git add .
+   - Add & commit:<br>
+      bash...<br>
+      git add .<br>
       git commit -m "Add: your-feature-name"
 
-   - Push changes:
-      bash...
+   - Push changes:<br>
+      bash...<br>
       git push origin feature/your-feature-name
 
-   - Create a Pull Request to the main branch:
+   - Create a Pull Request to the main branch:<br>
       ✅ No need to wait for long — active maintainers review quickly!
 
 📝 **Note**
@@ -127,17 +127,17 @@ Having trouble setting up the project?
 
 🥑 **License**
 
-This project is licensed under the **MIT License**.
+This project is licensed under the **MIT License**.<br>
 Feel free to fork, remix, or build upon it — with proper credit 🙏
 
 ⭐ **Star the Repo!**
 
-If this project inspired you or helped in any way — do leave a ⭐
+If this project inspired you or helped in any way — do leave a ⭐<br>
 It keeps us going and growing!
 
 🌸 **For GSSoC Participation Era**
 
-This repository is a part of **GirlScript Summer of Code!**💜
-We welcome contributors of all levels.
-If you're participating in GSSoC, feel free to raise issues and PRs tagged with **GSSoC label**.
+This repository is a part of **GirlScript Summer of Code!**💜<br>
+We welcome contributors of all levels.<br>
+If you're participating in GSSoC, feel free to raise issues and PRs tagged with **GSSoC label**.<br>
 Happy Contributing! 🎉
