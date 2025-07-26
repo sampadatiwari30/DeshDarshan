@@ -1,6 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Styles */
+.navbar {
+    background: rgba(0, 0, 0, 0.9);  /* Solid black by default */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo h2 {
+    color: #ff9933;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-menu a:hover {
+    color: #ff9933;
+    transform: scale(1.05);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0.6rem 1.8rem;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 120px;
+    transition: all 0.3s ease;
+    gap: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-buttons a span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav-buttons a i {
+    opacity: 0;
+    position: absolute;
+    right: 1.2rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-10px);
+}
+
+/* Hover behavior */
+.nav-buttons a:hover span {
+    transform: translateX(10px);
+}
+
+.nav-buttons a:hover i {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Login Button --- */
+.btn-login {
+    background-color: transparent;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #ffcc00;
+    color: black;
+    padding-right: 2.6rem;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+}
+
+/* --- Signup Button --- */
+.btn-signup {
+    background-color: #ff9933;
+    color: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #ff8c1a;
+    padding-right: 2.6rem;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 117, 24, 0.3);
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.7); /* Faded black on scroll */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: black;
+    border-radius: 2px;
+}
+
 .dance-culture {
     padding: 5rem 0;
     background: linear-gradient(135deg, #f8f4ff, #fff0f5);
+    margin-top: 80px; /* Add margin to account for fixed navbar */
 }
 
 .dance-grid {

@@ -79,6 +79,35 @@
             color: rgb(154, 223, 43);
         }
 
+        .audio-control {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+        }
+
+        .audio-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: rgb(193, 161, 34);
+            font-size: 1.2rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -191,6 +220,12 @@
                 position: static;
                 text-align: center;
                 margin-top: 1rem;
+            }
+
+            .audio-control {
+                position: static;
+                text-align: center;
+                margin-bottom: 1rem;
             }
 
             .cards-grid {
@@ -341,6 +376,10 @@
     <div class="header">
         <h1 class="main-title" id="mainTitle">Explore India</h1>
         <p class="subtitle" id="subtitle">Discover the incredible diversity of Bharat</p>
+
+        <div class="audio-control">
+            <button class="audio-btn" id="audioToggle" title="Toggle Background Music">🔊</button>
+        </div>
 
         <div class="language-switcher">
             <select class="language-dropdown" id="languageSelect">
@@ -821,17 +860,63 @@
             const audio = document.getElementById('backgroundMusic');
             audio.volume = 0.3; // Set low volume
 
-            // Try to play audio (modern browsers may block autoplay)
-            const playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log('Audio autoplay was prevented:', error);
-                    // Audio will play when user interacts with the page
-                    document.addEventListener('click', function () {
-                        audio.play().catch(e => console.log('Audio play failed:', e));
-                    }, { once: true });
-                });
-            }
+            // Don't try to autoplay - wait for user interaction instead
+            let audioStarted = false;
+            
+            // Add event listeners for user interaction to start audio
+            const startAudio = () => {
+                if (!audioStarted) {
+                    audio.play().catch(e => {
+                        console.log('Audio play failed:', e);
+                    });
+                    audioStarted = true;
+                }
+            };
+
+            // Listen for various user interactions
+            ['click', 'touchstart', 'keydown'].forEach(eventType => {
+                document.addEventListener(eventType, startAudio, { once: true });
+            });
+
+            // Setup audio toggle button
+            setupAudioToggle(audio);
+        }
+
+        function setupAudioToggle(audio) {
+            const audioToggle = document.getElementById('audioToggle');
+            let isPlaying = false;
+
+            audioToggle.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                    audioToggle.textContent = '🔇';
+                    audioToggle.title = 'Play Background Music';
+                    isPlaying = false;
+                } else {
+                    audio.play().then(() => {
+                        audioToggle.textContent = '🔊';
+                        audioToggle.title = 'Pause Background Music';
+                        isPlaying = true;
+                    }).catch(e => {
+                        console.log('Audio play failed:', e);
+                        audioToggle.textContent = '🔇';
+                        audioToggle.title = 'Audio unavailable';
+                    });
+                }
+            });
+
+            // Update button state when audio ends or starts
+            audio.addEventListener('play', () => {
+                audioToggle.textContent = '🔊';
+                audioToggle.title = 'Pause Background Music';
+                isPlaying = true;
+            });
+
+            audio.addEventListener('pause', () => {
+                audioToggle.textContent = '🔇';
+                audioToggle.title = 'Play Background Music';
+                isPlaying = false;
+            });
         }
 
         // Modified generateCards to accept data to render
@@ -1006,8 +1091,6 @@
         });
 
     </script>
-    <script src="../js/home.js"></script>
-    <script src="../js/home1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Back to Top Button -->
 <button id="backToTopBtn" title="Go to top">🔝</button>
