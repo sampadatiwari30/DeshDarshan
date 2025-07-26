@@ -749,7 +749,7 @@
             </div>
           </div>
           <div class="slide">
-            <img src="../assets/images/festivals/23.jpg" alt="Holi Festival" />
+            <img src="../assets/images/67.jpg" alt="Holi Festival" />
             <div class="slide-overlay">
               <div class="slide-content">
                 <h2 id="slideTitle2">Festivals of Joy 🎉</h2>
@@ -1726,16 +1726,16 @@
       setInterval(nextSlide, 4000);
 
       // Navbar scroll effect
-      const navbar = document.getElementById("navbar");
+      const navbar = document.querySelector("nav.navbar");
       let lastScrollTop = 0;
 
       window.addEventListener("scroll", () => {
         const scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
 
-        if (scrollTop > 100) {
+        if (scrollTop > 100 && navbar) {
           navbar.classList.add("scrolled");
-        } else {
+        } else if (navbar) {
           navbar.classList.remove("scrolled");
         }
 
@@ -1747,14 +1747,16 @@
       const languageMenu = document.getElementById("languageMenu");
       const languageOptions = document.querySelectorAll(".language-option");
 
-      languageBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        languageMenu.classList.toggle("active");
-      });
+      if (languageBtn && languageMenu) {
+        languageBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          languageMenu.classList.toggle("active");
+        });
 
-      document.addEventListener("click", () => {
-        languageMenu.classList.remove("active");
-      });
+        document.addEventListener("click", () => {
+          languageMenu.classList.remove("active");
+        });
+      }
 
       // Language switching functionality
       const translations = {
@@ -1946,68 +1948,75 @@
         },
       };
 
-      languageOptions.forEach((option) => {
-        option.addEventListener("click", (e) => {
-          const selectedLang = e.target.getAttribute("data-lang");
+      if (languageOptions) {
+        languageOptions.forEach((option) => {
+          option.addEventListener("click", (e) => {
+            const selectedLang = e.target.getAttribute("data-lang");
 
-          // Hide all language content
-          document.querySelectorAll(".lang-content").forEach((content) => {
-            content.classList.remove("active");
-          });
-
-          // Show selected language content
-          document
-            .querySelectorAll(`[data-lang="${selectedLang}"]`)
-            .forEach((content) => {
-              content.classList.add("active");
+            // Hide all language content
+            document.querySelectorAll(".lang-content").forEach((content) => {
+              content.classList.remove("active");
             });
 
-          // Update language button text
-          if (
-            translations[selectedLang] &&
-            translations[selectedLang]["language-btn"]
-          ) {
-            languageBtn.textContent =
-              translations[selectedLang]["language-btn"];
-          }
+            // Show selected language content
+            document
+              .querySelectorAll(`[data-lang="${selectedLang}"]`)
+              .forEach((content) => {
+                content.classList.add("active");
+              });
 
-          // Update hero slide content
-          for (let i = 1; i <= 5; i++) {
-            if (translations[selectedLang]["slideTitle" + i]) {
-              document.getElementById("slideTitle" + i).textContent =
-                translations[selectedLang]["slideTitle" + i];
+            // Update language button text
+            if (
+              translations[selectedLang] &&
+              translations[selectedLang]["language-btn"] &&
+              languageBtn
+            ) {
+              languageBtn.textContent =
+                translations[selectedLang]["language-btn"];
             }
-            if (translations[selectedLang]["slideDesc" + i]) {
-              document.getElementById("slideDesc" + i).textContent =
-                translations[selectedLang]["slideDesc" + i];
+
+            // Update hero slide content
+            for (let i = 1; i <= 5; i++) {
+              const titleElement = document.getElementById("slideTitle" + i);
+              const descElement = document.getElementById("slideDesc" + i);
+              
+              if (translations[selectedLang]["slideTitle" + i] && titleElement) {
+                titleElement.textContent = translations[selectedLang]["slideTitle" + i];
+              }
+              if (translations[selectedLang]["slideDesc" + i] && descElement) {
+                descElement.textContent = translations[selectedLang]["slideDesc" + i];
+              }
             }
-          }
 
           // Update logo, nav links, and footer
-          if (translations[selectedLang]["logoTitle"]) {
-            document.getElementById("logoTitle").textContent =
-              translations[selectedLang]["logoTitle"];
+          const logoElement = document.getElementById("logoTitle");
+          const navDestElement = document.getElementById("navDest");
+          const navFactsElement = document.getElementById("navFacts");
+          const navContactElement = document.getElementById("navContact");
+          const footerTextElement = document.getElementById("footerText");
+          
+          if (translations[selectedLang]["logoTitle"] && logoElement) {
+            logoElement.textContent = translations[selectedLang]["logoTitle"];
           }
-          if (translations[selectedLang]["navDest"]) {
-            document.getElementById("navDest").textContent =
-              translations[selectedLang]["navDest"];
+          if (translations[selectedLang]["navDest"] && navDestElement) {
+            navDestElement.textContent = translations[selectedLang]["navDest"];
           }
-          if (translations[selectedLang]["navFacts"]) {
-            document.getElementById("navFacts").textContent =
-              translations[selectedLang]["navFacts"];
+          if (translations[selectedLang]["navFacts"] && navFactsElement) {
+            navFactsElement.textContent = translations[selectedLang]["navFacts"];
           }
-          if (translations[selectedLang]["navContact"]) {
-            document.getElementById("navContact").textContent =
-              translations[selectedLang]["navContact"];
+          if (translations[selectedLang]["navContact"] && navContactElement) {
+            navContactElement.textContent = translations[selectedLang]["navContact"];
           }
-          if (translations[selectedLang]["footerText"]) {
-            document.getElementById("footerText").textContent =
-              translations[selectedLang]["footerText"];
+          if (translations[selectedLang]["footerText"] && footerTextElement) {
+            footerTextElement.textContent = translations[selectedLang]["footerText"];
           }
 
-          languageMenu.classList.remove("active");
+          if (languageMenu) {
+            languageMenu.classList.remove("active");
+          }
         });
       });
+      }
 
       // Intersection Observer for scroll animations
       const observerOptions = {
@@ -2029,7 +2038,10 @@
       });
 
       // Observe footer
-      observer.observe(document.getElementById("footer"));
+      const footerElement = document.querySelector("footer");
+      if (footerElement) {
+        observer.observe(footerElement);
+      }
 
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

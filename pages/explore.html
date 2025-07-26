@@ -754,6 +754,9 @@
         ];
 
         let currentLanguage = 'en';
+        const audio = document.getElementById('bgAudio');
+        const toggleIcon = document.getElementById('audioToggle');
+        let isPlaying = false;
 
         // Initialize the page
         window.onload = function () {
@@ -763,16 +766,7 @@
         };
 
         function initializeAudio() {
-            const audio = document.getElementById('bgAudio');
             audio.volume = 0.3;
-
-            // Try to play audio (modern browsers may block autoplay)
-            const playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log('Audio autoplay prevented:', error);
-                });
-            }
         }
 
         function generateCards() {
@@ -879,10 +873,6 @@
         });
 
         //background-audio and icon toggle feature
-        const audio = document.getElementById('bgAudio');
-        const toggleIcon = document.getElementById('audioToggle');
-        let isPlaying = false;
-
         function toggleAudio() {
             if (isPlaying) {
                 audio.pause();
