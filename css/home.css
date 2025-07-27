@@ -19,7 +19,8 @@ body {
 
 /* Navigation Styles */
 .navbar {
-    background: rgba(0, 0, 0, 0.9);  /* Solid black by default */
+    background: rgba(0, 0, 0, 0.9);
+    /* Solid black by default */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 1rem 0;
@@ -143,7 +144,8 @@ body {
 }
 
 .navbar.scrolled {
-    background: rgba(0, 0, 0, 0.7); /* Faded black on scroll */
+    background: rgba(0, 0, 0, 0.7);
+    /* Faded black on scroll */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -167,18 +169,22 @@ body {
     height: 100vh;
     overflow: hidden;
     margin-top: 80px;
-    z-index:0
+    z-index: 0
 }
 
 .hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(2px); /* Adjust blur level here */
-    background: rgba(0, 0, 0, 0.1); /* Optional: adds subtle dark tint */
-    z-index: 1; /* Below content but above images */
+    backdrop-filter: blur(2px);
+    /* Adjust blur level here */
+    background: rgba(0, 0, 0, 0.1);
+    /* Optional: adds subtle dark tint */
+    z-index: 1;
+    /* Below content but above images */
 }
 
 .slideshow-container {
@@ -328,7 +334,11 @@ body {
     line-height: 1.6;
 }
 
-button, a, .culture-item, .food-item, .dance-item {
+button,
+a,
+.culture-item,
+.food-item,
+.dance-item {
     transition: all 0.3s ease-in-out;
 }
 
@@ -426,14 +436,16 @@ button, a, .culture-item, .food-item, .dance-item {
     font-size: 0.9rem;
     opacity: 0.9;
 }
+
 .dance-card {
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  color:  #ff9933;
-  transition: transform 0.2s ease;
-  text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #ff9933;
+    transition: transform 0.2s ease;
+    text-align: center;
 }
+
 .dance-card h3 {
     padding: 1rem;
     font-size: 1.2rem;
@@ -447,7 +459,7 @@ button, a, .culture-item, .food-item, .dance-item {
 .heritage-section {
     padding: 5rem 0 7rem;
     background: linear-gradient(135deg, #f0f8ff, #fff5f5);
-    
+
 }
 
 .heritage-grid {
@@ -456,13 +468,14 @@ button, a, .culture-item, .food-item, .dance-item {
     gap: 2rem;
 }
 
-.heritage-item{
+.heritage-item {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .heritage-item:hover {
     transform: translateY(-5px);
 }
@@ -503,30 +516,35 @@ button, a, .culture-item, .food-item, .dance-item {
 
 /* Comments Section */
 .comments-section {
-  margin-top: 16px;
-  background: #f9f9f9;
-  padding: 10px;
-  border-radius: 8px;
+    margin-top: 16px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
 }
+
 .comments-list {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 .comment-form input,
 .comment-form textarea {
-  width: 100%;
-  margin-bottom: 6px;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
+
 .comment-form button {
-  padding: 6px 16px;
-  border: none;
-  background: #007bff;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
+    padding: 6px 16px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
 }
+
+
 
 /* Footer */
 .footer {
@@ -546,6 +564,7 @@ button, a, .culture-item, .food-item, .dance-item {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
