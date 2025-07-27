@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback Form</title>
-    <link rel="stylesheet" href="feedback.css">
-</head>
-<body>
+    <link rel="stylesheet" href="feedback.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- Background Animated Elements -->
     <div class="bg-element supreme-court">🏛️</div>
     <div class="bg-element temple">🕌</div>
@@ -19,73 +23,122 @@
 
     <!-- Main Container -->
     <div class="container">
-        <div class="form-card">
-            <h1 class="form-title">Feedback Form</h1>
-            
-            <form id="feedbackForm" novalidate>
-                <div class="form-group">
-                    <label class="form-label" for="name">Name *</label>
-                    <input type="text" id="name" name="name" class="form-input" required>
-                    <div class="error-message" id="nameError">Please enter your name</div>
-                </div>
+      <div class="form-card">
+        <h1 class="form-title">Feedback Form</h1>
 
-                <div class="form-group">
-                    <label class="form-label" for="email">Email ID *</label>
-                    <input type="email" id="email" name="email" class="form-input" required>
-                    <div class="error-message" id="emailError">Please enter a valid email address</div>
-                </div>
+        <form id="feedbackForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="name">Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              required
+            />
+            <div class="error-message" id="nameError">
+              Please enter your name
+            </div>
+          </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" class="form-input" required>
-                    <div class="error-message" id="phoneError">Please enter your phone number</div>
-                </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email ID *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+            />
+            <div class="error-message" id="emailError">
+              Please enter a valid email address
+            </div>
+          </div>
 
-                <div class="form-group star-rating-group">
-                    <label class="form-label">Star Rating *</label>
-                    <div class="star-rating" id="starRating">
-                        <span class="star" data-rating="1">★</span>
-                        <span class="star" data-rating="2">★</span>
-                        <span class="star" data-rating="3">★</span>
-                        <span class="star" data-rating="4">★</span>
-                        <span class="star" data-rating="5">★</span>
-                    </div>
-                    <div class="error-message" id="ratingError">Please select a rating</div>
-                </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number *</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              required
+            />
+            <div class="error-message" id="phoneError">
+              Please enter your phone number
+            </div>
+          </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="message">Message *</label>
-                    <textarea id="message" name="message" class="form-input form-textarea" rows="4" required placeholder="Share your thoughts about your experience..."></textarea>
-                    <div class="error-message" id="messageError">Please enter your message</div>
-                </div>
+          <div class="form-group star-rating-group">
+            <label class="form-label">Star Rating *</label>
+            <div class="star-rating" id="starRating">
+              <span class="star" data-rating="1">★</span>
+              <span class="star" data-rating="2">★</span>
+              <span class="star" data-rating="3">★</span>
+              <span class="star" data-rating="4">★</span>
+              <span class="star" data-rating="5">★</span>
+            </div>
+            <div class="error-message" id="ratingError">
+              Please select a rating
+            </div>
+          </div>
 
-                <div class="share-section">
-                    <div class="share-title">Share Your Experience</div>
-                    <div class="share-links">
-                        <a href="https://www.instagram.com/" target="_blank" class="share-link instagram-link">
-                            📷 Instagram
-                        </a>
-                        <a href="mailto:feedback@example.com?subject=My Experience Feedback" class="share-link email-link">
-                            ✉️ Email
-                        </a>
-                    </div>
-                </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-input form-textarea"
+              rows="4"
+              required
+              placeholder="Share your thoughts about your experience..."
+            ></textarea>
+            <div class="error-message" id="messageError">
+              Please enter your message
+            </div>
+          </div>
 
-                <button type="submit" class="submit-btn">Submit Feedback</button>
-            </form>
-        </div>
+          <div class="share-section">
+            <div class="share-title">Share Your Experience</div>
+            <div class="share-links">
+              <a
+                href="https://instagram.com/yourprofile"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram profile"
+                title="Instagram"
+                style="margin: 0 10px; font-size: 24px; color: #e1306c"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="mailto:someone@example.com"
+                aria-label="Send us an Email"
+                title="Email"
+                style="margin: 0 10px; font-size: 24px; color: #333"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+      </div>
     </div>
 
     <!-- Popup -->
     <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-card">
-            <p class="popup-message">
-                From gurdwaras echoing shabads to churches ringing carols, from folk dances of every land to the sacred chants of every faith 
-                — your feedback adds warmth to our colorful yatra across India. Thank you for being part of it!🌺❤️
-            </p>
-            <button class="popup-close" onclick="closePopup()">Close</button>
-        </div>
+      <div class="popup-card">
+        <p class="popup-message">
+          From gurdwaras echoing shabads to churches ringing carols, from folk
+          dances of every land to the sacred chants of every faith — your
+          feedback adds warmth to our colorful yatra across India. Thank you for
+          being part of it!🌺❤️
+        </p>
+        <button class="popup-close" onclick="closePopup()">Close</button>
+      </div>
     </div>
-       <script src="feedback.js"></script>
-</body>
+    <script src="feedback.js"></script>
+  </body>
 </html>
