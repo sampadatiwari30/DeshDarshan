@@ -1,0 +1,285 @@
+/* Your existing CSS styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #eef2f7, #cfd9e8);
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease-out;
+            background: linear-gradient(135deg, #FF6F61, #FFC107);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .subtitle {
+            text-align: center;
+      font-size: 1rem;
+      color: #6b7280;
+      margin-bottom: 40px;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .language-dropdown {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            color: rgb(193, 161, 34);
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .language-dropdown:hover {
+            background: none;
+            transform: translateY(-2px);
+        }
+
+        .language-dropdown option {
+            background: #ffffff;
+            color: rgb(154, 223, 43);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            position: relative;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 0.8s ease-out both;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(1px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(0px);
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-tagline {
+            font-size: 0.9rem;
+            opacity: 0;
+            font-weight: 300;
+            line-height: 1.4;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover .card-tagline {
+        opacity: 0.9;
+        max-height: 100px;
+        }
+
+
+        /* Animation keyframes */
+        @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Staggered animation for cards */
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .language-switcher {
+                position: static;
+                text-align: center;
+                margin-top: 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .card {
+                height: 200px;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .card {
+                height: 180px;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* NEW: Styles for the Search Bar */
+        .search-bar-container {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 1rem;
+            /* Added padding for smaller screens */
+        }
+
+        #state-search {
+            padding: 12px 15px;
+            width: 100%;
+            /* Make it full width for smaller screens */
+            max-width: 400px;
+            /* Limit max width for larger screens */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #state-search:focus {
+            border-color: #ff9933;
+            /* Highlight on focus */
+        }
+
+        #search-button {
+            padding: 12px 20px;
+            background-color: #ff9933;
+            /* Orange/Saffron color */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        #search-button:hover {
+            background-color: #e68a2e;
+        }
+
+        /* Responsive adjustments for search bar */
+        @media (max-width: 480px) {
+            .search-bar-container {
+                flex-direction: column;
+                /* Stack vertically on very small screens */
+                align-items: center;
+            }
+
+            #state-search {
+                width: calc(100% - 20px);
+                /* Adjust width considering padding */
+            }
+
+            #search-button {
+                width: 100%;
+            }
+        }
+
+        .navbarhover:hover {
+            color: rgb(241, 150, 14)
+        }
