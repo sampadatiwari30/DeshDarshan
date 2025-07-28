@@ -108,6 +108,10 @@ body {
     margin: 3px 0;
     transition: 0.3s;
 }
+.link-home{
+    border: none;
+    outline: none;
+}
  /* Language Dropdown */
         .language-dropdown {
             position: relative;
