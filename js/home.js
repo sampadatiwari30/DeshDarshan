@@ -1,39 +1,39 @@
-// // Slideshow functionality   ----disabled currently
-// let currentSlideIndex = 0;
-// const slides = document.querySelectorAll(".slide");
-// const dots = document.querySelectorAll(".dot");
+// Slideshow functionality
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
 
-// function showSlide(index) {
-//   // Hide all slides
-//   slides.forEach((slide) => slide.classList.remove("active"));
-//   dots.forEach((dot) => dot.classList.remove("active"));
+function showSlide(index) {
+  // Hide all slides
+  slides.forEach((slide) => slide.classList.remove("active"));
+  dots.forEach((dot) => dot.classList.remove("active"));
 
-//   // Show current slide
-//   slides[index].classList.add("active");
-//   dots[index].classList.add("active");
-// }
+  // Show current slide
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+}
 
-// function nextSlide() {
-//   currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-//   showSlide(currentSlideIndex);
-// }
+function nextSlide() {
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+  showSlide(currentSlideIndex);
+}
 
-// function currentSlide(index) {
-//   currentSlideIndex = index - 1;
-//   showSlide(currentSlideIndex);
-// }
+function currentSlide(index) {
+  currentSlideIndex = index - 1;
+  showSlide(currentSlideIndex);
+}
 
-// // Auto-advance slideshow
-// setInterval(nextSlide, 5000);
+// Auto-advance slideshow
+setInterval(nextSlide, 5000);
 
-// // Mobile navigation toggle
-// const hamburger = document.querySelector(".hamburger");
-// const navMenu = document.querySelector(".nav-menu");
+// Mobile navigation toggle
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
 
-// hamburger.addEventListener("click", () => {
-//   hamburger.classList.toggle("active");
-//   navMenu.classList.toggle("active");
-// });
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll(".nav-menu a").forEach((link) => {
@@ -136,120 +136,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadComments();
   });
-});
-
-// gsap
-
-gsap.registerPlugin("CustomEase");
-
-CustomEase.create("hop", "0.9, 0, 0.1, 1");
-document.addEventListener("DOMContentLoaded", () => {
-  const t1 = gsap.timeline({
-    defaults: {
-      ease: "hop",
-    },
-  });
-
-  t1.to(
-    ".word h1",
-    {
-      y: "0%",
-      duration: 1,
-    },
-    "<"
-  );
-
-  t1.to("#word1 h1", {
-    y: "110%",
-    duration: 1,
-    delay: 0.3,
-  });
-
-  t1.to(
-    "#word2 h1",
-    {
-      y: "-110%",
-      duration: 1,
-    },
-    "<"
-  );
-
-  t1.to(".block", {
-    clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-    duration: 1,
-    stagger: 0.1,
-    delay: 0.75,
-    onStart: () => gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
-  });
-
-  t1.to(
-    [".navbar", ".line h1", ".line p"],
-    {
-      y: "0%",
-      duration: 1.5,
-      stagger: 0.2,
-    },
-    "<"
-  );
-
-  t1.to(
-    [".cta", ".cta-icon"],
-    {
-      scale: 1,
-      duration: 1.5,
-      stagger: 0.75,
-      delay: 0.75,
-    },
-    "<"
-  );
-
-  t1.to(
-    ".cta-label p",
-    {
-      y: "0%",
-      duration: 1.5,
-      delay: 0.5,
-    },
-    "<"
-  );
-});
-
-
-const images = [
-    { src: "./assets/images/hero4.jpg", text: "India’s Heart Beats in Its Culture, land where heritage lives in every corner." },
-    { src: "./assets/images/hero.jpg", text: "Discover the Beauty of India. Festivals that honor nature, gods, and timeless traditions" },
-    { src: "./assets/images/hero2.png", text: "Celebrate the colors and vibrancy of Indian festivals with family and friends." }
-];
-
-let currentIndex = 0;
-const imgElement = document.querySelector(".slider-img");
-const textElement = document.querySelector(".slider-text");
-
-function changeImage() {
-    imgElement.style.opacity = 0;
-    textElement.style.opacity = 0;
-
-    setTimeout(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        imgElement.src = images[currentIndex].src; 
-        textElement.textContent = images[currentIndex].text; 
-
-        imgElement.style.opacity = 1;
-        textElement.style.opacity = 1;
-    }, 1000); 
-}
-
-setInterval(changeImage, 10000);
-
-changeImage();
-
-
-const ctaButton = document.querySelector(".cta");
-const festivalsSection = document.querySelector(".festivals-culture");
-
-ctaButton.addEventListener("click", function() {
-    festivalsSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
 });
