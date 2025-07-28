@@ -27,7 +27,7 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
-            background: linear-gradient(135deg, #d5d1cc 0%, #eeeeed 25%,);
+            background: linear-gradient(135deg, #d5d1cc 0%, #eeeeed 25%);
         }
 
         /* ===== ANIMATED BACKGROUND ===== */
@@ -365,6 +365,32 @@
             color: #FF6347;
         }
 
+        /* ===== PASSWORD STRENGTH METER ===== */
+        .password-strength-meter {
+            margin-top: 8px;
+        }
+
+        #strengthBar {
+            height: 6px;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            background-color: #ddd;
+            width: 0%;
+        }
+
+        #strengthText {
+            font-size: 12px;
+            margin-top: 6px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        #suggestionText {
+            font-size: 12px;
+            color: #555;
+            margin-top: 2px;
+        }
+
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 480px) {
             .signup-form-card {
@@ -492,8 +518,8 @@
                 <p class="brand-subtitle">Discover the Heritage of India</p>
             </div>
 
-            <form id="signupForm" novalidate>
-                <autocomplete="off"> 
+            <!-- Fixed: autocomplete as form attribute -->
+            <form id="signupForm" autocomplete="off" novalidate>
                 <!-- Full Name Field -->
                 <div class="field-group">
                     <label class="field-label" for="fullName">Full Name *</label>
@@ -523,6 +549,11 @@
                     <label class="field-label" for="password">Password *</label>
                     <input type="password" id="password" name="password" class="field-input" required>
                     <span class="validation-status" id="passwordStatus"></span>
+                    <div class="password-strength-meter">
+                        <div id="strengthBar"></div>
+                        <p id="strengthText" aria-live="polite"></p>
+                        <p id="suggestionText"></p>
+                    </div>
                     <div class="error-text" id="passwordError"></div>
                 </div>
 
@@ -626,6 +657,11 @@
         const genderInputs = document.querySelectorAll('input[name="gender"]');
         const state = document.getElementById('state');
 
+        // Password strength elements
+        const strengthBar = document.getElementById("strengthBar");
+        const strengthText = document.getElementById("strengthText");
+        const suggestionText = document.getElementById("suggestionText");
+
         // Validation state tracker
         const validationState = {
             fullName: false,
@@ -671,44 +707,83 @@
         }
 
         function validatePassword() {
-            const value = password.value;
-            let isValid = true;
-            let errorMessage = '';
+            const value = password.value.trim();
 
-            if (value.length < 8) {
-            isValid = false;
-            errorMessage = 'Password must be at least 8 characters long';
-            } else if (!/[A-Z]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one uppercase letter';
-            } else if (!/[a-z]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one lowercase letter';
-            } else if (!/[0-9]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one number';
-            } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one special character';
+            // Rules for password
+            const lengthRule = value.length >= 8;
+            const upperRule = /[A-Z]/.test(value);
+            const lowerRule = /[a-z]/.test(value);
+            const numberRule = /[0-9]/.test(value);
+            const specialRule = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+
+            const isValid = lengthRule && upperRule && lowerRule && numberRule && specialRule;
+
+            // Show strength meter
+            updateStrengthMeter(value);
+
+            updateFieldValidation("password", isValid, isValid ? "" : "Password must contain uppercase, lowercase, number, special character & be 8+ chars.");
+            
+            // Validate confirm password too
+            if (confirmPassword.value) {
+                validateConfirmPassword();
             }
 
-    updateFieldValidation('password', isValid, errorMessage);
-
-    // Re-validate confirm password if it has a value
-    if (confirmPassword.value) {
-        validateConfirmPassword();
-    }
-
-    return isValid;
-}
-        function validateConfirmPassword() {
-            const value = confirmPassword.value;
-            const isValid = value === password.value && value.length > 0;
-            
-            updateFieldValidation('confirmPassword', isValid, 
-                isValid ? '' : 'Passwords do not match');
-            
             return isValid;
+        }
+
+        // Fixed: removed typo
+        function validateConfirmPassword() {
+            const isValid = password.value.trim() === confirmPassword.value.trim();
+            updateFieldValidation("confirmPassword", isValid, isValid ? "" : "Passwords do not match.");
+            return isValid;
+        }
+
+        function getPasswordStrength(password) {
+            let score = 0;
+            if (password.length >= 8) score++;
+            if (/[A-Z]/.test(password)) score++;
+            if (/[a-z]/.test(password)) score++;
+            if (/[0-9]/.test(password)) score++;
+            if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) score++;
+            return score;
+        }
+
+        function updateStrengthMeter(password) {
+            const score = getPasswordStrength(password);
+            let width = "0%", text = "Too Weak", color = "#ccc", suggestion = "";
+
+            switch (score) {
+                case 1:
+                case 2:
+                    width = "40%";
+                    text = "Weak";
+                    color = "#f44336";
+                    suggestion = "Use upper & lowercase letters, numbers, and special characters.";
+                    break;
+                case 3:
+                    width = "60%";
+                    text = "Moderate";
+                    color = "#ff9800";
+                    suggestion = "Try adding special symbols or more characters.";
+                    break;
+                case 4:
+                    width = "80%";
+                    text = "Strong";
+                    color = "#ffeb3b";
+                    suggestion = "";
+                    break;
+                case 5:
+                    width = "100%";
+                    text = "Very Strong";
+                    color = "#4caf50";
+                    suggestion = "";
+                    break;
+            }
+
+            strengthBar.style.width = width;
+            strengthBar.style.backgroundColor = color;
+            strengthText.textContent = text;
+            suggestionText.textContent = suggestion;
         }
 
         function validateGender() {
@@ -862,7 +937,7 @@
         // Login Link Handler
         function showLoginMessage() {
              window.location.href = "login.html";
-            };
+        }
 
         // Initialize form state
         updateSubmitButton();
