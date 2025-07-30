@@ -3,12 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+html,body{
+    height: auto;
+    overflow-y: auto;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    overflow-x: hidden;
+    
 }
 
 .container {
@@ -77,7 +81,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
     padding: 0.6rem 1.8rem;
     border-radius: 16px;
     font-weight: 600;
@@ -106,10 +110,10 @@ Hover behavior
     transform: translateX(10px);
 }
 
-.nav-buttons a:hover i {
+/*.nav-buttons a:hover i {
     opacity: 1;
     transform: translateX(0);
-}
+}*/
 
 /* --- Login Button --- */
 .btn-login {
@@ -163,12 +167,19 @@ Hover behavior
 }
 
 /* Hero Section */
-.hero {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    margin-top: 80px;
-    z-index:0
+
+.intro-logo{
+margin-top: 80px;
+color: orange;
+text-align: center;
+font-family: 'Times New Roman', Times, serif;
+}
+.hero-img{
+   
+    width:10px
+}
+.hero-container{
+    height: 600px;
 }
 
 .hero::before {
@@ -177,90 +188,11 @@ Hover behavior
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(2px); /* Adjust blur level here */
+    
     background: rgba(0, 0, 0, 0.1); /* Optional: adds subtle dark tint */
     z-index: 1; /* Below content but above images */
 }
 
-.slideshow-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slide-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 2;
-    padding: 20px;
-}
-
-
-.slide-content h1 {
-    font-size: 60px;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9),
-        0 0 15px rgba(0, 0, 0, 0.7),
-        2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-.slide-content p {
-    font-size: 24px;
-    color: white;
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9),
-        0 0 15px rgba(0, 0, 0, 0.7),
-        2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-
-
-.slide-indicators {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.dot {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: white;
-    transform: scale(1.2);
-}
 
 /* Section Titles */
 .section-title {
@@ -298,7 +230,7 @@ Hover behavior
 .culture-item {
     background: white;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -349,7 +281,7 @@ button, a, .culture-item, .food-item, .dance-item {
     text-align: center;
     background: white;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -387,7 +319,7 @@ button, a, .culture-item, .food-item, .dance-item {
 .dance-item {
     position: relative;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -460,7 +392,7 @@ button, a, .culture-item, .food-item, .dance-item {
 .heritage-item{
     position: relative;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
