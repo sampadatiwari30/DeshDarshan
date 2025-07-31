@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DeshDarshan - Explore India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: #34495e;
+            font-size: 1.2rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .compass-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .compass-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            aspect-ratio: 1;
+            position: relative;
+        }
+
+        .compass-svg {
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        #compass-needle {
+            transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .compass-region {
+            transition: fill 0.3s ease;
+            cursor: pointer;
+        }
+
+        .compass-region:hover {
+            filter: brightness(1.1);
+        }
+
+        .compass-label {
+            font-size: 24px;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        .degree-label {
+            font-size: 14px;
+            fill: #1976d2;
+            user-select: none;
+        }
+
+        .coords-text {
+            font-size: 12px;
+            user-select: none;
+        }
+
+        .compass-button {
+            transition: transform 0.2s ease;
+        }
+
+        .compass-button:hover {
+            transform: scale(1.1);
+        }
+
+        .coordinates-display {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .coordinate-box {
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .coordinate-box label {
+            font-weight: bold;
+            color: #1976d2;
+            margin-right: 0.5rem;
+        }
+
+        .coordinate-box span {
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+
+        .region-info {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .region-info.active {
+            display: block;
+        }
+
+        .instructions {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 600px;
+            color: #333;
+        }
+
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .instructions p {
+            margin: 8px 0;
+        }
+
+        .region-title {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .state-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .state-tag {
+            background: #e3f2fd;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1565c0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .compass-section {
+                padding: 1rem;
+            }
+
+            .compass-label {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <header>
+            <h1>🧭DeshDarshan - interactive compass</h1>
+            <p class="subtitle">Explore the diverse regions of India through our compass</p>
+        </header>
+
+        <main class="main-content">
+            <section class="compass-section">
+                <div class="compass-container">
+                    <svg class="compass-svg" viewBox="0 0 400 400">
+                        <defs>
+                            <linearGradient id="northGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e3f2fd"/>
+                                <stop offset="100%" style="stop-color:#bbdefb"/>
+                            </linearGradient>
+                            <linearGradient id="eastGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffe0b2"/>
+                                <stop offset="100%" style="stop-color:#ffcc80"/>
+                            </linearGradient>
+                            <linearGradient id="southGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#c8e6c9"/>
+                                <stop offset="100%" style="stop-color:#a5d6a7"/>
+                            </linearGradient>
+                            <linearGradient id="westGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffcdd2"/>
+                                <stop offset="100%" style="stop-color:#ef9a9a"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="200" cy="200" r="190" fill="#e8f4f8" stroke="#2196f3" stroke-width="6"/>
+                        <!-- World Map Background (simplified) -->
+                        <path d="M50,180 Q120,160 180,170 T300,180 Q340,190 360,200" stroke="#a5d6a7" fill="none" stroke-width="2" opacity="0.5"/>
+                        <path d="M80,220 Q140,200 200,210 T320,220" stroke="#a5d6a7" fill="none" stroke-width="2" opacity="0.5"/>
+                        <!-- Degree Markers -->
+                        <g id="degree-markers">
+                            <circle cx="200" cy="200" r="180" fill="none" stroke="#90caf9" stroke-width="1" stroke-dasharray="2,10"/>
+                            <circle cx="200" cy="200" r="170" fill="none" stroke="#90caf9" stroke-width="1" stroke-dasharray="2,10"/>
+                            <!-- Degree Numbers -->
+                            <text x="200" y="30" text-anchor="middle" class="degree-label">0°</text>
+                            <text x="370" y="200" text-anchor="middle" class="degree-label">90°</text>
+                            <text x="200" y="370" text-anchor="middle" class="degree-label">180°</text>
+                            <text x="30" y="200" text-anchor="middle" class="degree-label">270°</text>
+                        </g>
+                        <path class="compass-region" id="region-n" d="M200,200 L200,30 A170,170 0 0,1 370,200 Z" fill="url(#northGrad)" data-direction="N" data-region="north"/>
+                        <path class="compass-region" id="region-e" d="M200,200 L370,200 A170,170 0 0,1 200,370 Z" fill="url(#eastGrad)" data-direction="E" data-region="east"/>
+                        <path class="compass-region" id="region-s" d="M200,200 L200,370 A170,170 0 0,1 30,200 Z" fill="url(#southGrad)" data-direction="S" data-region="south"/>
+                        <path class="compass-region" id="region-w" d="M200,200 L30,200 A170,170 0 0,1 200,30 Z" fill="url(#westGrad)" data-direction="W" data-region="west"/>
+                        <g id="compass-needle" transform="translate(200, 200)">
+                            <path d="M0,-140 L15,0 L0,140 L-15,0 Z" fill="#d32f2f" />
+                            <circle cx="0" cy="0" r="15" fill="#ffd700" stroke="#ffffff" stroke-width="2"/>
+                        </g>
+                        <g id="compass-center" transform="translate(200, 200)">
+                            <circle r="60" fill="#fff" stroke="#bbb" stroke-width="4"/>
+                            <circle r="40" class="compass-button" fill="#2196f3" stroke="#fff" stroke-width="2" style="cursor: pointer"/>
+                            
+                        </g>
+                        <text x="200" y="60" text-anchor="middle" class="compass-label">N</text>
+                        <text x="340" y="210" text-anchor="middle" class="compass-label">E</text>
+                        <text x="200" y="355" text-anchor="middle" class="compass-label">S</text>
+                        <text x="60" y="210" text-anchor="middle" class="compass-label">W</text>
+                    </svg>
+                </div>
+                <div class="coordinates-display">
+                    <div class="coordinate-box">
+                        <label>Latitude:</label>
+                        <span id="latitude-value">--°</span>
+                    </div>
+                    <div class="coordinate-box">
+                        <label>Longitude:</label>
+                        <span id="longitude-value">--°</span>
+                    </div>
+                    <div class="coordinate-box">
+                        <label>Direction:</label>
+                        <span id="direction-display">--</span>
+                    </div>
+                </div>
+                <div class="region-info" id="region-info">
+                    <!-- Region information will be dynamically populated here -->
+                </div>
+                <div class="instructions">
+                    <h2>How to Use the Online Compass</h3>
+                    <p>This online compass indicates North in red, with South, East, and West marked accurately in degrees:</p>
+                    <p>• North: 0° <br>• East: 90°<br>• South: 180°<br>• West: 270°</p>
+                    <p>Simply place your mobile device on a flat surface to see where North points. </p>
+                        <p>No download required!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Request device orientation permission and handle compass rotation
+            function setupCompass() {
+                if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                    document.querySelector('.compass-container').addEventListener('click', async () => {
+                        try {
+                            const permission = await DeviceOrientationEvent.requestPermission();
+                            if (permission === 'granted') {
+                                window.addEventListener('deviceorientationabsolute', handleOrientation);
+                                window.addEventListener('deviceorientation', handleOrientation);
+                            }
+                        } catch (error) {
+                            console.error('Error requesting device orientation permission:', error);
+                        }
+                    });
+                } else {
+                    // For other devices
+                    window.addEventListener('deviceorientationabsolute', handleOrientation);
+                    window.addEventListener('deviceorientation', handleOrientation);
+                }
+            }
+
+            // Call setup on page load
+            setupCompass();
+
+            function handleOrientation(event) {
+                const compass = document.querySelector('.compass-svg');
+                const directionDisplay = document.getElementById('direction-display');
+                let rotation = 0;
+
+                if (event.webkitCompassHeading) {
+                    // For iOS devices
+                    rotation = event.webkitCompassHeading;
+                } else if (event.alpha) {
+                    // For Android devices
+                    rotation = 360 - event.alpha;
+                }
+
+                // Ensure rotation is within 0-360 range
+                rotation = ((rotation % 360) + 360) % 360;
+
+                // Determine cardinal direction
+                const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+                const index = Math.round(rotation / 45) % 8;
+                const direction = directions[index];
+
+                // Update displays
+                directionDisplay.textContent = `${direction} (${Math.round(rotation)}°)`;
+                compass.style.transform = `rotate(${rotation}deg)`;
+
+                // Debug output
+                console.log('Orientation event:', {
+                    webkitCompassHeading: event.webkitCompassHeading,
+                    alpha: event.alpha,
+                    rotation: rotation,
+                    direction: direction
+                });
+            }
+
+            // Handle geolocation
+            const coordsLat = document.querySelector('.coords-text:first-child');
+            const coordsLong = document.querySelector('.coords-text:last-child');
+            const compassButton = document.querySelector('.compass-button');
+
+            compassButton.addEventListener('click', () => {
+                // Trigger compass animation
+                const compass = document.querySelector('.compass-svg');
+                compass.style.transition = 'transform 1s cubic-bezier(0.4, 0.0, 0.2, 1)';
+                compass.style.transform = 'rotate(360deg)';
+                
+                // Reset transition after animation
+                setTimeout(() => {
+                    compass.style.transition = 'transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)';
+                    compass.style.transform = 'rotate(0deg)';
+                }, 1000);
+                
+                // Update location
+                if (navigator.geolocation) {
+                    navigator.geolocation.watchPosition(
+                        (position) => {
+                            const { latitude, longitude } = position.coords;
+                            document.getElementById('latitude-value').textContent = `${latitude.toFixed(4)}°`;
+                            document.getElementById('longitude-value').textContent = `${longitude.toFixed(4)}°`;
+                        },
+                        (error) => {
+                            console.error('Error getting location:', error);
+                            alert('Please enable location services to use the compass');
+                        },
+                        { enableHighAccuracy: true, maximumAge: 0 }
+                    );
+                }
+            });
+            const regionInfo = {
+                north: {
+                    tooltip: 'North India: Rajasthan, Punjab, Himachal Pradesh, Haryana, Delhi, J&K, Uttarakhand',
+                    states: ['Rajasthan', 'Punjab', 'Himachal Pradesh', 'Haryana', 'Delhi', 'Jammu & Kashmir', 'Uttarakhand']
+                },
+                east: {
+                    tooltip: 'East India: West Bengal, Bihar, Jharkhand, Odisha, Assam',
+                    states: ['West Bengal', 'Bihar', 'Jharkhand', 'Odisha', 'Assam']
+                },
+                south: {
+                    tooltip: 'South India: Kerala, Tamil Nadu, Karnataka, Andhra Pradesh, Telangana',
+                    states: ['Kerala', 'Tamil Nadu', 'Karnataka', 'Andhra Pradesh', 'Telangana']
+                },
+                west: {
+                    tooltip: 'West India: Gujarat, Maharashtra, Goa',
+                    states: ['Gujarat', 'Maharashtra', 'Goa']
+                }
+            };
+
+            const regions = document.querySelectorAll('.compass-region');
+            const infoBox = document.getElementById('region-info');
+
+            regions.forEach(region => {
+                region.addEventListener('click', () => {
+                    const regionKey = region.getAttribute('data-region');
+                    const info = regionInfo[regionKey];
+                    
+                    infoBox.innerHTML = `
+                        <h2 class="region-title">${regionKey.charAt(0).toUpperCase() + regionKey.slice(1)} India</h2>
+                        <div class="state-list">
+                            ${info.states.map(state => `<span class="state-tag">${state}</span>`).join('')}
+                        </div>
+                    `;
+                    infoBox.classList.add('active');
+                });
+            });
+
+            if ('geolocation' in navigator) {
+                navigator.geolocation.watchPosition((position) => {
+                    updateCompassDirection(position.coords.latitude, position.coords.longitude);
+                });
+            }
+
+            function updateCompassDirection(latitude, longitude) {
+                const bearing = calculateBearing(latitude, longitude);
+                document.querySelector('.compass-svg').style.transform = `rotate(${bearing}deg)`;
+            }
+
+            function calculateBearing(latitude, longitude) {
+                // Simplified bearing calculation - this should be replaced with actual bearing calculation
+                return Math.random() * 360;
+            }
+        });
+    </script>
+</body>
+</html>

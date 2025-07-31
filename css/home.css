@@ -117,9 +117,9 @@ Hover behavior
 
 /* --- Login Button --- */
 .btn-login {
-    background-color: transparent;
-    color: #ffcc00;
-    border: 2px solid #ffcc00;
+    background-color: #ff9933;
+    color: white;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
 }
 
@@ -509,6 +509,7 @@ button, a, .culture-item, .food-item, .dance-item {
 
     .nav-buttons {
         display: none;
+        margin: 5px;
     }
 
     .slide-content h1 {

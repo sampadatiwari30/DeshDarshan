@@ -1,0 +1,25 @@
+{
+  "name": "compass-web-app",
+  "version": "1.0.0",
+  "description": "A web application featuring a compass UI that responds to user location.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step can be added here.'"
+  },
+  "keywords": [
+    "compass",
+    "navigation",
+    "location",
+    "web-app"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "geolocation": "^0.1.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

@@ -18,7 +18,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, hsl(220, 10%, 94%) 0%, #e9ecef 100%);
             font-family: 'Nunito', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
@@ -27,8 +27,8 @@
         .main-title {
             font-family: 'Fredoka One', cursive;
             font-size: 4rem;
-            color: #ff6b6b;
-            text-shadow: 3px 3px 0px #fff, 6px 6px 0px #ffd93d;
+            color: hsl(31, 97%, 58%);
+            text-shadow: 3px 3px 0px #fff, 6px 6px 0px #0af131;
             text-align: center;
             margin: 2rem 0;
             animation: titleBounce 2s ease-in-out infinite alternate;
@@ -45,8 +45,8 @@
         }
 
         .cartoon-card {
-            background: linear-gradient(145deg, #ffffff, #f0f0f0);
-            border-radius: 20px;
+            background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
+            border-radius: 15px;
             padding: 1.5rem;
             margin: 1rem;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -60,7 +60,7 @@
         .cartoon-card:hover {
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-color: #ff6b6b;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .cartoon-card::before {
@@ -137,7 +137,7 @@
         }
 
         .fact-modal {
-            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+             background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
             border-radius: 30px;
             padding: 3rem;
             max-width: 600px;
@@ -182,6 +182,7 @@
             border-radius: 20px;
             padding: 1rem 2rem;
             margin-bottom: 2rem;
+            margin-top: 1.5rem;
             position: relative;
             font-family: 'Fredoka One', cursive;
             font-size: 1.5rem;
@@ -207,7 +208,7 @@
             color: #2c3e50;
             line-height: 1.6;
             font-weight: 600;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #d04545, #0c7d76);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -215,8 +216,8 @@
 
         .close-btn {
             position: absolute;
-            top: 1rem;
-            right: 1.5rem;
+            top: 0.5rem;
+            right: 0.5rem;
             background: #ff6b6b;
             color: white;
             border: none;
@@ -284,13 +285,15 @@
         }
 
         .navbarhover:hover {
-            color: rgb(241, 150, 14)
+            color: rgb(234, 112, 51);
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:hsl(24, 5%, 19%);">
         <div class="container-fluid">
             <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

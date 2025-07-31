@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore India</title>
     <link rel="icon" href="data:,"> <!-- this line silences the favicon 404 -->
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
         * {
             margin: 0;
@@ -118,6 +122,16 @@
             background: rgba(0, 0, 0, 0.4);
             filter: blur(1px) grayscale(0.8);
             opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .card.locked:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            filter: blur(0.5px) grayscale(0.5);
+            opacity: 0.9;
         }
 
         .card.unlocked:hover {
@@ -173,17 +187,23 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 0.8rem;
+            font-size: 1.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.6rem;
             border-radius: 50%;
             z-index: 10;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .card.locked:hover .lock-icon {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            opacity: 1;
         }
 
         @keyframes pulse {
-
             0%,
             100% {
                 transform: scale(1);
@@ -433,6 +453,112 @@
             top: 0;
             z-index: 999;
         }
+
+        /* Map Modal Styles */
+        .map-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .map-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            height: 80%;
+            max-height: 600px;
+            overflow: hidden;
+            animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .map-modal-header h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .map-modal-header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .close-map-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            background: none;
+            border: none;
+        }
+
+        .close-map-modal:hover {
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .map-container {
+            height: calc(100% - 120px);
+            width: 100%;
+        }
+
+        #stateMap {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Enhanced card hover effects for unlocked cards */
+        .card.unlocked {
+            cursor: pointer;
+        }
+
+        .card.unlocked:hover {
+            transform: scale(1.08) translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Mobile responsive for map modal */
+        @media (max-width: 768px) {
+            .map-modal-content {
+                width: 95%;
+                height: 85%;
+                max-height: 500px;
+            }
+
+            .map-modal-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .map-modal-header p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -474,6 +600,20 @@
             <div class="modal-buttons">
                 <a href="signup.html" class="modal-btn btn-signup" id="signupBtn">Sign Up</a>
                 <a href="login.html" class="modal-btn btn-login" id="loginBtn">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div class="map-modal" id="mapModal">
+        <div class="map-modal-content">
+            <div class="map-modal-header">
+                <button class="close-map-modal" id="closeMapModal">&times;</button>
+                <h3 id="mapModalTitle">State Location</h3>
+                <p id="mapModalSubtitle">Explore the geographical location</p>
+            </div>
+            <div class="map-container">
+                <div id="stateMap"></div>
             </div>
         </div>
     </div>
@@ -753,7 +893,48 @@
             { name: "West Bengal", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" }
         ];
 
+        // State coordinates data for Leaflet map
+        const stateCoordinates = {
+            "Andaman and Nicobar Islands": { lat: 11.7401, lng: 92.6586, capital: "Port Blair" },
+            "Andhra Pradesh": { lat: 15.9129, lng: 79.7400, capital: "Amaravati" },
+            "Arunachal Pradesh": { lat: 28.2180, lng: 94.7278, capital: "Itanagar" },
+            "Assam": { lat: 26.2006, lng: 92.9376, capital: "Dispur" },
+            "Bihar": { lat: 25.0961, lng: 85.3131, capital: "Patna" },
+            "Chandigarh": { lat: 30.7333, lng: 76.7794, capital: "Chandigarh" },
+            "Chhattisgarh": { lat: 21.2787, lng: 81.8661, capital: "Raipur" },
+            "Dadra and Nagar Haveli and Daman and Diu": { lat: 20.1809, lng: 73.0169, capital: "Daman" },
+            "Delhi": { lat: 28.7041, lng: 77.1025, capital: "New Delhi" },
+            "Goa": { lat: 15.2993, lng: 74.1240, capital: "Panaji" },
+            "Gujarat": { lat: 23.0225, lng: 72.5714, capital: "Gandhinagar" },
+            "Haryana": { lat: 29.0588, lng: 76.0856, capital: "Chandigarh" },
+            "Himachal Pradesh": { lat: 31.1048, lng: 77.1734, capital: "Shimla" },
+            "Jammu and Kashmir": { lat: 34.0837, lng: 74.7973, capital: "Srinagar" },
+            "Jharkhand": { lat: 23.6102, lng: 85.2799, capital: "Ranchi" },
+            "Karnataka": { lat: 15.3173, lng: 75.7139, capital: "Bengaluru" },
+            "Kerala": { lat: 10.8505, lng: 76.2711, capital: "Thiruvananthapuram" },
+            "Ladakh": { lat: 34.1526, lng: 77.5771, capital: "Leh" },
+            "Lakshadweep": { lat: 10.5667, lng: 72.6417, capital: "Kavaratti" },
+            "Madhya Pradesh": { lat: 22.9734, lng: 78.6569, capital: "Bhopal" },
+            "Maharashtra": { lat: 19.7515, lng: 75.7139, capital: "Mumbai" },
+            "Manipur": { lat: 24.6637, lng: 93.9063, capital: "Imphal" },
+            "Meghalaya": { lat: 25.4670, lng: 91.3662, capital: "Shillong" },
+            "Mizoram": { lat: 23.1645, lng: 92.9376, capital: "Aizawl" },
+            "Nagaland": { lat: 26.1584, lng: 94.5624, capital: "Kohima" },
+            "Odisha": { lat: 20.9517, lng: 85.0985, capital: "Bhubaneswar" },
+            "Puducherry": { lat: 11.9416, lng: 79.8083, capital: "Puducherry" },
+            "Punjab": { lat: 31.1471, lng: 75.3412, capital: "Chandigarh" },
+            "Rajasthan": { lat: 27.0238, lng: 74.2179, capital: "Jaipur" },
+            "Sikkim": { lat: 27.5330, lng: 88.5122, capital: "Gangtok" },
+            "Tamil Nadu": { lat: 11.1271, lng: 78.6569, capital: "Chennai" },
+            "Telangana": { lat: 18.1124, lng: 79.0193, capital: "Hyderabad" },
+            "Tripura": { lat: 23.9408, lng: 91.9882, capital: "Agartala" },
+            "Uttar Pradesh": { lat: 26.8467, lng: 80.9462, capital: "Lucknow" },
+            "Uttarakhand": { lat: 30.0668, lng: 79.0193, capital: "Dehradun" },
+            "West Bengal": { lat: 22.9868, lng: 87.8550, capital: "Kolkata" }
+        };
+
         let currentLanguage = 'en';
+        let currentMap = null;
 
         // Initialize the page
         window.onload = function () {
@@ -783,6 +964,7 @@
                 const card = document.createElement('div');
                 card.className = `card ${index < 4 ? 'unlocked' : 'locked'}`;
                 card.style.backgroundImage = `url(${state.image})`;
+                card.dataset.stateName = state.name; // Add state name as data attribute
 
                 const overlay = document.createElement('div');
                 overlay.className = 'card-overlay';
@@ -803,14 +985,18 @@
                 card.appendChild(overlay);
                 card.appendChild(content);
 
+                // Add lock icon for locked cards
                 if (index >= 4) {
                     const lockIcon = document.createElement('div');
                     lockIcon.className = 'lock-icon';
                     lockIcon.textContent = '🔒';
                     card.appendChild(lockIcon);
-
-                    card.addEventListener('click', showModal);
                 }
+
+                // Make all cards clickable to show map
+                card.addEventListener('click', function() {
+                    showStateMap(state.name);
+                });
 
                 container.appendChild(card);
             });
@@ -823,10 +1009,16 @@
                 updateLanguage();
             });
 
-            // Modal events
+            // Modal events (keeping for potential future use)
             document.getElementById('closeModal').addEventListener('click', hideModal);
             document.getElementById('lockModal').addEventListener('click', function (e) {
                 if (e.target === this) hideModal();
+            });
+
+            // Map modal events
+            document.getElementById('closeMapModal').addEventListener('click', hideMapModal);
+            document.getElementById('mapModal').addEventListener('click', function (e) {
+                if (e.target === this) hideMapModal();
             });
 
             // Button events (placeholder)
@@ -871,10 +1063,102 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Map modal functions
+        function showStateMap(stateName) {
+            const stateInfo = stateCoordinates[stateName];
+            if (!stateInfo) {
+                console.error('State coordinates not found for:', stateName);
+                return;
+            }
+
+            // Check if this is a locked state (index >= 4)
+            const stateIndex = stateData.findIndex(state => state.name === stateName);
+            const isLocked = stateIndex >= 4;
+
+            // Update modal title and subtitle
+            document.getElementById('mapModalTitle').textContent = stateName;
+            const subtitle = isLocked 
+                ? `🔒 Preview Location • Capital: ${stateInfo.capital}` 
+                : `Capital: ${stateInfo.capital}`;
+            document.getElementById('mapModalSubtitle').textContent = subtitle;
+
+            // Show the modal
+            document.getElementById('mapModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+
+            // Initialize the map after a short delay to ensure the modal is visible
+            setTimeout(() => {
+                initializeMap(stateInfo.lat, stateInfo.lng, stateName, stateInfo.capital, isLocked);
+            }, 100);
+        }
+
+        function hideMapModal() {
+            document.getElementById('mapModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Destroy the current map to prevent memory leaks
+            if (currentMap) {
+                currentMap.remove();
+                currentMap = null;
+            }
+        }
+
+        function initializeMap(lat, lng, stateName, capital, isLocked = false) {
+            // Remove existing map if any
+            if (currentMap) {
+                currentMap.remove();
+            }
+
+            // Create new map
+            currentMap = L.map('stateMap').setView([lat, lng], 7);
+
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 18,
+            }).addTo(currentMap);
+
+            // Add marker for the state
+            const marker = L.marker([lat, lng]).addTo(currentMap);
+            
+            // Add popup with state information
+            const popupContent = isLocked 
+                ? `<div style="text-align: center; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 10px 0; color: #333;">🔒 ${stateName}</h3>
+                    <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
+                    <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}</p>
+                    <p style="margin: 10px 0 0 0; color: #888; font-size: 0.9em; font-style: italic;">Preview Mode - Sign up to unlock full details!</p>
+                </div>`
+                : `<div style="text-align: center; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 10px 0; color: #333;">${stateName}</h3>
+                    <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
+                    <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}</p>
+                </div>`;
+            
+            marker.bindPopup(popupContent).openPopup();
+
+            // Add a circle to highlight the general area (different colors for locked/unlocked)
+            const circleColor = isLocked ? '#ff6b6b' : '#667eea';
+            L.circle([lat, lng], {
+                color: circleColor,
+                fillColor: circleColor,
+                fillOpacity: isLocked ? 0.1 : 0.2,
+                radius: 50000 // 50km radius
+            }).addTo(currentMap);
+
+            // Invalidate size to ensure proper rendering
+            setTimeout(() => {
+                if (currentMap) {
+                    currentMap.invalidateSize();
+                }
+            }, 200);
+        }
+
         // Keyboard accessibility
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 hideModal();
+                hideMapModal();
             }
         });
 
