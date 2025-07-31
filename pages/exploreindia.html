@@ -275,6 +275,47 @@
             background-color: #e68a2e;
         }
 
+        #clear-search-button {
+            padding: 12px 20px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        #clear-search-button:hover {
+            background-color: #5a6268;
+        }
+
+        /* Search results info styling */
+        .search-results-info {
+            text-align: center;
+            margin: 10px 0 20px 0;
+            font-size: 0.9rem;
+            color: #666;
+            min-height: 20px;
+        }
+
+        .search-results-info.has-results {
+            color: #28a745;
+        }
+
+        .search-results-info.no-results {
+            color: #dc3545;
+        }
+
+        /* Highlight search terms */
+        mark {
+            background-color: #ffeb3b;
+            color: #000;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
         /* Responsive adjustments for search bar */
         @media (max-width: 480px) {
             .search-bar-container {
@@ -288,8 +329,9 @@
                 /* Adjust width considering padding */
             }
 
-            #search-button {
+            #search-button, #clear-search-button {
                 width: 100%;
+                margin-top: 5px;
             }
         }
 
@@ -422,7 +464,9 @@
         <div class="search-bar-container">
             <input type="text" id="state-search" placeholder="Search for a State or UT...">
             <button id="search-button">Search</button>
+            <button id="clear-search-button" style="display: none;">Clear</button>
         </div>
+        <div id="search-results-info" class="search-results-info"></div>
 
         <div class="cards-grid" id="cardsGrid">
         </div>
@@ -588,7 +632,7 @@
                     "Tripura": "जहाँ पहाड़, विरासत और सौहार्द्र शांति से मिलते हैं।",
                     "Uttar Pradesh": "जहाँ आस्था साँस लेती है, इतिहास खड़ा रहता है, और कहानियाँ सदा जीवित रहती हैं।",
                     "Uttarakhand": "जहाँ नदियाँ जन्म लेती हैं, आस्था जागती है, और पहाड़ आकाश से गले मिलते हैं।",
-                    "West Bengal": "जहाँ कला बोलती है, विचार गहराते हैं, और उत्सव आत्मा को रोशन करते हैं।"
+                    "West Bengal": " Where Art Speaks, Minds Think, and Festivities Light Up the Soul."
                 }
             },
             gu: {
@@ -646,12 +690,12 @@
                     "Gujarat": "જ્યાં વારસો ઊંચે ઊભો છે, સિંહો સ્વતંત્રપણે ભમરે છે અને દરેક તહેવારમાં સંસ્કૃતિ નાચે છે.",
                     "Haryana": "જ્યાં ખેતરો શક્તિશાળી રીતે શ્વાસ લે છે અને પરંપરા ગૌરવભેર આગળ વધે છે.",
                     "Himachal Pradesh": "જ્યાં પર્વતો શાંતિ બોલે છે અને નદીઓ ભક્તિ ગીતો ગાય છે.",
-                    "Jammu and Kashmir": "જ્યાં સ્વર્ગ પૃથ્વીને સ્પર્શ કરે છે અને દરેક ખીણમાં સંસ્કૃતિ ફૂલે છે.",
-                    "Jharkhand": "જ્યાં ધરતી ખનિજોથી ચમકે છે અને જંગલો પ્રાચીન ગીતો ગાય છે.",
+                    "Jammu and Kashmir": "જ્યાં સ્વर્ગ પૃથ્વીને સ્પર્શ કરે છે અને દરેક ખીણમાં સંસ્કૃતિ ફૂલે છે.",
+                    "Jharkhand": "જ્યાં ધરતી ખનિજોથી ચમકે છે અને જંગलો પ્રાચીન ગીતો ગાય છે.",
                     "Karnataka": "જ્યાં નવીનતા ફૂલે છે, વારસો જીવંત રહે છે અને પહાડ શાંતિથી શાંશ બોલે છે.",
                     "Kerala": "ભગવાનનો પોતાનો દેશ.",
-                    "Ladakh": "જ્યાં નિતાંતા શાંતિگونજે છે, પહાડો શાસન કરે છે અને મઠો આકાશ ઉપર નજર રાખે છે.",
-                    "Lakshadweep": "જ્યાં ફિરોઝી પાણી珊礁ના કિનારાઓને ચુમ્બન કરે છે અને જીવન તરંગો સાથે આગળ વધે છે.",
+                    "Ladakh": "જ્યાં नीरवता गूंजती है, पहाड़ शासन करते हैं, और मठ आकाश को निहारते हैं।",
+                    "Lakshadweep": "જ્યાં ફિરોઝી પાણી મूંગે કિનારાઓને ચુમ્બન કરે છે અને જીવન તરંગો સાથે આગળ વધે છે.",
                     "Madhya Pradesh": "અવિસ્મરણીય ભારતનું હ્રદય.",
                     "Maharashtra": "જ્યાં કિલ્લાઓ ઊભા છે, ફિલ્મો મોટા સપનાઓ જુએ છે અને દરેક ગલીમાં સંસ્કૃતિ ધબકે છે.",
                     "Manipur": "જ્યાં કુદરત કૃપાપૂર્વક નૃત્ય કરે છે અને સંસ્કૃતિ ગૌરવભેર ઝગમગે છે.",
@@ -664,7 +708,7 @@
                     "Rajasthan": "જ્યાં કિલ્લાઓ કથાઓ કહેશે અને રણ રંગોથી ઝગમગે છે.",
                     "Sikkim": "જ્યાં પર્વતો આકાશને સ્પર્શે છે અને પ્રાર્થનાના ધ્વજ શાંતિ વહન કરે છે.",
                     "Tamil Nadu": "જ્યાં દ્રવિડ મંદિરો ઊભા થાય છે અને શાસ્ત્રીય કળાઓ વિકસે છે.",
-                    "Telangana": "જ્યાં પરંપરાઓ ગાજે છે અને ટેક્નોલોજી ઊંચે ઉડે છે.",
+                    "Telangana": "જ્યાં પરંપરાઓ ગાજે છે અને ટેક్નોલોજી ઊંચે ઉડે છે.",
                     "Tripura": "જ્યાં પહાડો, વારસો અને સમરસતા શાંતિથી મળે છે.",
                     "Uttar Pradesh": "જ્યાં શ્રદ્ધા શ્વાસ લે છે, ઇતિહાસ ઊભો છે અને વાર્તાઓ સદા જીવંત રહે છે.",
                     "Uttarakhand": "જ્યાં નદીઓ જન્મે છે, શ્રદ્ધા જાગે છે અને પર્વતો આકાશને લગાવે છે.",
@@ -737,7 +781,7 @@
                     "Manipur": "இங்கு இயற்கை நேர்த்தியாக நடனமாடுகிறது, கலாசாரம் பெருமையுடன் ஒளிர்கிறது.",
                     "Meghalaya": "மேகங்கள் மலைகளைத் தொடுகின்றன, நீர்வீழ்ச்சிகள் பாடுகின்றன, கலாசாரம் இசையாக ஒலிக்கிறது.",
                     "Mizoram": "மலைகள் மெதுவாக சுழல்கின்றன, மூங்கில் ஆடுகின்றது, ஒவ்வொரு வீட்டிலும் அமைதி வாழ்கிறது.",
-                    "Nagaland": "இங்கு பழங்குடிகள் கதைகள் கூறுகின்றனர், மேளங்கள் உரைக்கின்றன, ஒவ்வொரு நாளும் கலாசார விழா.",
+                    "Nagaland": "இங்கு பழங்குடிகள் கதைகள் கூறுகின்றனர், மృ஦ஂ஗ாலும் உரைக்கின்றன, ஒவ்வொரு நாளும் கலாசார விழா.",
                     "Odisha": "இங்கு செதுக்கிய கோவில்கள் அமைதியான கடலோரங்களை சந்திக்கின்றன, நடனம் பக்தியுடன் நகர்கிறது.",
                     "Puducherry": "காலனித்துவ எழில் கடலோர அமைதியுடன் சந்திக்கிறது, வாழ்க்கை மெதுவாக செல்கிறது.",
                     "Punjab": "வயல்கள் மலர்கின்றன, இதயங்கள் நடனமாடுகின்றன, ஒவ்வொரு உணவும் வீட்டுபோல் இருக்கிறது.",
@@ -1064,6 +1108,7 @@ states: {
         function generateCards(dataToRender) {
             const cardsGrid = document.getElementById('cardsGrid');
             cardsGrid.innerHTML = ''; // Clear existing cards
+            const searchTerm = document.getElementById('state-search').value.toLowerCase().trim();
 
             dataToRender.forEach((state, index) => {
                 const card = document.createElement('div');
@@ -1077,14 +1122,31 @@ states: {
 
                 const cardTitle = document.createElement('h3');
                 cardTitle.className = 'card-title';
-                cardTitle.textContent = state.name;
                 cardTitle.setAttribute('data-state', state.name);
+                
+                // Highlight search term in title if searching
+                if (searchTerm && searchTerm !== '') {
+                    const titleText = state.name;
+                    const highlightedTitle = titleText.replace(new RegExp(`(${searchTerm})`, 'gi'), '<mark>$1</mark>');
+                    cardTitle.innerHTML = highlightedTitle;
+                } else {
+                    cardTitle.textContent = state.name;
+                }
 
                 const cardTagline = document.createElement('p');
                 cardTagline.className = 'card-tagline';
-                // Ensure the tagline is translated if available
-                cardTagline.textContent = translations[currentLanguage].states[state.name] || state.shortDescription || '';
                 cardTagline.setAttribute('data-tagline', state.name);
+                
+                // Get tagline text
+                const taglineText = translations[currentLanguage].states[state.name] || state.shortDescription || '';
+                
+                // Highlight search term in tagline if searching
+                if (searchTerm && searchTerm !== '') {
+                    const highlightedTagline = taglineText.replace(new RegExp(`(${searchTerm})`, 'gi'), '<mark>$1</mark>');
+                    cardTagline.innerHTML = highlightedTagline;
+                } else {
+                    cardTagline.textContent = taglineText;
+                }
 
                 cardContent.appendChild(cardTitle);
                 cardContent.appendChild(cardTagline);
@@ -1121,20 +1183,39 @@ states: {
             // Update all card titles and taglines
             const cardTitles = document.querySelectorAll('.card-title');
             const cardTaglines = document.querySelectorAll('.card-tagline');
+            const searchTerm = document.getElementById('state-search').value.toLowerCase().trim();
 
             cardTitles.forEach(title => {
                 const stateOriginalName = title.getAttribute('data-state');
+                let titleText;
+                
                 // Use translated state name if available
                 if (translations[currentLanguage].statesNames && translations[currentLanguage].statesNames[stateOriginalName]) {
-                    title.textContent = translations[currentLanguage].statesNames[stateOriginalName];
+                    titleText = translations[currentLanguage].statesNames[stateOriginalName];
                 } else {
-                    title.textContent = stateOriginalName; // Fallback to original name
+                    titleText = stateOriginalName; // Fallback to original name
+                }
+                
+                // Highlight search term if searching
+                if (searchTerm && searchTerm !== '') {
+                    const highlightedTitle = titleText.replace(new RegExp(`(${searchTerm})`, 'gi'), '<mark>$1</mark>');
+                    title.innerHTML = highlightedTitle;
+                } else {
+                    title.textContent = titleText;
                 }
             });
 
             cardTaglines.forEach(tagline => {
                 const stateOriginalName = tagline.getAttribute('data-tagline');
-                tagline.textContent = translations[currentLanguage].states[stateOriginalName];
+                const taglineText = translations[currentLanguage].states[stateOriginalName];
+                
+                // Highlight search term if searching
+                if (searchTerm && searchTerm !== '') {
+                    const highlightedTagline = taglineText.replace(new RegExp(`(${searchTerm})`, 'gi'), '<mark>$1</mark>');
+                    tagline.innerHTML = highlightedTagline;
+                } else {
+                    tagline.textContent = taglineText;
+                }
             });
         }
 
@@ -1142,26 +1223,116 @@ states: {
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('state-search');
             const searchButton = document.getElementById('search-button');
+            const clearButton = document.getElementById('clear-search-button');
 
             // Function to perform the search and re-render cards
             function performSearch() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const filteredStates = statesData.filter(state =>
-                    state.name.toLowerCase().includes(searchTerm) ||
-                    (state.shortDescription && state.shortDescription.toLowerCase().includes(searchTerm)) ||
-                    (state.capital && state.capital.toLowerCase().includes(searchTerm)) // Only if 'capital' is in your statesData
-                );
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    generateCards(statesData);
+                    return;
+                }
+                
+                const filteredStates = statesData.filter(state => {
+                    // Search in English name
+                    if (state.name.toLowerCase().includes(searchTerm)) {
+                        return true;
+                    }
+                    
+                    // Search in translated names for current language
+                    if (translations[currentLanguage] && 
+                        translations[currentLanguage].statesNames && 
+                        translations[currentLanguage].statesNames[state.name]) {
+                        const translatedName = translations[currentLanguage].statesNames[state.name].toLowerCase();
+                        if (translatedName.includes(searchTerm)) {
+                            return true;
+                        }
+                    }
+                    
+                    // Search in state descriptions/taglines
+                    if (translations[currentLanguage] && 
+                        translations[currentLanguage].states && 
+                        translations[currentLanguage].states[state.name]) {
+                        const description = translations[currentLanguage].states[state.name].toLowerCase();
+                        if (description.includes(searchTerm)) {
+                            return true;
+                        }
+                    }
+                    
+                    return false;
+                });
+                
                 generateCards(filteredStates); // Re-render with filtered data
+                
+                // Show search results info to user
+                const resultsInfo = document.getElementById('search-results-info');
+                const resultsCount = filteredStates.length;
+                
+                if (searchTerm === '') {
+                    resultsInfo.textContent = '';
+                    resultsInfo.className = 'search-results-info';
+                } else if (resultsCount === 0) {
+                    resultsInfo.textContent = `No results found for "${searchTerm}"`;
+                    resultsInfo.className = 'search-results-info no-results';
+                } else if (resultsCount === 1) {
+                    resultsInfo.textContent = `Found 1 result for "${searchTerm}"`;
+                    resultsInfo.className = 'search-results-info has-results';
+                } else {
+                    resultsInfo.textContent = `Found ${resultsCount} results for "${searchTerm}"`;
+                    resultsInfo.className = 'search-results-info has-results';
+                }
             }
 
             searchButton.addEventListener('click', performSearch); // Listen to button click
 
-            searchInput.addEventListener('keyup', (event) => { // Listen to Enter key
+            searchInput.addEventListener('keyup', (event) => { // Listen to Enter key and real-time search
                 if (event.key === 'Enter') {
                     performSearch();
-                } else if (searchInput.value === '') {
-                    // If search box is cleared, show all states again
+                } else {
+                    // Real-time search as user types
+                    performSearch();
+                }
+            });
+            
+            // Also listen for input event for better responsiveness
+            searchInput.addEventListener('input', performSearch);
+            
+            // Clear search functionality
+            clearButton.addEventListener('click', () => {
+                searchInput.value = '';
+                generateCards(statesData);
+                const resultsInfo = document.getElementById('search-results-info');
+                resultsInfo.textContent = '';
+                resultsInfo.className = 'search-results-info';
+                clearButton.style.display = 'none';
+            });
+            
+            // Show/hide clear button based on search input
+            searchInput.addEventListener('input', () => {
+                if (searchInput.value.trim() !== '') {
+                    clearButton.style.display = 'inline-block';
+                } else {
+                    clearButton.style.display = 'none';
+                }
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (event) => {
+                // Ctrl/Cmd + K to focus search
+                if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+                    event.preventDefault();
+                    searchInput.focus();
+                }
+                
+                // Escape to clear search
+                if (event.key === 'Escape' && document.activeElement === searchInput) {
+                    searchInput.value = '';
                     generateCards(statesData);
+                    const resultsInfo = document.getElementById('search-results-info');
+                    resultsInfo.textContent = '';
+                    resultsInfo.className = 'search-results-info';
+                    clearButton.style.display = 'none';
                 }
             });
         });

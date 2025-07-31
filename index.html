@@ -5,19 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spirit of India</title>
- 
-
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/testimonial.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
+ 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 </head>
 
 
 
 <body>
+
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spirit of India</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/top-destination.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+  </head>
+  <body>
+    
+
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
@@ -25,17 +39,17 @@
         <h2 data-translate="header">Desh Darshan</h2>
       </div>
       <ul class="nav-menu">
-        <li><a href="./pages/about%20us.html" data-translate="nav-about">About Us</a></li>
-        <li><a href="./pages/explore.html" data-translate="nav-explore">Explore India</a></li>
-        <li><a href="./pages/feedback.html" data-translate="nav-feedback">Feedback</a></li>
-        <li><a href="./pages/contactus.html" data-translate="nav-contact">Contact Us</a></li>
+        <li><a href="pages/about us.html" data-translate="nav-about">About Us</a></li>
+        <li><a href="pages/explore.html" data-translate="nav-explore">Explore India</a></li>
+        <li><a href="pages/feedback.html" data-translate="nav-feedback">Feedback</a></li>
+        <li><a href="pages/contactus.html" data-translate="nav-contact">Contact Us</a></li>
       </ul>
       <div class="nav-buttons">
-        <a href="./pages/login.html" class="btn-login">
+        <a href="pages/login.html" class="btn-login">
           <span>Login</span>
           <i class="fas fa-sign-in-alt"></i>
         </a>
-        <a href="./pages/signup.html" class="btn-signup">
+        <a href="pages/signup.html" class="btn-signup">
           <span>Signup</span>
           <i class="fas fa-user-plus"></i>
         </a>
@@ -59,28 +73,28 @@
         </div>
       </div>
       <div class="slide">
-        <img src="assets/images/slide2.jpg" alt="Slide 2">
+        <img src="assets/images/festival.jpg" alt="Festivals">
         <div class="slide-content">
           <h1 data-translate="hero-title-2">Festivals of Joy</h1>
           <p data-translate="hero-desc-2">Celebrate the colorful festivals and vibrant traditions of India</p>
         </div>
       </div>
       <div class="slide">
-        <img src="assets/images/slide3.jpg" alt="Slide 3">
+        <img src="assets/images/naturalwonders.jpg" alt="Natural Wonders">
         <div class="slide-content">
           <h1 data-translate="hero-title-3">Natural Wonders</h1>
           <p data-translate="hero-desc-3">Explore the breathtaking landscapes from mountains to beaches</p>
         </div>
       </div>
       <div class="slide">
-        <img src="assets/images/slide4.jpg" alt="Slide 4">
+        <img src="assets/images/heritagesites.jpg" alt="Heritage Sites">
         <div class="slide-content">
           <h1 data-translate="hero-title-4">Historical Legacy</h1>
           <p data-translate="hero-desc-4">Visit ancient monuments and heritage sites across India</p>
         </div>
       </div>
       <div class="slide">
-        <img src="assets/images/slide5.jpg" alt="Slide 5">
+        <img src="assets/images/culture.jpg" alt="Cultural Diversity">
         <div class="slide-content">
           <h1 data-translate="hero-title-5">Unity in Diversity</h1>
           <p data-translate="hero-desc-5">Experience the cultural and linguistic diversity of the nation</p>
@@ -94,6 +108,9 @@
       <span class="dot" onclick="currentSlide(4)"></span>
       <span class="dot" onclick="currentSlide(5)"></span>
     </div>
+
+  </section>
+
   </section>
 
   <!-- Festivals and Culture Section -->
@@ -336,6 +353,171 @@
             <img src="assets/images/Tajmahal.jpeg" alt="Taj Mahal" />
             <div class="heritage-overlay">
 
+
+
+    <section class="hero">
+      <div class="loader">
+        <div class="overlay">
+          <div class="block"></div>
+          <div class="block"></div>
+        </div>
+
+        
+        <div class="hero-container">
+          <div class="hero-img">
+            <img src="./assets/images/hero.jpg" alt="background" class="slider-img" />
+          </div>
+
+          <div class="header">
+            <div class="hero-copy">
+              <div class="line">
+                <h1><span>Celebrating</span> India's Festivals,</h1>
+              </div>
+              <div class="line">
+                <h1>Himalayas to <span>Kanyakumari</span></h1>
+              </div>
+            </div>
+            <div class="line">
+              <p class="slider-text">
+                Discover the Beauty of India. Festivals that honor nature, gods,
+                and timeless traditions
+              </p>
+            </div>
+          </div>
+          <div class="cta">
+            <div class="cta-label">
+              <p>Explore Indian Culture</p>
+            </div>
+            <div class="cta-icon">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Festivals and Culture Section -->
+    <section class="festivals-culture">
+      <div class="container">
+        <h2 class="section-title" data-translate="festivals-title">
+          Festivals and Culture of India
+        </h2>
+        <div class="culture-grid">
+          <div class="culture-item">
+            <img src="./assets/images/67.jpg" alt="Diwali celebration" />
+            <div class="culture-caption">
+              <h3 data-translate="diwali-title">Diwali</h3>
+              <p data-translate="diwali-desc">
+                Festival of lights celebrating the victory of light over
+                darkness
+              </p>
+            </div>
+          </div>
+          <div class="culture-item">
+            <img src="./assets/images/christmas.jpeg" alt="Christmas" />
+            <div class="culture-caption">
+              <h3 data-translate="christmas-title">Christmas</h3>
+              <p data-translate="christmas-desc">
+                Celebrating peace, love, and the magic of winter
+              </p>
+            </div>
+          </div>
+          <div class="culture-item">
+            <img src="./assets/images/durga puja.jpeg" alt="Durga Puja" />
+            <div class="culture-caption">
+              <h3 data-translate="durga-title">Durga Puja</h3>
+              <p data-translate="durga-desc">
+                Grand celebration honoring the divine feminine power
+              </p>
+            </div>
+          </div>
+          <div class="culture-item">
+            <img src="./assets/images/pongal.jpg" alt="Pongal" />
+            <div class="culture-caption">
+              <h3 data-translate="pongal-title">Pongal</h3>
+              <p data-translate="pongal-desc">
+                Harvest festival celebrating prosperity and nature
+              </p>
+            </div>
+          </div>
+          <div class="culture-item">
+            <img src="./assets/images/77.jpg" alt="Eid celebration" />
+            <div class="culture-caption">
+              <h3 data-translate="eid-title">Eid</h3>
+              <p data-translate="eid-desc">
+                Sacred festival marking the end of Ramadan with joy and unity
+              </p>
+            </div>
+          </div>
+          <div class="culture-item">
+            <img src="./assets/images/baisakhi.jpeg" alt="Baisakhi" />
+            <div class="culture-caption">
+              <h3 data-translate="baisakhi-title">Baisakhi</h3>
+              <p data-translate="baisakhi-desc">
+                Where fields bloom and hearts rejoice
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Taste of India Section -->
+    <section class="taste-india">
+      <div class="container">
+        <h2 class="section-title" data-translate="taste-title">
+          The Taste of India
+        </h2>
+        <div class="food-grid">
+          <div class="food-item">
+            <img src="./assets/images/download (39).jpeg" alt="Biryani" />
+            <h3 data-translate="biryani-title">Biryani</h3>
+          </div>
+          <div class="food-item">
+            <img src="./assets/images/download (31).jpeg" alt="Butter Chicken" />
+            <h3 data-translate="butter-title">Butter Chicken</h3>
+          </div>
+          <div class="food-item">
+            <img src="./assets/images/download (40).jpeg" alt="Masala Dosa" />
+            <h3 data-translate="dosa-title">Masala Dosa</h3>
+          </div>
+          <div class="food-item">
+            <img src="./assets/images/images (8).jpeg" alt="Gujhiya" />
+            <h3 data-translate="gujhiya-title">Gujhiya</h3>
+          </div>
+          <div class="food-item">
+            <img src="./assets/images/download (10).jpeg" alt="Mithai" />
+            <h3 data-translate="mithai-title">Mithai</h3>
+          </div>
+          <div class="food-item">
+            <img src="./assets/images/download (1).jpeg" alt="Gulab Jamun" />
+            <h3 data-translate="gulab-title">Gulab Jamun</h3>
+          </div>
+          <div class="food-item">
+            <img src="./assets/images/download (46).jpeg" alt="Samosa" />
+            <h3 data-translate="samosa-title">Samosa</h3>
+          </div>
+          <div class="food-item">
+            <img src="./assets/images/images (21).jpeg" alt="Daal Chawal" />
+            <h3 data-translate="daal-title">Daal Chawal</h3>
+          </div>
+        </div>
+      </div>
+
+
+
+  </section>
+  <!-- Heritage Section -->
+  <section class="heritage-section">
+    <div class="container">
+      <h2 class="section-title" data-translate="heritage-title">
+        Heritage of India
+      </h2>
+      <div class="heritage-grid">
+        <div class="heritage-item">
+          <img src="assets/images/Tajmahal.jpeg" alt="Taj Mahal" />
+          <div class="heritage-overlay">
+
             <h3 data-translate="taj-title">Taj Mahal</h3>
             <p data-translate="taj-desc">
               Symbol of love and architectural marvel
@@ -390,6 +572,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- Dance Culture Section -->
 <section class="dance-culture">
@@ -517,26 +700,235 @@
           <img src="assets/images/user3.jpg" alt="User 3" />
           <h3 class="testimonial-name">Karan Malhotra</h3>
           <p class="testimonial-text">"Great experience using DeshDarshan. The UI is super smooth and informative."</p>
+
+  
+
+    <!-- Dance Culture Section -->
+    <section class="dance-culture">
+      <div class="container">
+        <h2 class="section-title" data-translate="dance-title">
+          Dance Culture of India
+        </h2>
+        <div class="dance-grid">
+          <a href="./pages/bharatanatyam.html" class="dance-link">
+            <div class="dance-item">
+              <img src="./assets/images/br2.jpg" alt="Bharatanatyam dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
+                <p data-translate="bharatanatyam-desc">
+                  Classical dance from Tamil Nadu
+                </p>
+              </div>
+            </div>
+          </a>
+          <a href="./pages/kathak.html" class="dance-link">
+            <div class="dance-item">
+              <img src="./assets/images/kr1.jpg" alt="Kathak dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="kathak-title">Kathak</h3>
+                <p data-translate="kathak-desc">
+                  Storytelling dance from North India
+                </p>
+              </div>
+            </div>
+          </a>
+          <a href="./pages/odissi.html" class="dance-link">
+            <div class="dance-item">
+              <img src="./assets/images/od2.jpg" alt="Odissi dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="odissi-title">Odissi</h3>
+                <p data-translate="odissi-desc">Graceful dance from Odisha</p>
+              </div>
+            </div>
+          </a>
+          <a href="./pages/kuchipudi.html" class="dance-link">
+            <div class="dance-item">
+              <img src="./assets/images/ap3.jpg" alt="Kuchipudi dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="kuchipudi-title">Kuchipudi</h3>
+                <p data-translate="kuchipudi-desc">
+                  Dynamic dance from Andhra Pradesh
+                </p>
+              </div>
+            </div>
+          </a>
+          <a href="./pages/manipuri.html" class="dance-link">
+            <div class="dance-item">
+              <img src="./assets/images/mani1.jpg" alt="Manipuri dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="manipuri-title">Manipuri</h3>
+                <p data-translate="manipuri-desc">
+                  Devotional dance from Manipur
+                </p>
+              </div>
+            </div>
+          </a>
+          <a href="./pages/mohiniyattam.html" class="dance-link">
+            <div class="dance-item">
+              <img src="./assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="mohiniyattam-title">Mohiniyattam</h3>
+                <p data-translate="mohiniyattam-desc">
+                  Enchanting dance from Kerala
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Destinations Section -->
+  <section class="top-destinations">
+    <div class="container">
+      <h2 class="section-title">Top Destinations</h2>
+      <div class="destinations-grid">
+        <div class="destination-card">
+          <img src="./assets/images/kerela.jpg" alt="Kerala" />
+          <h3>Kerala</h3>
+          <p>Experience the tranquil backwaters and lush greenery.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/goa.jpg" alt="Goa" />
+          <h3>Goa</h3>
+          <p>Sun, sand, and sea – a perfect beach escape awaits.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/kashmir.jpg" alt="Kashmir" />
+          <h3>Kashmir</h3>
+          <p>Heaven on Earth with snow-capped mountains and valleys.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+          
+           <!-- Top Destinations Section -->
+  <section class="top-destinations">
+    <div class="container">
+      <h2 class="section-title">Top Destinations</h2>
+      <div class="destinations-grid">
+        <div class="destination-card">
+          <img src="./assets/images/kerela.jpg" alt="Kerala" />
+          <h3>Kerala</h3>
+          <p>Experience the tranquil backwaters and lush greenery.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/goa.jpg" alt="Goa" />
+          <h3>Goa</h3>
+          <p>Sun, sand, and sea – a perfect beach escape awaits.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/kashmir.jpg" alt="Kashmir" />
+          <h3>Kashmir</h3>
+          <p>Heaven on Earth with snow-capped mountains and valleys.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+
         </div>
       </div>
     </div>
   </section>
 
 
+    <!--footer-->
+    <footer>
+      <div class="footer-content-wrapper">
+        <!-- Section 1: About Desh Darshan -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Desh Darshan</h3>
+          <p>
+            Desh Darshan is your gateway to the vibrant and diverse culture of
+            India. We aim to introduce the world to India's rich heritage,
+            traditions, arts, and history.
+          </p>
 
+        </div>
 
+        <!-- Section 2: Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="./pages/about us.html" class="footer-link">About Us</a></li>
+            <li>
+              <a href="./pages/explore.html" class="footer-link">Explore India</a>
+            </li>
+            <li><a href="./pages/feedback.html" class="footer-link">Feedback</a></li>
+            <li><a href="./pages/contactus.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Desh Darshan. All rights reserved.</p>
-    </div>
-  </footer>
+        <!-- Section 3: Contact Us -->
+        <div class="footer-section" id="footer-contact">
+          <h3 class="footer-section-title">Contact Us</h3>
+          <ul>
+            <li class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>hello@deshdarshan.in</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>+91 1234567890</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>New Delhi, India</span>
+            </li>
+          </ul>
+        </div>
 
-  <script src="js/home.js"></script>
+        <!-- Section 4: Follow Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Follow Us</h3>
+          <div class="social-icons-container">
+            <a
+              href="https://www.linkedin.com/in/sampada-tiwari-217123257"
+              class="social-icon"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/sampadatiwari29?igsh=MXF5ZDVzMWwyemIyag=="
+              class="social-icon"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      
+      <!--copyright -->
+      <div class="copyright-section">
+        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+      </div>
+    </footer>
+    
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="./js/home.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 </body>
 
 </html>
+
+              
+               
+
+  
+
 

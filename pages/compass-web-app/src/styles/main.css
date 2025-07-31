@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.compass-container {
+  width: 90vw;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.compass-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #fff 70%, #e0e0e0 100%);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  transition: box-shadow 0.2s;
+}
+
+.compass-region {
+  cursor: pointer;
+  transition: fill 0.2s, filter 0.2s;
+}
+
+.compass-region:hover,
+.compass-region.active {
+  filter: brightness(1.2) drop-shadow(0 0 8px #2196f3);
+}
+
+.compass-label {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  fill: #222;
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 1px 2px #fff, 0 0 4px #fff;
+}

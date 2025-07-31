@@ -36,7 +36,7 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -102,7 +102,7 @@ body {
     transform: translateX(-10px);
 }
 
-/* Hover behavior */
+Hover behavior
 .nav-buttons a:hover span {
     transform: translateX(10px);
 }
@@ -114,9 +114,9 @@ body {
 
 /* --- Login Button --- */
 .btn-login {
-    background-color: transparent;
-    color: #ffcc00;
-    border: 2px solid #ffcc00;
+    background-color: #ff9933;
+    color: white;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
 }
 
@@ -124,7 +124,7 @@ body {
     background-color: #ffcc00;
     color: black;
     padding-right: 2.6rem;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
 }
 
@@ -137,9 +137,10 @@ body {
 }
 
 .btn-signup:hover {
-    background-color: #ff8c1a;
-    padding-right: 2.6rem;
-    transform: translateY(-2px);
+    background-color: #ffcc00;
+    color: black;
+    padding-right: 3rem;
+    transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 117, 24, 0.3);
 }
 
@@ -595,6 +596,7 @@ a,
 
     .nav-buttons {
         display: none;
+        margin: 5px;
     }
 
     .slide-content h1 {
