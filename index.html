@@ -1,87 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spirit of India</title>
+  <link rel="stylesheet" href="./css/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body>
+
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spirit of India</title>
     <link rel="stylesheet" href="./css/home.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="./css/top-destination.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    
 
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2 data-translate="header">Desh Darshan</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="./pages/about us.html" data-translate="nav-about">About Us</a></li>
-                <li><a href="./pages/explore.html" data-translate="nav-explore">Explore India</a></li>
-                <li><a href="./pages/feedback.html" data-translate="nav-feedback">Feedback</a></li>
-                <li><a href="#footer-contact" data-translate="nav-contact">Contact Us</a></li>
-            </ul>
-            <div class="nav-buttons">
-
-         
-              <a href="./pages/login.html" class="btn-login">
-                <span>Login</span>
-                <i class="fas fa-sign-in-alt" style="color: #000;"></i>
-              </a>
-              <a href="./pages/signup.html" class="btn-signup">
-                <span>Signup</span>
-                <i class="fas fa-user-plus"></i>
-              </a>
-
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h2 data-translate="header">Desh Darshan</h2>
       </div>
-    </nav>
+      <ul class="nav-menu">
+        <li><a href="pages/about us.html" data-translate="nav-about">About Us</a></li>
+        <li><a href="pages/explore.html" data-translate="nav-explore">Explore India</a></li>
+        <li><a href="pages/feedback.html" data-translate="nav-feedback">Feedback</a></li>
+        <li><a href="pages/contactus.html" data-translate="nav-contact">Contact Us</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="pages/login.html" class="btn-login">
+          <span>Login</span>
+          <i class="fas fa-sign-in-alt"></i>
+        </a>
+        <a href="pages/signup.html" class="btn-signup">
+          <span>Signup</span>
+          <i class="fas fa-user-plus"></i>
+        </a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section with Slideshow -->
-    <!-- <section class="hero">
+  <!-- Hero Section with Slideshow -->
+  <section class="hero">
     <div class="slideshow-container">
       <div class="slide active">
-        <img src="./assets/images/beauty.jpg" alt="beauty">
+        <img src="assets/images/beauty.jpg" alt="beauty">
         <div class="slide-content">
           <h1 data-translate="hero-title-1">Discover the Beauty of India</h1>
           <p data-translate="hero-desc-1">Experience the rich heritage, vibrant culture, and timeless traditions</p>
         </div>
       </div>
       <div class="slide">
-        <img src="./assets/images/festival.jpg" alt="Kerala backwaters">
+        <img src="assets/images/festival.jpg" alt="Festivals">
         <div class="slide-content">
-          <h1 data-translate="hero-title-2">A Land of 1000 Festivals</h1>
-          <p data-translate="hero-desc-2">Festivals that honor nature, gods, and traditions.</p>
+          <h1 data-translate="hero-title-2">Festivals of Joy</h1>
+          <p data-translate="hero-desc-2">Celebrate the colorful festivals and vibrant traditions of India</p>
         </div>
       </div>
       <div class="slide">
-        <img src="./assets/images/food.jpg" alt="Royal Heritage">
+        <img src="assets/images/naturalwonders.jpg" alt="Natural Wonders">
         <div class="slide-content">
-          <h1 data-translate="hero-title-3">A Taste You’ll Never Forget</h1>
-          <p data-translate="hero-desc-3">Food that connects hearts and homes.</p>
+          <h1 data-translate="hero-title-3">Natural Wonders</h1>
+          <p data-translate="hero-desc-3">Explore the breathtaking landscapes from mountains to beaches</p>
         </div>
       </div>
       <div class="slide">
-        <img src="./assets/images/culture.jpg" alt="Goa beaches">
+        <img src="assets/images/heritagesites.jpg" alt="Heritage Sites">
         <div class="slide-content">
-          <h1 data-translate="hero-title-4">India’s Heart Beats in Its Culture</h1>
-          <p data-translate="hero-desc-4">A land where heritage lives in every corner.</p>
+          <h1 data-translate="hero-title-4">Historical Legacy</h1>
+          <p data-translate="hero-desc-4">Visit ancient monuments and heritage sites across India</p>
         </div>
       </div>
       <div class="slide">
-        <img src="./assets/images/theme.jpg" alt="Varanasi ghats">
+        <img src="assets/images/culture.jpg" alt="Cultural Diversity">
         <div class="slide-content">
-          <h1 data-translate="hero-title-5">Pride of the Nation</h1>
-          <p data-translate="hero-desc-5">Explore the iconic symbols that define India.</p>
+          <h1 data-translate="hero-title-5">Unity in Diversity</h1>
+          <p data-translate="hero-desc-5">Experience the cultural and linguistic diversity of the nation</p>
         </div>
       </div>
     </div>
@@ -92,7 +105,11 @@
       <span class="dot" onclick="currentSlide(4)"></span>
       <span class="dot" onclick="currentSlide(5)"></span>
     </div>
-  </section> -->
+
+  </section>
+
+  </section>
+
 
     <section class="hero">
       <div class="loader">
@@ -101,15 +118,7 @@
           <div class="block"></div>
         </div>
 
-        <div class="intro-logo">
-          <div class="word" id="word1">
-            <h1>Desh</h1>
-          </div>
-          <div class="word" id="word2">
-            <h1>Darshan</h1>
-          </div>
-        </div>
-
+        
         <div class="hero-container">
           <div class="hero-img">
             <img src="./assets/images/hero.jpg" alt="background" class="slider-img" />
@@ -250,7 +259,76 @@
           </div>
         </div>
       </div>
-    </section>
+
+
+
+  </section>
+  <!-- Heritage Section -->
+  <section class="heritage-section">
+    <div class="container">
+      <h2 class="section-title" data-translate="heritage-title">
+        Heritage of India
+      </h2>
+      <div class="heritage-grid">
+        <div class="heritage-item">
+          <img src="assets/images/Tajmahal.jpeg" alt="Taj Mahal" />
+          <div class="heritage-overlay">
+            <h3 data-translate="taj-title">Taj Mahal</h3>
+            <p data-translate="taj-desc">
+              Symbol of love and architectural marvel
+            </p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/Qutub Minar.jpeg" alt="Qutub Minar" />
+          <div class="heritage-overlay">
+            <h3 data-translate="qutub-title">Qutub Minar</h3>
+            <p data translate="qutub-desc">
+              Tallest brick minaret in the world
+            </p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/Red fort.jpg" alt="Red Fort" />
+          <div class="heritage-overlay">
+            <h3 data-translate="redfort-title">Red Fort</h3>
+            <p data-translate="redfort-desc">
+              Symbol of India's independence
+            </p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/Gate Way Of India.jpg" alt="Gateway of India" />
+          <div class="heritage-overlay">
+            <h3 data-translate="gateway-title">Gateway of India</h3>
+            <p data-translate="gateway-desc">
+              Iconic arch monument in Mumbai, welcoming visitors to India
+            </p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/Mysore Palace.jpg" alt="Mysore Palace" />
+          <div class="heritage-overlay">
+            <h3 data-translate="mysore-title">Mysore Palace</h3>
+            <p data-translate="mysore-desc">
+              A dazzling jewel of Royal Heritage
+            </p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/Charminar.jpg" alt="Charminar" />
+          <div class="heritage-overlay">
+            <h3 data-translate="charminar-title">Charminar</h3>
+            <p data-translate="charminar-desc">
+              A symbol of the city's rich history
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
 
     <!-- Dance Culture Section -->
     <section class="dance-culture">
@@ -262,9 +340,6 @@
           <a href="./pages/bharatanatyam.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/br2.jpg" alt="Bharatanatyam dancer" />
-              <div class="dance-card">
-                         <h3>Bharatanatyam</h3>
-                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
                 <p data-translate="bharatanatyam-desc">
@@ -276,9 +351,6 @@
           <a href="./pages/kathak.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/kr1.jpg" alt="Kathak dancer" />
-              <div class="dance-card">
-                         <h3>Kathak</h3>
-                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="kathak-title">Kathak</h3>
                 <p data-translate="kathak-desc">
@@ -290,9 +362,6 @@
           <a href="./pages/odissi.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/od2.jpg" alt="Odissi dancer" />
-              <div class="dance-card">
-                         <h3>Odissi</h3>
-                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="odissi-title">Odissi</h3>
                 <p data-translate="odissi-desc">Graceful dance from Odisha</p>
@@ -302,9 +371,6 @@
           <a href="./pages/kuchipudi.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/ap3.jpg" alt="Kuchipudi dancer" />
-              <div class="dance-card">
-                         <h3>Kuchipudi</h3>
-                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="kuchipudi-title">Kuchipudi</h3>
                 <p data-translate="kuchipudi-desc">
@@ -316,9 +382,6 @@
           <a href="./pages/manipuri.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/mani1.jpg" alt="Manipuri dancer" />
-              <div class="dance-card">
-                         <h3>Manipuri</h3>
-                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="manipuri-title">Manipuri</h3>
                 <p data-translate="manipuri-desc">
@@ -330,9 +393,6 @@
           <a href="./pages/mohiniyattam.html" class="dance-link">
             <div class="dance-item">
               <img src="./assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer" />
-              <div class="dance-card">
-                         <h3>Mohiniyattam</h3>
-                    </div>
               <div class="dance-overlay">
                 <h3 data-translate="mohiniyattam-title">Mohiniyattam</h3>
                 <p data-translate="mohiniyattam-desc">
@@ -344,6 +404,33 @@
         </div>
       </div>
     </section>
+
+    <!-- Top Destinations Section -->
+  <section class="top-destinations">
+    <div class="container">
+      <h2 class="section-title">Top Destinations</h2>
+      <div class="destinations-grid">
+        <div class="destination-card">
+          <img src="./assets/images/kerela.jpg" alt="Kerala" />
+          <h3>Kerala</h3>
+          <p>Experience the tranquil backwaters and lush greenery.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/goa.jpg" alt="Goa" />
+          <h3>Goa</h3>
+          <p>Sun, sand, and sea – a perfect beach escape awaits.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/kashmir.jpg" alt="Kashmir" />
+          <h3>Kashmir</h3>
+          <p>Heaven on Earth with snow-capped mountains and valleys.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
     <!--footer-->
@@ -357,6 +444,7 @@
             India. We aim to introduce the world to India's rich heritage,
             traditions, arts, and history.
           </p>
+
         </div>
 
         <!-- Section 2: Quick Links -->
@@ -399,8 +487,8 @@
             <a
               href="https://www.linkedin.com/in/sampada-tiwari-217123257"
               class="social-icon"
-              aria-label="Twitter"
-              ><i class="fa-brands fa-linkedin"></i
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
             ></a>
             <a
               href="https://www.instagram.com/sampadatiwari29?igsh=MXF5ZDVzMWwyemIyag=="
@@ -411,6 +499,8 @@
           </div>
         </div>
       </div>
+
+      
       <!--copyright -->
       <div class="copyright-section">
         &copy; <span id="year"></span> Desh Darshan. All rights reserved.
@@ -431,58 +521,52 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
     <script src="./js/home.js"></script>
-    <!-- Back to Top Button -->
-<button id="backToTopBtn" title="Go to top">🔝</button>
-
-<style>
-  #backToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 40px;
-    right: 30px;
-    z-index: 99;
-    font-size: 30px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
-
-  #backToTopBtn:hover {
-    background-color: transparent;
-    transform: translateY(-5px);
-  }
-
-  @media screen and (max-width: 480px) {
-    #backToTopBtn {
-      font-size: 50px;
-      padding: 8px 10px;
-      bottom: 60px;
-      right: 5px;
-    }
-  }
-</style>
-
-<script>
-  // Show button on scroll
-  window.onscroll = function () {
-    const btn = document.getElementById("backToTopBtn");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  };
-
-  // Scroll to top on click
-  document.getElementById("backToTopBtn").addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
   </body>
 </html>
+
+
+
+=======
+  <!-- Top Destinations Section -->
+  <section class="top-destinations">
+    <div class="container">
+      <h2 class="section-title">Top Destinations</h2>
+      <div class="destinations-grid">
+        <div class="destination-card">
+          <img src="./assets/images/kerela.jpg" alt="Kerala" />
+          <h3>Kerala</h3>
+          <p>Experience the tranquil backwaters and lush greenery.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/goa.jpg" alt="Goa" />
+          <h3>Goa</h3>
+          <p>Sun, sand, and sea – a perfect beach escape awaits.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/kashmir.jpg" alt="Kashmir" />
+          <h3>Kashmir</h3>
+          <p>Heaven on Earth with snow-capped mountains and valleys.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Desh Darshan. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="home.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+
+  
+

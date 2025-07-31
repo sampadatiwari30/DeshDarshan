@@ -1,410 +1,679 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact & Collaboration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .header {
-            background-color: #2c3e50;
-            padding: 12px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: url('/assets/images/redfort.png');
+    background-size: cover;
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
+/* Light background overlay for better form readability - you can adjust opacity or remove this if not needed */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.1); */
+    z-index: -1;
+}
 
-        .logo {
-            color: #e74c3c;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
+/* Navigation Styles */
+.navbar {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
+.navbarhover:hover {
+    color: rgb(241, 150, 14) !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
 
-        .nav-links a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+}
 
-        .nav-links a:hover {
-            color: #e74c3c;
-        }
+/* Form Card */
+.form-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 
+        0 25px 50px rgba(139, 69, 19, 0.25),
+        0 15px 35px rgba(160, 82, 45, 0.15),
+        0 5px 15px rgba(205, 133, 63, 0.1);
+    border: 2px solid rgba(222, 184, 135, 0.4);
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
 
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-            position: relative;
-        }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .form-header {
-            text-align: center;
-            padding: 40px 30px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            position: relative;
-        }
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4513, #A0522D, #CD853F, #DEB887, #F5DEB3);
+}
 
-        .form-header h1 {
-            font-size: 28px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
+.form-card h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #DEB887 75%, #654321 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-        .form-header p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
+.form-card p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #654321;
+    margin-bottom: 35px;
+    font-weight: 500;
+}
 
-        .form-content {
-            padding: 40px 30px;
-        }
+/* Form Styling */
+.form-group {
+    margin-bottom: 25px;
+}
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #654321;
+    font-size: 1rem;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
-        }
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid rgba(160, 82, 45, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
 
-        .required {
-            color: #e74c3c;
-        }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #A0522D;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(160, 82, 45, 0.15);
+    transform: translateY(-1px);
+}
 
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e1e8ed;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s;
-            background: #fafbfc;
-        }
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
 
-        .form-control:focus {
-            outline: none;
-            border-color: #667eea;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+/* Radio Group Styling */
+.radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 12px;
+}
 
-        .select-control {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 12px center;
-            background-repeat: no-repeat;
-            background-size: 16px;
-            padding-right: 40px;
-        }
+.radio-option {
+    position: relative;
+}
 
-        .radio-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 10px;
-        }
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
-        .radio-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            border: 2px solid #e1e8ed;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            background: #fafbfc;
-        }
+.radio-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 18px;
+    border: 2px solid rgba(160, 82, 45, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    min-height: 60px;
+    color: #654321;
+}
 
-        .radio-item:hover {
-            border-color: #667eea;
-            background: white;
-        }
+.radio-option input[type="radio"]:checked + label {
+    border-color: #A0522D;
+    background: rgba(160, 82, 45, 0.1);
+    color: #8B4513;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(160, 82, 45, 0.2);
+}
 
-        .radio-item input[type="radio"] {
-            margin-right: 10px;
-            accent-color: #667eea;
-        }
+.radio-option label:hover {
+    border-color: #A0522D;
+    transform: translateY(-1px);
+}
 
-        .radio-item.selected {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
+/* Conditional Fields */
+.conditional-field {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(160, 82, 45, 0.05);
+    border-radius: 12px;
+    border-left: 5px solid #A0522D;
+}
 
-        .radio-emoji {
-            margin-right: 8px;
-            font-size: 16px;
-        }
+.conditional-field.show {
+    display: block;
+    animation: slideDown 0.4s ease;
+}
 
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
-            font-family: inherit;
-        }
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.conditional-field .form-group {
+    margin-bottom: 15px;
+}
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
+.conditional-field .form-group:last-child {
+    margin-bottom: 0;
+}
 
-        .submit-btn:active {
-            transform: translateY(0);
-        }
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #ff9933 0%, #e68a00 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 20px rgba(255, 153, 51, 0.3);
+}
 
-        .floating-icons {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 153, 51, 0.4);
+    background: linear-gradient(135deg, #e68a00 0%, #cc7a00 100%);
+}
 
-        .floating-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+.submit-btn:active {
+    transform: translateY(-1px);
+}
 
-        .floating-icon:hover {
-            transform: scale(1.1);
-        }
+/* Popup Styling */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
 
-        .icon-1 { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
-        .icon-2 { background: linear-gradient(135deg, #4ecdc4, #44a08d); }
-        .icon-3 { background: linear-gradient(135deg, #feca57, #ff9ff3); }
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
 
-        .success-message {
-            display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #c3e6cb;
-        }
+.popup {
+    background: white;
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    transform: scale(0.7);
+    transition: all 0.4s ease;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
 
-        .error-message {
-            display: none;
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #f5c6cb;
-        }
+.popup-overlay.show .popup {
+    transform: scale(1);
+}
 
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                border-radius: 10px;
-            }
-            
-            .form-content {
-                padding: 30px 20px;
-            }
-            
-            .radio-group {
-                grid-template-columns: 1fr;
-            }
-            
-            .floating-icons {
-                display: none;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
+.popup-message {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #654321;
+    margin-bottom: 30px;
+}
+
+.popup-close {
+    background: #ff9933;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.popup-close:hover {
+    background: #e68a00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 153, 51, 0.3);
+}
+
+/* Error Styling */
+.error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.1) !important;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    display: none;
+    font-weight: 500;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Fieldset styling for accessibility */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-weight: 600;
+    color: #654321;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-card {
+        padding: 35px 25px;
+        margin: 15px;
+    }
+
+    .form-card h1 {
+        font-size: 1.7rem;
+    }
+
+    .radio-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup {
+        padding: 35px 25px;
+    }
+
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    .form-card h1 {
+        font-size: 1.5rem;
+    }
+}
     </style>
+
+  </head>
+  <head>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link navbarhover" aria-current="page" href="about us.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="crazyfacts.html">Crazy Facts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="exploreindia.html">Explore India</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="destination.html">Hidden Destinations</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="contactus.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="feedback.html">Feedback</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 </head>
+
 <body>
-    <header class="header">
-        <div class="nav-container">
-            <a href="#" class="logo">DeshDarshan</a>
-            <nav class="nav-links">
-                <a href="#">About Us</a>
-                <a href="#">Crazy Facts</a>
-                <a href="#">Explore India</a>
-                <a href="#">Hidden Destinations</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Feedback</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="form-header">
-            <h1>Want to share your idea?</h1>
-            <p>Collaborate with us.</p>
-        </div>
-        
-        <div class="form-content">
-            <div id="successMessage" class="success-message">
-                Thank you! Your message has been sent successfully. We'll get back to you soon!
-            </div>
-            
-            <div id="errorMessage" class="error-message">
-                Sorry, there was an error sending your message. Please try again or contact us directly at sampadatiwari54@gmail.com
+    <div class="main-content">
+      <div class="container">
+        <div class="form-card">
+          <h1>Want to share your idea?<br />Collaborate with us.</h1>
+          <p>Join our cultural journey across incredible India</p>
+          <form id="collaborationForm" novalidate>
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                aria-describedby="nameError"
+              />
+              <div class="error-message" id="nameError">
+                Please enter your name
+              </div>
             </div>
 
-            <form id="collaborationForm" action="https://formspree.io/f/sampadatiwari54@gmail.com" method="POST">
-                <div class="form-group">
-                    <label for="name">Name <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                </div>
+            <div class="form-group">
+              <label for="email">Email ID *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-describedby="emailError"
+              />
+              <div class="error-message" id="emailError">
+                Please enter a valid email address
+              </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email ID <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                aria-describedby="phoneError"
+              />
+              <div class="error-message" id="phoneError">
+                Please enter your phone number
+              </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="phone">Phone Number <span class="required">*</span></label>
-                    <input type="tel" id="phone" name="phone" class="form-control" required>
-                </div>
+            <div class="form-group">
+              <label for="state">State / UT *</label>
+              <select
+                id="state"
+                name="state"
+                required
+                aria-describedby="stateError"
+              >
+                <option value="">Select your state/UT</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Ladakh">Ladakh</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+              <div class="error-message" id="stateError">
+                Please select your state/UT
+              </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="state">State / UT <span class="required">*</span></label>
-                    <select id="state" name="state" class="form-control select-control" required>
-                        <option value="">Select your state/UT</option>
-                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                        <option value="Assam">Assam</option>
-                        <option value="Bihar">Bihar</option>
-                        <option value="Chhattisgarh">Chhattisgarh</option>
-                        <option value="Goa">Goa</option>
-                        <option value="Gujarat">Gujarat</option>
-                        <option value="Haryana">Haryana</option>
-                        <option value="Himachal Pradesh">Himachal Pradesh</option>
-                        <option value="Jharkhand">Jharkhand</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Kerala">Kerala</option>
-                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Manipur">Manipur</option>
-                        <option value="Meghalaya">Meghalaya</option>
-                        <option value="Mizoram">Mizoram</option>
-                        <option value="Nagaland">Nagaland</option>
-                        <option value="Odisha">Odisha</option>
-                        <option value="Punjab">Punjab</option>
-                        <option value="Rajasthan">Rajasthan</option>
-                        <option value="Sikkim">Sikkim</option>
-                        <option value="Tamil Nadu">Tamil Nadu</option>
-                        <option value="Telangana">Telangana</option>
-                        <option value="Tripura">Tripura</option>
-                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                        <option value="Uttarakhand">Uttarakhand</option>
-                        <option value="West Bengal">West Bengal</option>
-                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                        <option value="Chandigarh">Chandigarh</option>
-                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
-                        <option value="Lakshadweep">Lakshadweep</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Puducherry">Puducherry</option>
-                        <option value="Ladakh">Ladakh</option>
-                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                    </select>
+            <fieldset class="form-group">
+              <legend>You're a: *</legend>
+              <div
+                class="radio-group"
+                role="radiogroup"
+                aria-describedby="collaborationError"
+              >
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="student"
+                    name="collaborationType"
+                    value="student"
+                    required
+                  />
+                  <label for="student">📚 College Student</label>
                 </div>
-
-                <div class="form-group">
-                    <label>You're a: <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="category" value="College Student" required>
-                            <span class="radio-emoji">🎓</span>
-                            College Student
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="category" value="Researcher" required>
-                            <span class="radio-emoji">👨‍🔬</span>
-                            Researcher
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="category" value="doing Job" required>
-                            <span class="radio-emoji">💼</span>
-                            doing Job
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="category" value="Other" required>
-                            <span class="radio-emoji">⭐</span>
-                            Other
-                        </label>
-                    </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="researcher"
+                    name="collaborationType"
+                    value="researcher"
+                    required
+                  />
+                  <label for="researcher">🔬 Researcher</label>
                 </div>
-
-                <div class="form-group">
-                    <label for="message">Message <span class="required">*</span></label>
-                    <textarea id="message" name="message" class="form-control" placeholder="Why do you want to collaborate?" required></textarea>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="job"
+                    name="collaborationType"
+                    value="job"
+                    required
+                  />
+                  <label for="job">💼 Doing Job</label>
                 </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="other"
+                    name="collaborationType"
+                    value="other"
+                    required
+                  />
+                  <label for="other">✨ Other</label>
+                </div>
+              </div>
+              <div class="error-message" id="collaborationError">Please select what you are</div>
 
-                <button type="submit" class="submit-btn">Submit</button>
-            </form>
+              <!-- Conditional Fields -->
+              <div class="conditional-field" id="studentField">
+                <div class="form-group">
+                  <label for="collegeName">College Name *</label>
+                  <input type="text" id="collegeName" name="collegeName" />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="researcherField">
+                <div class="form-group">
+                  <label for="researchTopic">Research Topic *</label>
+                  <input type="text" id="researchTopic" name="researchTopic" />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="jobField">
+                <div class="form-group">
+                  <label for="companyName">Company Name *</label>
+                  <input type="text" id="companyName" name="companyName" />
+                </div>
+                <div class="form-group">
+                  <label for="experience">Years of Experience *</label>
+                  <input
+                    type="number"
+                    id="experience"
+                    name="experience"
+                    min="0"
+                    max="50"
+                  />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="otherField">
+                <div class="form-group">
+                  <label for="otherSpecify">Please specify *</label>
+                  <input type="text" id="otherSpecify" name="otherSpecify" />
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Why do you want to collaborate with DeshDarshan? Share your ideas about Indian culture, travel, or heritage..."
+                required
+                aria-describedby="messageError"
+              ></textarea>
+              <div class="error-message" id="messageError">
+                Please enter your message
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Collaboration Request</button>
+          </form>
         </div>
+      </div>
     </div>
 
-    <div class="floating-icons">
-        <div class="floating-icon icon-1">🚩</div>
-        <div class="floating-icon icon-2">👑</div>
-        <div class="floating-icon icon-3">🏛️</div>
+    <!-- Success Popup -->
+    <div
+      class="popup-overlay"
+      id="successPopup"
+      role="dialog"
+      aria-labelledby="popupTitle"
+      aria-modal="true"
+    >
+      <div class="popup">
+        <div class="popup-message" id="popupTitle">
+          From 🛕 temples to 🕌 mosques, 🕍 churches to 🛐 gurdwaras — your
+          collaboration lights up 🌟 our shared journey across India.<br /><br />
+          We'll reach out to you soon! 💌
+        </div>
+        <button
+          class="popup-close"
+          onclick="closePopup()"
+          aria-label="Close popup"
+        >
+          Close
+        </button>
+      </div>
     </div>
 
     <script>
@@ -440,7 +709,6 @@
             .classList.remove("show");
         });
       });
-
 
       // Form validation and submission
       form.addEventListener("submit", function (e) {
@@ -478,74 +746,192 @@
 
         });
 
-        // Handle form submission
-        document.getElementById('collaborationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Hide previous messages
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-            
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            try {
-                // Create FormData object
-                const formData = new FormData(this);
-                
-                // Send to Formspree
-                const response = await fetch('https://formspree.io/f/xvgozbko', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    successMessage.style.display = 'block';
-                    this.reset();
-                    // Remove selected class from radio items
-                    document.querySelectorAll('.radio-item').forEach(item => {
-                        item.classList.remove('selected');
-                    });
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                errorMessage.style.display = 'block';
-            } finally {
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-
-        // Add floating animation to icons
-        document.querySelectorAll('.floating-icon').forEach((icon, index) => {
-            icon.style.animationDelay = `${index * 0.5}s`;
-            icon.addEventListener('click', function() {
-                this.style.animation = 'bounce 0.6s ease';
-                setTimeout(() => {
-                    this.style.animation = '';
-                }, 600);
-            });
-        });
-    </script>
-
-    <style>
-        @keyframes bounce {
-            0%, 20%, 60%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-20px); }
-            80% { transform: translateY(-10px); }
+        //name validation
+        const nameField = document.getElementById("name");
+        const nameError = document.getElementById("nameError");
+        const nameRegex = /^[A-Za-z ]{3,}$/;
+        if (!nameField.value.trim()) {
+          nameField.classList.add("error");
+          nameError.textContent = "Please enter your name";
+          nameError.classList.add("show");
+          isValid = false;
+        } else if (!nameRegex.test(nameField.value.trim())) {
+          nameField.classList.add("error");
+          nameError.textContent =
+            "Please enter a valid name (min 3 letters, alphabets only)";
+          nameError.classList.add("show");
+          isValid = false;
         }
-    </style>
-</body>
+
+        // Email validation
+        const emailField = document.getElementById("email");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailField.value && !emailRegex.test(emailField.value)) {
+          emailField.classList.add("error");
+          document.getElementById("emailError").classList.add("show");
+          isValid = false;
+        }
+
+        // Phone validation (basic)
+        const phoneField = document.getElementById("phone");
+        const phoneRegex = /^[\d\s\-\+()]{10,}$/;
+        if (phoneField.value && !phoneRegex.test(phoneField.value)) {
+          phoneField.classList.add("error");
+          document.getElementById("phoneError").textContent =
+            "Please enter a valid phone number";
+          document.getElementById("phoneError").classList.add("show");
+          isValid = false;
+        }
+
+        // Validate collaboration type
+        const selectedCollaboration = document.querySelector(
+          'input[name="collaborationType"]:checked'
+        );
+        if (!selectedCollaboration) {
+          document.getElementById("collaborationError").classList.add("show");
+          isValid = false;
+        } else {
+          // Validate conditional fields
+          const collaborationType = selectedCollaboration.value;
+
+          switch (collaborationType) {
+            case "student":
+              const collegeField = document.getElementById("collegeName");
+              if (!collegeField.value.trim()) {
+                collegeField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "researcher":
+              const researchField = document.getElementById("researchTopic");
+              if (!researchField.value.trim()) {
+                researchField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "job":
+              const companyField = document.getElementById("companyName");
+              const experienceField = document.getElementById("experience");
+              if (!companyField.value.trim()) {
+                companyField.classList.add("error");
+                isValid = false;
+              }
+              if (!experienceField.value.trim()) {
+                experienceField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "other":
+              const otherField = document.getElementById("otherSpecify");
+              if (!otherField.value.trim()) {
+                otherField.classList.add("error");
+                isValid = false;
+              }
+              break;
+          }
+        }
+
+        if (isValid) {
+          showSuccessPopup();
+        } else {
+          // Scroll to first error
+          const firstError = document.querySelector(".error");
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+            firstError.focus();
+          }
+        }
+      });
+
+      // Show success popup
+      function showSuccessPopup() {
+        const popup = document.getElementById("successPopup");
+        popup.classList.add("show");
+
+        // Focus management for accessibility
+        const closeButton = popup.querySelector(".popup-close");
+        closeButton.focus();
+
+        // Trap focus within popup
+        popup.addEventListener("keydown", trapFocus);
+      }
+
+      // Close popup and reset form
+      function closePopup() {
+        const popup = document.getElementById("successPopup");
+        popup.classList.remove("show");
+
+        // Remove focus trap
+        popup.removeEventListener("keydown", trapFocus);
+
+        // Reset form after a short delay
+        setTimeout(() => {
+          form.reset();
+          // Hide all conditional fields
+          Object.values(conditionalFields).forEach((field) => {
+            field.classList.remove("show");
+          });
+          // Clear any error states
+          document
+            .querySelectorAll(".error")
+            .forEach((el) => el.classList.remove("error"));
+          document
+            .querySelectorAll(".error-message")
+            .forEach((el) => el.classList.remove("show"));
+
+          // Return focus to form
+          document.getElementById("name").focus();
+        }, 300);
+      }
+
+      // Focus trap for popup accessibility
+      function trapFocus(e) {
+        if (e.key === "Escape") {
+          closePopup();
+        }
+      }
+
+      // Close popup when clicking outside
+      document
+        .getElementById("successPopup")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closePopup();
+          }
+        });
+
+      // Remove error state on input
+      document.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.addEventListener("input", function () {
+          this.classList.remove("error");
+          const errorElement = document.getElementById(this.id + "Error");
+          if (errorElement) {
+            errorElement.classList.remove("show");
+          }
+        });
+
+        // Also remove error on focus for better UX
+        field.addEventListener("focus", function () {
+          this.classList.remove("error");
+        });
+      });
+
+      // Keyboard navigation improvements
+      document.addEventListener("keydown", function (e) {
+        // Allow Escape to close popup
+        if (
+          e.key === "Escape" &&
+          document.getElementById("successPopup").classList.contains("show")
+        ) {
+          closePopup();
+        }
+      });
+
+      // Initialize form focus
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("name").focus();
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

@@ -42,6 +42,10 @@
 .dance-item:hover .dance-overlay {
     transform: translateY(0);
 }
+.dance-overlay a{
+    border: none;
+    outline: none;
+}
 
 .dance-overlay h3 {
     font-size: 1.4rem;

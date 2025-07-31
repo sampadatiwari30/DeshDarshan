@@ -27,7 +27,9 @@
         }
 
         body {
-            background: var(--bg-color);
+
+            background: linear-gradient(135deg, hsl(220, 10%, 94%) 0%, #e9ecef 100%);
+
             font-family: 'Nunito', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
@@ -103,9 +105,10 @@
         .main-title {
             font-family: 'Fredoka One', cursive;
             font-size: 4rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+            color: hsl(31, 97%, 58%);
+            text-shadow: 3px 3px 0px #fff, 6px 6px 0px #0af131;
+
             text-align: center;
             margin: 3rem 0 2rem;
             text-shadow: 3px 3px 0px #fff, 6px 6px 0px var(--border-accent);
@@ -137,8 +140,10 @@
 
         /* Cartoon Card */
         .cartoon-card {
-            background: var(--bg-color);
-            border-radius: 20px;
+
+            background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
+            border-radius: 15px;
+
             padding: 1.5rem;
             margin: 1rem;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -152,7 +157,9 @@
         .cartoon-card:hover {
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-color: var(--gradient-start);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
         }
 
         .cartoon-card::before {
@@ -223,7 +230,9 @@
         }
 
         .fact-modal {
-            background: var(--bg-color);
+
+             background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
+
             border-radius: 30px;
             padding: 3rem;
             max-width: 600px;
@@ -239,6 +248,7 @@
             border-radius: 20px;
             padding: 1rem 2rem;
             margin-bottom: 2rem;
+            margin-top: 1.5rem;
             position: relative;
             font-family: 'Fredoka One', cursive;
             font-size: 1.5rem;
@@ -271,13 +281,19 @@
             color: var(--text-accent);
             line-height: 1.6;
             font-weight: 600;
+            background: linear-gradient(45deg, #d04545, #0c7d76);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .close-btn {
             position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #ff6b6b;
+
             color: white;
             border: none;
             border-radius: 50%;
@@ -477,13 +493,16 @@
             }
         }
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+
+        .navbarhover:hover {
+            color: rgb(234, 112, 51);
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
         }
     </style>
 </head>
 <body>
+
     <!-- Background Music -->
     <audio id="backgroundMusic" loop>
         <source src="audio/indian-flute.mp3" type="audio/mpeg">
@@ -503,6 +522,7 @@
             <div class="tutorial-buttons">
                 <button class="tutorial-btn" id="nextTutorialStep" aria-label="Next Tutorial Step">Next</button>
                 <button class="tutorial-btn" id="skipTutorial" aria-label="Skip Tutorial">Skip</button>
+
             </div>
         </div>
     </div>

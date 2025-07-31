@@ -2,426 +2,122 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dance Culture of India</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            background-color: #FFFFFF;
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes ripple {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 20px rgba(255, 127, 80, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 127, 80, 0);
-            }
-        }
-
-        .animate-scale-in {
-            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-
-        .animate-ripple:hover {
-            animation: ripple 0.6s ease-out;
-        }
-
-        /* Dance Culture Section */
-        .dance-culture {
-            padding: 5rem 0;
-            background: #FFFFFF;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #FFA07A, #E6B800);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 3rem;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.6s ease-in;
-        }
-
-        .dance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .dance-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            background: #FFFFFF;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .dance-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .dance-item img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-        }
-
-        .dance-item img.lazy {
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .dance-item img.lazy.loaded {
-            opacity: 1;
-        }
-
-        .dance-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 2rem 1.5rem 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .dance-item:hover .dance-overlay {
-            transform: translateY(0);
-        }
-
-        .dance-overlay h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
-
-        .dance-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            color: #f0f0f0;
-        }
-
-        /* Audio Control */
-        .audio-control {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #FFA07A, #E6B800);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 65px;
-            height: 65px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .audio-control:hover {
-            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
-            transform: scale(1.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Tutorial Overlay */
-        .tutorial-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-        }
-
-        .tutorial-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .tutorial-content {
-            background: #FFFFFF;
-            border-radius: 15px;
-            padding: 2rem;
-            max-width: 500px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.5s ease;
-        }
-
-        .tutorial-content h3 {
-            font-size: 1.5rem;
-            color: #5E8B7E;
-            margin-bottom: 1rem;
-        }
-
-        .tutorial-content p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .tutorial-btn {
-            background: linear-gradient(135deg, #FFA07A, #E6B800);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin: 0 0.5rem;
-        }
-
-        .tutorial-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
-        }
-
-        .tutorial-btn:focus {
-            outline: 3px solid #E6B800;
-            outline-offset: 2px;
-        }
-
-        .tutorial-highlight {
-            position: relative;
-            z-index: 2001;
-            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.4rem;
-                margin-bottom: 2rem;
-            }
-
-            .dance-item img {
-                height: 300px;
-            }
-
-            .dance-overlay {
-                padding: 1.5rem 1rem;
-            }
-
-            .dance-overlay h3 {
-                font-size: 1.2rem;
-            }
-
-            .dance-overlay p {
-                font-size: 0.85rem;
-            }
-
-            .tutorial-content {
-                max-width: 90%;
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .dance-item img {
-                height: 250px;
-            }
-
-            .audio-control {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #backBtn {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            z-index: 100;
-            font-size: 1.25rem;
-            background: linear-gradient(135deg, #FFA07A, #E6B800);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 10%;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        #backBtn:hover {
-            background: linear-gradient(135deg, #FF7F50, #5E8B7E);
-            transform: scale(1.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        #backBtn:focus {
-            outline: 3px solid #E6B800;
-            outline-offset: 2px;
-        }
-
-        @media (max-width: 576px) {
-            #backBtn {
-                top: 90px;
-                left: 10px;
-                padding: 0.4rem 0.8rem;
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dance culture</title>
+  <link rel="stylesheet" href="../css/dance.css" />
+  <link rel="stylesheet" href="../css/home1.css" />
 </head>
 
 <body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h2>Desh Darshan</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="about%20us.html">About Us</a></li>
+        <li><a href="exploreindia.html">Explore India</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
-    
-    <!-- Dance Culture Section -->
-    <section class="dance-culture">
-        <div class="container">
-            <h2 class="section-title">Dance Culture of India</h2>
-
-            <div class="dance-grid">
-                <div class="dance-item">
-                    <img src="../assets/images/br2.jpg" alt="Bharatanatyam dancer">
-                    <div className="dance-card">
-                         <h3>Bharatanatyam</h3>
-                    </div>
-                    <div class="dance-overlay">
-                        <h3>Bharatanatyam</h3>
-                        <p>Classical dance from Tamil Nadu</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="../assets/images/kr1.jpg" alt="Kathak dancer">
-                    <div className="dance-card">
-                         <h3>Kathak</h3>
-                    </div>
-                    <div class="dance-overlay">
-                        <h3>Kathak</h3>
-                        <p>Storytelling dance from North India</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="../assets/images/od2.jpg" alt="Odissi dancer">
-                    <div className="dance-card">
-                         <h3>Odissi</h3>
-                    </div>
-                    <div class="dance-overlay">
-                        <h3>Odissi</h3>
-                        <p>Graceful dance from Odisha</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="../assets/images/ap3.jpg" alt="Kuchipudi dancer">
-                    <div className="dance-card">
-                         <h3>Kuchipudi</h3>
-                    </div>
-                    <div class="dance-overlay">
-                        <h3>Kuchipudi</h3>
-                        <p>Dynamic dance from Andhra Pradesh</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="../assets/images/mani1.jpg" alt="Manipuri dancer">
-                    <div className="dance-card">
-                         <h3>Manipuri</h3>
-                    </div>
-                    <div class="dance-overlay">
-                        <h3>Manipuri</h3>
-                        <p>Devotional dance from Manipur</p>
-                    </div>
-                </div>
-                <div class="dance-item">
-                    <img src="../assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer">
-                    <div className="dance-card">
-                         <h3>Mohiniyattam</h3>
-                    </div>
-                    <div class="dance-overlay">
-                        <h3>Mohiniyattam</h3>
-                        <p>Enchanting dance from Kerala</p>
-                    </div>
-                </div>
-
-            </div>
+  <!-- Dance Culture Section -->
+  <section class="dance-culture">
+    <div class="container">
+      <h2 class="section-title">Dance Culture of India</h2>
+      <div class="dance-grid">
+        <div class="dance-item">
+          <img src="../assets/images/br2.jpg" alt="Bharatanatyam dancer" />
+          <div class="dance-card">
+            <h3>Bharatanatyam</h3>
+          </div>
+          <div class="dance-overlay">
+            <a href="./bharatanatyam.html">
+              <h3>Bharatanatyam</h3>
+            </a>
+            <p>Classical dance from Tamil Nadu</p>
+          </div>
         </div>
-    </section>
+
+        <div class="dance-item">
+          <img src="../assets/images/kr1.jpg" alt="Kathak dancer" />
+          <div class="dance-card">
+            <h3>Kathak</h3>
+          </div>
+          <div class="dance-overlay">
+            <a href="./kathak.html">
+              <h3>Kathak</h3>
+            </a>
+            <p>Storytelling dance from North India</p>
+          </div>
+        </div>
+
+        <div class="dance-item">
+          <img src="../assets/images/od2.jpg" alt="Odissi dancer" />
+          <div class="dance-card">
+            <h3>Odissi</h3>
+          </div>
+          <div class="dance-overlay">
+            <a href="./odissi.html">
+              <h3>Odissi</h3>
+            </a>
+            <p>Graceful dance from Odisha</p>
+          </div>
+        </div>
+
+        <div class="dance-item">
+          <img src="../assets/images/ap3.jpg" alt="Kuchipudi dancer" />
+          <div class="dance-card">
+            <h3>Kuchipudi</h3>
+          </div>
+          <div class="dance-overlay">
+            <a href="./kuchipudi.html">
+              <h3>Kuchipudi</h3>
+            </a>
+            <p>Dynamic dance from Andhra Pradesh</p>
+          </div>
+        </div>
+
+        <div class="dance-item">
+          <img src="../assets/images/mani1.jpg" alt="Manipuri dancer" />
+          <div class="dance-card">
+            <h3>Manipuri</h3>
+          </div>
+          <div class="dance-overlay">
+            <a href="./manipuri.html">
+              <h3>Manipuri</h3>
+            </a>
+            <p>Devotional dance from Manipur</p>
+          </div>
+        </div>
+
+        <div class="dance-item">
+          <img src="../assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer" />
+          <div class="dance-card">
+            <h3>Mohiniyattam</h3>
+          </div>
+          <div class="dance-overlay">
+            <a href="./mohiniyattam.html">
+              <h3>Mohiniyattam</h3>
+            </a>
+            <p>Enchanting dance from Kerala</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
 
     <script>
         const backBtn = document.getElementById('backBtn');
@@ -616,6 +312,8 @@
             startTutorial();
         });
     </script>
+
+  <script src="../js/home1.js"></script>
 </body>
 
 </html>
