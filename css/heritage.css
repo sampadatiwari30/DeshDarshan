@@ -54,13 +54,49 @@
 .heritage-item:hover .heritage-overlay {
     transform: translateY(0);
 }
-
-.heritage-overlay h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-}
-
 .heritage-overlay p {
     font-size: 0.9rem;
     opacity: 0.9;
 }
+
+
+.heritage-overlay a {
+  color: white;
+  text-decoration: none;
+}
+
+.heritage-overlay a:hover {
+  color: #dbd29a; /* Optional: gold on hover */
+}
+
+.heritage-overlay h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: none; /* Remove line initially */
+}
+
+/* Show underline ONLY when clicked */
+.heritage-overlay h3.clicked {
+  border-bottom: 2px solid rgba(184, 159, 57, 0.888);
+}
+.heritage-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #f18125; /* Cute pink */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+
+
