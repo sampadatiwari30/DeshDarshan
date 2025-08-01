@@ -118,6 +118,7 @@ Hover behavior
     border: 2px solid #ffcc00;
 
     transition: all 0.3s ease;
+    margin-left: 50px;
 }
 
 .btn-login:hover {
@@ -150,6 +151,7 @@ Hover behavior
     color: white;
     border: 2px solid transparent;
     transition: all 0.3s ease;
+    margin-left: 5px;
 }
 
 .btn-signup:hover {
@@ -790,3 +792,31 @@ button, a, .culture-item, .food-item, .dance-item {
           padding-right: 2rem;
         }
       }
+
+      .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 125%; /* Position above the icon */
+  left: 80%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
