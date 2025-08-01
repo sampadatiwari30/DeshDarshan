@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Gateway of India Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#ffffff33 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),
+        url('../assets/images/Gate%20Way%20Of%20India.jpg') no-repeat center center/cover;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      animation: zoomIn 2s ease;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-family: 'Playfair Display', serif;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px #fff3;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 25px;
+      background: #ffffffcc;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .container h2 {
+      color: #9b59b6;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .container ul {
+      padding-left: 20px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .container p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .story-image {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 25px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .story-image:hover {
+      transform: scale(1.03);
+    }
+
+    .main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .quiz-section {
+      max-width: 700px;
+      padding: 40px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      animation: slideIn 1.2s ease;
+    }
+
+    .quiz-section h2 {
+      color: #9b59b6;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .question {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .option-button {
+      padding: 14px 22px;
+      background: #e5e7ff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .option-button:hover {
+      background: #cfd4ff;
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .option-button.correct {
+      background-color: #a3e4a3 !important;
+      color: #065f08;
+    }
+
+    .option-button.wrong {
+      background-color: #f8a5a5 !important;
+      color: #a30000;
+    }
+
+    .next-button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background-color: #9b59b6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .next-button:hover {
+      background-color: #7c3d9a;
+      transform: scale(1.05);
+    }
+
+    .completion-message {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      animation: bounceIn 1s ease;
+    }
+
+    @media screen and (max-width: 500px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.9);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>The Gateway of India</h1>
+  </section>
+
+  <!-- Content -->
+  <div class="container">
+    <h2>📌 Fascinating Facts</h2>
+    <ul>
+      <li>The Gateway of India is located in Mumbai, Maharashtra.</li>
+      <li>It was built in 1924 to commemorate the visit of King George V and Queen Mary to India.</li>
+      <li>The last British troops exited India through this gateway in 1948.</li>
+      <li>It is built using yellow basalt and reinforced concrete.</li>
+      <li>The monument faces the Arabian Sea and is a major tourist attraction.</li>
+    </ul>
+
+    <h2>📖 A Colonial Monument with Historical Significance</h2>
+    <p>
+      Constructed during the British Raj, the Gateway of India represents the grandeur and imperial legacy of colonial India. Today, it stands as a historical monument and a symbol of Mumbai's vibrant culture.
+    </p>
+    <img class="story-image" src="../assets/images/Gate%20Way%20Of%20India.jpg" alt="Gateway of India View" />
+  </div>
+
+  <!-- Quiz Section -->
+  <div class="main-wrapper">
+    <div class="quiz-section">
+      <h2>🧠 Quick Quiz Time!</h2>
+      <div class="question" id="question-text"></div>
+      <div class="options" id="options-container"></div>
+      <button class="next-button" id="next-btn" disabled>Next</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Where is the Gateway of India located?",
+        options: ["Delhi", "Mumbai", "Kolkata", "Chennai"],
+        answer: "Mumbai"
+      },
+      {
+        question: "Why was the Gateway of India built?",
+        options: [
+          "To mark independence",
+          "To honor Mughal emperors",
+          "To commemorate a royal visit",
+          "For trade purposes"
+        ],
+        answer: "To commemorate a royal visit"
+      },
+      {
+        question: "What material is used to build the Gateway of India?",
+        options: ["White Marble", "Yellow Basalt", "Red Sandstone", "Limestone"],
+        answer: "Yellow Basalt"
+      }
+    ];
+
+    let currentQuestion = 0;
+    const questionText = document.getElementById("question-text");
+    const optionsContainer = document.getElementById("options-container");
+    const nextBtn = document.getElementById("next-btn");
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      questionText.textContent = q.question;
+      optionsContainer.innerHTML = "";
+      nextBtn.disabled = true;
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.className = "option-button";
+        btn.textContent = option;
+        btn.addEventListener("click", () => checkAnswer(btn, q.answer));
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selectedBtn, correctAnswer) {
+      const buttons = document.querySelectorAll(".option-button");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === correctAnswer) {
+          btn.classList.add("correct");
+        } else if (btn === selectedBtn) {
+          btn.classList.add("wrong");
+        }
+      });
+      nextBtn.disabled = false;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        questionText.style.display = "none";
+        optionsContainer.innerHTML = `
+          <div class="completion-message">
+            🎉 You've completed the quiz!<br>Thanks for playing!
+          </div>
+        `;
+        nextBtn.style.display = "none";
+      }
+    });
+
+    loadQuestion();
+  </script>
+</body>
+
+</html>
