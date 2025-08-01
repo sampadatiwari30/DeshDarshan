@@ -1,0 +1,374 @@
+/* Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            font-size: 3.2rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            margin: 3rem 0 2rem 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Georgia', serif;
+        }
+
+        /* Cards Container */
+        .cards-section {
+            padding: 2rem 1rem 4rem 1rem;
+        }
+
+        /* Individual Card Styling - Square Shape */
+        .destination-card {
+            background: transparent;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Card Background Image */
+        .card-image-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        /* Card Text Overlay */
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem 1.5rem 1.5rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .card-tagline {
+            color: #f0f0f0;
+            font-size: 0.95rem;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .destination-card:hover .card-title {
+            font-weight: 900;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .destination-card:hover .card-tagline {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Modal Styling */
+        .modal-fullscreen-custom {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal-content-custom {
+            background: transparent;
+            border: none;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Close Button */
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1070;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .close-modal:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Image Overlay in Modal */
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 15px;
+        }
+
+        .carousel-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .overlay-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #f0f0f0;
+        }
+
+        /* Carousel Controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 8%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .carousel-control-prev:hover .carousel-control-prev-icon,
+        .carousel-control-next:hover .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Audio Control */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .audio-control:hover {
+            background: rgba(0, 0, 0, 0.95);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.8rem;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            .card-tagline {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.4rem;
+                margin: 2rem 0 1.5rem 0;
+            }
+
+            .carousel-image {
+                height: 400px;
+            }
+
+            .image-overlay {
+                padding: 2rem;
+            }
+
+            .overlay-title {
+                font-size: 1.6rem;
+            }
+
+            .overlay-text {
+                font-size: 1rem;
+            }
+
+            .close-modal {
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .card-overlay {
+                padding: 1.5rem 1rem 1rem;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .card-tagline {
+                font-size: 0.8rem;
+            }
+
+            .carousel-image {
+                height: 300px;
+            }
+
+            .audio-control {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navbarhover:hover {
+            color: rgb(241, 150, 14)
+        }
+
+        .page-title-loading {
+            text-align: center;
+            color: orange;
+            text-shadow: 0 0 3px rgb(194, 161, 101);
+            padding-top: 16px;
+        }
+    
+
+
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  #backToTopBtn:hover {
+    background-color: transparent;
+    transform: translateY(-5px);
+  }
+
+  @media screen and (max-width: 480px) {
+    #backToTopBtn {
+      font-size: 50px;
+      padding: 8px 10px;
+      bottom: 60px;
+      right: 5px;
+    }
+  }

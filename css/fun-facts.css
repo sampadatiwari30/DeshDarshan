@@ -1,0 +1,311 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, hsl(220, 10%, 94%) 0%, #e9ecef 100%);
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+            min-height: calc(100vh - 80px);
+        }
+
+        .main-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4rem;
+            color: hsl(31, 97%, 58%);
+            text-shadow: 3px 3px 0px #fff, 6px 6px 0px #0af131;
+            text-align: center;
+            margin: 2rem 0;
+            animation: titleBounce 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleBounce {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .cartoon-card {
+            background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cartoon-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cartoon-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .cartoon-card:hover::before {
+            animation: shimmer 0.8s ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .cartoon-svg {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .cartoon-card:hover .cartoon-svg {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .state-name {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .state-code {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fact-modal {
+             background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
+            border-radius: 30px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalPop 0.5s ease-out;
+        }
+
+        @keyframes modalPop {
+            0% {
+                transform: scale(0.5) rotate(-10deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .modal-cartoon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            animation: modalCartoonBounce 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes modalCartoonBounce {
+            0% {
+                transform: translateY(0px) scale(1);
+            }
+
+            100% {
+                transform: translateY(-15px) scale(1.1);
+            }
+        }
+
+        .speech-bubble {
+            background: #ffd93d;
+            border-radius: 20px;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+            position: relative;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #ffd93d;
+        }
+
+        .crazy-fact {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-weight: 600;
+            background: linear-gradient(45deg, #d04545, #0c7d76);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ff5252;
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .cartoon-card {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+
+            .fact-modal {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .crazy-fact {
+                font-size: 1.1rem;
+            }
+        }
+
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff6b6b;
+            font-size: 20px;
+            animation: floatUp 3s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .navbarhover:hover {
+            color: rgb(234, 112, 51);
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
+        }
+    
+
+
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  #backToTopBtn:hover {
+    background-color: transparent;
+    transform: translateY(-5px);
+  }
+
+  @media screen and (max-width: 480px) {
+    #backToTopBtn {
+      font-size: 50px;
+      padding: 8px 10px;
+      bottom: 60px;
+      right: 5px;
+    }
+  }

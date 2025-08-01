@@ -5,11 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spirit of India</title>
-    <link rel="stylesheet" href="../css/home1.css" type = "text/css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/home.css">
     <style>
         * {
     margin: 0;
@@ -30,63 +27,8 @@ body {
     padding: 0 20px;
 }
 
-/* Navigation Styles */
-.navbar {
-    background: black;
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin-left:  2rem;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo h2 {
-    color: #FF993f;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.nav-logo a {
-  text-decoration: none;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    justify-items: flex-end;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-menu a:hover {
-    color: #FF9933;
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-.btn-login, .btn-signup {
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 25px;
+/* Hero Section */
+.hero {
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -444,27 +386,10 @@ body {
     </style>
 </head>
 
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="../index.html"><h2>Desh Darshan</h2></a>
-            </div>
-              <ul class="nav-menu">
-                <li><a href="about us.html">About Us</a></li>
-                <li><a href="explore.html">Explore India</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-            </ul>
-            
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+<body class="homepage">
+    <!-- Navigation Bar Container -->
+    <div id="navbar-container"></div>
+    
     <!-- Hero Section with Slideshow -->
     <section class="hero">
         <div class="slideshow-container">
@@ -601,9 +526,9 @@ body {
         <div class="footer-section">
           <h3 class="footer-section-title">Follow Us</h3>
           <div class="social-icons-container">
-            <a href="#" class="social-icon" aria-label="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
+            <a href="#" class="social-icon" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
             <a href="#" class="social-icon" aria-label="Twitter"
               ><i class="fab fa-twitter"></i
             ></a>
@@ -821,6 +746,8 @@ body {
   });
 </script>
 
+<!-- Load navbar system -->
+<script src="../js/navbar-loader.js"></script>
 </body>
 
 </html>
