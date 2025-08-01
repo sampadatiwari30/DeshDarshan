@@ -1,106 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form - DeshDarshan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/feedback.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback Form - DeshDarshan</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>DeshDarshan</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="home1.html">Home</a></li>
-                <li><a href="about us.html">About Us</a></li>
-                <li><a href="crazyfacts.html">Crazy Facts</a></li>
-                <li><a href="explore.html">Explore India</a></li>
-                <li><a href="destination.html">Hidden Destinations</a></li>
-            </ul>
-            <div class="nav-buttons">
-                <a href="contactus.html"><span>Contact Us</span><i>→</i></a>
-                <a href="feedback.html"><span>Feedback</span><i>→</i></a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="container">
-            <div class="form-card">
-                <h1 class="form-title">Feedback Form</h1>
-                
-                <form id="feedbackForm">
-                    <div class="form-group">
-                        <label class="form-label" for="name">Name *</label>
-                        <input type="text" id="name" name="name" class="form-input" required>
-                        <div class="error-message" id="nameError">Please enter your name</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email ID *</label>
-                        <input type="email" id="email" name="email" class="form-input" required>
-                        <div class="error-message" id="emailError">Please enter a valid email address</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" class="form-input" required>
-                        <div class="error-message" id="phoneError">Please enter your phone number</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Star Rating *</label>
-                        <div class="star-rating" id="starRating">
-                            <span class="star" data-rating="1">★</span>
-                            <span class="star" data-rating="2">★</span>
-                            <span class="star" data-rating="3">★</span>
-                            <span class="star" data-rating="4">★</span>
-                            <span class="star" data-rating="5">★</span>
-                        </div>
-                        <div class="error-message" id="ratingError">Please select a rating</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="message">Message *</label>
-                        <textarea id="message" name="message" class="form-textarea" rows="4" required placeholder="Share your thoughts about your experience..."></textarea>
-                        <div class="error-message" id="messageError">Please enter your message</div>
-                    </div>
-
-                    <div class="share-section">
-                        <div class="share-title">Share Your Experience</div>
-                        <div class="share-links">
-                            <a href="https://www.instagram.com/" target="_blank" class="share-link">
-                                📷 Instagram
-                            </a>
-                            <a href="mailto:feedback@deshdarshan.com?subject=My Experience Feedback" class="share-link">
-                                ✉️ Email
-                            </a>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Submit Feedback</button>
-                </form>
-            </div>
-        </div>
+<body class="bg-gradient-to-br from-indigo-100 via-white to-pink-100 text-gray-800 font-sans">
+  
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="text-2xl font-bold text-indigo-700">DeshDarshan</div>
+      <ul class="flex gap-5 text-sm font-medium text-gray-700">
+        <li><a href="home1.html" class="hover:text-indigo-500">Home</a></li>
+        <li><a href="about us.html" class="hover:text-indigo-500">About Us</a></li>
+        <li><a href="crazyfacts.html" class="hover:text-indigo-500">Crazy Facts</a></li>
+        <li><a href="exploreindia.html" class="hover:text-indigo-500">Explore India</a></li>
+        <li><a href="destination.html" class="hover:text-indigo-500">Hidden Destinations</a></li>
+      </ul>
+      <div class="flex gap-3">
+        <a href="contactus.html" class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-md hover:bg-indigo-200 transition">Contact Us →</a>
+        <a href="feedback.html" class="bg-indigo-600 text-white px-3 py-1 rounded-md hover:bg-indigo-700 transition">Feedback →</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- Popup -->
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-card">
-            <p class="popup-message">
-                From gurdwaras echoing shabads to churches ringing carols, from folk dances of every land to the sacred chants of every faith 
-                — your feedback adds warmth to our colorful yatra across India. Thank you for being part of it!🌺❤️
-            </p>
-            <button class="popup-close" onclick="closePopup()">Close</button>
+
+  <!-- Feedback Form -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto bg-white bg-opacity-90 backdrop-blur-md rounded-2xl shadow-xl p-8">
+      <h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">Feedback Form</h1>
+
+      <form id="feedbackForm" class="space-y-6">
+        <div>
+          <label for="name" class="block mb-1 text-sm font-medium text-gray-700">Name *</label>
+          <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400">
+          <p class="text-red-500 text-sm mt-1 hidden" id="nameError">Please enter your name</p>
         </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/feedback.js"></script>
+        <div>
+          <label for="email" class="block mb-1 text-sm font-medium text-gray-700">Email ID *</label>
+          <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400">
+          <p class="text-red-500 text-sm mt-1 hidden" id="emailError">Please enter a valid email address</p>
+        </div>
+
+        <div>
+          <label for="phone" class="block mb-1 text-sm font-medium text-gray-700">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400">
+          <p class="text-red-500 text-sm mt-1 hidden" id="phoneError">Please enter your phone number</p>
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Star Rating *</label>
+          <div class="flex space-x-2 text-yellow-400 text-2xl" id="starRating">
+            <span class="cursor-pointer hover:scale-110 transition" data-rating="1">★</span>
+            <span class="cursor-pointer hover:scale-110 transition" data-rating="2">★</span>
+            <span class="cursor-pointer hover:scale-110 transition" data-rating="3">★</span>
+            <span class="cursor-pointer hover:scale-110 transition" data-rating="4">★</span>
+            <span class="cursor-pointer hover:scale-110 transition" data-rating="5">★</span>
+          </div>
+          <p class="text-red-500 text-sm mt-1 hidden" id="ratingError">Please select a rating</p>
+        </div>
+
+        <div>
+          <label for="message" class="block mb-1 text-sm font-medium text-gray-700">Message *</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Share your thoughts about your experience..." class="w-full border border-gray-300 rounded-lg p-3 resize-none focus:ring-2 focus:ring-indigo-400"></textarea>
+          <p class="text-red-500 text-sm mt-1 hidden" id="messageError">Please enter your message</p>
+        </div>
+
+        <div class="bg-indigo-50 p-4 rounded-lg">
+          <div class="text-md font-semibold mb-2 text-indigo-700">Share Your Experience</div>
+          <div class="flex gap-6 text-sm">
+            <a href="https://www.instagram.com/" target="_blank" class="text-indigo-600 hover:underline">📷 Instagram</a>
+            <a href="mailto:feedback@deshdarshan.com?subject=My Experience Feedback" class="text-indigo-600 hover:underline">✉️ Email</a>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition text-lg font-semibold">
+          Submit Feedback
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Popup -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" id="popupOverlay">
+    <div class="bg-white p-6 rounded-lg max-w-md text-center shadow-2xl">
+      <p class="text-base mb-4 text-gray-700 leading-relaxed">
+        From gurdwaras echoing shabads to churches ringing carols, from folk dances of every land to the sacred chants of every faith — your feedback adds warmth to our colorful yatra across India. Thank you for being part of it! 🌺❤️
+      </p>
+      <button class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="../js/feedback.js"></script>
 </body>
 </html>
