@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>West Bengal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #030202fe;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../assets/images/wb.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 10px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card,
+    .card-taste,
+    .card-activity {
+      flex: 0 0 auto;
+      width: 300px;
+      background: transparent;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 0;
+    }
+
+    .card img,
+    .card-taste img,
+    .card-activity img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      display: block;
+      vertical-align: top;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h2 {
+      color: rgb(85, 37, 28);
+      text-align: center;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      font-size: 24px;
+    }
+
+    .card:hover,
+    .card-activity:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-taste:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title-taste {
+      font-size: 30px;
+      text-align: center;
+      font-weight: 600;
+      color: rgb(85, 37, 28);
+      padding: 10px 0;
+    }
+
+    .container-taste {
+      padding: 20px;
+    }
+
+    .carousel {
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
+
+    .carousel-item>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 40px);
+    }
+
+    .facts-section {
+      margin-top: 20px;
+    }
+
+    .facts {
+      background-color: white;
+      box-shadow: 0 4px 15px rgba(44, 43, 43, 0.3);
+      border-radius: 15px;
+      padding: 24px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .facts:hover {
+      border-color: #c49d87;
+      box-shadow: 0 8px 30px rgba(194, 121, 12, 0.626);
+      transform: translateY(-8px);
+    }
+
+    /* Fun fact box styling */
+    .fun-fact-box-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+      position: relative;
+      /* Ensure proper positioning of the absolute child */
+    }
+
+    .fun-fact-box {
+      padding: 16px 20px;
+      background-color: rgba(85, 37, 28, 0.5);
+      box-shadow: 0 4px 15px rgba(85, 37, 28, 0.1);
+      display: flex;
+      align-items: center;
+      width: 150%;
+      max-width: 900px;
+      z-index: 2;
+    }
+
+    .fun-fact-box img {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      margin-right: 12px;
+      /* me-3 */
+    }
+
+    .fun-fact-box .text-uppercase {
+      font-weight: bold;
+      color: #fbbf24;
+      /* text-warning */
+      font-size: 0.75rem;
+      /* small */
+      margin-bottom: 4px;
+      /* mb-1 */
+    }
+
+    .fun-fact-box p {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: #ffffff !important;
+      line-height: 1.5;
+    }
+
+    @keyframes zoomFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+      }
+
+      60% {
+        opacity: 0.5;
+        transform: scale(1.03);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    body {
+      animation: zoomFadeIn 1.2s ease-out;
+    }
+
+    @keyframes slideInHeading {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(1.1);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      animation: slideInHeading 1s ease-in-out;
+    }
+
+    @keyframes slideCardLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.95);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(10px) scale(1.02);
+      }
+
+      100% {
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @keyframes slideCardRight {
+      0% {
+        opacity: 0;
+        transform: translateX(100px) scale(0.95);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(-10px) scale(1.02);
+      }
+
+      100% {
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .card,
+      .card-taste,
+      .card-activity {
+        width: 250px;
+      }
+
+      .card-content h2 {
+        font-size: 20px;
+      }
+
+      .card-title-taste {
+        font-size: 26px;
+      }
+
+      .text-4xl {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .card,
+      .card-taste,
+      .card-activity {
+        width: 220px;
+      }
+
+      .card-content h2 {
+        font-size: 18px;
+      }
+
+      .card-title-taste {
+        font-size: 24px;
+      }
+
+      .text-4xl {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="text-center text-4xl font-semibold mt-10" style="color: rgb(85, 37, 28);">Explore the Beauty of West Bengal</h1>
+  <div class="flex items-center justify-center mt-20">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-5">Cultural Celebration in West Bengal!</h2>
+            <div class="row">
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/durga-pooja.jpg" alt="Durga Puja">
+                <div class="card-content">
+                  <h2>Durga Puja</h2>
+                </div>
+              </div>
+
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/boishakh.jpg" alt="Poila Boishakh">
+                <div class="card-content">
+                  <h2>Pohela Boishakh</h2>
+                </div>
+              </div>
+
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/rath-yatra.jpg" alt="Rath Yatra">
+                <div class="card-content">
+                  <h2>Rath Yatra</h2>
+                </div>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">Did you know?</div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Durga Puja in Kolkata is listed as an Intangible Cultural Heritage by UNESCO! 🙏🌟
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-8">The Flavors of West Bengal!</h2>
+            <div class="row">
+              <div class="card-taste">
+                <img src="../assets/images/rosogolla.jpg" alt="Rosogolla">
+                <h2 class="card-title-taste">Rosogolla</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/shorshe-ilish.jpg" alt="Shorshe Ilish">
+                <h2 class="card-title-taste">Shorshe Ilish</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/luchi-aloor-dum.jpg" alt="Luchi Aloor Dum">
+                <h2 class="card-title-taste">Luchi Aloor Dum</h2>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">Did you know?</div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Rosogolla has a GI tag from West Bengal and is beloved across India! 🍬
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-8">Explore the Wonders of West Bengal!</h2>
+            <div class="row">
+              <div class="card-activity">
+                <img src="../assets/images/sundarbans.jpg" alt="Sundarbans">
+                <div class="card-content">
+                  <h2>Sundarbans</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/howrah-bridge.jpg" alt="Howrah Bridge">
+                <div class="card-content">
+                  <h2>Howrah Bridge</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/victoria-memorial.jpg" alt="Victoria Memorial">
+                <div class="card-content">
+                  <h2>Victoria Memorial</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/darjeeling.jpg" alt="Darjeeling">
+                <div class="card-content">
+                  <h2>Darjeeling</h2>
+                </div>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">Did you know?</div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    The Sundarbans is the world’s largest mangrove forest and home to the Royal Bengal Tiger! 🐅🌿
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold drop-shadow-md">
+      Beyond the Culture: West Bengal Facts
+    </h1>
+  </div>
+
+  <section class="max-w-6xl mx-auto px-6 mb-[230px] facts-section">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Kolkata was once the capital of British India. 🇮🇳🏛️
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          The Sundarbans spans both India and Bangladesh. 🌊
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Darjeeling is known as the 'Queen of the Hills' and famous for its tea. 🍃☕
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          West Bengal gave India two Nobel Laureates: Rabindranath Tagore and Amartya Sen. 🏅📚
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          The Howrah Bridge is one of the longest cantilever bridges in the world. 🌉
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Bengali cinema and literature are celebrated across the globe. 🎬📖
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    window.onload = function () {
+      const myCarouselElement = document.getElementById('carouselExampleSlidesOnly');
+      if (myCarouselElement) {
+        new bootstrap.Carousel(myCarouselElement, {
+          interval: 3000,
+          ride: 'carousel'
+        });
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

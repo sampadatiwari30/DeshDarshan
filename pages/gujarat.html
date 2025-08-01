@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gujarat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #030202fe;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../assets/images/gujarat.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 10px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card,
+    .card-taste,
+    .card-activity {
+      flex: 0 0 auto;
+      width: 300px;
+      background: transparent;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 0;
+    }
+
+    .card img,
+    .card-taste img,
+    .card-activity img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      display: block;
+      vertical-align: top;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h2 {
+      color:rgba(78, 44, 37, 0.901);
+      text-align: center;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      font-size: 24px;
+    }
+
+    .card:hover,
+    .card-activity:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-taste:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title-taste {
+      font-size: 30px;
+      text-align: center;
+      font-weight: 600;
+      color: rgba(78, 44, 37, 0.901);
+      padding: 10px 0;
+    }
+
+    .container-taste {
+      padding: 20px;
+    }
+
+    .carousel {
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
+
+    .carousel-item>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 40px);
+    }
+
+    .facts-section {
+      margin-top: 20px;
+    }
+
+    .facts {
+      background-color: white;
+      box-shadow: 0 4px 15px rgba(44, 43, 43, 0.3);
+      border-radius: 15px;
+      padding: 24px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .facts:hover {
+      border-color: rgb(40, 10, 10);
+      box-shadow: 0 8px 30px rgba(40, 10, 10, 0.5);
+      transform: translateY(-8px);
+    }
+
+    /* Fun fact box styling */
+    .fun-fact-box-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+      position: relative;
+      /* Ensure proper positioning of the absolute child */
+    }
+
+    .fun-fact-box {
+      padding: 16px 20px;
+      background-color: rgba(40, 10, 10, 0.5);
+      box-shadow: 0 4px 15px rgba(87, 18, 18, 0.1);
+      display: flex;
+      align-items: center;
+      width: 150%;
+      max-width: 900px;
+      z-index: 2;
+    }
+
+    .fun-fact-box img {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      margin-right: 12px;
+      /* me-3 */
+    }
+
+    .fun-fact-box .text-uppercase {
+      font-weight: bold;
+      color: #fbbf24;
+      /* text-warning */
+      font-size: 0.75rem;
+      /* small */
+      margin-bottom: 4px;
+      /* mb-1 */
+    }
+
+    .fun-fact-box p {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: #ffffff !important;
+      line-height: 1.5;
+    }
+
+    @keyframes zoomFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+      }
+
+      60% {
+        opacity: 0.5;
+        transform: scale(1.03);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    body {
+      animation: zoomFadeIn 1.2s ease-out;
+    }
+
+    @keyframes slideInHeading {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(1.1);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      animation: slideInHeading 1s ease-in-out;
+    }
+
+    @keyframes slideCardLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.95);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(10px) scale(1.02);
+      }
+
+      100% {
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @keyframes slideCardRight {
+      0% {
+        opacity: 0;
+        transform: translateX(100px) scale(0.95);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(-10px) scale(1.02);
+      }
+
+      100% {
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .card,
+      .card-taste,
+      .card-activity {
+        width: 250px;
+      }
+
+      .card-content h2 {
+        font-size: 20px;
+      }
+
+      .card-title-taste {
+        font-size: 26px;
+      }
+
+      .text-4xl {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .card,
+      .card-taste,
+      .card-activity {
+        width: 220px;
+      }
+
+      .card-content h2 {
+        font-size: 18px;
+      }
+
+      .card-title-taste {
+        font-size: 24px;
+      }
+
+      .text-4xl {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="text-center text-4xl font-semibold mt-10" style="color: rgba(87, 18, 18, 0.887);">Explore the Beauty of Gujarat</h1>
+  <div class="flex items-center justify-center mt-20">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Slide 1: Festivals -->
+        <div class="carousel-item active">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-5" style="color:rgb(78, 37, 37);">Cultural Celebration in Gujarat!</h2>
+            <div class="row">
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/navratri.jpg" alt="Navratri-img" />
+                <div class="card-content">
+                  <h2>Navratri</h2>
+                </div>
+              </div>
+
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/uttarayan.jpg" alt="Uttarayan-img" />
+                <div class="card-content">
+                  <h2>Uttarayan</h2>
+                </div>
+              </div>
+
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/rann_utsav.jpg" alt="Rann-img" />
+                <div class="card-content">
+                  <h2>Rann Utsav</h2> 
+                </div>
+              </div>
+
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/fair.jpg" alt="fair-img" />
+                <div class="card-content">
+                  <h2>Tarnetar Fair</h2>
+                </div>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">Did you know?</div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Gujarat’s Navratri is the longest dance festival in the world, celebrated with Garba and Dandiya!
+                    💃🕺
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Food -->
+        <div class="carousel-item">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-8" style="color:rgb(78, 37, 37);">The Flavors of Gujarat!</h2>
+            <div class="row">
+              <div class="card-taste">
+                <img src="../assets/images/dhokla.jpg" alt="Dhokla-img">
+                <h2 class="card-title-taste">Dhokla</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/thepla.jpg" alt="Thepla-img">
+                <h2 class="card-title-taste">Thepla</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/fafda.jpg" alt="Fafda-img">
+                <h2 class="card-title-taste">Fafda</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/undhiyu.jpg" alt="Undhiyu-img">
+                <h2 class="card-title-taste">Undhiyu</h2>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">Did you know?</div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Gujarati cuisine is mostly vegetarian and balances sweet, salty, and spicy in every bite! 🍽️😋
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Places -->
+        <div class="carousel-item">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-8" style="color:rgb(78, 37, 37);">Explore the Wonders of Gujarat!</h2>
+            <div class="row">
+              <div class="card-activity">
+                <img src="../assets/images/statue_of_unity.jpg" alt="Statue-img">
+                <div class="card-content">
+                  <h2>Statue of Unity</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/gir.jpg" alt="Gir-img">
+                <div class="card-content">
+                  <h2>Gir National Park</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/somnath.jpg" alt="Somnath-img">
+                <div class="card-content">
+                  <h2>Somnath Temple</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/kutch.jpg" alt="Kutch-img">
+                <div class="card-content">
+                  <h2>White Rann of Kutch</h2>
+                </div>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">Did you know?</div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Gujarat is home to the world's tallest statue — the Statue of Unity! 🗿🇮🇳
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Facts Section -->
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold drop-shadow-md" style="color:rgb(78, 37, 37);">Beyond the Borders: Gujarat's Facts</h1>
+  </div>
+
+  <section class="max-w-6xl mx-auto px-6 mb-[230px] facts-section">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Gujarat has India’s longest coastline, stretching over 1,600 kilometers! 🌊⛵
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          It is the only home to the majestic Asiatic Lions, found in Gir National Park. 🦁🌳
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Gujarat is the birthplace of Mahatma Gandhi, the father of the nation. 🕊️📜
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          The Great Rann of Kutch turns into a white salt desert and hosts the colorful Rann Utsav. 🏜️🎨
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          The Girnar hills host an ancient Jain pilgrimage site and are older than the Himalayas. 🏔️🛕
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Gujarat is one of India's most industrialized states and a major center of trade. 🏭📦
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    window.onload = function () {
+      const myCarouselElement = document.getElementById('carouselExampleSlidesOnly');
+      if (myCarouselElement) {
+        new bootstrap.Carousel(myCarouselElement, {
+          interval: 3000,
+          ride: 'carousel'
+        });
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

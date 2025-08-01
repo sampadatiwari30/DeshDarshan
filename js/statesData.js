@@ -8,7 +8,7 @@ const indianStatesAndUTs = [
         capital: 'Amaravati',
         image: 'andhrapradesh.jpeg', // Corrected path
         shortDescription: 'Known as the "Rice Bowl of India," famous for its rich cultural heritage and historical sites.',
-        detailsLink: 'exploreindia.html#andhra-pradesh'
+        detailsLink: 'pages/andhrapradesh.html'
     },
     {
         id: 'ar',

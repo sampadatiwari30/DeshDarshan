@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meghalaya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #030202fe;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../assets/images/meghalaya.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 10px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card,
+    .card-taste,
+    .card-activity {
+      flex: 0 0 auto;
+      width: 300px;
+      background: transparent;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 0;
+    }
+
+    .card img,
+    .card-taste img,
+    .card-activity img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      display: block;
+      vertical-align: top;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h2 {
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      font-size: 24px;
+    }
+
+    .card:hover,
+    .card-activity:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-taste:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title-taste {
+      font-size: 30px;
+      text-align: center;
+      font-weight: 600;
+      color: white;
+      padding: 10px 0;
+    }
+
+    .container-taste {
+      padding: 20px;
+    }
+
+    .carousel {
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
+
+    .carousel-item>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 40px);
+    }
+
+    .facts-section {
+      margin-top: 20px;
+    }
+
+    .facts {
+      background-color: white;
+      box-shadow: 0 4px 15px rgba(44, 43, 43, 0.3);
+      border-radius: 15px;
+      padding: 24px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .facts:hover {
+      border-color: white;
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.626);
+      transform: translateY(-8px);
+    }
+
+    /* Fun fact box styling */
+    .fun-fact-box-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+      position: relative;
+      /* Ensure proper positioning of the absolute child */
+    }
+
+    .fun-fact-box {
+      padding: 16px 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      width: 150%;
+      max-width: 900px;
+      z-index: 2;
+    }
+
+    .fun-fact-box img {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      margin-right: 12px;
+      /* me-3 */
+    }
+
+    .fun-fact-box .text-uppercase {
+      font-weight: bold;
+      color: #fbbf24;
+      /* text-warning */
+      font-size: 0.75rem;
+      /* small */
+      margin-bottom: 4px;
+      /* mb-1 */
+    }
+
+    .fun-fact-box p {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: #ffffff !important;
+      line-height: 1.5;
+    }
+
+    @keyframes zoomFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+      }
+
+      60% {
+        opacity: 0.5;
+        transform: scale(1.03);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    body {
+      animation: zoomFadeIn 1.2s ease-out;
+    }
+
+    @keyframes slideInHeading {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(1.1);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      animation: slideInHeading 1s ease-in-out;
+    }
+
+    @keyframes slideCardLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.95);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(10px) scale(1.02);
+      }
+
+      100% {
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @keyframes slideCardRight {
+      0% {
+        opacity: 0;
+        transform: translateX(100px) scale(0.95);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(-10px) scale(1.02);
+      }
+
+      100% {
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .card,
+      .card-taste,
+      .card-activity {
+        width: 250px;
+      }
+
+      .card-content h2 {
+        font-size: 20px;
+      }
+
+      .card-title-taste {
+        font-size: 26px;
+      }
+
+      .text-4xl {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .card,
+      .card-taste,
+      .card-activity {
+        width: 220px;
+      }
+
+      .card-content h2 {
+        font-size: 18px;
+      }
+
+      .card-title-taste {
+        font-size: 24px;
+      }
+
+      .text-4xl {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="text-center text-4xl font-semibold mt-10" style="color: rgb(37, 46, 77);">Explore the Beauty of Meghalaya</h1>
+  <div class="flex items-center justify-center mt-20">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Festivals Slide -->
+        <div class="carousel-item active">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-5" style="color: white;">Cultural Celebration in Meghalaya!</h2>
+            <div class="row">
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/shad-suk-mynsiem.jpg" alt="Shad Suk Mynsiem-img" />
+                <div class="card-content">
+                  <h2>Shad Suk Mynsiem</h2>
+                </div>
+              </div>
+
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/wangala.jpg" alt="Wangala-img" />
+                <div class="card-content">
+                  <h2>Wangala Festival</h2>
+                </div>
+              </div>
+
+              <div class="card" style="animation: slideCardLeft 1s ease-out;">
+                <img src="../assets/images/behdeinkhlam.jpg" alt="Behdeinkhlam-img" />
+                <div class="card-content">
+                  <h2>Behdeinkhlam</h2>
+                </div>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">
+                    Did you know?
+                  </div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Meghalaya means “Abode of Clouds” ☁️ and is known for its vibrant tribal festivals and dances.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food Slide -->
+        <div class="carousel-item">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-8" style="color: white;">The Flavors of Meghalaya!</h2>
+            <div class="row">
+              <div class="card-taste">
+                <img src="../assets/images/jadoh.jpg" alt="Jadoh-img">
+                <h2 class="card-title-taste">Jadoh</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/dohneiiong.jpg" alt="Dohneiiong-img">
+                <h2 class="card-title-taste">Dohneiiong</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/nakham-bitchi.jpg" alt="Nakham-img">
+                <h2 class="card-title-taste">Nakham Bitchi</h2>
+              </div>
+
+              <div class="card-taste">
+                <img src="../assets/images/pumaloi.jpg" alt="Pumaloi-img">
+                <h2 class="card-title-taste">Pumaloi</h2>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">
+                    Did you know?
+                  </div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Traditional Khasi dishes are mostly steamed or boiled, showcasing unique tribal culinary styles 🍲
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Places Slide -->
+        <div class="carousel-item">
+          <div class="d-block w-100">
+            <h2 class="text-center mt-10 text-4xl font-bold mb-8" style="color: white;">Explore the Wonders of Meghalaya!</h2>
+            <div class="row">
+              <div class="card-activity">
+                <img src="../assets/images/cherrapunji.jpg" alt="Cherrapunji-img">
+                <div class="card-content">
+                  <h2>Cherrapunji</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/living-root-bridges.jpg" alt="Root Bridge-img">
+                <div class="card-content">
+                  <h2>Living Root Bridges</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/dawki.jpg" alt="Dawki-img">
+                <div class="card-content">
+                  <h2>Dawki River</h2>
+                </div>
+              </div>
+
+              <div class="card-activity">
+                <img src="../assets/images/mawlynnong.jpg" alt="Mawlynnong-img">
+                <div class="card-content">
+                  <h2>Mawlynnong</h2>
+                </div>
+              </div>
+            </div>
+            <div class="fun-fact-box-container">
+              <div class="fun-fact-box">
+                <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" />
+                <div>
+                  <div class="text-uppercase fw-bold text-warning small mb-1">
+                    Did you know?
+                  </div>
+                  <p class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+                    Mawlynnong is Asia’s cleanest village 🌿 and showcases the matrilineal culture of Meghalaya.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold drop-shadow-md" style="color: white;">
+      Beyond the Clouds: Meghalaya's Facts
+    </h1>
+  </div>
+
+  <section class="max-w-6xl mx-auto px-6 mb-[230px] facts-section">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Meghalaya is one of the wettest places on Earth 🌧️, with Cherrapunji and Mawsynram holding rainfall records.
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          The Khasi, Garo, and Jaintia tribes form the cultural backbone of the state, each with rich traditions. 🪘🎶
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          The state follows a matrilineal system, where property and family lineage pass through the mother. 👩‍👧‍👧
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          The Living Root Bridges 🌉 are handwoven from rubber tree roots and can last over 100 years!
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Traditional Khasi houses are built without using nails, showcasing brilliant indigenous architecture 🏠✨.
+        </p>
+      </div>
+
+      <div class="facts">
+        <p class="text-gray-700 leading-relaxed">
+          Wangala is also known as the “Hundred Drums Festival,” celebrated by the Garo tribe to honor the Sun God ☀️🥁.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    window.onload = function () {
+      const myCarouselElement = document.getElementById('carouselExampleSlidesOnly');
+      if (myCarouselElement) {
+        new bootstrap.Carousel(myCarouselElement, {
+          interval: 3000,
+          ride: 'carousel'
+        });
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
