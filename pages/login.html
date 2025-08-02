@@ -17,20 +17,12 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background:
-                radial-gradient(ellipse at top left, rgba(160, 82, 45, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at top right, rgba(139, 69, 19, 0.25) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom left, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(205, 133, 63, 0.3) 0%, transparent 50%),
-                linear-gradient(135deg,
-                    #8B4513 0%,
-                    #A0522D 15%,
-                    #CD853F 30%,
-                    #D2B48C 45%,
-                    #DEB887 60%,
-                    #F5DEB3 75%,
-                    #F5E6D3 90%,
-                    #FDF5E6 100%);
+            /* Replace the complex gradient with a simple image background */
+            background-image: url('../assets/images/Red fort.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
             min-height: 100vh;
             display: flex;
             align-items: center;
