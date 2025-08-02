@@ -25,6 +25,7 @@ body {
     padding: 1rem 0;
     position: fixed;
     width: 100%;
+    height:12%;
     top: 0;
     z-index: 1000;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -203,7 +204,12 @@ Hover behavior
     position: relative;
     width: 100%;
     height: 100%;
+    background-color: #000;
+   
 }
+.slideshow-container .slide img {
+    opacity: 0.4; /* Adjust this value (0.0 to 1.0) to control transparency */
+  }
 
 .slide {
     position: absolute;
@@ -221,7 +227,9 @@ Hover behavior
     width: 100%;
     height: 100%;
     object-fit: cover;
+     /* 0.0 (fully transparent) to 1.0 (fully opaque) */
 }
+
 
 .slide-content {
     position: absolute;
