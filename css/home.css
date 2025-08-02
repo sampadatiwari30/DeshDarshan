@@ -19,7 +19,7 @@ body {
 
 /* Navigation Styles */
 .navbar {
-    background: rgba(0, 0, 0, 0.9);  /* Solid black by default */
+    background: rgba(0, 0, 0, 0.9) ;  /* Solid black by default */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 1rem 0;
@@ -31,6 +31,7 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
+
 
 .nav-container {
     max-width: 1200px;
@@ -333,44 +334,162 @@ button, a, .culture-item, .food-item, .dance-item {
 }
 
 /* Taste of India Section */
-.taste-india {
-    padding: 5rem 0;
-    background: #fff;
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #fff8f0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #d35400;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .food-item {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .food-item:hover {
+      transform: scale(1.05);
+    }
+
+    .food-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .food-item h3 {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 20px;
+      color: #2c3e50;
+    }
+.food-btn {
+  background-color: #ff9933;
+  color: white;
+  border: 2px solid #ff9933;
+  padding: 14px 28px;
+  width: 30%;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 50px auto;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.food-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+.food-btn:hover {
+  background-color: #ffffff;
+  color: #e67e22;
+  box-shadow: 0 6px 15px rgba(230, 126, 34, 0.4);
+  transform: translateY(-4px);
 }
 
-.food-item {
-    text-align: center;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+@media (min-width: 280px) and (max-width: 760px) {
+  .food-btn {
+    padding: 14px 10px;
+    font-size: 0.8rem;
+  }
 }
 
-.food-item:hover {
-    transform: scale(1.05);
-}
 
-.food-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
 
-.food-item h3 {
-    padding: 1rem;
-    font-size: 1.2rem;
-    color: white;
-    background: linear-gradient(135deg, #ff9933, #ffb366);
-    margin: 0;
-}
 
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      text-align: center;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-content img {
+      width: 90%;
+      height: 300px;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    .modal-content h4 {
+      margin-top: 20px;
+      color: #e67e22;
+    }
+
+    .modal-content ul,
+    .modal-content ol {
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 28px;
+      color: #888;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      color: #000;
+    }
+
+    @media (max-width: 600px) {
+      .modal-content img {
+        height: 200px;
+      }
+
+      .food-item img {
+        height: 180px;
+      }
+
+      .modal-content {
+        padding: 15px;
+      }
+    }
 /* Dance Culture Section */
 .dance-culture {
     padding: 5rem 0;
@@ -714,6 +833,7 @@ button, a, .culture-item, .food-item, .dance-item {
         text-decoration: none;
         border-radius: 50%;
       }
+
 
       .social-icon i {
         font-size: 1.5rem;

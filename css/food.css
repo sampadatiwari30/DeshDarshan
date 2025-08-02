@@ -1,38 +1,254 @@
-/* Taste of India Section */
-.taste-india {
-    padding: 5rem 0;
-    background: #fff;
+/* =================== Responsive Enhancements & Color Theme =================== */
+
+/* Primary Colors */
+:root {
+  --primary-accent: #e67e22; /* Saffron */
+  --secondary-accent: #f5b041; /* Turmeric */
+  --bg-color: #fff8f0; /* Almond */
+  --card-bg: #ffffff; /* White */
+  --text-dark: #2c3e50; /* Clove */
+  --text-soft: #7f5539; /* Cinnamon */
+  --success: #27ae60; /* Green */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 100px;
+  color: var(--primary-accent);
+  text-shadow: 1px 1px 2px var(--secondary-accent);
 }
 
 .food-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .food-item {
-    text-align: center;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.food-item:hover {
-    transform: scale(1.05);
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .food-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
 }
 
 .food-item h3 {
-    padding: 1rem;
-    font-size: 1.2rem;
-    color: white;
-    background: linear-gradient(135deg, #ff9933, #ffb366);
-    margin: 0;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 20px;
+  color: var(--text-soft);
+}
+
+.food-item:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  text-align: center;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content img {
+  width: 90%;
+  height: 300px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.modal-content h4 {
+  margin-top: 20px;
+  color: var(--primary-accent);
+}
+
+.modal-content ul,
+.modal-content ol {
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.close-button {
+  float: right;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+#searchBox {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid var(--primary-accent);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  color: var(--text-dark);
+}
+
+#searchBox:focus {
+  border-color: var(--secondary-accent);
+  box-shadow: 0 0 10px rgba(245, 176, 65, 0.4);
+}
+
+/* =================== Responsive =================== */
+@media (max-width: 992px) {
+  .food-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  #searchBox {
+    width: 80%;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-item img {
+    height: 150px;
+  }
+
+  .food-item h3 {
+    font-size: 16px;
+  }
+
+  .nav-menu,
+  .nav-buttons {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  #searchBox {
+    font-size: 0.9rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 360px) {
+  .modal-content img {
+    height: 150px;
+  }
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  background: var(--text-light);
+  margin: 4px 0;
+  width: 25px;
+}
+
+.nav-menu.active,
+.nav-buttons.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--card-bg);
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  z-index: 999;
+  background-color:rgba(0, 0, 0, 0.7);
+  color: white;
+  border-top: 1px solid var(--primary-accent);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu.active a,
+.nav-buttons.active a {
+  color: var(--text-light);
+  font-weight: bold;
+  padding: 10px;
+  text-decoration: none;
+}
+/* Make navbar transparent on scroll */
+nav {
+  background-color: rgba(0, 0, 0, 1);
+  transition: background-color 0.3s ease;
+}
+
+nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.7);
 }

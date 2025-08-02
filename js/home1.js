@@ -61,11 +61,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 153, 51, 0.95)';
+        navbar.style.background = 'rgba(0, 0, 0, 0.6)';
     } else {
-        navbar.style.background = 'linear-gradient(135deg,rgb(0, 0, 0)';
+        navbar.style.background = 'rgba(0, 0, 0, 1)';
     }
 });
+
 
 // Intersection Observer for animations
 const observerOptions = {
