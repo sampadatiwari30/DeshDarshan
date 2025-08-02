@@ -310,46 +310,264 @@ Hover behavior
     background: black;
     border-radius: 2px;
 }
-/*unity & diversity section*/
+
+* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; } .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; } /* Navigation Styles *
+
+pasted
+
+give new look to this section...make sure text should be visible clearly...you can chnage the position of image form background ...but give new look ..dont chnage any any ..keep it simple ""  <section class="hero-2">     <div class="unity-diversity">       <div class="unity-picture">         <img src="assets/images/punjab/Indian-people.jpg" alt="people">           <div class="unity-content">           <h3 data-translate="hero-title-4">A billion voices.<br>Countless traditions.<br>Infinite cultures.<br>Endless diversity.<br></h3>            <h1>This is <span class="In">IN</span><span class="d">D</span><span class="ia">IA</span>           </h1>                    </div>       </div>     </div>         </section>""
+
+Edit
+I'll redesign this section to give it a fresh, modern look while ensuring the text is clearly visible. Let me create an updated CSS that maintains the same HTML structure but with improved visual design.
+
+
+Updated Unity & Diversity Section CSS
+Code 
+I've redesigned the Unity & Diversity section with a modern, sophisticated look that ensures excellent text visibility. Here are the key improvements:
+
+🎨 New Design Features:
+Enhanced Visual Hierarchy:
+Glassmorphism Effect: The content box now uses a modern glass-like appearance with blur effects
+Multi-layered Shadows: Enhanced text shadows for crystal-clear readability
+Gradient Overlay: Added a sophisticated gradient overlay for better contrast
+Improved Text Visibility:
+Enhanced Background Dimming: Image brightness reduced to 30% with increased contrast
+Glow Effects: Each letter in "INDIA" now has a subtle glow matching its flag color
+Floating Animation: Smooth entrance animation for the content
+Modern Interactions:
+Subtle Hover Effects: Gentle scale and shadow animations on hover
+Better Responsive Design: Optimized sizing for all screen sizes
+Key Visual Elements:
+Rounded Glass Container: 24px border radius with glass transparency
+Color-Enhanced INDIA Text: Each segment glows with its respective flag color
+Improved Typography: Better font weights and spacing
+The text is now much more readable while maintaining the dramatic visual impact. The glassmorphism effect creates a modern, premium feel that makes the content stand out beautifully against any background image.
+
+
+
+
+
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Spirit of India</title> <link rel="stylesheet" href="css/home.css" /> <link rel="icon" href="assets/images/Desh darshan Logo.png" type="
+
+pasted
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; } .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; } /* Navigation Styles *
+
+pasted
+
+text is not visible ///solve the problem ///
+
+Edit
+Looking at your HTML structure, I can see the issue. The unity-content div is placed inside the unity-picture div, which means it's being affected by the image's positioning and the gradient overlay. Let me fix this by correcting the HTML structure and updating the CSS.
+
+
+Updated Unity & Diversity Section CSS
+Code ∙ Version 2 
+
+Updated Unity & Diversity Section CSS
+Code ∙ Version 3 
+Now I need to provide you with the corrected HTML structure as well. The main issue is that in your HTML, the unity-content div is inside the unity-picture div, but it should be a sibling element. Here's the corrected HTML structure:
+
+
+Corrected HTML Structure for Unity Section
+Code 
+🔧 Problem Fixed!
+The text visibility issue was caused by two main problems:
+
+1. Incorrect HTML Structure:
+Your unity-content div was inside the unity-picture div
+This made the text inherit the image positioning and get affected by the overlay
+Solution: Move unity-content to be a sibling of unity-picture (both inside unity-diversity)
+2. Insufficient Text Contrast:
+Enhanced Background Darkness: Reduced image brightness to 25% (from 30%)
+Stronger Overlay: Increased gradient opacity to 80% black (from 70%)
+Ultra-Strong Text Shadows: Added multiple layers of black shadows for maximum contrast
+Better Positioning: Used absolute positioning with z-index: 100 to ensure text stays on top
+Key Changes Made:
+✅ Fixed Positioning: Text now uses position: absolute with proper centering
+✅ Enhanced Shadows: Multiple layers of black shadows for crystal-clear readability
+✅ Stronger Background: Darker image and overlay for better contrast
+✅ Higher Z-Index: Ensures text always appears above all other elements
+✅ Improved Glass Effect: Darker background with stronger border for the content box
+
+To Implement:
+Update your HTML to match the corrected structure above
+Replace the CSS for the unity section with the updated version
+The text will now be clearly visible with excellent contrast!
+The text should now be perfectly readable with a dramatic, modern look! 🎨✨
+
+
+
+
+
+
+
+/*unity & diversity section - FIXED DESIGN*/
+/* Hero-2 Section - Unity in Diversity */
+.hero-2 {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.unity-diversity {
+    position: relative;
+    width: 100%;
+    height: 700px; /* Increased height for more dramatic effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.unity-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.unity-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Modern image treatment with subtle overlay effect */
+    filter: brightness(0.25) contrast(1.4) saturate(1.1);
+    transition: all 0.8s ease;
+}
+
+/* Add a gradient overlay for better text visibility */
+.unity-picture::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 2;
+}
+
 .unity-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 100;
+    color: #fff;
     text-align: center;
-    color: white;
-    z-index: 2;
-    padding: 20px;
-    font-family: 'Times New Roman';
-}
-.unity-content h3 {
-    font-size: 50px;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9),
-        0 0 15px rgba(0, 0, 0, 0.7),
-        2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-.unity-content h1 {
-    font-size: 80px;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9),
-        0 0 15px rgba(0, 0, 0, 0.7),
-        2px 2px 6px rgba(0, 0, 0, 0.8);
+    padding: 60px 50px;
+    /* Modern glassmorphism effect */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    max-width: 85%;
+    width: 90%;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: floatIn 1.2s ease-out;
 }
 
-.In{
-    color:orangered;
+/* Floating animation for content */
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.d{
-    color:white;
+
+.unity-content h3 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: 1px;
+    /* Ultra-strong text shadow for maximum visibility */
+    text-shadow: 
+        0 0 10px rgba(0, 0, 0, 1),
+        0 0 20px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(0, 0, 0, 0.8),
+        2px 2px 4px rgba(0, 0, 0, 1),
+        4px 4px 8px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
 }
-.ia{
-    color: green;
+
+.unity-content h1 {
+    font-size: 6em;
+    font-weight: 900;
+    letter-spacing: 8px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    /* Ultra-strong text shadow for maximum visibility */
+    text-shadow: 
+        0 0 15px rgba(0, 0, 0, 1),
+        0 0 30px rgba(0, 0, 0, 0.9),
+        0 0 45px rgba(0, 0, 0, 0.8),
+        3px 3px 6px rgba(0, 0, 0, 1),
+        6px 6px 12px rgba(0, 0, 0, 0.8);
+    position: relative;
+    font-family: 'Poppins', sans-serif;
 }
+
+/* Enhanced color scheme for INDIA text with stronger shadows */
+.unity-content h1 .In {
+    color: #FF9933;
+    text-shadow: 
+        0 0 15px rgba(0, 0, 0, 1),
+        0 0 30px rgba(0, 0, 0, 0.9),
+        0 0 45px rgba(0, 0, 0, 0.8),
+        3px 3px 6px rgba(0, 0, 0, 1),
+        0 0 25px rgba(255, 153, 51, 0.8),
+        0 0 50px rgba(255, 153, 51, 0.4);
+}
+
+.unity-content h1 .d {
+    color: #FFFFFF;
+    text-shadow: 
+        0 0 15px rgba(0, 0, 0, 1),
+        0 0 30px rgba(0, 0, 0, 0.9),
+        0 0 45px rgba(0, 0, 0, 0.8),
+        3px 3px 6px rgba(0, 0, 0, 1),
+        0 0 25px rgba(255, 255, 255, 0.6),
+        0 0 50px rgba(255, 255, 255, 0.3);
+}
+
+.unity-content h1 .ia {
+    color: #138808;
+    text-shadow: 
+        0 0 15px rgba(0, 0, 0, 1),
+        0 0 30px rgba(0, 0, 0, 0.9),
+        0 0 45px rgba(0, 0, 0, 0.8),
+        3px 3px 6px rgba(0, 0, 0, 1),
+        0 0 25px rgba(19, 136, 8, 0.8),
+        0 0 50px rgba(19, 136, 8, 0.4);
+}
+
+/* Hover effect for the entire section */
+
+
+
 
 /* Festivals and Culture Section */
 .festivals-culture {
@@ -678,6 +896,25 @@ button, a, .culture-item, .food-item, .dance-item {
     .food-grid {
         grid-template-columns: 1fr;
     }
+    .unity-diversity {
+        height: 500px;
+    }
+
+    .unity-content {
+        padding: 40px 30px;
+        max-width: 95%;
+        border-radius: 20px;
+    }
+
+    .unity-content h3 {
+        font-size: 1.3em;
+        line-height: 1.5;
+    }
+
+    .unity-content h1 {
+        font-size: 3.5em;
+        letter-spacing: 4px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -695,6 +932,24 @@ button, a, .culture-item, .food-item, .dance-item {
 
     .food-grid {
         grid-template-columns: 1fr;
+    }
+    .unity-diversity {
+        height: 400px;
+    }
+
+    .unity-content {
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+
+    .unity-content h3 {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+
+    .unity-content h1 {
+        font-size: 2.8em;
+        letter-spacing: 2px;
     }
 }
 
