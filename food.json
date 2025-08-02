@@ -1,0 +1,312 @@
+{
+  "biryani": {
+    "name": "Biryani",
+    "image": "food_images/biryani_food.jpg",
+    "description": "Welcome to the world of Biryani — not just a dish, but a full-blown culinary blockbuster.",
+    "sections": [
+      {
+        "heading": "What Makes Biryani So Special?",
+        "content": "Biryani is more than a recipe — it’s an experience. A slow-cooked, layered labor of love that tells the story of its ingredients with every bite."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "First, the chicken is marinated — lovingly — in yogurt and spices. Meanwhile, onions are slowly fried to golden perfection. Basmati rice is cooked until just shy of done, waiting patiently for its moment in the spotlight.\n\nThen comes the magic: layering. Chicken goes in first, followed by rice, then onions, herbs, a drizzle of saffron milk, maybe a knob of ghee for good measure. This masterpiece is sealed and slow-cooked on dum — locking in every ounce of aroma and flavor.\n\nWhen the lid lifts, so do hearts."
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "Perfect for festivals, family dinners, or impressing that one friend who “doesn’t usually like spicy food.”\n\nA one-pot meal that’s rich, filling, and deeply satisfying.\n\nEvery bite is different — juicy chicken here, crispy onion there, a surprise hit of clove or mint. It’s like edible jazz."
+      }
+    ],
+    "funFact": [
+      "Beta, biryani isn't a race — slow cooking wins hearts.",
+      "If it’s not layered, it’s just rice with attitude.",
+      "No mint? No magic. No excuses.",
+      "One extra clove and boom — perfume factory!",
+      "Don’t eyeball the salt like your ex — measure it!",
+      "A pinch of saffron is class, not chaos.",
+      "Never trust someone who says ‘pulao and biryani are same.’",
+      "Garam masala is like gossip — a little goes a long way.",
+      "Add love, not shortcuts — biryani can sense betrayal.",
+      "If your onions aren't crying, you’re not doing it right.",
+      "Don’t let your rice turn into khichdi — watch the boil!",
+      "First layer goes to the chicken — no debates.",
+      "Opening the lid too early? That’s culinary sabotage.",
+      "Let the steam do its thing — you’ve done enough, beta.",
+      "Ghee is not optional. Ghee is tradition."
+    ],
+
+    "Link": [
+      "Ready to cook your best biryani yet? <br><br><a href=\"https://www.indianhealthyrecipes.com/chicken-biryani-recipe/\" target=\"_blank\" style=\"color: #ff9933; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+    ]
+  },
+  "butter-chicken": {
+    "name": "Butter Chicken",
+    "image": "food_images/butterchicken_food.jpg",
+    "description": "Say hello to Butter Chicken — India’s velvety, tomato-kissed answer to comfort food. It's rich, creamy, and outrageously flavorful, making every bite a smooth, buttery delight.",
+    "sections": [
+      {
+        "heading": "What Makes Butter Chicken So Irresistible?",
+        "content": "It’s a beautiful balance of tangy tomatoes, bold spices, and a generous swirl of cream. Butter Chicken isn’t just food — it’s an embrace in a bowl. Whether scooped up with naan or poured over rice, it’s always a crowd-pleaser."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "First, the chicken is marinated in yogurt, lemon juice, and warm spices like garam masala and chili powder. Then it's grilled or pan-fried to smoky perfection.\n\nNext, a rich tomato-based gravy is simmered with butter, garlic, and cream until smooth and luxurious. The grilled chicken is added in, soaking up all that flavor like a sponge.\n\nThe result? A dish that’s both indulgent and unforgettable."
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "Mild enough for picky eaters but flavorful enough for spice lovers.\n\nPairs perfectly with naan, rice, or even a sneaky spoon.\n\nThe creaminess, the spice balance, the aroma — it’s culinary magic in every mouthful."
+      }
+    ],
+    "funFact": [
+      "Beta, butter chicken without butter is just chicken in denial.",
+      "If the gravy doesn’t hug the chicken, it’s not love — it’s laziness.",
+      "Don’t skip marination — even your phone needs time to charge!",
+      "Cream is not decoration, it’s diplomacy — it balances all the spice fights.",
+      "Burn the chicken and you burn my trust.",
+      "Always sauté the tomatoes till they surrender — no raw tantrums allowed.",
+      "If it’s not silky smooth, it’s not butter chicken — it’s chunky confusion.",
+      "Kasuri methi isn’t garnish — it’s grandma’s secret handshake.",
+      "Too much chili and it’s revenge, not romance.",
+      "Serve with naan, not attitude.",
+      "Your butter chicken shouldn’t swim — we’re making curry, not soup.",
+      "A wooden spoon stirs better than steel — it whispers, not fights.",
+      "If you’re not tasting as you go, you’re playing kitchen blindfolded.",
+      "Low flame is patience, not punishment. Let the sauce fall in love with the chicken.",
+      "Don’t forget the sugar, beta — even spicy love needs a sweet ending."
+    ],
+    "Link": [
+      "Craving the creaminess? <br><br><a href=\"https://www.indianhealthyrecipes.com/butter-chicken/\" target=\"_blank\" style=\"color: #d2691e; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+    ]
+  },
+  "masala-dosa": {
+    "name": "Masala Dosa",
+    "image": "food_images/dosa.jpg",
+    "description": "Meet Masala Dosa — South India’s most iconic, crispy golden crepe with a spiced potato hug inside. Crunchy on the outside, soft and savory on the inside, it’s a breakfast legend turned anytime treat.",
+    "sections": [
+      {
+        "heading": "What Makes Masala Dosa So Special?",
+        "content": "It’s the perfect combination of textures and flavors — crispy dosa made from fermented rice-lentil batter, filled with mildly spiced, turmeric-tinted mashed potatoes. Served with coconut chutney and piping hot sambar, it's a wholesome, flavorful feast in every bite."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "First, the dosa batter is made by soaking and fermenting rice and urad dal overnight. This gives the dosa its signature tang and airy texture.\n\nThe potato filling is cooked with mustard seeds, curry leaves, green chilies, turmeric, and onions for that comforting, earthy flavor.\n\nThe batter is spread thin on a hot griddle, cooked to crisp perfection, then topped with the potato masala and folded with care. Served hot with chutneys and sambar — it's a celebration on a plate."
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "Gluten-free, naturally vegan (unless ghee is added), and packed with flavor.\n\nPerfect as a light meal, weekend brunch, or a street food indulgence.\n\nEvery element — dosa, filling, chutney, and sambar — works together like a culinary symphony."
+      }
+    ],
+    "funFact": [
+      "Beta, if your batter doesn’t ferment, your dosa won’t flirt with the pan.",
+      "A thick dosa is not ‘extra filling’ — it’s just a sad pancake.",
+      "Swirl, don’t splatter — dosa batter has feelings too.",
+      "Golden brown is the goal, not burnt toast cosplay!",
+      "Don’t flip it like a paratha — this isn’t a wrestling match.",
+      "Potato filling without mustard seeds? Are you even South Indian?",
+      "Too much oil and your dosa will slide off the plate like drama off a soap opera.",
+      "Chutney isn’t optional — it’s the dosa’s soulmate.",
+      "That crunchy edge? That’s the applause. Aim for it.",
+      "You waited all night for fermentation — don’t rush the tawa moment!",
+      "If your dosa tears, it’s not the batter’s fault — it's your impatience.",
+      "A perfect dosa fold is an art — not a blanket roll.",
+      "The sambar must touch everything on the plate — unity in diversity!",
+      "Steam the potato, don’t massacre it — texture matters, beta.",
+      "Serve it hot or don’t serve it at all — lukewarm dosa is just heartbreak."
+    ],
+    "Link": [
+      "Hungry for that golden crisp? <br><br><a href=\"https://www.indianhealthyrecipes.com/masala-dosa-recipe/\" target=\"_blank\" style=\"color: #cc6600; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+    ]
+  },
+  "mithai": {
+    "name": "Mithai",
+    "image": "food_images/mithai.jpg",
+    "description": "Welcome to the colorful world of Mithai — a joyful assortment of traditional Indian sweets that mark every celebration, festival, and special moment. From laddoos and barfis to peda and sandesh, there’s a mithai for every mood.",
+    "sections": [
+      {
+        "heading": "What Makes Mithai So Special?",
+        "content": "Mithai isn’t just about sugar — it’s about culture, craftsmanship, and celebration. Each sweet tells a story, often passed down through generations, handcrafted with love and precision."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "Most mithai begins with simple ingredients — milk, sugar, ghee, and nuts — but is transformed into culinary magic through technique and tradition.\n\nSome are cooked down to thick fudges like barfi and peda. Others are rolled into balls like laddoo or shaped into delicate forms like sandesh. Spices like cardamom, saffron, and rose water add aroma, while silver leaf (varak) adds festive shine.\n\nThey are shared in ornate boxes during Diwali, Holi, weddings, and every sweet occasion in between."
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "There’s incredible variety — from syrup-soaked to dry, creamy to crunchy.\n\nMade with wholesome ingredients and flavors like rose, coconut, pistachio, and cardamom.\n\nThey’re not just desserts — they’re edible emotions shared with family and friends."
+      }
+    ],
+    "funFact": [
+      "Beta, sugar is not the villain — it’s the festival’s VIP guest.",
+      "If your barfi doesn’t melt in the mouth, it’s just a square lie.",
+      "You can’t rush peda — slow stirring builds real character, just like life.",
+      "No ghee? No glory. That’s not mithai, that’s betrayal.",
+      "A cracked gulab jamun means someone didn’t listen to Grandma.",
+      "Kaju Katli without cashew is like Diwali without diyas — pointless!",
+      "Rose water isn’t perfume — a few drops, not a spa day!",
+      "Besan must be roasted, not toasted — patience, beta.",
+      "Never trust a dry laddoo — emotions and moisture are both essential.",
+      "Halwa that jiggles is a hug. Halwa that clumps is heartbreak.",
+      "Silver varq isn’t decoration — it’s tradition wearing its Sunday best.",
+      "Don’t eyeball sugar syrup — two-string consistency, or go home!",
+      "Peda shapes matter — it’s not play-dough, it’s prasadam.",
+      "If your kitchen doesn’t smell festive, you’ve missed a step somewhere.",
+      "One bite of good mithai should remind you of your childhood — or Grandma will redo it herself."
+    ],
+    "Link": [
+      "Want to try a variety of Indian sweets? <br><br><a href=\"https://www.vegrecipesofindia.com/indian-sweets-recipes/\" target=\"_blank\" style=\"color: #d2691e; text-decoration: underline;\">Jump to Mithai Recipes ⬇️</a>"
+    ]
+  },
+
+  "gujhiya": {
+    "name": "Gujiya",
+    "image": "food_images/Gujhiya.jpg",
+    "description": "Say hello to Gujiya — the crescent-shaped, golden-crusted sweet treat that defines Indian festivals like Holi and Diwali. Stuffed with a rich, aromatic filling of khoya, dry fruits, and coconut, every bite of gujiya is pure joy.",
+    "sections": [
+      {
+        "heading": "What Makes Gujiya So Special?",
+        "content": "Gujiya is more than just a sweet — it’s a nostalgic treat steeped in tradition. With its flaky crust and luscious stuffing, it captures the essence of festive indulgence and homemade warmth."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "The outer dough is made with all-purpose flour and ghee, kneaded into a soft, pliable base. The filling is a heavenly mix of khoya (milk solids), sugar, cardamom, nuts, and shredded coconut.\n\nEach gujiya is carefully filled, sealed in its classic half-moon shape, and deep-fried to golden perfection. Some are even dipped in sugar syrup for that extra sparkle and sweetness.\n\nServed warm or at room temperature, it’s a festive favorite across generations."
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "Perfectly sweet, rich, and satisfying — like a dessert dumpling with Indian flair.\n\nA festival essential, especially during Holi, Diwali, and weddings.\n\nCustomizable with chocolate, jaggery, or even baked versions for a modern twist."
+      }
+    ],
+    "funFact": [
+      "Beta, if it’s leaking, it’s not a gujhiya — it’s gossip in pastry form.",
+      "Gujhiya edges must be sealed like family secrets — tightly and forever.",
+      "Too little filling? That’s not gujhiya, that’s fraud!",
+      "Coconut, khoya, dry fruits — no shortcuts. You’re not making a samosa!",
+      "Fry on low flame — haste makes waste and burnt gujhiyas.",
+      "Dusting with sugar isn’t optional — it’s gujhiya’s glow-up moment.",
+      "A gujhiya that’s not golden is like Holi without color — incomplete.",
+      "Don’t fear the shape — even if it looks funny, love makes it sweet.",
+      "If your dough’s too dry, fix it — we’re not serving cardboard on Holi!",
+      "Store them safely, beta. One bite and your uncle will eat five!",
+      "Filling falling out? Gujhiya can smell fear. Seal it again!",
+      "No khoya? No gujhiya. Don’t make Grandma rise from her nap.",
+      "Gujiya isn’t just a sweet — it’s a sweet memory folded and fried."
+    ],
+    "Link": [
+      "Ready to sweeten your day? <br><br><a href=\"https://www.indianhealthyrecipes.com/gujiya-recipe/\" target=\"_blank\" style=\"color: #a0522d; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+    ]
+  },
+  "gulab-jamun": {
+    "name": "Gulab Jamun",
+    "image": "food_images/gj.jpg",
+    "description": "Meet Gulab Jamun — the king of Indian sweets. Soft, spongy, golden-brown balls soaked in fragrant sugar syrup. Whether it’s a wedding, festival, or just a sweet craving, Gulab Jamun never fails to impress.",
+    "sections": [
+      {
+        "heading": "What Makes Gulab Jamun So Special?",
+        "content": "It’s the perfect blend of texture and flavor — melt-in-your-mouth softness on the inside, with a delicately crisp golden crust on the outside. Infused with rose, cardamom, and saffron, every bite is a rich celebration of tradition."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "Traditionally made with khoya (reduced milk solids), the dough is gently kneaded and rolled into small balls. These are deep-fried slowly on low heat until golden-brown.\n\nMeanwhile, a syrup is prepared using sugar, water, cardamom, and a hint of rose or saffron. Once the fried balls are added to the warm syrup, they soak up all the goodness — becoming soft, syrupy, and irresistible."
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "Sweet, juicy, and indulgent — it’s comfort food in dessert form.\n\nCan be served warm, chilled, or with ice cream for a modern twist.\n\nUniversally loved — from grandmothers to kids to international guests."
+      }
+    ],
+    "funFact": [
+      "Beta, if it’s hard on the outside and dry inside — you made bullets, not gulab jamuns!",
+      "Gulab jamun should melt in the mouth, not break your teeth.",
+      "Fry on low flame — patience makes them golden, not guilty.",
+      "No cracks, no chaos — knead like you mean it!",
+      "Sugar syrup must be warm and welcoming — not a boiling jacuzzi!",
+      "If they float too long without soaking, they’ll hold grudges.",
+      "Cardamom, rose water, saffron — not optional, they’re the soul of the syrup.",
+      "Don’t rush the soak — jamuns need their spa time too.",
+      "If they sink and stay there, beta… check your karma (or your syrup).",
+      "One does not simply eat just one gulab jamun — it’s scientifically impossible.",
+      "Khoya or milk powder — but *never* both. Pick a team and stay loyal.",
+      "Size matters — too big, they crack; too small, you’ll blink and they’re gone.",
+      "The golden color must whisper ‘royal’, not scream ‘charcoal’."
+    ],
+    "Link": [
+      "Craving something sweet and iconic? <br><br><a href=\"https://www.indianhealthyrecipes.com/gulab-jamun-recipe/\" target=\"_blank\" style=\"color: #b22222; text-decoration: underline;\">Jump to Recipe ⬇️</a>"
+    ]
+  },
+  "samosa": {
+    "name": "Samosa",
+    "image": "food_images/samosa.jpg",
+    "description": "Say hello to Samosa — India’s favorite tea-time snack and street food legend. Crisp on the outside, spicy and savory on the inside, this golden triangle is loved by millions across the globe.",
+    "sections": [
+      {
+        "heading": "What Makes Samosa So Special?",
+        "content": "It’s the perfect harmony of texture and taste — flaky pastry filled with a warm, spiced potato-pea mixture. Whether baked or deep-fried, every bite is a mini explosion of comfort and flavor."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "First, a dough is made using flour, ghee or oil, and carom seeds. The filling is usually a mixture of boiled potatoes, green peas, green chili, ginger, and a medley of spices like cumin, garam masala, and amchur (dry mango powder).\n\nThe dough is rolled out, filled, and folded into its signature triangle shape before being fried until golden-brown and crispy. Served hot with tamarind or mint chutney, it's a complete experience!"
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "Perfect as a snack, appetizer, or even a light meal.\n\nPairs beautifully with chai, chutneys, and rainy days.\n\nCustomizable filling — from classic potato to paneer, keema (minced meat), or even cheese."
+      }
+    ],
+    "funFact": [
+      "Beta, if there’s air in your samosa, it’s not flaky — it’s fake-y.",
+      "A soggy samosa is a broken promise to your ancestors.",
+      "The filling should whisper spices — not yell confusion.",
+      "No shortcuts with the dough — you want crunch, not cardboard!",
+      "Fry on low heat — this isn’t a sprint, it’s samosa therapy.",
+      "Triangle is tradition. Don’t go making circles, it’s not math class.",
+      "Stuff just right — too little is stingy, too much is a crime scene.",
+      "A samosa without potatoes is like a drama without a twist.",
+      "Crisp corners are earned, not guessed — seal them with love (and water!).",
+      "Don’t throw raw samosas into hot oil — you’re not starting a revolution.",
+      "Jeera, peas, hing — small things, but don’t disrespect the squad.",
+      "Serve hot, with chutney. Lukewarm samosas make grandma weep.",
+      "If you hear the crunch from the next room, beta, that’s a job well done."
+    ],
+    "Link": [
+      "Craving a crispy bite? <br><br><a href=\"https://www.vegrecipesofindia.com/punjabi-samosa-recipe/\" target=\"_blank\" style=\"color: #cc6600; text-decoration: underline;\">Jump to Samosa Recipe ⬇️</a>"
+    ]
+  },
+  "daal-chawal": {
+    "name": "Daal Chawal",
+    "image": "food_images/dc.jpg",
+    "description": "Welcome to the warm embrace of Daal Chawal — the ultimate comfort food that unites households across India. Simple, soulful, and deeply satisfying, it's a dish that feels like home in every bite.",
+    "sections": [
+      {
+        "heading": "What Makes Daal Chawal So Special?",
+        "content": "It’s not fancy, but it’s magical. A combination of lentils (daal) and rice (chawal), this dish is nourishing, wholesome, and easy to love. Whether it’s your first bite or your hundredth, it never disappoints."
+      },
+      {
+        "heading": "How It All Comes Together",
+        "content": "The daal is usually made with lentils like toor (split pigeon peas), moong, or masoor — cooked until soft and then tempered with ghee, mustard seeds, cumin, garlic, onions, tomatoes, and a pinch of asafoetida.\n\nThe chawal — simple basmati or long-grain rice — is steamed to fluffy perfection. When poured together, the result is a harmonious blend of texture and flavor. Often served with a side of pickle, papad, or a dollop of ghee."
+      },
+      {
+        "heading": "Why You'll Love It",
+        "content": "It’s nutritious, protein-rich, and easy to digest.\n\nPerfect for a light lunch, quick dinner, or rainy day craving.\n\nYou can spice it up or keep it mild — totally customizable to your mood."
+      }
+    ],
+    "funFact": [
+      "Daal Chawal is one of the first solid meals introduced to Indian toddlers.",
+      "Almost every Indian state has its own version — from Gujarati dal to Bengali tok dal.",
+      "Beta, dal without tadka is like a joke without timing — flat and sad.",
+      "If the rice sticks, it’s not homely — it’s hostage.",
+      "One garlic clove too many, and you’ve declared war on the dal.",
+      "Chawal should be fluffy, not a sticky love story.",
+      "A pinch of hing goes a long way — trust the ancient ways.",
+      "No ghee? Then it’s just rice with trust issues.",
+      "Tadka is not just garnish — it’s your dal’s entry music.",
+      "Burnt cumin is a sin — slow and steady, beta.",
+      "Dal must simmer, not sprint — patience adds flavor.",
+      "Add coriander at the end — it’s not wallpaper, it’s personality.",
+      "Wash the dal, wash your sins. Both need at least two rinses.",
+      "In many households, it's the go-to 'sick day' meal because of its comfort and nutrition.",
+      "It’s one of the simplest dishes in Indian cuisine — yet one of the most emotionally rich.",
+      "If the dal is thin enough to see your reflection, add more dal!",
+      "Dal Chawal isn’t ‘basic’ — it’s the foundation of good decisions."
+    ],
+    "Link": [
+      "Ready for a soulful meal? <br><br><a href=\"https://www.vegrecipesofindia.com/dal-fry-recipe/\" target=\"_blank\" style=\"color: #996600; text-decoration: underline;\">Jump to Daal Chawal Recipe ⬇️</a>"
+    ]
+  }
+}

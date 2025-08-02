@@ -2,14 +2,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
         
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 body {
     font-family: 'Inter', sans-serif;
+ /* final_improvement_all_pages */
+    font-family: 'Inter', sans-serif; 
+    background-image: url('/assets/images/redfort.png');
+    background-size:cover;
     background-image: url('../assets/images/Red fort.jpg');
     background-size: cover;
 
@@ -866,6 +870,54 @@ body::before {
                 font-size: 16px;
             }
         }
+
+        /* Mobile Navigation */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  display: block;
+  border-radius: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu,
+  .nav-buttons {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #000; /* Dark background */
+    width: 100%;
+    padding: 1rem;
+    z-index: 100;
+  }
+
+  .nav-menu.active,
+  .nav-buttons.active {
+    display: flex;
+  }
+
+  .nav-menu li,
+  .nav-buttons a {
+    margin: 0.5rem 0;
+    color: white;
+  }
+}
+
 
         @media (max-width: 480px) {
             .form-card {
