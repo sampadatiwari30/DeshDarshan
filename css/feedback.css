@@ -61,7 +61,7 @@ body::before {
 }
 
 .nav-logo h2 {
-    color: #ff9933;
+    color: #ff9B36;
     font-size: 1.8rem;
     font-weight: bold;
     margin: 0;
@@ -84,7 +84,6 @@ body::before {
 
 .nav-menu a:hover {
     color: #ff9933;
-    transform: scale(1.05);
 }
 
 .nav-buttons {
