@@ -117,26 +117,6 @@
             }
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("navMenu");
-  const navButtons = document.querySelector(".nav-buttons");
-
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    navButtons.classList.toggle("active");
-  });
-
-  // Close nav on link click (for all menu items and buttons)
-  document.querySelectorAll(".nav-menu a, .nav-buttons a").forEach(link => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      navButtons.classList.remove("active");
-    });
-  });
-});
-
-
         // Popup Functions
         function showPopup() {
             document.getElementById('popupOverlay').classList.add('show');
@@ -180,16 +160,6 @@
                 closePopup();
             }
         });
-        document.querySelectorAll('.nav-menu a, .nav-buttons a').forEach(link => {
-    link.addEventListener('click', () => {
-        const navMenu = document.querySelector('.nav-menu');
-        if (window.innerWidth <= 768) {
-            navMenu.classList.remove('active'); // You might use 'show' or any custom class
-            document.body.classList.remove('nav-open'); // Optional, depending on your layout
-        }
-    });
-});
-
 
         // Smooth scrolling for better UX
         document.querySelectorAll('input, textarea').forEach(input => {
