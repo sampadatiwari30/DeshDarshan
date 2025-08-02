@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mysore Palace Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#ffffff33 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),
+        url('../assets/images/Mysore%20Palace.jpg') no-repeat center center/cover;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      animation: zoomIn 2s ease;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-family: 'Playfair Display', serif;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px #fff3;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 25px;
+      background: #ffffffcc;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .container h2 {
+      color: #e74c3c;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .container ul {
+      padding-left: 20px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .container p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .story-image {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 25px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .story-image:hover {
+      transform: scale(1.03);
+    }
+
+    .main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .quiz-section {
+      max-width: 700px;
+      padding: 40px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      animation: slideIn 1.2s ease;
+    }
+
+    .quiz-section h2 {
+      color: #e74c3c;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .question {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .option-button {
+      padding: 14px 22px;
+      background: #ffe0e0;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .option-button:hover {
+      background: #ffcccc;
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .option-button.correct {
+      background-color: #a3e4a3 !important;
+      color: #065f08;
+    }
+
+    .option-button.wrong {
+      background-color: #f8a5a5 !important;
+      color: #a30000;
+    }
+
+    .next-button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .next-button:hover {
+      background-color: #c0392b;
+      transform: scale(1.05);
+    }
+
+    .completion-message {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      animation: bounceIn 1s ease;
+    }
+
+    @media screen and (max-width: 500px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.9);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>The Royal Mysore Palace</h1>
+  </section>
+
+  <!-- Content -->
+  <div class="container">
+    <h2>📌 Fascinating Facts</h2>
+    <ul>
+      <li>Mysore Palace is one of the most visited monuments in India.</li>
+      <li>It was the royal residence of the Wadiyar dynasty.</li>
+      <li>The palace is illuminated by over 97,000 light bulbs during festivals.</li>
+      <li>It features Indo-Saracenic architecture with domes, arches, and intricate carvings.</li>
+      <li>It is located in the heart of Mysore city, Karnataka.</li>
+    </ul>
+
+    <h2>📖 A Glimpse into Royal Grandeur</h2>
+    <p>
+      The Mysore Palace is a stunning architectural masterpiece that reflects the rich cultural heritage of Karnataka. It was rebuilt in 1912 after a fire and continues to draw tourists for its grandeur and historical significance.
+    </p>
+    <img class="story-image" src="../assets/images/Mysore%20Palace.jpg" alt="Mysore Palace View" />
+  </div>
+
+  <!-- Quiz Section -->
+  <div class="main-wrapper">
+    <div class="quiz-section">
+      <h2>🧠 Quick Quiz Time!</h2>
+      <div class="question" id="question-text"></div>
+      <div class="options" id="options-container"></div>
+      <button class="next-button" id="next-btn" disabled>Next</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Where is the Mysore Palace located?",
+        options: ["Bangalore", "Hyderabad", "Mysore", "Chennai"],
+        answer: "Mysore"
+      },
+      {
+        question: "Which dynasty lived in the Mysore Palace?",
+        options: ["Mughals", "Cholas", "Wadiyars", "Guptas"],
+        answer: "Wadiyars"
+      },
+      {
+        question: "What is special about the Mysore Palace at night?",
+        options: ["It turns red", "It is closed to public", "It is lit with thousands of bulbs", "It becomes a museum"],
+        answer: "It is lit with thousands of bulbs"
+      }
+    ];
+
+    let currentQuestion = 0;
+    const questionText = document.getElementById("question-text");
+    const optionsContainer = document.getElementById("options-container");
+    const nextBtn = document.getElementById("next-btn");
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      questionText.textContent = q.question;
+      optionsContainer.innerHTML = "";
+      nextBtn.disabled = true;
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.className = "option-button";
+        btn.textContent = option;
+        btn.addEventListener("click", () => checkAnswer(btn, q.answer));
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selectedBtn, correctAnswer) {
+      const buttons = document.querySelectorAll(".option-button");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === correctAnswer) {
+          btn.classList.add("correct");
+        } else if (btn === selectedBtn) {
+          btn.classList.add("wrong");
+        }
+      });
+      nextBtn.disabled = false;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        questionText.style.display = "none";
+        optionsContainer.innerHTML = `
+          <div class="completion-message">
+            🎉 You've completed the quiz!<br>Thanks for playing!
+          </div>
+        `;
+        nextBtn.style.display = "none";
+      }
+    });
+
+    loadQuestion();
+  </script>
+</body>
+
+</html>
