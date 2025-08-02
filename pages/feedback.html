@@ -1,102 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feedback Form - DeshDarshan</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form - DeshDarshan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/feedback.css">
 </head>
-<body class="bg-gradient-to-br from-indigo-100 via-white to-pink-100 text-gray-800 font-sans">
-  
-  <!-- Navigation -->
-  <nav class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="text-2xl font-bold text-indigo-700">DeshDarshan</div>
-      <ul class="flex gap-5 text-sm font-medium text-gray-700">
-        <li><a href="home1.html" class="hover:text-indigo-500">Home</a></li>
-        <li><a href="about us.html" class="hover:text-indigo-500">About Us</a></li>
-        <li><a href="crazyfacts.html" class="hover:text-indigo-500">Crazy Facts</a></li>
-        <li><a href="exploreindia.html" class="hover:text-indigo-500">Explore India</a></li>
-        <li><a href="destination.html" class="hover:text-indigo-500">Hidden Destinations</a></li>
-      </ul>
-      <div class="flex gap-3">
-        <a href="contactus.html" class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-md hover:bg-indigo-200 transition">Contact Us →</a>
-        <a href="feedback.html" class="bg-indigo-600 text-white px-3 py-1 rounded-md hover:bg-indigo-700 transition">Feedback →</a>
-      </div>
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <h2>DeshDarshan</h2>
     </div>
-  </nav>
 
-
-  <!-- Feedback Form -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-2xl mx-auto bg-white bg-opacity-90 backdrop-blur-md rounded-2xl shadow-xl p-8">
-      <h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">Feedback Form</h1>
-
-      <form id="feedbackForm" class="space-y-6">
-        <div>
-          <label for="name" class="block mb-1 text-sm font-medium text-gray-700">Name *</label>
-          <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400">
-          <p class="text-red-500 text-sm mt-1 hidden" id="nameError">Please enter your name</p>
-        </div>
-
-        <div>
-          <label for="email" class="block mb-1 text-sm font-medium text-gray-700">Email ID *</label>
-          <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400">
-          <p class="text-red-500 text-sm mt-1 hidden" id="emailError">Please enter a valid email address</p>
-        </div>
-
-        <div>
-          <label for="phone" class="block mb-1 text-sm font-medium text-gray-700">Phone Number *</label>
-          <input type="tel" id="phone" name="phone" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400">
-          <p class="text-red-500 text-sm mt-1 hidden" id="phoneError">Please enter your phone number</p>
-        </div>
-
-        <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Star Rating *</label>
-          <div class="flex space-x-2 text-yellow-400 text-2xl" id="starRating">
-            <span class="cursor-pointer hover:scale-110 transition" data-rating="1">★</span>
-            <span class="cursor-pointer hover:scale-110 transition" data-rating="2">★</span>
-            <span class="cursor-pointer hover:scale-110 transition" data-rating="3">★</span>
-            <span class="cursor-pointer hover:scale-110 transition" data-rating="4">★</span>
-            <span class="cursor-pointer hover:scale-110 transition" data-rating="5">★</span>
-          </div>
-          <p class="text-red-500 text-sm mt-1 hidden" id="ratingError">Please select a rating</p>
-        </div>
-
-        <div>
-          <label for="message" class="block mb-1 text-sm font-medium text-gray-700">Message *</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Share your thoughts about your experience..." class="w-full border border-gray-300 rounded-lg p-3 resize-none focus:ring-2 focus:ring-indigo-400"></textarea>
-          <p class="text-red-500 text-sm mt-1 hidden" id="messageError">Please enter your message</p>
-        </div>
-
-        <div class="bg-indigo-50 p-4 rounded-lg">
-          <div class="text-md font-semibold mb-2 text-indigo-700">Share Your Experience</div>
-          <div class="flex gap-6 text-sm">
-            <a href="https://www.instagram.com/" target="_blank" class="text-indigo-600 hover:underline">📷 Instagram</a>
-            <a href="mailto:feedback@deshdarshan.com?subject=My Experience Feedback" class="text-indigo-600 hover:underline">✉️ Email</a>
-          </div>
-        </div>
-
-        <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition text-lg font-semibold">
-          Submit Feedback
-        </button>
-      </form>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </section>
 
-  <!-- Popup -->
-  <div class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" id="popupOverlay">
-    <div class="bg-white p-6 rounded-lg max-w-md text-center shadow-2xl">
-      <p class="text-base mb-4 text-gray-700 leading-relaxed">
-        From gurdwaras echoing shabads to churches ringing carols, from folk dances of every land to the sacred chants of every faith — your feedback adds warmth to our colorful yatra across India. Thank you for being part of it! 🌺❤️
-      </p>
-      <button class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition" onclick="closePopup()">Close</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="home1.html">Home</a></li>
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="crazyfacts.html">Crazy Facts</a></li>
+      <li><a href="exploreindia.html">Explore India</a></li>
+      <li><a href="destination.html">Hidden Destinations</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+      <a href="contactus.html"><span>Contact Us</span><i>→</i></a>
+      <a href="feedback.html"><span>Feedback</span><i>→</i></a>
     </div>
   </div>
+</nav>
 
-  <!-- JS Scripts -->
-  <script src="../js/feedback.js"></script>
+
+    <div class="container">
+      <div class="form-card">
+        <h1>Share Your Feedback</h1>
+        <p>Your insights help us improve the DeshDarshan experience!</p>
+        <form id="feedbackForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required />
+            <div class="error-message" id="nameError">Please enter your name</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email ID *</label>
+            <input type="email" id="email" name="email" required />
+            <div class="error-message" id="emailError">Please enter a valid email</div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required />
+            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+          </div>
+
+          <div class="form-group">
+              <label for="starRating">Star Rating *</label>
+              <div class="star-rating-container" id="starRating">
+                  <span data-rating="1">★</span>
+                  <span data-rating="2">★</span>
+                  <span data-rating="3">★</span>
+                  <span data-rating="4">★</span>
+                  <span data-rating="5">★</span>
+              </div>
+              <div class="error-message" id="ratingError">Please select a rating</div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Share your thoughts about your experience..." required></textarea>
+            <div class="error-message" id="messageError">Please enter your message</div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="successPopup">
+      <div class="popup">
+        <div class="popup-message">
+          Your feedback adds warmth to our colorful yatra across India. Thank you for being part of it! 🌺❤️
+        </div>
+        <button class="popup-close" onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
+    <!--footer-->
+    <footer id="footer">
+      <div class="footer-content-wrapper">
+        <!-- Section 1: About Desh Darshan -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Desh Darshan</h3>
+          <p>
+            Desh Darshan is your gateway to the vibrant and diverse culture of
+            India. We aim to introduce the world to India's rich heritage,
+            traditions, arts, and history.
+          </p>
+        </div>
+
+        <!-- Section 2: Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about us.html" class="footer-link">About Us</a></li>
+            <li>
+              <a href="explore.html" class="footer-link">Explore India</a>
+            </li>
+            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Section 3: Contact Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Contact Us</h3>
+          <ul>
+            <li class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>hello@deshdarshan.in</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>+91 1234567890</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>New Delhi, India</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 4: Follow Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Follow Us</h3>
+          <div class="social-icons-container">
+            <a href="#" class="social-icon" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon" aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-icon" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="social-icon" aria-label="Behance"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!--copyright -->
+      <div class="copyright-section">
+        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+      </div>
+    </footer>
+    <!-- Footer -->
+  
+    <script>
+      const form = document.getElementById("feedbackForm");
+      const stars = document.querySelectorAll("#starRating span");
+      let selectedRating = 0;
+
+      // --- STAR RATING LOGIC ---
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          selectedRating = parseInt(star.getAttribute('data-rating'));
+          updateStars();
+          // Hide error message on click
+          document.getElementById('ratingError').classList.remove('show');
+        });
+
+        star.addEventListener('mouseover', () => {
+          highlightStars(parseInt(star.getAttribute('data-rating')));
+        });
+      });
+
+      document.getElementById('starRating').addEventListener('mouseleave', () => {
+        highlightStars(selectedRating);
+      });
+
+      function highlightStars(rating) {
+        stars.forEach((star, index) => {
+          star.classList.toggle('active', index < rating);
+        });
+      }
+      
+      function updateStars() {
+        highlightStars(selectedRating);
+      }
+
+
+      // --- FORM VALIDATION & SUBMISSION ---
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let isValid = true;
+
+        // Clear previous errors
+        document.querySelectorAll(".error").forEach(el => el.classList.remove("error"));
+        document.querySelectorAll(".error-message").forEach(el => el.classList.remove("show"));
+
+        // Validate Name
+        const nameField = document.getElementById('name');
+        if (!nameField.value.trim() || !/^[A-Za-z ]{3,}$/.test(nameField.value)) {
+          showError(nameField, 'Please enter a valid name (min 3 letters)');
+          isValid = false;
+        }
+
+        // Validate Email
+        const emailField = document.getElementById('email');
+        if (!emailField.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+          showError(emailField, 'Please enter a valid email address');
+          isValid = false;
+        }
+        
+        // Validate Phone
+        const phoneField = document.getElementById('phone');
+        if (!phoneField.value.trim() || !/^[\d\s\-\+()]{10,}$/.test(phoneField.value)) {
+            showError(phoneField, 'Please enter a valid 10-digit phone number');
+            isValid = false;
+        }
+
+        // Validate Star Rating
+        if (selectedRating === 0) {
+            document.getElementById('ratingError').classList.add('show');
+            isValid = false;
+        }
+
+        // Validate Message
+        const messageField = document.getElementById('message');
+        if (!messageField.value.trim()) {
+            showError(messageField, 'Please enter your message');
+            isValid = false;
+        }
+
+        // If all valid, show popup
+        if (isValid) {
+          showSuccessPopup();
+        } else {
+          const firstError = document.querySelector(".error");
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+            firstError.focus();
+          }
+        }
+      });
+      
+      function showError(field, message) {
+          field.classList.add('error');
+          const errorElement = document.getElementById(field.id + 'Error');
+          errorElement.textContent = message;
+          errorElement.classList.add('show');
+      }
+      
+      // --- POPUP LOGIC ---
+      function showSuccessPopup() {
+        const popup = document.getElementById("successPopup");
+        popup.classList.add("show");
+      }
+      
+      function closePopup() {
+        const popup = document.getElementById("successPopup");
+        popup.classList.remove("show");
+        form.reset();
+        selectedRating = 0; // Reset rating
+        updateStars(); // Reset star visuals
+      }
+      
+      // Close popup on Escape key
+      document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && document.getElementById('successPopup').classList.contains('show')) {
+              closePopup();
+          }
+      });
+
+      // Remove error on input
+      document.querySelectorAll("input, textarea").forEach(field => {
+          field.addEventListener("input", function () {
+              this.classList.remove("error");
+              const errorElement = document.getElementById(this.id + "Error");
+              if (errorElement) {
+                  errorElement.classList.remove("show");
+              }
+          });
+      });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

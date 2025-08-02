@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore India</title>
+     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
     <link rel="icon" href="data:,"> <!-- this line silences the favicon 404 -->
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -206,7 +207,7 @@
         }
 
         .card.locked:hover .lock-icon {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(255, 255, 0, 0.9);
             transform: scale(1.1);
             opacity: 1;
         }
@@ -249,7 +250,7 @@
             width: 90%;
             animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            color: white;
+            color: black;
         }
 
         .modal-content h3 {
@@ -291,7 +292,7 @@
 
         .btn-login {
             background: transparent;
-            color: white;
+            color: black;
             border: 2px solid rgba(255, 255, 255, 0.8);
         }
 
@@ -321,7 +322,7 @@
         }
 
         .close-modal:hover {
-            color: white;
+            color: red;
             transform: scale(1.2);
         }
 
@@ -1374,48 +1375,10 @@
             document.body.style.overflow = 'hidden';
         }
 
-        function hideModal() {
-            document.getElementById('lockModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function showStateMap(stateName) {
-            const stateInfo = stateCoordinates[stateName];
-            if (!stateInfo) {
-                console.error('State coordinates not found for:', stateName);
-                return;
-            }
-
-            const stateIndex = stateData.findIndex(state => state.name === stateName);
-            const isLocked = stateIndex >= 4;
-
-            document.getElementById('mapModalTitle').textContent = stateName;
-            document.getElementById('mapModalSubtitle').textContent = isLocked
-                ? `🔒 Preview Location • Capital: ${stateInfo.capital}`
-                : `Capital: ${stateInfo.capital}`;
-
-            document.getElementById('mapModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-
-            setTimeout(() => {
-                initializeMap(stateInfo.lat, stateInfo.lng, stateName, stateInfo.capital, isLocked);
-            }, 100);
-        }
-
-        function hideMapModal() {
-            document.getElementById('mapModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-
-            if (currentMap) {
-                currentMap.remove();
-                currentMap = null;
-            }
-        }
-
- function initializeMap(lat, lng, stateName, capital, isLocked = false) {
+function initializeMap(lat, lng, stateName, capital, isLocked = false) {
     if (currentMap) currentMap.remove();
 
-    // Get stateInfo for link (needed for Explore and future states)
+    // Get stateInfo for link (needed for Explore, Punjab, and future states)
     const stateInfo = stateCoordinates[stateName] || {};
 
     // Add popup with state information
@@ -1433,6 +1396,19 @@
             </p>
         `;
     }
+
+    popupContent += `</div>`;
+
+    currentMap = L.map('mapContainer').setView([lat, lng], 6);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(currentMap);
+
+    L.marker([lat, lng]).addTo(currentMap)
+        .bindPopup(popupContent)
+        .openPopup();
+}
 
     // Add "Visit More" link if available
     if (stateInfo.link) {

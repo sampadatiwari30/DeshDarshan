@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Desh Darshan</title>
+     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -57,7 +58,7 @@
         }
 
         /* Enhanced texture overlay with earthy tones */
-        body::after {
+  body::after {
             content: '';
             position: fixed;
             top: 0;
@@ -78,6 +79,7 @@
                     rgba(205, 133, 63, 0.02) 100%);
             z-index: -1;
         }
+
 
         .container {
             width: 100%;
@@ -428,12 +430,22 @@
             color: rgba(245, 230, 211, 0.9);
         }
 
-        .explore-button {
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .explore-button,
+        .back-button {
             background: rgba(245, 230, 211, 0.25);
             color: #F5E6D3;
             border: 2px solid rgba(245, 230, 211, 0.4);
             padding: 1rem 2.5rem;
             border-radius: 12px;
+            width: 250px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -445,7 +457,8 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .explore-button:hover {
+        .explore-button:hover,
+        .back-button:hover {
             background: rgba(245, 230, 211, 0.4);
             border-color: rgba(245, 230, 211, 0.7);
             transform: translateY(-2px);
@@ -453,25 +466,6 @@
             color: white;
         }
 
-        .back-button {
-            background: transparent;
-            color: rgba(245, 230, 211, 0.8);
-            border: 2px solid rgba(245, 230, 211, 0.3);
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .back-button:hover {
-            color: #F5E6D3;
-            border-color: rgba(245, 230, 211, 0.6);
-            transform: translateY(-2px);
-            background: rgba(245, 230, 211, 0.1);
-        }
 
         /* Responsive design */
         @media (max-width: 480px) {
@@ -566,7 +560,7 @@
             <p class="welcome-message" id="welcomeMessage">
                 Welcome back to Desh Darshan! Ready to explore India's rich cultural heritage and timeless traditions?
             </p>
-            <div>
+            <div class="btn-container">
                 <a href="home1.html"><button class="explore-button" id="exploreBtn">Start Exploring</button></a>
                 <button class="back-button" id="backBtn">Back to Login</button>
             </div>
