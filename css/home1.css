@@ -211,10 +211,18 @@ body {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .slide.active {
     opacity: 1;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .slide img {
