@@ -18,7 +18,7 @@ const blogPosts = [
         category: "Heritage",
         author: "Priya Sharma",
         date: "2024-12-15",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+        image: "https://i.pinimg.com/originals/9b/83/38/9b83389ee3eed61c4b47d43df98c7fa3.jpg"
     },
     {
         id: 2,
@@ -78,7 +78,7 @@ const blogPosts = [
         category: "Culture",
         author: "Meera Nair",
         date: "2024-11-28",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+        image: "https://tse1.mm.bing.net/th/id/OIP.k7Zyx8WkeVzNPEkPJq2p-AHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
     },
     {
         id: 5,
@@ -124,7 +124,7 @@ const blogPosts = [
         category: "Art",
         author: "Kavita Desai",
         date: "2024-11-15",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+        image: "https://static.toiimg.com/photo/msid-92655990,width-96,height-65.cms"
     }
 ];
 
@@ -145,7 +145,7 @@ let sharedExperiences = [
         location: "Uttar Pradesh",
         text: "Celebrating Holi in Krishna's birthplace was an incredible experience. The energy, colors, and devotion of the people made it unforgettable.",
         author: "Sneha Gupta",
-        image: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=300&fit=crop",
+        image: "https://th.bing.com/th/id/R.2143fbf297ceb2ffcde27aeaa59c2636?rik=dtu6M7GQN5RWBQ&riu=http%3a%2f%2fwww.travelingtoworld.com%2fwp-content%2fuploads%2f2016%2f08%2fplaces-to-visit-in-mathura.jpg&ehk=9lrKDyPD%2bD5nBbo1jDpcGgA5E6j%2fvQT2aFmsBs0W0WY%3d&risl=&pid=ImgRaw&r=0",
         date: "2024-11-25"
     },
     {
