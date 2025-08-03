@@ -137,46 +137,6 @@ body {
     background: black;
     border-radius: 2px;
 }
-/*unity & diversity section*/
-.unity-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 2;
-    padding: 20px;
-    font-family: 'Times New Roman';
-}
-.unity-content h3 {
-    font-size: 50px;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9),
-        0 0 15px rgba(0, 0, 0, 0.7),
-        2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-.unity-content h1 {
-    font-size: 80px;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9),
-        0 0 15px rgba(0, 0, 0, 0.7),
-        2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-.In{
-    color:orangered;
-}
-.d{
-    color:white;
-}
-.ia{
-    color: green;
-}
 
 /* Festivals and Culture Section */
 .festivals-culture {
