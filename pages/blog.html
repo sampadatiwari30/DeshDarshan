@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Experiences - DeshDarshan</title>
+    <link rel="icon" href="../assets/images/Desh darshan Logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>DeshDarshan</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li><a href="explore.html">Explore India</a></li>
+                <li><a href="crazyfacts.html">Crazy Facts</a></li>
+                <li><a href="destination.html">Hidden Destinations</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="contactus.html">Contact Us</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <header class="page-header">
+                <h1 class="page-title">Stories of India</h1>
+                <p class="page-subtitle">Discover amazing stories and share your own cultural experiences</p>
+            </header>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="blog">
+                    <i class="fas fa-book-open"></i> Read Stories
+                </button>
+                <button class="tab-btn" data-tab="experience">
+                    <i class="fas fa-share-alt"></i> Share Experience
+                </button>
+            </div>
+
+            <!-- Blog Section -->
+            <section id="blog-section" class="blog-section active">
+                <div id="blog-grid" class="blog-grid">
+                    <!-- Blog posts will be dynamically generated here -->
+                </div>
+            </section>
+
+            <!-- Experience Sharing Section -->
+            <section id="experience-section" class="experience-section">
+                <!-- Success Message -->
+                <div id="success-message" class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Thank you for sharing your experience!</strong>
+                    <p>Your story has been added to our community experiences and will inspire other travelers.</p>
+                </div>
+
+                <!-- Experience Form -->
+                <div class="experience-form-container">
+                    <h2 class="form-title">Share Your Experience</h2>
+                    <p class="form-subtitle">Tell us about your amazing journey through India's diverse culture and heritage</p>
+                    
+                    <form id="experience-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title" class="form-label">Experience Title *</label>
+                            <input type="text" id="title" name="title" class="form-input" placeholder="Give your experience a catchy title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location" class="form-label">Location *</label>
+                            <select id="location" name="location" class="form-select" required>
+                                <option value="">Select a state/location</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Ladakh">Ladakh</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience" class="form-label">Your Experience *</label>
+                            <textarea id="experience" name="experience" class="form-textarea" placeholder="Share your amazing experience, what made it special, cultural insights you gained, people you met, food you tried, or any memorable moments..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Upload Photo (Optional)</label>
+                            <div id="image-upload-area" class="image-upload-area">
+                                <div class="upload-icon">📸</div>
+                                <div id="upload-text" class="upload-text">Click to upload or drag and drop</div>
+                                <div class="upload-hint">PNG, JPG up to 5MB</div>
+                                <input type="file" id="image-input" accept="image/*" style="display: none;">
+                            </div>
+                            <div id="image-preview" class="image-preview">
+                                <img id="preview-image" class="preview-image" alt="Preview">
+                                <a href="#" id="remove-image" class="remove-image">Remove image</a>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="submit-btn" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Share My Experience
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Shared Experiences -->
+                <div class="shared-experiences">
+                    <h2 class="section-title" style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; color: #333;">Community Experiences</h2>
+                    <div id="experiences-grid" class="experiences-grid">
+                        <!-- Shared experiences will be dynamically generated here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Blog Modal -->
+    <div id="blog-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img id="modal-image" class="modal-image" alt="Blog post image">
+                <button id="close-modal" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <span id="modal-category" class="modal-category"></span>
+                <h2 id="modal-title" class="modal-title"></h2>
+                <div id="modal-meta" class="modal-meta"></div>
+                <div id="modal-text" class="modal-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content-wrapper">
+            <!-- Section 1: About Desh Darshan -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Desh Darshan</h3>
+                <p>Desh Darshan is your gateway to the vibrant and diverse culture of India. We aim to introduce the world to India's rich heritage, traditions, arts, and history.</p>
+            </div>
+
+            <!-- Section 2: Quick Links -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html" class="footer-link">Home</a></li>
+                    <li><a href="about us.html" class="footer-link">About Us</a></li>
+                    <li><a href="explore.html" class="footer-link">Explore India</a></li>
+                    <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+                    <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Contact Us -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Contact Us</h3>
+                <ul>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@deshdarshan.in</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 1234567890</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>New Delhi, India</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Follow Us -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Follow Us</h3>
+                <div class="social-icons-container">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright-section">
+            &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="../js/blog.js"></script>
+</body>
+</html>
