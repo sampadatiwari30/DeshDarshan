@@ -1,0 +1,114 @@
+ html,
+    body {
+      height: auto;
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+
+    .floating-emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(10deg);
+      }
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
+    .pulse-glow {
+      animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.9);
+      }
+
+      100% {
+        box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
+      }
+    }
+
+    #quiz-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-out-left {
+      animation: slideOutLeft 0.5s forwards;
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.5s forwards;
+    }
+
+    @keyframes slideOutLeft {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(-100%) rotate(-10deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(100%) rotate(10deg);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .option-btn {
+      background-color: #fee2e2;
+      color: #b91c1c;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      min-width: 120px;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background-color: #fecaca;
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.6;
+    }

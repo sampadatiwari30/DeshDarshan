@@ -1,123 +1,113 @@
-# In DeshDarshan
-DeshDarshan is a cultural web platform designed to help explore all 28 States and 8 Union Territories of India. Discover regional food, festivals, dances, heritage sites, and hidden fun facts through interactive cards, image sliders, and modern UI blending tradition with technology in a unique digital journey.✨
+# DeshDarshan 🇮🇳
 
-🌐 **Live Demo**
+DeshDarshan is a cultural web platform designed to help explore all 28 States and 8 Union Territories of India. Discover regional food, festivals, dances, heritage sites, and hidden fun facts through interactive cards, image sliders, and modern UI blending tradition with technology in a unique digital journey. ✨
 
-- 🔗 https://sampadatiwari30.github.io/DeshDarshan/
+## 🌐 Live Demo
 
-🧩 **Tech Stack**
+[![Live Demo](https://img.shields.io/badge/Live_Demo-DeshDarshan-brightgreen?style=for-the-badge&logo=google-chrome)](https://sampadatiwari30.github.io/DeshDarshan/)
 
-- **Frontend:** HTML, CSS, JavaScript
-- **Frameworks/Libraries:** Bootstrap
-- **Design:** Responsive UI/UX, card-based layout
+🔗 **Live URL:** https://sampadatiwari30.github.io/DeshDarshan/
 
-📂 **Folder Structure**
+## 🧩 Tech Stack
 
-DeshDarshan/<br>
-│<br>
-├── assets/               # Images and other static resources<br>
-├── states/               # Individual state detail pages<br>
-├── index.html            # Main homepage<br>
-├── style.css             # Custom styles<br>
-├── script.js             # JS for state linking<br>
-└── README.md             # Project documentation<br>
+- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
+- **Frameworks/Libraries:** Bootstrap 5
+- **Design:** Responsive UI/UX, Card-based layout
+- **Version Control:** Git, GitHub
 
-🗂️ **Table of Contents**
+## 📂 Folder Structure
 
-- ✨ Intro
-- 🌐 Live Demo
-- 🧩 Tech Stack
-- 📂 Folder Structure
-- 🤔 Problem
-- 🌟 Features
-- 🛠️ Installation
-- 💵 How to Contribute
-- 📝 Note
-- 💗 Contributors
-- 🛠️ Troubleshooting
-- 🥑 License
-- ⭐ Star the Repo!
-- 🌸 GSSoC Participation
+```bash
+DeshDarshan/
+│
+├── assets/               # Images and other static resources
+├── states/               # Individual state detail pages
+├── index.html            # Main homepage
+├── style.css             # Custom styles
+├── script.js             # JS for state linking
+└── README.md             # Project documentation
+```
 
-🤔 **Problem**
+## 🗂️ Table of Contents
 
-India is a land of diversity, but most travel platforms highlight only a few mainstream destinations.  
-There's no single, interactive platform that educates people about:
+1. [🌐 Live Demo](#-live-demo)
+2. [🧩 Tech Stack](#-tech-stack)
+3. [📂 Folder Structure](#-folder-structure)
+4. [🤔 Problem Statement](#-problem-statement)
+5. [🌟 Features](#-features)
+6. [🛠️ Installation](#️-installation)
+7. [💵 How to Contribute](#-how-to-contribute)
+8. [📝 Note](#-note)
+9. [💗 Contributors](#-our-contributors)
+10. [🛠️ Troubleshooting](#️-troubleshooting)
+11. [🥑 License](#-license)
+12. [⭐ Star the Repo!](#-star-the-repo)
+13. [🌸 GSSoC Participation](#-for-gssoc-participation-era)
 
-- Culturally rich but lesser-known locations 🏞️ 
-- State-wise traditions, cuisines, festivals 🎊 
-- Custom travel recommendations based on interests 🎯
+## 🤔 Problem Statement
 
-🌟 **Features**
+India's cultural diversity is often reduced to just a few mainstream destinations. DeshDarshan addresses:
 
-DeshDarshan is a web-based app that helps you explore **India’s cultural roots** and **travel destinations** in a smarter way:
+- 🏞️ Lack of platforms showcasing lesser-known cultural locations
+- 🎊 No centralized information about regional traditions  
+- 🎯 Absence of personalized travel recommendations
 
-- 🗺️ **State-wise Exploration** - Places, food, art, festivals. 
-- 📸 **Visual Gallery** - Images & videos of heritage spots.  
-- 🔍 **Personalized Travel Suggestions**  
-- 🧠 **Cultural Quiz Section** - Learn while having fun 
-- 🌐 **Multi-language Support**
+## 🌟 Features
 
- 🛠️ **Installation**
+**Core Functionalities:**
 
-1. Fork this repository 🍴  
-2. Clone it locally:<br>
-   in bash<br>
-   git clone https://github.com/sampadatiwari30/DeshDarshan.git
+- 🗺️ **State-wise Exploration**: Detailed cultural profiles
+- 📸 **Visual Galleries**: Heritage spot collections
+- 🔍 **Smart Recommendations**: Personalized suggestions
+- 🧠 **Cultural Quizzes**: Interactive learning
+- 🌐 **Multi-language Support**: Coming soon
 
-   cd DeshDarshan
+## 🛠️ Installation
 
-💵 **How to Contribute**
+1. Fork the repository
+2. Clone locally:
+```bash
+git clone https://github.com/sampadatiwari30/DeshDarshan.git
+cd DeshDarshan
+```
 
-We ❤️ Open Source and beginner-friendly contributions! <br> 
+## 💵 How to Contribute
+
+We ❤️ Open Source and beginner-friendly contributions!  
 Follow these steps to get started:
 
-1. Check existing issues or create one describing your feature/bug.
-2. Commnet on the issue to get assigned.
-3. Fork🍴→ Clone👥→ Create a new branch:
+1. Check existing issues or create one describing your feature/bug.  
+2. Comment on the issue to get assigned.  
+3. Fork 🍴 → Clone 👥 → Create a new branch:
 
-   - fork in your account:<br>
-      Fork the Repository
+```bash
+# Fork in your GitHub account
+git clone https://github.com/sampadatiwari30/DeshDarshan.git
+cd DeshDarshan
+```
+```bash
+# Create a new branch
+git checkout -b feature/your-feature-name
+```
+```bash 
+# Make your changes, then:
+git add .
+git commit -m "Add: your-feature-name"
+git push origin feature/your-feature-name
+```
+4. Create Pull Request to main branch
 
-   - Clone:<br>
-      bash...<br>
-      git clone https://github.com/sampadatiwari30/DeshDarshan.git
-
-      cd DeshDarshan
-
-      git checkout -b feature/your-feature-name  
-
-   - Create a new branch:<br>
-      bash...<br>
-      Copy<br>
-      Edit<br>
-      git checkout -b feature/your-feature<br>
-      Make your changes
-
-   - Add & commit:<br>
-      bash...<br>
-      git add .<br>
-      git commit -m "Add: your-feature-name"
-
-   - Push changes:<br>
-      bash...<br>
-      git push origin feature/your-feature-name
-
-   - Create a Pull Request to the main branch:<br>
-      ✅ No need to wait for long — active maintainers review quickly!
-
-📝 **Note**
+## 📝 Note
 
 ✅ No need to wait for issue assignment — just comment and start working!
 
-💗 **Contributors**
 
-Thanks to these amazing people who help make DeshDarshan better every day 🙌
+## 💗 Our Contributors
 
-Add contributor graph or profile badges here
-[all-contributors bot can be used too!]
+[![Contributors](https://contrib.rocks/image?repo=sampadatiwari30/DeshDarshan)](https://github.com/sampadatiwari30/DeshDarshan/graphs/contributors)
 
-🛠️ **Troubleshooting**
+
+## 🛠️ Troubleshooting
 
 Having trouble setting up the project?
 - Double-check that you're opening index.html
@@ -125,19 +115,21 @@ Having trouble setting up the project?
 - Still stuck? Raise an issue - we're here to help ✨
 - Not sure how to set up the project? Check the README steps again
 
-🥑 **License**
+## 🥑 License
 
 This project is licensed under the **MIT License**.<br>
 Feel free to fork, remix, or build upon it — with proper credit 🙏
 
-⭐ **Star the Repo!**
+## ⭐ Star the Repo!
 
 If this project inspired you or helped in any way — do leave a ⭐<br>
 It keeps us going and growing!
 
-🌸 **For GSSoC Participation Era**
 
-This repository is a part of **GirlScript Summer of Code!**💜<br>
+## 🌸 For GSSoC Participation Era
+
+This repository is a part of **GirlScript Summer of Code!** 💜<br>
 We welcome contributors of all levels.<br>
-If you're participating in GSSoC, feel free to raise issues and PRs tagged with **GSSoC label**.<br>
-Happy Contributing! 🎉
+
+### If you're participating in GSSoC, feel free to raise issues and PRs tagged with **GSSoC label**.<br>
+## Happy Contributing! 🎉

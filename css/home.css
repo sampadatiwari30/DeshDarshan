@@ -28,12 +28,12 @@ body {
     top: 0;
     z-index: 1000;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid #ffffff1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 
 .nav-container {
-    max-width: 1400px;
+    
     margin: 0 auto;
     padding: 0px 20px;
     display: flex;
@@ -42,9 +42,10 @@ body {
 }
 
 .nav-logo h2 {
-    color: #ff9b36;
+    color: #ff9933;
     font-size: 1.8rem;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .nav-menu {
@@ -59,10 +60,12 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+
 }
 
 .nav-menu a:hover {
-    color: #ff9b36;
+    color: #ff9933;
     transform: scale(1.05);
 }
 
@@ -86,6 +89,7 @@ body {
     transition: all 0.3s ease;
     gap: 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    
 }
 
 .nav-buttons a span {
@@ -103,53 +107,38 @@ body {
 
 Hover behavior
 .nav-buttons a:hover span {
-    transform: translateX(5px);
+    transform: translateX(10px);
 }
 
 .nav-buttons a:hover i {
     opacity: 1;
-    transform: translateX(10px);
+    transform: translateX(0);
 }
 
 /* --- Login Button --- */
 .btn-login {
     background-color: transparent;
-    color: #ff9b36;
+    color: #ffcc00;
     border: 2px solid #ffcc00;
-
     transition: all 0.3s ease;
+    margin-left: 50px;
 }
 
 .btn-login:hover {
     background-color: #ffcc00;
     color: black;
-    padding-right: 2.1rem;
-    transform: translateY(-px);
-    box-shadow: 5pxpx 5px 5px 5px rgba(252, 209, 39, 0.925);
-
+    padding-right: 2.6rem;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
 }
 
-.btn-signup {
-    background-color: transparent;
-    color: #ff9b36;
-    border: 2px solid #ffcc00;
-    transition: all 0.3s ease;
-}
-
-.btn-signup:hover {
-    background-color: #ffcc00;
-    color: black;
-    padding-right: 2.1rem;
-    /* transform: translateY(-px); */
-    box-shadow: 5pxpx 5px 5px 5px rgba(252, 209, 39, 0.925);
-}
-
-/* --- Signup Button ---
+/* --- Signup Button --- */
 .btn-signup {
     background-color: #ff9933;
     color: white;
     border: 2px solid transparent;
     transition: all 0.3s ease;
+    margin-left: 5px;
 }
 
 .btn-signup:hover {
@@ -158,7 +147,7 @@ Hover behavior
     padding-right: 3rem;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 117, 24, 0.3);
-} */
+}
 
 .navbar.scrolled {
     background: rgba(0, 0, 0, 0.7); /* Faded black on scroll */
@@ -194,7 +183,7 @@ Hover behavior
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    /* backdrop-filter:blur(2px);Adjust blur level here */
+    backdrop-filter: blur(2px); /* Adjust blur level here */
     background: rgba(0, 0, 0, 0.1); /* Optional: adds subtle dark tint */
     z-index: 1; /* Below content but above images */
 }
@@ -232,7 +221,6 @@ Hover behavior
     color: white;
     z-index: 2;
     padding: 20px;
-    font-family: 'Times New Roman';
 }
 
 
@@ -281,14 +269,12 @@ Hover behavior
 }
 
 /* Section Titles */
-
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #000;
+    color: #333;
     position: relative;
-    font-family: 'Times New Roman';
 }
 
 .section-title::after {
@@ -302,12 +288,51 @@ Hover behavior
     background: black;
     border-radius: 2px;
 }
+/*unity & diversity section*/
+.unity-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 20px;
+    font-family: 'Times New Roman';
+}
+.unity-content h3 {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7),
+        2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+.unity-content h1 {
+    font-size: 80px;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(0, 0, 0, 0.7),
+        2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.In{
+    color:orangered;
+}
+.d{
+    color:white;
+}
+.ia{
+    color: green;
+}
 
 /* Festivals and Culture Section */
 .festivals-culture {
     padding: 5rem 0;
     background: linear-gradient(135deg, #fff5f5, #f0f8ff);
-    background: rgb(240, 243, 247);
 }
 
 .culture-grid {
@@ -322,7 +347,6 @@ Hover behavior
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: 'Times New Roman';
 }
 
 .culture-item:hover {
@@ -341,16 +365,13 @@ Hover behavior
 }
 
 .culture-caption h3 {
-    font-family: 'Times New Roman';
-    font-size: 2rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: #f5800b;
-    text-align: center;
+    color: #ff9933;
 }
 
 .culture-caption p {
-    text-align: center;
-    color: #424040;
+    color: #666;
     line-height: 1.6;
 }
 
@@ -361,9 +382,7 @@ button, a, .culture-item, .food-item, .dance-item {
 /* Taste of India Section */
 .taste-india {
     padding: 5rem 0;
-    background: rgb(240, 243, 247);
-    font-family: 'Times New Roman';
-    
+    background: #fff;
 }
 
 .food-grid {
@@ -377,7 +396,7 @@ button, a, .culture-item, .food-item, .dance-item {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgb(211, 209, 209) ;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -393,9 +412,9 @@ button, a, .culture-item, .food-item, .dance-item {
 
 .food-item h3 {
     padding: 1rem;
-    font-size: 1.6rem;
-    color: #f5800b;
-    background: linear-gradient(135deg, #fff, #fff);
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(135deg, #ff9933, #ffb366);
     margin: 0;
 }
 
@@ -403,8 +422,6 @@ button, a, .culture-item, .food-item, .dance-item {
 .dance-culture {
     padding: 5rem 0;
     background: linear-gradient(135deg, #f8f4ff, #fff0f5);
-    background: rgb(240, 243, 247);
-    font-family: 'Times New Roman';
 }
 
 .dance-grid {
@@ -419,7 +436,6 @@ button, a, .culture-item, .food-item, .dance-item {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #1a202c;
 }
 
 .dance-item:hover {
@@ -449,19 +465,19 @@ button, a, .culture-item, .food-item, .dance-item {
 }
 
 .dance-overlay h3 {
-    font-size: 2.4rem;
+    font-size: 1.4rem;
     margin-bottom: 0.5rem;
 }
 
 .dance-overlay p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
 }
 .dance-card {
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  color:  #f5800b;
+  color:  #ff9933;
   transition: transform 0.2s ease;
   text-align: center;
 }
@@ -478,8 +494,6 @@ button, a, .culture-item, .food-item, .dance-item {
 .heritage-section {
     padding: 5rem 0 7rem;
     background: linear-gradient(135deg, #f0f8ff, #fff5f5);
-    background: rgb(240, 243, 247);
-    font-family: 'Times New Roman';
     
 }
 
@@ -495,7 +509,6 @@ button, a, .culture-item, .food-item, .dance-item {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #1a202c;
 }
 .heritage-item:hover {
     transform: translateY(-5px);
@@ -524,12 +537,12 @@ button, a, .culture-item, .food-item, .dance-item {
 }
 
 .heritage-overlay h3 {
-    font-size: 2.4rem;
+    font-size: 1.4rem;
     margin-bottom: 0.5rem;
 }
 
 .heritage-overlay p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
 }
 
@@ -610,7 +623,6 @@ button, a, .culture-item, .food-item, .dance-item {
 
     .nav-buttons {
         display: none;
-        margin: 5px;
     }
 
     .slide-content h1 {
@@ -790,3 +802,31 @@ button, a, .culture-item, .food-item, .dance-item {
           padding-right: 2rem;
         }
       }
+
+      .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 125%; /* Position above the icon */
+  left: 80%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

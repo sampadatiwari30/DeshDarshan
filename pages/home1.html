@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spirit of India</title>
+     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
     <link rel="stylesheet" href="../css/home1.css" type = "text/css">
     <link
       rel="stylesheet"
@@ -43,7 +44,7 @@ body {
 
 .nav-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin-left:  2rem;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
@@ -51,15 +52,20 @@ body {
 }
 
 .nav-logo h2 {
-    color: white;
+    color: #FF993f;
     font-size: 1.8rem;
     font-weight: bold;
+}
+
+.nav-logo a {
+  text-decoration: none;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    justify-items: flex-end;
 }
 
 .nav-menu a {
@@ -70,7 +76,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: yellow;
+    color: #FF9933;
 }
 
 .nav-buttons {
@@ -446,12 +452,14 @@ body {
             <div class="nav-logo">
                 <a href="../index.html"><h2>Desh Darshan</h2></a>
             </div>
-            <ul class="nav-menu">
+              <ul class="nav-menu">
                 <li><a href="about us.html">About Us</a></li>
                 <li><a href="explore.html">Explore India</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
             </ul>
+            
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -540,6 +548,14 @@ body {
                 <h3>Heritage</h3>
                 <p>Explore the rich tapestry of India's history, architecture, and traditions.</p>
                 <a href="heritage.html" class="card-button">Explore Heritage</a>
+            </div>
+
+             <!-- Train Journeys Card-->
+            <div class="highlight-card">
+                <img src="train journeys.jpeg" alt="Iconic train journeys of India">
+                <h3>Train Journeys</h3>
+                <p>Explore India on tracks that unites its cultures and beauty </p>
+                <a href="trainjourneys.html" class="card-button">Explore train journeys</a>
             </div>
         </div>
     </section>
