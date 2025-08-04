@@ -1,7 +1,7 @@
 {
   "biryani": {
     "name": "Biryani",
-    "image": "food_images/biryani_food.jpg",
+    "image": "assets/images/food/biryani_food.jpg",
     "description": "Welcome to the world of Biryani — not just a dish, but a full-blown culinary blockbuster.",
     "sections": [
       {
@@ -41,7 +41,7 @@
   },
   "butter-chicken": {
     "name": "Butter Chicken",
-    "image": "food_images/butterchicken_food.jpg",
+    "image": "assets/images/food/butterchicken_food.jpg",
     "description": "Say hello to Butter Chicken — India’s velvety, tomato-kissed answer to comfort food. It's rich, creamy, and outrageously flavorful, making every bite a smooth, buttery delight.",
     "sections": [
       {
@@ -80,7 +80,7 @@
   },
   "masala-dosa": {
     "name": "Masala Dosa",
-    "image": "food_images/dosa.jpg",
+    "image": "assets/images/food/dosa.jpg",
     "description": "Meet Masala Dosa — South India’s most iconic, crispy golden crepe with a spiced potato hug inside. Crunchy on the outside, soft and savory on the inside, it’s a breakfast legend turned anytime treat.",
     "sections": [
       {
@@ -119,7 +119,7 @@
   },
   "mithai": {
     "name": "Mithai",
-    "image": "food_images/mithai.jpg",
+    "image": "assets/images/food/mithai.jpg",
     "description": "Welcome to the colorful world of Mithai — a joyful assortment of traditional Indian sweets that mark every celebration, festival, and special moment. From laddoos and barfis to peda and sandesh, there’s a mithai for every mood.",
     "sections": [
       {
@@ -159,7 +159,7 @@
 
   "gujhiya": {
     "name": "Gujiya",
-    "image": "food_images/Gujhiya.jpg",
+    "image": "assets/images/food/Gujhiya.jpg",
     "description": "Say hello to Gujiya — the crescent-shaped, golden-crusted sweet treat that defines Indian festivals like Holi and Diwali. Stuffed with a rich, aromatic filling of khoya, dry fruits, and coconut, every bite of gujiya is pure joy.",
     "sections": [
       {
@@ -196,7 +196,7 @@
   },
   "gulab-jamun": {
     "name": "Gulab Jamun",
-    "image": "food_images/gj.jpg",
+    "image": "assets/images/food/gj.jpg",
     "description": "Meet Gulab Jamun — the king of Indian sweets. Soft, spongy, golden-brown balls soaked in fragrant sugar syrup. Whether it’s a wedding, festival, or just a sweet craving, Gulab Jamun never fails to impress.",
     "sections": [
       {
@@ -233,7 +233,7 @@
   },
   "samosa": {
     "name": "Samosa",
-    "image": "food_images/samosa.jpg",
+    "image": "assets/images/food/samosa.jpg",
     "description": "Say hello to Samosa — India’s favorite tea-time snack and street food legend. Crisp on the outside, spicy and savory on the inside, this golden triangle is loved by millions across the globe.",
     "sections": [
       {
@@ -270,7 +270,7 @@
   },
   "daal-chawal": {
     "name": "Daal Chawal",
-    "image": "food_images/dc.jpg",
+    "image": "assets/images/food/dc.jpg",
     "description": "Welcome to the warm embrace of Daal Chawal — the ultimate comfort food that unites households across India. Simple, soulful, and deeply satisfying, it's a dish that feels like home in every bite.",
     "sections": [
       {
