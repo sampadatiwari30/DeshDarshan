@@ -52,15 +52,6 @@
                     <div class="error-text" id="emailError"></div>
                 </div>
 
-                <!-- Phone Number Field -->
-                <div class="form-group">
-                    <label class="form-label" for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number"
-                        pattern="[6-9][0-9]{9}" required>
-                    <span class="validation-status" id="phoneStatus"></span>
-                    <div class="error-text" id="phoneError"></div>
-                </div>
-
                 <!-- Password Field -->
                 <div class="form-group">
                     <label class="form-label" for="password">Password</label>
@@ -170,7 +161,6 @@
         // Get all input fields
         const fullName = document.getElementById('fullName');
         const email = document.getElementById('email');
-        const phone = document.getElementById('phone');
         const password = document.getElementById('password');
         const confirmPassword = document.getElementById('confirmPassword');
         const genderInputs = document.querySelectorAll('input[name="gender"]');
@@ -180,7 +170,6 @@
         const validationState = {
             fullName: false,
             email: false,
-            phone: false,
             password: false,
             confirmPassword: false,
             gender: false,
@@ -205,17 +194,6 @@
 
             updateFieldValidation('email', isValid,
                 isValid ? '' : 'Please enter a valid email address');
-
-            return isValid;
-        }
-
-        function validatePhone() {
-            const value = phone.value.trim();
-            const phoneRegex = /^[6-9][0-9]{9}$/;
-            const isValid = phoneRegex.test(value);
-
-            updateFieldValidation('phone', isValid,
-                isValid ? '' : 'Please enter a valid 10-digit Indian mobile number');
 
             return isValid;
         }
@@ -334,9 +312,6 @@
         email.addEventListener('input', validateEmail);
         email.addEventListener('blur', validateEmail);
 
-        phone.addEventListener('input', validatePhone);
-        phone.addEventListener('blur', validatePhone);
-
         password.addEventListener('input', validatePassword);
         password.addEventListener('blur', validatePassword);
 
@@ -356,7 +331,6 @@
             // Validate all fields
             const isValidForm = validateFullName() &&
                 validateEmail() &&
-                validatePhone() &&
                 validatePassword() &&
                 validateConfirmPassword() &&
                 validateGender() &&

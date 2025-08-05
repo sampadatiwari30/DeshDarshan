@@ -50,8 +50,15 @@ body {
 
 .nav-menu {
     display: flex;
+    flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+    font-size: 12px;
+    display: flex;
+    margin-top: 3px;
+    margin-left: 37px;
     list-style: none;
-    gap: 2rem;
+    gap: 25px;
 }
 
 .nav-menu a {
@@ -65,7 +72,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #ff9933;
+    color: #ff9B36;
     transform: scale(1.05);
 }
 
@@ -574,7 +581,30 @@ button, a, .culture-item, .food-item, .dance-item {
   border-radius: 4px;
   cursor: pointer;
 }
-
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: #ff914d; /* match signup button */
+    color: white;
+    cursor: pointer;
+    padding: 14px 18px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  #backToTopBtn:hover {
+    background-color: #e67a35;
+    transform: scale(1.1);
+  }
+  
+  
 /* Footer */
 .footer {
     background: #333;

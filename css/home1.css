@@ -44,6 +44,7 @@ body {
 }
 
 .nav-menu {
+  margin-top: 40px;
   display: flex;
   list-style: none;
   gap: 2rem;
