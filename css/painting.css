@@ -1,0 +1,191 @@
+/* From Uiverse.io by ariba_9087 */ 
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    135deg,
+    #f6b0d2,
+    #aadef7
+  );
+}
+
+.container {
+  position: relative;
+  width: 100%; /* Fill the entire screen */
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    #ff9aa2,
+    /* Soft pink */ #fd9e9e,
+    /* Light peach */ #efbf9f,
+    /* Pastel yellow */ #ddf5b6,
+    /* Mint green */ #a2e4ff,
+    /* Baby blue */ #b28ff9,
+    /* Lavender */ #ffb7b2,
+    #ff9aa2
+  );
+  transform: translate(-50%, -50%);
+  animation: rotate 8s linear infinite;
+  filter: blur(50px); /* Create a soft glowing effect */
+  opacity: 0.8;
+}
+
+/* Secondary rotating layer for depth */
+.container::after {
+  width: 180%;
+  height: 180%;
+  animation: rotate-reverse 10s linear infinite;
+  opacity: 0.6;
+}
+
+/* Rotating animations */
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+
+h2{
+    text-align : center;
+    padding : 0.5rem 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size : 2.5rem;
+    color:rgb(158, 19, 19);
+}
+
+.section-title-painting {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    color: linear-gradient(135deg, #E83F25, #ff9933);
+    position: relative;
+    /* opacity: 0; */
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.painting-art {
+    padding: 5rem 0;
+    /* background: linear-gradient(135deg, #f8f4ff, #fff0f5); */
+}
+
+.painting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.painting-item {
+    width: 350px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.painting-item p{
+    padding: 0.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+.painting-item:hover {
+    transform: translateY(-5px);
+}
+
+.painting-item img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.painting-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.painting-item:hover .paiting-overlay {
+    transform: translateY(0);
+}
+
+.painting-overlay h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.painting-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.painting-card {
+    width: 350px;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ff9933;
+    transition: transform 0.2s ease;
+}
+
+.painting-item h3 {
+    padding: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(135deg, #ff9933, #ffb366);
+    margin: 0;
+}
+
+.map img{
+    width: 600px;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.map{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
