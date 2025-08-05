@@ -17,12 +17,13 @@
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0px 20px;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .nav-logo h2 {
@@ -30,18 +31,19 @@
     font-size: 1.8rem;
     font-weight: bold;
     white-space: nowrap;
+    margin: 0;
 }
 
 .nav-menu {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    font-size: 12px;
-    margin-top: 3px;
-    margin-left: 37px;
+    justify-content: center;
+    font-size: 13px;
     list-style: none;
-    gap: 25px;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
 }
 
 .nav-menu a {
@@ -51,6 +53,7 @@
     font-weight: 500;
     transition: all 0.3s ease-in-out;
     white-space: nowrap;
+    padding: 0.4rem 0.8rem;
 }
 
 .nav-menu a:hover {
@@ -61,6 +64,7 @@
 .nav-buttons {
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 
 .nav-buttons a {
@@ -70,14 +74,14 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 0.6rem 1.8rem;
-    border-radius: 16px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
     font-weight: 600;
-    font-size: 1rem;
-    min-width: 120px;
+    font-size: 0.85rem;
+    min-width: 90px;
     transition: all 0.3s ease;
-    gap: 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    gap: 0.4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav-buttons a span {
@@ -194,6 +198,23 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .nav-menu {
+        gap: 1rem;
+        font-size: 12px;
+    }
+    
+    .nav-menu a {
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .nav-buttons a {
+        padding: 0.5rem 1rem;
+        min-width: 80px;
+        font-size: 0.8rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -210,6 +231,8 @@
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 20px 0;
+        gap: 1rem;
+        font-size: 14px;
     }
 
     .nav-menu.active {
@@ -220,4 +243,25 @@
         flex-direction: column;
         gap: 0.5rem;
     }
+} 
+
+.home-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.home-box a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.home-box:hover {
+    color: #ff9933;
+    transform: scale(1.1);
 } 
