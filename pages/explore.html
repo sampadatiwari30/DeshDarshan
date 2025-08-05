@@ -607,6 +607,16 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function hideModal(){
+            document.getElementById('mapModal').style.display = 'none';
+        }
+
+        function hideMapModal(){
+            document.getElementById('mapModal').style.display = 'none';
+        }
+
+
+
         function showStateMap(stateName) {
             const stateInfo = stateCoordinates[stateName];
             if (!stateInfo) return;

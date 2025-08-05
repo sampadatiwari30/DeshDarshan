@@ -621,10 +621,10 @@ legend {
 
 <body>
     <div class="main-content">
-      <div class="container">
-        <div class="form-card">
-          <h1>Want to share your idea?<br />Collaborate with us.</h1>
-          <p>Join our cultural journey across incredible India</p>
+      <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="form-card mx-auto" style="margin-top: 80px; margin-bottom: 40px; max-width: 520px; min-width: 340px; padding: 32px 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); border-radius: 18px; background: #fff; min-height: unset;">
+          <h1 style="font-size: 1.6rem;">Want to share your idea?<br />Collaborate with us.</h1>
+          <p style="font-size: 1rem;">Join our cultural journey across incredible India</p>
           <form id="collaborationForm" novalidate>
             <div class="form-group">
               <label for="name">Name *</label>
@@ -634,6 +634,7 @@ legend {
                 name="name"
                 required
                 aria-describedby="nameError"
+                placeholder="Enter your name"
               />
               <div class="error-message" id="nameError">
                 Please enter your name
@@ -648,23 +649,10 @@ legend {
                 name="email"
                 required
                 aria-describedby="emailError"
+                placeholder="Enter your email address"
               />
               <div class="error-message" id="emailError">
                 Please enter a valid email address
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                aria-describedby="phoneError"
-              />
-              <div class="error-message" id="phoneError">
-                Please enter your phone number
               </div>
             </div>
 
@@ -713,6 +701,8 @@ legend {
                 <option value="Uttar Pradesh">Uttar Pradesh</option>
                 <option value="Uttarakhand">Uttarakhand</option>
                 <option value="West Bengal">West Bengal</option>
+                <option value="Other">Other</option> <!-- Added "Other" option -->
+                <option value="Outside India">Outside India</option> <!-- Example: more options -->
               </select>
               <div class="error-message" id="stateError">
                 Please select your state/UT
@@ -759,6 +749,26 @@ legend {
                 <div class="radio-option">
                   <input
                     type="radio"
+                    id="artist"
+                    name="collaborationType"
+                    value="artist"
+                    required
+                  />
+                  <label for="artist">🎨 Artist/Creator</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="entrepreneur"
+                    name="collaborationType"
+                    value="entrepreneur"
+                    required
+                  />
+                  <label for="entrepreneur">🚀 Entrepreneur</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
                     id="other"
                     name="collaborationType"
                     value="other"
@@ -798,6 +808,20 @@ legend {
                     min="0"
                     max="50"
                   />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="artistField">
+                <div class="form-group">
+                  <label for="artField">Field (e.g., Music, Painting, Dance) *</label>
+                  <input type="text" id="artField" name="artField" />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="entrepreneurField">
+                <div class="form-group">
+                  <label for="startupName">Startup/Business Name *</label>
+                  <input type="text" id="startupName" name="startupName" />
                 </div>
               </div>
 
@@ -933,6 +957,8 @@ legend {
         student: document.getElementById("studentField"),
         researcher: document.getElementById("researcherField"),
         job: document.getElementById("jobField"),
+        artist: document.getElementById("artistField"),
+        entrepreneur: document.getElementById("entrepreneurField"),
         other: document.getElementById("otherField"),
       };
 
@@ -974,7 +1000,6 @@ legend {
         const requiredFields = [
           { id: "name", message: "Please enter your name" },
           { id: "email", message: "Please enter a valid email address" },
-          { id: "phone", message: "Please enter your phone number" },
           { id: "state", message: "Please select your state/UT" },
           { id: "message", message: "Please enter your message" },
         ];
@@ -1017,17 +1042,6 @@ legend {
           isValid = false;
         }
 
-        // Phone validation (basic)
-        const phoneField = document.getElementById("phone");
-        const phoneRegex = /^[\d\s\-\+()]{10,}$/;
-        if (phoneField.value && !phoneRegex.test(phoneField.value)) {
-          phoneField.classList.add("error");
-          document.getElementById("phoneError").textContent =
-            "Please enter a valid phone number";
-          document.getElementById("phoneError").classList.add("show");
-          isValid = false;
-        }
-
         // Validate collaboration type
         const selectedCollaboration = document.querySelector(
           'input[name="collaborationType"]:checked'
@@ -1063,6 +1077,20 @@ legend {
               }
               if (!experienceField.value.trim()) {
                 experienceField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "artist":
+              const artField = document.getElementById("artField");
+              if (!artField.value.trim()) {
+                artField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "entrepreneur":
+              const startupField = document.getElementById("startupName");
+              if (!startupField.value.trim()) {
+                startupField.classList.add("error");
                 isValid = false;
               }
               break;
