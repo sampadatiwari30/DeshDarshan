@@ -192,7 +192,7 @@ body {
 }
 
 .culture-item {
-    background: white;
+    position: relative;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -206,23 +206,34 @@ body {
 
 .culture-item img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
 }
 
 .culture-caption {
-    padding: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.culture-item:hover .culture-caption {
+    transform: translateY(0);
 }
 
 .culture-caption h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #333;
 }
 
 .culture-caption p {
-    color: #666;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    opacity: 0.9;
 }
 
 /* Interactive Elements */
@@ -245,7 +256,7 @@ button, a, .culture-item, .food-item, .dance-item {
 }
 
 .food-item {
-    background: white;
+    position: relative;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -259,15 +270,27 @@ button, a, .culture-item, .food-item, .dance-item {
 
 .food-item img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
 }
 
 .food-item h3 {
-    padding: 1.5rem;
-    font-size: 1.3rem;
-    color: #333;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem;
+    margin: 0;
+    font-size: 1.5rem;
     text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.food-item:hover h3 {
+    transform: translateY(0);
 }
 
 /* Dance Section */
