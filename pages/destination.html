@@ -5,26 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidden Destinations in India</title>
-     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/destination.css"/>
-</head>
+
+    
+    <link rel="stylesheet" href="../css/destination.css">
+  </head>
 
 <body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
         <div class="container-fluid">
             <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
@@ -55,10 +46,6 @@
                     <li class="nav-item">
                         <a class="nav-link  navbarhover" href="feedback.html">Feedback</a>
                     </li>
-                <li class="nav-item">
-                <a class="nav-link navbarhover" href="quiz.html"
-                  >Quiz</a
-                >
                 </ul>
             </div>
         </div>
@@ -113,77 +100,7 @@
             </div>
         </div>
     </div>
-       <!--footer-->
-    <footer id="footer">
-      <div class="footer-content-wrapper">
-        <!-- Section 1: About Desh Darshan -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Desh Darshan</h3>
-          <p>
-            Desh Darshan is your gateway to the vibrant and diverse culture of
-            India. We aim to introduce the world to India's rich heritage,
-            traditions, arts, and history.
-          </p>
-        </div>
 
-        <!-- Section 2: Quick Links -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Quick Links</h3>
-          <ul>
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about us.html" class="footer-link">About Us</a></li>
-            <li>
-              <a href="explore.html" class="footer-link">Explore India</a>
-            </li>
-            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <!-- Section 3: Contact Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Contact Us</h3>
-          <ul>
-            <li class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>hello@deshdarshan.in</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+91 1234567890</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>New Delhi, India</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Section 4: Follow Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Follow Us</h3>
-          <div class="social-icons-container">
-            <a href="#" class="social-icon" aria-label="Facebook"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Twitter"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Behance"
-              ><i class="fab fa-youtube"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!--copyright -->
-      <div class="copyright-section">
-        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-      </div>
-    </footer>
-    <!-- Footer -->
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -630,38 +547,7 @@
     <!-- Back to Top Button -->
 <button id="backToTopBtn" title="Go to top">🔝</button>
 
-<style>
-  #backToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    z-index: 99;
-    font-size: 30px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
 
-  #backToTopBtn:hover {
-    background-color: transparent;
-    transform: translateY(-5px);
-  }
-
-  @media screen and (max-width: 480px) {
-    #backToTopBtn {
-      font-size: 50px;
-      padding: 8px 10px;
-      bottom: 60px;
-      right: 5px;
-    }
-  }
-</style>
 
 <script>
   // Show button on scroll
@@ -678,7 +564,8 @@
   document.getElementById("backToTopBtn").addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-</script>
+</script>    <script src="../js/navbar-loader.js"></script>
+
 
 </body>
 

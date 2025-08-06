@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Food Details</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/food-details.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="spiceOverlay"></div>
+
+    <div id="spiceToggleWrapper" class="spice-toggle-wrapper">
+      <button id="spiceToggle">
+        <span id="spiceText">Mild 🌶</span>
+      </button>
+    </div>
+    <img id="fireEffect" src="../assets/images/animations/fire.gif" alt="Fire" style="display: none" />
+    <img id="steamEffect" src="../assets/images/animations/steam.gif" alt="Steam" style="display: none" />
+    <img
+      id="mediumFireEffect"
+      src="../assets/images/animations/lowflame.gif"
+      alt="Low Fire"
+      style="display: none"
+    />
+
+    <div class="container py-5" id="food-detail">
+      <h1 id="food-name">Loading...</h1>
+      <img
+        id="food-img"
+        src=""
+        alt=""
+        class="img-fluid mb-4"
+        style="max-height: 400px"
+      />
+      <!-- Between sections -->
+      <div class="svg-divider">
+        <svg viewBox="0 0 800 60" preserveAspectRatio="none">
+          <path d="M10,30 Q100,5 200,30 T400,30 T600,30 T800,30" />
+          <circle cx="100" cy="30" r="5" />
+          <circle cx="300" cy="30" r="5" />
+          <circle cx="500" cy="30" r="5" />
+          <circle cx="700" cy="30" r="5" />
+        </svg>
+      </div>
+
+      <p id="food-desc"></p>
+      <h5>Did You Know?</h5>
+
+      <ul id="food-section"></ul>
+
+      <section class="dish-slideshow" data-dish="biryani">
+        <h2 id="dishTitle">🍛 Build a Dish</h2>
+        <div class="slide-container">
+          <img id="layerImage" src="" alt="Dish Layer" />
+          <p id="layerText"></p>
+        </div>
+        <div class="slide-controls">
+          <button id="prevBtn">⬅️ Previous</button>
+          <button id="nextBtn">Next ➡️</button>
+        </div>
+      </section>
+
+      <!--<h5>Fun Facts:</h5>
+      <ul id="food-funfact"></ul>-->
+      <div id="grandmaWrapper" style="display: none">
+        <div class="grandma-container">
+          <img
+            src="../assets/images/icons/animated-grandma.png"
+            class="animated-grandma"
+            alt="Grandma Character"
+            id="grandmaImg"
+          />
+          <div class="speech-bubble" id="speechBubble">
+            Click me to reveal a fun fact!
+          </div>
+        </div>
+      </div>
+      <button id="askGrandmaBtn" class="floating-grandma-button">
+        👵 Ask Grandma
+      </button>
+
+      <ul id="food-link"></ul>
+      <a href="index.html" class="btn btn-primary mt-3">← Back to Home</a>
+    </div>
+
+    <script src="../js/food-details.js"></script>
+  </body>
+</html>
