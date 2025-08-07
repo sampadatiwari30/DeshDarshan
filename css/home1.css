@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -107,6 +107,10 @@ body {
     background: white;
     margin: 3px 0;
     transition: 0.3s;
+}
+.link-home{
+    border: none;
+    outline: none;
 }
  /* Language Dropdown */
         .language-dropdown {
@@ -557,8 +561,3 @@ body {
     right: 1rem;
   }
 }
-
-
-
-
-

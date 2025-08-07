@@ -281,6 +281,67 @@
         .error-text.visible {
             opacity: 1;
         }
+                
+        /* Password Strength Indicator */
+        .password-strength {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: #654321;
+            background: linear-gradient(90deg, #F5DEB3 0%, #DEB887 100%);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            opacity: 0.95;
+            transition: background 0.3s, color 0.3s;
+            text-align: left;
+            display: none;
+        }
+
+        .password-strength.weak {
+            color: #cd5c5c;
+            background: linear-gradient(90deg, #F5DEB3 0%, #cd5c5c 100%);
+        }
+
+        .password-strength.medium {
+            color: #A0522D;
+            background: linear-gradient(90deg, #F5DEB3 0%, #DEB887 100%);
+        }
+
+        .password-strength.strong {
+            color: #228B22;
+            background: linear-gradient(90deg, #F5DEB3 0%, #228B22 100%);
+        }
+
+        /* Toggle Password Visibility */
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #6b4c3b; /* match form’s color tone */
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .toggle-password:focus {
+            outline: none;
+            color:#4a322d;
+        }
+
+        /* Input Wrapper for Toggle Icon */
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding-right: 40px; /* reserve space for eye icon */
+            box-sizing: border-box;
+        }
 
         /* Gender Options */
         .gender-options {
@@ -300,7 +361,7 @@
         .radio-input {
             width: 18px;
             height: 18px;
-            accent-color: #8B4513;
+            accent-color:#8B4513;
             cursor: pointer;
         }
 
@@ -473,18 +534,23 @@
                 <!-- Password Field -->
                 <div class="form-group">
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-input"
-                        placeholder="Create a password" required>
-                    <span class="validation-status" id="passwordStatus"></span>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" class="form-input" placeholder="Create a password" required>
+                        <button type="button" id="togglePassword" class="toggle-password" aria-label="Show password">&#128065;</button>
+                    </div>
                     <div class="error-text" id="passwordError"></div>
                 </div>
+
+                <!-- Password Strength Indicator -->
+                <div class="password-strength" id="passwordStrength"></div>
 
                 <!-- Confirm Password Field -->
                 <div class="form-group">
                     <label class="form-label" for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
-                        placeholder="Confirm your password" required>
-                    <span class="validation-status" id="confirmPasswordStatus"></span>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                        <button type="button" id="toggleConfirmPassword" class="toggle-password" aria-label="Show password">&#128065;</button>
+                    </div>
                     <div class="error-text" id="confirmPasswordError"></div>
                 </div>
 
@@ -649,38 +715,6 @@
 
             return isValid;
         }
-
-        let isValid = true;
-        let errorMessage = '';
-
-
-        if (value.length < 8) {
-            isValid = false;
-            errorMessage = 'Password must be at least 8 characters long';
-        } else if (!/[A-Z]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one uppercase letter';
-        } else if (!/[a-z]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one lowercase letter';
-        } else if (!/[0-9]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one number';
-        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
-            isValid = false;
-            errorMessage = 'Password must have at least one special character';
-        }
-
-        updateFieldValidation('password', isValid, errorMessage);
-
-        // Re-validate confirm password if it has a value
-        if (confirmPassword.value) {
-            validateConfirmPassword();
-        }
-
-        return isValid;
-
-
 
         function validateConfirmPassword() {
             const value = confirmPassword.value;
@@ -954,19 +988,59 @@
 
         // Password strength indicator (optional enhancement)
         function updatePasswordStrength() {
-            const value = password.value;
-            const strengthIndicators = {
-                weak: value.length >= 6,
-                medium: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value),
-                strong: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /\d/.test(value) && /[!@#$%^&*(),.?":{}|<>]/.test(value)
-            };
+            const passwordInput = document.getElementById('password');
+            const strengthIndicator = document.getElementById('passwordStrength');
 
-            // You can add visual strength indicator here if needed
+            const password = passwordInput.value;
+
+            // Show indicator only if there's at least 1 character
+            if (password.length > 0) {
+                strengthIndicator.style.display = 'block';
+            } else {
+                strengthIndicator.style.display = 'none';
+                return; // skip strength check if empty
+            }
+
+            // Strength check logic (customize as needed)
+            if (password.length < 6) {
+                strengthIndicator.className = 'password-strength weak';
+                strengthIndicator.textContent = 'Weak: Too short';
+            } else if (password.length < 8) {
+                strengthIndicator.className = 'password-strength medium';
+                strengthIndicator.textContent = 'Medium strength';
+            } else {
+                strengthIndicator.className = 'password-strength strong';
+                strengthIndicator.textContent = 'Strong password';
+            }
         }
 
         // Add real-time password strength checking
         password.addEventListener('input', updatePasswordStrength);
+
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const pwd = document.getElementById('password');
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                this.innerHTML = '&#128064;'; // eye with slash
+            } else {
+                pwd.type = 'password';
+                this.innerHTML = '&#128065;'; // eye
+            }
+        });
+
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+            const cpwd = document.getElementById('confirmPassword');
+            if (cpwd.type === 'password') {
+                cpwd.type = 'text';
+                this.innerHTML = '&#128064;'; // eye with slash
+            } else {
+                cpwd.type = 'password';
+                this.innerHTML = '&#128065;'; // eye
+            }
+
+        });
+
     </script>
 </body>
-
 </html>
