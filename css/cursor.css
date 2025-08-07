@@ -1,0 +1,10 @@
+.cursor {
+  width: 20px;
+  height: 20px;
+  background-color: #FF9933;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999999 !important;  
+}
