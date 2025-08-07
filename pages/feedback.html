@@ -4,163 +4,99 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback Form - DeshDarshan</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/feedback.css" />
-  </head>
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/feedback.css">
+</head>
+<body>
     <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <h2>DeshDarshan</h2>
-        </div>
+    <!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <h2>DeshDarshan</h2>
+    </div>
 
-        <!-- Hamburger Icon -->
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="home1.html">Home</a></li>
-          <li><a href="about us.html">About Us</a></li>
-          <li><a href="crazyfacts.html">Crazy Facts</a></li>
-          <li><a href="exploreindia.html">Explore India</a></li>
-          <li><a href="destination.html">Hidden Destinations</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-        </ul>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="home1.html">Home</a></li>
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="crazyfacts.html">Crazy Facts</a></li>
+      <li><a href="exploreindia.html">Explore India</a></li>
+      <li><a href="storytelling-card.html">Folks</a></li>
+      <li><a href="destination.html">Hidden Destinations</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+    </ul>
 
-        <div class="nav-buttons">
-          <a href="contactus.html"><span>Contact Us</span><i>→</i></a>
-          <a href="feedback.html"><span>Feedback</span><i>→</i></a>
-        </div>
-      </div>
-    </nav>
+    <div class="nav-buttons">
+      <a href="contactus.html"><span>Contact Us</span><i>→</i></a>
+      <a href="feedback.html"><span>Feedback</span><i>→</i></a>
+    </div>
+  </div>
+</nav>
 
-    <main class="main-content">
-      <div class="container">
-        <div class="form-card">
-          <div class="form-header">
-            <h1>Share Your Feedback</h1>
-            <p class="form-subtitle">
-              Your insights help us improve the DeshDarshan experience!
-            </p>
+
+    <div class="container">
+      <div class="form-card">
+        <h1>Share Your Feedback</h1>
+        <p>Your insights help us improve the DeshDarshan experience!</p>
+        <form id="feedbackForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required />
+            <div class="error-message" id="nameError">Please enter your name</div>
           </div>
 
-          <form id="feedbackForm" novalidate>
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Enter your full name"
-                required
-              />
-              <div class="error-message" id="nameError">
-                Please enter your name
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="email">Email ID *</label>
+            <input type="email" id="email" name="email" required />
+            <div class="error-message" id="emailError">Please enter a valid email</div>
+          </div>
 
-            <div class="form-group">
-              <label for="email">Email ID *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email address"
-                required
-              />
-              <div class="error-message" id="emailError">
-                Please enter a valid email
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required />
+            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+          </div>
 
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Enter your phone number (91+)"
-              />
-              <div class="error-message" id="phoneError">
-                Please enter a valid phone number
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="starRating">Rating *</label>
+          <div class="form-group">
+              <label for="starRating">Star Rating *</label>
               <div class="star-rating-container" id="starRating">
-                <span data-rating="1">★</span>
-                <span data-rating="2">★</span>
-                <span data-rating="3">★</span>
-                <span data-rating="4">★</span>
-                <span data-rating="5">★</span>
+                  <span data-rating="1">★</span>
+                  <span data-rating="2">★</span>
+                  <span data-rating="3">★</span>
+                  <span data-rating="4">★</span>
+                  <span data-rating="5">★</span>
               </div>
-              <div class="rating-labels">
-                <span>Poor</span>
-                <span>Excellent</span>
-              </div>
-              <div class="error-message" id="ratingError">
-                Please select a rating
-              </div>
-            </div>
+              <div class="error-message" id="ratingError">Please select a rating</div>
+          </div>
 
-            <div class="form-group">
-              <label for="message">Your Feedback *</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Share your thoughts about your experience with DeshDarshan..."
-                required
-              ></textarea>
-              <div class="error-message" id="messageError">
-                Please enter your message
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Share your thoughts about your experience..." required></textarea>
+            <div class="error-message" id="messageError">Please enter your message</div>
+          </div>
 
-            <button type="submit" class="submit-btn">
-              <span>Submit Feedback</span>
-              <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
+          <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
       </div>
-    </main>
+    </div>
 
     <div class="popup-overlay" id="successPopup">
       <div class="popup">
-        <div class="popup-icon">
-          <i class="fas fa-check-circle"></i>
-        </div>
         <div class="popup-message">
-          <h3>Thank You!</h3>
-          <p>
-            Your feedback adds warmth to our colorful yatra across India. Thank
-            you for being part of it! 🌺❤️
-          </p>
+          Your feedback adds warmth to our colorful yatra across India. Thank you for being part of it! 🌺❤️
         </div>
         <button class="popup-close" onclick="closePopup()">Close</button>
       </div>
     </div>
 
-    <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
-
-    <!-- Footer -->
+    <!--footer-->
     <footer id="footer">
       <div class="footer-content-wrapper">
         <!-- Section 1: About Desh Darshan -->
@@ -171,7 +107,6 @@
             India. We aim to introduce the world to India's rich heritage,
             traditions, arts, and history.
           </p>
-          <div class="footer-logo">DeshDarshan</div>
         </div>
 
         <!-- Section 2: Quick Links -->
@@ -220,77 +155,52 @@
             <a href="#" class="social-icon" aria-label="Instagram"
               ><i class="fab fa-instagram"></i
             ></a>
-            <a href="#" class="social-icon" aria-label="YouTube"
+            <a href="#" class="social-icon" aria-label="Behance"
               ><i class="fab fa-youtube"></i
             ></a>
           </div>
-          <div class="newsletter">
-            <h4>Subscribe to our newsletter</h4>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Your email address" />
-              <button type="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
-          </div>
         </div>
       </div>
-
-      <!-- Copyright -->
+      <!--copyright -->
       <div class="copyright-section">
         &copy; <span id="year"></span> Desh Darshan. All rights reserved.
       </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-    <!-- for that confetti effect after submiting the form -->
-
+    <!-- Footer -->
+  
     <script>
-      // Mobile Navigation Toggle
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
-      const navButtons = document.querySelector(".nav-buttons");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        navButtons.classList.toggle("active");
-      });
-
-      // Set current year in footer
-      document.getElementById("year").textContent = new Date().getFullYear();
-
       const form = document.getElementById("feedbackForm");
       const stars = document.querySelectorAll("#starRating span");
       let selectedRating = 0;
 
       // --- STAR RATING LOGIC ---
-      stars.forEach((star) => {
-        star.addEventListener("click", () => {
-          selectedRating = parseInt(star.getAttribute("data-rating"));
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          selectedRating = parseInt(star.getAttribute('data-rating'));
           updateStars();
           // Hide error message on click
-          document.getElementById("ratingError").classList.remove("show");
+          document.getElementById('ratingError').classList.remove('show');
         });
 
-        star.addEventListener("mouseover", () => {
-          highlightStars(parseInt(star.getAttribute("data-rating")));
+        star.addEventListener('mouseover', () => {
+          highlightStars(parseInt(star.getAttribute('data-rating')));
         });
       });
 
-      document
-        .getElementById("starRating")
-        .addEventListener("mouseleave", () => {
-          highlightStars(selectedRating);
-        });
+      document.getElementById('starRating').addEventListener('mouseleave', () => {
+        highlightStars(selectedRating);
+      });
 
       function highlightStars(rating) {
         stars.forEach((star, index) => {
-          star.classList.toggle("active", index < rating);
+          star.classList.toggle('active', index < rating);
         });
       }
-
+      
       function updateStars() {
         highlightStars(selectedRating);
       }
+
 
       // --- FORM VALIDATION & SUBMISSION ---
       form.addEventListener("submit", function (e) {
@@ -298,54 +208,41 @@
         let isValid = true;
 
         // Clear previous errors
-        document
-          .querySelectorAll(".error")
-          .forEach((el) => el.classList.remove("error"));
-        document
-          .querySelectorAll(".error-message")
-          .forEach((el) => el.classList.remove("show"));
+        document.querySelectorAll(".error").forEach(el => el.classList.remove("error"));
+        document.querySelectorAll(".error-message").forEach(el => el.classList.remove("show"));
 
         // Validate Name
-        const nameField = document.getElementById("name");
-        if (
-          !nameField.value.trim() ||
-          !/^[A-Za-z ]{3,}$/.test(nameField.value)
-        ) {
-          showError(nameField, "Please enter a valid name (min 3 letters)");
+        const nameField = document.getElementById('name');
+        if (!nameField.value.trim() || !/^[A-Za-z ]{3,}$/.test(nameField.value)) {
+          showError(nameField, 'Please enter a valid name (min 3 letters)');
           isValid = false;
         }
 
         // Validate Email
-        const emailField = document.getElementById("email");
-        if (
-          !emailField.value.trim() ||
-          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)
-        ) {
-          showError(emailField, "Please enter a valid email address");
+        const emailField = document.getElementById('email');
+        if (!emailField.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+          showError(emailField, 'Please enter a valid email address');
           isValid = false;
         }
-
-        // Validate Phone (optional)
-        const phoneField = document.getElementById("phone");
-        if (
-          phoneField.value.trim() &&
-          !/^[\d\s\-\+()]{10,}$/.test(phoneField.value)
-        ) {
-          showError(phoneField, "Please enter a valid 10-digit phone number");
-          isValid = false;
+        
+        // Validate Phone
+        const phoneField = document.getElementById('phone');
+        if (!phoneField.value.trim() || !/^[\d\s\-\+()]{10,}$/.test(phoneField.value)) {
+            showError(phoneField, 'Please enter a valid 10-digit phone number');
+            isValid = false;
         }
 
         // Validate Star Rating
         if (selectedRating === 0) {
-          document.getElementById("ratingError").classList.add("show");
-          isValid = false;
+            document.getElementById('ratingError').classList.add('show');
+            isValid = false;
         }
 
         // Validate Message
-        const messageField = document.getElementById("message");
+        const messageField = document.getElementById('message');
         if (!messageField.value.trim()) {
-          showError(messageField, "Please enter your message");
-          isValid = false;
+            showError(messageField, 'Please enter your message');
+            isValid = false;
         }
 
         // If all valid, show popup
@@ -359,64 +256,47 @@
           }
         }
       });
-
+      
       function showError(field, message) {
-        field.classList.add("error");
-        const errorElement = document.getElementById(field.id + "Error");
-        errorElement.textContent = message;
-        errorElement.classList.add("show");
+          field.classList.add('error');
+          const errorElement = document.getElementById(field.id + 'Error');
+          errorElement.textContent = message;
+          errorElement.classList.add('show');
       }
-
-      // This is inside your showSuccessPopup function
-      const myCanvas = document.getElementById("confetti-canvas");
-      const myConfetti = confetti.create(myCanvas, { resize: true });
-
+      
       // --- POPUP LOGIC ---
       function showSuccessPopup() {
         const popup = document.getElementById("successPopup");
         popup.classList.add("show");
-
-        // Later, when you want to fire the confetti...
-        myConfetti({
-          particleCount: 150,
-          spread: 90,
-          origin: { y: 0.6 },
-        });
-
-        document.body.style.overflow = "hidden";
       }
-
+      
       function closePopup() {
         const popup = document.getElementById("successPopup");
         popup.classList.remove("show");
-        document.body.style.overflow = "auto";
         form.reset();
         selectedRating = 0; // Reset rating
         updateStars(); // Reset star visuals
       }
-
+      
       // Close popup on Escape key
-      document.addEventListener("keydown", (e) => {
-        if (
-          e.key === "Escape" &&
-          document.getElementById("successPopup").classList.contains("show")
-        ) {
-          closePopup();
-        }
+      document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && document.getElementById('successPopup').classList.contains('show')) {
+              closePopup();
+          }
       });
 
       // Remove error on input
-      document.querySelectorAll("input, textarea").forEach((field) => {
-        field.addEventListener("input", function () {
-          this.classList.remove("error");
-          const errorElement = document.getElementById(this.id + "Error");
-          if (errorElement) {
-            errorElement.classList.remove("show");
-          }
-        });
+      document.querySelectorAll("input, textarea").forEach(field => {
+          field.addEventListener("input", function () {
+              this.classList.remove("error");
+              const errorElement = document.getElementById(this.id + "Error");
+              if (errorElement) {
+                  errorElement.classList.remove("show");
+              }
+          });
       });
-    </script>
 
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 </html>
