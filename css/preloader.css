@@ -1,0 +1,387 @@
+/* Professional DeshDarshan Preloader Styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    overflow: hidden;
+    transition: all 1.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+}
+
+/* Main loader container */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Lotus-inspired logo container */
+.logo-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Rotating mandala behind logo */
+.mandala-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #FF9933;
+    border-right: 3px solid #FFFFFF;
+    border-bottom: 3px solid #138808;
+    border-radius: 50%;
+    animation: mandalaRotate 2s linear infinite;
+}
+
+.mandala-ring:nth-child(2) {
+    width: 80%;
+    height: 80%;
+    animation: mandalaRotate 1.5s linear infinite reverse;
+    border-top: 2px solid #138808;
+    border-right: 2px solid #FF9933;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.mandala-ring:nth-child(3) {
+    width: 60%;
+    height: 60%;
+    animation: mandalaRotate 1s linear infinite;
+    border-top: 1px solid #FFFFFF;
+    border-right: 1px solid #138808;
+    border-bottom: 1px solid #FF9933;
+}
+
+/* Central logo */
+.logo-center {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #FF9933 0%, #138808 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 153, 51, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Decorative petals around logo */
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(45deg, #FF9933, #138808);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: center bottom;
+    opacity: 0.7;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-50px); }
+.petal:nth-child(2) { transform: rotate(45deg) translateY(-50px); }
+.petal:nth-child(3) { transform: rotate(90deg) translateY(-50px); }
+.petal:nth-child(4) { transform: rotate(135deg) translateY(-50px); }
+.petal:nth-child(5) { transform: rotate(180deg) translateY(-50px); }
+.petal:nth-child(6) { transform: rotate(225deg) translateY(-50px); }
+.petal:nth-child(7) { transform: rotate(270deg) translateY(-50px); }
+.petal:nth-child(8) { transform: rotate(315deg) translateY(-50px); }
+
+/* Brand text */
+.brand-text {
+    text-align: center;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.brand-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #FF9933, #138808);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShimmer 3s ease-in-out infinite;
+    text-shadow: 0 2px 10px rgba(255, 153, 51, 0.3);
+}
+
+.brand-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #666;
+    opacity: 0.8;
+    animation: fadeInUp 2s ease-out;
+}
+
+/* Enhanced Progress Bar with Cultural Theme */
+.progress-container {
+    width: 350px;
+    height: 8px;
+    background: linear-gradient(45deg, 
+        rgba(255, 153, 51, 0.1) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(19, 136, 8, 0.1) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 30px;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.progress-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 5px,
+        rgba(255, 153, 51, 0.1) 5px,
+        rgba(255, 153, 51, 0.1) 10px
+    );
+    animation: patternMove 3s linear infinite;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        #FF9933 0%, 
+        #FFB366 25%, 
+        #FFFFFF 50%, 
+        #90EE90 75%, 
+        #138808 100%);
+    border-radius: 20px;
+    width: 0%;
+    position: relative;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 0 20px rgba(255, 153, 51, 0.6),
+        inset 0 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.6), 
+        transparent);
+    animation: shimmer 3s ease-in-out infinite;
+    border-radius: 20px;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        #FF9933, 
+        #FFFFFF, 
+        #138808, 
+        #FF9933);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.5;
+    animation: borderGlow 4s ease-in-out infinite;
+}
+
+/* Progress percentage display */
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.progress-percentage {
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #FF9933, #138808);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-ornament {
+    font-size: 1.5rem;
+    color: rgba(255, 153, 51, 0.7);
+    animation: rotate 4s linear infinite;
+}
+
+/* Loading text */
+.loading-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 20px;
+    opacity: 0.7;
+    animation: breathe 2s ease-in-out infinite;
+}
+
+/* Decorative elements */
+.decoration {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 153, 51, 0.2);
+    animation: float 4s ease-in-out infinite;
+}
+
+.decoration:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: -1s;
+}
+
+.decoration:nth-child(2) {
+    top: 20%;
+    right: 15%;
+    animation-delay: -2s;
+}
+
+.decoration:nth-child(3) {
+    bottom: 15%;
+    left: 20%;
+    animation-delay: -0.5s;
+}
+
+.decoration:nth-child(4) {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: -1.5s;
+}
+
+/* Animations */
+@keyframes mandalaRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 153, 51, 0.3); }
+    50% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 153, 51, 0.5); }
+}
+
+@keyframes textShimmer {
+    0%, 100% { background-position: -200% center; }
+    50% { background-position: 200% center; }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+}
+
+@keyframes patternMove {
+    0% { transform: translateX(-20px); }
+    100% { transform: translateX(20px); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes breathe {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .brand-title {
+        font-size: 2rem;
+    }
+    
+    .brand-subtitle {
+        font-size: 1rem;
+    }
+    
+    .progress-container {
+        width: 250px;
+    }
+    
+    .logo-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .logo-center {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-title {
+        font-size: 1.8rem;
+    }
+    
+    .progress-container {
+        width: 200px;
+    }
+    
+    .decoration {
+        font-size: 1.5rem;
+    }
+}

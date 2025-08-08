@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="../css/explore.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/custom-cursor.css">
+    <link rel="stylesheet" href="../css/cursor-fix.css">
     <!-- Leaflet JS for map functionality -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
@@ -562,6 +564,16 @@
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-dot" id="cursorDot"></div>
+        <div class="cursor-trail" id="cursorTrail"></div>
+        <div class="cursor-trail-2" id="cursorTrail2"></div>
+        <div class="cursor-trail-3" id="cursorTrail3"></div>
+        <div class="cursor-trail-4" id="cursorTrail4"></div>
+        <div class="cursor-magnetic" id="cursorMagnetic"></div>
+    </div>
+
     <!-- Navigation Container -->
     <div id="navbar-container"></div>
 
@@ -1181,6 +1193,25 @@
         }
     </script>
     <script src="../js/navbar-loader.js"></script>
+    <script src="../js/custom-cursor.js"></script>
+    <script>
+        // Ensure cursor is initialized for explore page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force cursor: none on body
+            document.body.style.cursor = 'none';
+            document.body.style.setProperty('cursor', 'none', 'important');
+            
+            // Check if cursor elements exist
+            const cursor = document.getElementById('customCursor');
+            if (cursor) {
+                console.log('Explore: Custom cursor elements found');
+                cursor.style.display = 'block';
+                cursor.style.zIndex = '99999';
+            } else {
+                console.error('Explore: Custom cursor elements not found');
+            }
+        });
+    </script>
 
 </body>
 

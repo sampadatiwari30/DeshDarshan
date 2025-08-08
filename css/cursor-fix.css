@@ -1,0 +1,92 @@
+/* Cursor Fix for Quiz and Explore Pages */
+
+/* Force hide default cursor on all elements */
+*, *::before, *::after {
+    cursor: none !important;
+}
+
+body {
+    cursor: none !important;
+}
+
+html {
+    cursor: none !important;
+}
+
+/* Ensure custom cursor container is visible */
+.custom-cursor {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    pointer-events: none !important;
+    z-index: 2147483647 !important; /* Maximum z-index value */
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Force visibility of all cursor elements */
+.cursor-dot,
+.cursor-trail,
+.cursor-trail-2, 
+.cursor-trail-3,
+.cursor-trail-4,
+.cursor-magnetic {
+    position: fixed !important;
+    pointer-events: none !important;
+    z-index: 2147483646 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Specific styles for cursor elements */
+.cursor-dot {
+    width: 20px !important;
+    height: 20px !important;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.8) !important;
+}
+
+.cursor-trail {
+    width: 16px !important;
+    height: 16px !important;
+    background: linear-gradient(45deg, #ffe66d, #ff9ff3) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    box-shadow: 0 0 25px rgba(255, 230, 109, 0.7) !important;
+    opacity: 0.8 !important;
+}
+
+.cursor-trail-2 {
+    width: 12px !important;
+    height: 12px !important;
+    background: linear-gradient(45deg, #a8e6cf, #ffaaa5) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    box-shadow: 0 0 15px rgba(168, 230, 207, 0.5) !important;
+    opacity: 0.6 !important;
+}
+
+.cursor-trail-3 {
+    width: 8px !important;
+    height: 8px !important;
+    background: linear-gradient(45deg, #ffd3a5, #fd9853) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    box-shadow: 0 0 10px rgba(255, 211, 165, 0.4) !important;
+    opacity: 0.4 !important;
+}
+
+.cursor-trail-4 {
+    width: 6px !important;
+    height: 6px !important;
+    background: linear-gradient(45deg, #ff9a9e, #fecfef) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    box-shadow: 0 0 8px rgba(255, 154, 158, 0.3) !important;
+    opacity: 0.3 !important;
+}

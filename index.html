@@ -8,16 +8,79 @@
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/destinations.css" />
+  <link rel="stylesheet" href="css/custom-cursor.css" />
+  <link rel="stylesheet" href="css/preloader.css" />
   <link rel="icon" href="assets/images/icons/newlogo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body class="homepage">
+  <!-- Professional Preloader -->
+  <div class="preloader" id="preloader">
+    <!-- Decorative Elements -->
+    <div class="decoration">🕉️</div>
+    <div class="decoration">🪷</div>
+    <div class="decoration">🎭</div>
+    <div class="decoration">🏛️</div>
+    
+    <div class="loader-container">
+      <!-- Logo with Mandala Animation -->
+      <div class="logo-container">
+        <div class="mandala-ring"></div>
+        <div class="mandala-ring"></div>
+        <div class="mandala-ring"></div>
+        
+        <!-- Lotus Petals -->
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        
+        <!-- Central Logo -->
+        <div class="logo-center">🇮🇳</div>
+      </div>
+      
+      <!-- Brand Text -->
+      <div class="brand-text">
+        <h1 class="brand-title">DeshDarshan</h1>
+        <p class="brand-subtitle">Discover the Spirit of India</p>
+      </div>
+      
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      
+      <!-- Progress Info -->
+      <div class="progress-info">
+        <div class="progress-ornament">🌺</div>
+        <div class="progress-percentage" id="progressPercentage">0%</div>
+        <div class="progress-ornament">🌺</div>
+      </div>
+      
+      <!-- Loading Text -->
+      <div class="loading-text" id="loadingText">Loading your cultural journey...</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor">
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+    <div class="cursor-trail-2" id="cursorTrail2"></div>
+    <div class="cursor-trail-3" id="cursorTrail3"></div>
+    <div class="cursor-trail-4" id="cursorTrail4"></div>
+    <div class="cursor-magnetic" id="cursorMagnetic"></div>
+  </div>
+
   <!-- Navigation Bar Container -->
   <div id="navbar-container"></div>
 
@@ -412,8 +475,7 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 </script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+
 
     <script
       type="module"
@@ -426,8 +488,10 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="js/preloader.js"></script>
     <script src="js/navbar-loader.js"></script>
     <script src="./js/navbar.js"></script>
     <script src="./js/home.js"></script>
+    <script src="js/custom-cursor.js"></script>
   </body>
 </html>
