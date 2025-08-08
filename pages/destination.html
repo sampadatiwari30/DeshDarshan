@@ -11,14 +11,21 @@
 
     
     <link rel="stylesheet" href="../css/destination.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="../css/navbar.css">
+    
+
   </head>
 
 <body>
     <!-- Navigation Container -->
-    <div id="navbar-container"></div>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
+    <!--<div id="navbar-container"></div>-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
+            <a class="navbar-brand navbarhover" href="home1.html">Desh Darshan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -27,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link  navbarhover" aria-current="page" href="about us.html">About Us</a>
+                        <a class="nav-link  navbarhover" aria-current="page" href="about-us.html">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link  navbarhover" href="crazyfacts.html">Crazy Facts </a>
@@ -38,8 +45,6 @@
                     <li class="nav-item">
                         <a class="nav-link  navbarhover" href="destination.html">Hidden Destinations </a>
                     </li>
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link  navbarhover" href="contactus.html">Contact Us</a>
                     </li>
@@ -47,6 +52,24 @@
                         <a class="nav-link  navbarhover" href="feedback.html">Feedback</a>
                     </li>
                 </ul>
+                <!--<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <button class="nav-item">
+                        <a class="nav-link  navbarhover" href="contactus.html">Contact Us</a>
+                    </button>
+                    <button class="nav-item">
+                        <a class="nav-link  navbarhover" href="feedback.html">Feedback</a>
+                    </button>
+                </ul>-->
+                <div class="nav-buttons">
+                    <a href="../pages/login.html" class="btn-login">
+                        <span>Login</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                    <a href="../pages/signup.html" class="btn-signup">
+                        <span>Signup</span>
+                        <i class="fas fa-user-plus"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>

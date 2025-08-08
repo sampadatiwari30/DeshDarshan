@@ -12,14 +12,84 @@
             overflow-x: hidden;
         }
 
+        /* Navbar Styling */
+
+        .navbar .container-fluid {
+            max-width: 100% !important;
+            padding: 12px 15px;
+        }
+
+        /* Navbar background and padding */
+        .navbar {
+            background-color: #222; /* change to your desired color */
+        }
+
+        /* Brand styling */
+        .navbar-brand {
+            color: #ff9b36;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            /*margin-left: 20px;*/
+        }
+
+        /* Nav link styling */
+        .navbar-nav .nav-link {
+            color: #ddd !important;
+            /*padding: 0.5rem 1rem;*/
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00 !important; /* hover color */
+            border-bottom: #ff9933 2px solid; /* underline effect */
+            transition: border-color 0.3s ease;
+        }
+
+        /* Left and right nav sections alignment */
+        .navbar-nav {
+            margin-left: 2rem;
+            gap: 1rem;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar-nav:hover{
+             color: #ff9933;
+             width: 100%;
+             transition: width 0.3s ease;
+        }
+
+        /* Ensure vertical alignment with buttons */
+        .navbar-nav,
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Remove unwanted space at bottom of navbar */
+        .navbar-collapse {
+            margin-bottom: 0;
+        }
+
+/* Responsive adjustments */
+        @media (max-width: 992px) {
+            .nav-buttons {
+                margin-top: 10px;
+            }
+        }
+
+
         /* Page Title */
-        .page-title {
+        .page-title-loading {
             text-align: center;
             font-size: 3.2rem;
             font-weight: bold;
             color: #2c2c2c;
-            margin: 3rem 0 2rem 0;
-            letter-spacing: 2px;
+            margin: 5rem 0 2rem 0;
+            letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             font-family: 'Georgia', serif;
         }
