@@ -42,6 +42,7 @@ function createSmartNavbar() {
                 </div>
                 <ul class="nav-menu">
                     <li><a href="${pathPrefix}pages/explore.html">Explore India</a></li>
+                    <li><a href="${pathPrefix}pages/festival-calendar.html">Festival Calendar</a></li>
                     <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
                     <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
                     <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>

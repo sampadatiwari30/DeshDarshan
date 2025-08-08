@@ -1,0 +1,394 @@
+{
+  "festivals": [
+    {
+      "id": 1,
+      "name": "Makar Sankranti",
+      "date": "2024-01-15",
+      "states": ["Andhra Pradesh", "Telangana", "Karnataka", "Maharashtra", "Gujarat", "Rajasthan", "Uttar Pradesh", "Bihar", "West Bengal", "Odisha", "Assam", "Tamil Nadu", "Kerala"],
+      "description": "Harvest festival marking the sun's transit into Capricorn, celebrated with kite flying and traditional sweets",
+      "image": "assets/images/festivals/makar.jpg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 2,
+      "name": "Pongal",
+      "date": "2024-01-15",
+      "states": ["Tamil Nadu"],
+      "description": "Four-day harvest festival dedicated to the Sun God, featuring traditional cooking of sweet rice",
+      "image": "assets/images/festivals/pongal.jpg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 3,
+      "name": "Lohri",
+      "date": "2024-01-13",
+      "states": ["Punjab", "Haryana", "Delhi", "Himachal Pradesh"],
+      "description": "Winter solstice festival with bonfires, folk songs, and traditional dances",
+      "image": "assets/images/festivals/lohri.jpg",
+      "category": "Winter Festival"
+    },
+    {
+      "id": 4,
+      "name": "Bihu",
+      "date": "2024-01-15",
+      "states": ["Assam"],
+      "description": "Assam's harvest festival with traditional Bihu dance, music, and community feasts",
+      "image": "assets/images/festivals/bihu.jpg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 5,
+      "name": "Republic Day",
+      "date": "2024-01-26",
+      "states": ["All India"],
+      "description": "National celebration of India's constitution with grand parade and cultural performances",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "National Festival"
+    },
+    {
+      "id": 6,
+      "name": "Vasant Panchami",
+      "date": "2024-02-14",
+      "states": ["West Bengal", "Bihar", "Uttar Pradesh", "Odisha", "Rajasthan", "Gujarat", "Maharashtra"],
+      "description": "Spring festival dedicated to Goddess Saraswati, celebrated with yellow flowers and traditional attire",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Spring Festival"
+    },
+    {
+      "id": 7,
+      "name": "Maha Shivratri",
+      "date": "2024-03-08",
+      "states": ["All India"],
+      "description": "Night dedicated to Lord Shiva with fasting, prayers, and temple celebrations",
+      "image": "assets/images/festivals/mahashiv.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 8,
+      "name": "Holi",
+      "date": "2024-03-25",
+      "states": ["All India"],
+      "description": "Festival of colors celebrating spring and victory of good over evil",
+      "image": "assets/images/festivals/holi.jpg",
+      "category": "Spring Festival"
+    },
+    {
+      "id": 9,
+      "name": "Ram Navami",
+      "date": "2024-04-17",
+      "states": ["All India"],
+      "description": "Birth celebration of Lord Rama with religious ceremonies and cultural programs",
+      "image": "assets/images/festivals/ram-navami.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 10,
+      "name": "Baisakhi",
+      "date": "2024-04-13",
+      "states": ["Punjab", "Haryana", "Delhi"],
+      "description": "Harvest festival and Sikh New Year with traditional Bhangra and Gidda dances",
+      "image": "assets/images/festivals/baisakhi.jpeg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 11,
+      "name": "Eid-ul-Fitr",
+      "date": "2024-04-10",
+      "states": ["All India"],
+      "description": "Festival marking the end of Ramadan with prayers, feasting, and community celebrations",
+      "image": "assets/images/festivals/77.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 12,
+      "name": "Akshaya Tritiya",
+      "date": "2024-05-10",
+      "states": ["All India"],
+      "description": "Auspicious day for new beginnings, gold purchases, and charitable activities",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 13,
+      "name": "Buddha Purnima",
+      "date": "2024-05-23",
+      "states": ["All India"],
+      "description": "Birth anniversary of Lord Buddha with meditation, prayers, and cultural events",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 14,
+      "name": "Rath Yatra",
+      "date": "2024-07-07",
+      "states": ["Odisha", "West Bengal", "Jharkhand"],
+      "description": "Chariot festival of Lord Jagannath with grand processions and temple celebrations",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 15,
+      "name": "Guru Purnima",
+      "date": "2024-07-21",
+      "states": ["All India"],
+      "description": "Day to honor teachers and spiritual gurus with traditional ceremonies",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 16,
+      "name": "Raksha Bandhan",
+      "date": "2024-08-19",
+      "states": ["All India"],
+      "description": "Festival celebrating the bond between brothers and sisters with rakhi tying",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Cultural Festival"
+    },
+    {
+      "id": 17,
+      "name": "Janmashtami",
+      "date": "2024-08-26",
+      "states": ["All India"],
+      "description": "Birth celebration of Lord Krishna with devotional songs and cultural performances",
+      "image": "assets/images/festivals/janmashtami.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 18,
+      "name": "Ganesh Chaturthi",
+      "date": "2024-09-07",
+      "states": ["Maharashtra", "Karnataka", "Telangana", "Andhra Pradesh", "Gujarat", "Tamil Nadu"],
+      "description": "Festival honoring Lord Ganesha with elaborate decorations and community celebrations",
+      "image": "assets/images/festivals/ganesh.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 19,
+      "name": "Onam",
+      "date": "2024-09-05",
+      "states": ["Kerala"],
+      "description": "Harvest festival of Kerala with boat races, traditional dances, and grand feasts",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 20,
+      "name": "Navratri",
+      "date": "2024-10-03",
+      "states": ["All India"],
+      "description": "Nine-night festival dedicated to Goddess Durga with fasting and cultural programs",
+      "image": "assets/images/festivals/navratri.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 21,
+      "name": "Durga Puja",
+      "date": "2024-10-10",
+      "states": ["West Bengal", "Bihar", "Odisha", "Assam", "Tripura"],
+      "description": "Grand celebration of Goddess Durga with elaborate pandals and cultural events",
+      "image": "assets/images/festivals/durga puja.jpeg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 22,
+      "name": "Dussehra",
+      "date": "2024-10-12",
+      "states": ["All India"],
+      "description": "Victory of good over evil celebrated with Ramlila performances and effigy burning",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 23,
+      "name": "Karwa Chauth",
+      "date": "2024-11-01",
+      "states": ["North India"],
+      "description": "Fast observed by married women for the longevity of their husbands",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Cultural Festival"
+    },
+    {
+      "id": 24,
+      "name": "Diwali",
+      "date": "2024-11-01",
+      "states": ["All India"],
+      "description": "Festival of lights celebrating victory of light over darkness",
+      "image": "assets/images/festivals/67.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 25,
+      "name": "Gurpurab",
+      "date": "2024-11-27",
+      "states": ["Punjab", "Haryana", "Delhi"],
+      "description": "Birth anniversary of Guru Nanak Dev Ji with religious processions and community service",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 26,
+      "name": "Christmas",
+      "date": "2024-12-25",
+      "states": ["All India"],
+      "description": "Celebration of the birth of Jesus Christ with decorations and community gatherings",
+      "image": "assets/images/festivals/christmas.jpeg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 27,
+      "name": "Pongal",
+      "date": "2025-01-15",
+      "states": ["Tamil Nadu"],
+      "description": "Four-day harvest festival dedicated to the Sun God, featuring traditional cooking of sweet rice",
+      "image": "assets/images/festivals/pongal.jpg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 28,
+      "name": "Lohri",
+      "date": "2025-01-13",
+      "states": ["Punjab", "Haryana", "Delhi", "Himachal Pradesh"],
+      "description": "Winter solstice festival with bonfires, folk songs, and traditional dances",
+      "image": "assets/images/festivals/lohri.jpg",
+      "category": "Winter Festival"
+    },
+    {
+      "id": 29,
+      "name": "Makar Sankranti",
+      "date": "2025-01-15",
+      "states": ["Andhra Pradesh", "Telangana", "Karnataka", "Maharashtra", "Gujarat", "Rajasthan", "Uttar Pradesh", "Bihar", "West Bengal", "Odisha", "Assam", "Tamil Nadu", "Kerala"],
+      "description": "Harvest festival marking the sun's transit into Capricorn, celebrated with kite flying and traditional sweets",
+      "image": "assets/images/festivals/makar.jpg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 30,
+      "name": "Holi",
+      "date": "2025-03-14",
+      "states": ["All India"],
+      "description": "Festival of colors celebrating spring and victory of good over evil",
+      "image": "assets/images/festivals/holi.jpg",
+      "category": "Spring Festival"
+    },
+    {
+      "id": 31,
+      "name": "Independence Day",
+      "date": "2025-08-15",
+      "states": ["All India"],
+      "description": "National celebration of India's independence with flag hoisting and cultural programs",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "National Festival"
+    },
+    {
+      "id": 32,
+      "name": "Raksha Bandhan",
+      "date": "2025-08-08",
+      "states": ["All India"],
+      "description": "Festival celebrating the bond between brothers and sisters with rakhi tying",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Cultural Festival"
+    },
+    {
+      "id": 33,
+      "name": "Janmashtami",
+      "date": "2025-08-15",
+      "states": ["All India"],
+      "description": "Birth celebration of Lord Krishna with devotional songs and cultural performances",
+      "image": "assets/images/festivals/janmashtami.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 34,
+      "name": "Ganesh Chaturthi",
+      "date": "2025-08-27",
+      "states": ["Maharashtra", "Karnataka", "Telangana", "Andhra Pradesh", "Gujarat", "Tamil Nadu"],
+      "description": "Festival honoring Lord Ganesha with elaborate decorations and community celebrations",
+      "image": "assets/images/festivals/ganesh.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 35,
+      "name": "Onam",
+      "date": "2025-08-25",
+      "states": ["Kerala"],
+      "description": "Harvest festival of Kerala with boat races, traditional dances, and grand feasts",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Harvest Festival"
+    },
+    {
+      "id": 36,
+      "name": "Teacher's Day",
+      "date": "2025-09-05",
+      "states": ["All India"],
+      "description": "Day to honor teachers and their contributions to education",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Cultural Festival"
+    },
+    {
+      "id": 37,
+      "name": "Navratri",
+      "date": "2025-09-22",
+      "states": ["All India"],
+      "description": "Nine-night festival dedicated to Goddess Durga with fasting and cultural programs",
+      "image": "assets/images/festivals/navratri.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 38,
+      "name": "Durga Puja",
+      "date": "2025-09-30",
+      "states": ["West Bengal", "Bihar", "Odisha", "Assam", "Tripura"],
+      "description": "Grand celebration of Goddess Durga with elaborate pandals and cultural events",
+      "image": "assets/images/festivals/durga puja.jpeg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 39,
+      "name": "Dussehra",
+      "date": "2025-10-02",
+      "states": ["All India"],
+      "description": "Victory of good over evil celebrated with Ramlila performances and effigy burning",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 40,
+      "name": "Diwali",
+      "date": "2025-10-21",
+      "states": ["All India"],
+      "description": "Festival of lights celebrating victory of light over darkness",
+      "image": "assets/images/festivals/67.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 41,
+      "name": "Gurpurab",
+      "date": "2025-11-16",
+      "states": ["Punjab", "Haryana", "Delhi"],
+      "description": "Birth anniversary of Guru Nanak Dev Ji with religious processions and community service",
+      "image": "assets/images/festivals/festival.jpg",
+      "category": "Religious Festival"
+    },
+    {
+      "id": 42,
+      "name": "Christmas",
+      "date": "2025-12-25",
+      "states": ["All India"],
+      "description": "Celebration of the birth of Jesus Christ with decorations and community gatherings",
+      "image": "assets/images/festivals/christmas.jpeg",
+      "category": "Religious Festival"
+    }
+  ],
+  "states": [
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", 
+    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", 
+    "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", 
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", 
+    "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", 
+    "Uttar Pradesh", "Uttarakhand", "West Bengal"
+  ],
+  "unionTerritories": [
+    "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", 
+    "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
+  ]
+} 

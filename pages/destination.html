@@ -11,44 +11,167 @@
 
     
     <link rel="stylesheet" href="../css/destination.css">
+  <style>
+    /* feedback.css */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Navigation Styles */
+.navbar {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo h2 {
+  color: #ff9b36;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  font-family: "Cinzel", serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+}
+
+.nav-menu a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff9933;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu a:hover {
+  color: #ff9933;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  padding-left: 40px;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0.6rem 1.8rem;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 120px;
+  transition: all 0.3s ease;
+  gap: 8px; /* add gap to space arrow from text */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: #ff9933;
+  color: white;
+}
+
+/* Slightly darker on hover */
+.nav-buttons a:hover {
+  background: #e6821c; /* Darker orange shade */
+  color: white;
+}
+
+.nav-buttons a span {
+  transition: transform 0.3s ease;
+}
+
+.nav-buttons a i {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+/* On hover, move text and show arrow */
+.nav-buttons a:hover span {
+  transform: translateX(10px);
+}
+
+.nav-buttons a:hover i {
+  opacity: 1;
+  transform: translateX(0);
+}
+  </style>
   </head>
 
 <body>
-    <!-- Navigation Container -->
-    <div id="navbar-container"></div>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
-        <div class="container-fluid">
-            <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" aria-current="page" href="about us.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="crazyfacts.html">Crazy Facts </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="explore.html">Explore India </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="destination.html">Hidden Destinations </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="contactus.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="feedback.html">Feedback</a>
-                    </li>
-                </ul>
-            </div>
+<!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>DeshDarshan</h2>
         </div>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="home1.html">Home</a></li>
+          <li><a href="about us.html">About Us</a></li>
+          <li><a href="crazyfacts.html">Crazy Facts</a></li>
+          <li><a href="exploreindia.html">Explore India</a></li>
+          <li><a href="destination.html">Hidden Destinations</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="learn_lang.html">Learn Languages </a></li>
+        </ul>
+
+        <div class="nav-buttons">
+          <a href="signup.html"><span>Signup</span><i>→</i></a>
+          <a href="login.html"><span>Login</span><i>→</i></a>
+        </div>
+      </div>
     </nav>
     <br><br>
     <!-- Background Music -->
@@ -64,7 +187,7 @@
     </button>
 
     <!-- Page Title -->
-    <h1 class="page-title-loading">Hidden Destinations in India</h1>
+    <h1 class="page-title-loading" style="margin-top: 16px;">Hidden Destinations in India</h1>
 
     <!-- Cards Section -->
     <div class="container-fluid cards-section">
@@ -564,6 +687,18 @@
   document.getElementById("backToTopBtn").addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+  
+        // Mobile Navigation Toggle
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+      const navButtons = document.querySelector(".nav-buttons");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        navButtons.classList.toggle("active");
+      });
+
 </script>    <script src="../js/navbar-loader.js"></script>
 
 
