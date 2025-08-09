@@ -96,6 +96,11 @@ html .navbar .nav-container {
     margin-right: auto !important;
 }
 
+.navbar .nav-logo :hover{
+    box-shadow: 0 0 10px #ff9933(255, 165, 0, 0.8); /* orange glow */
+    transition: box-shadow 0.3s ease; /* smooth effect */
+}
+
 .navbar .nav-menu {
     flex: 1 !important;
     display: flex !important;
