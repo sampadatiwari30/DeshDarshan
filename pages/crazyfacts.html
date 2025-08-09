@@ -2,31 +2,40 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crazy Facts - Cartoon Style</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
-    rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts - DeshDarshan</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/fun-facts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: linear-gradient(135deg, hsl(220, 10%, 94%) 0%, #e9ecef 100%);
-      font-family: 'Nunito', sans-serif;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
+        body {
+            background: linear-gradient(135deg, hsl(220, 10%, 94%) 0%, #e9ecef 100%);
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
     .main-title {
       font-family: 'Fredoka One', cursive;
@@ -446,66 +455,41 @@
       }
     }
 
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+    </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:hsl(24, 5%, 19%);">
+    <!-- Navigation Bar Container -->
+    <div id="navbar-container"></div>
+
+    <div class="container-fluid mt-5 pt-4">
+                    <li class="nav-item">
+                        <a class="nav-link  navbarhover" href="crazyfacts.html">Crazy Facts </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  navbarhover" href="explore.html">Explore India </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  navbarhover" href="destination.html">Hidden Destinations </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link  navbarhover" href="contactus.html">Contact Us</a>
+    <div class="floating-hearts" id="floatingHearts"></div>
+
     <div class="container-fluid">
-      <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link navbarhover" aria-current="page" href="about-us.html">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbarhover" href="crazyFacts.html">Crazy Facts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbarhover" href="explore.html">Explore India</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbarhover" href="storytelling-card.html">Folks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbarhover" href="destination.html">Hidden Destinations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbarhover" href="pages/quiz.html">Quiz</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link navbarhover" href="contactus.html">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbarhover" href="feedback.html">Feedback</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <br><br>
-
-  <div class="floating-hearts" id="floatingHearts"></div>
-
-  <div class="container-fluid">
-    <h1 class="main-title">🎪 Crazy Facts 🎪</h1>
+        <h1 class="main-title">🎪 Crazy Facts 🎪</h1>
 
     <div class="row" id="stateCards">
       <!-- Cards will be generated by JavaScript -->
@@ -972,11 +956,14 @@
       }
     };
 
-    // Scroll to top on click
-    document.getElementById("backToTopBtn").addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
+  // Scroll to top on click
+  document.getElementById("backToTopBtn").addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<!-- Load navbar system -->
+<script src="../js/navbar-loader.js"></script>
 </body>
 
 </html>

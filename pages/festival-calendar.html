@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Calendar - DeshDarshan</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/festival-calendar.css">
+    <link rel="icon" href="../assets/images/icons/newlogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <!-- FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css' rel='stylesheet' />
+</head>
+
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="calendar-hero">
+        <div class="hero-content">
+            <h1>Interactive Festival Calendar</h1>
+            <p>Discover and explore festivals across all 28 states and 8 union territories of India</p>
+        </div>
+    </section>
+
+    <!-- Calendar Controls Section -->
+    <section class="calendar-controls">
+        <div class="container">
+            <div class="controls-wrapper">
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <label for="stateFilter">Filter by State:</label>
+                        <select id="stateFilter">
+                            <option value="">All States & UTs</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="categoryFilter">Filter by Category:</label>
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="Religious Festival">Religious Festival</option>
+                            <option value="Harvest Festival">Harvest Festival</option>
+                            <option value="Cultural Festival">Cultural Festival</option>
+                            <option value="Spring Festival">Spring Festival</option>
+                            <option value="Winter Festival">Winter Festival</option>
+                            <option value="National Festival">National Festival</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="monthFilter">Filter by Month:</label>
+                        <select id="monthFilter">
+                            <option value="">All Months</option>
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="view-controls">
+                    <button id="monthView" class="view-btn active">Month View</button>
+                    <button id="listView" class="view-btn">List View</button>
+                    <button id="clearFilters" class="clear-btn">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-section">
+        <div class="container">
+            <div id="calendar"></div>
+        </div>
+    </section>
+
+    <!-- Festival Details Modal -->
+    <div id="festivalModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="festival-details">
+                <div class="festival-image">
+                    <img id="modalFestivalImage" src="" alt="Festival">
+                </div>
+                <div class="festival-info">
+                    <h2 id="modalFestivalName"></h2>
+                    <div class="festival-meta">
+                        <span class="festival-date" id="modalFestivalDate"></span>
+                        <span class="festival-category" id="modalFestivalCategory"></span>
+                    </div>
+                    <p id="modalFestivalDescription"></p>
+                    <div class="festival-states">
+                        <h4>Celebrated in:</h4>
+                        <div id="modalFestivalStates"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Festivals Section -->
+    <section class="upcoming-festivals">
+        <div class="container">
+            <h2>Upcoming Festivals</h2>
+            <div id="upcomingFestivalsList" class="upcoming-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Festival Statistics Section -->
+    <section class="festival-stats">
+        <div class="container">
+            <h2>Festival Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3 id="totalFestivals">0</h3>
+                    <p>Total Festivals</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>36</h3>
+                    <p>States & Union Territories</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3 id="upcomingCount">0</h3>
+                    <p>Upcoming This Month</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-pray"></i>
+                    <h3 id="religiousCount">0</h3>
+                    <p>Religious Festivals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/festival-calendar.js"></script>
+</body>
+
+</html> 
