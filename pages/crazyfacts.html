@@ -2,945 +2,1234 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Facts - DeshDarshan</title>
-    <link rel="stylesheet" href="../css/fun-facts.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap"
-        rel="stylesheet">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            background: linear-gradient(135deg, hsl(220, 10%, 94%) 0%, #e9ecef 100%);
-            font-family: 'Nunito', sans-serif;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Facts - DeshDarshan</title>
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/fun-facts.css">
 
-        .main-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 4rem;
-            color: hsl(31, 97%, 58%);
-            text-shadow: 3px 3px 0px #fff, 6px 6px 0px #0af131;
-            text-align: center;
-            margin: 2rem 0;
-            animation: titleBounce 2s ease-in-out infinite alternate;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700&display=swap"
+    rel="stylesheet">
 
-        @keyframes titleBounce {
-            0% {
-                transform: translateY(0px);
-            }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-            100% {
-                transform: translateY(-10px);
-            }
-        }
 
-        .cartoon-card {
-            background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 1rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
+    body {
+      background: linear-gradient(135deg, hsl(220, 10%, 94%) 0%, #e9ecef 100%);
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
 
-        .cartoon-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+    .main-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 4rem;
+      color: hsl(31, 97%, 58%);
+      text-shadow: 3px 3px 0px #fff, 6px 6px 0px #0af131;
+      text-align: center;
+      margin: 2rem 0;
+      animation: titleBounce 2s ease-in-out infinite alternate;
+      padding-bottom: 40px;
+    }
 
-        .cartoon-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-            opacity: 0;
-        }
-
-        .cartoon-card:hover::before {
-            animation: shimmer 0.8s ease-in-out;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-                opacity: 0;
-            }
-        }
-
-        .cartoon-svg {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .cartoon-card:hover .cartoon-svg {
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        .state-name {
-            font-weight: 700;
-            color: #2c3e50;
-            font-size: 1.1rem;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .state-code {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .fact-modal {
-             background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
-            border-radius: 30px;
-            padding: 3rem;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: modalPop 0.5s ease-out;
-        }
-
-        @keyframes modalPop {
-            0% {
-                transform: scale(0.5) rotate(-10deg);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        .modal-cartoon {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
-            animation: modalCartoonBounce 1s ease-in-out infinite alternate;
-        }
-
-        @keyframes modalCartoonBounce {
-            0% {
-                transform: translateY(0px) scale(1);
-            }
-
-            100% {
-                transform: translateY(-15px) scale(1.1);
-            }
-        }
-
-        .speech-bubble {
-            background: #ffd93d;
-            border-radius: 20px;
-            padding: 1rem 2rem;
-            margin-bottom: 2rem;
-            margin-top: 1.5rem;
-            position: relative;
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.5rem;
-            color: #2c3e50;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid #ffd93d;
-        }
-
-        .crazy-fact {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            line-height: 1.6;
-            font-weight: 600;
-            background: linear-gradient(45deg, #d04545, #0c7d76);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .close-btn:hover {
-            background: #ff5252;
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-
-            .cartoon-card {
-                margin: 0.5rem;
-                padding: 1rem;
-            }
-
-            .fact-modal {
-                padding: 2rem;
-                margin: 1rem;
-            }
-
-            .crazy-fact {
-                font-size: 1.1rem;
-            }
-        }
-
-        .floating-hearts {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .heart {
-            position: absolute;
-            color: #ff6b6b;
-            font-size: 20px;
-            animation: floatUp 3s ease-in-out infinite;
-            opacity: 0;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .navbarhover:hover {
-            color: rgb(234, 112, 51);
-            font-weight: 700;
-            transition: 0.3s ease-in-out;
-        }
-              /*footer */
-
-      footer {
-        background-color: black;
-        color: white;
-        padding: 2.5rem 1.5rem;
-        margin-top: auto;
-        width: 100%;
-        box-sizing: border-box;
-        bottom: 0;
+    @keyframes titleBounce {
+      0% {
+        transform: translateY(0px);
       }
 
-      .footer-content-wrapper {
-        max-width: 80rem;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding-top: 0px;
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+
+
+    /*spin*/
+
+
+    /* Container Styling */
+    .fact-container {
+      text-align: center;
+      max-width: 650px;
+      margin: auto;
+      padding: 40px;
+
+
+      /* Unique diagonal split background */
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+
+      /* Overlay subtle pattern */
+      background-image:
+        linear-gradient(135deg, #ffecd230 25%, transparent 25%),
+        linear-gradient(225deg, #ffecd230 25%, transparent 25%),
+        linear-gradient(45deg, #ffecd230 25%, transparent 25%),
+        linear-gradient(315deg, #ffecd230 25%, transparent 25%);
+      background-size: 40px 40px;
+
+      /* Neon Glow Edges */
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 110, 97, 0.5),
+        0 0 40px rgba(255, 204, 128, 0.13);
+
+      /* Animation */
+      animation: fadeIn 0.8s ease-in-out;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    /* Hover Tilt Effect */
+    .fact-container:hover {
+      transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 111, 97, 0.5),
+        0 0 50px rgba(255, 204, 128, 0.4);
+    }
+
+    /* Fade In Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
       }
 
-      .footer-section p {
-        font-size: 0.875rem;
-        color: #a0aec0;
-        line-height: 1.625;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .fact-container {
+        padding: 18px;
+        border-radius: 15px;
+        background-size: 30px 30px;
+      }
+    }
+
+
+    /* Title & Subtitle */
+    .fact-title {
+      font-family: 'Yatra One', cursive;
+      font-size: 2.5rem;
+      color: #d84315;
+      margin-bottom: 5px;
+      padding: 30px;
+    }
+
+    .fact-subtitle {
+      font-size: 1rem;
+      color: #050505;
+      margin-bottom: 25px;
+    }
+
+    /* Fact Card */
+    .fact-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      margin-bottom: 25px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .fact-card:hover {
+      transform: scale(1.02);
+    }
+
+    .fact-content h2 {
+      color: #e65100;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .fact-content p {
+      font-size: 2rem;
+      color: #020202;
+      line-height: 1.6;
+    }
+
+    /* Spinner Wrapper */
+    .spinner-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Modern Spinner Button */
+    .spinner-button {
+      width: 90px;
+      height: 90px;
+      position: relative;
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+
+      /* 3D Gradient Look */
+      background: conic-gradient(from 0deg, #ff7043, #ffcc80, #f4511e, #ff7043);
+
+      /* Soft Glow */
+      box-shadow: 0 0 15px rgba(255, 111, 97, 0.4),
+        0 0 30px rgba(255, 204, 128, 0.3);
+
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulseGlow 2s infinite;
+    }
+
+    /* Glossy Shine Overlay */
+    .spinner-button::after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent);
+    }
+
+    /* Hover Effect */
+    .spinner-button:hover {
+      transform: scale(1.12) rotate(5deg);
+      box-shadow: 0 0 20px rgba(255, 111, 97, 0.6),
+        0 0 40px rgba(255, 204, 128, 0.5);
+    }
+
+    /* Click Effect - Spin */
+    .spinner-button:active {
+      animation: spinClick 0.5s linear;
+    }
+
+    /* Spin text */
+    .spin-text {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #d84315;
+      font-weight: 500;
+    }
+
+    /* Animations */
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 15px rgba(255, 111, 97, 0.4), 0 0 30px rgba(255, 204, 128, 0.3);
       }
 
-      .footer-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
+      50% {
+        box-shadow: 0 0 25px rgba(255, 111, 97, 0.6), 0 0 50px rgba(255, 204, 128, 0.5);
+      }
+    }
+
+    @keyframes spinClick {
+      from {
+        transform: rotate(0deg) scale(1.1);
       }
 
-      .footer-link,
-      .footer-contact-item {
-        color: #a0aec0;
-        transition: color 0.3s ease;
-        text-decoration: none;
-        font-size: 0.875rem;
-        display: flex;
-        align-items: center;
-        font-family: Arial, Helvetica, sans-serif;
+      to {
+        transform: rotate(360deg) scale(1.1);
+      }
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .fact-title {
+        font-size: 2rem;
       }
 
-      .footer-link:hover,
-      .footer-contact-item:hover {
-        color: #f7fafc;
+      .fact-card {
+        padding: 20px;
       }
 
-      .footer-contact-item span {
-        margin-left: 5px;
-      }
-
-      .footer-section {
-        flex: 1;
-        min-width: 180px;
-      }
-
-      .footer-section-title {
-        color: white;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        font-size: 1.125rem;
-        font-family: Arial, Helvetica, sans-serif;
-        transition: text-shadow 0.5s ease;
-      }
-
-      .footer-section-title:hover {
-        font-size: 1.2rem;
-        font-weight: 750;
-        text-shadow: 1px 1px 8px white;
-      }
-
-      .social-icons-container {
-        margin-top: 10px;
-        display: flex;
-        gap: 1rem;
-      }
-
-      .social-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: #4a5568;
-        color: #cbd5e0;
-        border: 1px solid #4a5568;
-        transition: background-color 0.3s ease, color 0.3s ease,
-          border-color 0.3s ease;
-        text-decoration: none;
-        border-radius: 50%;
-      }
-
-      .social-icon i {
+      .spinner-button {
+        width: 70px;
+        height: 70px;
         font-size: 1.5rem;
-        line-height: 1;
+      }
+    }
+
+
+
+
+    .cartoon-card {
+      background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 1rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cartoon-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cartoon-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      transition: all 0.5s;
+      opacity: 0;
+    }
+
+    .cartoon-card:hover::before {
+      animation: shimmer 0.8s ease-in-out;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        opacity: 0;
       }
 
-      .social-icon:hover {
-        background-color: rgba(255, 255, 255, 0.804);
-        color: #1a202c;
-        border-color: rgba(255, 255, 255, 0.804);
-        box-shadow: 0 0 15px white;
+      50% {
+        opacity: 1;
       }
 
-      .copyright-section {
-        border-top: 1px solid #4a5568;
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        text-align: center;
-        color: #a0aec0;
-        font-size: 0.875rem;
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .cartoon-svg {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .cartoon-card:hover .cartoon-svg {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .state-name {
+      font-weight: 700;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .state-code {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fact-modal {
+      background: linear-gradient(145deg, hwb(208 81% 3%), #f0f0f0);
+      border-radius: 30px;
+      padding: 3rem;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: modalPop 0.5s ease-out;
+    }
+
+    @keyframes modalPop {
+      0% {
+        transform: scale(0.5) rotate(-10deg);
+        opacity: 0;
       }
 
-      @media (min-width: 768px) {
-        .footer-content-wrapper {
-          grid-template-columns: repeat(4, 1fr);
-        }
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    .modal-cartoon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
+      animation: modalCartoonBounce 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes modalCartoonBounce {
+      0% {
+        transform: translateY(0px) scale(1);
       }
 
-      @media (min-width: 640px) {
-        .footer-content-wrapper {
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
+      100% {
+        transform: translateY(-15px) scale(1.1);
+      }
+    }
+
+    .speech-bubble {
+      background: #ffd93d;
+      border-radius: 20px;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      margin-top: 1.5rem;
+      position: relative;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid #ffd93d;
+    }
+
+    .crazy-fact {
+      font-size: 2.3rem;
+      color: #2c3e50;
+      line-height: 1.6;
+      font-weight: 600;
+      background: linear-gradient(45deg, #d04545, #0c7d76);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: #ff5252;
+      transform: scale(1.1) rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2.5rem;
       }
 
-      @media (min-width: 1024px) {
-        .footer-content-wrapper {
-          padding-left: 2rem;
-          padding-right: 2rem;
-        }
+      .cartoon-card {
+        margin: 0.5rem;
+        padding: 1rem;
       }
 
-      /* Animations */
-      @keyframes slideDown {
-        from {
-          transform: translateY(-100%);
-        }
-        to {
-          transform: translateY(0);
-        }
+      .fact-modal {
+        padding: 2rem;
+        margin: 1rem;
       }
 
-      @keyframes slideInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .crazy-fact {
+        font-size: 1.1rem;
+      }
+    }
+
+    .floating-hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff6b6b;
+      font-size: 20px;
+      animation: floatUp 3s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
       }
 
-    /* feedback.css */
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-/* Navigation Styles */
-.navbar {
-  background: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
+    .navbarhover:hover {
+      color: rgb(234, 112, 51);
+      font-weight: 700;
+      transition: 0.3s ease-in-out;
+    }
 
-.nav-container {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.nav-logo h2 {
-  color: #ff9b36;
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 0;
-  font-family: "Cinzel", serif;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
+    .row {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 40px;
+      scroll-snap-type: x mandatory;
+    }
 
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  margin: 0;
-}
+    .col-lg {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 30px 20px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgb(201, 201, 201);
+      color: #222;
+      box-shadow: 0 8px 24px rgba(194, 194, 194, 0.1);
+      transition: transform 0.3s ease;
 
-.nav-menu a {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  padding: 0.5rem 0;
-}
+    }
 
-.nav-menu a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ff9933;
-  transition: width 0.3s ease;
-}
+    /*quiz*/
+    .quiz-section {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px;
+      background: linear-gradient(145deg, #fff, #f0f0f0);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
 
-.nav-menu a:hover::after {
-  width: 100%;
-}
+    .quiz-section h2 {
+      color: #ff6f00;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
 
-.nav-menu a:hover {
-  color: #ff9933;
-}
+    .quiz-card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
 
-.nav-buttons {
-  display: flex;
-  gap: 1rem;
-  padding-left: 40px;
-}
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+    }
 
-.nav-buttons a {
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 0.6rem 1.8rem;
-  border-radius: 16px;
-  font-weight: 600;
-  font-size: 1rem;
-  min-width: 120px;
-  transition: all 0.3s ease;
-  gap: 8px; /* add gap to space arrow from text */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  background: #ff9933;
-  color: white;
-}
+    .quiz-option {
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-/* Slightly darker on hover */
-.nav-buttons a:hover {
-  background: #e6821c; /* Darker orange shade */
-  color: white;
-}
+    .quiz-option:hover {
+      background: #ffecb3;
+    }
 
-.nav-buttons a span {
-  transition: transform 0.3s ease;
-}
+    .quiz-option.correct {
+      border-color: #4caf50;
+      background: #e8f5e9;
+    }
 
-.nav-buttons a i {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 0;
-  transform: translateX(-10px);
-}
+    .quiz-option.wrong {
+      border-color: #f44336;
+      background: #ffebee;
+    }
 
-/* On hover, move text and show arrow */
-.nav-buttons a:hover span {
-  transform: translateX(10px);
-}
+    .quiz-btn {
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
 
-.nav-buttons a:hover i {
-  opacity: 1;
-  transform: translateX(0);
-}
-</style>
+    .quiz-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
 
+
+    /*footer */
+
+    footer {
+      background-color: black;
+      color: white;
+      padding: 2.5rem 1.5rem;
+      margin-top: auto;
+      width: 100%;
+      box-sizing: border-box;
+      bottom: 0;
+    }
+
+    .footer-content-wrapper {
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-top: 0px;
+    }
+
+    .footer-section p {
+      font-size: 0.875rem;
+      color: #a0aec0;
+      line-height: 1.625;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-link,
+    .footer-contact-item {
+      color: #a0aec0;
+      transition: color 0.3s ease;
+      text-decoration: none;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-link:hover,
+    .footer-contact-item:hover {
+      color: #f7fafc;
+    }
+
+    .footer-contact-item span {
+      margin-left: 5px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .footer-section-title {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+      font-family: Arial, Helvetica, sans-serif;
+      transition: text-shadow 0.5s ease;
+    }
+
+    .footer-section-title:hover {
+      font-size: 1.2rem;
+      font-weight: 750;
+      text-shadow: 1px 1px 8px white;
+    }
+
+    .social-icons-container {
+      margin-top: 10px;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: #4a5568;
+      color: #cbd5e0;
+      border: 1px solid #4a5568;
+      transition: background-color 0.3s ease, color 0.3s ease,
+        border-color 0.3s ease;
+      text-decoration: none;
+      border-radius: 50%;
+    }
+
+    .social-icon i {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .social-icon:hover {
+      background-color: rgba(255, 255, 255, 0.804);
+      color: #1a202c;
+      border-color: rgba(255, 255, 255, 0.804);
+      box-shadow: 0 0 15px white;
+    }
+
+    .copyright-section {
+      border-top: 1px solid #4a5568;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      color: #a0aec0;
+      font-size: 0.875rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 640px) {
+      .footer-content-wrapper {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-content-wrapper {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    .title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3rem;
+      color: hsl(31, 97%, 58%);
+      text-shadow: 3px 3px 0px #fff, 6px 6px 0px #c5f1cb;
+      text-align: center;
+      margin: 2rem 0;
+      animation: titleBounce 2s ease-in-out infinite alternate;
+    }
+  </style>
 </head>
 
 <body>
-<!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <h2>DeshDarshan</h2>
-        </div>
+  <!-- Navigation Bar Container -->
+  <div id="navbar-container">
 
-        <!-- Hamburger Icon -->
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+  </div>
+  <div class="container-fluid">
+    <h1 class="main-title">🎪 Crazy Facts 🎪</h1>
+  </div>
+  <div class="fact-container">
+    <h1 class="fact-title">🇮🇳 Incredible India Facts</h1>
+    <p class="fact-subtitle">Spin the button and discover amazing facts about India!</p>
 
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="home1.html">Home</a></li>
-          <li><a href="about us.html">About Us</a></li>
-          <li><a href="crazyfacts.html">Crazy Facts</a></li>
-          <li><a href="exploreindia.html">Explore India</a></li>
-          <li><a href="destination.html">Hidden Destinations</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="learn_lang.html">Learn Languages </a></li>
+    <div id="fact-card" class="fact-card">
+      <div class="fact-content">
+        <h2 id="fact-state">India</h2>
+        <p id="fact-text">Spin the wheel to reveal a mind-blowing Indian fact!</p>
+      </div>
+
+    </div>
+
+    <div class="spinner-wrapper">
+      <button id="spin-btn" class="spinner-button">🔁</button>
+      <p class="spin-text">Spin for a Fact</p>
+    </div>
+  </div>
+
+
+
+
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <div class="container-fluid">
+    <h1 class="title">Facts in States</h1>
+
+
+    <div class="row" id="stateCards">
+      <!-- Cards will be generated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div class="overlay" id="overlay">
+    <div class="fact-modal">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <div class="speech-bubble">Did you know?</div>
+      <svg class="modal-cartoon" id="modalCartoon" viewBox="0 0 200 200">
+        <!-- Will be populated by JavaScript -->
+      </svg>
+      <div class="crazy-fact" id="crazyFact">
+        <!-- Fact will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <!--quiz-->
+  <section class="quiz-section">
+    <h2>Test Your Knowledge!</h2>
+    <p>Answer this quick quiz based on the facts you just saw:</p>
+
+    <div class="quiz-card">
+      <h3 id="quiz-question">Loading question...</h3>
+      <div id="quiz-options" class="quiz-options"></div>
+      <button id="next-question" class="quiz-btn" disabled>Next Question</button>
+    </div>
+  </section>
+
+  <!--footer-->
+  <footer id="footer">
+    <div class="footer-content-wrapper">
+      <!-- Section 1: About Desh Darshan -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Desh Darshan</h3>
+        <p>
+          Desh Darshan is your gateway to the vibrant and diverse culture of
+          India. We aim to introduce the world to India's rich heritage,
+          traditions, arts, and history.
+        </p>
+      </div>
+
+      <!-- Section 2: Quick Links -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about us.html" class="footer-link">About Us</a></li>
+          <li>
+            <a href="explore.html" class="footer-link">Explore India</a>
+          </li>
+          <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+          <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
         </ul>
+      </div>
 
-        <div class="nav-buttons">
-          <a href="signup.html"><span>Signup</span><i>→</i></a>
-          <a href="login.html"><span>Login</span><i>→</i></a>
+      <!-- Section 3: Contact Us -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Contact Us</h3>
+        <ul>
+          <li class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@deshdarshan.in</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 1234567890</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New Delhi, India</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 4: Follow Us -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Follow Us</h3>
+        <div class="social-icons-container">
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="Behance"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-    </nav>
-    <div class="floating-hearts" id="floatingHearts"></div>
-
-    <div class="container-fluid">
-        <h1 class="main-title" style="margin-top: 100px;">🎪 Crazy Facts 🎪</h1>
-
-        <div class="row" id="stateCards">
-            <!-- Cards will be generated by JavaScript -->
-        </div>
     </div>
-
-    <!-- Modal Overlay -->
-    <div class="overlay" id="overlay">
-        <div class="fact-modal">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <div class="speech-bubble">Did you know?</div>
-            <svg class="modal-cartoon" id="modalCartoon" viewBox="0 0 200 200">
-                <!-- Will be populated by JavaScript -->
-            </svg>
-            <div class="crazy-fact" id="crazyFact">
-                <!-- Fact will be inserted here -->
-            </div>
-        </div>
+    <!--copyright -->
+    <div class="copyright-section">
+      &copy; <span id="year"></span> Desh Darshan. All rights reserved.
     </div>
-    <!--footer-->
-    <footer id="footer">
-      <div class="footer-content-wrapper">
-        <!-- Section 1: About Desh Darshan -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Desh Darshan</h3>
-          <p>
-            Desh Darshan is your gateway to the vibrant and diverse culture of
-            India. We aim to introduce the world to India's rich heritage,
-            traditions, arts, and history.
-          </p>
-        </div>
+  </footer>
+  <!-- Footer -->
+  <script>
+    const facts = [
+      {
+        Category: "History",
+        fact: "The Iron Man of India for his role in unifying the princely states after independence is  Sardar Vallabhbhai Patel"
+      },
+      {
+        Category: "History",
+        fact: "The original name of the Mughal emperor Shah Jahan is Prince Khurram"
+      },
+      {
+        Category: "History",
+        fact: "The Jallianwala Bagh massacre event in 1919 led to a mass protest and became a turning point in the Indian Independence movement"
+      },
+      {
+        Category: "Culture",
+        fact: "Kerala state is the origin of the captivating dance-drama form of Kathakali"
+      },
+      {
+        Category: "Culture",
+        fact: "Magnetic Hill in Ladakh creates an optical illusion where vehicles appear to move uphill."
+      },
+      {
+        Category: "Culture",
+        fact: "Sikkim is India’s first fully organic state."
+      },
+      {
+        Category: "Culture",
+        fact: "Garba is the name of the traditional Gujarati folk dance performed during Navratri celebrations"
+      },
+      {
+        Category: "Nagaland",
+        fact: `The Hornbill Festival celebrates 16 tribes and is called the "Festival of Festivals"`
+      },
+      {
+        Category: "Geography",
+        fact: `Arunachal Pradesh state is known as the "land of rising sun" due to its easternmost location`
+      },
+      {
+        Category: "Geography",
+        fact: "The Ganga is the longest river in India"
+      },
+      {
+        Category: "Geography",
+        fact: "Goa is the indian state has the smallest coastline"
+      },
+      {
+        Category: "Technology",
+        fact: "Aryabhata was the name of India's first satellite, launched in 1975"
+      },
+      {
+        Category: "Technology",
+        fact: " Kharagpur city was the first Indian Institute of Technology established"
+      },
+      {
+        Category: "Miscellaneous",
+        fact: `Dr. APJ Abdul Kalam is known as the "Missile Man of India"`
+      },
+      {
+        Category: "Miscellaneous",
+        fact: "Elephant is the national heritage animal of India"
+      },
+      {
+        Category: "Miscellaneous",
+        fact: "Jalandhar city in India is famous for manufacturing balls for the World Cup Football"
+      },
 
-        <!-- Section 2: Quick Links -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Quick Links</h3>
-          <ul>
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about us.html" class="footer-link">About Us</a></li>
-            <li>
-              <a href="explore.html" class="footer-link">Explore India</a>
-            </li>
-            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
-          </ul>
-        </div>
+    ];
 
-        <!-- Section 3: Contact Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Contact Us</h3>
-          <ul>
-            <li class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>hello@deshdarshan.in</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+91 1234567890</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>New Delhi, India</span>
-            </li>
-          </ul>
-        </div>
+    const spinBtn = document.getElementById("spin-btn");
+    const factCard = document.getElementById("fact-card");
+    const factState = document.getElementById("fact-state");
+    const factText = document.getElementById("fact-text");
 
-        <!-- Section 4: Follow Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Follow Us</h3>
-          <div class="social-icons-container">
-            <a href="#" class="social-icon" aria-label="Facebook"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Twitter"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Behance"
-              ><i class="fab fa-youtube"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!--copyright -->
-      <div class="copyright-section">
-        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-      </div>
-    </footer>
-    <!-- Footer -->
-    <script>
-        const statesData = [
-            {
-                name: "Andaman & Nicobar",
-                code: "AN",
-                fact: "The only place in India where you can see both sunrise and sunset over the sea from the same beach!",
-                color: "#ff6b6b"
-            },
-            {
-                name: "Andhra Pradesh",
-                code: "AP",
-                fact: "Home to the world's largest banyan tree that covers 5 acres and can shelter 20,000 people!",
-                color: "#4ecdc4"
-            },
-            {
-                name: "Arunachal Pradesh",
-                code: "AR",
-                fact: "The sun rises here 2 hours before it rises in Gujarat - India's easternmost state!",
-                color: "#45b7d1"
-            },
-            {
-                name: "Assam",
-                code: "AS",
-                fact: "Produces more than half of India's tea and has the world's largest river island, Majuli!",
-                color: "#96ceb4"
-            },
-            {
-                name: "Bihar",
-                code: "BR",
-                fact: "Birthplace of Buddhism and Jainism - where Buddha attained enlightenment under the Bodhi tree!",
-                color: "#feca57"
-            },
-            {
-                name: "Chandigarh",
-                code: "CH",
-                fact: "India's first planned city designed by a French architect and shared by two states!",
-                color: "#ff9ff3"
-            },
-            {
-                name: "Chhattisgarh",
-                code: "CG",
-                fact: "Called the 'Rice Bowl of India' and has more than 44% forest cover!",
-                color: "#54a0ff"
-            },
-            {
-                name: "Dadra & Nagar Haveli",
-                code: "DN",
-                fact: "Was a Portuguese colony until 1961 and is now India's smallest union territory by area!",
-                color: "#5f27cd"
-            },
-            {
-                name: "Delhi",
-                code: "DL",
-                fact: "Has been continuously inhabited for over 2,500 years and has 3 UNESCO World Heritage Sites!",
-                color: "#00d2d3"
-            },
-            {
-                name: "Goa",
-                code: "GA",
-                fact: "India's smallest state by area but has the highest GDP per capita in the country!",
-                color: "#ff6348"
-            },
-            {
-                name: "Gujarat",
-                code: "GJ",
-                fact: "The only place in Asia where you can see Asiatic lions in the wild at Gir Forest!",
-                color: "#2ed573"
-            },
-            {
-                name: "Haryana",
-                code: "HR",
-                fact: "Contributes 60% of India's basmati rice and is called the 'Denmark of India'!",
-                color: "#ffa502"
-            },
-            {
-                name: "Himachal Pradesh",
-                code: "HP",
-                fact: "Has the world's highest cricket ground at 2,444 meters above sea level in Chail!",
-                color: "#3742fa"
-            },
-            {
-                name: "Jammu & Kashmir",
-                code: "JK",
-                fact: "Home to the world's highest battlefield, Siachen Glacier, at 20,000 feet above sea level!",
-                color: "#70a1ff"
-            },
-            {
-                name: "Jharkhand",
-                code: "JH",
-                fact: "Produces 40% of India's mineral wealth and has the country's largest steel plant!",
-                color: "#7bed9f"
-            },
-            {
-                name: "Karnataka",
-                code: "KA",
-                fact: "India's Silicon Valley and the only state to have both tigers and elephants in the same forest!",
-                color: "#ff4757"
-            },
-            {
-                name: "Kerala",
-                code: "KL",
-                fact: "The only state where the population growth rate is below the national average and 100% literacy!",
-                color: "#2f3542"
-            },
-            {
-                name: "Ladakh",
-                code: "LA",
-                fact: "Has the world's highest motorable road at 19,300 feet and receives only 10cm of rainfall annually!",
-                color: "#a4b0be"
-            },
-            {
-                name: "Lakshadweep",
-                code: "LD",
-                fact: "India's smallest union territory with only 32 square kilometers and 36 coral islands!",
-                color: "#0abde3"
-            },
-            {
-                name: "Madhya Pradesh",
-                code: "MP",
-                fact: "Called the 'Heart of India' and has the largest number of national parks in the country!",
-                color: "#006ba6"
-            },
-            {
-                name: "Maharashtra",
-                code: "MH",
-                fact: "Contributes 25% of India's industrial output and Mumbai handles 70% of India's sea trade!",
-                color: "#f8b500"
-            },
-            {
-                name: "Manipur",
-                code: "MN",
-                fact: "The birthplace of modern polo and has the world's only floating national park!",
-                color: "#d63031"
-            },
-            {
-                name: "Meghalaya",
-                code: "ML",
-                fact: "Receives the highest rainfall in India and has living root bridges made from rubber trees!",
-                color: "#00b894"
-            },
-            {
-                name: "Mizoram",
-                code: "MZ",
-                fact: "Has the highest literacy rate among Indian states and bamboo flowers once every 50 years here!",
-                color: "#6c5ce7"
-            },
-            {
-                name: "Nagaland",
-                code: "NL",
-                fact: "Home to the world's largest chili, Bhut Jolokia, which is 400 times hotter than Tabasco!",
-                color: "#fd79a8"
-            },
-            {
-                name: "Odisha",
-                code: "OR",
-                fact: "Has the world's largest nesting site for Olive Ridley sea turtles at Gahirmatha Beach!",
-                color: "#fdcb6e"
-            },
-            {
-                name: "Puducherry",
-                code: "PY",
-                fact: "Was a French colony until 1954 and still maintains French architecture and culture!",
-                color: "#e17055"
-            },
-            {
-                name: "Punjab",
-                code: "PB",
-                fact: "Feeds the entire nation - produces 20% of India's wheat and 12% of rice!",
-                color: "#00cec9"
-            },
-            {
-                name: "Rajasthan",
-                code: "RJ",
-                fact: "India's largest state and has a temple dedicated to rats where 25,000 rats are worshipped!",
-                color: "#fab1a0"
-            },
-            {
-                name: "Sikkim",
-                code: "SK",
-                fact: "India's first organic state and has the third-highest peak in the world, Kanchenjunga!",
-                color: "#81ecec"
-            },
-            {
-                name: "Tamil Nadu",
-                code: "TN",
-                fact: "Has the world's second-largest beach, Marina Beach, stretching 13 kilometers!",
-                color: "#ff7675"
-            },
-            {
-                name: "Telangana",
-                code: "TS",
-                fact: "India's youngest state and Hyderabad produces 10% of all pharmaceutical products globally!",
-                color: "#74b9ff"
-            },
-            {
-                name: "Tripura",
-                code: "TR",
-                fact: "Has the highest number of primate species in India and bamboo grows abundantly here!",
-                color: "#a29bfe"
-            },
-            {
-                name: "Uttar Pradesh",
-                code: "UP",
-                fact: "Most populous state with more people than Brazil and has 3 UNESCO World Heritage Sites!",
-                color: "#fd79a8"
-            },
-            {
-                name: "Uttarakhand",
-                code: "UK",
-                fact: "Called 'Dev Bhoomi' (Land of Gods) and has 4 of Hinduism's holiest pilgrimage sites!",
-                color: "#55a3ff"
-            },
-            {
-                name: "West Bengal",
-                code: "WB",
-                fact: "Produces 70% of India's jute and Kolkata was India's capital for 140 years!",
-                color: "#26de81"
-            }
-        ];
+    spinBtn.addEventListener("click", () => {
+      // Add spin animation
+      spinBtn.classList.add("spin-rotate");
 
-        function createCartoonSVG(color, isModal = false) {
-            const questionText = isModal ? "you know?" : "?";
-            return `
+      // Remove spin animation after it finishes
+      spinBtn.addEventListener(
+        "animationend",
+        () => spinBtn.classList.remove("spin-rotate"),
+        { once: true }
+      );
+
+      // Hide fact for fade-out effect
+      factCard.classList.add("hidden");
+
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        const randomFact = facts[randomIndex];
+
+        factState.textContent = randomFact.Category;
+        factText.textContent = randomFact.fact;
+
+        factCard.classList.remove("hidden");
+      }, 300);
+    });
+
+
+    /*spin*/
+    const statesData = [
+      {
+        name: "Andaman & Nicobar",
+        code: "AN",
+        fact: "The only place in India where you can see both sunrise and sunset over the sea from the same beach!",
+        color: "#ff6b6b"
+      },
+      {
+        name: "Andhra Pradesh",
+        code: "AP",
+        fact: "Home to the world's largest banyan tree that covers 5 acres and can shelter 20,000 people!",
+        color: "#4ecdc4"
+      },
+      {
+        name: "Arunachal Pradesh",
+        code: "AR",
+        fact: "The sun rises here 2 hours before it rises in Gujarat - India's easternmost state!",
+        color: "#45b7d1"
+      },
+      {
+        name: "Assam",
+        code: "AS",
+        fact: "Produces more than half of India's tea and has the world's largest river island, Majuli!",
+        color: "#96ceb4"
+      },
+      {
+        name: "Bihar",
+        code: "BR",
+        fact: "Birthplace of Buddhism and Jainism - where Buddha attained enlightenment under the Bodhi tree!",
+        color: "#feca57"
+      },
+      {
+        name: "Chandigarh",
+        code: "CH",
+        fact: "India's first planned city designed by a French architect and shared by two states!",
+        color: "#ff9ff3"
+      },
+      {
+        name: "Chhattisgarh",
+        code: "CG",
+        fact: "Called the 'Rice Bowl of India' and has more than 44% forest cover!",
+        color: "#54a0ff"
+      },
+      {
+        name: "Dadra & Nagar Haveli",
+        code: "DN",
+        fact: "Was a Portuguese colony until 1961 and is now India's smallest union territory by area!",
+        color: "#5f27cd"
+      },
+      {
+        name: "Delhi",
+        code: "DL",
+        fact: "Has been continuously inhabited for over 2,500 years and has 3 UNESCO World Heritage Sites!",
+        color: "#00d2d3"
+      },
+      {
+        name: "Goa",
+        code: "GA",
+        fact: "India's smallest state by area but has the highest GDP per capita in the country!",
+        color: "#ff6348"
+      },
+      {
+        name: "Gujarat",
+        code: "GJ",
+        fact: "The only place in Asia where you can see Asiatic lions in the wild at Gir Forest!",
+        color: "#2ed573"
+      },
+      {
+        name: "Haryana",
+        code: "HR",
+        fact: "Contributes 60% of India's basmati rice and is called the 'Denmark of India'!",
+        color: "#ffa502"
+      },
+      {
+        name: "Himachal Pradesh",
+        code: "HP",
+        fact: "Has the world's highest cricket ground at 2,444 meters above sea level in Chail!",
+        color: "#3742fa"
+      },
+      {
+        name: "Jammu & Kashmir",
+        code: "JK",
+        fact: "Home to the world's highest battlefield, Siachen Glacier, at 20,000 feet above sea level!",
+        color: "#70a1ff"
+      },
+      {
+        name: "Jharkhand",
+        code: "JH",
+        fact: "Produces 40% of India's mineral wealth and has the country's largest steel plant!",
+        color: "#7bed9f"
+      },
+      {
+        name: "Karnataka",
+        code: "KA",
+        fact: "India's Silicon Valley and the only state to have both tigers and elephants in the same forest!",
+        color: "#ff4757"
+      },
+      {
+        name: "Kerala",
+        code: "KL",
+        fact: "The only state where the population growth rate is below the national average and 100% literacy!",
+        color: "#2f3542"
+      },
+      {
+        name: "Ladakh",
+        code: "LA",
+        fact: "Has the world's highest motorable road at 19,300 feet and receives only 10cm of rainfall annually!",
+        color: "#a4b0be"
+      },
+      {
+        name: "Lakshadweep",
+        code: "LD",
+        fact: "India's smallest union territory with only 32 square kilometers and 36 coral islands!",
+        color: "#0abde3"
+      },
+      {
+        name: "Madhya Pradesh",
+        code: "MP",
+        fact: "Called the 'Heart of India' and has the largest number of national parks in the country!",
+        color: "#006ba6"
+      },
+      {
+        name: "Maharashtra",
+        code: "MH",
+        fact: "Contributes 25% of India's industrial output and Mumbai handles 70% of India's sea trade!",
+        color: "#f8b500"
+      },
+      {
+        name: "Manipur",
+        code: "MN",
+        fact: "The birthplace of modern polo and has the world's only floating national park!",
+        color: "#d63031"
+      },
+      {
+        name: "Meghalaya",
+        code: "ML",
+        fact: "Receives the highest rainfall in India and has living root bridges made from rubber trees!",
+        color: "#00b894"
+      },
+      {
+        name: "Mizoram",
+        code: "MZ",
+        fact: "Has the highest literacy rate among Indian states and bamboo flowers once every 50 years here!",
+        color: "#6c5ce7"
+      },
+      {
+        name: "Nagaland",
+        code: "NL",
+        fact: "Home to the world's largest chili, Bhut Jolokia, which is 400 times hotter than Tabasco!",
+        color: "#fd79a8"
+      },
+      {
+        name: "Odisha",
+        code: "OR",
+        fact: "Has the world's largest nesting site for Olive Ridley sea turtles at Gahirmatha Beach!",
+        color: "#fdcb6e"
+      },
+      {
+        name: "Puducherry",
+        code: "PY",
+        fact: "Was a French colony until 1954 and still maintains French architecture and culture!",
+        color: "#e17055"
+      },
+      {
+        name: "Punjab",
+        code: "PB",
+        fact: "Feeds the entire nation - produces 20% of India's wheat and 12% of rice!",
+        color: "#00cec9"
+      },
+      {
+        name: "Rajasthan",
+        code: "RJ",
+        fact: "India's largest state and has a temple dedicated to rats where 25,000 rats are worshipped!",
+        color: "#fab1a0"
+      },
+      {
+        name: "Sikkim",
+        code: "SK",
+        fact: "India's first organic state and has the third-highest peak in the world, Kanchenjunga!",
+        color: "#81ecec"
+      },
+      {
+        name: "Tamil Nadu",
+        code: "TN",
+        fact: "Has the world's second-largest beach, Marina Beach, stretching 13 kilometers!",
+        color: "#ff7675"
+      },
+      {
+        name: "Telangana",
+        code: "TS",
+        fact: "India's youngest state and Hyderabad produces 10% of all pharmaceutical products globally!",
+        color: "#74b9ff"
+      },
+      {
+        name: "Tripura",
+        code: "TR",
+        fact: "Has the highest number of primate species in India and bamboo grows abundantly here!",
+        color: "#a29bfe"
+      },
+      {
+        name: "Uttar Pradesh",
+        code: "UP",
+        fact: "Most populous state with more people than Brazil and has 3 UNESCO World Heritage Sites!",
+        color: "#fd79a8"
+      },
+      {
+        name: "Uttarakhand",
+        code: "UK",
+        fact: "Called 'Dev Bhoomi' (Land of Gods) and has 4 of Hinduism's holiest pilgrimage sites!",
+        color: "#55a3ff"
+      },
+      {
+        name: "West Bengal",
+        code: "WB",
+        fact: "Produces 70% of India's jute and Kolkata was India's capital for 140 years!",
+        color: "#26de81"
+      }
+    ];
+
+    function createCartoonSVG(color, isModal = false) {
+      const questionText = isModal ? "you know?" : "?";
+      return `
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <!-- Boy -->
                     <circle cx="60" cy="70" r="25" fill="#fdbcb4" stroke="#333" stroke-width="2"/>
@@ -977,150 +1266,274 @@
                     <text x="100" y="160" font-size="8" fill="#ff6b6b">♥</text>
                 </svg>
             `;
-        }
+    }
 
-        function generateCards() {
-            const container = document.getElementById('stateCards');
-            statesData.forEach((state, index) => {
-                const card = document.createElement('div');
-                card.className = 'col-lg-2 col-md-3 col-sm-4 col-6';
-                card.innerHTML = `
+    function generateCards() {
+      const container = document.getElementById('stateCards');
+      statesData.forEach((state, index) => {
+        const card = document.createElement('div');
+        card.className = 'col-lg';
+        card.innerHTML = `
                     <div class="cartoon-card" onclick="showFact(${index})">
                         <div class="cartoon-svg">${createCartoonSVG(state.color)}</div>
                         <div class="state-name">${state.name}</div>
                         <div class="state-code">${state.code}</div>
                     </div>
                 `;
-                container.appendChild(card);
-            });
-        }
-
-        function showFact(index) {
-            const state = statesData[index];
-            const overlay = document.getElementById('overlay');
-            const modalCartoon = document.getElementById('modalCartoon');
-            const crazyFact = document.getElementById('crazyFact');
-
-            modalCartoon.innerHTML = createCartoonSVG(state.color, true);
-            crazyFact.textContent = state.fact;
-
-            overlay.style.display = 'flex';
-            createFloatingHearts();
-        }
-
-        function closeModal() {
-            document.getElementById('overlay').style.display = 'none';
-        }
-
-        function createFloatingHearts() {
-            const heartsContainer = document.getElementById('floatingHearts');
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.className = 'heart';
-                    heart.innerHTML = '♥';
-                    heart.style.left = Math.random() * 100 + '%';
-                    heart.style.animationDelay = Math.random() * 2 + 's';
-                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                    heartsContainer.appendChild(heart);
-
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 5000);
-                }, i * 200);
-            }
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('overlay').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function () {
-            generateCards();
-
-            // Add some initial floating hearts
-            setInterval(createFloatingHearts, 10000);
-        });
-
-        // Add keyboard support
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Back to Top Button -->
-<button id="backToTopBtn" title="Go to top">🔝</button>
-
-<style>
-  #backToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 40px;
-    right: 30px;
-    z-index: 99;
-    font-size: 30px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
-
-  #backToTopBtn:hover {
-    background-color: transparent;
-    transform: translateY(-5px);
-  }
-
-  @media screen and (max-width: 480px) {
-    #backToTopBtn {
-      font-size: 50px;
-      padding: 8px 10px;
-      bottom: 60px;
-      right: 5px;
-    }
-  }
-</style>
-
-<script>
-  // Show button on scroll
-  window.onscroll = function () {
-    const btn = document.getElementById("backToTopBtn");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  };
-
-  // Scroll to top on click
-  document.getElementById("backToTopBtn").addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-          // Mobile Navigation Toggle
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
-      const navButtons = document.querySelector(".nav-buttons");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        navButtons.classList.toggle("active");
+        container.appendChild(card);
       });
-</script>
+    }
 
-<!-- Load navbar system -->
-<script src="../js/navbar-loader.js"></script>
+    function showFact(index) {
+      const state = statesData[index];
+      const overlay = document.getElementById('overlay');
+      const modalCartoon = document.getElementById('modalCartoon');
+      const crazyFact = document.getElementById('crazyFact');
+
+      modalCartoon.innerHTML = createCartoonSVG(state.color, true);
+      crazyFact.textContent = state.fact;
+
+      overlay.style.display = 'flex';
+      createFloatingHearts();
+    }
+
+    function closeModal() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function createFloatingHearts() {
+      const heartsContainer = document.getElementById('floatingHearts');
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          heart.innerHTML = '♥';
+          heart.style.left = Math.random() * 100 + '%';
+          heart.style.animationDelay = Math.random() * 2 + 's';
+          heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+          heartsContainer.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 5000);
+        }, i * 200);
+      }
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('overlay').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function () {
+      generateCards();
+
+      // Add some initial floating hearts
+      setInterval(createFloatingHearts, 10000);
+    });
+
+    // Add keyboard support
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" title="Go to top">🔝</button>
+
+  <style>
+    #backToTopBtn {
+
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 30px;
+      z-index: 99;
+      font-size: 30px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    #backToTopBtn:hover {
+      background-color: transparent;
+      transform: translateY(-5px);
+    }
+
+    @media screen and (max-width: 480px) {
+      #backToTopBtn {
+        font-size: 50px;
+        padding: 8px 10px;
+        bottom: 60px;
+        right: 5px;
+      }
+    }
+  </style>
+
+  <script>
+    // Show button on scroll
+    window.onscroll = function () {
+      const btn = document.getElementById("backToTopBtn");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    // Scroll to top on click
+    document.getElementById("backToTopBtn").addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+
+    // quiz
+    const quizData = [
+      {
+        question: "Where is Magnetic Hill located?",
+        options: ["Ladakh", "Rajasthan", "Goa", "Kerala"],
+        answer: "Ladakh"
+      },
+      {
+        question: "Which fort is legally off-limits after sunset?",
+        options: ["Bhangarh Fort", "Red Fort", "Amber Fort", "Jaisalmer Fort"],
+        answer: "Bhangarh Fort"
+      },
+        {
+        question: "What was the original name of the Mughal emperor Shah Jahan?",
+        options: ["Prince Abdul", "Prince Khurram", "Prince Kamura", "Prince Aibak "],
+        answer: "Prince Khurram"
+      },
+       {
+        question: "Which city in India is famous for manufacturing balls for the World Cup Football?",
+        options: ["Punjab", "Haryana", "Jalandhar", "Gujrat"],
+        answer: "Jalandhar"
+      },
+       {
+        question: "What is the national heritage animal of India?",
+        options: ["Tiger", "Elephant", "Lion", "Giraffe"],
+        answer: "Elephant"
+      },
+       {
+        question: `Who is known as the "Missile Man of India"?`,
+        options: ["Dr. APJ Abdul Kalam", "Atal Bihari", "Sarojni Naydu", "Lala Lajpat Rai"],
+        answer: "Dr. APJ Abdul Kalam"
+      },
+       {
+        question: "In which city was the first Indian Institute of Technology established?",
+        options: ["Ahmedabad", "Bangalore", "Kharagpur", "Noida"],
+        answer: "Kharagpur"
+      },
+       {
+        question: "What was the name of India's first satellite, launched in 1975?",
+        options: ["Aryashukla", "yuvraj", "Aryabhata", "Jaisalmer"],
+        answer: "Aryabhata"
+      },
+       {
+        question: "Which Indian state has the smallest coastline?",
+        options: ["Mumbai", "Goa", "Bengal", "Kanyakumari"],
+        answer: "Goa"
+      },
+       {
+        question: "Name the longest river in India.",
+        options: ["Ganga", "Kaveri", "Yamuna", "Brahmaputra"],
+        answer: "Ganga"
+      },
+       {
+        question: `Which Indian state is known as the "land of rising sun" due to its easternmost location?`,
+        options: ["Sikkim", "Mizoram", "Manipur", "Arunachal Pradesh"],
+        answer: "Arunachal Pradesh"
+      },
+       {
+        question: "Which state is the origin of the captivating dance-drama form of Kathakali?",
+        options: ["Bangalore", "Kerala", "Tamil Nadu", "Goa"],
+        answer: "Kerala"
+      },
+       {
+        question: "What is the name of the traditional Gujarati folk dance performed during Navratri celebrations?",
+        options: ["Garba", "Folk dance", "kathak", "kanad"],
+        answer: "Garba"
+      },
+       {
+        question: "Which event in 1919 led to a mass protest and became a turning point in the Indian Independence movement?",
+        options: ["Chipko Movement", "The Jallianwala Bagh massacre", "Dandi March", "Movement"],
+        answer: "The Jallianwala Bagh massacre"
+      },
+       {
+        question: `Who is known as the "Iron Man of India" for his role in unifying the princely states after independence?`,
+        options: ["Neta ji Subhash Chandra Bose", "Mahatma Gandhi", "Sardar Vallabhbhai Patel", "Bal Gangadhar Tilak"],
+        answer: "Sardar Vallabhbhai Patel"
+      }
+    ];
+
+    let currentQuestion = 0;
+
+    const questionEl = document.getElementById("quiz-question");
+    const optionsEl = document.getElementById("quiz-options");
+    const nextBtn = document.getElementById("next-question");
+
+    function loadQuestion() {
+      const q = quizData[currentQuestion];
+      questionEl.textContent = q.question;
+      optionsEl.innerHTML = "";
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.classList.add("quiz-option");
+        btn.onclick = () => selectOption(btn, q.answer);
+        optionsEl.appendChild(btn);
+      });
+
+      nextBtn.disabled = true;
+    }
+
+    function selectOption(button, correctAnswer) {
+      const allOptions = document.querySelectorAll(".quiz-option");
+      allOptions.forEach(btn => btn.disabled = true);
+
+      if (button.textContent === correctAnswer) {
+        button.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+        allOptions.forEach(btn => {
+          if (btn.textContent === correctAnswer) {
+            btn.classList.add("correct");
+          }
+        });
+      }
+      nextBtn.disabled = false;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        questionEl.textContent = "🎉 Quiz Completed!";
+        optionsEl.innerHTML = "";
+        nextBtn.style.display = "none";
+      }
+    });
+
+    loadQuestion();
+
+  </script>
+
+  <!-- Load navbar system -->
+  <script src="../js/navbar-loader.js"></script>
+
 </body>
 
 </html>
