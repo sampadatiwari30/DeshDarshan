@@ -1,160 +1,183 @@
-// Blog and Experience Sharing JavaScript
+// Enhanced blog and experience sharing JavaScript
 
-// Sample blog data
+// Enhanced blog data with unique content
 const blogPosts = [
     {
         id: 1,
-        title: "Discovering the Hidden Temples of Hampi",
-        excerpt: "Journey through the ancient ruins of Vijayanagara Empire and uncover the spiritual essence of Karnataka's crown jewel.",
-        content: `Hampi, the ancient capital of the Vijayanagara Empire, stands as one of India's most magnificent archaeological sites. Nestled in the rocky landscape of Karnataka, this UNESCO World Heritage Site tells the story of a once-glorious empire through its stunning temples, royal complexes, and intricate stone carvings.
+        title: "The Secret Underground Stepwells of Gujarat",
+        excerpt: "Explore the architectural marvels hidden beneath Gujarat's surface - intricate stepwells that showcase medieval India's water conservation genius.",
+        content: `Gujarat's stepwells (vav) represent one of India's most ingenious architectural innovations, combining functionality with breathtaking beauty. These subterranean structures, built between the 11th and 16th centuries, served as both water reservoirs and community gathering spaces.
 
-        The Virupaksha Temple, dedicated to Lord Shiva, has been continuously active for over 700 years. Its towering gopuram and intricate sculptures showcase the architectural brilliance of the Vijayanagara period. The temple's main hall, with its ornate pillars and detailed carvings, creates an atmosphere of divine reverence.
+        The Rani ki Vav in Patan, a UNESCO World Heritage Site, descends seven levels underground with over 1,500 sculptures depicting Hindu mythology. The intricate carvings tell stories of the Dashavatara, showcasing artistic mastery that rivals any temple.
 
-        The Vittala Temple complex, famous for its stone chariot and musical pillars, represents the pinnacle of Vijayanagara architecture. Each pillar produces different musical notes when struck, demonstrating the advanced understanding of acoustics possessed by ancient Indian architects.
+        The Dada Harir stepwell in Ahmedabad features an octagonal structure with beautiful geometric patterns. Its five-story depth creates a natural cooling system, demonstrating ancient understanding of climate-responsive architecture.
 
-        Beyond the temples, Hampi's landscape itself is a wonder. The boulder-strewn terrain, the Tungabhadra River, and the sunset views from Hemakuta Hill create a mystical atmosphere that has inspired travelers and spiritual seekers for centuries.
+        These stepwells were more than water sources - they were social hubs where people gathered, especially during festivals. The acoustic design allowed voices to carry across multiple levels, facilitating community interaction.
 
-        Visiting Hampi is not just a journey through history; it's a spiritual experience that connects you with India's rich cultural heritage and architectural mastery.`,
+        Today, these forgotten marvels are being rediscovered as tourists and architects recognize their sustainable design principles and artistic excellence. They offer insights into medieval India's sophisticated urban planning and water management systems.`,
         category: "Heritage",
+<<<<<<< Updated upstream
         author: "Priya Sharma",
         date: "2024-12-15",
         image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+=======
+        author: "Arjun Patel",
+        date: "2024-12-20",
+        image: "https://images.unsplash.com/photo-1599492488363-3ea6b8e27e70?w=800&h=600&fit=crop",
+        featured: true
+>>>>>>> Stashed changes
     },
     {
         id: 2,
-        title: "The Flavors of Rajasthani Cuisine",
-        excerpt: "Explore the royal kitchens of Rajasthan and discover the rich, aromatic dishes that define the desert state's culinary heritage.",
-        content: `Rajasthani cuisine is a testament to the ingenuity of desert cooking, where scarcity of water and fresh vegetables led to the creation of some of India's most flavorful and long-lasting dishes. The royal kitchens of maharajas have given us a culinary legacy that continues to enchant food lovers worldwide.
+        title: "Bamboo Cooking: The Forgotten Art of Northeast India",
+        excerpt: "Discover how tribal communities of Northeast India create culinary magic using bamboo as cooking vessels, preserving ancient flavors and traditions.",
+        content: `In the lush hills of Northeast India, bamboo transcends its role as a building material to become the ultimate cooking vessel. This sustainable practice, passed down through generations of tribal communities, creates dishes with unique flavors impossible to replicate with modern cookware.
 
-        Dal Baati Churma stands as the crown jewel of Rajasthani cuisine. The hard wheat balls (baati) are traditionally baked in desert sand or cow dung fire, giving them a unique smoky flavor. Served with spicy dal and sweet churma, this dish represents the perfect balance of flavors and textures.
+        The Naga tribes stuff rice, meat, and vegetables inside young bamboo segments, sealing them with leaves before placing them over open fires. The bamboo imparts a subtle, earthy flavor while steaming the contents to perfection. This technique, called 'bamboo steaming,' retains maximum nutrition and creates incredibly tender textures.
 
-        Laal Maas, the fiery red meat curry, showcases the bold use of Mathania red chilies that give the dish its characteristic color and heat. Originally a hunting dish of the Rajput warriors, it has evolved into a restaurant favorite while maintaining its authentic preparation methods.
+        Assamese communities use bamboo to prepare 'Bamboo Chicken' - marinated meat cooked inside bamboo tubes with local herbs and spices. The result is succulent meat infused with a distinctive smoky-sweet flavor that no metal pot can achieve.
 
-        The vegetarian delights include Gatte ki Sabzi, where gram flour dumplings are cooked in a spicy yogurt gravy, and Ker Sangri, a unique preparation of desert beans and berries that can last for days without refrigeration.
+        The Manipuri 'Eromba' preparation involves fish curry cooked in bamboo containers, creating a harmony between the freshwater fish and the subtle bamboo essence. The cooking process is also eco-friendly, leaving no waste as the bamboo container biodegrades naturally.
 
-        Rajasthani sweets like Ghevar, Malpua, and Mawa Kachori reflect the state's love for rich, milk-based desserts. These sweets are not just food; they're an integral part of festivals and celebrations.
+        Beyond taste, bamboo cooking represents a philosophy of living in harmony with nature. These communities understand that the young bamboo's moisture content and natural properties create ideal cooking conditions, demonstrating ancient wisdom about sustainable gastronomy.
 
-        The cooking techniques, passed down through generations, emphasize the use of ghee, dried spices, and slow cooking methods that intensify flavors while ensuring food preservation in the harsh desert climate.`,
+        Today, as chefs worldwide seek authentic flavors and sustainable practices, Northeast India's bamboo cooking techniques offer valuable insights into eco-friendly culinary traditions.`,
         category: "Food",
-        author: "Arjun Singh",
-        date: "2024-12-10",
-        image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&h=600&fit=crop"
+        author: "Priya Devi",
+        date: "2024-12-18",
+        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop"
     },
     {
         id: 3,
-        title: "Celebrating Durga Puja in Bengal",
-        excerpt: "Experience the grandeur and devotion of Bengal's most beloved festival, where art, culture, and spirituality unite.",
-        content: `Durga Puja in Bengal is not just a religious festival; it's a cultural phenomenon that transforms the entire state into a canvas of art, devotion, and celebration. For five days, Bengal becomes the epicenter of one of India's most spectacular festivals.
+        title: "Hornbill Festival: Where 16 Tribes Unite in Nagaland",
+        excerpt: "Witness India's most vibrant tribal festival where ancient traditions, warrior dances, and indigenous crafts celebrate the rich heritage of Nagaland's diverse communities.",
+        content: `The Hornbill Festival in Nagaland represents India's most spectacular celebration of tribal diversity, where 16 distinct Naga tribes showcase their unique cultures in a harmonious festival of unity. Held in Kisama village every December, this 'Festival of Festivals' transforms the landscape into a living museum of indigenous traditions.
 
-        The preparation begins months in advance, with skilled artisans crafting magnificent clay idols of Goddess Durga. These sculptures, created in the traditional kumartuli (potter's quarters) of Kolkata, are masterpieces that blend religious iconography with contemporary artistic expression.
+        Each tribe brings its distinctive warrior dances, colorful attire, and traditional songs. The Angami tribe's intricate beadwork contrasts beautifully with the Konyak tribe's tattoo traditions and headhunter legacy. The Ao tribe's log drums create thunderous rhythms that echo across the hills.
 
-        Each neighborhood organizes its own puja, creating elaborate pandals (temporary structures) that often replicate famous monuments, address social issues, or showcase innovative themes. The pandal-hopping tradition allows people to experience diverse artistic interpretations while seeking the goddess's blessings.
+        The festival showcases forgotten arts - bamboo carving, traditional weaving, and indigenous brewing techniques. Visitors can witness the creation of Naga shawls, each pattern telling ancestral stories, and taste local delicacies like smoked pork with bamboo shoot curry and rice beer.
 
-        The cultural programs accompanying Durga Puja include classical dance performances, theatrical presentations, and musical concerts. The dhak (traditional drums) create a rhythmic backdrop that resonates through the streets, while the aroma of bhog (sacred food offering) fills the air.
+        The night concerts feature a unique blend of traditional folk songs and contemporary Naga rock bands, representing the community's seamless integration of ancient and modern cultures. The traditional Naga wrestling and archery competitions demonstrate skills passed down through generations.
 
-        The festival culminates with Vijaya Dashami, when the idols are immersed in rivers and ponds, symbolizing the goddess's return to her celestial abode. This bittersweet moment, accompanied by the chanting of "Asche bochor abar hobe" (it will happen again next year), captures the cyclical nature of Bengali cultural life.
+        Beyond entertainment, Hornbill Festival serves as a platform for preserving endangered languages, traditional knowledge, and crafts. Young Nagas learn ancestral skills while showcasing their heritage to the world.
 
-        Durga Puja represents the perfect synthesis of devotion, art, and community spirit that defines Bengali culture. It's a celebration that welcomes everyone, regardless of their background, into its warm embrace.`,
+        The festival's success has inspired other Northeastern states to celebrate their tribal heritage, making it a catalyst for cultural preservation across India's tribal communities.`,
         category: "Festivals",
-        author: "Ananya Banerjee",
-        date: "2024-12-05",
-        image: "https://images.unsplash.com/photo-1571679654681-ba01b9e1e117?w=800&h=600&fit=crop"
+        author: "Temjen Longkumer",
+        date: "2024-12-15",
+        image: "https://images.unsplash.com/photo-1548181092-6d2e66e87abb?w=800&h=600&fit=crop"
     },
     {
         id: 4,
-        title: "The Classical Dance Forms of South India",
-        excerpt: "Dive into the graceful world of Bharatanatyam, Kuchipudi, and other classical dance forms that preserve ancient Indian traditions.",
-        content: `South India has been the cradle of classical dance forms that have preserved ancient Indian traditions for over a thousand years. These dance forms are not mere entertainment; they are spiritual practices that combine devotion, storytelling, and artistic excellence.
+        title: "Theyyam: When Gods Dance in Kerala's Villages",
+        excerpt: "Experience the mystical ritual art of Theyyam, where ordinary villagers transform into divine beings through elaborate makeup, costumes, and possessed dance.",
+        content: `Theyyam represents one of India's most ancient and powerful ritual art forms, where the boundaries between performer and deity dissolve in a trance-like transformation. In Kerala's Malabar region, this 1500-year-old tradition turns ordinary villagers into living embodiments of gods and goddesses.
 
-        Bharatanatyam, originating from Tamil Nadu, is perhaps the most recognized classical dance form. Its precise movements, expressive eyes, and intricate footwork tell stories from Hindu mythology. The dance follows a traditional structure called Margam, which takes the audience on a spiritual journey from earthly to divine.
+        The transformation begins hours before dawn with elaborate body painting using natural pigments - red ochre, turmeric, charcoal, and rice paste. Each Theyyam has distinctive makeup patterns and costumes that can weigh up to 30 kilograms. The iconic headgear, some reaching 15 feet high, creates an otherworldly presence.
 
-        Kuchipudi from Andhra Pradesh combines dance with drama, often featuring male dancers in female roles. The famous Tarangam performance, where dancers perform on a brass plate while balancing a pot of water on their head, showcases the incredible skill and balance required in this art form.
+        Over 400 different Theyyams exist, each representing specific deities, heroes, or spirits. The performer enters a trance state, believed to be possessed by the divine spirit. During this transformation, they deliver oracles, bless devotees, and resolve community disputes as the deity they embody.
 
-        Kathakali from Kerala is a highly stylized dance-drama known for its elaborate makeup, costumes, and facial expressions. Each color and design in the makeup has specific meanings, and the training for Kathakali can take decades to master.
+        The ritual serves multiple social functions - it provides spiritual guidance, maintains social harmony, and preserves oral histories. Theyyam performances often occur in sacred groves (kavus) that protect local biodiversity, linking environmental conservation with spiritual practice.
 
-        Mohiniyattam, also from Kerala, is characterized by its graceful, swaying movements that mimic the palm trees of the region. The dance form celebrates feminine grace and is often performed solo by women dancers.
+        What makes Theyyam unique is its egalitarian nature. Performers often come from marginalized communities, yet during the ritual, they become the most revered figures, with even upper-caste devotees seeking their blessings.
 
-        These classical dance forms serve as living museums of Indian culture, preserving ancient stories, music, and spiritual practices. They continue to evolve while maintaining their traditional essence, inspiring new generations of artists and audiences worldwide.`,
+        This ancient art form challenges conventional religious hierarchies while preserving indigenous knowledge systems, demonstrating how traditional practices can address contemporary social issues.`,
         category: "Culture",
+<<<<<<< Updated upstream
         author: "Meera Nair",
         date: "2024-11-28",
         image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+=======
+        author: "Ravi Nambiar",
+        date: "2024-12-12",
+        image: "https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?w=800&h=600&fit=crop"
+>>>>>>> Stashed changes
     },
     {
         id: 5,
-        title: "Exploring the Backwaters of Kerala",
-        excerpt: "Navigate through the serene waterways of God's Own Country and discover the unique ecosystem of Kerala's backwaters.",
-        content: `Kerala's backwaters represent one of India's most unique and tranquil travel experiences. This network of interconnected canals, rivers, and lakes stretches across the coastal plains, creating an ecosystem that supports diverse flora, fauna, and traditional ways of life.
+        title: "The Living Root Bridges of Meghalaya",
+        excerpt: "Marvel at the bioengineering genius of Khasi tribes who grow bridges from living rubber tree roots, creating structures that strengthen with time.",
+        content: `In the misty hills of Meghalaya, the Khasi tribes have mastered a form of bioengineering that puts modern technology to shame. For over 500 years, they have been growing bridges from the living roots of rubber trees (Ficus elastica), creating structures that become stronger with age.
 
-        The backwater journey typically begins in Alleppey or Kumarakom, where traditional houseboats called 'kettuvallams' await travelers. These boats, originally used for transporting rice and spices, have been converted into floating accommodations that offer modern comforts while maintaining their traditional charm.
+        The process begins with young rubber tree saplings planted on opposite sides of streams. The pliable roots are guided across bamboo scaffolding and hand-woven into bridge shapes. This organic architecture takes 10-15 years to mature into a functional bridge, but can then support up to 50 people at once.
 
-        As you glide through the narrow canals, you'll witness a way of life that has remained unchanged for centuries. Fishermen cast their nets in the early morning mist, women wash clothes on the banks, and children wave from small villages nestled among coconut palms.
+        The most famous is the double-decker bridge near Nongriat village, where two root bridges have been stacked vertically. Some bridges stretch over 100 feet and have remained functional for centuries. Unlike man-made structures that deteriorate, these living bridges actually strengthen over time as roots grow thicker.
 
-        The backwaters are home to numerous bird species, including kingfishers, herons, and cormorants. The Kumarakom Bird Sanctuary, located on the banks of Vembanad Lake, is a paradise for birdwatchers, especially during the migratory season.
+        The Khasi technique involves no nails, cement, or modern materials - only traditional knowledge passed down through generations. They use betel nut tree trunks as guides and local bamboo for temporary support, demonstrating sustainable engineering principles.
 
-        The culinary experience on the backwaters is exceptional, with fresh fish, prawns, and crabs prepared in traditional Kerala style using coconut, curry leaves, and local spices. The meals are often cooked on board using fresh ingredients sourced from local markets.
+        These bridges represent more than transportation infrastructure; they embody a philosophy of living in harmony with nature. The Khasi people understand forest ecology deeply, knowing which trees to use, when to harvest, and how to maintain the delicate balance.
 
-        The backwaters also play a crucial role in Kerala's economy and ecology. They serve as natural drainage systems during monsoons and support agriculture, fishing, and tourism. The traditional farming methods, including the below-sea-level cultivation in Kuttanad, showcase the harmonious relationship between humans and nature.
-
-        A journey through Kerala's backwaters is more than just a scenic boat ride; it's an immersion into a sustainable way of life that has thrived for generations.`,
+        Climate change and modernization threaten this ancient practice, but younger Khasi generations are rediscovering its value. International architects and engineers now study these bridges for insights into sustainable construction methods.`,
         category: "Travel",
-        author: "Rajesh Kumar",
-        date: "2024-11-20",
-        image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=800&h=600&fit=crop"
+        author: "Mary Khongsit",
+        date: "2024-12-08",
+        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop"
     },
     {
         id: 6,
-        title: "The Art of Indian Handicrafts",
-        excerpt: "Discover the intricate craftsmanship and cultural significance of India's diverse handicraft traditions.",
-        content: `Indian handicrafts represent thousands of years of artistic tradition, where skilled artisans have passed down techniques through generations, creating objects of beauty and utility that reflect the soul of Indian culture.
+        title: "Phad Painting: Rajasthan's Epic Storytelling Canvas",
+        excerpt: "Explore the vibrant tradition of Phad painting, where master artists create epic narratives on cloth using natural pigments and ancestral techniques.",
+        content: `Phad painting represents one of Rajasthan's most dynamic storytelling traditions, where epic tales unfold across vast cloth canvases painted with natural pigments. This 700-year-old art form transforms religious narratives into visual spectacles that come alive through performance.
 
-        Madhubani paintings from Bihar showcase the artistic brilliance of rural women who transform mud walls and paper into vibrant canvases depicting mythological stories, nature, and daily life. Using natural pigments and traditional motifs, these paintings have gained international recognition while remaining rooted in their cultural origins.
+        Master Phad artists, known as Chitrakars, create scrolls up to 30 feet long depicting the adventures of folk heroes like Pabuji and Devnarayan. Using hand-prepared cloth and natural colors from minerals, vegetables, and stones, they paint intricate scenes filled with horses, camels, warriors, and gods.
 
-        The intricate woodwork of Kashmir, particularly the walnut wood carvings, demonstrates the exceptional skill of Kashmiri craftsmen. From decorative panels to furniture, each piece tells a story through its detailed patterns and motifs inspired by Mughal and Persian designs.
+        The painting process follows strict traditional methods. Artists prepare the canvas by washing, starching, and polishing it with a stone until smooth. Colors are made from ochre (red), lapislazuli (blue), hinglu (orange), and other natural sources, mixed with gum arabic to ensure longevity.
 
-        Rajasthan's blue pottery, with its distinctive cobalt blue dye and white base, represents a unique ceramic tradition brought to India by Mongol artisans. The pottery, made without clay and using a special mixture of quartz, glass, and multani mitti, creates pieces that are both beautiful and durable.
+        Phad paintings are not static art pieces but performance tools. Bhopa singers carry these scrolls from village to village, unrolling sections while narrating corresponding story episodes. The performance continues through the night, with oil lamps illuminating different scenes as the story progresses.
 
-        The silk weaving traditions of Varanasi produce some of the world's finest textiles. The Banarasi silk sarees, with their gold and silver brocade work, are considered essential for Indian weddings and special occasions. Each saree can take weeks or months to complete, depending on the complexity of the design.
+        Each painting follows complex iconographic rules - heroes are depicted in profile, divine figures face forward, and specific colors represent different emotions and characters. The detailed borders feature geometric patterns and mythical creatures.
 
-        Channapatna toys from Karnataka, made from ivory wood and colored with natural dyes, represent India's commitment to eco-friendly toy making. These toys, known for their smooth finish and vibrant colors, have been delighting children for generations.
+        Today, while traditional Bhopa performances decline, Phad painting survives through the Joshi family of Bhilwara, who have been awarded UNESCO recognition for preserving this unique combination of visual art and oral tradition.
 
-        The metal craft traditions include the bronze sculptures of Tamil Nadu, the brass work of Moradabad, and the silver jewelry of Rajasthan. Each region has developed its unique techniques and styles, creating a diverse tapestry of metalwork traditions.
-
-        These handicrafts are not just decorative objects; they are repositories of cultural knowledge, sustainable practices, and artistic excellence that continue to inspire contemporary designers and artists worldwide.`,
+        Contemporary artists are adapting Phad techniques for modern themes while maintaining traditional methods, ensuring this storytelling tradition continues to evolve.`,
         category: "Art",
+<<<<<<< Updated upstream
         author: "Kavita Desai",
         date: "2024-11-15",
         image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+=======
+        author: "Shanti Joshi",
+        date: "2024-12-05",
+        image: "https://images.unsplash.com/photo-1582652297511-2dded37f4722?w=800&h=600&fit=crop"
+>>>>>>> Stashed changes
     }
 ];
 
-// Sample shared experiences
+// Enhanced shared experiences with unique stories
 let sharedExperiences = [
     {
         id: 1,
-        title: "Sunrise at Kanyakumari",
-        location: "Tamil Nadu",
-        text: "Watching the sunrise at the southernmost tip of India was magical. The confluence of three oceans and the Vivekananda Rock Memorial created a spiritual atmosphere I'll never forget.",
-        author: "Amit Patel",
-        image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&h=300&fit=crop",
+        title: "Night Trek to Valley of Flowers",
+        location: "Uttarakhand",
+        text: "Witnessed the ethereal beauty of blooming alpine flowers under moonlight. The silence broken only by distant temple bells created a surreal experience.",
+        author: "Ananya Sharma",
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
         date: "2024-12-01"
     },
     {
         id: 2,
+<<<<<<< Updated upstream
         title: "Festival of Colors in Mathura",
         location: "Uttar Pradesh",
         text: "Celebrating Holi in Krishna's birthplace was an incredible experience. The energy, colors, and devotion of the people made it unforgettable.",
         author: "Sneha Gupta",
         image: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=300&fit=crop",
+=======
+        title: "Learning Warli Art from Tribal Masters",
+        location: "Maharashtra",
+        text: "Spent a week with Warli artisans learning their ancient painting techniques using rice paste and natural ochre. Each pattern tells stories of their ancestors.",
+        author: "Rohan Patel",
+        image: "https://images.unsplash.com/photo-1582652297511-2dded37f4722?w=400&h=300&fit=crop",
+>>>>>>> Stashed changes
         date: "2024-11-25"
     },
     {
         id: 3,
-        title: "Trekking in the Western Ghats",
-        location: "Maharashtra",
-        text: "The monsoon trek through Sahyadri mountains revealed India's incredible biodiversity. Every step was a discovery of new flora and fauna.",
-        author: "Rohit Sharma",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+        title: "Silk Weaving Apprenticeship in Kanchipuram",
+        location: "Tamil Nadu",
+        text: "Learned the intricate art of silk weaving from master craftsmen. The metallic threads and complex patterns require years to master - true dedication to craft.",
+        author: "Lakshmi Menon",
+        image: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=300&fit=crop",
         date: "2024-11-18"
     }
 ];
@@ -171,11 +194,108 @@ const successMessage = document.getElementById('success-message');
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
+    initializeSlideshow();
+    renderFeaturedBlog();
     renderBlogPosts();
     renderSharedExperiences();
     setupEventListeners();
+    setupCategoryFilter();
     showBlogSection(); // Show blog section by default
 });
+
+// Slideshow functionality
+let currentSlide = 0;
+const slides = ['Heritage Wonders', 'Culinary Journeys', 'Festival Chronicles'];
+
+function initializeSlideshow() {
+    const dots = document.querySelectorAll('.nav-dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+    });
+    
+    // Auto-advance slideshow
+    setInterval(nextSlide, 5000);
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % 3;
+    goToSlide(currentSlide);
+}
+
+function goToSlide(slideIndex) {
+    const slideElements = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.nav-dot');
+    
+    slideElements.forEach((slide, index) => {
+        slide.classList.toggle('active', index === slideIndex);
+    });
+    
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === slideIndex);
+    });
+    
+    currentSlide = slideIndex;
+}
+
+// Featured blog functionality
+function renderFeaturedBlog() {
+    const featuredBlog = blogPosts.find(post => post.featured) || blogPosts[0];
+    const featuredContainer = document.getElementById('featured-blog');
+    
+    featuredContainer.innerHTML = `
+        <div class="featured-content">
+            <div class="featured-image-container" style="position: relative; overflow: hidden; border-radius: 20px;">
+                <img src="${featuredBlog.image}" alt="${featuredBlog.title}" style="width: 100%; height: 300px; object-fit: cover; transition: transform 0.4s ease;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(255, 153, 51, 0.8), rgba(19, 136, 8, 0.8)); display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 2rem;">
+                    <div>
+                        <span style="background: rgba(255, 255, 255, 0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; display: inline-block;">${featuredBlog.category}</span>
+                        <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${featuredBlog.title}</h2>
+                        <p style="font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9;">${featuredBlog.excerpt}</p>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">
+                            <span>By ${featuredBlog.author}</span> • <span>${formatDate(featuredBlog.date)}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    featuredContainer.onclick = () => openBlogModal(featuredBlog);
+}
+
+// Category filtering
+function setupCategoryFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.category;
+            filterBlogPosts(category);
+            
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+}
+
+function filterBlogPosts(category) {
+    const filteredPosts = category === 'all' 
+        ? blogPosts.filter(post => !post.featured)
+        : blogPosts.filter(post => post.category === category && !post.featured);
+    
+    blogGrid.innerHTML = '';
+    
+    if (filteredPosts.length === 0) {
+        blogGrid.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem; font-size: 1.2rem;">No stories found in this category.</p>';
+        return;
+    }
+    
+    filteredPosts.forEach((post, index) => {
+        const blogCard = createBlogCard(post);
+        blogCard.style.animationDelay = `${index * 0.1}s`;
+        blogGrid.appendChild(blogCard);
+    });
+}
 
 // Tab switching functionality
 function setupEventListeners() {
@@ -229,12 +349,14 @@ function showExperienceSection() {
     blogSection.classList.remove('active');
 }
 
-// Render blog posts
+// Render blog posts (excluding featured)
 function renderBlogPosts() {
+    const regularPosts = blogPosts.filter(post => !post.featured);
     blogGrid.innerHTML = '';
     
-    blogPosts.forEach(post => {
+    regularPosts.forEach((post, index) => {
         const blogCard = createBlogCard(post);
+        blogCard.style.animationDelay = `${index * 0.1}s`;
         blogGrid.appendChild(blogCard);
     });
 }
@@ -264,8 +386,9 @@ function createBlogCard(post) {
 function renderSharedExperiences() {
     experiencesGrid.innerHTML = '';
     
-    sharedExperiences.forEach(experience => {
+    sharedExperiences.forEach((experience, index) => {
         const experienceCard = createExperienceCard(experience);
+        experienceCard.style.animationDelay = `${index * 0.1}s`;
         experiencesGrid.appendChild(experienceCard);
     });
 }
@@ -318,7 +441,7 @@ function handleExperienceSubmission(e) {
         location: formData.get('location'),
         text: formData.get('experience'),
         author: formData.get('name'),
-        image: document.getElementById('image-preview').src || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
+        image: document.getElementById('preview-image').src || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
         date: new Date().toISOString().split('T')[0]
     };
     
@@ -495,4 +618,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe elements for scroll animation
+document.addEventListener('DOMContentLoaded', () => {
+    const animateElements = document.querySelectorAll('.blog-card, .experience-card');
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
 });

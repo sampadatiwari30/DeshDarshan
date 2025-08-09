@@ -101,31 +101,115 @@ body {
     padding: 0 20px;
 }
 
-/* Page Header */
+/* Page Header with Slideshow */
 .page-header {
-    text-align: center;
     margin-bottom: 4rem;
-    padding: 3rem 0;
-    background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(19, 136, 8, 0.1));
     border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.header-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    animation: slideInUp 1s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -30%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.slideshow-navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background: white;
+    transform: scale(1.2);
 }
 
 .page-title {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #ff9933, #138808);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 153, 51, 0.3);
+    }
+    to {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 153, 51, 0.6);
+    }
 }
 
 .page-subtitle {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Tab Navigation */
@@ -172,6 +256,113 @@ body {
     animation: fadeIn 0.5s ease;
 }
 
+/* Featured Spotlight */
+.featured-spotlight {
+    margin-bottom: 4rem;
+}
+
+.spotlight-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #ff9933, #138808);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.spotlight-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(135deg, #ff9933, #138808);
+    border-radius: 2px;
+}
+
+.featured-blog-card {
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.featured-blog-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.featured-blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.featured-blog-card:hover::before {
+    left: 100%;
+}
+
+/* Category Filter */
+.category-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #ff9933;
+    background: transparent;
+    color: #ff9933;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff9933, #138808);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.filter-btn:hover::before,
+.filter-btn.active::before {
+    left: 0;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
+
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -184,19 +375,72 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInCard 0.6s ease forwards;
+}
+
+@keyframes slideInCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blog-card:nth-child(1) { animation-delay: 0.1s; }
+.blog-card:nth-child(2) { animation-delay: 0.2s; }
+.blog-card:nth-child(3) { animation-delay: 0.3s; }
+.blog-card:nth-child(4) { animation-delay: 0.4s; }
+.blog-card:nth-child(5) { animation-delay: 0.5s; }
+.blog-card:nth-child(6) { animation-delay: 0.6s; }
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(19, 136, 8, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
 }
 
 .blog-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-15px) rotateY(5deg) rotateX(5deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card:hover::before {
+    opacity: 1;
+}
+
+.blog-card:hover .blog-image {
+    transform: scale(1.1);
+    filter: brightness(1.1) saturate(1.2);
+}
+
+.blog-card:hover .blog-title {
+    color: #ff9933;
+    transform: translateX(5px);
+}
+
+.blog-card:hover .blog-category {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
 }
 
 .blog-image {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 0;
 }
 
 .blog-content {
@@ -212,6 +456,9 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .blog-title {
@@ -221,6 +468,9 @@ body {
     color: #333;
     margin-bottom: 1rem;
     line-height: 1.3;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .blog-excerpt {
@@ -422,18 +672,58 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInCard 0.6s ease forwards;
+}
+
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
+
+.experience-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.05), rgba(19, 136, 8, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .experience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.experience-card:hover::after {
+    opacity: 1;
+}
+
+.experience-card:hover .experience-image {
+    transform: scale(1.05) rotate(1deg);
+    filter: brightness(1.1);
+}
+
+.experience-card:hover .experience-title {
+    color: #ff9933;
+}
+
+.experience-card:hover .author-avatar {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
 }
 
 .experience-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: all 0.4s ease;
 }
 
 .experience-content {
@@ -457,6 +747,7 @@ body {
     font-weight: 700;
     color: #333;
     margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
 }
 
 .experience-text {
@@ -483,6 +774,7 @@ body {
     justify-content: center;
     color: white;
     font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 /* Modal Styles */
@@ -655,6 +947,81 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Featured Blog Styles */
+.featured-blog-card .featured-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.featured-blog-card:hover .featured-overlay {
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.9), rgba(19, 136, 8, 0.9)) !important;
+}
+
+/* Hover animations for various elements */
+.tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.2);
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px);
+}
+
+.modal-content:hover .modal-image {
+    transform: scale(1.02);
+}
+
+/* Additional animation keyframes */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.nav-dot:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Loading animation improvements */
+.spinner {
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+}
+
+/* Category filter enhancements */
+.filter-btn:hover {
+    animation: none;
+}
+
+.filter-btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* Experience card animation refinements */
+.experience-card:hover .experience-location {
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(19, 136, 8, 0.3);
+}
+
+/* Blog card refinements */
+.blog-card:hover .blog-content {
+    transform: translateY(-5px);
+}
+
+/* No results message styling */
+.no-results {
+    text-align: center;
+    color: #666;
+    padding: 3rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    margin: 2rem 0;
 }
 
 /* Responsive Design */

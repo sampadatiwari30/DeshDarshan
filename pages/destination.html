@@ -550,6 +550,9 @@
                     <li class="nav-item">
                         <a class="nav-link  navbarhover" href="destination.html">Hidden Destinations </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link  navbarhover" href="blog.html">Blogs </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -962,6 +965,11 @@
         function createDestinationCards() {
             const container = document.getElementById('destinationCards');
 
+            if (!container) {
+                console.error('destinationCards container not found');
+                return;
+            }
+
             destinations.forEach((destination, index) => {
                 const card = document.createElement('div');
                 card.className = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12';
@@ -983,8 +991,15 @@
 
         // Function to open modal with carousel
         function openModal(destinationName) {
-            const modal = new bootstrap.Modal(document.getElementById('destinationModal'));
+            const modalElement = document.getElementById('destinationModal');
             const carouselContent = document.getElementById('carouselContent');
+
+            if (!modalElement || !carouselContent) {
+                console.error('Modal elements not found');
+                return;
+            }
+
+            const modal = new bootstrap.Modal(modalElement);
 
             // Clear previous content
             carouselContent.innerHTML = '';
@@ -1051,6 +1066,12 @@
         function setupAudioControl() {
             const audio = document.getElementById('backgroundMusic');
             const audioToggle = document.getElementById('audioToggle');
+
+            if (!audio || !audioToggle) {
+                console.warn('Audio elements not found');
+                return;
+            }
+
             let isPlaying = false;
 
             // Try to play audio (handle autoplay restrictions)
@@ -1092,21 +1113,27 @@
         }
 
         // Close modal when clicking outside
-        document.getElementById('destinationModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                const modalInstance = bootstrap.Modal.getInstance(this);
-                if (modalInstance) {
-                    modalInstance.hide();
+        const destinationModal = document.getElementById('destinationModal');
+        if (destinationModal) {
+            destinationModal.addEventListener('click', function (e) {
+                if (e.target === this) {
+                    const modalInstance = bootstrap.Modal.getInstance(this);
+                    if (modalInstance) {
+                        modalInstance.hide();
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // Keyboard navigation
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
-                const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
-                if (modal) {
-                    modal.hide();
+                const modalElement = document.getElementById('destinationModal');
+                if (modalElement) {
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    if (modal) {
+                        modal.hide();
+                    }
                 }
             }
         });
@@ -1121,7 +1148,10 @@
 
             // Add loading animation to title
             setTimeout(() => {
-                document.querySelector('.page-title').style.opacity = '1';
+                const titleElement = document.querySelector('.page-title-loading');
+                if (titleElement) {
+                    titleElement.style.opacity = '1';
+                }
             }, 100);
 
             console.log('Hidden Destinations in India - Loaded successfully!');
@@ -1170,17 +1200,22 @@
   // Show button on scroll
   window.onscroll = function () {
     const btn = document.getElementById("backToTopBtn");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
+    if (btn) {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
     }
   };
 
   // Scroll to top on click
-  document.getElementById("backToTopBtn").addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  const backToTopBtn = document.getElementById("backToTopBtn");
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 </script>
 
 </body>
