@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spirit of India</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .slide-content h1 {
+            font-size: 60px;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow:
+                0 0 8px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(0, 0, 0, 0.7),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .slide-content p {
+            font-size: 24px;
+            color: white;
+            text-shadow:
+                0 0 8px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(0, 0, 0, 0.7),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: black;
+            border-radius: 2px;
+        }
+
+        .section-title.show {
+            opacity: 1;
+            transform: translateY(0);
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+
+        /* Highlights Section */
+        .highlights-section {
+            padding: 5rem 0;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .highlight-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .highlight-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            color: #ff9933;
+            margin-top: 1rem;
+        }
+
+        .highlight-card p {
+            padding: 0 1.2rem;
+            color: #555;
+            margin: 1rem 0;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(135deg, #FF9933, #138808);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .card-button:hover {
+            background: linear-gradient(135deg, #e86800, #0f7d2e);
+        }
+        #backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: #ff914d; /* match signup button */
+    color: white;
+    cursor: pointer;
+    padding: 14px 18px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  #backToTopBtn:hover {
+    background-color: #e67a35;
+    transform: scale(1.1);
+  }
+
+        /* Footer */
+        footer {
+            background-color: black;
+            color: white;
+            padding: 2.5rem 1.5rem;
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
+            bottom: 0;
+        }
+
+        .footer-content-wrapper {
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-top: 0px;
+        }
+
+        .footer-section p {
+            font-size: 0.875rem;
+            color: #a0aec0;
+            line-height: 1.625;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-link,
+        .footer-contact-item {
+            color: #a0aec0;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer-link:hover,
+        .footer-contact-item:hover {
+            color: #f7fafc;
+        }
+
+        .footer-contact-item span {
+            margin-left: 5px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-section-title {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: text-shadow 0.5s ease;
+        }
+
+        .footer-section-title:hover {
+            font-size: 1.2rem;
+            font-weight: 750;
+            text-shadow: 1px 1px 8px white;
+        }
+
+        .social-icons-container {
+            margin-top: 10px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #4a5568;
+            color: #cbd5e0;
+            border: 1px solid #4a5568;
+            transition: background-color 0.3s ease, color 0.3s ease,
+                border-color 0.3s ease;
+            text-decoration: none;
+            border-radius: 50%;
+        }
+
+        .social-icon i {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.804);
+            color: #1a202c;
+            border-color: rgba(255, 255, 255, 0.804);
+            box-shadow: 0 0 15px white;
+        }
+
+        .copyright-section {
+            border-top: 1px solid #4a5568;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #a0aec0;
+            font-size: 0.875rem;
+        }
+
+   
+        @media (min-width: 768px) {
+            .footer-content-wrapper {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 640px) {
+            .footer-content-wrapper {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-content-wrapper {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #backToTopBtn {
+                font-size: 50px;
+                padding: 8px 10px;
+                bottom: 60px;
+                right: 5px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .highlight-card img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body class="homepage">
+    <!-- Navigation Bar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section with Slideshow -->
+    <section class="hero">
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="../assets/images/heroes/beauty.jpg" alt="beauty">
+                <div class="slide-content lang-content active" data-lang="en">
+                    <h1>Discover the Beauty of India</h1>
+                    <p>Experience the rich heritage, vibrant culture, and timeless traditions</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="../assets/images/festivals/festival.jpg" alt="Festivals">
+                <div class="slide-content">
+                    <h1>A Land of 1000 Festivals</h1>
+                    <p>Festivals that honor nature, gods, and traditions.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="../assets/images/food/food.jpg" alt="Food">
+                <div class="slide-content">
+                    <h1>A Taste You'll Never Forget</h1>
+                    <p>Food that connects hearts and homes.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="../assets/images/heroes/culture.jpg" alt="Culture">
+                <div class="slide-content">
+                    <h1>India's Heart Beats in Its Culture</h1>
+                    <p>A land where heritage lives in every corner.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="../assets/images/heroes/theme.jpg" alt="Heritage">
+                <div class="slide-content">
+                    <h1>Pride of the Nation</h1>
+                    <p>Explore the iconic symbols that define India.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-indicators">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </section>
+
+    <!-- Section: Highlights -->
+    <section class="highlights-section">
+        <h2 class="section-title">Experience Indian Diversity</h2>
+        <div class="highlight-cards">
+            <!-- Festivals Card -->
+            <div class="highlight-card">
+                <img src="../assets/images/festivals/festival.jpg" alt="Festivals of India">
+                <h3>Festivals</h3>
+                <p>Celebrate the colors, lights, and joy that unite the nation throughout the year.</p>
+                <a href="festivals.html" class="card-button">Explore Festivals</a>
+            </div>
+
+            <!-- Food Card -->
+            <div class="highlight-card">
+                <img src="../assets/images/food/food.jpg" alt="Indian Food">
+                <h3>Food</h3>
+                <p>Savor the spice and flavors that define India's culinary heritage.</p>
+                <a href="food.html" class="card-button">Explore Food</a>
+            </div>
+
+            <!-- Dance Card -->
+            <div class="highlight-card">
+                <img src="../assets/images/heroes/culture.jpg" alt="Indian Dance">
+                <h3>Dance</h3>
+                <p>Witness the rhythm and grace of India's classical and folk dance forms.</p>
+                <a href="dance.html" class="card-button">Explore Dance</a>
+            </div>
+
+            <!-- Heritage Card-->
+            <div class="highlight-card">
+                <img src="../assets/images/heritage/heritage.jpg" alt="Heritage of India">
+                <h3>Heritage</h3>
+                <p>Explore the rich tapestry of India's history, architecture, and traditions.</p>
+                <a href="heritage.html" class="card-button">Explore Heritage</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content-wrapper">
+            <!-- Section 1: About Desh Darshan -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Desh Darshan</h3>
+                <p>
+                    Desh Darshan is your gateway to the vibrant and diverse culture of
+                    India. We aim to introduce the world to India's rich heritage,
+                    traditions, arts, and history.
+                </p>
+            </div>
+
+            <!-- Section 2: Quick Links -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html" class="footer-link link-home">Home</a></li>
+                    <li><a href="./about us.html" class="footer-link">About Us</a></li>
+                    <li>
+                        <a href="./explore.html" class="footer-link">Explore India</a>
+                    </li>
+                    <li><a href="./feedback.html" class="footer-link">Feedback</a></li>
+                    <li><a href="./contactus.html" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Contact Us -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Contact Us</h3>
+                <ul>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@deshdarshan.in</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 1234567890</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>New Delhi, India</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Follow Us -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Follow Us</h3>
+                <div class="social-icons-container">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!--copyright -->
+        <div class="copyright-section">
+            &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+<script>
+  // Get the button
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  // Show the button after scrolling down 300px
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  // Scroll to top when button is clicked
+  backToTopBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+
+    <script src="../js/home1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Show button on scroll
+        window.onscroll = function () {
+            const btn = document.getElementById("backToTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        // Scroll to top on click
+        document.getElementById("backToTopBtn").addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Set current year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Load navbar system -->
+    <script src="../js/navbar-loader.js"></script>
+</body>
+
+</html>

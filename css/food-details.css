@@ -1,0 +1,406 @@
+body {
+  background: #fff8f2;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 100px; /* to offset fixed navbar if used */
+  background-image: url("kitcehn-backg6.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+/* ✅ Add a soft overlay to dim background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* ✅ Improve container readability */
+.food-container {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px); /* optional: glassy effect */
+}
+
+/* ✅ Optional: subtle text shadow for contrast */
+h1,
+h5,
+p,
+li {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #b14f09;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(177, 79, 9, 0.2);
+  font-family: "Yeseva One", cursive;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease-out;
+}
+
+#food-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+}
+
+#food-desc {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+h5 {
+  margin-top: 2.5rem;
+  font-size: 1.3rem;
+  color: #e67e22;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+#food-section li,
+#food-funfact li {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+
+#food-section li strong {
+  color: #b14f09;
+}
+
+#food-funfact li::before {
+  content: " ";
+  color: #ff9933;
+}
+
+a.btn-primary {
+  background-color: #ff9933;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  padding: 0.6rem 1.5rem;
+}
+
+a.btn-primary:hover {
+  background-color: #ffb366;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .food-container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #food-img {
+    max-height: 300px;
+  }
+}
+.grandma-container {
+  display: flex;
+  flex-direction: column-reverse; /* Puts bubble above image */
+  align-items: center;
+  position: relative;
+  gap: 10px;
+  padding: 10px;
+  z-index: 1000;
+}
+.animated-grandma {
+  width: 100px;
+  height: auto;
+  animation: blink 4s infinite;
+  cursor: pointer;
+  position: relative;
+}
+
+.speech-bubble {
+  background: #fff9e6;
+  border: 2px solid #ffc107;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  font-size: 14px;
+  color: #333;
+  position: absolute;
+  margin-left: 170px;
+  max-width: 220px;
+  text-align: center;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Now points downward to the grandma */
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #ffc107;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  55% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.dish-slideshow {
+  background: linear-gradient(145deg, #fff5ec, #fff);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 650px;
+  animation: fadeInUp 0.6s ease;
+  border: 2px solid #ffe2c1;
+}
+
+.dish-slideshow h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #b14f09;
+  text-align: center;
+  font-weight: bold;
+}
+
+.slide-container {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#layerImage {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px dashed #f5c776;
+  background-color: #fffef6;
+  padding: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+#layerImage:hover {
+  transform: scale(1.015);
+}
+
+#layerText {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #5a3412;
+  font-style: italic;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #ffd180;
+  background: #fff9e6;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.slide-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.slide-controls button {
+  background-color: #f6b73c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.slide-controls button:hover {
+  background-color: #db9c2b;
+  transform: translateY(-2px);
+}
+
+.spice-toggle-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#spiceToggle {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #ff6b6b;
+  color: #ff4c4c;
+  font-weight: bold;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#spiceToggle:hover {
+  background: #ff4c4c;
+  color: white;
+  border-color: #ff4c4c;
+}
+#spiceOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0); /* Default: no color */
+  transition: background-color 0.5s ease;
+}
+
+.svg-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.svg-divider svg {
+  display: block;
+  width: 100%;
+  height: 40px;
+  stroke: black;
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0.5;
+}
+#fireEffect,
+#steamEffect,
+#mediumFireEffect {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  height: auto;
+  z-index: 999;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.floating-grandma-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 18px;
+  background-color: transparent;
+  border: 2px dashed #ffcc00;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "Comic Neue", cursive;
+  transition: all 0.3s ease;
+}
+
+.floating-grandma-button:hover {
+  background-color: #fff9e6;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Style the link list (if it has links inside) */
+#food-link {
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+#food-link li {
+  margin-bottom: 1rem;
+}
+
+#food-link li a {
+  color: #b14f09;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+#food-link li a:hover {
+  color: #e67e22;
+}
+
+/* Back to Home Button */
+a.btn-primary {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #ff9933;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+a.btn-primary:hover {
+  background-color: #ffb366;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
