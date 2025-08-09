@@ -36,6 +36,8 @@
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
+            background: url("https://img.freepik.com/free-vector/abstract-luxury-beautiful-decorative-yellow-background_1055-6454.jpg") no-repeat center center fixed;
+            background-size: cover;
         }
 
         @keyframes gradientShift {
@@ -933,6 +935,12 @@
         .info-card button:hover {
             background-color: #1a3b78;
         }
+
+        #pagedesc {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
     </style>
 </head>
 
@@ -940,7 +948,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                    <h2>Desh Darshan</h2>
+                <h2>Desh Darshan</h2>
             </div>
             <ul class="nav-menu">
                 <li><a href="about us.html">About Us</a></li>
@@ -970,6 +978,9 @@
     <div class="header">
         <h1 id="pageTitle">Explore India</h1>
         <p id="pageSubtitle">Discover the incredible diversity of Bharat</p>
+        <h2 id="pagedesc">“Did you know? 🎙️ Every Indian state hides a folk tale, a forgotten legend, or a curious fact
+            — let’s uncover
+            them, one voice at a time.”</h2>
 
         <div class="language-switcher">
             <select id="languageSelect">
@@ -1664,151 +1675,181 @@
             // 🧠 Cultural Info
             const stateInfo = {
                 "Andhra Pradesh": {
+                    audio: "andhra pradesh.mp3",
                     food: "Pulihora, Gongura Pachadi",
                     festivals: "Ugadi, Sankranti",
                     heritage: "Lepakshi Temple, Undavalli Caves"
                 },
                 "Arunachal Pradesh": {
+                    audio: "arunchal pradesh.mp3",
                     food: "Thukpa, Bamboo Shoot Curry",
                     festivals: "Losar, Solung",
                     heritage: "Tawang Monastery, Ita Fort"
                 },
                 "Assam": {
+                    audio: "assam.mp3",
                     food: "Khar, Masor Tenga",
                     festivals: "Bihu, Ambubachi Mela",
                     heritage: "Kaziranga National Park, Sivasagar Temples"
                 },
                 "Bihar": {
+                    audio: "bihar.mp3",
                     food: "Litti Chokha, Sattu Paratha",
                     festivals: "Chhath Puja, Sonepur Mela",
                     heritage: "Mahabodhi Temple, Nalanda University Ruins"
                 },
                 "Chhattisgarh": {
+                    audio: "chattishgarh.mp3",
                     food: "Chana Samosa, Faraa",
                     festivals: "Bastar Dussehra, Hareli",
                     heritage: "Chitrakoot Falls, Bhoramdeo Temple"
                 },
                 "Goa": {
+                    audio: "goa.mp3",
                     food: "Goan Fish Curry, Bebinca",
                     festivals: "Carnival, Shigmo",
                     heritage: "Basilica of Bom Jesus, Fort Aguada"
                 },
                 "Gujarat": {
+                    audio: "gujarat.mp3",
                     food: "Dhokla, Undhiyu",
                     festivals: "Navratri, Rann Utsav",
                     heritage: "Sun Temple (Modhera), Rani ki Vav"
                 },
                 "Haryana": {
+                    audio: "haryana.mp3",
                     food: "Bhutte ka Kees, Bajra Khichdi",
                     festivals: "Teej, Baisakhi",
                     heritage: "Kurukshetra, Surajkund Mela"
                 },
                 "Himachal Pradesh": {
+                    audio: "himachal pradesh.mp3",
                     food: "Chana Madra, Siddu",
                     festivals: "Kullu Dussehra, Losar",
                     heritage: "Hadimba Temple, Kalka-Shimla Railway"
                 },
                 "Jharkhand": {
+                    audio: "jharkhand.mp3",
                     food: "Thekua, Chilka Roti",
                     festivals: "Sarhul, Karma",
                     heritage: "Netarhat Plateau, Betla National Park"
                 },
                 "Karnataka": {
+                    audio: "karnataka.mp3",
                     food: "Bisi Bele Bath, Mysore Pak",
                     festivals: "Dasara, Ugadi",
                     heritage: "Hampi, Mysore Palace"
                 },
                 "Kerala": {
+                    audio: "kerala.mp3",
                     food: "Appam with Stew, Puttu",
                     festivals: "Onam, Thrissur Pooram",
                     heritage: "Backwaters, Padmanabhaswamy Temple"
                 },
                 "Madhya Pradesh": {
+                    audio: "mp.mp3",
                     food: "Poha, Bhutte ka Kees",
                     festivals: "Khajuraho Dance Festival, Bhagoria",
                     heritage: "Khajuraho Temples, Sanchi Stupa"
                 },
                 "Maharashtra": {
+                    audio: "maharashtra.mp3",
                     food: "Pav Bhaji, Vada Pav",
                     festivals: "Ganesh Chaturthi, Gudi Padwa",
                     heritage: "Ajanta & Ellora Caves, Gateway of India"
                 },
                 "Manipur": {
+                    audio: "manipur.mp3",
                     food: "Eromba, Chamthong",
                     festivals: "Yaoshang, Lai Haraoba",
                     heritage: "Loktak Lake, Kangla Fort"
                 },
                 "Meghalaya": {
+                    audio: "meghalaya.mp3",
                     food: "Jadoh, Dohneiiong",
                     festivals: "Wangala, Shad Suk Mynsiem",
                     heritage: "Living Root Bridges, Nartiang Monoliths"
                 },
                 "Mizoram": {
+                    audio: "mizoram.mp3",
                     food: "Bai, Bamboo Shoot Dishes",
                     festivals: "Chapchar Kut, Mim Kut",
                     heritage: "Reiek Tlang, Phawngpui Hills"
                 },
                 "Nagaland": {
+                    audio: "nagaland.mp3",
                     food: "Smoked Pork, Bamboo Shoot Curry",
                     festivals: "Hornbill Festival, Moatsu",
                     heritage: "Dzükou Valley, Kohima War Cemetery"
                 },
                 "Odisha": {
+                    audio: "odisha.mp3",
                     food: "Dalma, Chhena Poda",
                     festivals: "Rath Yatra, Durga Puja",
                     heritage: "Konark Sun Temple, Jagannath Temple"
                 },
                 "Punjab": {
+                    audio: "punjab.mp3",
                     food: "Sarson da Saag & Makki di Roti, Butter Chicken",
                     festivals: "Lohri, Baisakhi",
                     heritage: "Golden Temple, Jallianwala Bagh"
                 },
                 "Rajasthan": {
+                    audio: "rajasthan.mp3",
                     food: "Dal Baati Churma, Gatte ki Sabzi",
                     festivals: "Teej, Desert Festival",
                     heritage: "Amber Fort, Jaisalmer Fort"
                 },
                 "Sikkim": {
+                    audio: "sikkim.mp3",
                     food: "Phagshapa, Momos",
                     festivals: "Losar, Pang Lhabsol",
                     heritage: "Rumtek Monastery, Nathula Pass"
                 },
                 "Tamil Nadu": {
+                    audio: "tamil nadu.mp3",
                     food: "Sambar, Chettinad Chicken",
                     festivals: "Pongal, Mahamaham",
                     heritage: "Brihadeeswarar Temple, Mahabalipuram"
                 },
                 "Telangana": {
+                    audio: "telangana.mp3",
                     food: "Hyderabadi Biryani, Sarva Pindi",
                     festivals: "Bonalu, Bathukamma",
                     heritage: "Charminar, Golconda Fort"
                 },
                 "Tripura": {
+                    audio: "tripura.mp3",
                     food: "Mui Borok, Bamboo Shoot Curry",
                     festivals: "Garia Puja, Kharchi Puja",
                     heritage: "Neermahal, Ujjayanta Palace"
                 },
                 "Uttar Pradesh": {
+                    audio: "uttar pradesh.mp3",
                     food: "Tunde Kabab, Bedai",
                     festivals: "Holi, Diwali",
                     heritage: "Taj Mahal, Varanasi Ghats"
                 },
                 "Uttarakhand": {
+                    audio: "uttarakhand.mp3",
                     food: "Kafuli, Aloo Ke Gutke",
                     festivals: "Nanda Devi Mela, Basant Panchami",
                     heritage: "Kedarnath Temple, Valley of Flowers"
                 },
                 "West Bengal": {
+                    audio: "west bengal.mp3",
                     food: "Fish Curry, Rasgulla",
                     festivals: "Durga Puja, Poila Baisakh",
                     heritage: "Victoria Memorial, Sundarbans"
                 },
                 "Jammu and Kashmir": {
+                    audio: "jk.mp3",
                     food: "Rogan Josh, Dum Aloo, Modur Pulav",
                     festivals: "Hemis Festival, Baisakhi, Eid",
                     heritage: "Dal Lake, Shankaracharya Temple, Mughal Gardens"
                 },
                 "Andaman and Nicobar Islands": {
+                    audio: "andaman and nicobar islands.mp3",
                     food: "Seafood Curry, Coconut Prawn Curry",
                     festivals: "Island Tourism Festival, Subhash Mela",
                     heritage: "Cellular Jail, Radhanagar Beach, Ross Island"
@@ -1837,40 +1878,185 @@
             document.body.appendChild(infoBox);
 
 
+            let currentAudio = null;
+            let currentButton = null;
+            let currentProgress = null;
             // 📌 On State Click
+            //     polygonSeries.mapPolygons.template.events.on("click", function (ev) {
+            //         const state = ev.target.dataItem.dataContext.name;
+            //         const data = stateInfo[state];
+
+            //         if (data) {
+            //             infoBox.innerHTML = `
+            //       <div class="info-card">
+            //         <h2>${state}</h2>
+            //         <p><strong>Famous Food:</strong> ${data.food}</p>
+            //         <p><strong>Festivals:</strong> ${data.festivals}</p>
+            //         <p><strong>Heritage Sites:</strong> ${data.heritage}</p>
+
+            //         <div class="audio-controls">
+            //     <button class="play-btn">▶</button>
+            //         <input type="range" class="progress" value="0" min="0" max="100">
+            //     </div>
+
+            //         <button onclick="document.getElementById('infoBox').style.display='none'"
+            //           style="margin-top: 15px; padding: 8px 16px; background-color: #214780; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            //           Close
+            //         </button>
+            //       </div>
+            //     `;
+
+            //         } else {
+            //             infoBox.innerHTML = `
+            //           <div style="text-align:center;">
+            //             <p><strong>No data available for</strong> <span style="color:#214780">${state}</span>.</p>
+            //             <button onclick="document.getElementById('infoBox').style.display='none'"
+            //                     style="margin-top: 15px; padding: 8px 16px; background-color: #214780; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            //               Close
+            //             </button>
+            //           </div>
+            //         `;
+            //         }
+
+            //         infoBox.style.display = "block";
+            //     });
+            // });
+            // const playBtn = card.querySelector(".play-btn");
+            // const progressBar = card.querySelector(".progress");
+            // const audio = new Audio(`audio/${stateInfo.audio}`);
+
+            // playBtn.addEventListener("click", () => {
+            //     if (currentAudio && currentAudio !== audio) {
+            //         currentAudio.pause();
+            //         currentAudio.currentTime = 0;
+            //         if (currentButton) currentButton.textContent = "▶";
+            //         if (currentProgress) currentProgress.value = 0;
+            //         document.querySelectorAll(".card").forEach(c => c.classList.remove("playing"));
+            //     }
+
+            //     if (audio.paused) {
+            //         audio.play();
+            //         playBtn.textContent = "⏸";
+            //         card.classList.add("playing");
+            //         currentAudio = audio;
+            //         currentButton = playBtn;
+            //         currentProgress = progressBar;
+            //     } else {
+            //         audio.pause();
+            //         playBtn.textContent = "▶";
+            //     }
+            // });
+
+            // audio.addEventListener("timeupdate", () => {
+            //     progressBar.value = (audio.currentTime / audio.duration) * 100 || 0;
+            // });
+
+            // progressBar.addEventListener("input", () => {
+            //     audio.currentTime = (progressBar.value / 100) * audio.duration;
+            // });
+
+            // audio.addEventListener("ended", () => {
+            //     playBtn.textContent = "▶";
+            //     progressBar.value = 0;
+            //     card.classList.remove("playing");
+            //     currentAudio = null;
+            // });
             polygonSeries.mapPolygons.template.events.on("click", function (ev) {
                 const state = ev.target.dataItem.dataContext.name;
                 const data = stateInfo[state];
 
                 if (data) {
                     infoBox.innerHTML = `
-  <div class="info-card">
-    <h2>${state}</h2>
-    <p><strong>Famous Food:</strong> ${data.food}</p>
-    <p><strong>Festivals:</strong> ${data.festivals}</p>
-    <p><strong>Heritage Sites:</strong> ${data.heritage}</p>
-    <button onclick="document.getElementById('infoBox').style.display='none'"
-      style="margin-top: 15px; padding: 8px 16px; background-color: #214780; color: white; border: none; border-radius: 5px; cursor: pointer;">
-      Close
-    </button>
-  </div>
-`;
+          <div class="info-card">
+            <h2>${state}</h2>
+            <p><strong>Famous Food:</strong> ${data.food}</p>
+            <p><strong>Festivals:</strong> ${data.festivals}</p>
+            <p><strong>Heritage Sites:</strong> ${data.heritage}</p>
+
+            <div class="audio-controls">
+                <button class="play-btn">▶</button>
+                <input type="range" class="progress" value="0" min="0" max="100">
+            </div>
+
+            <button class="close-btn"
+              style="margin-top: 15px; padding: 8px 16px; background-color: #214780; color: white; border: none; border-radius: 5px; cursor: pointer;">
+              Close
+            </button>
+          </div>
+        `;
+
+                    infoBox.style.display = "block";
+
+                    // Get elements AFTER inserting into DOM
+                    const card = infoBox.querySelector(".info-card");
+                    const playBtn = card.querySelector(".play-btn");
+                    const progressBar = card.querySelector(".progress");
+                    const closeBtn = card.querySelector(".close-btn");
+
+                    const audio = new Audio(`audio/${data.audio}`);
+
+                    // Play button logic
+                    playBtn.addEventListener("click", () => {
+                        // Stop any currently playing audio
+                        if (currentAudio && currentAudio !== audio) {
+                            currentAudio.pause();
+                            currentAudio.currentTime = 0;
+                            if (currentButton) currentButton.textContent = "▶";
+                            if (currentProgress) currentProgress.value = 0;
+                        }
+
+                        if (audio.paused) {
+                            audio.play();
+                            playBtn.textContent = "⏸";
+                            currentAudio = audio;
+                            currentButton = playBtn;
+                            currentProgress = progressBar;
+                        } else {
+                            audio.pause();
+                            playBtn.textContent = "▶";
+                        }
+                    });
+
+                    // Update progress bar
+                    audio.addEventListener("timeupdate", () => {
+                        progressBar.value = (audio.currentTime / audio.duration) * 100 || 0;
+                    });
+
+                    // Seek in audio
+                    progressBar.addEventListener("input", () => {
+                        audio.currentTime = (progressBar.value / 100) * audio.duration;
+                    });
+
+                    // Reset on end
+                    audio.addEventListener("ended", () => {
+                        playBtn.textContent = "▶";
+                        progressBar.value = 0;
+                        currentAudio = null;
+                    });
+
+                    // Close button stops audio
+                    closeBtn.addEventListener("click", () => {
+                        infoBox.style.display = "none";
+                        audio.pause();
+                        audio.currentTime = 0;
+                    });
 
                 } else {
                     infoBox.innerHTML = `
-      <div style="text-align:center;">
-        <p><strong>No data available for</strong> <span style="color:#214780">${state}</span>.</p>
-        <button onclick="document.getElementById('infoBox').style.display='none'"
-                style="margin-top: 15px; padding: 8px 16px; background-color: #214780; color: white; border: none; border-radius: 5px; cursor: pointer;">
-          Close
-        </button>
-      </div>
-    `;
+          <div style="text-align:center;">
+            <p><strong>No data available for</strong> <span style="color:#214780">${state}</span>.</p>
+            <button onclick="document.getElementById('infoBox').style.display='none'"
+                    style="margin-top: 15px; padding: 8px 16px; background-color: #214780; color: white; border: none; border-radius: 5px; cursor: pointer;">
+              Close
+            </button>
+          </div>
+        `;
+                    infoBox.style.display = "block";
                 }
-
-                infoBox.style.display = "block";
             });
+
         });
+
     </script>
 </body>
 
