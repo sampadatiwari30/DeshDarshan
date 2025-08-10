@@ -16,16 +16,16 @@ const blogPosts = [
 
         Today, these forgotten marvels are being rediscovered as tourists and architects recognize their sustainable design principles and artistic excellence. They offer insights into medieval India's sophisticated urban planning and water management systems.`,
         category: "Heritage",
-<<<<<<< Updated upstream
+ Updated upstream
         author: "Priya Sharma",
         date: "2024-12-15",
         image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
-=======
+
         author: "Arjun Patel",
         date: "2024-12-20",
         image: "https://images.unsplash.com/photo-1599492488363-3ea6b8e27e70?w=800&h=600&fit=crop",
         featured: true
->>>>>>> Stashed changes
+ Stashed changes
     },
     {
         id: 2,
