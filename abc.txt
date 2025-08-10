@@ -1,0 +1,262 @@
+Improved Itinerary Section with Better Contrast
+.itinerary-container {
+    display: none;
+    padding: 20px;
+    background-color: #f8fafc; /* Light background */
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    animation: fadeIn 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+    color: #333; /* Dark text for better contrast */
+    border: 1px solid #e2e8f0;
+}
+
+.itinerary-container h4 {
+    color: #2563eb; /* Brighter blue for headings */
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+.itinerary-day {
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-left: 4px solid #2563eb; /* Accent border */
+}
+
+.itinerary-day h5 {
+    color: #2563eb;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.itinerary-day ul {
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+.itinerary-day li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #4b5563; /* Slightly softer dark color */
+    position: relative;
+}
+
+.itinerary-day li:before {
+    content: "•";
+    color: #2563eb;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Travel Tips section */
+.itinerary-tips {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.itinerary-tips h5 {
+    color: #2563eb;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.itinerary-tips ul {
+    padding-left: 20px;
+}
+
+.itinerary-tips li {
+    margin-bottom: 8px;
+    color: #4b5563;
+}
+
+/* Time formatting */
+.time-period {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .itinerary-container {
+        padding: 15px;
+    }
+    
+    .itinerary-day {
+        padding: 12px;
+    }
+    
+    .itinerary-day h5, .itinerary-tips h5 {
+        font-size: 0.95rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* itinerary.css */
+.itinerary-page {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.itinerary-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.itinerary-header h1 {
+    font-size: 2.5rem;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.itinerary-header img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.itinerary-intro {
+    background-color: #f8fafc;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid #2563eb;
+}
+
+.itinerary-day {
+    margin-bottom: 30px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.itinerary-day h2 {
+    color: #2563eb;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.time-slot {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.time {
+    font-weight: 600;
+    color: #2563eb;
+    min-width: 120px;
+}
+
+.activity {
+    flex: 1;
+    padding-left: 15px;
+    border-left: 2px dashed #e2e8f0;
+}
+
+.travel-tips {
+    background-color: #f0f9ff;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.travel-tips h2 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.tip-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tip-icon {
+    color: #2563eb;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.map-container {
+    margin-top: 40px;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .itinerary-header h1 {
+        font-size: 2rem;
+    }
+    
+    .time-slot {
+        flex-direction: column;
+    }
+    
+    .time {
+        margin-bottom: 5px;
+    }
+    
+    .activity {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 5px;
+        border-top: 2px dashed #e2e8f0;
+    }
+}

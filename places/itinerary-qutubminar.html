@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qutub Minar Itinerary | Explore India's Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced Itinerary CSS */
+        body.itinerary-page {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+            border-bottom: 2px solid #f1c40f;
+        }
+
+        /* Main Content Styles */
+        .itinerary-header {
+            text-align: center;
+            margin: 50px 0 40px;
+            position: relative;
+        }
+
+        .itinerary-header h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+
+        .itinerary-header img {
+            
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-bottom: 10px;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .itinerary-header img:hover {
+            transform: scale(1.01);
+        }
+
+        .itinerary-intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #f1c40f;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .itinerary-intro::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23f1c40f" opacity="0.1"><path d="M30,10 Q50,5 70,30 T90,70 Q95,50 70,30 T10,30 Q5,50 30,70 T30,10"></path></svg>') no-repeat;
+            background-size: contain;
+            z-index: 0;
+        }
+
+        /* Day Itinerary Styles */
+        .itinerary-day {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .itinerary-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f1c40f, #e74c3c);
+        }
+
+        .itinerary-day h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .itinerary-day h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+        }
+
+        .time-slot {
+            display: flex;
+            margin-bottom: 30px;
+            gap: 25px;
+            align-items: flex-start;
+            transition: transform 0.3s ease;
+        }
+
+        .time-slot:hover {
+            transform: translateX(5px);
+        }
+
+        .time {
+            font-weight: 700;
+            color: #e74c3c;
+            min-width: 90px;
+            padding: 8px 0;
+            font-size: 1.1rem;
+            background-color: #fef6f6;
+            border-radius: 5px;
+            text-align: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .activity {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 3px solid #f1c40f;
+            transition: all 0.3s ease;
+        }
+
+        .activity:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .activity h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+
+        .activity p {
+            margin: 0;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Travel Tips Styles */
+        .travel-tips {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #f1c40f;
+            position: relative;
+        }
+
+        .travel-tips h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tip-icon {
+            color: #f1c40f;
+            font-size: 1.5rem;
+        }
+
+        .tip-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background-color: #f1c40f;
+        }
+
+        .tip-item:hover {
+            transform: translateX(5px);
+        }
+
+        .tip-item p {
+            margin: 0;
+            flex: 1;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        /* Map Styles */
+        .map-container {
+            height: 450px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .map-container:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        /* Back Button Styles */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 50px;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #1a252f, #2c3e50);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 50px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #f1c40f;
+        }
+
+        .footer-section p {
+            color: #ecf0f1;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 3px 0;
+        }
+
+        .footer-section a:hover {
+            color: #f1c40f;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            background-color: rgba(0,0,0,0.2);
+            color: #bdc3c7;
+            font-size: 0.95rem;
+        }
+
+        /* New Additions */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 200px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .itinerary-highlights {
+            background-color: rgba(241, 196, 15, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border-left: 5px solid #f1c40f;
+        }
+
+        .itinerary-highlights h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.8rem;
+        }
+
+        .highlights-list {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 1rem; 
+  overflow-x: auto; 
+}
+
+        .highlights-list li {
+            padding: 10px 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlights-list li i {
+            color: #f1c40f;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .itinerary-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .time-slot {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .time {
+                align-self: flex-start;
+            }
+            
+            .activity {
+                padding: 15px;
+            }
+
+            .highlights-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+            
+            .itinerary-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .itinerary-intro,
+            .itinerary-day,
+            .travel-tips {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="itinerary-page qutub-itinerary">
+    <header>
+        <div class="container">
+            <h1>Explore India's Heritage</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#itinerary">Itinerary</a></li>
+                    <li><a href="#tips">Travel Tips</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="itinerary-header">
+            <h1>2 Days in Delhi: Qutub Minar & Historical Exploration</h1>
+            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Qutub Minar">
+        </div>
+
+        <div class="itinerary-intro">
+            <p>This 2-day itinerary takes you through Delhi's rich history centered around the Qutub Minar complex, the tallest brick minaret in the world. Explore the architectural marvels of the Delhi Sultanate period and other nearby historical gems.</p>
+        </div>
+
+        <div class="itinerary-highlights">
+            <h2>Trip Highlights</h2>
+            <ul class="highlights-list">
+                <li><i class="fas fa-monument"></i> Qutub Minar complex exploration</li>
+                <li><i class="fas fa-archway"></i> Visit to Alai Darwaza</li>
+                <li><i class="fas fa-history"></i> Mehrauli Archaeological Park</li>
+                <li><i class="fas fa-utensils"></i> Delhi's street food experience</li>
+                <li><i class="fas fa-shopping-bag"></i> Dilli Haat shopping</li>
+            </ul>
+        </div>
+
+        <section id="itinerary">
+            <div class="itinerary-day">
+                <h2>Day 1: Qutub Complex & Mehrauli</h2>
+                
+                <div class="time-slot">
+                    <span class="time">9:00 AM</span>
+                    <div class="activity">
+                        <h3>Qutub Minar Complex</h3>
+                        <p>Begin your day at the UNESCO World Heritage Site of Qutub Minar. Explore the 73-meter tall minaret, Quwwat-ul-Islam Mosque, Iron Pillar, and Alai Darwaza. Marvel at the intricate carvings and Indo-Islamic architecture.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">12:00 PM</span>
+                    <div class="activity">
+                        <h3>Lunch at Olive Qutub</h3>
+                        <p>Enjoy Mediterranean cuisine in the beautiful surroundings of Olive restaurant, set in a restored 19th-century building near the Qutub complex.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">2:00 PM</span>
+                    <div class="activity">
+                        <h3>Mehrauli Archaeological Park</h3>
+                        <p>Explore this 200-acre park containing over 100 historically significant monuments, including Balban's Tomb and Jamali Kamali Mosque.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <h2>Day 2: Delhi's Heritage Trail</h2>
+                
+                <div class="time-slot">
+                    <span class="time">9:00 AM</span>
+                    <div class="activity">
+                        <h3>Hauz Khas Village</h3>
+                        <p>Visit this medieval village with its historic water tank, madrasa, and tomb of Feroz Shah Tughlaq. Enjoy the blend of history and contemporary art galleries.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">12:00 PM</span>
+                    <div class="activity">
+                        <h3>Dilli Haat</h3>
+                        <p>Experience crafts and cuisines from all over India at this open-air market. Perfect for souvenir shopping and trying regional foods.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">3:00 PM</span>
+                    <div class="activity">
+                        <h3>Lodhi Gardens</h3>
+                        <p>End your trip with a stroll through these beautiful gardens dotted with 15th-century tombs of the Sayyid and Lodhi dynasties.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="photo-gallery">
+            <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 20px;">Photo Gallery</h2>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Qutub Minar">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1587135941948-670b22d240f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Iron Pillar">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1587474260506-9d7a4c70f5b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alai Darwaza">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1587135941948-670b22d240f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mehrauli Park">
+            </div>
+        </section>
+
+        <section id="tips">
+            <div class="travel-tips">
+                <h2><i class="fas fa-lightbulb tip-icon"></i> Travel Tips for Qutub Minar</h2>
+                <div class="tip-item">
+                    <i class="fas fa-sun tip-icon"></i>
+                    <p><strong>Best Time to Visit:</strong> October to March for pleasant weather. Visit early morning to avoid crowds.</p>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-ticket-alt tip-icon"></i>
+                    <p><strong>Tickets:</strong> Combined ticket available for Qutub Minar and other monuments in the complex.</p>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-camera tip-icon"></i>
+                    <p><strong>Photography:</strong> The Iron Pillar and intricate carvings on the minaret make excellent photo subjects.</p>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-tshirt tip-icon"></i>
+                    <p><strong>Dress Code:</strong> Comfortable walking shoes as the complex has uneven surfaces.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.715748776693!2d77.1832473150809!3d28.5244759824525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1e0667819b4f%3A0x834995f160759db8!2sQutub%20Minar!5e0!3m2!1sen!2sin!4v1629876543210!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are dedicated to promoting India's rich cultural heritage and helping travelers discover authentic experiences through carefully curated itineraries and local insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#heritage">Heritage Sites</a></li>
+                        <li><a href="index.html#festivals">Festivals</a></li>
+                        <li><a href="index.html#itineraries">Itineraries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@exploreindiasheritage.com<br>
+                    Phone: +91 9876543210</p>
+                    <div class="social-icons" style="margin-top: 15px;">
+                        <a href="#" style="color: #ecf0f1; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: #ecf0f1; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: #ecf0f1; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Explore India's Heritage. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

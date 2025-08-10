@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charminar Itinerary | Explore India's Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Same CSS as Mysore Palace */
+        body.itinerary-page {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+            border-bottom: 2px solid #f1c40f;
+        }
+
+        /* Main Content Styles */
+        .itinerary-header {
+            text-align: center;
+            margin: 50px 0 40px;
+            position: relative;
+        }
+
+        .itinerary-header h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .itinerary-header img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-bottom: 10px;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .itinerary-header img:hover {
+            transform: scale(1.01);
+        }
+
+        .itinerary-intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #f1c40f;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .itinerary-intro::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23f1c40f" opacity="0.1"><path d="M30,10 Q50,5 70,30 T90,70 Q95,50 70,30 T10,30 Q5,50 30,70 T30,10"></path></svg>') no-repeat;
+            background-size: contain;
+            z-index: 0;
+        }
+
+        /* Day Itinerary Styles */
+        .itinerary-day {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .itinerary-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f1c40f, #e74c3c);
+        }
+
+        .itinerary-day h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .itinerary-day h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+        }
+
+        .time-slot {
+            display: flex;
+            margin-bottom: 30px;
+            gap: 25px;
+            align-items: flex-start;
+            transition: transform 0.3s ease;
+        }
+
+        .time-slot:hover {
+            transform: translateX(5px);
+        }
+
+        .time {
+            font-weight: 700;
+            color: #e74c3c;
+            min-width: 90px;
+            padding: 8px 0;
+            font-size: 1.1rem;
+            background-color: #fef6f6;
+            border-radius: 5px;
+            text-align: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .activity {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 3px solid #f1c40f;
+            transition: all 0.3s ease;
+        }
+
+        .activity:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .activity h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+
+        .activity p {
+            margin: 0;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Travel Tips Styles */
+        .travel-tips {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #f1c40f;
+            position: relative;
+        }
+
+        .travel-tips h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid #f1c40f;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .tip-card i {
+            font-size: 1.8rem;
+            color: #f1c40f;
+            margin-bottom: 15px;
+        }
+
+        .tip-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .tip-card p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Photo Gallery Styles */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 200px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Highlights Styles */
+        .itinerary-highlights {
+            background-color: rgba(241, 196, 15, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border-left: 5px solid #f1c40f;
+        }
+
+        .itinerary-highlights h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.8rem;
+        }
+
+        .highlights-list {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 1rem; 
+  overflow-x: auto; 
+}
+
+        .highlights-list li {
+            padding: 10px 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlights-list li i {
+            color: #f1c40f;
+        }
+
+        /* Additional Info Styles */
+        .additional-info {
+            margin-bottom: 50px;
+        }
+
+        .additional-info h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .info-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .info-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 3px solid #f1c40f;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .info-box strong {
+            color: #333;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 50px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #f1c40f;
+        }
+
+        .footer-section p {
+            color: #ecf0f1;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 3px 0;
+        }
+
+        .footer-section a:hover {
+            color: #f1c40f;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            background-color: rgba(0,0,0,0.2);
+            color: #bdc3c7;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .itinerary-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .time-slot {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .time {
+                align-self: flex-start;
+            }
+            
+            .activity {
+                padding: 15px;
+            }
+
+            .highlights-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+            
+            .itinerary-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .itinerary-intro,
+            .itinerary-day,
+            .travel-tips {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="itinerary-page charminar-itinerary">
+    <header>
+        <div class="container">
+            <h1>Explore India's Heritage</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#itinerary">Itinerary</a></li>
+                    <li><a href="#tips">Travel Tips</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="itinerary-header">
+            <h1>2 Days in Hyderabad: Charminar & Old City</h1>
+            <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Charminar Hyderabad">
+        </div>
+
+        <div class="itinerary-intro">
+            <p>This 2-day itinerary explores the iconic Charminar, the heart of Hyderabad's Old City. Experience the rich Qutb Shahi heritage, bustling markets, and the famous Hyderabadi cuisine that makes this area so special.</p>
+        </div>
+
+        <div class="itinerary-highlights">
+            <h2>Trip Highlights</h2>
+            <ul class="highlights-list">
+                <li><i class="fas fa-monument"></i> Charminar monument visit</li>
+                <li><i class="fas fa-utensils"></i> Hyderabadi biryani tasting</li>
+                <li><i class="fas fa-shopping-bag"></i> Laad Bazaar shopping</li>
+                <li><i class="fas fa-mosque"></i> Mecca Masjid visit</li>
+                <li><i class="fas fa-ring"></i> Pearl market exploration</li>
+            </ul>
+        </div>
+
+        <section id="itinerary">
+            <div class="itinerary-day">
+                <h2>Day 1: Charminar & Old City</h2>
+                
+                <div class="time-slot">
+                    <span class="time">9:00 AM</span>
+                    <div class="activity">
+                        <h3>Charminar Visit</h3>
+                        <p>Explore this iconic 16th-century monument built by Muhammad Quli Qutb Shah. Climb to the top for panoramic views of the bustling old city.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">11:00 AM</span>
+                    <div class="activity">
+                        <h3>Mecca Masjid</h3>
+                        <p>Visit one of India's largest mosques built with bricks made from soil brought from Mecca. Marvel at its grand architecture and peaceful courtyard.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">1:30 PM</span>
+                    <div class="activity">
+                        <h3>Lunch at Shah Ghouse</h3>
+                        <p>Savor authentic Hyderabadi biryani at this legendary restaurant near Charminar, known for its flavorful spices and tender meat.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">3:30 PM</span>
+                    <div class="activity">
+                        <h3>Laad Bazaar</h3>
+                        <p>Stroll through this vibrant market known for lacquer bangles, pearls, traditional attire, and other Hyderabadi specialties.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">7:00 PM</span>
+                    <div class="activity">
+                        <h3>Evening at Hussain Sagar</h3>
+                        <p>Visit the heart-shaped lake with its giant Buddha statue and enjoy the musical fountain show in the evening.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <h2>Day 2: Golconda & Pearls</h2>
+                
+                <div class="time-slot">
+                    <span class="time">8:00 AM</span>
+                    <div class="activity">
+                        <h3>Golconda Fort</h3>
+                        <p>Explore this magnificent fort known for its acoustic architecture and diamond mining history. Don't miss the light and sound show in the evening.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">12:00 PM</span>
+                    <div class="activity">
+                        <h3>Qutb Shahi Tombs</h3>
+                        <p>Visit the majestic tombs of the Qutb Shahi rulers, showcasing a unique blend of Persian and Indian architecture.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">2:00 PM</span>
+                    <div class="activity">
+                        <h3>Lunch at Paradise</h3>
+                        <p>Enjoy another round of Hyderabadi delicacies at this iconic restaurant known for its biryani and kebabs.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">4:00 PM</span>
+                    <div class="activity">
+                        <h3>Pearl Market</h3>
+                        <p>Explore Hyderabad's famous pearl markets where you can find everything from affordable freshwater pearls to exquisite jewelry.</p>
+                    </div>
+                </div>
+                
+                <div class="time-slot">
+                    <span class="time">7:00 PM</span>
+                    <div class="activity">
+                        <h3>Night at Charminar</h3>
+                        <p>Return to see Charminar beautifully illuminated at night and enjoy the vibrant street food scene in the area.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="photo-gallery">
+            <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 20px;">Photo Gallery</h2>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Charminar">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Laad Bazaar">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Golconda Fort">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hyderabadi Biryani">
+            </div>
+        </section>
+
+        <section id="tips" class="travel-tips">
+            <h2>Travel Tips for Hyderabad</h2>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Best Time to Visit</h3>
+                    <p>October to February for pleasant weather. Avoid summer months (April-June) when temperatures can soar above 40°C.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Dress Code</h3>
+                    <p>Dress modestly when visiting religious sites. Comfortable footwear is essential for exploring the old city's uneven streets.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-language"></i>
+                    <h3>Language</h3>
+                    <p>Telugu and Urdu are widely spoken. English and Hindi are understood in tourist areas.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Shopping Tips</h3>
+                    <p>Bargain at Laad Bazaar. For pearls, visit government-certified shops for authenticity certificates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="additional-info">
+            <h2>Essential Information</h2>
+            <div class="info-boxes">
+                <div class="info-box">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li><strong>Charminar:</strong> 9:30 AM - 5:30 PM daily</li>
+                        <li><strong>Mecca Masjid:</strong> 4:00 AM - 9:30 PM (closed to non-Muslims during prayers)</li>
+                        <li><strong>Golconda Fort:</strong> 9:00 AM - 5:30 PM</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>Entry Fees</h3>
+                    <ul>
+                        <li><strong>Charminar:</strong> ₹25 (Indians), ₹300 (Foreigners)</li>
+                        <li><strong>Golconda Fort:</strong> ₹25 (Indians), ₹300 (Foreigners)</li>
+                        <li><strong>Qutb Shahi Tombs:</strong> ₹20 (Indians), ₹100 (Foreigners)</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>Getting There</h3>
+                    <ul>
+                        <li><strong>By Air:</strong> Rajiv Gandhi International Airport (22km from city center)</li>
+                        <li><strong>By Train:</strong> Hyderabad Deccan Station (Nampally) is well connected</li>
+                        <li><strong>By Metro:</strong> Charminar metro station is just 1km from the monument</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are dedicated to promoting India's rich cultural heritage and helping travelers discover authentic experiences through carefully curated itineraries and local insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#heritage">Heritage Sites</a></li>
+                        <li><a href="index.html#festivals">Festivals</a></li>
+                        <li><a href="index.html#itineraries">Itineraries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@exploreindiasheritage.com<br>
+                    Phone: +91 9876543210</p>
+                    <div class="social-icons" style="margin-top: 15px;">
+                        <a href="#" style="color: #ecf0f1; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: #ecf0f1; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: #ecf0f1; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Explore India's Heritage. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
