@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hidden Destinations in India</title>
      <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
 
@@ -12,79 +11,218 @@
 
     
     <link rel="stylesheet" href="../css/destination.css">
+  <style>
+    /* feedback.css */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Navigation Styles */
+.navbar {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo h2 {
+  color: #ff9b36;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  font-family: "Cinzel", serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+}
+
+.nav-menu a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff9933;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu a:hover {
+  color: #ff9933;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  padding-left: 40px;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0.6rem 1.8rem;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 120px;
+  transition: all 0.3s ease;
+  gap: 8px; /* add gap to space arrow from text */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: #ff9933;
+  color: white;
+}
+
+/* Slightly darker on hover */
+.nav-buttons a:hover {
+  background: #e6821c; /* Darker orange shade */
+  color: white;
+}
+
+.nav-buttons a span {
+  transition: transform 0.3s ease;
+}
+
+.nav-buttons a i {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+/* On hover, move text and show arrow */
+.nav-buttons a:hover span {
+  transform: translateX(10px);
+}
+
+.nav-buttons a:hover i {
+  opacity: 1;
+  transform: translateX(0);
+}
+  </style>
   </head>
 
 <body>
-    <!-- Navigation Container -->
-    <div id="navbar-container"></div>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
-        <div class="container-fluid">
-            <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" aria-current="page" href="about us.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="crazyfacts.html">Crazy Facts </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="explore.html">Explore India </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="destination.html">Hidden Destinations </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="contactus.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="feedback.html">Feedback</a>
-                    </li>
-                </ul>
-            </div>
+<!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>DeshDarshan</h2>
         </div>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="home1.html">Home</a></li>
+          <li><a href="about us.html">About Us</a></li>
+          <li><a href="crazyfacts.html">Crazy Facts</a></li>
+          <li><a href="exploreindia.html">Explore India</a></li>
+          <li><a href="destination.html">Hidden Destinations</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="learn_lang.html">Learn Languages </a></li>
+        </ul>
+
+        <div class="nav-buttons">
+          <a href="signup.html"><span>Signup</span><i>→</i></a>
+          <a href="login.html"><span>Login</span><i>→</i></a>
+        </div>
+      </div>
     </nav>
-    <br><br>
+    <br /><br />
     <!-- Background Music -->
     <audio id="backgroundMusic" loop>
-
-        <source src="../assets/audios/indian-flute.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+      <source src="../assets/audios/indian-flute.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
     </audio>
 
     <!-- Audio Control Button -->
-    <button class="audio-control" id="audioToggle" title="Toggle Background Music">
-        🎵
+    <button
+      class="audio-control"
+      id="audioToggle"
+      title="Toggle Background Music"
+    >
+      🎵
     </button>
 
     <!-- Page Title -->
-    <h1 class="page-title-loading" style="margin-top: 16px;">Hidden Destinations in India</h1>
+    <h1 class="page-title-loading" style="margin-top: 16px">
+      Hidden Destinations in India
+    </h1>
 
     <!-- Cards Section -->
     <div class="container-fluid cards-section">
-        <div class="row" id="destinationCards">
-            <!-- Cards will be dynamically generated here -->
-        </div>
+      <div class="row" id="destinationCards">
+        <!-- Cards will be dynamically generated here -->
+      </div>
     </div>
 
     <!-- Full-Screen Modal -->
-    <div class="modal fade" id="destinationModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen modal-fullscreen-custom">
-            <div class="modal-content modal-content-custom">
-                <span class="close-modal" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+    <div
+      class="modal fade"
+      id="destinationModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen modal-fullscreen-custom">
+        <div class="modal-content modal-content-custom">
+          <span class="close-modal" data-bs-dismiss="modal" aria-label="Close"
+            >&times;</span
+          >
 
-                <div class="carousel-container">
-                    <div id="destinationCarousel" class="carousel slide" data-bs-ride="false">
-                        <div class="carousel-inner" id="carouselContent">
-                            <!-- Carousel items will be dynamically generated -->
-                        </div>
+          <div class="carousel-container">
+            <div
+              id="destinationCarousel"
+              class="carousel slide"
+              data-bs-ride="false"
+            >
+              <div class="carousel-inner" id="carouselContent">
+                <!-- Carousel items will be dynamically generated -->
+              </div>
 
                         <button class="carousel-control-prev" type="button" data-bs-target="#destinationCarousel"
                             data-bs-slide="prev">
@@ -101,51 +239,6 @@
             </div>
         </div>
     </div>
-       <!--footer-->
-    <footer id="footer">
-      <div class="footer-content-wrapper">
-        <!-- Section 1: About Desh Darshan -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Desh Darshan</h3>
-          <p>
-            Desh Darshan is your gateway to the vibrant and diverse culture of
-            India. We aim to introduce the world to India's rich heritage,
-            traditions, arts, and history.
-          </p>
-        </div>
-
-        <!-- Section 2: Quick Links -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Quick Links</h3>
-          <ul>
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about us.html" class="footer-link">About Us</a></li>
-            <li>
-              <a href="explore.html" class="footer-link">Explore India</a>
-            </li>
-            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <!-- Section 3: Contact Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Contact Us</h3>
-          <ul>
-            <li class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>hello@deshdarshan.in</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+91 1234567890</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>New Delhi, India</span>
-            </li>
-          </ul>
-        </div>
 
         <!-- Section 4: Follow Us -->
         <div class="footer-section">
@@ -177,348 +270,575 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Complete data for all 36 destinations (28 States + 8 UTs) in alphabetical order
-        const destinations = [
-            // States (28)
-            {
-                name: "Andhra Pradesh",
-                tagline: "Where Temples Meet the Sea",
-                image: "https://images.unsplash.com/photo-1578659485464-5cdc8f485d8e?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Arunachal Pradesh",
-                tagline: "Land of the Rising Sun",
-                image: "https://images.unsplash.com/photo-1568535459885-b4fc72e035a4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Assam",
-                tagline: "Gateway to Northeast India",
-                image: "https://images.unsplash.com/photo-1615472910606-9d4f7291944f?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Bihar",
-                tagline: "Cradle of Ancient Wisdom",
-                image: "https://images.unsplash.com/photo-1631984876480-f821262c2609?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Chhattisgarh",
-                tagline: "Heart of Incredible India",
-                image: "https://plus.unsplash.com/premium_photo-1697730461946-f1a3a5a8a113?q=80&w=1237&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Goa",
-                tagline: "Pearl of the Orient",
-                image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=500&fit=crop"
-            },
-            {
-                name: "Gujarat",
-                tagline: "Jewel of Western India",
-                image: "https://plus.unsplash.com/premium_photo-1697730353332-5584bed18fdf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Haryana",
-                tagline: "Land of Rotis and Legends",
-                image: "https://images.unsplash.com/photo-1515091943-9d5c0ad475af?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Himachal Pradesh",
-                tagline: "Dev Bhoomi - Land of Gods",
-                image: "https://images.unsplash.com/photo-1597754865557-96ea6b53c9db?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Jharkhand",
-                tagline: "Land of Forests and Minerals",
-                image: "https://images.unsplash.com/photo-1625387891389-a4b440ae958e?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Karnataka",
-                tagline: "One State, Many Worlds",
-                image: "https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?q=80&w=748&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Kerala",
-                tagline: "God's Own Country",
-                image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Madhya Pradesh",
-                tagline: "Heart of Incredible India",
-                image: "https://images.unsplash.com/photo-1578148771262-2969a5614d6b?q=80&w=1096&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Maharashtra",
-                tagline: "Gateway of India",
-                image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Manipur",
-                tagline: "Jewel of India",
-                image: "https://images.unsplash.com/photo-1512396037567-de496024771d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Meghalaya",
-                tagline: "Abode of Clouds",
-                image: "https://images.unsplash.com/photo-1625826415766-001bd75aaf52?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Mizoram",
-                tagline: "Land of Blue Mountains",
-                image: "https://images.unsplash.com/photo-1629406989647-ed5e7e39e721?q=80&w=1328&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Nagaland",
-                tagline: "Land of Festivals",
-                image: "https://images.unsplash.com/photo-1700042629181-e6b100894f6f?q=80&w=1138&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Odisha",
-                tagline: "Soul of Incredible India",
-                image: "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Punjab",
-                tagline: "Land of Five Rivers",
-                image: "https://plus.unsplash.com/premium_photo-1697730426305-113c62434f97?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Rajasthan",
-                tagline: "Land of Kings",
-                image: "https://plus.unsplash.com/premium_photo-1661962428918-6a57ab674e23?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Sikkim",
-                tagline: "Paradise Unexplored",
-                image: "https://plus.unsplash.com/premium_photo-1697730418140-064a5b6c2e17?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Tamil Nadu",
-                tagline: "Cradle of Culture",
-                image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=500&fit=crop"
-            },
-            {
-                name: "Telangana",
-                tagline: "State of Innovation",
-                image: "https://images.unsplash.com/photo-1696941515998-d83f24967aca?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Tripura",
-                tagline: "Hill Tippera",
-                image: "https://images.unsplash.com/photo-1660541545820-466ec249fe02?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Uttar Pradesh",
-                tagline: "Heartland of India",
-                image: "https://images.unsplash.com/photo-1706186839147-0d708602587b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Uttarakhand",
-                tagline: "Simply Heaven",
-                image: "https://images.unsplash.com/photo-1608942025318-1191eeade556?q=80&w=1155&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "West Bengal",
-                tagline: "Beautiful Bengal",
-                image: "https://images.unsplash.com/photo-1571679654681-ba01b9e1e117?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
+      // Complete data for all 36 destinations (28 States + 8 UTs) in alphabetical order
+      const destinations = [
+        // States (28)
+        {
+          name: "Andhra Pradesh",
+          tagline: "Where Temples Meet the Sea",
+          image:
+            "https://images.unsplash.com/photo-1578659485464-5cdc8f485d8e?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Arunachal Pradesh",
+          tagline: "Land of the Rising Sun",
+          image:
+            "https://images.unsplash.com/photo-1568535459885-b4fc72e035a4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Assam",
+          tagline: "Gateway to Northeast India",
+          image:
+            "https://images.unsplash.com/photo-1615472910606-9d4f7291944f?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Bihar",
+          tagline: "Cradle of Ancient Wisdom",
+          image:
+            "https://images.unsplash.com/photo-1631984876480-f821262c2609?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Chhattisgarh",
+          tagline: "Heart of Incredible India",
+          image:
+            "https://plus.unsplash.com/premium_photo-1697730461946-f1a3a5a8a113?q=80&w=1237&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Goa",
+          tagline: "Pearl of the Orient",
+          image:
+            "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=500&fit=crop",
+        },
+        {
+          name: "Gujarat",
+          tagline: "Jewel of Western India",
+          image:
+            "https://plus.unsplash.com/premium_photo-1697730353332-5584bed18fdf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Haryana",
+          tagline: "Land of Rotis and Legends",
+          image:
+            "https://images.unsplash.com/photo-1515091943-9d5c0ad475af?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Himachal Pradesh",
+          tagline: "Dev Bhoomi - Land of Gods",
+          image:
+            "https://images.unsplash.com/photo-1597754865557-96ea6b53c9db?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Jharkhand",
+          tagline: "Land of Forests and Minerals",
+          image:
+            "https://images.unsplash.com/photo-1625387891389-a4b440ae958e?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Karnataka",
+          tagline: "One State, Many Worlds",
+          image:
+            "https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?q=80&w=748&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Kerala",
+          tagline: "God's Own Country",
+          image:
+            "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Madhya Pradesh",
+          tagline: "Heart of Incredible India",
+          image:
+            "https://images.unsplash.com/photo-1578148771262-2969a5614d6b?q=80&w=1096&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Maharashtra",
+          tagline: "Gateway of India",
+          image:
+            "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Manipur",
+          tagline: "Jewel of India",
+          image:
+            "https://images.unsplash.com/photo-1512396037567-de496024771d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Meghalaya",
+          tagline: "Abode of Clouds",
+          image:
+            "https://images.unsplash.com/photo-1625826415766-001bd75aaf52?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Mizoram",
+          tagline: "Land of Blue Mountains",
+          image:
+            "https://images.unsplash.com/photo-1629406989647-ed5e7e39e721?q=80&w=1328&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Nagaland",
+          tagline: "Land of Festivals",
+          image:
+            "https://images.unsplash.com/photo-1700042629181-e6b100894f6f?q=80&w=1138&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Odisha",
+          tagline: "Soul of Incredible India",
+          image:
+            "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Punjab",
+          tagline: "Land of Five Rivers",
+          image:
+            "https://plus.unsplash.com/premium_photo-1697730426305-113c62434f97?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Rajasthan",
+          tagline: "Land of Kings",
+          image:
+            "https://plus.unsplash.com/premium_photo-1661962428918-6a57ab674e23?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Sikkim",
+          tagline: "Paradise Unexplored",
+          image:
+            "https://plus.unsplash.com/premium_photo-1697730418140-064a5b6c2e17?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Tamil Nadu",
+          tagline: "Cradle of Culture",
+          image:
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=500&fit=crop",
+        },
+        {
+          name: "Telangana",
+          tagline: "State of Innovation",
+          image:
+            "https://images.unsplash.com/photo-1696941515998-d83f24967aca?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Tripura",
+          tagline: "Hill Tippera",
+          image:
+            "https://images.unsplash.com/photo-1660541545820-466ec249fe02?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Uttar Pradesh",
+          tagline: "Heartland of India",
+          image:
+            "https://images.unsplash.com/photo-1706186839147-0d708602587b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Uttarakhand",
+          tagline: "Simply Heaven",
+          image:
+            "https://images.unsplash.com/photo-1608942025318-1191eeade556?q=80&w=1155&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "West Bengal",
+          tagline: "Beautiful Bengal",
+          image:
+            "https://images.unsplash.com/photo-1571679654681-ba01b9e1e117?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
 
-            // Union Territories (8)
-            {
-                name: "Andaman and Nicobar Islands",
-                tagline: "Emerald Isles of India",
-                image: "https://images.unsplash.com/photo-1617653202545-931490e8d7e7?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Chandigarh",
-                tagline: "The City Beautiful",
-                image: "https://images.unsplash.com/photo-1697308539764-74be3e4bb76b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Dadra and Nagar Haveli and Daman and Diu",
-                tagline: "Coastal Paradise",
-                image: "https://images.unsplash.com/photo-1569776186059-f26b84be14b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Delhi",
-                tagline: "Dil Walon Ki Dilli",
-                image: "https://plus.unsplash.com/premium_photo-1661919589683-f11880119fb7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Jammu and Kashmir",
-                tagline: "Paradise on Earth",
-                image: "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Ladakh",
-                tagline: "Land of High Passes",
-                image: "https://images.unsplash.com/photo-1635255506105-b74adbd94026?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Lakshadweep",
-                tagline: "Coral Paradise of India",
-                image: "https://images.unsplash.com/photo-1572025310208-2fd6b91764c1?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            },
-            {
-                name: "Puducherry",
-                tagline: "French Riviera of the East",
-                image: "https://images.unsplash.com/photo-1597073420615-7801d12fe2d8?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            }
-        ];
+        // Union Territories (8)
+        {
+          name: "Andaman and Nicobar Islands",
+          tagline: "Emerald Isles of India",
+          image:
+            "https://images.unsplash.com/photo-1617653202545-931490e8d7e7?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Chandigarh",
+          tagline: "The City Beautiful",
+          image:
+            "https://images.unsplash.com/photo-1697308539764-74be3e4bb76b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Dadra and Nagar Haveli and Daman and Diu",
+          tagline: "Coastal Paradise",
+          image:
+            "https://images.unsplash.com/photo-1569776186059-f26b84be14b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Delhi",
+          tagline: "Dil Walon Ki Dilli",
+          image:
+            "https://plus.unsplash.com/premium_photo-1661919589683-f11880119fb7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Jammu and Kashmir",
+          tagline: "Paradise on Earth",
+          image:
+            "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Ladakh",
+          tagline: "Land of High Passes",
+          image:
+            "https://images.unsplash.com/photo-1635255506105-b74adbd94026?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Lakshadweep",
+          tagline: "Coral Paradise of India",
+          image:
+            "https://images.unsplash.com/photo-1572025310208-2fd6b91764c1?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Puducherry",
+          tagline: "French Riviera of the East",
+          image:
+            "https://images.unsplash.com/photo-1597073420615-7801d12fe2d8?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+      ];
 
-        // Hidden gems data for modal carousel
-        const hiddenGems = {
-            "Rajasthan": [
-                {
-                    title: "Kuldhara Ghost Village",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Abandoned overnight 200 years ago by Paliwal Brahmins. Why famous: Mysterious disappearance with no trace of inhabitants. Why visit: Eerie atmosphere, ancient architecture, and unsolved historical mystery."
-                },
-                {
-                    title: "Bhangarh Fort",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Archaeological Survey of India prohibits entry after sunset. Why famous: Most haunted place in India with supernatural legends. Why visit: Medieval architecture, historical significance, and thrilling ghost stories."
-                },
-                {
-                    title: "Sambhar Salt Lake",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Remote location away from tourist circuits. Why famous: Largest inland salt lake in India with pink waters. Why visit: Flamingo watching, salt harvesting experience, and stunning sunset photography."
-                },
-                {
-                    title: "Kumbhalgarh Fort",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Difficult mountain terrain kept it isolated. Why famous: Second longest wall in the world after Great Wall of China. Why visit: Panoramic views, light and sound show, and Mewar history."
-                },
-                {
-                    title: "Mandawa Havelis",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Small town in Shekhawati region off main routes. Why famous: Open-air art gallery with stunning frescoes. Why visit: Heritage walks, traditional Rajasthani art, and authentic cultural experience."
-                },
-                {
-                    title: "Ranakpur Jain Temple",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Deep in Aravalli hills with limited accessibility. Why famous: 1444 uniquely carved marble pillars. Why visit: Architectural marvel, spiritual atmosphere, and intricate stone craftsmanship."
-                },
-                {
-                    title: "Osian Desert Temple",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Remote desert location 65km from Jodhpur. Why famous: 8th-12th century temples called 'Khajuraho of Rajasthan'. Why visit: Desert safari, camel rides, and ancient temple architecture."
-                }
-            ],
-            "Kerala": [
-                {
-                    title: "Bekal Fort Beach",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: Northern Kerala location away from popular southern beaches. Why famous: Bollywood movie shooting location with pristine coastline. Why visit: Untouched beaches, historical fort, and peaceful atmosphere."
-                },
-                {
-                    title: "Athirappilly Waterfalls",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: Dense forest location requiring trek to reach. Why famous: 'Niagara of India' with 80-foot cascading falls. Why visit: Natural swimming pools, wildlife spotting, and monsoon photography."
-                },
-                {
-                    title: "Vagamon Hills",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: High altitude meadows accessible only by winding roads. Why famous: Rolling green hills resembling Scotland. Why visit: Paragliding, trekking, and cool climate retreat."
-                },
-                {
-                    title: "Kumbakonam Backwaters",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: Lesser-known backwater route compared to Alleppey. Why famous: Pristine waterways with traditional village life. Why visit: Authentic houseboat experience, bird watching, and local fishing."
-                },
-                {
-                    title: "Silent Valley National Park",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: Restricted access to protect endangered species. Why famous: Last remaining tropical rainforest in India. Why visit: Rare wildlife, pristine ecosystem, and conservation education."
-                },
-                {
-                    title: "Marari Beach",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: Fishing village location with no commercial development. Why famous: Untouched coastline with swaying palms. Why visit: Authentic fishing village experience, pristine sands, and local seafood."
-                },
-                {
-                    title: "Wayanad Caves",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: Dense forest caves requiring guided exploration. Why famous: Neolithic age cave paintings and formations. Why visit: Archaeological significance, adventure caving, and historical exploration."
-                }
-            ]
-            // Note: In production, add similar detailed content for all 36 destinations
-        };
+      // Hidden gems data for modal carousel
+      const hiddenGems = {
+        Rajasthan: [
+          {
+            title: "Kuldhara Ghost Village",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Abandoned overnight 200 years ago by Paliwal Brahmins. Why famous: Mysterious disappearance with no trace of inhabitants. Why visit: Eerie atmosphere, ancient architecture, and unsolved historical mystery.",
+          },
+          {
+            title: "Bhangarh Fort",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Archaeological Survey of India prohibits entry after sunset. Why famous: Most haunted place in India with supernatural legends. Why visit: Medieval architecture, historical significance, and thrilling ghost stories.",
+          },
+          {
+            title: "Sambhar Salt Lake",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Remote location away from tourist circuits. Why famous: Largest inland salt lake in India with pink waters. Why visit: Flamingo watching, salt harvesting experience, and stunning sunset photography.",
+          },
+          {
+            title: "Kumbhalgarh Fort",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Difficult mountain terrain kept it isolated. Why famous: Second longest wall in the world after Great Wall of China. Why visit: Panoramic views, light and sound show, and Mewar history.",
+          },
+          {
+            title: "Mandawa Havelis",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Small town in Shekhawati region off main routes. Why famous: Open-air art gallery with stunning frescoes. Why visit: Heritage walks, traditional Rajasthani art, and authentic cultural experience.",
+          },
+          {
+            title: "Ranakpur Jain Temple",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Deep in Aravalli hills with limited accessibility. Why famous: 1444 uniquely carved marble pillars. Why visit: Architectural marvel, spiritual atmosphere, and intricate stone craftsmanship.",
+          },
+          {
+            title: "Osian Desert Temple",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Remote desert location 65km from Jodhpur. Why famous: 8th-12th century temples called 'Khajuraho of Rajasthan'. Why visit: Desert safari, camel rides, and ancient temple architecture.",
+          },
+        ],
+        Kerala: [
+          {
+            title: "Bekal Fort Beach",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: Northern Kerala location away from popular southern beaches. Why famous: Bollywood movie shooting location with pristine coastline. Why visit: Untouched beaches, historical fort, and peaceful atmosphere.",
+          },
+          {
+            title: "Athirappilly Waterfalls",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: Dense forest location requiring trek to reach. Why famous: 'Niagara of India' with 80-foot cascading falls. Why visit: Natural swimming pools, wildlife spotting, and monsoon photography.",
+          },
+          {
+            title: "Vagamon Hills",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: High altitude meadows accessible only by winding roads. Why famous: Rolling green hills resembling Scotland. Why visit: Paragliding, trekking, and cool climate retreat.",
+          },
+          {
+            title: "Kumbakonam Backwaters",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: Lesser-known backwater route compared to Alleppey. Why famous: Pristine waterways with traditional village life. Why visit: Authentic houseboat experience, bird watching, and local fishing.",
+          },
+          {
+            title: "Silent Valley National Park",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: Restricted access to protect endangered species. Why famous: Last remaining tropical rainforest in India. Why visit: Rare wildlife, pristine ecosystem, and conservation education.",
+          },
+          {
+            title: "Marari Beach",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: Fishing village location with no commercial development. Why famous: Untouched coastline with swaying palms. Why visit: Authentic fishing village experience, pristine sands, and local seafood.",
+          },
+          {
+            title: "Wayanad Caves",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: Dense forest caves requiring guided exploration. Why famous: Neolithic age cave paintings and formations. Why visit: Archaeological significance, adventure caving, and historical exploration.",
+          },
+        ],
 
-        // Function to create destination cards
-        function createDestinationCards() {
-            const container = document.getElementById('destinationCards');
+        Uttarakhand: [
+          {
+            title: "Niti Valley",
+            image:
+              "https://img.traveltriangle.com/blog/wp-content/uploads/2024/05/Niti-Valley.jpg",
+            text: "Why hidden: Remote Himalayan border region with limited access. Why famous: Ancient Indo-Tibetan trade route and pristine alpine landscapes. Why visit: Stunning views of snow-capped peaks, centuries-old villages, and rare high-altitude flora.",
+          },
+          {
+            title: "Trek to Rudranath",
+            image:
+              "https://media1.thrillophilia.com/filestore/wkkcpg3wna7td0y8ma2y0fi00mjq_Rudranath_trek_eb59a342b8.jpg?w=auto&h=600",
+            text: "Why hidden: Sacred temple tucked deep in dense alpine forests. Why famous: One of the Panch Kedar shrines dedicated to Lord Shiva. Why visit: Mesmerizing sunrise over Himalayan ranges, spiritual serenity, and wildflower-strewn meadows.",
+          },
+          {
+            title: "Dhatmir",
+            image:
+              "https://www.backpackingnomad.com/wp-content/uploads/2022/06/Untitled-design-53.png",
+            text: "Why hidden: Remote village hidden in Govind Wildlife Sanctuary. Why famous: Gateway to the Har Ki Dun valley with untouched mountain culture. Why visit: Traditional wooden houses, crystal-clear streams, and warm hospitality of the locals.",
+          },
+          {
+            title: "Munsiyari",
+            image:
+              "https://mytravelframes.com/wp-content/uploads/2023/04/IMG_1225-1.jpg",
+            text: "Why hidden: Nestled far in the Kumaon Himalayas with challenging access. Why famous: Breathtaking views of the Panchachuli peaks. Why visit: Snow trekking, high-altitude birdwatching, and immersion in the culture of the Johari Shauka community.",
+          },
+          {
+            title: "Pindar Valleys",
+            image:
+              "https://rishikeshdaytour.com/blog/wp-content/uploads/2021/04/Pindari-Glacier-Trek.jpg",
+            text: "Why hidden: Isolated valley between towering Himalayan ridges. Why famous: Base for the Pindari Glacier trek. Why visit: Glacial rivers, lush alpine meadows, and encounters with shepherd communities leading traditional mountain life.",
+          },
+          {
+            title: "Mukhba Village",
+            image:
+              "https://c8.alamy.com/comp/T0HEC2/mukhba-village-harsil-uttarakhand-india-asia-T0HEC2.jpg",
+            text: "Why hidden: Small Garhwali village away from major tourist circuits. Why famous: Winter home of Goddess Ganga’s idol. Why visit: Traditional wooden temple architecture, riverfront charm, and rich seasonal migration rituals.",
+          },
+          {
+            title: "Lohaghat",
+            image:
+              "https://www.tourmyindia.com/blog/wp-content/uploads/2014/04/Lohaghat.jpg",
+            text: "Why hidden: Peaceful town in the lesser-explored Champawat district. Why famous: Mythological connections to the Mahabharata era. Why visit: Ancient temples, lush pine forests, and views of the majestic Panchachuli range.",
+          },
+        ],
 
-            destinations.forEach((destination, index) => {
-                const card = document.createElement('div');
-                card.className = 'col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12';
+        Delhi: [
+          {
+            title: "Bhuli Bhatiyari Ka Mahal",
+            image: "https://exploreyourway.in/wp-content/uploads/2023/08/Bhuli-Bhatiyari-Ka-Mahal-Ticket-Price.jpg",
+            text: "Why hidden: Forgotten 14th-century hunting lodge in Central Ridge forest. Why famous: Known for its eerie legends and Tughlaq-era architecture. Why visit: Quiet ruin exploration, historical curiosity, and rare city-side wilderness.",
+          },
+          {
+            title: "Hijron Ka Khanqah",
+            image: "https://ramaarya.blog/wp-content/uploads/2022/11/hijron_ka_khanqah_1.jpg",
+            text: "Why hidden: Tucked in Mehrauli village, away from main tourist sites. Why famous: 15th-century Sufi shrine maintained by the Hijra community. Why visit: Peaceful marble courtyard, cultural inclusivity, and spiritual ambiance.",
+          },
+          {
+            title: "Santushti Shopping Complex",
+            image: "https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/santushti-shopping-complex-1920-high.jpg",
+            text: "Why hidden: Exclusive market hidden near diplomatic enclave. Why famous: Curated boutique stores with Indian handicrafts and designer pieces. Why visit: Quiet shopping, artisanal products, and charming garden cafés.",
+          },
+          {
+            title: "Adham Khan’s Tomb",
+            image: "https://static-blog.treebo.com/wp-content/uploads/2018/03/Adham-Khans-Tomb.jpg",
+            text: "Why hidden: Overlooked Mughal-era tomb near Mehrauli bus stand. Why famous: Built by Akbar for his foster brother, with unique octagonal design. Why visit: Blend of Indo-Islamic architecture and dramatic historical tales.",
+          },
+          {
+            title: "Tughlaqabad Fort",
+            image: "https://assets-news.housing.com/news/wp-content/uploads/2021/07/01195254/Tughlaqabad-Fort-Delhi-A-landmark-of-the-powerful-Tughlaq-Dynasty-shutterstock_157674509.jpg",
+            text: "Why hidden: Massive ruined citadel often skipped by tourists. Why famous: Built by Ghiyas-ud-din Tughlaq in 14th century. Why visit: Panoramic city views, crumbling bastions, and wild overgrown courtyards.",
+          },
+          {
+            title: "Bhalswa Lake",
+            image: "https://images.indianexpress.com/2021/05/bhalswa-lake.jpg",
+            text: "Why hidden: Large natural lake away from the main urban chaos. Why famous: Birdwatching spot with migratory species. Why visit: Boating, lakeside walks, and tranquil sunsets within city limits.",
+          },
+          {
+            title: "Agrasen ki Baoli",
+            image: "https://s7ap1.scene7.com/is/image/incredibleindia/agrasen-ki-baoli-delhi-delhi-2-attr-hero?qlt=82&ts=1727352154212",
+            text: "Why hidden: Ancient stepwell tucked among Connaught Place buildings. Why famous: Baoli with mysterious depth and arched corridors. Why visit: Heritage photography, quiet reflection, and historical intrigue.",
+          },
+        ],
 
-                card.innerHTML = `
-                    <div class="destination-card loading" onclick="openModal('${destination.name}')" style="animation-delay: ${index * 0.1}s">
-                        <div class="card-image-bg" style="background-image: url('${destination.image}')">
+        Odisha: [
+          {
+            title: "Chilika’s Satapada Dolphin Point",
+            image: "https://static.toiimg.com/photo/48812174/.jpg",
+            text: "Why hidden: Remote corner of Asia’s largest brackish water lagoon. Why famous: Irrawaddy dolphin sightings. Why visit: Boat rides, migratory birds, and pristine lagoon beauty.",
+          },
+          {
+            title: "Taptapani Hot Springs",
+            image: "https://odishatour.in/wp-content/uploads/2023/11/Bagha-Chanchada-Waterfall-Berhampur-800x450.jpg",
+            text: "Why hidden: Forest-enclosed natural sulphur springs in Gajapati. Why famous: Healing properties and tribal legends. Why visit: Warm spring baths, tribal markets, and scenic hill views.",
+          },
+          {
+            title: "Lalitgiri Caves",
+            image: "https://lakshmisharath.com/wp-content/uploads/2017/05/ratnagiri5-op-1024x678.jpg",
+            text: "Why hidden: Ancient Buddhist monastery ruins in Cuttack district. Why famous: Archaeological treasures from 1st century BC. Why visit: Peaceful hilltop views, stupas, and historical exploration.",
+          },
+          {
+            title: "Bhitarkanika Mangroves",
+            image: "https://farm2.staticflickr.com/1722/41771684734_56db65cdd6_b.jpg",
+            text: "Why hidden: Remote delta region with restricted entry. Why famous: India’s second-largest mangrove ecosystem. Why visit: Crocodile spotting, birdwatching, and serene river channels.",
+          },
+          {
+            title: "Daringbadi",
+            image: "https://www.nomadicweekends.com/wp-content/uploads/2018/12/Daringbadi-Offbeat-Orissa.jpg",
+            text: "Why hidden: Hill station in Kandhamal known as 'Kashmir of Odisha'. Why famous: Pine forests and coffee plantations. Why visit: Misty mornings, tribal culture, and nature trails.",
+          },
+          {
+            title: "Kapilash Temple",
+            image: "https://external-preview.redd.it/8lN0aB_bNQfK4-o1UInrBF3Xwr94l8gSO5QBcU6egCU.jpg?auto=webp&s=9049b8890e144d3cad9bd023e11b9518cc385d20",
+            text: "Why hidden: Hilltop shrine in Dhenkanal district. Why famous: Sacred site of Lord Shiva. Why visit: Scenic climbs, panoramic views, and ancient religious heritage.",
+          },
+          {
+            title: "Taratarini Temple",
+            image: "https://www.citybit.in/wp-content/uploads/2023/08/Tara-Tarini-Temple.jpg",
+            text: "Why hidden: Temple on twin hills by the Rushikulya River. Why famous: One of the oldest Shakti Peethas. Why visit: Spiritual experience, cable car rides, and riverside beauty.",
+          },
+        ],
+
+        Gujarat: [
+          {
+            title: "Mandvi Beach",
+            image: "https://toim.b-cdn.net/pictures/travel_guide/attractions/ahmedpur-mandavi-head-46.jpeg",
+            text: "Why hidden: Quieter stretch compared to famous Gir and Diu coasts. Why famous: Golden sands and wooden dhow shipbuilding. Why visit: Camel rides, sunset views, and heritage coastal walks.",
+          },
+          {
+            title: "Polo Forest",
+            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/-flora---fauna/polo-forest/Polo-Forest-Banner1.jpg",
+            text: "Why hidden: Forested valley on Gujarat–Rajasthan border. Why famous: Ruins of 15th-century Jain and Hindu temples. Why visit: Dense greenery, trekking trails, and heritage ruins.",
+          },
+          {
+            title: "Rani Ki Vav, Patan",
+            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/rani-ki-vav/Rani-Ki-Vav-1.jpg",
+            text: "Why hidden: Often overshadowed by Gir and Somnath attractions. Why famous: UNESCO-listed stepwell masterpiece. Why visit: Intricate sculptures, cool interiors, and historic architecture.",
+          },
+          {
+            title: "Girnar Hills",
+            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/religious-sites/girnar-hill,-pilgrimage-centre/Girnar-Hill,-Pilgrimage-Centre-Banner.jpg",
+            text: "Why hidden: Pilgrimage hill away from typical tourist trails. Why famous: Jain and Hindu temples atop 9999 steps. Why visit: Challenging climbs, panoramic views, and spiritual ambiance.",
+          },
+          {
+            title: "Lakhpat",
+            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/lakhpat-fort/Lakhpat-Fort-2.jpg",
+            text: "Why hidden: Ghost town in Kutch with crumbling fort walls. Why famous: Once a bustling trade port. Why visit: Vast salt flats, Sufi shrines, and hauntingly beautiful ruins.",
+          },
+          {
+            title: "Narara Island",
+            image: "https://www.vladi-private-islands.de/fileadmin/_processed_/2/d/csm_narara_island_004_a65c106903.jpg",
+            text: "Why hidden: Accessible only during low tide. Why famous: Part of the Marine National Park. Why visit: Coral reefs, marine life spotting, and tidal walks.",
+          },
+          {
+            title: "Saputara",
+            image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/ae/e3/68/gira-waterfalls.jpg?w=1200&h=1200&s=1",
+            text: "Why hidden: Gujarat’s only hill station in the Dang district. Why famous: Tribal art and culture of the Dang community. Why visit: Lake views, monsoon clouds, and handicraft markets.",
+          },
+        ],
+
+        // Note: In production, add similar detailed content for all 36 destinations
+      };
+
+      // Function to create destination cards
+      function createDestinationCards() {
+        const container = document.getElementById("destinationCards");
+
+        destinations.forEach((destination, index) => {
+          const card = document.createElement("div");
+          card.className = "col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12";
+
+          card.innerHTML = `
+                    <div class="destination-card loading" onclick="openModal('${
+                      destination.name
+                    }')" style="animation-delay: ${index * 0.1}s">
+                        <div class="card-image-bg" style="background-image: url('${
+                          destination.image
+                        }')">
                             <div class="card-overlay">
                                 <h5 class="card-title">${destination.name}</h5>
-                                <p class="card-tagline">${destination.tagline}</p>
+                                <p class="card-tagline">${
+                                  destination.tagline
+                                }</p>
                             </div>
                         </div>
                     </div>
                 `;
 
-                container.appendChild(card);
-            });
-        }
+          container.appendChild(card);
+        });
+      }
 
-        // Function to open modal with carousel
-        function openModal(destinationName) {
-            const modal = new bootstrap.Modal(document.getElementById('destinationModal'));
-            const carouselContent = document.getElementById('carouselContent');
+      // Function to open modal with carousel
+      function openModal(destinationName) {
+        const modal = new bootstrap.Modal(
+          document.getElementById("destinationModal")
+        );
+        const carouselContent = document.getElementById("carouselContent");
 
-            // Clear previous content
-            carouselContent.innerHTML = '';
+        // Clear previous content
+        carouselContent.innerHTML = "";
 
-            // Get hidden gems data for this destination (use default if not available)
-            const gems = hiddenGems[destinationName] || [
-                {
-                    title: "Hidden Temple Complex",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Remote location in dense forests away from main roads. Why famous: Ancient architecture with intricate carvings recently discovered. Why visit: Spiritual experience, historical significance, and architectural marvel."
-                },
-                {
-                    title: "Secret Waterfall",
-                    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
-                    text: "Why hidden: Accessible only through challenging trek routes. Why famous: Multi-tier cascading falls with natural pools. Why visit: Adventure trekking, natural swimming, and photography paradise."
-                },
-                {
-                    title: "Ancient Cave Network",
-                    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
-                    text: "Why hidden: Concealed entrances in rocky terrain. Why famous: Prehistoric cave paintings and Buddhist meditation chambers. Why visit: Archaeological exploration, historical learning, and adventure caving."
-                },
-                {
-                    title: "Forgotten Hill Station",
-                    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
-                    text: "Why hidden: No direct connectivity until recent infrastructure development. Why famous: Colonial-era architecture and pristine mountain views. Why visit: Cool climate retreat, heritage walks, and panoramic vistas."
-                },
-                {
-                    title: "Traditional Village",
-                    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&h=600&fit=crop",
-                    text: "Why hidden: Protected tribal area with restricted access. Why famous: Preserved traditional lifestyle and ancient customs. Why visit: Cultural immersion, traditional crafts learning, and authentic experiences."
-                },
-                {
-                    title: "Wildlife Sanctuary",
-                    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
-                    text: "Why hidden: Remote forest location with limited permits. Why famous: Rare species and biodiversity hotspot. Why visit: Wildlife photography, nature conservation, and ecological education."
-                },
-                {
-                    title: "Heritage Monument",
-                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                    text: "Why hidden: Off-the-beaten-path location with minimal promotion. Why famous: Unique architectural style and historical importance. Why visit: Heritage exploration, cultural learning, and architectural appreciation."
-                }
-            ];
+        // Get hidden gems data for this destination (use default if not available)
+        const gems = hiddenGems[destinationName] || [
+          {
+            title: "Hidden Temple Complex",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Remote location in dense forests away from main roads. Why famous: Ancient architecture with intricate carvings recently discovered. Why visit: Spiritual experience, historical significance, and architectural marvel.",
+          },
+          {
+            title: "Secret Waterfall",
+            image:
+              "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop",
+            text: "Why hidden: Accessible only through challenging trek routes. Why famous: Multi-tier cascading falls with natural pools. Why visit: Adventure trekking, natural swimming, and photography paradise.",
+          },
+          {
+            title: "Ancient Cave Network",
+            image:
+              "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
+            text: "Why hidden: Concealed entrances in rocky terrain. Why famous: Prehistoric cave paintings and Buddhist meditation chambers. Why visit: Archaeological exploration, historical learning, and adventure caving.",
+          },
+          {
+            title: "Forgotten Hill Station",
+            image:
+              "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+            text: "Why hidden: No direct connectivity until recent infrastructure development. Why famous: Colonial-era architecture and pristine mountain views. Why visit: Cool climate retreat, heritage walks, and panoramic vistas.",
+          },
+          {
+            title: "Traditional Village",
+            image:
+              "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&h=600&fit=crop",
+            text: "Why hidden: Protected tribal area with restricted access. Why famous: Preserved traditional lifestyle and ancient customs. Why visit: Cultural immersion, traditional crafts learning, and authentic experiences.",
+          },
+          {
+            title: "Wildlife Sanctuary",
+            image:
+              "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
+            text: "Why hidden: Remote forest location with limited permits. Why famous: Rare species and biodiversity hotspot. Why visit: Wildlife photography, nature conservation, and ecological education.",
+          },
+          {
+            title: "Heritage Monument",
+            image:
+              "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+            text: "Why hidden: Off-the-beaten-path location with minimal promotion. Why famous: Unique architectural style and historical importance. Why visit: Heritage exploration, cultural learning, and architectural appreciation.",
+          },
+        ];
 
-            // Create carousel items
-            gems.forEach((gem, index) => {
-                const carouselItem = document.createElement('div');
-                carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+        // Create carousel items
+        gems.forEach((gem, index) => {
+          const carouselItem = document.createElement("div");
+          carouselItem.className = `carousel-item ${
+            index === 0 ? "active" : ""
+          }`;
 
-                carouselItem.innerHTML = `
+          carouselItem.innerHTML = `
                     <img src="${gem.image}" class="carousel-image" alt="${gem.title}">
                     <div class="image-overlay">
                         <div class="overlay-title">${gem.title}</div>
@@ -526,146 +846,137 @@
                     </div>
                 `;
 
-                carouselContent.appendChild(carouselItem);
+          carouselContent.appendChild(carouselItem);
+        });
+
+        modal.show();
+      }
+
+      // Audio control functionality
+      function setupAudioControl() {
+        const audio = document.getElementById("backgroundMusic");
+        const audioToggle = document.getElementById("audioToggle");
+        let isPlaying = false;
+
+        // Try to play audio (handle autoplay restrictions)
+        const playAudio = () => {
+          audio
+            .play()
+            .then(() => {
+              isPlaying = true;
+              audioToggle.textContent = "🎵";
+              audioToggle.title = "Pause Music";
+            })
+            .catch((error) => {
+              console.log("Autoplay prevented:", error);
+              isPlaying = false;
+              audioToggle.textContent = "🔇";
+              audioToggle.title = "Play Music";
             });
+        };
 
-            modal.show();
-        }
+        // Initial play attempt
+        playAudio();
 
-        // Audio control functionality
-        function setupAudioControl() {
-            const audio = document.getElementById('backgroundMusic');
-            const audioToggle = document.getElementById('audioToggle');
-            let isPlaying = false;
-
-            // Try to play audio (handle autoplay restrictions)
-            const playAudio = () => {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    audioToggle.textContent = '🎵';
-                    audioToggle.title = 'Pause Music';
-                }).catch(error => {
-                    console.log("Autoplay prevented:", error);
-                    isPlaying = false;
-                    audioToggle.textContent = '🔇';
-                    audioToggle.title = 'Play Music';
-                });
-            };
-
-            // Initial play attempt
+        // Toggle functionality
+        audioToggle.addEventListener("click", function () {
+          if (isPlaying) {
+            audio.pause();
+            audioToggle.textContent = "🔇";
+            audioToggle.title = "Play Music";
+            isPlaying = false;
+          } else {
             playAudio();
+          }
+        });
 
-            // Toggle functionality
-            audioToggle.addEventListener('click', function () {
-                if (isPlaying) {
-                    audio.pause();
-                    audioToggle.textContent = '🔇';
-                    audioToggle.title = 'Play Music';
-                    isPlaying = false;
-                } else {
-                    playAudio();
-                }
-            });
+        // Handle audio end (for looping)
+        audio.addEventListener("ended", function () {
+          if (isPlaying) {
+            audio.currentTime = 0;
+            audio.play();
+          }
+        });
+      }
 
-            // Handle audio end (for looping)
-            audio.addEventListener('ended', function () {
-                if (isPlaying) {
-                    audio.currentTime = 0;
-                    audio.play();
-                }
-            });
+      // Close modal when clicking outside
+      document
+        .getElementById("destinationModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            const modalInstance = bootstrap.Modal.getInstance(this);
+            if (modalInstance) {
+              modalInstance.hide();
+            }
+          }
+        });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const modal = bootstrap.Modal.getInstance(
+            document.getElementById("destinationModal")
+          );
+          if (modal) {
+            modal.hide();
+          }
         }
+      });
 
-        // Close modal when clicking outside
-        document.getElementById('destinationModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                const modalInstance = bootstrap.Modal.getInstance(this);
-                if (modalInstance) {
-                    modalInstance.hide();
-                }
-            }
-        });
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Create cards with staggered animation
+        createDestinationCards();
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
-                if (modal) {
-                    modal.hide();
-                }
-            }
-        });
+        // Setup audio control
+        setupAudioControl();
 
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function () {
-            // Create cards with staggered animation
-            createDestinationCards();
+        // Add loading animation to title
+        setTimeout(() => {
+          document.querySelector(".page-title").style.opacity = "1";
+        }, 100);
 
-            // Setup audio control
-            setupAudioControl();
+        console.log("Hidden Destinations in India - Loaded successfully!");
+      });
 
-            // Add loading animation to title
-            setTimeout(() => {
-                document.querySelector('.page-title').style.opacity = '1';
-            }, 100);
-
-            console.log('Hidden Destinations in India - Loaded successfully!');
-        });
-
-        // Smooth scroll behavior
-        document.documentElement.style.scrollBehavior = 'smooth';
+      // Smooth scroll behavior
+      document.documentElement.style.scrollBehavior = "smooth";
     </script>
     <!-- Back to Top Button -->
 <button id="backToTopBtn" title="Go to top">🔝</button>
 
-<style>
-  #backToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    z-index: 99;
-    font-size: 30px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
 
-  #backToTopBtn:hover {
-    background-color: transparent;
-    transform: translateY(-5px);
-  }
 
-  @media screen and (max-width: 480px) {
-    #backToTopBtn {
-      font-size: 50px;
-      padding: 8px 10px;
-      bottom: 60px;
-      right: 5px;
-    }
-  }
-</style>
-
-<script>
-  // Show button on scroll
-  window.onscroll = function () {
-    const btn = document.getElementById("backToTopBtn");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  };
+    <script>
+      // Show button on scroll
+      window.onscroll = function () {
+        const btn = document.getElementById("backToTopBtn");
+        if (
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+        ) {
+          btn.style.display = "block";
+        } else {
+          btn.style.display = "none";
+        }
+      };
 
   // Scroll to top on click
   document.getElementById("backToTopBtn").addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+  
+        // Mobile Navigation Toggle
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+      const navButtons = document.querySelector(".nav-buttons");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        navButtons.classList.toggle("active");
+      });
+
 </script>    <script src="../js/navbar-loader.js"></script>
 
 
