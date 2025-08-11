@@ -3,34 +3,16 @@
 
 <head>
   <meta charset="UTF-8" />
-   <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dance culture</title>
+  <link rel="stylesheet" href="../css/navbar.css" />
   <link rel="stylesheet" href="../css/dance.css" />
   <link rel="stylesheet" href="../css/home1.css" />
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <h2>Desh Darshan</h2>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="about%20us.html">About Us</a></li>
-        <li><a href="explore.html">Explore India</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-        <li><a href="contactus.html">Contact Us</a></li>
-        <li><a href="/pages/quiz.html">Quiz</a></li>
-      </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+  <!-- Navigation Container -->
+    <div id="navbar-container"></div>
 
   <!-- Dance Culture Section -->
   <section class="dance-culture">
@@ -38,7 +20,7 @@
       <h2 class="section-title">Dance Culture of India</h2>
       <div class="dance-grid">
         <div class="dance-item">
-          <img src="../assets/images/br2.jpg" alt="Bharatanatyam dancer" />
+          <img src="../assets/images/dance/br2.jpg" alt="Bharatanatyam dancer" />
           <div class="dance-card">
             <h3>Bharatanatyam</h3>
           </div>
@@ -51,7 +33,7 @@
         </div>
 
         <div class="dance-item">
-          <img src="../assets/images/kr1.jpg" alt="Kathak dancer" />
+          <img src="../assets/images/dance/kr1.jpg" alt="Kathak dancer" />
           <div class="dance-card">
             <h3>Kathak</h3>
           </div>
@@ -64,7 +46,7 @@
         </div>
 
         <div class="dance-item">
-          <img src="../assets/images/od2.jpg" alt="Odissi dancer" />
+          <img src="../assets/images/dance/od2.jpg" alt="Odissi dancer" />
           <div class="dance-card">
             <h3>Odissi</h3>
           </div>
@@ -77,7 +59,7 @@
         </div>
 
         <div class="dance-item">
-          <img src="../assets/images/ap3.jpg" alt="Kuchipudi dancer" />
+          <img src="../assets/images/dance/ap3.jpg" alt="Kuchipudi dancer" />
           <div class="dance-card">
             <h3>Kuchipudi</h3>
           </div>
@@ -90,7 +72,7 @@
         </div>
 
         <div class="dance-item">
-          <img src="../assets/images/mani1.jpg" alt="Manipuri dancer" />
+          <img src="../assets/images/dance/mani1.jpg" alt="Manipuri dancer" />
           <div class="dance-card">
             <h3>Manipuri</h3>
           </div>
@@ -103,7 +85,7 @@
         </div>
 
         <div class="dance-item">
-          <img src="../assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer" />
+          <img src="../assets/images/dance/K-Dance7.jpg" alt="Mohiniyattam dancer" />
           <div class="dance-card">
             <h3>Mohiniyattam</h3>
           </div>
@@ -118,7 +100,10 @@
     </div>
   </section>
 
-  <script src="../js/home1.js"></script>
+  <script src="../js/home1.js"></script>    <script src="../js/navbar-loader.js"></script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
 </body>
 
 </html>

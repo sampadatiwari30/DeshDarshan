@@ -5,24 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore India</title>
-    <!-- FIX: Correct favicon path for subfolder -->
-    <link rel="icon" href="../assets/images/Desh darshan Logo.png" type="image/png">
     <link rel="icon" href="data:,"> <!-- this line silences the favicon 404 -->
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <!-- FIX: Add Font Awesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Leaflet CSS for map functionality -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <!-- Leaflet JS for map functionality -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #e3e0de 0%, #dbd9d8 25%, #dbd9d8 50%, #dbd9d8 75%, #dbd9d8 100%);
@@ -30,6 +21,7 @@
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
+            padding-top: 80px; /* Space for fixed navbar */
         }
 
         @keyframes gradientShift {
@@ -50,30 +42,27 @@
             text-align: center;
             padding: 2rem 1rem;
             position: relative;
-            top: 30px;
         }
 
         .header h1 {
-            color: #652e2e;
+            color: white;
             font-size: 3.5rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
             margin-bottom: 0.5rem;
-            animation: fadeInDown 1.4s ease-out;
+            animation: fadeInDown 1.2s ease-out;
             font-weight: bold;
             letter-spacing: 2px;
-            padding-top: 30px;
         }
 
         .header p {
-            color: rgba(30 28 28 / 90%);
-            font-size: 1.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1.5s ease-out;
         }
 
         .language-switcher {
             position: absolute;
-            padding-top: 40px ;
             top: 2rem;
             right: 2rem;
             z-index: 1000;
@@ -100,11 +89,10 @@
         }
 
         .cards-container {
-            padding-top: 80px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            padding: 3rem;
+            padding: 2rem;
             max-width: 1600px;
             margin: 0 auto;
         }
@@ -131,7 +119,7 @@
         .card.locked {
             background: rgba(0, 0, 0, 0.4);
             filter: blur(1px) grayscale(0.8);
-            opacity: 1.7;
+            opacity: 0.7;
             cursor: pointer;
         }
 
@@ -208,13 +196,12 @@
         }
 
         .card.locked:hover .lock-icon {
-            background: rgba(255, 255, 0, 0.9);
+            background: rgba(0, 0, 0, 0.9);
             transform: scale(1.1);
             opacity: 1;
         }
 
         @keyframes pulse {
-
             0%,
             100% {
                 transform: scale(1);
@@ -251,7 +238,7 @@
             width: 90%;
             animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            color: black;
+            color: white;
         }
 
         .modal-content h3 {
@@ -287,14 +274,14 @@
         }
 
         .btn-signup {
-            background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
+            background: #ff8c00; /* Orange color */
+            color: white;
         }
 
         .btn-login {
-            background: transparent;
-            color: black;
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            background: #ff8c00; /* Orange background fill */
+            color: white; /* White text for contrast */
+            border: 2px solid #ff8c00; /* Orange border */
         }
 
         .modal-btn:hover {
@@ -303,13 +290,14 @@
         }
 
         .btn-signup:hover {
-            background: white;
-            color: #5a6fd8;
+            background: #ff7700; /* Darker orange on hover */
+            color: white;
         }
 
         .btn-login:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
+            background: #ff7700; /* Darker orange background on hover */
+            border-color: #ff7700; /* Darker orange border on hover */
+            color: white; /* Keep white text on hover */
         }
 
         .close-modal {
@@ -323,7 +311,7 @@
         }
 
         .close-modal:hover {
-            color: red;
+            color: white;
             transform: scale(1.2);
         }
 
@@ -460,39 +448,10 @@
         }
 
         #audioToggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 2vw;
-            /* scales with screen width */
-            max-font-size: 30px;
-            min-font-size: 10px;
-            background-color: rgba(255, 255, 255, 0.85);
-            color: #333;
-            border-radius: 50%;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            z-index: 9999;
-           
+            position: sticky;
+            top: 0;
+            z-index: 999;
         }
-
-        #audioToggle:hover {
-            background-color: #ffcc00;
-            transform: scale(1.1);
-        }
-
-        /* Optional: Make it a little smaller on very small screens */
-        @media (max-width: 480px) {
-            #audioToggle {
-                font-size: 24px;
-                padding: 8px;
-                bottom: 15px;
-                right: 15px;
-            }
-        }
-
 
         /* Map Modal Styles */
         .map-modal {
@@ -599,194 +558,6 @@
                 font-size: 0.9rem;
             }
         }
-
-
-        /* Navigation Styles */
-        .navbar {
-            background: black;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo h2 {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: yellow;
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-        /*footer */
-        footer {
-        background-color: black;
-        color: white;
-        padding: 2.5rem 1.5rem;
-        margin-top: auto;
-        width: 100%;
-        box-sizing: border-box;
-        bottom: 0;
-      }
-
-      .footer-content-wrapper {
-        max-width: 80rem;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding-top: 0px;
-      }
-
-      .footer-section p {
-        font-size: 0.875rem;
-        color: #a0aec0;
-        line-height: 1.625;
-      }
-
-      .footer-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .footer-link,
-      .footer-contact-item {
-        color: #a0aec0;
-        transition: color 0.3s ease;
-        text-decoration: none;
-        font-size: 0.875rem;
-        display: flex;
-        align-items: center;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      .footer-link:hover,
-      .footer-contact-item:hover {
-        color: #f7fafc;
-      }
-
-      .footer-contact-item span {
-        margin-left: 5px;
-      }
-
-      .footer-section {
-        flex: 1;
-        min-width: 180px;
-      }
-
-      .footer-section-title {
-        color: white;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        font-size: 1.125rem;
-        font-family: Arial, Helvetica, sans-serif;
-        transition: text-shadow 0.5s ease;
-      }
-
-      .footer-section-title:hover {
-        font-size: 1.2rem;
-        font-weight: 750;
-        text-shadow: 1px 1px 8px white;
-      }
-
-      .social-icons-container {
-        margin-top: 10px;
-        display: flex;
-        gap: 1rem;
-      }
-
-      .social-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: #4a5568;
-        color: #cbd5e0;
-        border: 1px solid #4a5568;
-        transition: background-color 0.3s ease, color 0.3s ease,
-          border-color 0.3s ease;
-        text-decoration: none;
-        border-radius: 50%;
-      }
-
-      .social-icon i {
-        font-size: 1.5rem;
-        line-height: 1;
-      }
-
-      .social-icon:hover {
-        background-color: rgba(255, 255, 255, 0.804);
-        color: #1a202c;
-        border-color: rgba(255, 255, 255, 0.804);
-        box-shadow: 0 0 15px white;
-      }
-
-      .copyright-section {
-        border-top: 1px solid #4a5568;
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        text-align: center;
-        color: #a0aec0;
-        font-size: 0.875rem;
-      }
-
-      @media (min-width: 768px) {
-        .footer-content-wrapper {
-          grid-template-columns: repeat(4, 1fr);
-        }
-      }
-
-      @media (min-width: 640px) {
-        .footer-content-wrapper {
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .footer-content-wrapper {
-          padding-left: 2rem;
-          padding-right: 2rem;
-        }
-      }
     </style>
 </head>
 
@@ -819,6 +590,8 @@
         </div>
     </nav>
 
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
 
     <!-- Background Audio -->
     <!-- mic icon -->
@@ -874,74 +647,8 @@
             </div>
         </div>
     </div>
-    <!--footer-->
-    <footer>
-      <div class="footer-content-wrapper">
-        <!-- Section 1: About Desh Darshan -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Desh Darshan</h3>
-          <p>
-            Desh Darshan is your gateway to the vibrant and diverse culture of
-            India. We aim to introduce the world to India's rich heritage,
-            traditions, arts, and history.
-          </p>
-
-        </div>
-
-        <!-- Section 2: Quick Links -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Quick Links</h3>
-          <ul>
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="./pages/about us.html" class="footer-link">About Us</a></li>
-            <li>
-              <a href="./pages/explore.html" class="footer-link">Explore India</a>
-            </li>
-            <li><a href="./pages/feedback.html" class="footer-link">Feedback</a></li>
-            <li><a href="./pages/contactus.html" class="footer-link">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <!-- Section 3: Contact Us -->
-        <div class="footer-section" id="footer-contact">
-          <h3 class="footer-section-title">Contact Us</h3>
-          <ul>
-            <li class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>hello@deshdarshan.in</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+91 1234567890</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>New Delhi, India</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Section 4: Follow Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Follow Us</h3>
-          <div class="social-icons-container">
-            <a href="https://www.linkedin.com/in/sampada-tiwari-217123257" class="social-icon" aria-label="LinkedIn"><i
-                class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/sampadatiwari29?igsh=MXF5ZDVzMWwyemIyag==" class="social-icon"
-              aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
-
-
-      <!--copyright -->
-      <div class="copyright-section">
-        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-      </div>
-    </footer>
 
     <script>
-
         // Language translations
         const translations = {
             en: {
@@ -1245,13 +952,7 @@
             "Nagaland": { lat: 26.1584, lng: 94.5624, capital: "Kohima" },
             "Odisha": { lat: 20.9517, lng: 85.0985, capital: "Bhubaneswar" },
             "Puducherry": { lat: 11.9416, lng: 79.8083, capital: "Puducherry" },
-            "Punjab": {
-                lat: 31.1471,
-                lng: 75.3412,
-                capital: "Chandigarh",
-                link: "punjab.html"
-            },
-
+            "Punjab": { lat: 31.1471, lng: 75.3412, capital: "Chandigarh" },
             "Rajasthan": { lat: 27.0238, lng: 74.2179, capital: "Jaipur" },
             "Sikkim": { lat: 27.5330, lng: 88.5122, capital: "Gangtok" },
             "Tamil Nadu": { lat: 11.1271, lng: 78.6569, capital: "Chennai" },
@@ -1265,24 +966,18 @@
         let currentLanguage = 'en';
         let currentMap = null;
 
-
-        let isPlaying = false;
-
-        // Initialize page
+        // Initialize the page
         window.onload = function () {
             initializeAudio();
             generateCards();
             setupEventListeners();
-
-            const toggleIcon = document.getElementById('audioToggle');
-            if (toggleIcon) {
-                toggleIcon.addEventListener('click', toggleAudio);
-            }
         };
 
         function initializeAudio() {
             const audio = document.getElementById('bgAudio');
             audio.volume = 0.3;
+
+            // Try to play audio (modern browsers may block autoplay)
             const playPromise = audio.play();
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
@@ -1299,7 +994,7 @@
                 const card = document.createElement('div');
                 card.className = `card ${index < 4 ? 'unlocked' : 'locked'}`;
                 card.style.backgroundImage = `url(${state.image})`;
-                card.dataset.stateName = state.name;
+                card.dataset.stateName = state.name; // Add state name as data attribute
 
                 const overlay = document.createElement('div');
                 overlay.className = 'card-overlay';
@@ -1320,6 +1015,7 @@
                 card.appendChild(overlay);
                 card.appendChild(content);
 
+                // Add lock icon for locked cards
                 if (index >= 4) {
                     const lockIcon = document.createElement('div');
                     lockIcon.className = 'lock-icon';
@@ -1327,12 +1023,9 @@
                     card.appendChild(lockIcon);
                 }
 
-                card.addEventListener('click', function () {
-                    if (index >= 4) {
-                        showModal();
-                    } else {
-                        showStateMap(state.name);
-                    }
+                // Make all cards clickable to show map
+                card.addEventListener('click', function() {
+                    showStateMap(state.name);
                 });
 
                 container.appendChild(card);
@@ -1340,27 +1033,37 @@
         }
 
         function setupEventListeners() {
+            // Language switcher
             document.getElementById('languageSelect').addEventListener('change', function (e) {
                 currentLanguage = e.target.value;
                 updateLanguage();
             });
 
+            // Modal events (keeping for potential future use)
             document.getElementById('closeModal').addEventListener('click', hideModal);
             document.getElementById('lockModal').addEventListener('click', function (e) {
                 if (e.target === this) hideModal();
             });
 
+            // Map modal events
             document.getElementById('closeMapModal').addEventListener('click', hideMapModal);
             document.getElementById('mapModal').addEventListener('click', function (e) {
                 if (e.target === this) hideMapModal();
             });
 
-            document.getElementById('signupBtn').addEventListener('click', () => window.location.href = 'signup.html');
-            document.getElementById('loginBtn').addEventListener('click', () => window.location.href = 'login.html');
+            // Button events (placeholder)
+            document.getElementById('signupBtn').addEventListener('click', function (e) {
+                window.location.href = 'signup.html';
+            });
+
+            document.getElementById('loginBtn').addEventListener('click', function (e) {
+                window.location.href = 'login.html';
+            });
         }
 
         function updateLanguage() {
             const lang = translations[currentLanguage];
+
             document.getElementById('pageTitle').textContent = lang.pageTitle;
             document.getElementById('pageSubtitle').textContent = lang.pageSubtitle;
             document.getElementById('modalTitle').textContent = lang.modalTitle;
@@ -1368,11 +1071,13 @@
             document.getElementById('signupBtn').textContent = lang.signupBtn;
             document.getElementById('loginBtn').textContent = lang.loginBtn;
 
+            // Update card titles and taglines
             const cards = document.querySelectorAll('.card');
             cards.forEach((card, index) => {
                 const title = card.querySelector('.card-title');
                 const tagline = card.querySelector('.card-tagline');
                 const stateName = stateData[index].name;
+
                 title.textContent = stateName;
                 tagline.textContent = lang.states[stateName] || 'Discover the beauty';
             });
@@ -1383,94 +1088,128 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function hideModal() {
+            document.getElementById('lockModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Map modal functions
         function showStateMap(stateName) {
             const stateInfo = stateCoordinates[stateName];
-            if (!stateInfo) return;
+            if (!stateInfo) {
+                console.error('State coordinates not found for:', stateName);
+                return;
+            }
 
+            // Check if this is a locked state (index >= 4)
+            const stateIndex = stateData.findIndex(state => state.name === stateName);
+            const isLocked = stateIndex >= 4;
+
+            // Update modal title and subtitle
+            document.getElementById('mapModalTitle').textContent = stateName;
+            const subtitle = isLocked 
+                ? `🔒 Preview Location • Capital: ${stateInfo.capital}` 
+                : `Capital: ${stateInfo.capital}`;
+            document.getElementById('mapModalSubtitle').textContent = subtitle;
+
+            // Show the modal
             document.getElementById('mapModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
 
-            // Clean up previous map if exists
+            // Initialize the map after a short delay to ensure the modal is visible
+            setTimeout(() => {
+                initializeMap(stateInfo.lat, stateInfo.lng, stateName, stateInfo.capital, isLocked);
+            }, 100);
+        }
+
+        function hideMapModal() {
+            document.getElementById('mapModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Destroy the current map to prevent memory leaks
             if (currentMap) {
                 currentMap.remove();
                 currentMap = null;
             }
+        }
 
-            // Compose popup content
-            let popupContent = `
-                <div style="text-align: center; font-family: Arial, sans-serif;">
-                    <h3 style="margin: 0 0 10px 0; color: #333;">${stateName}</h3>
-                    <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${stateInfo.capital}</p>
-                    <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${stateInfo.lat.toFixed(4)}, ${stateInfo.lng.toFixed(4)}</p>
-            `;
-
-            // Add "Visit More" link if available
-            if (stateInfo.link) {
-                popupContent += `
-                    <a href="${stateInfo.link}" target="_blank" style="
-                        display: inline-block;
-                        margin-top: 10px;
-                        padding: 6px 12px;
-                        background-color: #4CAF50;
-                        color: white;
-                        border-radius: 4px;
-                        text-decoration: none;
-                        font-size: 0.9em;
-                    ">Visit More</a>
-                `;
+        function initializeMap(lat, lng, stateName, capital, isLocked = false) {
+            // Remove existing map if any
+            if (currentMap) {
+                currentMap.remove();
             }
 
-            popupContent += `</div>`;
-
             // Create new map
-            currentMap = L.map('stateMap').setView([stateInfo.lat, stateInfo.lng], 7);
+            currentMap = L.map('stateMap').setView([lat, lng], 7);
 
+            // Add tile layer
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors',
                 maxZoom: 18,
             }).addTo(currentMap);
 
-            const marker = L.marker([stateInfo.lat, stateInfo.lng]).addTo(currentMap);
+            // Add marker for the state
+            const marker = L.marker([lat, lng]).addTo(currentMap);
+            
+            // Add popup with state information
+            const popupContent = isLocked 
+                ? `<div style="text-align: center; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 10px 0; color: #333;">🔒 ${stateName}</h3>
+                    <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
+                    <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}</p>
+                    <p style="margin: 10px 0 0 0; color: #888; font-size: 0.9em; font-style: italic;">Preview Mode - Sign up to unlock full details!</p>
+                </div>`
+                : `<div style="text-align: center; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 10px 0; color: #333;">${stateName}</h3>
+                    <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
+                    <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}</p>
+                </div>`;
+            
             marker.bindPopup(popupContent).openPopup();
 
-            const circleColor = '#667eea';
-            L.circle([stateInfo.lat, stateInfo.lng], {
+            // Add a circle to highlight the general area (different colors for locked/unlocked)
+            const circleColor = isLocked ? '#ff6b6b' : '#667eea';
+            L.circle([lat, lng], {
                 color: circleColor,
                 fillColor: circleColor,
-                fillOpacity: 0.2,
-                radius: 50000
+                fillOpacity: isLocked ? 0.1 : 0.2,
+                radius: 50000 // 50km radius
             }).addTo(currentMap);
 
-            setTimeout(() => currentMap.invalidateSize(), 200);
+            // Invalidate size to ensure proper rendering
+            setTimeout(() => {
+                if (currentMap) {
+                    currentMap.invalidateSize();
+                }
+            }, 200);
         }
 
-// Close modal and map with ESC key
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        hideModal();
-        hideMapModal();
-    }
-});
+        // Keyboard accessibility
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                hideModal();
+                hideMapModal();
+            }
+        });
 
-// Audio toggle logic
-function toggleAudio() {
-    const audio = document.getElementById('bgAudio');
-    const toggleIcon = document.getElementById('audioToggle');
-    if (!audio || !toggleIcon) return;
+        //background-audio and icon toggle feature
+        const audio = document.getElementById('bgAudio');
+        const toggleIcon = document.getElementById('audioToggle');
+        let isPlaying = false;
 
-    if (isPlaying) {
-        audio.pause();
-        toggleIcon.textContent = "🔇";
-    } else {
-        audio.play();
-        toggleIcon.textContent = "🔊";
-    }
-    isPlaying = !isPlaying;
-}
-
-// FIX: Set copyright year
-document.getElementById('year').textContent = new Date().getFullYear();
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                toggleIcon.textContent = "🔇"; // show mute icon
+            } else {
+                audio.play();
+                toggleIcon.textContent = "🔊"; // show speaker icon
+            }
+            isPlaying = !isPlaying;
+        }
     </script>
+    <script src="../js/navbar-loader.js"></script>
+
 </body>
 
 </html>

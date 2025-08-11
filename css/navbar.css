@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* Override body padding for pages that need custom spacing */
+body.no-navbar-padding {
+    padding-top: 0;
+}
+
+/* Homepage specific styling - hero section starts right after navbar */
+body.homepage {
+    padding-top: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Styles */
+.navbar {
+    background: rgba(0, 0, 0, 0.9);  /* Solid black by default */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+   
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 20px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Extra specificity for about-us page */
+.navbar .nav-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* Override Bootstrap and other frameworks */
+nav.navbar .nav-container,
+div.navbar .nav-container,
+.navbar div.nav-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-direction: row !important;
+}
+
+/* Strongest possible override for navbar layout */
+#navbar-container .navbar .nav-container,
+body .navbar .nav-container,
+html .navbar .nav-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0px 20px !important;
+}
+
+/* Perfect three-column layout: Logo | Menu | Buttons */
+.navbar .nav-container > * {
+    flex: 0 0 auto !important;
+}
+
+.navbar .nav-logo {
+    flex: 0 0 auto !important;
+    margin-right: auto !important;
+}
+
+.navbar .nav-menu {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 2rem !important;
+}
+
+.navbar .nav-buttons {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+}
+
+/* Ensure menu items are properly spaced */
+.navbar .nav-menu {
+    display: flex !important;
+    list-style: none !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    text-align: center !important;
+}
+
+/* Ensure buttons stay on the right */
+.navbar .nav-buttons {
+    display: flex !important;
+    gap: 1rem !important;
+    margin-left: auto !important;
+}
+
+/* Ultimate navbar layout fix - this should work on ALL pages */
+.navbar {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0 !important;
+    position: fixed !important;
+    width: 100% !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar * {
+    box-sizing: border-box !important;
+}
+
+.nav-logo h2 {
+    color: #ff9933;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-logo h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-menu a:hover {
+    color: #ff9933;
+    transform: scale(1.05);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0.6rem 1.8rem;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 120px;
+    transition: all 0.3s ease;
+    gap: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-buttons a span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav-buttons a i {
+    opacity: 0;
+    position: absolute;
+    right: 1.2rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-10px);
+}
+
+/* Hover behavior */
+.nav-buttons a:hover span {
+    transform: translateX(-8px);
+}
+
+.nav-buttons a:hover i {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Login Button --- */
+.btn-login {
+    background-color: #ff9933;
+    color: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #ffcc00;
+    color: black;
+    padding-right: 2.6rem;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+}
+
+/* --- Signup Button --- */
+.btn-signup {
+    background-color: #ff9933;
+    color: white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #ffcc00;
+    color: black;
+    padding-right: 3rem;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 117, 24, 0.3);
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.7); /* Faded black on scroll */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 2rem 0;
+        gap: 1.5rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}

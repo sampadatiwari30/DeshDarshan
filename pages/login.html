@@ -5,16 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Desh Darshan</title>
-     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+    <link rel="stylesheet" href="../css/login.css">
+        <style>
         body {
             font-family: 'Inter', sans-serif;
             background:
@@ -23,7 +15,7 @@
                 radial-gradient(ellipse at bottom left, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
                 radial-gradient(ellipse at bottom right, rgba(205, 133, 63, 0.3) 0%, transparent 50%),
                 linear-gradient(135deg,
-                    #8B4513 0%,
+                    #b15819 0%,
                     #A0522D 15%,
                     #CD853F 30%,
                     #D2B48C 45%,
@@ -34,13 +26,9 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow-x: hidden;
             padding: 1rem;
         }
 
-        /* Enhanced Monument Background with multiple Indian architectural elements */
         body::before {
             content: '';
             position: fixed;
@@ -57,14 +45,15 @@
             opacity: 0.7;
         }
 
-        /* Enhanced texture overlay with earthy tones */
-  body::after {
+        body::after {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+            z-index: 1;
             background-image:
                 radial-gradient(circle at 15% 85%, rgba(160, 82, 45, 0.08) 0%, transparent 60%),
                 radial-gradient(circle at 85% 15%, rgba(139, 69, 19, 0.06) 0%, transparent 60%),
@@ -72,444 +61,15 @@
                 radial-gradient(circle at 75% 75%, rgba(222, 184, 135, 0.05) 0%, transparent 55%),
                 radial-gradient(circle at 25% 25%, rgba(245, 222, 179, 0.03) 0%, transparent 45%),
                 linear-gradient(45deg,
-                    rgba(139, 69, 19, 0.02) 0%,
+                    rgba(155, 71, 10, 0.02) 0%,
                     transparent 25%,
                     rgba(160, 82, 45, 0.02) 50%,
                     transparent 75%,
                     rgba(205, 133, 63, 0.02) 100%);
             z-index: -1;
         }
-
-
-        .container {
-            width: 100%;
-            max-width: 450px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .login-container {
-            background: rgba(245, 230, 211, 0.96);
-            backdrop-filter: blur(25px);
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            box-shadow:
-                0 25px 50px rgba(139, 69, 19, 0.25),
-                0 15px 35px rgba(160, 82, 45, 0.15),
-                0 5px 15px rgba(205, 133, 63, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            border: 2px solid rgba(222, 184, 135, 0.4);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .login-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8B4513, #A0522D, #CD853F, #DEB887, #F5DEB3);
-        }
-
-        .login-container.hide {
-            opacity: 0;
-            transform: translateY(-20px);
-            pointer-events: none;
-        }
-
-        .brand-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            position: relative;
-        }
-
-        .brand-name {
-            font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #DEB887 75%, #654321 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.8rem;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.3);
-        }
-
-        .brand-tagline {
-            font-family: 'Playfair Display', serif;
-            color: #8B4513;
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-style: italic;
-        }
-
-        .cultural-subtitle {
-            color: #A0522D;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .login-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #654321;
-            margin: 1.5rem 0 0.5rem 0;
-            text-align: center;
-        }
-
-        .login-subtitle {
-            color: #8B4513;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.6rem;
-            color: #654321;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1.1rem 1.3rem;
-            border: 2px solid rgba(160, 82, 45, 0.3);
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #333;
-            position: relative;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #A0522D;
-            background-color: white;
-            box-shadow:
-                0 0 0 4px rgba(160, 82, 45, 0.15),
-                0 4px 12px rgba(139, 69, 19, 0.2);
-            transform: translateY(-1px);
-        }
-
-        .form-input::placeholder {
-            color: rgba(139, 69, 19, 0.6);
-            font-weight: 400;
-        }
-
-        .login-button {
-            width: 100%;
-            padding: 1.3rem;
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 30%, #CD853F 70%, #654321 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            box-shadow:
-                0 8px 20px rgba(139, 69, 19, 0.3),
-                0 4px 10px rgba(160, 82, 45, 0.2);
-            position: relative;
-            overflow: hidden;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .login-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .login-button:hover {
-            transform: translateY(-2px);
-            box-shadow:
-                0 15px 35px rgba(139, 69, 19, 0.4),
-                0 8px 15px rgba(160, 82, 45, 0.3);
-            background: linear-gradient(135deg, #A0522D 0%, #8B4513 30%, #CD853F 70%, #654321 100%);
-        }
-
-        .login-button:hover::before {
-            left: 100%;
-        }
-
-        .login-button:active {
-            transform: translateY(0);
-        }
-
-        .form-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .forgot-password {
-            color: #A0522D;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.3rem 0;
-        }
-
-        .forgot-password:hover {
-            color: #8B4513;
-            text-decoration: underline;
-        }
-
-        .signup-link {
-            text-align: center;
-            color: #8B4513;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            font-weight: 400;
-        }
-
-        .signup-link a {
-            color: #654321;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .signup-link a:hover {
-            color: #A0522D;
-            text-decoration: underline;
-        }
-
-        .error-message {
-            color: #cd5c5c;
-            font-size: 0.85rem;
-            margin-top: 0.4rem;
-            display: none;
-            font-weight: 500;
-        }
-
-        .form-group.error .form-input {
-            border-color: #cd5c5c;
-            background-color: #fdf5f5;
-            box-shadow: 0 0 0 4px rgba(205, 92, 92, 0.1);
-        }
-
-        .form-group.error .error-message {
-            display: block;
-        }
-
-        /* Loading state */
-        .login-button.loading {
-            opacity: 0.8;
-            cursor: not-allowed;
-            position: relative;
-        }
-
-        .login-button.loading::after {
-            content: '';
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 18px;
-            height: 18px;
-            border: 2px solid transparent;
-            border-top: 2px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: translateY(-50%) rotate(0deg);
-            }
-
-            100% {
-                transform: translateY(-50%) rotate(360deg);
-            }
-        }
-
-        /* Welcome Card Styles */
-        .welcome-card {
-            background: linear-gradient(135deg,
-                    rgba(139, 69, 19, 0.96),
-                    rgba(160, 82, 45, 0.94),
-                    rgba(205, 133, 63, 0.92),
-                    rgba(101, 67, 33, 0.95));
-            backdrop-filter: blur(25px);
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            box-shadow:
-                0 30px 60px rgba(139, 69, 19, 0.4),
-                0 15px 30px rgba(160, 82, 45, 0.3),
-                0 5px 15px rgba(205, 133, 63, 0.2);
-            border: 2px solid rgba(245, 230, 211, 0.4);
-            text-align: center;
-            color: white;
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
-            transition: all 0.6s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .welcome-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #F5E6D3, #DEB887, #CD853F, #A0522D, #8B4513);
-        }
-
-        .welcome-card.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            pointer-events: auto;
-        }
-
-        .welcome-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: rgba(245, 230, 211, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            border: 3px solid rgba(245, 230, 211, 0.3);
-        }
-
-        .welcome-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            color: #F5E6D3;
-        }
-
-        .welcome-message {
-            font-size: 1.1rem;
-            font-weight: 400;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            color: rgba(245, 230, 211, 0.9);
-        }
-
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .explore-button,
-        .back-button {
-            background: rgba(245, 230, 211, 0.25);
-            color: #F5E6D3;
-            border: 2px solid rgba(245, 230, 211, 0.4);
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            width: 250px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            margin-right: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .explore-button:hover,
-        .back-button:hover {
-            background: rgba(245, 230, 211, 0.4);
-            border-color: rgba(245, 230, 211, 0.7);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            color: white;
-        }
-
-
-        /* Responsive design */
-        @media (max-width: 480px) {
-
-            .login-container,
-            .welcome-card {
-                padding: 2rem 1.5rem;
-                border-radius: 16px;
-            }
-
-            .brand-name {
-                font-size: 2.2rem;
-            }
-
-            .login-title,
-            .welcome-title {
-                font-size: 1.6rem;
-            }
-
-            .form-input {
-                padding: 1rem 1.1rem;
-            }
-
-            .welcome-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
-            }
-
-            .form-footer {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-
-            .explore-button,
-            .back-button {
-                display: block;
-                width: 100%;
-                margin: 0.5rem 0;
-            }
-        }
     </style>
-</head>
+  </head>
 
 <body>
     <div class="container">
@@ -560,7 +120,7 @@
             <p class="welcome-message" id="welcomeMessage">
                 Welcome back to Desh Darshan! Ready to explore India's rich cultural heritage and timeless traditions?
             </p>
-            <div class="btn-container">
+            <div>
                 <a href="home1.html"><button class="explore-button" id="exploreBtn">Start Exploring</button></a>
                 <button class="back-button" id="backBtn">Back to Login</button>
             </div>
@@ -813,6 +373,7 @@
             console.log('For testing: Use any valid email format and password (6+ characters)');
         });
     </script>
+
 </body>
 
 </html>

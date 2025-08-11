@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact & Collaboration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="../css/contact-us.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+  </head>
+
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="form-card">
+          <h1>Want to share your idea?<br />Collaborate with us.</h1>
+          <p>Join our cultural journey across incredible India</p>
+          <form id="collaborationForm" novalidate>
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                aria-describedby="nameError"
+              />
+              <div class="error-message" id="nameError">
+                Please enter your name
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email ID *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-describedby="emailError"
+              />
+              <div class="error-message" id="emailError">
+                Please enter a valid email address
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                aria-describedby="phoneError"
+              />
+              <div class="error-message" id="phoneError">
+                Please enter your phone number
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="state">State / UT *</label>
+              <select
+                id="state"
+                name="state"
+                required
+                aria-describedby="stateError"
+              >
+                <option value="">Select your state/UT</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Ladakh">Ladakh</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+              <div class="error-message" id="stateError">
+                Please select your state/UT
+              </div>
+            </div>
+
+            <fieldset class="form-group">
+              <legend>You're a: *</legend>
+              <div
+                class="radio-group"
+                role="radiogroup"
+                aria-describedby="collaborationError"
+              >
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="student"
+                    name="collaborationType"
+                    value="student"
+                    required
+                  />
+                  <label for="student">📚 College Student</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="researcher"
+                    name="collaborationType"
+                    value="researcher"
+                    required
+                  />
+                  <label for="researcher">🔬 Researcher</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="job"
+                    name="collaborationType"
+                    value="job"
+                    required
+                  />
+                  <label for="job">💼 Doing Job</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="other"
+                    name="collaborationType"
+                    value="other"
+                    required
+                  />
+                  <label for="other">✨ Other</label>
+                </div>
+              </div>
+              <div class="error-message" id="collaborationError">Please select what you are</div>
+
+              <!-- Conditional Fields -->
+              <div class="conditional-field" id="studentField">
+                <div class="form-group">
+                  <label for="collegeName">College Name *</label>
+                  <input type="text" id="collegeName" name="collegeName" />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="researcherField">
+                <div class="form-group">
+                  <label for="researchTopic">Research Topic *</label>
+                  <input type="text" id="researchTopic" name="researchTopic" />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="jobField">
+                <div class="form-group">
+                  <label for="companyName">Company Name *</label>
+                  <input type="text" id="companyName" name="companyName" />
+                </div>
+                <div class="form-group">
+                  <label for="experience">Years of Experience *</label>
+                  <input
+                    type="number"
+                    id="experience"
+                    name="experience"
+                    min="0"
+                    max="50"
+                  />
+                </div>
+              </div>
+
+              <div class="conditional-field" id="otherField">
+                <div class="form-group">
+                  <label for="otherSpecify">Please specify *</label>
+                  <input type="text" id="otherSpecify" name="otherSpecify" />
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Why do you want to collaborate with DeshDarshan? Share your ideas about Indian culture, travel, or heritage..."
+                required
+                aria-describedby="messageError"
+              ></textarea>
+              <div class="error-message" id="messageError">
+                Please enter your message
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Collaboration Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div
+      class="popup-overlay"
+      id="successPopup"
+      role="dialog"
+      aria-labelledby="popupTitle"
+      aria-modal="true"
+    >
+      <div class="popup">
+        <div class="popup-message" id="popupTitle">
+          From 🛕 temples to 🕌 mosques, 🕍 churches to 🛐 gurdwaras — your
+          collaboration lights up 🌟 our shared journey across India.<br /><br />
+          We'll reach out to you soon! 💌
+        </div>
+        <button
+          class="popup-close"
+          onclick="closePopup()"
+          aria-label="Close popup"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Form elements
+      const form = document.getElementById("collaborationForm");
+      const radioButtons = document.querySelectorAll(
+        'input[name="collaborationType"]'
+      );
+      const conditionalFields = {
+        student: document.getElementById("studentField"),
+        researcher: document.getElementById("researcherField"),
+        job: document.getElementById("jobField"),
+        other: document.getElementById("otherField"),
+      };
+
+      // Handle radio button changes for conditional fields
+      radioButtons.forEach((radio) => {
+        radio.addEventListener("change", function () {
+          // Hide all conditional fields
+          Object.values(conditionalFields).forEach((field) => {
+            field.classList.remove("show");
+          });
+
+          // Show the selected field
+          if (conditionalFields[this.value]) {
+            conditionalFields[this.value].classList.add("show");
+          }
+
+          // Clear collaboration error if one is selected
+          document
+            .getElementById("collaborationError")
+            .classList.remove("show");
+        });
+      });
+
+      // Form validation and submission
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+
+        // Clear previous errors
+        document
+          .querySelectorAll(".error")
+          .forEach((el) => el.classList.remove("error"));
+        document
+          .querySelectorAll(".error-message")
+          .forEach((el) => el.classList.remove("show"));
+
+        // Validate required fields
+        const requiredFields = [
+          { id: "name", message: "Please enter your name" },
+          { id: "email", message: "Please enter a valid email address" },
+          { id: "phone", message: "Please enter your phone number" },
+          { id: "state", message: "Please select your state/UT" },
+          { id: "message", message: "Please enter your message" },
+        ];
+
+        requiredFields.forEach((field) => {
+          const element = document.getElementById(field.id);
+          const errorElement = document.getElementById(field.id + "Error");
+
+          if (!element.value.trim()) {
+            element.classList.add("error");
+            errorElement.textContent = field.message;
+            errorElement.classList.add("show");
+            isValid = false;
+          }
+        });
+
+        //name validation
+        const nameField = document.getElementById("name");
+        const nameError = document.getElementById("nameError");
+        const nameRegex = /^[A-Za-z ]{3,}$/;
+        if (!nameField.value.trim()) {
+          nameField.classList.add("error");
+          nameError.textContent = "Please enter your name";
+          nameError.classList.add("show");
+          isValid = false;
+        } else if (!nameRegex.test(nameField.value.trim())) {
+          nameField.classList.add("error");
+          nameError.textContent =
+            "Please enter a valid name (min 3 letters, alphabets only)";
+          nameError.classList.add("show");
+          isValid = false;
+        }
+
+        // Email validation
+        const emailField = document.getElementById("email");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailField.value && !emailRegex.test(emailField.value)) {
+          emailField.classList.add("error");
+          document.getElementById("emailError").classList.add("show");
+          isValid = false;
+        }
+
+        // Phone validation (basic)
+        const phoneField = document.getElementById("phone");
+        const phoneRegex = /^[\d\s\-\+()]{10,}$/;
+        if (phoneField.value && !phoneRegex.test(phoneField.value)) {
+          phoneField.classList.add("error");
+          document.getElementById("phoneError").textContent =
+            "Please enter a valid phone number";
+          document.getElementById("phoneError").classList.add("show");
+          isValid = false;
+        }
+
+        // Validate collaboration type
+        const selectedCollaboration = document.querySelector(
+          'input[name="collaborationType"]:checked'
+        );
+        if (!selectedCollaboration) {
+          document.getElementById("collaborationError").classList.add("show");
+          isValid = false;
+        } else {
+          // Validate conditional fields
+          const collaborationType = selectedCollaboration.value;
+
+          switch (collaborationType) {
+            case "student":
+              const collegeField = document.getElementById("collegeName");
+              if (!collegeField.value.trim()) {
+                collegeField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "researcher":
+              const researchField = document.getElementById("researchTopic");
+              if (!researchField.value.trim()) {
+                researchField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "job":
+              const companyField = document.getElementById("companyName");
+              const experienceField = document.getElementById("experience");
+              if (!companyField.value.trim()) {
+                companyField.classList.add("error");
+                isValid = false;
+              }
+              if (!experienceField.value.trim()) {
+                experienceField.classList.add("error");
+                isValid = false;
+              }
+              break;
+            case "other":
+              const otherField = document.getElementById("otherSpecify");
+              if (!otherField.value.trim()) {
+                otherField.classList.add("error");
+                isValid = false;
+              }
+              break;
+          }
+        }
+
+        if (isValid) {
+          showSuccessPopup();
+        } else {
+          // Scroll to first error
+          const firstError = document.querySelector(".error");
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+            firstError.focus();
+          }
+        }
+      });
+
+      // Show success popup
+      function showSuccessPopup() {
+        const popup = document.getElementById("successPopup");
+        popup.classList.add("show");
+
+        // Focus management for accessibility
+        const closeButton = popup.querySelector(".popup-close");
+        closeButton.focus();
+
+        // Trap focus within popup
+        popup.addEventListener("keydown", trapFocus);
+      }
+
+      // Close popup and reset form
+      function closePopup() {
+        const popup = document.getElementById("successPopup");
+        popup.classList.remove("show");
+
+        // Remove focus trap
+        popup.removeEventListener("keydown", trapFocus);
+
+        // Reset form after a short delay
+        setTimeout(() => {
+          form.reset();
+          // Hide all conditional fields
+          Object.values(conditionalFields).forEach((field) => {
+            field.classList.remove("show");
+          });
+          // Clear any error states
+          document
+            .querySelectorAll(".error")
+            .forEach((el) => el.classList.remove("error"));
+          document
+            .querySelectorAll(".error-message")
+            .forEach((el) => el.classList.remove("show"));
+
+          // Return focus to form
+          document.getElementById("name").focus();
+        }, 300);
+      }
+
+      // Focus trap for popup accessibility
+      function trapFocus(e) {
+        if (e.key === "Escape") {
+          closePopup();
+        }
+      }
+
+      // Close popup when clicking outside
+      document
+        .getElementById("successPopup")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closePopup();
+          }
+        });
+
+      // Remove error state on input
+      document.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.addEventListener("input", function () {
+          this.classList.remove("error");
+          const errorElement = document.getElementById(this.id + "Error");
+          if (errorElement) {
+            errorElement.classList.remove("show");
+          }
+        });
+
+        // Also remove error on focus for better UX
+        field.addEventListener("focus", function () {
+          this.classList.remove("error");
+        });
+      });
+
+      // Keyboard navigation improvements
+      document.addEventListener("keydown", function (e) {
+        // Allow Escape to close popup
+        if (
+          e.key === "Escape" &&
+          document.getElementById("successPopup").classList.contains("show")
+        ) {
+          closePopup();
+        }
+      });
+
+      // Initialize form focus
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("name").focus();
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/navbar-loader.js"></script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+  </body>
+</html>

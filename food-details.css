@@ -4,7 +4,7 @@ body {
   color: #333;
   line-height: 1.6;
   margin-top: 100px; /* to offset fixed navbar if used */
-  background-image: url("kitcehn-backg6.png");
+  background-image: url("assets/images/backgrounds/kitcehn-backg6.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

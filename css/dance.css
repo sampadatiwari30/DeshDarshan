@@ -1,74 +1,328 @@
+/* Navigation Styles */
+.navbar {
+  background: linear-gradient(135deg, #ff9933, #ffb366);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-logo h2 {
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #ffddaa;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Main Content */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+  background: linear-gradient(135deg, #ff9933, #ffb366);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dance Culture Styles */
 .dance-culture {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, #f8f4ff, #fff0f5);
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f8f4ff, #fff0f5);
 }
 
 .dance-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
 }
 
 .dance-item {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  background: white;
+  height: 400px;
 }
 
 .dance-item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.dance-media-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .dance-item img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.dance-item video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dance-item:hover img {
+  opacity: 0;
+}
+
+.dance-item:hover video {
+  opacity: 1;
 }
 
 .dance-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 2rem 1.5rem 1.5rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  color: white;
+  padding: 3rem 2rem 2rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
 }
 
 .dance-item:hover .dance-overlay {
-    transform: translateY(0);
+  transform: translateY(0);
 }
-.dance-overlay a{
-    border: none;
-    outline: none;
+
+.dance-overlay a {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: white;
 }
 
 .dance-overlay h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
 }
 
 .dance-overlay p {
-    font-size: 0.9rem;
-    opacity: 0.9;
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.4;
 }
 
 .dance-card {
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color:  #ff9933;
-  transition: transform 0.2s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ff9933, #ffb366);
+  transition: opacity 0.4s ease;
 }
 
-.dance-item h3 {
-    padding: 1rem;
+.dance-item:hover .dance-card {
+  opacity: 0;
+}
+
+.dance-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Loading Animation */
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff9933;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.dance-item:hover .loading-spinner {
+  opacity: 1;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Enhanced Hover Effects */
+.dance-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 153, 51, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.dance-item:hover::before {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .dance-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .dance-item {
+    height: 350px;
+  }
+
+  .dance-overlay {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  .dance-overlay h3 {
+    font-size: 1.4rem;
+  }
+
+  .dance-overlay p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .dance-item {
+    height: 300px;
+  }
+
+  .dance-card h3 {
     font-size: 1.2rem;
-    color: white;
-    background: linear-gradient(135deg, #ff9933, #ffb366);
-    margin: 0;
+  }
+
+  .dance-overlay h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .dance-item,
+  .dance-overlay,
+  .dance-item img,
+  .dance-item video,
+  .loading-spinner {
+    transition: none;
+  }
+
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Focus states for accessibility */
+.dance-overlay a:focus {
+  outline: 2px solid #ff9933;
+  outline-offset: 2px;
+}
+
+.nav-menu a:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
 }
