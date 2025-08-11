@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/destinations.css" />
+    <link rel="stylesheet" href="css/chatbot.css" />
     <link rel="icon" href="assets/images/icons/newlogo.png" type="image/png" />
     <link
       rel="stylesheet"
@@ -491,9 +492,13 @@
       </div>
     </footer>
     
-    <button id="backToTopBtn" title="Go to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- Fixed buttons container to prevent overlapping -->
+    <div class="fixed-buttons-container">
+      <button id="backToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+
 <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
@@ -507,9 +512,9 @@
           document.body.scrollTop > 300 ||
           document.documentElement.scrollTop > 300
         ) {
-          backToTopBtn.style.display = "block";
+          backToTopBtn.classList.add("show");
         } else {
-          backToTopBtn.style.display = "none";
+          backToTopBtn.classList.remove("show");
         }
       };
 
@@ -535,5 +540,6 @@
     <script src="js/navbar-loader.js"></script>
     <script src="./js/navbar.js"></script>
     <script src="./js/home.js"></script>
+    <script src="js/chatbot-enhancements.js"></script>
   </body>
 </html>
