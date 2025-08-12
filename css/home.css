@@ -155,6 +155,7 @@ body {
 .culture-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .culture-item img {
@@ -322,7 +323,8 @@ a,
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .heritage-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  cursor: pointer;
 }
 
 .heritage-item img {
@@ -531,6 +533,10 @@ footer {
   margin-left: 5px;
 }
 
+.footer-contact-item span:hover{
+  cursor: pointer;
+}
+
 .footer-section {
   flex: 1;
   min-width: 180px;
@@ -549,6 +555,7 @@ footer {
   font-size: 1.2rem;
   font-weight: 750;
   text-shadow: 1px 1px 8px white;
+  cursor: pointer;
 }
 
 .social-icons-container {
