@@ -177,47 +177,6 @@
           <a href="login.html"><span>Login</span><i>→</i></a>
         </div>
       </div>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color:black">
-        <div class="container-fluid">
-            <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" aria-current="page" href="about us.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="crazyfacts.html">Crazy Facts </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="explore.html">Explore India </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="destination.html">Hidden Destinations </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="blog.html">Blogs </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="contactus.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  navbarhover" href="feedback.html">Feedback</a>
-                    </li>
-                <li class="nav-item">
-                <a class="nav-link navbarhover" href="quiz.html"
-                  >Quiz</a
-                >
-                </ul>
-            </div>
-        </div>
     </nav>
     <br /><br />
     <!-- Background Music -->
@@ -783,14 +742,9 @@
         // Note: In production, add similar detailed content for all 36 destinations
       };
 
-        // Function to create destination cards
-        function createDestinationCards() {
-            const container = document.getElementById('destinationCards');
-
-            if (!container) {
-                console.error('destinationCards container not found');
-                return;
-            }
+      // Function to create destination cards
+      function createDestinationCards() {
+        const container = document.getElementById("destinationCards");
 
         destinations.forEach((destination, index) => {
           const card = document.createElement("div");
@@ -817,17 +771,12 @@
         });
       }
 
-        // Function to open modal with carousel
-        function openModal(destinationName) {
-            const modalElement = document.getElementById('destinationModal');
-            const carouselContent = document.getElementById('carouselContent');
-
-            if (!modalElement || !carouselContent) {
-                console.error('Modal elements not found');
-                return;
-            }
-
-            const modal = new bootstrap.Modal(modalElement);
+      // Function to open modal with carousel
+      function openModal(destinationName) {
+        const modal = new bootstrap.Modal(
+          document.getElementById("destinationModal")
+        );
+        const carouselContent = document.getElementById("carouselContent");
 
         // Clear previous content
         carouselContent.innerHTML = "";
@@ -899,17 +848,11 @@
         modal.show();
       }
 
-        // Audio control functionality
-        function setupAudioControl() {
-            const audio = document.getElementById('backgroundMusic');
-            const audioToggle = document.getElementById('audioToggle');
-
-            if (!audio || !audioToggle) {
-                console.warn('Audio elements not found');
-                return;
-            }
-
-            let isPlaying = false;
+      // Audio control functionality
+      function setupAudioControl() {
+        const audio = document.getElementById("backgroundMusic");
+        const audioToggle = document.getElementById("audioToggle");
+        let isPlaying = false;
 
         // Try to play audio (handle autoplay restrictions)
         const playAudio = () => {
@@ -952,31 +895,29 @@
         });
       }
 
-        // Close modal when clicking outside
-        const destinationModal = document.getElementById('destinationModal');
-        if (destinationModal) {
-            destinationModal.addEventListener('click', function (e) {
-                if (e.target === this) {
-                    const modalInstance = bootstrap.Modal.getInstance(this);
-                    if (modalInstance) {
-                        modalInstance.hide();
-                    }
-                }
-            });
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                const modalElement = document.getElementById('destinationModal');
-                if (modalElement) {
-                    const modal = bootstrap.Modal.getInstance(modalElement);
-                    if (modal) {
-                        modal.hide();
-                    }
-                }
+      // Close modal when clicking outside
+      document
+        .getElementById("destinationModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            const modalInstance = bootstrap.Modal.getInstance(this);
+            if (modalInstance) {
+              modalInstance.hide();
             }
+          }
         });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const modal = bootstrap.Modal.getInstance(
+            document.getElementById("destinationModal")
+          );
+          if (modal) {
+            modal.hide();
+          }
+        }
+      });
 
       // Initialize the page
       document.addEventListener("DOMContentLoaded", function () {
@@ -986,13 +927,10 @@
         // Setup audio control
         setupAudioControl();
 
-            // Add loading animation to title
-            setTimeout(() => {
-                const titleElement = document.querySelector('.page-title-loading');
-                if (titleElement) {
-                    titleElement.style.opacity = '1';
-                }
-            }, 100);
+        // Add loading animation to title
+        setTimeout(() => {
+          document.querySelector(".page-title").style.opacity = "1";
+        }, 100);
 
         console.log("Hidden Destinations in India - Loaded successfully!");
       });
@@ -1001,63 +939,40 @@
       document.documentElement.style.scrollBehavior = "smooth";
     </script>
     <!-- Back to Top Button -->
-<button id="backToTopBtn" title="Go to top">🔝</button>
+    <button id="backToTopBtn" title="Go to top">🔝</button>
 
-<style>
-  #backToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    z-index: 99;
-    font-size: 30px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
+    <script>
+      // Show button on scroll
+      window.onscroll = function () {
+        const btn = document.getElementById("backToTopBtn");
+        if (
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+        ) {
+          btn.style.display = "block";
+        } else {
+          btn.style.display = "none";
+        }
+      };
 
-  #backToTopBtn:hover {
-    background-color: transparent;
-    transform: translateY(-5px);
-  }
+      // Scroll to top on click
+      document
+        .getElementById("backToTopBtn")
+        .addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
-  @media screen and (max-width: 480px) {
-    #backToTopBtn {
-      font-size: 50px;
-      padding: 8px 10px;
-      bottom: 60px;
-      right: 5px;
-    }
-  }
-</style>
+      // Mobile Navigation Toggle
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+      const navButtons = document.querySelector(".nav-buttons");
 
-<script>
-  // Show button on scroll
-  window.onscroll = function () {
-    const btn = document.getElementById("backToTopBtn");
-    if (btn) {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btn.style.display = "block";
-      } else {
-        btn.style.display = "none";
-      }
-    }
-  };
-
-  // Scroll to top on click
-  const backToTopBtn = document.getElementById("backToTopBtn");
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-</script>
-
-</body>
-
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        navButtons.classList.toggle("active");
+      });
+    </script>
+    <script src="../js/navbar-loader.js"></script>
+  </body>
 </html>
