@@ -60,6 +60,7 @@ India's cultural diversity is often reduced to just a few mainstream destination
 - 📸 **Visual Galleries**: Heritage spot collections
 - 🔍 **Smart Recommendations**: Personalized suggestions
 - 🧠 **Cultural Quizzes**: Interactive learning
+- 📅 **Interactive Festival Calendar**: Browse and filter festivals across India
 - 🌐 **Multi-language Support**: Coming soon
 
 ## 🛠️ Installation

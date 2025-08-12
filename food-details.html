@@ -21,11 +21,21 @@
         <span id="spiceText">Mild 🌶</span>
       </button>
     </div>
-    <img id="fireEffect" src="fire.gif" alt="Fire" style="display: none" />
-    <img id="steamEffect" src="steam.gif" alt="Steam" style="display: none" />
+    <img
+      id="fireEffect"
+      src="assets/images/animations/fire.gif"
+      alt="Fire"
+      style="display: none"
+    />
+    <img
+      id="steamEffect"
+      src="assets/images/animations/steam.gif"
+      alt="Steam"
+      style="display: none"
+    />
     <img
       id="mediumFireEffect"
-      src="lowflame.gif"
+      src="assets/images/animations/lowflame.gif"
       alt="Low Fire"
       style="display: none"
     />
@@ -72,7 +82,7 @@
       <div id="grandmaWrapper" style="display: none">
         <div class="grandma-container">
           <img
-            src="animated-grandma.png"
+            src="assets/images/animations/animated-grandma.png"
             class="animated-grandma"
             alt="Grandma Character"
             id="grandmaImg"
@@ -89,7 +99,9 @@
       <ul id="food-link"></ul>
       <a href="index.html" class="btn btn-primary mt-3">← Back to Home</a>
     </div>
-
-    <script src="food-details.js"></script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+    <script src="js/food-details.js"></script>
   </body>
 </html>

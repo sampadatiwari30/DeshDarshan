@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-   <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bharatanatyam - Indian Dance Culture</title>
@@ -10,125 +9,13 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
-  <style>
-    html,
-    body {
-      height: auto;
-      min-height: 100%;
-      overflow-x: hidden;
-    }
-
-    .floating-emoji {
-      position: absolute;
-      font-size: 2rem;
-      animation: float 5s ease-in-out infinite;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-20px) rotate(10deg);
-      }
-    }
-
-    .hover-scale {
-      transition: transform 0.3s ease;
-    }
-
-    .hover-scale:hover {
-      transform: scale(1.05);
-    }
-
-    .pulse-glow {
-      animation: pulseGlow 2s infinite;
-    }
-
-    @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
-      }
-
-      50% {
-        box-shadow: 0 0 20px rgba(255, 165, 0, 0.9);
-      }
-
-      100% {
-        box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
-      }
-    }
-
-    #quiz-card {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .slide-out-left {
-      animation: slideOutLeft 0.5s forwards;
-    }
-
-    .slide-in-right {
-      animation: slideInRight 0.5s forwards;
-    }
-
-    @keyframes slideOutLeft {
-      0% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateX(-100%) rotate(-10deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes slideInRight {
-      0% {
-        transform: translateX(100%) rotate(10deg);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .option-btn {
-      background-color: #fee2e2;
-      color: #b91c1c;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-      min-width: 120px;
-    }
-
-    .option-btn:hover:not(:disabled) {
-      background-color: #fecaca;
-    }
-
-    .option-btn:disabled {
-      cursor: default;
-      opacity: 0.6;
-    }
-  </style>
-</head>
+  <link rel="stylesheet" href="../css/dance-forms.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  </head>
 
 <body class="bg-[#fffaf3] text-gray-800 relative overflow-hidden">
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
   <!-- ✨ FLOATING EMOJIS -->
   <span class="floating-emoji" style="top: 5%; left: 8%">💃</span>
   <span class="floating-emoji" style="top: 15%; right: 12%">🪘</span>
@@ -159,27 +46,27 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="ratio ratio-16x9">
-              <img src="../assets/images/bharatanatyam.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 1" />
+              <img src="../assets/images/dance/bharatanatyam.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 1" />
             </div>
           </div>
           <div class="carousel-item">
             <div class="ratio ratio-16x9">
-              <img src="../assets/images/bharatanatyam2.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 2" />
+              <img src="../assets/images/dance/bharatanatyam2.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 2" />
             </div>
           </div>
           <div class="carousel-item">
             <div class="ratio ratio-16x9">
-              <img src="../assets/images/bharatanatyam3.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 3" />
+              <img src="../assets/images/dance/bharatanatyam3.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 3" />
             </div>
           </div>
           <div class="carousel-item">
             <div class="ratio ratio-16x9">
-              <img src="../assets/images/bharatanatyam4.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 4" />
+              <img src="../assets/images/dance/bharatanatyam4.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 4" />
             </div>
           </div>
           <div class="carousel-item">
             <div class="ratio ratio-16x9">
-              <img src="../assets/images/bharatanatyam5.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 5" />
+              <img src="../assets/images/dance/bharatanatyam5.jpg" class="w-100 h-100 object-fit-cover" alt="Slide 5" />
             </div>
           </div>
         </div>
@@ -189,7 +76,7 @@
       <div id="fun-fact-box"
         class="relative left-1/2 -translate-x-1/2 md:absolute md:bottom-[-40px] bg-white bg-opacity-90 px-4 py-3 py-md-4 ps-5 rounded-5 shadow d-flex align-items-center w-100 md:w-75"
         style="max-width: 720px; z-index: 2; margin-top: 1rem">
-        <img src="../assets/images/cartoon-girl.png!sw800" alt="Cartoon Girl" class="me-3"
+        <img src="../assets/images/dance/cartoon-girl.png!sw800" alt="Cartoon Girl" class="me-3"
           style="width: 80px; height: 80px; flex-shrink: 0" />
 
         <div>
@@ -440,7 +327,10 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>    <script src="../js/navbar-loader.js"></script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
 </body>
 
 </html>
