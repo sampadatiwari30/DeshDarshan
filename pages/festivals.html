@@ -8,10 +8,24 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/festivals.css">
     <link rel="stylesheet" href="../css/home1.css">
+ feature/AnimatedCursor
+    <link rel="stylesheet" href="../css/custom-cursor.css">
+
         <script src="../js/dark-theme-toggle.js"></script>
+ main
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-dot" id="cursorDot"></div>
+        <div class="cursor-trail" id="cursorTrail"></div>
+        <div class="cursor-trail-2" id="cursorTrail2"></div>
+        <div class="cursor-trail-3" id="cursorTrail3"></div>
+        <div class="cursor-trail-4" id="cursorTrail4"></div>
+        <div class="cursor-magnetic" id="cursorMagnetic"></div>
+    </div>
+
     <!-- Navigation Container -->
     <div id="navbar-container"></div>
     <section class="festivals-culture">
@@ -73,7 +87,8 @@
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
     <script src="../js/home1.js"></script>    <script src="../js/navbar-loader.js"></script>
-
+    <script src="../js/custom-cursor.js"></script>
+    <script src="../js/cursor-implementation.js"></script>
 </body>
 
 </html>
