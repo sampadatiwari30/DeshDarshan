@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Demo - DeshDarshan</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/home1.css">
+    <link rel="stylesheet" href="../css/search-system.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <script src="../js/search-system.js"></script>
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .demo-header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .demo-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .search-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .example-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .example-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff9b36;
+        }
+        
+        .example-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .example-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .search-button {
+            background: #ff9b36;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background: #e8862d;
+        }
+        
+        .demo-header.final {
+            margin-top: 80px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-item i {
+            font-size: 2rem;
+            color: #ff9b36;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+    
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🔍 Search System Demo</h1>
+            <p>Experience the powerful search functionality of DeshDarshan. Search across destinations, food, festivals, and dance forms with intelligent suggestions and categorized results.</p>
+        </div>
+        
+        <div class="search-examples">
+            <div class="example-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Destinations</h3>
+                <p>Discover amazing places like Taj Mahal, Kerala Backwaters, and hidden gems across India.</p>
+                <button class="search-button" onclick="searchExample('Taj Mahal')">Search Taj Mahal</button>
+            </div>
+            
+            <div class="example-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Indian Cuisine</h3>
+                <p>Explore delicious foods from Biryani to Masala Dosa, and learn about their origins.</p>
+                <button class="search-button" onclick="searchExample('Biryani')">Search Biryani</button>
+            </div>
+            
+            <div class="example-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Festivals</h3>
+                <p>Learn about vibrant festivals like Diwali, Holi, and other celebrations across India.</p>
+                <button class="search-button" onclick="searchExample('Diwali')">Search Diwali</button>
+            </div>
+            
+            <div class="example-card">
+                <i class="fas fa-music"></i>
+                <h3>Classical Dances</h3>
+                <p>Discover the beauty of classical Indian dances like Bharatanatyam and Kathak.</p>
+                <button class="search-button" onclick="searchExample('Bharatanatyam')">Search Bharatanatyam</button>
+            </div>
+        </div>
+        
+        <div class="demo-header">
+            <h2>✨ Key Features</h2>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-search"></i>
+                <h4>Smart Search</h4>
+                <p>Intelligent relevance scoring with keyword matching across names, descriptions, and metadata.</p>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-layer-group"></i>
+                <h4>Categorized Results</h4>
+                <p>Results organized by category with visual icons and counts for easy browsing.</p>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Responsive Design</h4>
+                <p>Optimized for all devices with touch-friendly interactions and mobile layouts.</p>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-moon"></i>
+                <h4>Dark Theme</h4>
+                <p>Seamless integration with dark mode for comfortable browsing in any lighting.</p>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-keyboard"></i>
+                <h4>Keyboard Shortcuts</h4>
+                <p>Use Enter to search and Escape to close modals for efficient navigation.</p>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-history"></i>
+                <h4>Search History</h4>
+                <p>Your recent searches are saved locally for quick access to previous queries.</p>
+            </div>
+        </div>
+        
+        <div class="demo-header final">
+            <h2>🚀 Try It Now!</h2>
+            <p>Use the search bar in the navigation above to start exploring. Try searching for "food", "festival", "dance", or any specific item!</p>
+        </div>
+    </div>
+
+    <script>
+        function searchExample(query) {
+            // Wait for search system to be ready
+            setTimeout(() => {
+                if (window.deshDarshanSearch) {
+                    // Set the search input value
+                    const searchInput = document.getElementById('search-input');
+                    if (searchInput) {
+                        searchInput.value = query;
+                    }
+                    // Show search results
+                    window.deshDarshanSearch.showFullResults(query);
+                } else {
+                    alert('Search system is still loading. Please try again in a moment.');
+                }
+            }, 100);
+        }
+        
+        // Load navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../components/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                })
+                .catch(error => console.log('Navbar loading error:', error));
+        });
+    </script>
+</body>
+</html>
