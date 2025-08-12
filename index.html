@@ -33,6 +33,13 @@
   </head>
 
   <body class="homepage">
+    <div id="loading-screen">
+        <div class="loader">
+            <i class="fa-solid fa-spinner"></i>
+            <h2>Namaste 🙏<span class="dots"></span></h2>
+        </div>
+    </div>
+
     <!-- Navigation Bar Container -->
     <div id="navbar-container"></div>
 
@@ -535,5 +542,15 @@
     <script src="js/navbar-loader.js"></script>
     <script src="./js/navbar.js"></script>
     <script src="./js/home.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+        
+            // Set a timeout to hide the loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add("hidden");
+            }, 6000); // 6000ms = 6 seconds (adjust as needed)
+        });
+    </script>
   </body>
 </html>
