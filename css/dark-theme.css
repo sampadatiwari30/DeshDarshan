@@ -1,0 +1,22 @@
+/* dark-theme.css: Dark theme styles for DeshDarshan */
+body {
+  background-color: #181818;
+  color: #e0e0e0;
+}
+
+header, nav, footer {
+  background-color: #222;
+  color: #e0e0e0;
+}
+
+button, input, select, textarea {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+a {
+  color: #90caf9;
+}
+
+/* Add more selectors as needed for your site */
