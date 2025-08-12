@@ -614,7 +614,7 @@ footer {
 }
 
 
-/*Loading page*/
+/* Loading page */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -622,12 +622,13 @@ footer {
     width: 100%;
     height: 100vh;
     background: #1e1e1e;
-    color: #1ae404;
+    color: #FF9933; /* Initial saffron */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    animation: tricolorText 3s linear infinite;
 }
 
 #loading-screen.hidden {
@@ -641,7 +642,7 @@ footer {
 
 .loader i {
     font-size: 4.5rem;
-    animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite, tricolorText 3s linear infinite;
 }
 
 .loader h2 {
@@ -656,32 +657,27 @@ footer {
 }
 
 @keyframes dots {
-    0% {
-        content: "";
-    }
-    20% {
-        content: ".";
-    }
-    40% {
-        content: "..";
-    }
-    60% {
-        content: "...";
-    }
-    80%{
-        content: "....";
-    }
-    100% {
-        content: "";
-    }
+    0%   { content: ""; }
+    20%  { content: "."; }
+    40%  { content: ".."; }
+    60%  { content: "..."; }
+    80%  { content: "...."; }
+    100% { content: ""; }
 }
 
 /* Spin Animation */
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Tricolor Text Animation */
+@keyframes tricolorText {
+    0%   { color: #FF9933; } /* Saffron */
+    17%  { color: #FFFFFF; } /* White */
+    33%  { color: #138808; } /* Green */
+    50% { color: #FF9933; } /* Back to Saffron */
+    67%  { color: #FFFFFF; } /* White */
+    83%  { color: #138808; } /* Green */
+    100% { color: #FF9933; } /* Back to Saffron */
 }
