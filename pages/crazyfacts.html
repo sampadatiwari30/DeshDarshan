@@ -509,27 +509,86 @@
     }
 
 
+     /* GRID LAYOUT - 4 cards per row */
     .row {
-      display: flex;
-      overflow-x: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns */
       gap: 20px;
       padding: 40px;
-      scroll-snap-type: x mandatory;
+     justify-items: center;
     }
 
-    .col-lg {
-      flex: 0 0 300px;
-      scroll-snap-align: start;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 30px 20px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgb(201, 201, 201);
-      color: #222;
-      box-shadow: 0 8px 24px rgba(194, 194, 194, 0.1);
-      transition: transform 0.3s ease;
+/* RESPONSIVE: Adjust for smaller screens */
+@media (max-width: 1200px) {
+  .row {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards on medium screens */
+  }
+}
 
-    }
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr; /* 1 card on mobile */
+  }
+}
+
+.cartoon-card {
+  width: 260px;
+  min-height: 260px;
+  background: rgba(173, 216, 230, 0.3);
+  border: 1px solid rgba(173, 216, 230, 0.5);
+  border-radius: 16px;
+  padding: 20px;
+  color: #222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ICON */
+.cartoon-svg {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+/* STATE NAME */
+.state-name {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.8;
+  margin: 0;
+  color: #1a1a1a;
+  white-space: normal;
+  word-break: break-word;
+  text-transform: capitalize;
+}
+
+/* STATE CODE */
+.state-code {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+/* HOVER EFFECT */
+.cartoon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
 
     /*quiz*/
     .quiz-section {
