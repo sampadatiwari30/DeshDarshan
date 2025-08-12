@@ -85,7 +85,7 @@ app.post("/api/contact", async (req, res) => {
     // Email content
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, // Send to yourself
+      to: process.env.GMAIL_USER, 
       subject: `New Collaboration Request from ${name} - DeshDarshan`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
