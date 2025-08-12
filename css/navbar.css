@@ -262,6 +262,7 @@ html .navbar .nav-container {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    margin: 15px;
 }
 
 .hamburger span {
@@ -270,6 +271,7 @@ html .navbar .nav-container {
     background: white;
     margin: 3px 0;
     transition: 0.3s;
+   
 }
 
 /* Mobile Responsive */

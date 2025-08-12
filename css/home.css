@@ -412,6 +412,7 @@ a,
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+    margin: 15px;
   }
 
   .slide-content h1 {
