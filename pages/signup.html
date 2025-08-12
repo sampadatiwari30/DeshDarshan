@@ -84,6 +84,7 @@
   </head>
 
 <body>
+ feature/AnimatedCursor
     <!-- Custom Cursor -->
     <div class="custom-cursor" id="customCursor">
         <div class="cursor-dot" id="cursorDot"></div>
@@ -93,6 +94,12 @@
         <div class="cursor-trail-4" id="cursorTrail4"></div>
         <div class="cursor-magnetic" id="cursorMagnetic"></div>
     </div>
+
+<!-- Home Button -->
+<button class="home-button" onclick="window.location.href='../pages/home1.html'">
+    <img src="../assets/images/icons/home.png" alt="Home">
+</button>
+ main
     <!-- ===== MAIN CONTAINER ===== -->
     <div class="container">
         <!-- ===== SIGNUP FORM ===== -->
@@ -220,7 +227,9 @@
             </form>
         </div>
     </div>
-
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
     <!-- ===== FIELD VALIDATIONS ===== -->
     <script>
         // Get form elements
