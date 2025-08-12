@@ -472,6 +472,112 @@
     document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("name").focus();
     });
+
+    // Enter key navigation between form fields
+    function setupEnterKeyNavigation() {
+      // Get all focusable form elements in order
+      const formElements = [
+        'name',
+        'email',
+        'phone',
+        'state',
+        'student',      // radio buttons
+        'researcher',
+        'job',
+        'other',
+        'collegeName',  // conditional fields
+        'researchTopic',
+        'companyName',
+        'experience',
+        'otherSpecify',
+        'message'
+      ];
+
+      // Add enter key listeners to input fields (not radio buttons or textarea)
+      const inputFields = ['name', 'email', 'phone', 'collegeName', 'researchTopic', 'companyName', 'experience', 'otherSpecify'];
+
+      inputFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+          field.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              moveToNextField(fieldId, formElements);
+            }
+          });
+        }
+      });
+
+      // Handle select dropdown Enter key
+      const stateField = document.getElementById('state');
+      stateField.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          moveToNextField('state', formElements);
+        }
+      });
+
+      // Handle radio buttons Enter key
+      const radioButtons = document.querySelectorAll('input[name="collaborationType"]');
+      radioButtons.forEach(radio => {
+        radio.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            // Select the radio button if not already selected
+            if (!this.checked) {
+              this.checked = true;
+              this.dispatchEvent(new Event('change'));
+            }
+            moveToNextField(this.id, formElements);
+          }
+        });
+      });
+    }
+
+    function moveToNextField(currentFieldId, formElements) {
+      const currentIndex = formElements.indexOf(currentFieldId);
+
+      // Find the next visible and enabled field
+      for (let i = currentIndex + 1; i < formElements.length; i++) {
+        const nextFieldId = formElements[i];
+        const nextField = document.getElementById(nextFieldId);
+
+        if (nextField && isFieldVisible(nextField) && !nextField.disabled) {
+          // Special handling for conditional fields
+          if (isConditionalField(nextFieldId) && !isConditionalFieldVisible(nextFieldId)) {
+            continue;
+          }
+
+          nextField.focus();
+          return;
+        }
+      }
+
+      // If no next field found, focus on submit button
+      document.querySelector('.submit-btn').focus();
+    }
+
+    function isFieldVisible(field) {
+      const rect = field.getBoundingClientRect();
+      const style = window.getComputedStyle(field);
+      return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none';
+    }
+
+    function isConditionalField(fieldId) {
+      const conditionalFields = ['collegeName', 'researchTopic', 'companyName', 'experience', 'otherSpecify'];
+      return conditionalFields.includes(fieldId);
+    }
+
+    function isConditionalFieldVisible(fieldId) {
+      const fieldElement = document.getElementById(fieldId);
+      const parentContainer = fieldElement.closest('.conditional-field');
+      return parentContainer && parentContainer.classList.contains('show');
+    }
+
+    // Initialize enter key navigation when DOM is loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      setupEnterKeyNavigation();
+    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../js/navbar-loader.js"></script>
