@@ -34,6 +34,13 @@
   </head>
 
   <body class="homepage">
+    <div id="loading-screen">
+        <div class="loader">
+            <i class="fa-solid fa-spinner"></i>
+            <h2>Namaste 🙏<span class="dots"></span></h2>
+        </div>
+    </div>
+
     <!-- Navigation Bar Container -->
     <div id="navbar-container"></div>
 
@@ -492,13 +499,13 @@
       </div>
     </footer>
     
+
     <!-- Fixed buttons container to prevent overlapping -->
     <div class="fixed-buttons-container">
       <button id="backToTopBtn" title="Go to top">
         <i class="fas fa-arrow-up"></i>
       </button>
     </div>
-
 <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
@@ -516,7 +523,6 @@
         } else {
           backToTopBtn.classList.remove("show");
         }
-      };
 
       // Scroll to top when button is clicked
       backToTopBtn.onclick = function () {
@@ -540,6 +546,18 @@
     <script src="js/navbar-loader.js"></script>
     <script src="./js/navbar.js"></script>
     <script src="./js/home.js"></script>
+
     <script src="js/chatbot-enhancements.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+        
+            // Set a timeout to hide the loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add("hidden");
+            }, 6000); // 6000ms = 6 seconds (adjust as needed)
+        });
+    </script>
+
   </body>
 </html>
