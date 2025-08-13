@@ -126,6 +126,59 @@
             background-size: contain;
             z-index: 0;
         }
+        /* Unique Facts Styles */
+.unique-facts {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.unique-facts h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.facts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.fact-card {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-top: 3px solid #f1c40f;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.fact-card i {
+    font-size: 2rem;
+    color: #f1c40f;
+    margin-bottom: 15px;
+}
+
+.fact-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.fact-card p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
 
         /* Day Itinerary Styles */
         .itinerary-day {
@@ -278,6 +331,23 @@
             color: #555;
         }
 
+        .tips-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Force 4 columns */
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .tips-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .tips-container {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
         /* Photo Gallery Styles */
         .photo-gallery {
             display: grid;
@@ -461,6 +531,37 @@
             font-size: 0.95rem;
         }
 
+
+        /* Slideshow Styles */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.mySlides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mySlides.active {
+  opacity: 1;
+}
+
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             header .container {
@@ -530,9 +631,22 @@
 
     <main class="container">
         <div class="itinerary-header">
-            <h1>2 Days in Hyderabad: Charminar & Old City</h1>
-            <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Charminar Hyderabad">
+    <h1>2 Days in Hyderabad: Charminar & Old City</h1>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://pashankartours.com/wp-content/uploads/2019/06/hyderabad-eid-ramzan-hydera.jpg" alt="Charminar">
         </div>
+        <div class="mySlides fade">
+            <img src="https://2.bp.blogspot.com/-hPsSWkvJ030/UWcOHkXKMUI/AAAAAAAAAUY/Buc673Rov1c/s1600/123.JPG" alt="Laad Bazaar">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://www.savaari.com/blog/wp-content/uploads/2022/10/Golkonda-fort.jpg" alt="Golconda Fort">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://efoodsdirect.co.uk/wp-content/uploads/2021/09/Hyderabadi-Biryani1_11zon.jpg" alt="Hyderabadi Biryani">
+        </div>
+    </div>
+</div>
 
         <div class="itinerary-intro">
             <p>This 2-day itinerary explores the iconic Charminar, the heart of Hyderabad's Old City. Experience the rich Qutb Shahi heritage, bustling markets, and the famous Hyderabadi cuisine that makes this area so special.</p>
@@ -549,6 +663,41 @@
             </ul>
         </div>
 
+        <section class="unique-facts">
+    <h2>Unique Facts About Charminar</h2>
+    <div class="facts-container">
+        <div class="fact-card">
+            <i class="fas fa-monument"></i>
+            <h3>Symbol of Hyderabad</h3>
+            <p>Built in 1591 by Muhammad Quli Qutb Shah to commemorate the end of a deadly plague and to mark the city's founding.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-clock"></i>
+            <h3>400+ Years Old</h3>
+            <p>This iconic monument has stood at the heart of Hyderabad for over four centuries, witnessing the city's growth.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-archway"></i>
+            <h3>Four Grand Arches</h3>
+            <p>The structure's four grand arches face the cardinal directions and were meant to be the center of the planned city.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-mosque"></i>
+            <h3>Mosque at the Top</h3>
+            <p>The western end of the roof has a mosque with 45 prayer spaces, making it one of the oldest surviving mosques in Hyderabad.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-gem"></i>
+            <h3>Diamond Trade Center</h3>
+            <p>Charminar was at the center of Hyderabad's global diamond and pearl trade during the Qutb Shahi period.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Illumination</h3>
+            <p>The monument is beautifully illuminated every evening, creating a spectacular sight against the night sky.</p>
+        </div>
+    </div>
+</section>
         <section id="itinerary">
             <div class="itinerary-day">
                 <h2>Day 1: Charminar & Old City</h2>
@@ -642,16 +791,16 @@
         <section id="gallery" class="photo-gallery">
             <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 20px;">Photo Gallery</h2>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Charminar">
+                <img src="https://pashankartours.com/wp-content/uploads/2019/06/hyderabad-eid-ramzan-hydera.jpg" alt="Charminar">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Laad Bazaar">
+                <img src="https://2.bp.blogspot.com/-hPsSWkvJ030/UWcOHkXKMUI/AAAAAAAAAUY/Buc673Rov1c/s1600/123.JPG" alt="Laad Bazaar">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Golconda Fort">
+                <img src="https://www.savaari.com/blog/wp-content/uploads/2022/10/Golkonda-fort.jpg" alt="Golconda Fort">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hyderabadi Biryani">
+                <img src="https://efoodsdirect.co.uk/wp-content/uploads/2021/09/Hyderabadi-Biryani1_11zon.jpg" alt="Hyderabadi Biryani">
             </div>
         </section>
 
@@ -754,6 +903,25 @@
                 });
             });
         });
+        let currentSlide = 0;
+    const slides = document.querySelectorAll('.mySlides');
+    
+    function showSlides() {
+        // Hide all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Show current slide
+        slides[currentSlide].classList.add('active');
+        
+        // Move to next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Change slide every 5 seconds
+        setTimeout(showSlides, 5000);
+    }
+    
+    // Start the slideshow
+    showSlides();
     </script>
 </body>
 </html>

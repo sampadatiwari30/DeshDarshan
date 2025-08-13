@@ -129,6 +129,62 @@
             z-index: 0;
         }
 
+
+        /* Unique Facts Styles */
+.unique-facts {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.unique-facts h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.facts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.fact-card {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-top: 3px solid #f1c40f;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.fact-card i {
+    font-size: 2rem;
+    color: #f1c40f;
+    margin-bottom: 15px;
+}
+
+.fact-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.fact-card p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+
         /* Day Itinerary Styles */
         .itinerary-day {
             background-color: white;
@@ -457,6 +513,36 @@
             color: #f1c40f;
         }
 
+
+         /* Slideshow Styles */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.mySlides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mySlides.active {
+  opacity: 1;
+}
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             header .container {
@@ -529,10 +615,24 @@
     </header>
 
     <main class="container">
+        
         <div class="itinerary-header">
-            <h1>2 Days in Mumbai: Gateway of India & Colonial Heritage</h1>
-            <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gateway of India">
+     <h1>2 Days in Mumbai: Gateway of India & Colonial Heritage</h1>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://artsmileybiz.com/wp-content/uploads/2022/04/gateway_of_india_photography_print_artsmiley.jpg" alt="Gateway-of-India">
         </div>
+        <div class="mySlides fade">
+            <img src="https://www.visittnt.com/blog/wp-content/uploads/2018/09/Elephanta-Caves.jpeg" alt="Elephanta Caves">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/mumbai-india-wide-angle-shot-of-gateway-of-india-and-taj-hotel-against-sea-and-dramatic-cloudy-sky-arpan-bhatia.jpg" alt="Taj Hotel">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://www.visittnt.com/blog/wp-content/uploads/2018/05/Marine-drive.jpg" alt="Marine Drive">
+        </div>
+    </div>
+</div>
 
         <div class="itinerary-intro">
             <p>This 2-day itinerary explores Mumbai's iconic Gateway of India and its surrounding colonial-era landmarks. Experience the blend of British architecture, Indian culture, and coastal beauty that defines this vibrant city.</p>
@@ -548,6 +648,44 @@
                 <li><i class="fas fa-hotel"></i> Taj Mahal Palace Hotel</li>
             </ul>
         </div>
+
+
+        <section class="unique-facts">
+    <h2>Unique Facts About Gateway of India</h2>
+    <div class="facts-container">
+        <div class="fact-card">
+            <i class="fas fa-monument"></i>
+            <h3>Colonial Landmark</h3>
+            <p>Built in 1924 to commemorate the visit of King George V and Queen Mary to Bombay in 1911.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-archway"></i>
+            <h3>Architectural Style</h3>
+            <p>Blend of Hindu and Muslim architectural styles with elements of Roman triumphal arches.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-ship"></i>
+            <h3>Historical Entry Point</h3>
+            <p>Used to be the ceremonial entrance to India for British viceroys and governors.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-ruler-combined"></i>
+            <h3>Massive Structure</h3>
+            <p>Standing 26 meters (85 feet) tall, built with yellow basalt and reinforced concrete.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-flag"></i>
+            <h3>Symbolic Exit</h3>
+            <p>The last British troops left India through this gateway in 1948, marking the end of colonial rule.</p>
+        </div>
+        <div class="fact-card">
+            <i class="fas fa-camera"></i>
+            <h3>Photography Hotspot</h3>
+            <p>One of Mumbai's most photographed landmarks with the Taj Mahal Palace Hotel in the background.</p>
+        </div>
+    </div>
+</section>
+
 
         <section id="itinerary">
             <div class="itinerary-day">
@@ -610,16 +748,16 @@
         <section id="gallery" class="photo-gallery">
             <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 20px;">Photo Gallery</h2>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gateway of India">
+                <img src="https://3.bp.blogspot.com/-dQ1gcVL5A3o/Vhqj9ydvuQI/AAAAAAAAJ5U/uk1_d8CkHwM/s1600/Gateway-of-India-Nightview.jpg" alt="Gateway of India">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Elephanta Caves">
+                <img src="https://www.visittnt.com/blog/wp-content/uploads/2018/09/Elephanta-Caves.jpeg" alt="Elephanta Caves">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Taj Hotel">
+                <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/mumbai-india-wide-angle-shot-of-gateway-of-india-and-taj-hotel-against-sea-and-dramatic-cloudy-sky-arpan-bhatia.jpg" alt="Taj Hotel">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581852057104-0a2d5c5a02ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Marine Drive">
+                <img src="https://www.visittnt.com/blog/wp-content/uploads/2018/05/Marine-drive.jpg" alt="Marine Drive">
             </div>
         </section>
 
@@ -684,5 +822,34 @@
             <p>&copy; 2023 Explore India's Heritage. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        let currentSlide = 0;
+    const slides = document.querySelectorAll('.mySlides');
+    
+    function showSlides() {
+        // Hide all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Show current slide
+        slides[currentSlide].classList.add('active');
+        
+        // Move to next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Change slide every 5 seconds
+        setTimeout(showSlides, 5000);
+    }
+    
+    // Start the slideshow
+    showSlides();
+    </script>
 </body>
 </html>

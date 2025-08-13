@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Enhanced Itinerary CSS */
         body.itinerary-page {
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
@@ -24,7 +23,6 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
         header {
             background: linear-gradient(135deg, #2c3e50, #1a252f);
             color: white;
@@ -71,7 +69,6 @@
             border-bottom: 2px solid #f1c40f;
         }
 
-        /* Main Content Styles */
         .itinerary-header {
             text-align: center;
             margin: 50px 0 40px;
@@ -86,22 +83,40 @@
             line-height: 1.2;
         }
 
-
-        .itinerary-header img {
-            
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
+        /* Key changes for image display */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: 0 auto 20px;
             border-radius: 10px;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            margin-bottom: 10px;
-            border: 1px solid rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            height: 500px;
+            background-color: #f0f0f0; /* Added background for container */
         }
 
-        .itinerary-header img:hover {
-            transform: scale(1.01);
+        .mySlides {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* Added background for slides */
+        }
+
+        .mySlides.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .mySlides img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Changed to contain for full image visibility */
+            display: block;
         }
 
         .itinerary-intro {
@@ -129,7 +144,6 @@
             z-index: 0;
         }
 
-        /* Day Itinerary Styles */
         .itinerary-day {
             background-color: white;
             border-radius: 10px;
@@ -223,7 +237,6 @@
             line-height: 1.7;
         }
 
-        /* Travel Tips Styles */
         .travel-tips {
             background-color: white;
             border-radius: 10px;
@@ -283,7 +296,6 @@
             font-size: 1.05rem;
         }
 
-        /* Map Styles */
         .map-container {
             height: 450px;
             margin-bottom: 50px;
@@ -298,7 +310,6 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
-        /* Back Button Styles */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -321,7 +332,6 @@
             background: linear-gradient(135deg, #1a252f, #2c3e50);
         }
 
-        /* Footer Styles */
         footer {
             background: linear-gradient(135deg, #2c3e50, #1a252f);
             color: white;
@@ -390,7 +400,6 @@
             font-size: 0.95rem;
         }
 
-        /* New Additions */
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -403,23 +412,22 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            height: 200px;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            height: 250px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .itinerary-highlights {
@@ -437,11 +445,12 @@
         }
 
         .highlights-list {
-  display: flex;
-  flex-wrap: nowrap; 
-  gap: 1rem; 
-  overflow-x: auto; 
-}
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 15px 0;
+        }
 
         .highlights-list li {
             padding: 10px 15px;
@@ -451,13 +460,88 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .highlights-list li i {
             color: #f1c40f;
         }
 
-        /* Responsive Styles */
+        .facts-section {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .facts-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .facts-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .fact-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border-top: 4px solid #f1c40f;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .fact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(241, 196, 15, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #f1c40f;
+            font-size: 1.5rem;
+        }
+
+        .fact-card h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+
+        .fact-card p {
+            margin: 0;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
         @media (max-width: 768px) {
             header .container {
                 flex-direction: column;
@@ -484,6 +568,10 @@
             .highlights-list {
                 grid-template-columns: 1fr;
             }
+
+            .slideshow-container {
+                height: 350px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -497,7 +585,8 @@
             
             .itinerary-intro,
             .itinerary-day,
-            .travel-tips {
+            .travel-tips,
+            .facts-section {
                 padding: 20px;
             }
             
@@ -510,6 +599,18 @@
             .map-container {
                 height: 300px;
             }
+
+            .slideshow-container {
+                height: 250px;
+            }
+
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -521,6 +622,7 @@
                 <ul>
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="#itinerary">Itinerary</a></li>
+                    <li><a href="#facts">Unique Facts</a></li>
                     <li><a href="#tips">Travel Tips</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                 </ul>
@@ -531,11 +633,23 @@
     <main class="container">
         <div class="itinerary-header">
             <h1>2 Days in Delhi: Qutub Minar & Historical Exploration</h1>
-            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Qutub Minar">
+            
+            <div class="slideshow-container">
+                <div class="mySlides active">
+                    <img src="https://4.bp.blogspot.com/-zdM5Ev4P8P8/WpaxyzdumGI/AAAAAAAABM8/rshZHuBl3egi7hXXYrOBSgPc5lBI_5RvQCEwYBhgL/s640/PicsArt_02-28-07.04.35.jpg" alt="Qutub Minar">
+                </div>
+                <div class="mySlides">
+                    <img src="https://wallpapercave.com/wp/wp5907940.jpg" alt="Qutub Complex">
+                </div>
+                <div class="mySlides">
+                    <img src="https://indiano.travel/wp-content/uploads/2022/10/Untitled-design-71.jpg" alt="Iron Pillar">
+                </div>
+                
+            </div>
         </div>
 
         <div class="itinerary-intro">
-            <p>This 2-day itinerary takes you through Delhi's rich history centered around the Qutub Minar complex, the tallest brick minaret in the world. Explore the architectural marvels of the Delhi Sultanate period and other nearby historical gems.</p>
+            <p>This 2-day itinerary takes you through Delhi's rich history centered around the Qutub Minar complex, the tallest brick minaret in the world. Explore the architectural marvels of the Delhi Sultanate period and other nearby historical gems. The Qutub Minar complex is a UNESCO World Heritage Site that showcases the beginning of Muslim rule in India.</p>
         </div>
 
         <div class="itinerary-highlights">
@@ -546,8 +660,58 @@
                 <li><i class="fas fa-history"></i> Mehrauli Archaeological Park</li>
                 <li><i class="fas fa-utensils"></i> Delhi's street food experience</li>
                 <li><i class="fas fa-shopping-bag"></i> Dilli Haat shopping</li>
+                <li><i class="fas fa-tree"></i> Lodhi Gardens walk</li>
+                <li><i class="fas fa-landmark"></i> Hauz Khas medieval village</li>
             </ul>
         </div>
+
+        <section id="facts" class="facts-section">
+            <h2>Unique Facts About Qutub Minar</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">
+                        <i class="fas fa-ruler-vertical"></i>
+                    </div>
+                    <h3>Tallest Brick Minaret</h3>
+                    <p>At 73 meters (239.5 feet), Qutub Minar is the world's tallest brick minaret. It has 379 steps leading to the top, though public access to the upper levels has been restricted since 1981.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Centuries in the Making</h3>
+                    <p>Construction began in 1192 by Qutb-ud-din Aibak, but the tower was completed in 1368 by Firoz Shah Tughlaq. The different architectural styles reflect the different periods of construction.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <h3>Mysterious Iron Pillar</h3>
+                    <p>The 7-meter tall Iron Pillar in the complex has stood rust-free for over 1600 years, showcasing ancient India's advanced metallurgical skills. Its inscriptions date back to 4th century CE.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Five Distinct Stories</h3>
+                    <p>The minaret has five distinct stories, each marked by a projecting balcony. The first three are made of red sandstone, the fourth and fifth of marble and sandstone.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">
+                        <i class="fas fa-kaaba"></i>
+                    </div>
+                    <h3>First Mosque in India</h3>
+                    <p>The Quwwat-ul-Islam Mosque in the complex was the first mosque built in India after the Islamic conquest. It was constructed using materials from 27 demolished Hindu and Jain temples.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Strikes</h3>
+                    <p>The minaret was struck by lightning in 1368, damaging the top story. Firoz Shah Tughlaq rebuilt it and added the current two stories, replacing the original cupola with a dome.</p>
+                </div>
+            </div>
+        </section>
 
         <section id="itinerary">
             <div class="itinerary-day">
@@ -557,7 +721,7 @@
                     <span class="time">9:00 AM</span>
                     <div class="activity">
                         <h3>Qutub Minar Complex</h3>
-                        <p>Begin your day at the UNESCO World Heritage Site of Qutub Minar. Explore the 73-meter tall minaret, Quwwat-ul-Islam Mosque, Iron Pillar, and Alai Darwaza. Marvel at the intricate carvings and Indo-Islamic architecture.</p>
+                        <p>Begin your day at the UNESCO World Heritage Site of Qutub Minar. Explore the 73-meter tall minaret, Quwwat-ul-Islam Mosque, Iron Pillar, and Alai Darwaza. Marvel at the intricate carvings and Indo-Islamic architecture. Don't miss the beautiful calligraphy inscriptions on the minaret.</p>
                     </div>
                 </div>
                 
@@ -565,7 +729,7 @@
                     <span class="time">12:00 PM</span>
                     <div class="activity">
                         <h3>Lunch at Olive Qutub</h3>
-                        <p>Enjoy Mediterranean cuisine in the beautiful surroundings of Olive restaurant, set in a restored 19th-century building near the Qutub complex.</p>
+                        <p>Enjoy Mediterranean cuisine in the beautiful surroundings of Olive restaurant, set in a restored 19th-century building near the Qutub complex. Try their signature dishes like burrata salad and wood-fired pizzas in the lush garden setting.</p>
                     </div>
                 </div>
                 
@@ -573,7 +737,7 @@
                     <span class="time">2:00 PM</span>
                     <div class="activity">
                         <h3>Mehrauli Archaeological Park</h3>
-                        <p>Explore this 200-acre park containing over 100 historically significant monuments, including Balban's Tomb and Jamali Kamali Mosque.</p>
+                        <p>Explore this 200-acre park containing over 100 historically significant monuments, including Balban's Tomb and Jamali Kamali Mosque. The park spans over 1000 years of Delhi's history, from the 10th century to the British era.</p>
                     </div>
                 </div>
             </div>
@@ -585,7 +749,7 @@
                     <span class="time">9:00 AM</span>
                     <div class="activity">
                         <h3>Hauz Khas Village</h3>
-                        <p>Visit this medieval village with its historic water tank, madrasa, and tomb of Feroz Shah Tughlaq. Enjoy the blend of history and contemporary art galleries.</p>
+                        <p>Visit this medieval village with its historic water tank, madrasa, and tomb of Feroz Shah Tughlaq. Enjoy the blend of history and contemporary art galleries. The deer park offers a peaceful retreat from the city's hustle.</p>
                     </div>
                 </div>
                 
@@ -593,7 +757,7 @@
                     <span class="time">12:00 PM</span>
                     <div class="activity">
                         <h3>Dilli Haat</h3>
-                        <p>Experience crafts and cuisines from all over India at this open-air market. Perfect for souvenir shopping and trying regional foods.</p>
+                        <p>Experience crafts and cuisines from all over India at this open-air market. Perfect for souvenir shopping and trying regional foods from different states. Don't miss the handloom textiles and traditional jewelry.</p>
                     </div>
                 </div>
                 
@@ -601,7 +765,7 @@
                     <span class="time">3:00 PM</span>
                     <div class="activity">
                         <h3>Lodhi Gardens</h3>
-                        <p>End your trip with a stroll through these beautiful gardens dotted with 15th-century tombs of the Sayyid and Lodhi dynasties.</p>
+                        <p>End your trip with a stroll through these beautiful gardens dotted with 15th-century tombs of the Sayyid and Lodhi dynasties. The gardens are particularly beautiful in the late afternoon light, perfect for photography.</p>
                     </div>
                 </div>
             </div>
@@ -610,16 +774,16 @@
         <section id="gallery" class="photo-gallery">
             <h2 style="grid-column: 1/-1; text-align: center; margin-bottom: 20px;">Photo Gallery</h2>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Qutub Minar">
+                <img src="https://4.bp.blogspot.com/-zdM5Ev4P8P8/WpaxyzdumGI/AAAAAAAABM8/rshZHuBl3egi7hXXYrOBSgPc5lBI_5RvQCEwYBhgL/s640/PicsArt_02-28-07.04.35.jpg" alt="Qutub Minar">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1587135941948-670b22d240f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Iron Pillar">
+                <img src="https://wallpapercave.com/wp/wp5907940.jpg" alt="Qutub Complex">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1587474260506-9d7a4c70f5b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alai Darwaza">
+                <img src="https://indiano.travel/wp-content/uploads/2022/10/Untitled-design-71.jpg" alt="Iron Pillar">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1587135941948-670b22d240f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mehrauli Park">
+                <img src="https://th.bing.com/th/id/OIP.BVfRch7eS1JeNZ8BnO-XpwHaE9?pid=ImgDet&rs=1" alt="Alai Darwaza">
             </div>
         </section>
 
@@ -628,19 +792,23 @@
                 <h2><i class="fas fa-lightbulb tip-icon"></i> Travel Tips for Qutub Minar</h2>
                 <div class="tip-item">
                     <i class="fas fa-sun tip-icon"></i>
-                    <p><strong>Best Time to Visit:</strong> October to March for pleasant weather. Visit early morning to avoid crowds.</p>
+                    <p><strong>Best Time to Visit:</strong> October to March for pleasant weather. Visit early morning (8-10am) to avoid crowds and harsh sunlight. The complex is open from sunrise to sunset.</p>
                 </div>
                 <div class="tip-item">
                     <i class="fas fa-ticket-alt tip-icon"></i>
-                    <p><strong>Tickets:</strong> Combined ticket available for Qutub Minar and other monuments in the complex.</p>
+                    <p><strong>Tickets:</strong> ₹40 for Indians, ₹600 for foreigners. Combined ticket available for Qutub Minar and other monuments in the complex. Free entry for children below 15 years.</p>
                 </div>
                 <div class="tip-item">
                     <i class="fas fa-camera tip-icon"></i>
-                    <p><strong>Photography:</strong> The Iron Pillar and intricate carvings on the minaret make excellent photo subjects.</p>
+                    <p><strong>Photography:</strong> The Iron Pillar and intricate carvings on the minaret make excellent photo subjects. Best light for photography is early morning or late afternoon.</p>
                 </div>
                 <div class="tip-item">
                     <i class="fas fa-tshirt tip-icon"></i>
-                    <p><strong>Dress Code:</strong> Comfortable walking shoes as the complex has uneven surfaces.</p>
+                    <p><strong>Dress Code:</strong> Comfortable walking shoes as the complex has uneven surfaces. Modest clothing recommended as it's a historical religious site.</p>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-map-marked-alt tip-icon"></i>
+                    <p><strong>Guides:</strong> Licensed guides available at entrance. Audio guides also available in multiple languages. Download the ASI's Qutub Minar app for self-guided tours.</p>
                 </div>
             </div>
         </section>
@@ -684,5 +852,40 @@
             <p>&copy; 2023 Explore India's Heritage. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.mySlides');
+        
+        function showSlides() {
+            const currentSlide = document.querySelector('.mySlides.active');
+            
+            if (currentSlide) {
+                currentSlide.classList.remove('active');
+            }
+            
+            slideIndex++;
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            
+            slides[slideIndex].classList.add('active');
+            
+            setTimeout(showSlides, 5000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(showSlides, 5000);
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
