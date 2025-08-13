@@ -9,7 +9,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/dance-forms.css">`n  <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/dance-forms.css">
+    <link rel="stylesheet" href="../css/navbar.css">
   </head>
 
 <body class="bg-[#fffaf3] text-gray-800 relative overflow-hidden">
@@ -36,11 +37,11 @@
   <span class="floating-emoji" style="bottom: 20%; left: 35%">🎷</span>
   <span class="floating-emoji" style="bottom: 50%; right: 5%">🎺</span>
   <span class="floating-emoji" style="top: 70%; left: 15%">🎼</span>
-  <span class="floating-emoji" style="top: 90%; right: 20%">🎬</span>
+  <span class="floating-emoji floating-emoji-top-right">🎬</span>
 
   <!-- CAROUSEL images -->
   <div class="container my-5 position-relative">
-    <div class="mx-auto" style="max-width: 800px; position: relative">
+    <div class="mx-auto carousel-container">
       <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -73,16 +74,14 @@
 
       <!-- Fun Fact Box Overlaying Carousel -->
       <div id="fun-fact-box"
-        class="relative left-1/2 -translate-x-1/2 md:absolute md:bottom-[-40px] bg-white bg-opacity-90 px-4 py-3 py-md-4 ps-5 rounded-5 shadow d-flex align-items-center w-100 md:w-75"
-        style="max-width: 720px; z-index: 2; margin-top: 1rem">
-        <img src="../assets/images/dance/cartoon-girl.png!sw800" alt="Cartoon Girl" class="me-3"
-          style="width: 80px; height: 80px; flex-shrink: 0" />
+        class="relative left-1/2 -translate-x-1/2 md:absolute md:bottom-[-40px] bg-white bg-opacity-90 px-4 py-3 py-md-4 ps-5 rounded-5 shadow d-flex align-items-center w-100 md:w-75 fun-fact-box-style">
+        <img src="../assets/images/dance/cartoon-girl.png!sw800" alt="Cartoon Girl" class="me-3 cartoon-girl-style" />
 
         <div>
           <div class="text-uppercase fw-bold text-warning small mb-1">
             Did you know?
           </div>
-          <p id="fun-fact-text" class="mb-0 fw-medium text-dark" style="line-height: 1.5">
+          <p id="fun-fact-text" class="mb-0 fw-medium text-dark fun-fact-text-style">
             Mohiniyattam once incorporated verses from <b>Manipravalam</b> — a
             rare literary blend of Sanskrit and Malayalam — in its early
             compositions.
