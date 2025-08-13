@@ -315,8 +315,13 @@
   </section>
 
   <footer>
-    &copy; 2025 Travel India Guide | Plan Your Journey Wisely
+    &copy; <span id="year"></span> Travel India Guide | Plan Your Journey Wisely
   </footer>
+
+  <script>
+    // Set current year dynamically in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

@@ -136,9 +136,14 @@
 
   <!-- Footer -->
   <footer class="bg-green-900 text-white py-8 text-center">
-    <p class="text-lg font-semibold">© 2025 DeshDarshan</p>
+    <p class="text-lg font-semibold">© <span id="year"></span> DeshDarshan</p>
     <p class="text-sm mt-1">Made with ❤️ by someone proud of Punjab</p>
   </footer>
+
+  <script>
+    // Set current year dynamically in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
