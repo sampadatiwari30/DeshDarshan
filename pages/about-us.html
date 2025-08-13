@@ -393,154 +393,230 @@
     }
 
     /* Footer */
-    footer#footer{
-      margin-top:3.5rem;
-      padding:3rem 1.5rem 2rem;
-      background:linear-gradient(135deg, #111827 0%, #1f2937 100%);
-      border-top:1px solid rgba(255,255,255,0.05);
-      position: relative;
-    }
-    
-    footer#footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--brand-gradient);
-    }
-    
-    .footer-content-wrapper{
-      max-width:var(--max-width);
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap:2.5rem;
-      align-items:start;
-    }
-    
-    .footer-section-title{ 
-      font-size:1.2rem; 
-      margin-bottom:1rem; 
-      color: white;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-    
-    .footer-section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background: var(--brand-gradient);
-    }
-    
-    .footer-link{ 
-      color:#a0aec0; 
-      text-decoration:none; 
-      transition: all 0.3s ease;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-    
-    .footer-link:hover{ 
-      color:#ffffff; 
-      transform: translateX(5px);
-    }
-    
-    .footer-contact-item{ 
-       color: #d1d5db; 
-       transition: all 0.3s ease;
-       font-size: 1rem;
-       display: flex;
-       align-items: center;
-       line-height: 1.5;
-       margin-bottom: 0.5rem;
-       padding: 5px 8px;
-       border-radius: 6px;
-     }
-     
-     .footer-contact-item:hover {
-       background-color: rgba(255, 255, 255, 0.1);
-       transform: translateX(5px);
-       color: #ffffff;
-     }
-    
-    .footer-contact-item span {
-       margin-left: 10px;
-       font-weight: 500;
-       letter-spacing: 0.3px;
-     }
-     
-     /* Add pulse animation for contact icons */
-     @keyframes iconPulse {
-       0% { transform: scale(1); }
-       50% { transform: scale(1.2); }
-       100% { transform: scale(1); }
-     }
-     
-     .footer-contact-item:hover i {
-       animation: iconPulse 1s ease infinite;
-       color: #ff9933;
-     }
+/* Footer Styling */
+#footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #ffffff;
+  padding: 60px 0 20px;
+  margin-top: auto;
+}
 
-    .copyright-section{
-      text-align:center;
-      margin-top:2.5rem;
-      padding-top: 1.5rem;
-      color:#a0aec0;
-      font-size:.92rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
+.footer-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Exactly 4 equal columns */
+  gap: 40px;
+}
 
-    /* Back to top button */
-    #backToTopBtn{
-      position:fixed;
-      right:17px;
-      bottom:80px;
-      z-index:1200;
-      background:var(--brand-primary);
-      color:#fff;
-      border:none;
-      width:55px;
-      height:55px;
-      border-radius:50%;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      font-size:1.2rem;
-      box-shadow: 0 10px 30px rgba(255, 123, 84, 0.25);
-      cursor:pointer;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      overflow: hidden;
-    }
-    
-    #backToTopBtn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-      transform: scale(0);
-      transition: transform 0.5s ease-out;
-      border-radius: 50%;
-    }
-    
-    #backToTopBtn:hover::before {
-      transform: scale(2);
-    }
-    
-    #backToTopBtn:hover{ 
-      transform: translateY(-8px) scale(1.1); 
-      background:var(--brand-accent); 
-      box-shadow: 0 15px 35px rgba(255, 123, 84, 0.35);
-    }
+/* Footer Section Titles with Golden Color and Underline */
+.footer-section-title {
+  color: #f4a261 !important; /* Golden orange color */
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #f4a261; /* Golden orange underline */
+}
+
+/* Footer Section Content */
+.footer-section {
+  margin-bottom: 30px;
+}
+
+.footer-section p {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  color: #f4a261 !important; /* Golden orange */
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* Quick Links */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 14px;
+}
+
+.footer-link {
+  color: #cccccc !important;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #f4a261 !important; /* Golden orange on hover */
+}
+
+/* Contact Information */
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  color: #cccccc;
+  font-size: 15px;
+}
+
+.footer-contact-item i {
+  color: #f4a261; /* Golden orange icons */
+  width: 25px;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+/* Social Icons */
+.social-icons-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: #333333;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.social-icon:hover {
+  background-color: #f4a261; /* Golden orange background on hover */
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Newsletter Section */
+.newsletter h4 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  margin-top: 15px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 15px 18px;
+  border: 1px solid #444444;
+  border-radius: 6px 0 0 6px;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  min-width: 200px;
+}
+
+.newsletter-form input::placeholder {
+  color: #999999;
+}
+
+.newsletter-form input:focus {
+  border-color: #f4a261;
+}
+
+.newsletter-form button {
+  padding: 15px 20px;
+  border: none;
+  background-color: #f4a261; /* Golden orange button */
+  color: #ffffff;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  min-width: 50px;
+}
+
+.newsletter-form button:hover {
+  background-color: #e76f51; /* Slightly darker orange on hover */
+}
+
+/* Copyright Section */
+.copyright-section {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 50px;
+  border-top: 1px solid #444444;
+  color: #999999;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-content-wrapper {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content-wrapper {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    gap: 30px;
+    padding: 0 15px;
+  }
+  
+  #footer {
+    padding: 40px 0 20px;
+  }
+  
+  .social-icons-container {
+    justify-content: flex-start;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .newsletter-form input,
+  .newsletter-form button {
+    border-radius: 6px;
+  }
+  
+  .newsletter-form input {
+    min-width: auto;
+  }
+}
+
 
     /* Language dropdown */
     .language-dropdown{
@@ -1440,104 +1516,87 @@
 </main>
 
 <!-- FOOTER -->
-<footer id="footer" aria-labelledby="footerHeading" data-aos="fade-up" data-aos-duration="1000">
-  <div class="footer-content-wrapper" data-aos="fade-up" data-aos-delay="200">
-    
+<footer id="footer">
+  <div class="footer-content-wrapper">
     <!-- Section 1: About Desh Darshan -->
-    <div class="footer-section" data-aos="fade-right" data-aos-delay="300">
+    <div class="footer-section">
       <h3 class="footer-section-title">Desh Darshan</h3>
-      <p class="animate__animated animate__fadeIn animate__delay-1s">
-        Desh Darshan is your gateway to the vibrant and diverse culture of India. We aim to introduce the world to India's rich heritage, traditions, arts, and history.
+      <p>
+        Desh Darshan is your gateway to the vibrant and diverse culture of
+        India. We aim to introduce the world to India's rich heritage,
+        traditions, arts, and history.
       </p>
+      <div class="footer-logo">DeshDarshan</div>
     </div>
 
     <!-- Section 2: Quick Links -->
-    <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
+    <div class="footer-section">
       <h3 class="footer-section-title">Quick Links</h3>
-      <ul style="list-style:none; padding-left:0; margin:0;">
-        <li><a class="footer-link animate__animated animate__fadeIn animate__delay-1s" href="index.html">Home</a></li>
-        <li><a class="footer-link animate__animated animate__fadeIn animate__delay-1s" href="about-us.html">About Us</a></li>
-        <li><a class="footer-link animate__animated animate__fadeIn animate__delay-1s" href="explore.html">Explore India</a></li>
-        <li><a class="footer-link animate__animated animate__fadeIn animate__delay-1s" href="feedback.html">Feedback</a></li>
-        <li><a class="footer-link animate__animated animate__fadeIn animate__delay-1s" href="contact-us.html">Contact Us</a></li>
+      <ul>
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="about us.html" class="footer-link">About Us</a></li>
+        <li>
+          <a href="explore.html" class="footer-link">Explore India</a>
+        </li>
+        <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+        <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
       </ul>
     </div>
 
     <!-- Section 3: Contact Us -->
-    <div class="footer-section" data-aos="fade-left" data-aos-delay="500">
+    <div class="footer-section">
       <h3 class="footer-section-title">Contact Us</h3>
-      <ul style="list-style:none; padding-left:0; margin:0;">
-        <li class="footer-contact-item animate__animated animate__fadeIn animate__delay-1s">
-          <i class="fas fa-envelope pulse-glow" style="color: #ff9933; font-size: 1.1rem;"></i> 
+      <ul>
+        <li class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
           <span>hello@deshdarshan.in</span>
         </li>
-        <li class="footer-contact-item animate__animated animate__fadeIn animate__delay-1s">
-          <i class="fas fa-phone-alt pulse-glow" style="color: #ff9933; font-size: 1.1rem;"></i> 
+        <li class="footer-contact-item">
+          <i class="fas fa-phone-alt"></i>
           <span>+91 1234567890</span>
         </li>
-        <li class="footer-contact-item animate__animated animate__fadeIn animate__delay-1s">
-          <i class="fas fa-map-marker-alt pulse-glow" style="color: #ff9933; font-size: 1.1rem;"></i> 
+        <li class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
           <span>New Delhi, India</span>
         </li>
       </ul>
     </div>
 
     <!-- Section 4: Follow Us -->
-    <div class="footer-section" data-aos="zoom-in" data-aos-delay="600">
+    <div class="footer-section">
       <h3 class="footer-section-title">Follow Us</h3>
-      <div class="social-icons-container" style="display:flex; gap:.6rem;">
-        <a href="#" class="social-icon float-animation" aria-label="Facebook"
+      <div class="social-icons-container">
+        <a href="#" class="social-icon" aria-label="Facebook"
           ><i class="fab fa-facebook-f"></i
         ></a>
-        <a href="#" class="social-icon float-animation" aria-label="Twitter"
+        <a href="#" class="social-icon" aria-label="Twitter"
           ><i class="fab fa-twitter"></i
         ></a>
-        <a href="#" class="social-icon float-animation" aria-label="Instagram"
+        <a href="#" class="social-icon" aria-label="Instagram"
           ><i class="fab fa-instagram"></i
         ></a>
-        <a href="#" class="social-icon float-animation" aria-label="YouTube"
+        <a href="#" class="social-icon" aria-label="YouTube"
           ><i class="fab fa-youtube"></i
         ></a>
+      </div>
+      <div class="newsletter">
+        <h4>Subscribe to our newsletter</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" />
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
       </div>
     </div>
   </div>
 
-  <!-- Copyright Section -->
-  <div class="copyright-section" data-aos="fade-up" data-aos-delay="700">
+  <!-- Copyright -->
+  <div class="copyright-section">
     &copy; <span id="year"></span> Desh Darshan. All rights reserved.
   </div>
 </footer>
 
 
-<!-- Add this JavaScript for enhanced functionality -->
-<script>
-  // Set dynamic year
-  document.getElementById('year').textContent = new Date().getFullYear();
-  
-  // Enhanced hover effects for social icons
-  document.querySelectorAll('.social-icon').forEach(icon => {
-    icon.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-5px) scale(1.1)';
-      this.style.transition = 'all 0.3s ease';
-    });
-    
-    icon.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
-    });
-  });
-  
-  // Enhanced footer link hover effects
-  document.querySelectorAll('.footer-link').forEach(link => {
-    link.addEventListener('mouseenter', function() {
-      this.style.color = '#ff9933';
-      this.style.transition = 'color 0.3s ease';
-    });
-  });
-</script>
 
-
-  <!-- Back to Top -->
-  <button id="backToTopBtn" title="Go to top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
   <!-- ========== Scripts ========== -->
   <script>
@@ -1751,17 +1810,7 @@
     const footer = document.getElementById('footer');
     if (footer) observer.observe(footer);
 
-    /* --------------------- Back to Top Button with Enhanced Animation --------------------- */
-    const backBtn = document.getElementById('backToTopBtn');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 320) {
-        backBtn.style.display = 'flex';
-        backBtn.classList.add('animate__animated', 'animate__fadeIn');
-      } else {
-        backBtn.style.display = 'none';
-        backBtn.classList.remove('animate__animated', 'animate__fadeIn');
-      }
-    });
+    
     
     backBtn.addEventListener('click', () => {
       window.scrollTo({ top:0, behavior: 'smooth' });
@@ -1797,5 +1846,116 @@
   <!-- AOS Animation Library -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="../js/navbar-loader.js"></script>
+
+<!-- Back to Top Button with Mid-Scroll Appearance -->
+<style>
+  /* Base Button Styles */
+  #backToTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    z-index: 1200;
+    background: #ff9832;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Visible State */
+  #backToTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+  }
+  
+  /* Hover Effects */
+  #backToTopBtn:hover {
+    transform: translateY(-5px) scale(1.05); 
+    background: #ffb366; 
+    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #backToTopBtn {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- Button HTML -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3; // Appears at 1/3 of page height
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
+      }
+    });
+    
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+<!-- Button HTML -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3; // Appears at 1/3 of page height
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
+      }
+    });
+    
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+
 </body>
 </html>
