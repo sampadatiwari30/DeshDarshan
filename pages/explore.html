@@ -175,8 +175,38 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             line-height: 1.4;
         }
+        .card-icons {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 5;
+    opacity: 0;
+}
+
+.card-icon {
+    font-size: 1.3rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
 
         .card.unlocked:hover .card-tagline {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card.unlocked:hover .card-icons {
             opacity: 1;
             transform: translateY(0);
         }
@@ -856,44 +886,45 @@
         };
 
         // State data with background images
-        const stateData = [
-            { name: "Andaman and Nicobar Islands", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
-            { name: "Andhra Pradesh", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Arunachal Pradesh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Assam", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Bihar", image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop" },
-            { name: "Chandigarh", image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=500&h=300&fit=crop" },
-            { name: "Chhattisgarh", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Dadra and Nagar Haveli and Daman and Diu", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
-            { name: "Delhi", image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop" },
-            { name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=300&fit=crop" },
-            { name: "Gujarat", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Haryana", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Himachal Pradesh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Jammu and Kashmir", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Jharkhand", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Karnataka", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Kerala", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&h=300&fit=crop" },
-            { name: "Ladakh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Lakshadweep", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
-            { name: "Madhya Pradesh", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Maharashtra", image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=500&h=300&fit=crop" },
-            { name: "Manipur", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Meghalaya", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Mizoram", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Nagaland", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Odisha", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Puducherry", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Punjab", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Rajasthan", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=500&h=300&fit=crop" },
-            { name: "Sikkim", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "Tamil Nadu", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Telangana", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
-            { name: "Tripura", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
-            { name: "Uttar Pradesh", image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop" },
-            { name: "Uttarakhand", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
-            { name: "West Bengal", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" }
-        ];
+       const stateData = [
+  { id: "andaman-and-nicobar-islands", name: "Andaman and Nicobar Islands", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
+  { id: "andhra-pradesh", name: "Andhra Pradesh", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
+  { id: "arunachal-pradesh", name: "Arunachal Pradesh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
+  { id: "assam", name: "Assam", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "bihar", name: "Bihar", image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop" },
+  { id: "chandigarh", name: "Chandigarh", image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=500&h=300&fit=crop" },
+  { id: "chhattisgarh", name: "Chhattisgarh", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "dadra-and-nagar-haveli-and-daman-and-diu", name: "Dadra and Nagar Haveli and Daman and Diu", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
+  { id: "delhi", name: "Delhi", image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop" },
+  { id: "goa", name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=300&fit=crop" },
+  { id: "gujarat", name: "Gujarat", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "haryana", name: "Haryana", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "himachal-pradesh", name: "Himachal Pradesh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
+  { id: "jammu-and-kashmir", name: "Jammu and Kashmir", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
+  { id: "jharkhand", name: "Jharkhand", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "karnataka", name: "Karnataka", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
+  { id: "kerala", name: "Kerala", image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&h=300&fit=crop" },
+  { id: "ladakh", name: "Ladakh", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
+  { id: "lakshadweep", name: "Lakshadweep", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=500&h=300&fit=crop" },
+  { id: "madhya-pradesh", name: "Madhya Pradesh", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "maharashtra", name: "Maharashtra", image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=500&h=300&fit=crop" },
+  { id: "manipur", name: "Manipur", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "meghalaya", name: "Meghalaya", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "mizoram", name: "Mizoram", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "nagaland", name: "Nagaland", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "odisha", name: "Odisha", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
+  { id: "puducherry", name: "Puducherry", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
+  { id: "punjab", name: "Punjab", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "rajasthan", name: "Rajasthan", image: "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=500&h=300&fit=crop" },
+  { id: "sikkim", name: "Sikkim", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
+  { id: "tamil-nadu", name: "Tamil Nadu", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
+  { id: "telangana", name: "Telangana", image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=500&h=300&fit=crop" },
+  { id: "tripura", name: "Tripura", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" },
+  { id: "uttar-pradesh", name: "Uttar Pradesh", image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop" },
+  { id: "uttarakhand", name: "Uttarakhand", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" },
+  { id: "west-bengal", name: "West Bengal", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop" }
+];
+
 
         // State coordinates data for Leaflet map
         const stateCoordinates = {
@@ -982,10 +1013,34 @@
                 tagline.className = 'card-tagline';
                 tagline.textContent = translations[currentLanguage].states[state.name] || 'Discover the beauty';
 
+                //Adding icons for map and info
+                 const icons = document.createElement("div");
+                icons.className = "card-icons";
+
+                 // 🗺️ Map Icon
+                const mapIcon = document.createElement("i");
+                mapIcon.className = "fas fa-map-marker-alt card-icon";
+                mapIcon.title = "View Map";
+        mapIcon.addEventListener("click", (e) => {
+            e.stopPropagation();
+           showStateMap(state.name);
+        });
+
+         // ℹ️ Info Icon
+        const infoIcon = document.createElement("i");
+        infoIcon.className = "fas fa-info-circle card-icon";
+        infoIcon.title = "More Info";
+        infoIcon.addEventListener("click", (e) => {
+            e.stopPropagation();
+             window.location.href = `state-info.html?id=${state.id}`;
+        });
+         icons.appendChild(mapIcon);
+        icons.appendChild(infoIcon);
                 content.appendChild(title);
                 content.appendChild(tagline);
                 card.appendChild(overlay);
                 card.appendChild(content);
+                card.appendChild(icons);
 
                 // Add lock icon for locked cards
                 if (index >= 4) {
@@ -995,10 +1050,10 @@
                     card.appendChild(lockIcon);
                 }
 
-                // Make all cards clickable to show map
-                card.addEventListener('click', function() {
-                    showStateMap(state.name);
-                });
+                // // Make all cards clickable to show map
+                // card.addEventListener('click', function() {
+                //     showStateMap(state.name);
+                // });
 
                 container.appendChild(card);
             });
