@@ -339,28 +339,87 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"></script>
-    <!-- Back to Top Button -->
-<button id="backToTopBtn" title="Go to top">🔝</button>
-
-
-
-<script>
-  // Show button on scroll
-  window.onscroll = function () {
-    const btn = document.getElementById("backToTopBtn");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  };
-
-  // Scroll to top on click
-  document.getElementById("backToTopBtn").addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    
 </script>    <script src="../js/navbar-loader.js"></script>
 
+<!-- Back to Top Button with Updated Colors (#ff9933) -->
+<style>
+  /* Base Button Styles */
+  #backToTopBtn {
+    position: fixed;
+    right: 17px;
+    bottom: 80px;
+    z-index: 1200;
+    background: #ff9933; /* CHANGED FROM #ff7b54 */
+    color: #fff;
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(255, 153, 51, 0.25); /* UPDATED SHADOW COLOR */
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+  }
+
+  /* Visible State */
+  #backToTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+  }
+
+  /* Hover Effects */
+  #backToTopBtn:hover {
+    transform: translateY(-5px) scale(1.05); 
+    background: #ffb366; /* CHANGED FROM #ff9a76 (lighter variant of #ff9933) */ 
+    box-shadow: 0 15px 35px rgba(255, 153, 51, 0.35); /* UPDATED SHADOW COLOR */
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #backToTopBtn {
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- Button HTML (unchanged) -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<!-- JavaScript (unchanged) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
+      }
+    });
+
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 
 </body>
 
