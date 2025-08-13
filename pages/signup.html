@@ -474,6 +474,12 @@
                         error.textContent = '';
                     });
 
+                        // Hide home button after successful registration
+                    const homeButton = document.querySelector('.home-button');
+                    if (homeButton) {
+                        homeButton.style.display = 'none';
+                    }
+
                     updateSubmitButton();
 
                     // Show dashboard preview
