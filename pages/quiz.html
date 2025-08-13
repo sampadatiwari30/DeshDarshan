@@ -1,315 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DeshDarshan Quiz</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../css/base.css" />
-  <link rel="stylesheet" href="../css/layout.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/quiz.css"/>
-  
-</head>
-<body class="indian-bg">
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <h2 data-translate="header">Desh Darshan</h2>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="about us.html" data-translate="nav-about" style="padding-left: 30px;">About Us</a></li>
-        <li><a href="explore.html" data-translate="nav-explore">Explore India</a></li>
-        <li><a href="feedback.html" data-translate="nav-feedback">Feedback</a></li>
-        <li><a href="contactus.html" data-translate="nav-contact">Contact Us</a></li>
-        <li><a href="crazyfacts.html" data-translate="nav-crazyfacts">Crazy Facts</a></li>
-        <li><a href="destination.html" data-translate="nav-destination" style="padding-right: 20px;">Hidden Destinations</a></li>
-      </ul>
-      <div class="nav-buttons">
-        <a href="login.html" class="btn-login">
-          <span>Login</span>
-          <i class="fas fa-sign-in-alt"></i>
-        </a>
-        <a href="signup.html" class="btn-signup">
-          <span>Signup</span>  
-          <i class="fas fa-user-plus"></i>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Quiz Content -->
-  <div class="main-content">
-    <div class="quiz-container">
-      <div id="start-screen" class="glassy-card p-8 rounded-2xl w-full max-w-xl text-center">
-        <div class="flex justify-center mb-4">
-          <span class="text-5xl">🇮🇳</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeshDarshan Quiz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/quiz.css" />
+  </head>
+  <body class="indian-bg">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2 data-translate="header">Desh Darshan</h2>
         </div>
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">DeshDarshan Quiz</h1>
-        <p class="mb-6 text-gray-700">Test your knowledge of India's rich culture, heritage, and festivals!</p>
-        <label class="block mb-3 font-medium text-gray-800">Select Number of Questions:</label>
-        <select id="questionCount" class="mb-6 w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-          <option value="10">10 Questions</option>
-          <option value="20">20 Questions</option>
-          <option value="30">30 Questions</option>
-          <option value="40">40 Questions</option>
-          <option value="50">50 Questions</option>
-        </select>
-        <button id="startBtn" class="tiranga-btn text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all w-full">
-          Start Quiz
-        </button>
-      </div>
-
-      <div id="quiz-box" class="hidden glassy-card p-8 rounded-2xl w-full max-w-2xl">
-        <div class="flex justify-between items-center mb-6">
-          <div id="questionCounter" class="text-sm font-medium text-gray-700"></div>
-          <div class="w-1/2 bg-gray-200 rounded-full h-3">
-            <div id="progressBar" class="bg-gradient-to-r from-orange-500 via-white to-green-500 h-3 rounded-full" style="width: 0%;"></div>
-          </div>
-        </div>
-
-        <div id="questionText" class="text-2xl font-bold text-gray-800 mb-6"></div>
-        <div id="optionsList" class="grid grid-cols-1 gap-3 mb-6"></div>
-
-        <button id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all" disabled>
-          <span class="chakra">☸</span> Submit Answer
-        </button>
-        
-        <div id="feedback" class="mt-6 text-center hidden space-y-3">
-          <div id="correctFeedback" class="text-xl font-bold text-green-600 hidden flex items-center justify-center">
-            <span class="text-2xl mr-2">✓</span> Correct Answer!
-          </div>
-          <div id="wrongFeedback" class="text-xl font-bold text-red-600 hidden flex items-center justify-center">
-            <span class="text-2xl mr-2">✗</span> Wrong Answer!
-          </div>
-          <div id="correctAnswer" class="text-lg text-gray-800 hidden">
-            <div class="font-semibold">The correct answer is:</div>
-            <div class="font-bold mt-1 text-blue-700"></div>
-          </div>
-        </div>
-        
-        <button id="nextBtn" class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg shadow-md hover:shadow-lg hidden transition-all">
-          Next Question <span class="ml-2">→</span>
-        </button>
-      </div>
-
-      <div id="resultBox" class="hidden glassy-card text-center p-8 rounded-2xl w-full max-w-xl">
-        <div class="flex justify-center mb-4">
-          <span class="text-5xl">🎉</span>
-        </div>
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Quiz Completed!</h2>
-        <div class="bg-white rounded-xl p-6 mb-8 border border-gray-200">
-          <p id="finalScore" class="text-2xl font-bold text-gray-800"></p>
-          <div id="scoreMessage" class="text-lg text-gray-700 mt-3"></div>
-        </div>
-        <button onclick="window.location.reload()" class="tiranga-btn text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all w-full">
-          <span class="chakra">☸</span> Restart Quiz
-        </button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content-wrapper">
-      <!-- Section 1: About Desh Darshan -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Desh Darshan</h3>
-        <p>
-          Desh Darshan is your gateway to the vibrant and diverse culture of
-          India. We aim to introduce the world to India's rich heritage,
-          traditions, arts, and history.
-        </p>
-      </div>
-
-      <!-- Section 2: Quick Links -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Quick Links</h3>
-        <ul>
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="about us.html" class="footer-link">About Us</a></li>
+        <ul class="nav-menu">
           <li>
-            <a href="explore.html" class="footer-link">Explore India</a>
+            <a
+              href="about us.html"
+              data-translate="nav-about"
+              style="padding-left: 30px"
+              >About Us</a
+            >
           </li>
-          <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-          <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+          <li>
+            <a href="explore.html" data-translate="nav-explore"
+              >Explore India</a
+            >
+          </li>
+          <li>
+            <a href="feedback.html" data-translate="nav-feedback">Feedback</a>
+          </li>
+          <li>
+            <a href="contactus.html" data-translate="nav-contact">Contact Us</a>
+          </li>
+          <li>
+            <a href="crazyfacts.html" data-translate="nav-crazyfacts"
+              >Crazy Facts</a
+            >
+          </li>
+          <li>
+            <a
+              href="destination.html"
+              data-translate="nav-destination"
+              style="padding-right: 20px"
+              >Hidden Destinations</a
+            >
+          </li>
         </ul>
+        <div class="nav-buttons">
+          <a href="login.html" class="btn-login">
+            <span>Login</span>
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
+          <a href="signup.html" class="btn-signup">
+            <span>Signup</span>
+            <i class="fas fa-user-plus"></i>
+          </a>
+        </div>
       </div>
+    </nav>
 
-      <!-- Section 3: Contact Us -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Contact Us</h3>
-        <ul>
-          <li class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:hello@deshdarshan.in?subject=Contact%20from%20DeshDarshan&body=Hi%20DeshDarshan%20Team," class="footer-link" aria-label="Email">hello@deshdarshan.in</a>
-          </li>
-          <li class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <a href="tel:+911234567890" class="footer-link" aria-label="Phone">+91 1234567890</a>
-          </li>
-          <li class="footer-contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>New Delhi, India</span>
-          </li>
-        </ul>
-      </div>
+    <!-- Main Quiz Content -->
+    <div class="main-content">
+      <div class="quiz-container">
+        <div
+          id="start-screen"
+          class="glassy-card p-8 rounded-2xl w-full max-w-xl text-center"
+        >
+          <div class="flex justify-center mb-4">
+            <span class="text-5xl">🇮🇳</span>
+          </div>
+          <h1 class="text-4xl font-bold text-gray-800 mb-4">
+            DeshDarshan Quiz
+          </h1>
+          <p class="mb-6 text-gray-700">
+            Test your knowledge of India's rich culture, heritage, and
+            festivals!
+          </p>
+          <label class="block mb-3 font-medium text-gray-800"
+            >Select Number of Questions:</label
+          >
+          <select
+            id="questionCount"
+            class="mb-6 w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option value="10">10 Questions</option>
+            <option value="20">20 Questions</option>
+            <option value="30">30 Questions</option>
+            <option value="40">40 Questions</option>
+            <option value="50">50 Questions</option>
+          </select>
+          <button
+            id="startBtn"
+            class="tiranga-btn text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all w-full"
+          >
+            Start Quiz
+          </button>
+        </div>
 
-      <!-- Section 4: Follow Us -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Follow Us</h3>
-        <div class="social-icons-container">
-          <a href="https://www.facebook.com/deshdarshan" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com/deshdarshan" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/deshdarshan" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@deshdarshan" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <div
+          id="quiz-box"
+          class="hidden glassy-card p-8 rounded-2xl w-full max-w-2xl"
+        >
+          <div class="flex justify-between items-center mb-6">
+            <div
+              id="questionCounter"
+              class="text-sm font-medium text-gray-700"
+            ></div>
+            <div class="w-1/2 bg-gray-200 rounded-full h-3">
+              <div
+                id="progressBar"
+                class="bg-gradient-to-r from-orange-500 via-white to-green-500 h-3 rounded-full"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            id="questionText"
+            class="text-2xl font-bold text-gray-800 mb-6"
+          ></div>
+          <div id="optionsList" class="grid grid-cols-1 gap-3 mb-6"></div>
+
+          <button
+            id="submitBtn"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            disabled
+          >
+            <span class="chakra">☸</span> Submit Answer
+          </button>
+
+          <div id="feedback" class="mt-6 text-center hidden space-y-3">
+            <div
+              id="correctFeedback"
+              class="text-xl font-bold text-green-600 hidden flex items-center justify-center"
+            >
+              <span class="text-2xl mr-2">✓</span> Correct Answer!
+            </div>
+            <div
+              id="wrongFeedback"
+              class="text-xl font-bold text-red-600 hidden flex items-center justify-center"
+            >
+              <span class="text-2xl mr-2">✗</span> Wrong Answer!
+            </div>
+            <div id="correctAnswer" class="text-lg text-gray-800 hidden">
+              <div class="font-semibold">The correct answer is:</div>
+              <div class="font-bold mt-1 text-blue-700"></div>
+            </div>
+          </div>
+
+          <button
+            id="nextBtn"
+            class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg shadow-md hover:shadow-lg hidden transition-all"
+          >
+            Next Question <span class="ml-2">→</span>
+          </button>
+        </div>
+
+        <div
+          id="resultBox"
+          class="hidden glassy-card text-center p-8 rounded-2xl w-full max-w-xl"
+        >
+          <div class="flex justify-center mb-4">
+            <span class="text-5xl">🎉</span>
+          </div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-6">Quiz Completed!</h2>
+          <div class="bg-white rounded-xl p-6 mb-8 border border-gray-200">
+            <p id="finalScore" class="text-2xl font-bold text-gray-800"></p>
+            <div id="scoreMessage" class="text-lg text-gray-700 mt-3"></div>
+          </div>
+          <button
+            onclick="window.location.reload()"
+            class="tiranga-btn text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all w-full"
+          >
+            <span class="chakra">☸</span> Restart Quiz
+          </button>
         </div>
       </div>
     </div>
-    <!-- Copyright -->
-    <div class="copyright-section">
-      &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-    </div>
-  </footer>
 
-  <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    let allQuestions = [];
-    let questions = [];
-    let currentQuestion = 0;
-    let score = 0;
-    let selectedOption = null;
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content-wrapper">
+        <!-- Section 1: About Desh Darshan -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Desh Darshan</h3>
+          <p>
+            Desh Darshan is your gateway to the vibrant and diverse culture of
+            India. We aim to introduce the world to India's rich heritage,
+            traditions, arts, and history.
+          </p>
+        </div>
 
-    const startScreen = document.getElementById("start-screen");
-    const quizBox = document.getElementById("quiz-box");
-    const resultBox = document.getElementById("resultBox");
-    const startBtn = document.getElementById("startBtn");
-    const submitBtn = document.getElementById("submitBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const questionText = document.getElementById("questionText");
-    const optionsList = document.getElementById("optionsList");
-    const questionCountSelect = document.getElementById("questionCount");
-    const questionCounter = document.getElementById("questionCounter");
-    const progressBar = document.getElementById("progressBar");
-    const finalScore = document.getElementById("finalScore");
-    const scoreMessage = document.getElementById("scoreMessage");
-    const correctFeedback = document.getElementById("correctFeedback");
-    const wrongFeedback = document.getElementById("wrongFeedback");
-    const correctAnswer = document.getElementById("correctAnswer");
-    const correctAnswerSpan = correctAnswer.querySelector("div.font-bold");
+        <!-- Section 2: Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about us.html" class="footer-link">About Us</a></li>
+            <li>
+              <a href="explore.html" class="footer-link">Explore India</a>
+            </li>
+            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
 
-    startBtn.onclick = async () => {
-      const numQs = parseInt(questionCountSelect.value);
-      try {
-        const res = await fetch("../questions.json");
-        allQuestions = await res.json();
-        questions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, numQs);
-        startScreen.classList.add("hidden");
-        quizBox.classList.remove("hidden");
-        showQuestion();
-      } catch (err) {
-        alert("Failed to load questions.");
-      }
-    };
+        <!-- Section 3: Contact Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Contact Us</h3>
+          <ul>
+            <li class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <a
+                href="mailto:hello@deshdarshan.in?subject=Contact%20from%20DeshDarshan&body=Hi%20DeshDarshan%20Team,"
+                class="footer-link"
+                aria-label="Email"
+                >hello@deshdarshan.in</a
+              >
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+911234567890" class="footer-link" aria-label="Phone"
+                >+91 1234567890</a
+              >
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>New Delhi, India</span>
+            </li>
+          </ul>
+        </div>
 
-    function showQuestion() {
-      const q = questions[currentQuestion];
-      questionText.innerText = q.question;
-      optionsList.innerHTML = '';
-      
-      // Hide all feedback elements
-      correctFeedback.classList.add('hidden');
-      wrongFeedback.classList.add('hidden');
-      correctAnswer.classList.add('hidden');
-      
-      nextBtn.classList.add('hidden');
-      submitBtn.disabled = true;
-      selectedOption = null;
+        <!-- Section 4: Follow Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Follow Us</h3>
+          <div class="social-icons-container">
+            <a
+              href="https://www.facebook.com/deshdarshan"
+              class="social-icon"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://twitter.com/deshdarshan"
+              class="social-icon"
+              aria-label="Twitter"
+              target="_blank"
+              rel="noopener"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/deshdarshan"
+              class="social-icon"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/@deshdarshan"
+              class="social-icon"
+              aria-label="YouTube"
+              target="_blank"
+              rel="noopener"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="copyright-section">
+        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+      </div>
+    </footer>
 
-      questionCounter.innerText = `Question ${currentQuestion + 1} of ${questions.length}`;
-      progressBar.style.width = `${((currentQuestion) / questions.length) * 100}%`;
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-      q.options.forEach(option => {
-        const btn = document.createElement("button");
-        btn.innerText = option;
-        btn.className = "option-btn w-full bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-6 rounded-lg border border-gray-300 transition-all";
-        btn.onclick = () => selectOption(btn);
-        optionsList.appendChild(btn);
-      });
-    }
+      let allQuestions = [];
+      let questions = [];
+      let currentQuestion = 0;
+      let score = 0;
+      let selectedOption = null;
 
-    function selectOption(button) {
-      selectedOption = button.innerText;
-      submitBtn.disabled = false;
-      
-      // Remove selection from all buttons
-      document.querySelectorAll("#optionsList button").forEach(btn => {
-        btn.classList.remove("bg-orange-100", "border-orange-400", "text-orange-800");
-      });
-      
-      // Add selection to clicked button
-      button.classList.add("bg-orange-100", "border-orange-400", "text-orange-800");
-    }
+      const startScreen = document.getElementById("start-screen");
+      const quizBox = document.getElementById("quiz-box");
+      const resultBox = document.getElementById("resultBox");
+      const startBtn = document.getElementById("startBtn");
+      const submitBtn = document.getElementById("submitBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const questionText = document.getElementById("questionText");
+      const optionsList = document.getElementById("optionsList");
+      const questionCountSelect = document.getElementById("questionCount");
+      const questionCounter = document.getElementById("questionCounter");
+      const progressBar = document.getElementById("progressBar");
+      const finalScore = document.getElementById("finalScore");
+      const scoreMessage = document.getElementById("scoreMessage");
+      const correctFeedback = document.getElementById("correctFeedback");
+      const wrongFeedback = document.getElementById("wrongFeedback");
+      const correctAnswer = document.getElementById("correctAnswer");
+      const correctAnswerSpan = correctAnswer.querySelector("div.font-bold");
 
-    submitBtn.onclick = () => {
-      const correctAnswerText = questions[currentQuestion].answer;
-      document.querySelectorAll("#optionsList button").forEach(btn => {
-        btn.disabled = true;
-        if (btn.innerText === correctAnswerText) {
-          btn.classList.remove("border-orange-400");
-          btn.classList.add("bg-green-100", "border-green-400", "text-green-800");
-        } else if (btn.innerText === selectedOption && selectedOption !== correctAnswerText) {
-          btn.classList.remove("border-orange-400");
-          btn.classList.add("bg-red-100", "border-red-400", "text-red-800");
+      startBtn.onclick = async () => {
+        const numQs = parseInt(questionCountSelect.value);
+        try {
+          const res = await fetch("../questions.json");
+          allQuestions = await res.json();
+          questions = allQuestions
+            .sort(() => 0.5 - Math.random())
+            .slice(0, numQs);
+          startScreen.classList.add("hidden");
+          quizBox.classList.remove("hidden");
+          showQuestion();
+        } catch (err) {
+          alert("Failed to load questions.");
         }
-      });
+      };
 
-      if (selectedOption === correctAnswerText) {
-        score++;
-        correctFeedback.classList.remove("hidden");
+      function showQuestion() {
+        const q = questions[currentQuestion];
+        questionText.innerText = q.question;
+        optionsList.innerHTML = "";
+
+        // Hide all feedback elements
+        correctFeedback.classList.add("hidden");
         wrongFeedback.classList.add("hidden");
         correctAnswer.classList.add("hidden");
-      } else {
-        correctFeedback.classList.add("hidden");
-        wrongFeedback.classList.remove("hidden");
-        correctAnswer.classList.remove("hidden");
-        correctAnswerSpan.textContent = correctAnswerText;
+
+        nextBtn.classList.add("hidden");
+        submitBtn.disabled = true;
+        selectedOption = null;
+
+        questionCounter.innerText = `Question ${currentQuestion + 1} of ${
+          questions.length
+        }`;
+        progressBar.style.width = `${
+          (currentQuestion / questions.length) * 100
+        }%`;
+
+        q.options.forEach((option) => {
+          const btn = document.createElement("button");
+          btn.innerText = option;
+          btn.className =
+            "option-btn w-full bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-6 rounded-lg border border-gray-300 transition-all";
+          btn.onclick = () => selectOption(btn);
+          optionsList.appendChild(btn);
+        });
       }
 
-      submitBtn.disabled = true;
-      nextBtn.classList.remove("hidden");
-    };
+      function selectOption(button) {
+        selectedOption = button.innerText;
+        submitBtn.disabled = false;
 
-    nextBtn.onclick = () => {
-      currentQuestion++;
-      if (currentQuestion < questions.length) {
-        showQuestion();
-      } else {
-        quizBox.classList.add("hidden");
-        finalScore.innerText = `${score} / ${questions.length} Correct Answers`;
-        
-        // Add a fun message based on score
-        const percentage = (score / questions.length) * 100;
-        if (percentage >= 90) {
-          scoreMessage.innerHTML = "<span class='text-green-600'>Bharat Ratna Level Knowledge!</span> 🇮🇳";
-        } else if (percentage >= 75) {
-          scoreMessage.innerHTML = "<span class='text-blue-600'>Great! You're a true patriot!</span>";
-        } else if (percentage >= 50) {
-          scoreMessage.textContent = "Good effort! Keep learning about Incredible India!";
+        // Remove selection from all buttons
+        document.querySelectorAll("#optionsList button").forEach((btn) => {
+          btn.classList.remove(
+            "bg-orange-100",
+            "border-orange-400",
+            "text-orange-800"
+          );
+        });
+
+        // Add selection to clicked button
+        button.classList.add(
+          "bg-orange-100",
+          "border-orange-400",
+          "text-orange-800"
+        );
+      }
+
+      submitBtn.onclick = () => {
+        const correctAnswerText = questions[currentQuestion].answer;
+        document.querySelectorAll("#optionsList button").forEach((btn) => {
+          btn.disabled = true;
+          if (btn.innerText === correctAnswerText) {
+            btn.classList.remove("border-orange-400");
+            btn.classList.add(
+              "bg-green-100",
+              "border-green-400",
+              "text-green-800"
+            );
+          } else if (
+            btn.innerText === selectedOption &&
+            selectedOption !== correctAnswerText
+          ) {
+            btn.classList.remove("border-orange-400");
+            btn.classList.add("bg-red-100", "border-red-400", "text-red-800");
+          }
+        });
+
+        if (selectedOption === correctAnswerText) {
+          score++;
+          correctFeedback.classList.remove("hidden");
+          wrongFeedback.classList.add("hidden");
+          correctAnswer.classList.add("hidden");
         } else {
-          scoreMessage.textContent = "Keep exploring India's diverse culture and heritage!";
+          correctFeedback.classList.add("hidden");
+          wrongFeedback.classList.remove("hidden");
+          correctAnswer.classList.remove("hidden");
+          correctAnswerSpan.textContent = correctAnswerText;
         }
-        
-        resultBox.classList.remove("hidden");
-        progressBar.style.width = `100%`;
-      }
-    };
-  </script>
-</body>
+
+        submitBtn.disabled = true;
+        nextBtn.classList.remove("hidden");
+      };
+
+      nextBtn.onclick = () => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          showQuestion();
+        } else {
+          quizBox.classList.add("hidden");
+          finalScore.innerText = `${score} / ${questions.length} Correct Answers`;
+
+          // Add a fun message based on score
+          const percentage = (score / questions.length) * 100;
+          if (percentage >= 90) {
+            scoreMessage.innerHTML =
+              "<span class='text-green-600'>Bharat Ratna Level Knowledge!</span> 🇮🇳";
+          } else if (percentage >= 75) {
+            scoreMessage.innerHTML =
+              "<span class='text-blue-600'>Great! You're a true patriot!</span>";
+          } else if (percentage >= 50) {
+            scoreMessage.textContent =
+              "Good effort! Keep learning about Incredible India!";
+          } else {
+            scoreMessage.textContent =
+              "Keep exploring India's diverse culture and heritage!";
+          }
+
+          resultBox.classList.remove("hidden");
+          progressBar.style.width = `100%`;
+        }
+      };
+    </script>
+  </body>
 </html>
