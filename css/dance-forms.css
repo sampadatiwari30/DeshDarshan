@@ -11,6 +11,35 @@ body {
   animation: float 5s ease-in-out infinite;
 }
 
+/* Floating emoji position classes */
+.floating-emoji-1 { top: 5%; left: 8%; }
+.floating-emoji-2 { top: 15%; right: 12%; }
+.floating-emoji-3 { top: 35%; right: 8%; }
+.floating-emoji-4 { top: 45%; left: 12%; }
+.floating-emoji-5 { top: 55%; right: 6%; }
+.floating-emoji-6 { top: 75%; right: 14%; }
+.floating-emoji-7 { top: 85%; left: 7%; }
+.floating-emoji-8 { bottom: 15%; left: 15%; }
+.floating-emoji-9 { bottom: 35%; left: 25%; }
+.floating-emoji-10 { bottom: 45%; right: 10%; }
+.floating-emoji-11 { bottom: 65%; right: 20%; }
+.floating-emoji-12 { bottom: 75%; left: 12%; }
+.floating-emoji-13 { bottom: 85%; right: 20%; }
+.floating-emoji-14 { top: 10%; left: 20%; }
+.floating-emoji-15 { top: 25%; right: 15%; }
+.floating-emoji-16 { top: 40%; left: 5%; }
+.floating-emoji-17 { top: 60%; right: 30%; }
+.floating-emoji-18 { bottom: 20%; left: 35%; }
+.floating-emoji-19 { bottom: 50%; right: 5%; }
+.floating-emoji-20 { top: 70%; left: 15%; }
+.floating-emoji-top-right { top: 90%; right: 20%; }
+
+/* Carousel container styles */
+.carousel-container {
+  max-width: 800px;
+  position: relative;
+}
+
 @keyframes float {
 
   0%,

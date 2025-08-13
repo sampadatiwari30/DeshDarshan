@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Which is the capital of India?",
+    "options": ["Mumbai", "Delhi", "Kolkata", "Chennai"],
+    "answer": "Delhi"
+  },
+  {
+    "question": "Which dance form originated in Kerala?",
+    "options": ["Bharatanatyam", "Kathak", "Mohiniyattam", "Kuchipudi"],
+    "answer": "Mohiniyattam"
+  },
+  {
+    "question": "The Golden Temple is located in which state?",
+    "options": ["Punjab", "Haryana", "Himachal Pradesh", "Rajasthan"],
+    "answer": "Punjab"
+  },
+  {
+    "question": "Which is the classical dance form of Tamil Nadu?",
+    "options": ["Bharatanatyam", "Kuchipudi", "Odissi", "Manipuri"],
+    "answer": "Bharatanatyam"
+  },
+  {
+    "question": "What is the traditional dress of Punjab?",
+    "options": ["Sari", "Lehenga", "Salwar Kameez", "Dhoti"],
+    "answer": "Salwar Kameez"
+  },
+  {
+    "question": "Which festival is known as the Festival of Lights?",
+    "options": ["Diwali", "Holi", "Dussehra", "Eid"],
+    "answer": "Diwali"
+  },
+  {
+    "question": "Which art form involves intricate hand embroidery from Punjab?",
+    "options": ["Phulkari", "Madhubani", "Warli", "Pattachitra"],
+    "answer": "Phulkari"
+  },
+  {
+    "question": "The famous Wagah Border ceremony takes place between India and which country?",
+    "options": ["Pakistan", "China", "Bangladesh", "Nepal"],
+    "answer": "Pakistan"
+  },
+  {
+    "question": "Which spice is known as the 'Queen of Spices' in India?",
+    "options": ["Turmeric", "Cardamom", "Cinnamon", "Cloves"],
+    "answer": "Cardamom"
+  },
+  {
+    "question": "Which UNESCO World Heritage site is located in Agra?",
+    "options": ["Red Fort", "Taj Mahal", "Qutub Minar", "Humayun's Tomb"],
+    "answer": "Taj Mahal"
+  },
+  {
+    "question": "What is the traditional musical instrument of Punjab?",
+    "options": ["Sitar", "Dhol", "Tabla", "Veena"],
+    "answer": "Dhol"
+  },
+  {
+    "question": "Which Indian festival celebrates the victory of good over evil?",
+    "options": ["Diwali", "Navratri", "Dussehra", "Karva Chauth"],
+    "answer": "Dussehra"
+  },
+  {
+    "question": "The classical dance form Kuchipudi originated in which state?",
+    "options": ["Karnataka", "Andhra Pradesh", "Tamil Nadu", "Kerala"],
+    "answer": "Andhra Pradesh"
+  },
+  {
+    "question": "Which Indian bread is traditionally cooked in a tandoor?",
+    "options": ["Chapati", "Puri", "Naan", "Paratha"],
+    "answer": "Naan"
+  },
+  {
+    "question": "What does 'Namaste' traditionally mean?",
+    "options": ["Hello", "Goodbye", "I bow to you", "Thank you"],
+    "answer": "I bow to you"
+  },
+  {
+    "question": "Which is the holiest river in India?",
+    "options": ["Yamuna", "Ganga", "Narmada", "Godavari"],
+    "answer": "Ganga"
+  },
+  {
+    "question": "The dance form Kathak has origins in which part of India?",
+    "options": ["South India", "East India", "North India", "West India"],
+    "answer": "North India"
+  },
+  {
+    "question": "Which festival marks the beginning of spring in India?",
+    "options": ["Holi", "Baisakhi", "Makar Sankranti", "Onam"],
+    "answer": "Holi"
+  },
+  {
+    "question": "What is the traditional greeting gesture in Indian culture?",
+    "options": ["Handshake", "Namaste", "High Five", "Bow"],
+    "answer": "Namaste"
+  },
+  {
+    "question": "Which state is famous for the Ajanta and Ellora caves?",
+    "options": ["Rajasthan", "Maharashtra", "Gujarat", "Madhya Pradesh"],
+    "answer": "Maharashtra"
+  }
+]

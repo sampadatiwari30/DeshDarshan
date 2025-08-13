@@ -11,6 +11,39 @@ html,
       animation: float 5s ease-in-out infinite;
     }
 
+    .floating-emoji-top-right {
+      top: 90%;
+      right: 20%;
+    }
+
+    .carousel-container {
+      max-width: 800px;
+      position: relative;
+    }
+
+    .fun-fact-box-style {
+      border: 2px dashed #ff9933;
+      background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(255, 153, 51, 0.2);
+      margin: 30px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cartoon-girl-style {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #ff9933;
+      background: white;
+      padding: 5px;
+    }
+
+    .fun-fact-text-style {
+      line-height: 1.5;
+    }
+
     @keyframes float {
 
       0%,
@@ -100,6 +133,7 @@ html,
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      -webkit-user-select: none;
       user-select: none;
       min-width: 120px;
     }
