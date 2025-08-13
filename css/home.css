@@ -450,28 +450,7 @@ a,
     grid-template-columns: 1fr;
   }
 }
-#backToTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 99;
-  font-size: 30px;
-  border: none;
-  outline: none;
-  background-color: #ff914d; /* match signup button */
-  color: white;
-  cursor: pointer;
-  padding: 14px 18px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-#backToTopBtn:hover {
-  background-color: #e67a35;
-  transform: scale(1.1);
-}
+/* Back to top button styles moved to chatbot.css for better positioning */
 
 footer {
   background-color: black;
