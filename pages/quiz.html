@@ -327,49 +327,53 @@
   /* Base Button Styles */
   #backToTopBtn {
     position: fixed;
-    right: 17px;
-    bottom: 80px;
+    right: 25px;
+    bottom: 85px;
     z-index: 1200;
-    background: #ff9933; /* CHANGED FROM #ff7b54 */
+    background: #ff9832;
     color: #fff;
     border: none;
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: none;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: 0 10px 30px rgba(255, 153, 51, 0.25); /* UPDATED SHADOW COLOR */
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
     cursor: pointer;
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
   }
-
+  
   /* Visible State */
   #backToTopBtn.show {
     opacity: 1;
     transform: translateY(0);
     display: flex;
   }
-
+  
   /* Hover Effects */
   #backToTopBtn:hover {
     transform: translateY(-5px) scale(1.05); 
-    background: #ffb366; /* CHANGED FROM #ff9a76 (lighter variant of #ff9933) */ 
-    box-shadow: 0 15px 35px rgba(255, 153, 51, 0.35); /* UPDATED SHADOW COLOR */
+    background: #ffb366; 
+    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
   }
-
+  
   /* Mobile Responsiveness */
   @media (max-width: 768px) {
     #backToTopBtn {
       bottom: 20px;
       right: 20px;
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       font-size: 20px;
     }
   }
