@@ -9,6 +9,8 @@ html,
       position: absolute;
       font-size: 2rem;
       animation: float 5s ease-in-out infinite;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     .floating-emoji-top-right {

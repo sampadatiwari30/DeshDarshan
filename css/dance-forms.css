@@ -9,6 +9,8 @@ body {
   position: absolute;
   font-size: 2rem;
   animation: float 5s ease-in-out infinite;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* Floating emoji position classes */
@@ -38,6 +40,23 @@ body {
 .carousel-container {
   max-width: 800px;
   position: relative;
+}
+
+/* Fun fact box styles */
+.fun-fact-box-style {
+  max-width: 720px;
+  z-index: 2;
+  margin-top: 1rem;
+}
+
+.cartoon-girl-style {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.fun-fact-text-style {
+  line-height: 1.5;
 }
 
 @keyframes float {
