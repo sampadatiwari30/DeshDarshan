@@ -1,35 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spirit of India</title>
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/destinations.css" />
-    <link rel="icon" href="assets/images/icons/newlogo.png" type="image/png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-    <script src="js/dark-theme-toggle.js"></script>
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spirit of India</title>
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/testimonial.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+ <style>
+  
+    /* BACKGROUND CONTAINERS */
+    .blob-background-back,
+    .blob-background-front {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .blob-background-back {
+      z-index: -20;
+    }
+
+    .blob-background-front {
+      z-index: -10;
+    }
+
+    /* COMMON BLOB STYLES */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      will-change: transform;
+    }
+
+    /* FRONT BLOBS */
+    .blob1 {
+      background: radial-gradient(circle, rgba(255, 99, 132, 0.5), rgba(255, 99, 132, 0));
+      width: 400px;
+      height: 400px;
+      top: 5%;
+      left: 10%;
+      animation: blobMove 40s infinite alternate ease-in-out;
+    }
+
+    .blob2 {
+      background: radial-gradient(circle, rgba(54, 162, 235, 0.5), rgba(54, 162, 235, 0));
+      width: 400px;
+      height: 400px;
+      top: 50%;
+      left: 65%;
+      animation: blobMove 45s infinite alternate ease-in-out;
+    }
+
+    .blob3 {
+      background: radial-gradient(circle, rgba(255, 206, 86, 0.5), rgba(255, 206, 86, 0));
+      width: 400px;
+      height: 400px;
+      top: 75%;
+      left: 25%;
+      animation: blobMove 50s infinite alternate ease-in-out;
+    }
+
+    /* BACK BLOBS */
+    .blob-back1 {
+      background: radial-gradient(circle, rgba(173, 216, 230, 0.25), rgba(173, 216, 230, 0));
+      width: 600px;
+      height: 600px;
+      top: 10%;
+      left: 50%;
+      animation: blobMove 60s infinite alternate ease-in-out;
+    }
+
+    .blob-back2 {
+      background: radial-gradient(circle, rgba(221, 160, 221, 0.25), rgba(221, 160, 221, 0));
+      width: 500px;
+      height: 500px;
+      top: 60%;
+      left: 20%;
+      animation: blobMove 70s infinite alternate ease-in-out;
+    }
+
+    /* KEYFRAME ANIMATION */
+    @keyframes blobMove {
+      0% {
+        transform: scale(1) translate(0, 0) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.2) translate(50px, -40px) rotate(20deg);
+      }
+      100% {
+        transform: scale(1) translate(-30px, 30px) rotate(-10deg);
+      }
+    }
+ </style>
+
+</head>
+
+
+
+<body>
+
+<!-- BACK blobs -->
+<div class="blob-background-back">
+  <div class="blob blob-back1"></div>
+  <div class="blob blob-back2"></div>
+</div>
+
+<!-- FRONT blobs -->
+<div class="blob-background-front">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+
+
+
+<!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h2 data-translate="header">Desh Darshan</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="pages/about us.html" data-translate="nav-about">About Us</a></li>
+        <li><a href="pages/explore.html" data-translate="nav-explore">Explore India</a></li>
+        <li><a href="pages/feedback.html" data-translate="nav-feedback">Feedback</a></li>
+        <li><a href="pages/contactus.html" data-translate="nav-contact">Contact Us</a></li>
+        <li><a href="pages/crazyfacts.html" data-translate="nav-crazyfacts">Crazy Facts</a></li>
+        <li><a href="pages/destination.html" data-translate="nav-destination">Hidden Destinations</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="pages/login.html" class="btn-login">
+          <span>Login</span>
+          <!-- <i class="fas fa-sign-in-alt"></i> -->
+          <i class="fas fa-user-plus"></i>
+        </a>
+        <a href="pages/signup.html" class="btn-signup">
+          <span>Signup</span>  
+          <i class="fas fa-user-plus"></i>
+        </a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+<!-- Hero Section with Slideshow -->
+  <section class="hero">
+    <div class="slideshow-container">
+      <div class="slide active">
+        <img src="assets/images/beauty.jpg" alt="beauty">
+        <div class="slide-content">
+          <h1 data-translate="hero-title-1">Discover The Beauty Of India</h1>
+          <p data-translate="hero-desc-1">Experience The Rich Heritage, Vibrant Culture, And Timeless Traditions</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="assets/images/festival.jpg" alt="Kerala backwaters">
+        <div class="slide-content">
+          <h1 data-translate="hero-title-2">A Land Of 1000 Festivals</h1>
+          <p data-translate="hero-desc-2">Festivals That Honor Nature, Gods, And Traditions.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="assets/images/food.jpg" alt="Royal Heritage">
+        <div class="slide-content">
+          <h1 data-translate="hero-title-3">A Taste You’ll Never Forget</h1>
+          <p data-translate="hero-desc-3">Food That Connects Hearts And Homes.</p>
+
+ 
+    
   </head>
 
   <body class="homepage">
@@ -37,8 +194,364 @@
         <div class="loader">
             <i class="fa-solid fa-spinner"></i>
             <h2>Namaste 🙏<span class="dots"></span></h2>
+
         </div>
     </div>
+
+  <!-- Festivals and Culture Section -->
+  <section class="festivals-culture">
+    <div class="container">
+      <h2 class="section-title" data-translate="festivals-title">Festivals and Culture of India</h2>
+      <div class="culture-grid">
+
+        <!-- Each culture item -->
+        <div class="culture-item">
+          <img src="../assets/images/67.jpg" alt="Diwali celebration">
+
+  <br>
+  <section class="hero-2">
+    <div class="unity-diversity">
+      <div class="unity-picture">
+        <img src="assets/images/punjab/Indian-people.jpg" alt="people">  
+        <div class="unity-content">
+          <h3 data-translate="hero-title-4">A billion voices.<br>Countless traditions.<br>Infinite cultures.<br>Endless diversity.<br></h3>
+           <h1>This is <span class="In">IN</span><span class="d">D</span><span class="ia">IA</span>
+          </h1>
+          
+        </div>
+      </div>
+    </div>
+     
+  </section>
+
+<!-- Festivals and Culture Section -->
+  <section class="festivals-culture">
+    <div class="container">
+      <h2 class="section-title" data-translate="festivals-title">Festivals And Culture Of India</h2>
+      <div class="culture-grid">
+
+      <!-- Each culture item -->
+        <div class="culture-item">
+          <img src="assets/images/67.jpg" alt="Diwali celebration">
+
+          <div class="culture-caption">
+            <h3 data-translate="diwali-title">Diwali</h3>
+            <p data-translate="diwali-desc">Festival of lights celebrating the victory of light over darkness</p>
+          </div>
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form">
+              <input type="text" class="comment-name" placeholder="Your name" required>
+              <textarea class="comment-text" placeholder="Your comment" required></textarea>
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="../assets/images/christmas.jpeg" alt="Christmas">
+          <div class="culture-caption">
+            <h3 data-translate="christmas-title">Christmas</h3>
+            <p data-translate="christmas-desc">Celebrating peace, love, and the magic of winter</p>
+          </div>
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form">
+              <input type="text" class="comment-name" placeholder="Your name" required>
+              <textarea class="comment-text" placeholder="Your comment" required></textarea>
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="../assets/images/durga puja.jpeg" alt="Durga Puja">
+          <div class="culture-caption">
+            <h3 data-translate="durga-title">Durga Puja</h3>
+            <p data-translate="durga-desc">Grand celebration honoring the divine feminine power</p>
+          </div>
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form">
+              <input type="text" class="comment-name" placeholder="Your name" required>
+              <textarea class="comment-text" placeholder="Your comment" required></textarea>
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="../assets/images/pongal.jpg" alt="Pongal">
+          <div class="culture-caption">
+            <h3 data-translate="pongal-title">Pongal</h3>
+            <p data-translate="pongal-desc">Harvest festival celebrating prosperity and nature</p>
+          </div>
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form">
+              <input type="text" class="comment-name" placeholder="Your name" required>
+              <textarea class="comment-text" placeholder="Your comment" required></textarea>
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="../assets/images/77.jpg" alt="Eid celebration">
+          <div class="culture-caption">
+            <h3 data-translate="eid-title">Eid</h3>
+            <p data-translate="eid-desc">Sacred festival marking the end of Ramadan with joy and unity</p>
+          </div>
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form">
+              <input type="text" class="comment-name" placeholder="Your name" required>
+              <textarea class="comment-text" placeholder="Your comment" required></textarea>
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="../assets/images/baisakhi.jpeg" alt="Baisakhi">
+          <div class="culture-caption">
+            <h3 data-translate="baisakhi-title">Baisakhi</h3>
+            <p data-translate="baisakhi-desc">Where fields bloom and hearts rejoice</p>
+          </div>
+          <div class="comments-section">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form">
+              <input type="text" class="comment-name" placeholder="Your name" required>
+              <textarea class="comment-text" placeholder="Your comment" required></textarea>
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Taste of India Section -->
+<section class="taste-india">
+  <div class="container">
+    <h2 class="section-title" data-translate="taste-title">The Taste of India</h2>
+    <div class="food-grid">
+      <div class="food-item">
+        <img src="../assets/images/download (39).jpeg" alt="Biryani">
+        <h3 data-translate="biryani-title">Biryani</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="../assets/images/download (31).jpeg" alt="Butter Chicken">
+        <h3 data-translate="butter-title">Butter Chicken</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="../assets/images/download (40).jpeg" alt="Masala Dosa">
+        <h3 data-translate="dosa-title">Masala Dosa</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="../assets/images/images (8).jpeg" alt="Gujhiya">
+        <h3 data-translate="gujhiya-title">Gujhiya</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="../assets/images/download (10).jpeg" alt="Mithai">
+        <h3 data-translate="mithai-title">Mithai</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="../assets/images/download (1).jpeg" alt="Gulab Jamun">
+        <h3 data-translate="gulab-title">Gulab Jamun</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="../assets/images/download (46).jpeg" alt="Samosa">
+        <h3 data-translate="samosa-title">Samosa</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="food-item">
+        <img src="../assets/images/images (21).jpeg" alt="Daal Chawal">
+        <h3 data-translate="daal-title">Daal Chawal</h3>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- Heritage Section -->
+     <section class="heritage-section">
+      <div class="container">
+        <h2 class="section-title" data-translate="heritage-title">
+          Heritage of India
+        </h2>
+        <div class="heritage-grid">
+          <div class="heritage-item">
+            <img src="assets/images/Tajmahal.jpeg" alt="Taj Mahal" />
+            <div class="heritage-overlay">
+        </div>
+
+
+        <div class="culture-item">
+          <img src="assets/images/christmas.jpg" alt="Christmas">
+          <div class="culture-caption">
+            <h3 data-translate="christmas-title">Christmas</h3>
+            <p data-translate="christmas-desc">Celebrating peace, love, and the magic of winter</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/navratri.jpg" alt="Durga Puja">
+          <div class="culture-caption">
+            <h3 data-translate="durga-title">Navratri</h3>
+            <p data-translate="durga-desc">Grand celebration honoring the divine feminine power</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/pongal.jpg" alt="Pongal">
+          <div class="culture-caption">
+            <h3 data-translate="pongal-title">Pongal</h3>
+            <p data-translate="pongal-desc">Harvest festival celebrating prosperity and nature</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/lohri.jpg" alt="Baisakhi">
+          <div class="culture-caption">
+            <h3 data-translate="lohri-title">Lohri</h3>
+            <p data-translate="lohri-desc">Celebrating harvest and the end of winter</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/makar.jpg" alt="Baisakhi">
+          <div class="culture-caption">
+            <h3 data-translate="makarsankranti-title">Makar Sankranti</h3>
+            <p data-translate="makarsankranti-desc">Kites fly, harvest season and Tilgul festival</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/mahashiv.jpg" alt="Baisakhi">
+          <div class="culture-caption">
+            <h3 data-translate="mahashivratri-title">Maha Shivratri</h3>
+            <p data-translate="mahashivratri-desc">Festival dedicated to worship Lord Shiva</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+         <img src="assets/images/holi.jpg" alt="Holi celebration">
+         <div class="culture-caption">
+          <h3 data-translate="holi-title">Holi</h3>
+          <p data-translate="holi-desc">Vibrant festival of colors celebrating love, joy and the arrival of spring</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/gudi.jpg" alt="Gudi">
+          <div class="culture-caption">
+            <h3 data-translate="Gudi-title">Gudi Padwa</h3>
+            <p data-translate="Gudi-desc">Traditional festival celebrating the marathi new year</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/janmashtami.jpg" alt="Janmashtami">
+          <div class="culture-caption">
+            <h3 data-translate="Janmashtami-title">Janmashtami</h3>
+            <p data-translate="Janmashtami-desc">Celebrates the birth of Lord Krishna with devotion, joy and dahi-handi</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/ganesh.jpg" alt="Ganesh Chaturthi">
+          <div class="culture-caption">
+            <h3 data-translate="ganeshchaturthi-title">Ganesh Chaturthi</h3>
+            <p data-translate="ganeshchaturthi-desc">Celebrates the birth of Lord Ganesha with prayers, music and crackers</p>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/77.jpg" alt="Eid">
+          <div class="culture-caption">
+            <h3 data-translate="eid-title">Eid</h3>
+            <p data-translate="eid-desc">Sacred festival marking the end of Ramadan with joy and unity</p>
 
     <!-- Navigation Bar Container -->
     <div id="navbar-container"></div>
@@ -99,6 +612,7 @@
             <p data-translate="hero-desc-5">
               Experience the cultural and linguistic diversity of the nation
             </p>
+
           </div>
         </div>
       </div>
@@ -109,6 +623,64 @@
         <span class="dot" onclick="currentSlide(4)"></span>
         <span class="dot" onclick="currentSlide(5)"></span>
       </div>
+
+    </div>
+  </section>
+
+<!-- Heritage Section -->
+  <section class="heritage-section">
+    <div class="container">
+      <h2 class="section-title" data-translate="heritage-title">Heritage Of India</h2>
+      <div class="heritage-grid">
+        <div class="heritage-item">
+          <img src="assets/images/Tajmahal.jpeg" alt="Taj Mahal" />
+          <div class="heritage-overlay">
+
+            <h3 data-translate="taj-title">Taj Mahal</h3>
+            <p data-translate="taj-desc">Symbol of love and architectural marvel</p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/Qutub Minar.jpeg" alt="Qutub Minar" />
+          <div class="heritage-overlay">
+            <h3 data-translate="qutub-title">Qutub Minar</h3>
+            <p data-translate="qutub-desc">Tallest brick minaret in the world</p>
+          </div>
+        </div> 
+        <div class="heritage-item">
+          <img src="assets/images/red.jpg" alt="Red Fort" />
+          <div class="heritage-overlay">
+            <h3 data-translate="redfort-title">Red Fort</h3>
+            <p data-translate="redfort-desc">Symbol of India's independence</p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/gatway.jpg" alt="Gateway of India" />
+          <div class="heritage-overlay">
+            <h3 data-translate="gateway-title">Gateway of India</h3>
+            <p data-translate="gateway-desc">Iconic arch monument in Mumbai, welcoming visitors to India</p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/mysore.jpg" alt="Mysore Palace" />
+          <div class="heritage-overlay">
+            <h3 data-translate="mysore-title">Mysore Palace</h3>
+            <p data-translate="mysore-desc">A dazzling jewel of royal heritage</p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/char.jpg" alt="Charminar" />
+          <div class="heritage-overlay">
+            <h3 data-translate="charminar-title">Charminar</h3>
+            <p data-translate="charminar-desc">A symbol of the city's rich history</p>
+          </div>
+        </div>
+        <div class="heritage-item">
+          <img src="assets/images/india gate.jpg" alt="India gate" />
+          <div class="heritage-overlay">
+            <h3 data-translate="Indiagate-title">India Gate</h3>
+            <p data-translate="Indiagate-desc">War memorial in Delhi honoring soldiers</p>
+
     </section>
 
     <!-- Festivals and Culture Section -->
@@ -130,6 +702,7 @@
                 darkness
               </p>
             </div>
+
           </div>
           <div class="culture-item">
             <img
@@ -184,6 +757,168 @@
           </div>
         </div>
       </div>
+
+    </div>
+  </section>
+
+
+  <!-- Dance Culture Section -->
+<section class="dance-culture">
+  <div class="container">
+    <h2 class="section-title" data-translate="dance-title">Dance Culture of India</h2>
+    <div class="dance-grid">
+      <div class="dance-item">
+        <img src="../assets/images/br2.jpg" alt="Bharatanatyam dancer">
+        <div class="dance-overlay">
+          <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
+          <p data-translate="bharatanatyam-desc">Classical dance from Tamil Nadu</p>
+        </div>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="dance-item">
+        <img src="../assets/images/kr1.jpg" alt="Kathak dancer">
+        <div class="dance-overlay">
+          <h3 data-translate="kathak-title">Kathak</h3>
+          <p data-translate="kathak-desc">Storytelling dance from North India</p>
+        </div>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="dance-item">
+        <img src="../assets/images/od2.jpg" alt="Odissi dancer">
+        <div class="dance-overlay">
+          <h3 data-translate="odissi-title">Odissi</h3>
+          <p data-translate="odissi-desc">Graceful dance from Odisha</p>
+        </div>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="dance-item">
+        <img src="../assets/images/ap3.jpg" alt="Kuchipudi dancer">
+        <div class="dance-overlay">
+          <h3 data-translate="kuchipudi-title">Kuchipudi</h3>
+          <p data-translate="kuchipudi-desc">Dynamic dance from Andhra Pradesh</p>
+        </div>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="dance-item">
+        <img src="../assets/images/mani1.jpg" alt="Manipuri dancer">
+        <div class="dance-overlay">
+          <h3 data-translate="manipuri-title">Manipuri</h3>
+          <p data-translate="manipuri-desc">Devotional dance from Manipur</p>
+        </div>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="dance-item">
+        <img src="../assets/images/K-Dance7.jpg" alt="Mohiniyattam dancer">
+        <div class="dance-overlay">
+          <h3 data-translate="mohiniyattam-title">Mohiniyattam</h3>
+          <p data-translate="mohiniyattam-desc">Enchanting dance from Kerala</p>
+        </div>
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input type="text" class="comment-name" placeholder="Your name" required>
+            <textarea class="comment-text" placeholder="Your comment" required></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Testimonials Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <h2 class="section-heading">What Our Travelers Say</h2>
+      <div class="testimonial-container">
+        <div class="testimonial-card">
+          <img src="assets/images/user1.jpg" alt="User 1" />
+          <h3 class="testimonial-name">Ravi Sharma</h3>
+          <p class="testimonial-text">"DeshDarshan helped me plan the perfect trip to Rajasthan! Highly recommended."
+          </p>
+        </div>
+        <div class="testimonial-card">
+          <img src="assets/images/user2.jpg" alt="User 2" />
+          <h3 class="testimonial-name">Anjali Verma</h3>
+          <p class="testimonial-text">"A beautiful platform that showcases India’s heritage so well. Loved it!"</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="assets/images/user3.jpg" alt="User 3" />
+          <h3 class="testimonial-name">Karan Malhotra</h3>
+          <p class="testimonial-text">"Great experience using DeshDarshan. The UI is super smooth and informative."</p>
+
+  
+
+    <!-- Dance Culture Section -->
+    <section class="dance-culture">
+      <div class="container">
+        <h2 class="section-title" data-translate="dance-title">
+          Dance Culture of India
+        </h2>
+        <div class="dance-grid">
+          <a href="./pages/bharatanatyam.html" class="dance-link">
+            <div class="dance-item">
+              <img src="./assets/images/br2.jpg" alt="Bharatanatyam dancer" />
+              <div class="dance-overlay">
+                <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
+                <p data-translate="bharatanatyam-desc">
+                  Classical dance from Tamil Nadu
+                </p>
+              </div>
+
+<!-- Dance Culture Section -->
+  <section class="dance-culture">
+    <div class="container">
+      <h2 class="section-title" data-translate="dance-title">Dance Culture Of India</h2>
+      <div class="dance-grid">
+          <div class="dance-item">
+            <img src="assets/images/bharatnatyamm.jpg" alt="Bharatanatyam dancer">
+            <div class="dance-overlay">
+              <h3 data-translate="bharatanatyam-title">Bharatanatyam</h3>
+              <p data-translate="bharatanatyam-desc">Classical dance from Tamil Nadu</p>
+
     </section>
 
     <!-- Taste of India Section -->
@@ -200,6 +935,7 @@
                 alt="Biryani"
               />
               <h3 data-translate="biryani-title">Biryani</h3>
+
             </div>
           </a>
           <a href="./food-details.html?food=butter-chicken" class="food-link">
@@ -331,6 +1067,77 @@
           </div>
         </div>
       </div>
+
+    </div>
+  </section>
+          
+           <!-- Top Destinations Section -->
+  <section class="top-destinations">
+    <div class="container">
+      <h2 class="section-title">Top Destinations</h2>
+      <div class="destinations-grid">
+        <div class="destination-card">
+          <img src="./assets/images/kerela.jpg" alt="Kerala" />
+          <h3>Kerala</h3>
+          <p>Experience the tranquil backwaters and lush greenery.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/goa.jpg" alt="Goa" />
+          <h3>Goa</h3>
+          <p>Sun, sand, and sea – a perfect beach escape awaits.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./assets/images/kashmir.jpg" alt="Kashmir" />
+          <h3>Kashmir</h3>
+          <p>Heaven on Earth with snow-capped mountains and valleys.</p>
+          <a href="#" class="explore-btn">Explore More</a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Footer -->
+ <footer>
+    <div class="footer-content-wrapper">
+    <!-- Section 1: About Desh Darshan -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Desh Darshan</h3>
+        <p>Desh Darshan is your gateway to the vibrant and diverse culture of India. We aim to introduce the world to India's rich heritage, traditions, arts, and history.</p>
+      </div>
+
+    <!-- Section 2: Quick Links -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about us.html" class="footer-link">About Us</a></li>
+          <li><a href="explore.html" class="footer-link">Explore India</a></li>
+          <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+          <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <!-- Section 3: Contact Us -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Contact Us</h3>
+        <ul>
+          <li class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@deshdarshan.in</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 1234567890</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New Delhi, India</span>
+          </li>
+        </ul>
+
     </section>
 
     <!-- Dance Culture Section -->
@@ -414,6 +1221,7 @@
             </div>
           </a>
         </div>
+
       </div>
     </section>
 
@@ -493,10 +1301,42 @@
         </div>
       </div>
 
-      <div class="copyright-section">
-        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-      </div>
-    </footer>
+    </div>
+      
+    <!--copyright -->
+      <div class="copyright-section">&copy; <span id="year"></span> Desh Darshan. All rights reserved.</div>
+  </footer>
+
+    
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="./js/home.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 40;
+    const y = (e.clientY / window.innerHeight - 0.5) * 40;
+
+    document.querySelectorAll('.blob').forEach((blob, index) => {
+      const speed = 1 + index * 0.3;
+      blob.style.transform = `translate(${x * speed}px, ${y * speed}px) scale(1)`;
+    });
+  });
+</script>
+
+
+     
     
     
 <script>
@@ -504,6 +1344,15 @@
 </script>
     <script>
      
+
+
+
+
+<script src="js/home.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+
+
 
       // Scroll to top when button is clicked
       backToTopBtn.onclick = function () {
@@ -537,5 +1386,26 @@
             }, 6000); // 6000ms = 6 seconds (adjust as needed)
         });
     </script>
+        <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="js/dark-theme-toggle.js"></script>
   </body>
+
 </html>
+
+              
+               
+
+  
+
+
+
+
+    
+
+
+          
+
