@@ -258,9 +258,38 @@
         </div>
       </div>
     </div>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") {
+                return target.q;
+              }
+              return (...args) => target(prop, ...args);
+            },
+          });
+        }
+        const onLoad = function () {
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "eaZ3BLaEp3NWiit_Vn0fK";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+        };
+        if (document.readyState === "complete") {
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      })();
+    </script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -628,27 +657,32 @@
         Delhi: [
           {
             title: "Bhuli Bhatiyari Ka Mahal",
-            image: "https://exploreyourway.in/wp-content/uploads/2023/08/Bhuli-Bhatiyari-Ka-Mahal-Ticket-Price.jpg",
+            image:
+              "https://exploreyourway.in/wp-content/uploads/2023/08/Bhuli-Bhatiyari-Ka-Mahal-Ticket-Price.jpg",
             text: "Why hidden: Forgotten 14th-century hunting lodge in Central Ridge forest. Why famous: Known for its eerie legends and Tughlaq-era architecture. Why visit: Quiet ruin exploration, historical curiosity, and rare city-side wilderness.",
           },
           {
             title: "Hijron Ka Khanqah",
-            image: "https://ramaarya.blog/wp-content/uploads/2022/11/hijron_ka_khanqah_1.jpg",
+            image:
+              "https://ramaarya.blog/wp-content/uploads/2022/11/hijron_ka_khanqah_1.jpg",
             text: "Why hidden: Tucked in Mehrauli village, away from main tourist sites. Why famous: 15th-century Sufi shrine maintained by the Hijra community. Why visit: Peaceful marble courtyard, cultural inclusivity, and spiritual ambiance.",
           },
           {
             title: "Santushti Shopping Complex",
-            image: "https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/santushti-shopping-complex-1920-high.jpg",
+            image:
+              "https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/santushti-shopping-complex-1920-high.jpg",
             text: "Why hidden: Exclusive market hidden near diplomatic enclave. Why famous: Curated boutique stores with Indian handicrafts and designer pieces. Why visit: Quiet shopping, artisanal products, and charming garden cafés.",
           },
           {
             title: "Adham Khan’s Tomb",
-            image: "https://static-blog.treebo.com/wp-content/uploads/2018/03/Adham-Khans-Tomb.jpg",
+            image:
+              "https://static-blog.treebo.com/wp-content/uploads/2018/03/Adham-Khans-Tomb.jpg",
             text: "Why hidden: Overlooked Mughal-era tomb near Mehrauli bus stand. Why famous: Built by Akbar for his foster brother, with unique octagonal design. Why visit: Blend of Indo-Islamic architecture and dramatic historical tales.",
           },
           {
             title: "Tughlaqabad Fort",
-            image: "https://assets-news.housing.com/news/wp-content/uploads/2021/07/01195254/Tughlaqabad-Fort-Delhi-A-landmark-of-the-powerful-Tughlaq-Dynasty-shutterstock_157674509.jpg",
+            image:
+              "https://assets-news.housing.com/news/wp-content/uploads/2021/07/01195254/Tughlaqabad-Fort-Delhi-A-landmark-of-the-powerful-Tughlaq-Dynasty-shutterstock_157674509.jpg",
             text: "Why hidden: Massive ruined citadel often skipped by tourists. Why famous: Built by Ghiyas-ud-din Tughlaq in 14th century. Why visit: Panoramic city views, crumbling bastions, and wild overgrown courtyards.",
           },
           {
@@ -658,7 +692,8 @@
           },
           {
             title: "Agrasen ki Baoli",
-            image: "https://s7ap1.scene7.com/is/image/incredibleindia/agrasen-ki-baoli-delhi-delhi-2-attr-hero?qlt=82&ts=1727352154212",
+            image:
+              "https://s7ap1.scene7.com/is/image/incredibleindia/agrasen-ki-baoli-delhi-delhi-2-attr-hero?qlt=82&ts=1727352154212",
             text: "Why hidden: Ancient stepwell tucked among Connaught Place buildings. Why famous: Baoli with mysterious depth and arched corridors. Why visit: Heritage photography, quiet reflection, and historical intrigue.",
           },
         ],
@@ -671,32 +706,38 @@
           },
           {
             title: "Taptapani Hot Springs",
-            image: "https://odishatour.in/wp-content/uploads/2023/11/Bagha-Chanchada-Waterfall-Berhampur-800x450.jpg",
+            image:
+              "https://odishatour.in/wp-content/uploads/2023/11/Bagha-Chanchada-Waterfall-Berhampur-800x450.jpg",
             text: "Why hidden: Forest-enclosed natural sulphur springs in Gajapati. Why famous: Healing properties and tribal legends. Why visit: Warm spring baths, tribal markets, and scenic hill views.",
           },
           {
             title: "Lalitgiri Caves",
-            image: "https://lakshmisharath.com/wp-content/uploads/2017/05/ratnagiri5-op-1024x678.jpg",
+            image:
+              "https://lakshmisharath.com/wp-content/uploads/2017/05/ratnagiri5-op-1024x678.jpg",
             text: "Why hidden: Ancient Buddhist monastery ruins in Cuttack district. Why famous: Archaeological treasures from 1st century BC. Why visit: Peaceful hilltop views, stupas, and historical exploration.",
           },
           {
             title: "Bhitarkanika Mangroves",
-            image: "https://farm2.staticflickr.com/1722/41771684734_56db65cdd6_b.jpg",
+            image:
+              "https://farm2.staticflickr.com/1722/41771684734_56db65cdd6_b.jpg",
             text: "Why hidden: Remote delta region with restricted entry. Why famous: India’s second-largest mangrove ecosystem. Why visit: Crocodile spotting, birdwatching, and serene river channels.",
           },
           {
             title: "Daringbadi",
-            image: "https://www.nomadicweekends.com/wp-content/uploads/2018/12/Daringbadi-Offbeat-Orissa.jpg",
+            image:
+              "https://www.nomadicweekends.com/wp-content/uploads/2018/12/Daringbadi-Offbeat-Orissa.jpg",
             text: "Why hidden: Hill station in Kandhamal known as 'Kashmir of Odisha'. Why famous: Pine forests and coffee plantations. Why visit: Misty mornings, tribal culture, and nature trails.",
           },
           {
             title: "Kapilash Temple",
-            image: "https://external-preview.redd.it/8lN0aB_bNQfK4-o1UInrBF3Xwr94l8gSO5QBcU6egCU.jpg?auto=webp&s=9049b8890e144d3cad9bd023e11b9518cc385d20",
+            image:
+              "https://external-preview.redd.it/8lN0aB_bNQfK4-o1UInrBF3Xwr94l8gSO5QBcU6egCU.jpg?auto=webp&s=9049b8890e144d3cad9bd023e11b9518cc385d20",
             text: "Why hidden: Hilltop shrine in Dhenkanal district. Why famous: Sacred site of Lord Shiva. Why visit: Scenic climbs, panoramic views, and ancient religious heritage.",
           },
           {
             title: "Taratarini Temple",
-            image: "https://www.citybit.in/wp-content/uploads/2023/08/Tara-Tarini-Temple.jpg",
+            image:
+              "https://www.citybit.in/wp-content/uploads/2023/08/Tara-Tarini-Temple.jpg",
             text: "Why hidden: Temple on twin hills by the Rushikulya River. Why famous: One of the oldest Shakti Peethas. Why visit: Spiritual experience, cable car rides, and riverside beauty.",
           },
         ],
@@ -704,38 +745,246 @@
         Gujarat: [
           {
             title: "Mandvi Beach",
-            image: "https://toim.b-cdn.net/pictures/travel_guide/attractions/ahmedpur-mandavi-head-46.jpeg",
+            image:
+              "https://toim.b-cdn.net/pictures/travel_guide/attractions/ahmedpur-mandavi-head-46.jpeg",
             text: "Why hidden: Quieter stretch compared to famous Gir and Diu coasts. Why famous: Golden sands and wooden dhow shipbuilding. Why visit: Camel rides, sunset views, and heritage coastal walks.",
           },
           {
             title: "Polo Forest",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/-flora---fauna/polo-forest/Polo-Forest-Banner1.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/-flora---fauna/polo-forest/Polo-Forest-Banner1.jpg",
             text: "Why hidden: Forested valley on Gujarat–Rajasthan border. Why famous: Ruins of 15th-century Jain and Hindu temples. Why visit: Dense greenery, trekking trails, and heritage ruins.",
           },
           {
             title: "Rani Ki Vav, Patan",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/rani-ki-vav/Rani-Ki-Vav-1.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/rani-ki-vav/Rani-Ki-Vav-1.jpg",
             text: "Why hidden: Often overshadowed by Gir and Somnath attractions. Why famous: UNESCO-listed stepwell masterpiece. Why visit: Intricate sculptures, cool interiors, and historic architecture.",
           },
           {
             title: "Girnar Hills",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/religious-sites/girnar-hill,-pilgrimage-centre/Girnar-Hill,-Pilgrimage-Centre-Banner.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/religious-sites/girnar-hill,-pilgrimage-centre/Girnar-Hill,-Pilgrimage-Centre-Banner.jpg",
             text: "Why hidden: Pilgrimage hill away from typical tourist trails. Why famous: Jain and Hindu temples atop 9999 steps. Why visit: Challenging climbs, panoramic views, and spiritual ambiance.",
           },
           {
             title: "Lakhpat",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/lakhpat-fort/Lakhpat-Fort-2.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/lakhpat-fort/Lakhpat-Fort-2.jpg",
             text: "Why hidden: Ghost town in Kutch with crumbling fort walls. Why famous: Once a bustling trade port. Why visit: Vast salt flats, Sufi shrines, and hauntingly beautiful ruins.",
           },
           {
             title: "Narara Island",
-            image: "https://www.vladi-private-islands.de/fileadmin/_processed_/2/d/csm_narara_island_004_a65c106903.jpg",
+            image:
+              "https://www.vladi-private-islands.de/fileadmin/_processed_/2/d/csm_narara_island_004_a65c106903.jpg",
             text: "Why hidden: Accessible only during low tide. Why famous: Part of the Marine National Park. Why visit: Coral reefs, marine life spotting, and tidal walks.",
           },
           {
             title: "Saputara",
-            image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/ae/e3/68/gira-waterfalls.jpg?w=1200&h=1200&s=1",
+            image:
+              "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/ae/e3/68/gira-waterfalls.jpg?w=1200&h=1200&s=1",
             text: "Why hidden: Gujarat’s only hill station in the Dang district. Why famous: Tribal art and culture of the Dang community. Why visit: Lake views, monsoon clouds, and handicraft markets.",
+          },
+        ],
+        "Andhra Pradesh": [
+          {
+            title: "Lambasingi",
+            image:
+              "https://bigproperty.in/blog/wp-content/uploads/2023/12/The_Beautiful_Lambasingi_Visakhapatnam_Andhra_Pradesh_20190109022026.jpg",
+            text: "Why hidden: Nicknamed 'Kashmir of Andhra' but still off mainstream tourist radar. Why famous: Misty hills with near-zero temperatures in winter. Why visit: Strawberry farms, sunrise views, and chilly pine forests.",
+          },
+          {
+            title: "Gandikota",
+            image:
+              "https://famousplacesinindia.in/wp-content/uploads/2024/04/Title-Gandikota-Canyon.jpg",
+            text: "Why hidden: Often overshadowed by Tirupati and coastal beaches. Why famous: Known as the 'Grand Canyon of India.' Why visit: Stunning Pennar River gorge, medieval fort, and camping under starry skies.",
+          },
+          {
+            title: "Araku Valley",
+            image:
+              "https://3.bp.blogspot.com/-uE97ZjbN3Dw/VvFEF6Z9IoI/AAAAAAAAFwQ/5czc564IiP4Jg8rjbgZvlUPTVQl6eIMYA/s1600/Araku%2BValley4.jpg",
+            text: "Why hidden: Remote valley near Odisha border. Why famous: Coffee plantations and tribal culture. Why visit: Waterfalls, caves, and scenic train rides through lush Eastern Ghats.",
+          },
+          {
+            title: "Borra Caves",
+            image:
+              "https://2.bp.blogspot.com/-InpJxPW0yaE/WLbETcXaxzI/AAAAAAAAJyk/9jRNU7AAHpYH_dtVuEsSexai9QloX0f4ACLcB/s1600/1.jpg",
+            text: "Why hidden: Limestone cave system tucked inside Araku Valley. Why famous: Natural stalactite and stalagmite formations. Why visit: Mythological links to Lord Shiva and breathtaking underground chambers.",
+          },
+          {
+            title: "Talakona Waterfalls",
+            image:
+              "http://4.bp.blogspot.com/-KpwH9pgwrJc/UOZ4OlgfR1I/AAAAAAAAFts/kqjvm8sFCZ0/s1600/talakona-waterfall4.jpg",
+            text: "Why hidden: Deep inside Sri Venkateswara National Park. Why famous: Tallest waterfall in Andhra Pradesh. Why visit: Herbal plant-rich forests, trekking, and serene picnic spots.",
+          },
+          {
+            title: "Papikondalu",
+            image:
+              "https://papikondalu.net.in/assets/images/papikondalu-5-800x500.png",
+            text: "Why hidden: River gorge accessible mainly by boat. Why famous: Majestic hills along Godavari River. Why visit: River cruises, tribal hamlets, and mesmerizing sunsets over emerald waters.",
+          },
+          {
+            title: "Kondapalli",
+            image:
+              "https://media.tripinvites.com/places/amaravati/kondapalli-fort/kondapalli-fort-in-amaravati-featured.jpg",
+            text: "Why hidden: Small artisan village near Vijayawada. Why famous: Traditional Kondapalli wooden toys. Why visit: Meet craftsmen, explore 14th-century fort, and shop hand-painted souvenirs.",
+          },
+        ],
+        "Arunachal Pradesh": [
+          {
+            title: "Mechuka Valley",
+            image:
+              "https://www.cheekypassports.com/wp-content/uploads/2018/12/The-valley-at-Mechuka-Arunachal-Pradesh.jpg",
+            text: "Why hidden: Remote valley near Indo-China border, seldom visited due to challenging access. Why famous: Scenic vistas and ancient Buddhist monasteries. Why visit: Snow-capped peaks, homestays, and untouched tribal culture.",
+          },
+          {
+            title: "Ziro Valley",
+            image:
+              "https://data1.ibtimes.co.in/en/full/653884/arunachal-pradesh-tribe-apatani.jpg?h=450&l=51&t=24",
+            text: "Why hidden: Known mainly to backpackers and music lovers. Why famous: UNESCO World Heritage tentative site and Apatani tribal culture. Why visit: Paddy fields, pine hills, and the famous Ziro Music Festival.",
+          },
+          {
+            title: "Dong Village",
+            image:
+              "https://www.adotrip.com/public/images/areas/master_images/5e4e34a10161c-Dong_valley_Attractions.jpg",
+            text: "Why hidden: Easternmost inhabited village of India. Why famous: First place in India to receive the sunrise. Why visit: Trekking to the sunrise point, tribal hospitality, and serene landscapes.",
+          },
+          {
+            title: "Namdapha National Park",
+            image:
+              "https://i.pinimg.com/originals/ff/b8/ba/ffb8baa78efc457cc7a2bc1a4439ec0a.jpg",
+            text: "Why hidden: Remote rainforest in eastern Arunachal. Why famous: Only park in India with four big cats — tiger, leopard, clouded leopard, and snow leopard. Why visit: Dense biodiversity, trekking, and birdwatching.",
+          },
+          {
+            title: "Sangti Valley",
+            image:
+              "https://static.wixstatic.com/media/762265_aca3d28e12db40709ea6e0b6c88ec0ad~mv2.jpg/v1/fill/w_1000,h_645,al_c,q_85,usm_0.66_1.00_0.01/762265_aca3d28e12db40709ea6e0b6c88ec0ad~mv2.jpg",
+            text: "Why hidden: Nestled in West Kameng district away from mainstream tourism. Why famous: Winter home for black-necked cranes. Why visit: Rolling meadows, riverside picnics, and peaceful homestays.",
+          },
+          {
+            title: "Bhismaknagar Fort",
+            image: "https://image3.mouthshut.com/images/imagesp/925752467s.jpg",
+            text: "Why hidden: Ancient fort ruins seldom explored by tourists. Why famous: Linked to Mahabharata legends of Rukmini and Krishna. Why visit: Archaeological marvels, mythological significance, and quiet ambiance.",
+          },
+          {
+            title: "Aalo (Along)",
+            image:
+              "https://www.himalayancrest.com/wp-content/uploads/2018/05/Rafting-In-Aalo-Arunachal-Pradesh-768x488.jpg",
+            text: "Why hidden: Picturesque town not on regular travel circuits. Why famous: Confluence of Sipu and Siyom rivers. Why visit: Orange orchards, hanging bridges, and vibrant tribal festivals.",
+          },
+        ],
+        Assam: [
+          {
+            title: "Majuli Island",
+            image: "https://blog.savaari.com/wp-content/uploads/2021/07/1.-majuli.jpg",
+            text: "Why hidden: World's largest river island but not crowded with tourists. Why famous: Neo-Vaishnavite culture and monasteries (Satras). Why visit: Mask-making villages, cultural festivals, and serene river views.",
+          },
+          {
+            title: "Haflong",
+            image: "https://hhib.b-cdn.net/wp-content/uploads/2019/05/assam.jpg",
+            text: "Why hidden: Assam’s only hill station. Why famous: Scenic valleys and vibrant Dimasa culture. Why visit: Orchid gardens, Haflong Lake, and panoramic hill views.",
+          },
+          {
+            title: "Sivasagar",
+            image: "https://media-cdn.tripadvisor.com/media/photo-s/09/d2/22/58/sivasagar-pond.jpg",
+            text: "Why hidden: Historical gem overshadowed by Kaziranga. Why famous: Capital of Ahom dynasty. Why visit: Rang Ghar, Talatal Ghar, and ancient tanks.",
+          },
+          {
+            title: "Umrangso",
+            image: "https://www.lifeberrys.com/img/article/umrangso-assam-1718014683-lb.jpg",
+            text: "Why hidden: Remote hill area near Meghalaya border. Why famous: Scenic dams and blue waters. Why visit: Panimur Falls, hilly drives, and peaceful lakeside stays.",
+          },
+          {
+            title: "Mayong",
+            image: "https://www.pobitorawildlifesanctuary.in/images/pobitota-assam.jpg",
+            text: "Why hidden: Known as India’s 'land of black magic.' Why famous: Ancient tantric practices and folklore. Why visit: Mystic tales, archaeological ruins, and Pobitora Wildlife Sanctuary nearby.",
+          },
+          {
+            title: "Dibru-Saikhowa National Park",
+            image: "https://i.ytimg.com/vi/ttVmA1_WgOE/maxresdefault.jpg",
+            text: "Why hidden: River island national park with low tourist footfall. Why famous: Rare feral horses and migratory birds. Why visit: Eco-camping, boat safaris, and river cruises.",
+          },
+          {
+            title: "Champaner Satra",
+            image:
+              "https://www.trawell.in/admin/images/upload/461310286Champaner_Pavagad.jpg",
+            text: "Why hidden: Lesser-known cultural Satra near Jorhat. Why famous: Neo-Vaishnavite art and traditions. Why visit: Traditional music, manuscripts, and Assamese architecture.",
+          },
+        ],
+
+        Bihar: [
+          {
+            title: "Barabar Caves",
+            image: "https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/barabar-caves-sultanpur.jpg",
+            text: "Why hidden: Ancient rock-cut caves rarely on tourist maps. Why famous: Oldest surviving rock-cut caves in India. Why visit: Mauryan-era architecture and echoes of Buddhist history.",
+          },
+          {
+            title: "Vikramshila",
+            image: "https://iasgyan.sgp1.digitaloceanspaces.com/images/VIKRAMSHILA_UNIVERSITY.png",
+            text: "Why hidden: Overshadowed by Nalanda ruins. Why famous: Ancient Buddhist university site. Why visit: Archaeological ruins, monasteries, and peaceful riverside location.",
+          },
+          {
+            title: "Kakolat Waterfall",
+            image: "https://media-cdn.tripadvisor.com/media/photo-s/12/10/8a/19/dhua-kund.jpg",
+            text: "Why hidden: Lesser-known scenic spot on Bihar–Jharkhand border. Why famous: Mythological link to Treta Yuga. Why visit: Cool spring waters, forest treks, and picnic spots.",
+          },
+          {
+            title: "Lauriya Nandangarh",
+            image: "https://media2.thrillophilia.com/images/photos/000/372/651/original/1620168901_unnamed.jpg?width=975&height=600",
+            text: "Why hidden: Remote historical site. Why famous: Ashokan pillar and ancient burial mounds. Why visit: Archaeological intrigue and Mauryan history.",
+          },
+          {
+            title: "Telhar Kund",
+            image: "https://rohtasdistrict.com/wp-content/uploads/2019/12/telhar-kund-kaimur.jpg",
+            text: "Why hidden: Offbeat natural waterfall in Kaimur hills. Why famous: Scenic view with medicinal hot springs. Why visit: Water cascades, forest hikes, and thermal pools.",
+          },
+          {
+            title: "Rohtasgarh Fort",
+            image: "https://www.travelviewpoint.com/wp-content/uploads/2022/09/Rohtasgarh-Fort-Bihar2.jpg",
+            text: "Why hidden: Ruined hill fort away from main cities. Why famous: Sher Shah Suri’s historical stronghold. Why visit: Trekking, panoramic views, and ancient architecture.",
+          },
+          {
+            title: "Kanwar Lake Bird Sanctuary",
+            image: "https://media2.thrillophilia.com/images/photos/000/365/567/original/1611686680_Over-11-lakh-migratory-birds-visit-Odishas-Chilika-lake.jpg?width=1600&height=775",
+            text: "Why hidden: Asia’s largest freshwater oxbow lake but sparsely visited. Why famous: Winter home for migratory birds. Why visit: Birdwatching and peaceful rural surroundings.",
+          },
+        ],
+
+        Chhattisgarh: [
+          {
+            title: "Chitrakote Falls",
+            image: "https://www.adotrip.com/public/images/areas/master_images/60c3262b53a0b-Chitrakoot_waterfalls.jpg",
+            text: "Why hidden: India's 'Niagara' but with fewer tourists. Why famous: Horse-shoe shaped waterfall. Why visit: Monsoon roars, boat rides, and sunset rainbows.",
+          },
+          {
+            title: "Barnawapara Wildlife Sanctuary",
+            image: "https://nomadsaikat.com/wp-content/uploads/2024/10/Barnawapara-Wildlife-Sanctuary-photos-1170x780.jpg",
+            text: "Why hidden: Underrated wildlife reserve. Why famous: Habitat for leopards, antelopes, and exotic birds. Why visit: Safari rides and lush forests.",
+          },
+          {
+            title: "Bhoramdeo Temple",
+            image: "https://dc-cdn.s3-ap-southeast-1.amazonaws.com/e707ae7c617fdf6ec6e475d19a70cbe146218ec9-tc-img-preview.jpg",
+            text: "Why hidden: Often called 'Khajuraho of Chhattisgarh.' Why famous: Erotic stone carvings from 11th century. Why visit: Temple artistry, mountain backdrop, and serene vibes.",
+          },
+          {
+            title: "Mainpat",
+            image: "https://travelmagicmoments.com/wp-content/uploads/2023/09/5S3A5081-1-3.jpeg",
+            text: "Why hidden: Little Tibet of Chhattisgarh. Why famous: Tibetan refugee settlement. Why visit: Waterfalls, meadows, and Tibetan culture.",
+          },
+          {
+            title: "Kanger Valley National Park",
+            image: "https://www.chhattisgarhtourism.co.in/photo_gallery/kanger_valley_national_park/03.jpg",
+            text: "Why hidden: Remote forest reserve. Why famous: Caves, waterfalls, and biodiversity. Why visit: Tirathgarh Falls, stalactite caves, and tribal encounters.",
+          },
+          {
+            title: "Sitanadi Wildlife Sanctuary",
+            image: "https://tripxl.com/blog/wp-content/uploads/2024/09/Wildlife-Safaris-4.jpg",
+            text: "Why hidden: Offbeat tiger reserve area. Why famous: River-origin sanctuary. Why visit: Dense forests, river trails, and rare fauna.",
+          },
+          {
+            title: "Malhar",
+            image: "https://www.chhattisgarhtourism.co.in/photo_gallery/malhar/05.jpg",
+            text: "Why hidden: Archaeological town with ancient ruins. Why famous: Temples dating to 10th–11th century. Why visit: Historical sculptures, excavation sites, and museum.",
           },
         ],
 
