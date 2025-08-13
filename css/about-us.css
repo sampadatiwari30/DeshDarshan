@@ -578,3 +578,27 @@ footer {
     right: 5px;
   }
 }
+
+/* Contact Links Styling */
+.contact-link {
+  color: #ff6b35 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #e55a2b !important;
+  text-decoration: underline !important;
+}
+
+/* Contact items in contact grid */
+.contact-item a {
+  color: #ff6b35;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #e55a2b;
+  text-decoration: underline;
+}

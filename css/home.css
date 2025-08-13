@@ -612,3 +612,15 @@ footer {
     padding-right: 2rem;
   }
 }
+
+/* Contact Links Styling */
+.contact-link {
+  color: #ff6b35 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #e55a2b !important;
+  text-decoration: underline !important;
+}
