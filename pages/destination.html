@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hidden Destinations in India</title>
-     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
+<link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
+<script src="../js/dark-theme-toggle.js"></script>
+
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -239,32 +241,65 @@
             </div>
         </div>
     </div>
+<!-- Section 4: Follow Us -->
+<div class="footer-section">
+  <h3 class="footer-section-title">Follow Us</h3>
+  <div class="social-icons-container">
+    <a href="#" class="social-icon" aria-label="Facebook"
+      ><i class="fab fa-facebook-f"></i
+    ></a>
+    <a href="#" class="social-icon" aria-label="Twitter"
+      ><i class="fab fa-twitter"></i
+    ></a>
+    <a href="#" class="social-icon" aria-label="Instagram"
+      ><i class="fab fa-instagram"></i
+    ></a>
+    <a href="#" class="social-icon" aria-label="Behance"
+      ><i class="fab fa-youtube"></i
+    ></a>
+  </div>
+</div>
+</div>
+<!--copyright -->
+<div class="copyright-section">
+  &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+</div>
+</footer>
+<!-- Footer -->
 
-        <!-- Section 4: Follow Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Follow Us</h3>
-          <div class="social-icons-container">
-            <a href="#" class="social-icon" aria-label="Facebook"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Twitter"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Behance"
-              ><i class="fab fa-youtube"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!--copyright -->
-      <div class="copyright-section">
-        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-      </div>
-    </footer>
-    <!-- Footer -->
+<script>
+(function(){
+  if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+    window.chatbase=(...arguments)=>{
+      if(!window.chatbase.q){
+        window.chatbase.q=[];
+      }
+      window.chatbase.q.push(arguments)
+    };
+    window.chatbase=new Proxy(window.chatbase,{
+      get(target,prop){
+        if(prop==="q"){
+          return target.q
+        }
+        return(...args)=>target(prop,...args)
+      }
+    })
+  }
+  const onLoad=function(){
+    const script=document.createElement("script");
+    script.src="https://www.chatbase.co/embed.min.js";
+    script.id="eaZ3BLaEp3NWiit_Vn0fK";
+    script.domain="www.chatbase.co";
+    document.body.appendChild(script)
+  };
+  if(document.readyState==="complete"){
+    onLoad()
+  }else{
+    window.addEventListener("load",onLoad)
+  }
+})();
+</script>
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -942,44 +977,102 @@
       // Smooth scroll behavior
       document.documentElement.style.scrollBehavior = "smooth";
     </script>
-    <!-- Back to Top Button -->
-<button id="backToTopBtn" title="Go to top">🔝</button>
-
-
-
-    <script>
-      // Show button on scroll
-      window.onscroll = function () {
-        const btn = document.getElementById("backToTopBtn");
-        if (
-          document.body.scrollTop > 300 ||
-          document.documentElement.scrollTop > 300
-        ) {
-          btn.style.display = "block";
-        } else {
-          btn.style.display = "none";
-        }
-      };
-
-  // Scroll to top on click
-  document.getElementById("backToTopBtn").addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+<!-- Back to Top Button Styles -->
+<style>
+  /* Base Button Styles */
+  #backToTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    z-index: 1200;
+    background: #ff9832;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
   
-        // Mobile Navigation Toggle
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
-      const navButtons = document.querySelector(".nav-buttons");
+  /* Visible State */
+  #backToTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+  }
+  
+  /* Hover Effects */
+  #backToTopBtn:hover {
+    transform: translateY(-5px) scale(1.05); 
+    background: #ffb366; 
+    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #backToTopBtn {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+</style>
 
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        navButtons.classList.toggle("active");
+<!-- Back to Top Button -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const backBtn = document.getElementById("backToTopBtn");
+
+    // Show/hide button on scroll
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+        backBtn.classList.add("show");
+      } else {
+        backBtn.classList.remove("show");
+      }
+    });
+
+    // Scroll to top on click
+    backBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Mobile Navigation Toggle (from add-folk-stories)
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+    const navButtons = document.querySelector(".nav-buttons");
+    // You can keep nav toggle logic here if needed...
+  });
+</script>
+
+
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
-
-</script>    <script src="../js/navbar-loader.js"></script>
-
-
+    });
+  });
+</script>
+<script src="../js/navbar-loader.js"></script>
 </body>
 
 </html>

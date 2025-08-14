@@ -295,12 +295,162 @@
       }
     }
 
-        .navbarhover:hover {
-            color: rgb(234, 112, 51);
-            font-weight: 700;
-            transition: 0.3s ease-in-out;
-        }
-              /*footer */
+.navbarhover:hover {
+    color: rgb(234, 112, 51);
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+}
+
+/* GRID LAYOUT - 4 cards per row */
+.row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns */
+    gap: 20px;
+    padding: 40px;
+    justify-items: center;
+}
+
+/* RESPONSIVE: Adjust for smaller screens */
+@media (max-width: 1200px) {
+    .row {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .row {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .row {
+        grid-template-columns: 1fr; /* 1 card on mobile */
+    }
+}
+
+.cartoon-card {
+    width: 260px;
+    min-height: 260px;
+    background: rgba(173, 216, 230, 0.3);
+    border: 1px solid rgba(173, 216, 230, 0.5);
+    border-radius: 16px;
+    padding: 20px;
+    color: #222;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* ICON */
+.cartoon-svg {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+/* STATE NAME */
+.state-name {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.8;
+    margin: 0;
+    color: #1a1a1a;
+    white-space: normal;
+    word-break: break-word;
+    text-transform: capitalize;
+}
+
+/* STATE CODE */
+.state-code {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+}
+
+/* HOVER EFFECT */
+.cartoon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* quiz */
+.quiz-section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(145deg, #fff, #f0f0f0);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.quiz-section h2 {
+    color: #ff6f00;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.quiz-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.quiz-option {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+    background: #ffecb3;
+}
+
+.quiz-option.correct {
+    border-color: #4caf50;
+    background: #e8f5e9;
+}
+
+.quiz-option.wrong {
+    border-color: #f44336;
+    background: #ffebee;
+}
+
+.quiz-btn {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.quiz-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* footer */
+
 
     footer {
       background-color: black;
@@ -1056,57 +1206,200 @@
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
   <!-- Back to Top Button -->
   <button id="backToTopBtn" title="Go to top">🔝</button>
 
 <style>
+  /* Base Button Styles (merged from both versions) */
   #backToTopBtn {
-    display: none;
     position: fixed;
-    bottom: 40px;
-    right: 30px;
-    z-index: 99;
-    font-size: 30px;
+    right: 25px;
+    bottom: 85px;
+    z-index: 1200;
+    background: #ff9832;
+    color: #fff;
     border: none;
-    outline: none;
-    background-color: transparent;
-    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
     cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
   }
 
-    #backToTopBtn:hover {
-      background-color: transparent;
-      transform: translateY(-5px);
-    }
+  /* Visible State */
+  #backToTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+  }
 
-    @media screen and (max-width: 480px) {
-      #backToTopBtn {
-        font-size: 50px;
-        padding: 8px 10px;
-        bottom: 60px;
-        right: 5px;
-      }
-    }
-  </style>
+  /* Hover Effects (kept from both) */
+  #backToTopBtn:hover {
+    background-color: transparent; /* from your version */
+    transform: translateY(-5px) scale(1.05);
+    background: #ffb366; /* from main version */
+    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+  }
 
-  <script>
-    // Show button on scroll
-    window.onscroll = function () {
-      const btn = document.getElementById("backToTopBtn");
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btn.style.display = "block";
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #backToTopBtn {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
       } else {
-        btn.style.display = "none";
+        backBtn.classList.remove('show');
+      }
+    });
+
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+    }
+  }
+</style>
+
+<!-- Button HTML (unchanged) -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<!-- JavaScript (unchanged) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
       }
     };
 
-  // Scroll to top on click
-  document.getElementById("backToTopBtn").addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll to top on click (from add-folk-stories)
+    document.getElementById("backToTopBtn").addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   });
+
+</script>
+
+<script>
+  // quiz (from main)
+  const quizData = [
+    {
+      question: "Where is Magnetic Hill located?",
+      options: ["Ladakh", "Rajasthan", "Goa", "Kerala"],
+      answer: "Ladakh"
+    },
+    {
+      question: "Which fort is legally off-limits after sunset?",
+      options: ["Bhangarh Fort", "Red Fort", "Amber Fort", "Jaisalmer Fort"],
+      answer: "Bhangarh Fort"
+    },
+    {
+      question: "What was the original name of the Mughal emperor Shah Jahan?",
+      options: ["Prince Abdul", "Prince Khurram", "Prince Kamura", "Prince Aibak "],
+      answer: "Prince Khurram"
+    },
+    {
+      question: "Which city in India is famous for manufacturing balls for the World Cup Football?",
+      options: ["Punjab", "Haryana", "Jalandhar", "Gujrat"],
+      answer: "Jalandhar"
+    },
+    {
+      question: "What is the national heritage animal of India?",
+      options: ["Tiger", "Elephant", "Lion", "Giraffe"],
+      answer: "Elephant"
+    },
+    {
+      question: `Who is known as the "Missile Man of India"?`,
+      options: ["Dr. APJ Abdul Kalam", "Atal Bihari", "Sarojni Naydu", "Lala Lajpat Rai"],
+      answer: "Dr. APJ Abdul Kalam"
+    },
+    {
+      question: "In which city was the first Indian Institute of Technology established?",
+      options: ["Ahmedabad", "Bangalore", "Kharagpur", "Noida"],
+      answer: "Kharagpur"
+    },
+    {
+      question: "What was the name of India's first satellite, launched in 1975?",
+      options: ["Aryashukla", "yuvraj", "Aryabhata", "Jaisalmer"],
+      answer: "Aryabhata"
+    },
+    {
+      question: "Which Indian state has the smallest coastline?",
+      options: ["Mumbai", "Goa", "Bengal", "Kanyakumari"],
+      answer: "Goa"
+    },
+    {
+      question: "Name the longest river in India.",
+      options: ["Ganga", "Kaveri", "Yamuna", "Brahmaputra"],
+      answer: "Ganga"
+    },
+    {
+      question: `Which Indian state is known as the "land of rising sun" due to its easternmost location?`,
+      options: ["Sikkim", "Mizoram", "Manipur", "Arunachal Pradesh"],
+      answer: "Arunachal Pradesh"
+    },
+    {
+      question: "Which state is the origin of the captivating dance-drama form of Kathakali?",
+      options: ["Bangalore", "Kerala", "Tamil Nadu", "Goa"],
+      answer: "Kerala"
+    },
+    {
+      question: "What is the name of the traditional Gujarati folk dance performed during Navratri celebrations?",
+      options: ["Garba", "Folk dance", "kathak", "kanad"],
+      answer: "Garba"
+    },
+    {
+      question: "Which event in 1919 led to a mass protest and became a turning point in the Indian Independence movement?",
+      options: ["Chipko Movement", "The Jallianwala Bagh massacre", "Dandi March", "Movement"],
+      answer: "The Jallianwala Bagh massacre"
+    },
+    {
+      question: `Who is known as the "Iron Man of India" for his role in unifying the princely states after independence?`,
+      options: ["Neta ji Subhash Chandra Bose", "Mahatma Gandhi", "Sardar Vallabhbhai Patel", "Bal Gangadhar Tilak"],
+      answer: "Sardar Vallabhbhai Patel"
+    }
+  ];
+</script>
+
 
           // Mobile Navigation Toggle
       const hamburger = document.getElementById("hamburger");
