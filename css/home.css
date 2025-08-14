@@ -155,6 +155,7 @@ body {
 .culture-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .culture-item img {
@@ -322,7 +323,8 @@ a,
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .heritage-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  cursor: pointer;
 }
 
 .heritage-item img {
@@ -531,6 +533,10 @@ footer {
   margin-left: 5px;
 }
 
+.footer-contact-item span:hover{
+  cursor: pointer;
+}
+
 .footer-section {
   flex: 1;
   min-width: 180px;
@@ -549,6 +555,7 @@ footer {
   font-size: 1.2rem;
   font-weight: 750;
   text-shadow: 1px 1px 8px white;
+  cursor: pointer;
 }
 
 .social-icons-container {
@@ -611,4 +618,73 @@ footer {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+
+/* Loading page */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #1e1e1e;
+    color: #FF9933; /* Initial saffron */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    animation: tricolorText 3s linear infinite;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    text-align: center;
+}
+
+.loader i {
+    font-size: 4.5rem;
+    animation: spin 2s linear infinite, tricolorText 3s linear infinite;
+}
+
+.loader h2 {
+    margin-top: 1.5rem;
+    font-size: 2.1rem;
+}
+
+.dots::after {
+    content: "";
+    display: inline-block;
+    animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0%   { content: ""; }
+    20%  { content: "."; }
+    40%  { content: ".."; }
+    60%  { content: "..."; }
+    80%  { content: "...."; }
+    100% { content: ""; }
+}
+
+/* Spin Animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Tricolor Text Animation */
+@keyframes tricolorText {
+    0%   { color: #FF9933; } /* Saffron */
+    17%  { color: #FFFFFF; } /* White */
+    33%  { color: #138808; } /* Green */
+    50% { color: #FF9933; } /* Back to Saffron */
+    67%  { color: #FFFFFF; } /* White */
+    83%  { color: #138808; } /* Green */
+    100% { color: #FF9933; } /* Back to Saffron */
 }
