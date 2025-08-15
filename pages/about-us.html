@@ -1,987 +1,1646 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/about-us.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-  </head>
-  <body>
-    <!-- Navigation Container -->
-    <div id="navbar-container"></div>
-      <div class="language-dropdown">
-        <button class="language-btn" id="languageBtn">🌐 Language ▾</button>
-        <div class="language-menu" id="languageMenu">
-          <div class="language-option" data-lang="en">🇮🇳 English</div>
-          <div class="language-option" data-lang="hi">🇮🇳 हिंदी</div>
-          <div class="language-option" data-lang="mr">🪔 मराठी</div>
-          <div class="language-option" data-lang="ta">🌺 தமிழ்</div>
-          <div class="language-option" data-lang="bn">🐯 বাংলা</div>
-          <div class="language-option" data-lang="pa">🥁 ਪੰਜਾਬੀ</div>
-          <div class="language-option" data-lang="gu">🦚 ગુજરાતી</div>
-          <div class="language-option" data-lang="te">🌄 తెలుగు</div>
+<head>
+  <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(135deg, #fef7ed 0%, #f0fdf4 100%);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    /*Navigation Styles
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(37, 27, 27, 0.701); 
+            backdrop-filter: blur(12px);          
+            -webkit-backdrop-filter: blur(12px);  
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transform: translateY(-100%);
+            animation: slideDown 0.8s ease-out 0.3s forwards;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            color:white;
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FF9933;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(255, 153, 51, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FF9933, #138808);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #FF9933;
+            text-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+            transform: translateY(-2px);
+        } */
+
+    /* Language Dropdown */
+    .language-dropdown {
+      position: fixed;
+      right: 0;
+      top: 5rem;
+      z-index: 100000;
+      margin-right: 1rem;
+    }
+
+    .language-btn {
+      background: linear-gradient(135deg, #ff9933, #138808);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .language-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+    }
+
+    .language-menu {
+      position: absolute;
+      top: 120%;
+      right: 0;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .language-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .language-option {
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .language-option:hover {
+      background: linear-gradient(135deg, #ff9933, #138808);
+      color: white;
+    }
+
+    .language-option:first-child {
+      border-radius: 15px 15px 0 0;
+    }
+
+    .language-option:last-child {
+      border-radius: 0 0 15px 15px;
+      border-bottom: none;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: kenBurns 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenBurns {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg,
+          rgba(0, 0, 0, 0.4),
+          rgba(255, 153, 51, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .slide-content h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      animation: slideInUp 1s ease-out;
+    }
+
+    .slide-content p {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      animation: slideInUp 1s ease-out 0.3s both;
+    }
+
+    /* Slide Indicators */
+    .slide-indicators {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    .indicator {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .indicator.active {
+      background: #ff9933;
+      transform: scale(1.3);
+      border-color: white;
+      box-shadow: 0 0 15px rgba(255, 153, 51, 0.8);
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 960px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .content-card {
+      background: white;
+      border-radius: 25px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+
+    .content-card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .content-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff9933, #138808);
+      border-radius: 2px;
+    }
+
+    .content-text {
+      font-size: 1.1rem;
+      color: #374151;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      color: #ff9933;
+      font-weight: 600;
+    }
+
+    /* Feature List */
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #fef7ed, #f0fdf4);
+      border-radius: 15px;
+      border-left: 4px solid #ff9933;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(255, 153, 51, 0.2);
+    }
+
+    .feature-emoji {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover .feature-emoji {
+      animation: pulse 0.6s ease-in-out;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .contact-item {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #ff9933, #138808);
+      color: white;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(255, 153, 51, 0.3);
+    }
+
+    /*footer */
+
+    footer {
+      background-color: black;
+      color: white;
+      padding: 2.5rem 1.5rem;
+      margin-top: auto;
+      width: 100%;
+      box-sizing: border-box;
+      bottom: 0;
+    }
+
+    .footer-content-wrapper {
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-top: 0px;
+    }
+
+    .footer-section p {
+      font-size: 0.875rem;
+      color: #a0aec0;
+      line-height: 1.625;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-link,
+    .footer-contact-item {
+      color: #a0aec0;
+      transition: color 0.3s ease;
+      text-decoration: none;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-link:hover,
+    .footer-contact-item:hover {
+      color: #f7fafc;
+    }
+
+    .footer-contact-item span {
+      margin-left: 5px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .footer-section-title {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+      font-family: Arial, Helvetica, sans-serif;
+      transition: text-shadow 0.5s ease;
+    }
+
+    .footer-section-title:hover {
+      font-size: 1.2rem;
+      font-weight: 750;
+      text-shadow: 1px 1px 8px white;
+    }
+
+    .social-icons-container {
+      margin-top: 10px;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: #4a5568;
+      color: #cbd5e0;
+      border: 1px solid #4a5568;
+      transition: background-color 0.3s ease, color 0.3s ease,
+        border-color 0.3s ease;
+      text-decoration: none;
+      border-radius: 50%;
+    }
+
+    .social-icon i {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .social-icon:hover {
+      background-color: rgba(255, 255, 255, 0.804);
+      color: #1a202c;
+      border-color: rgba(255, 255, 255, 0.804);
+      box-shadow: 0 0 15px white;
+    }
+
+    .copyright-section {
+      border-top: 1px solid #4a5568;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      color: #a0aec0;
+      font-size: 0.875rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 640px) {
+      .footer-content-wrapper {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-content-wrapper {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-container {
+        padding: 0 1rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .slide-content h2 {
+        font-size: 2.5rem;
+      }
+
+      .slide-content p {
+        font-size: 1.2rem;
+      }
+
+      .content-card {
+        padding: 2rem;
+        margin: 2rem 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Language Content Classes */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <div class="page-wrapper">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black">
+      <div class="container-fluid">
+        <a class="navbar-brand navbarhover" href="home1.html">DeshDarshan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link navbarhover" aria-current="page" href="about-us.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="crazyfacts.html">Crazy Facts
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="explore.html">Explore India
+              </a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link navbarhover" href="destination.html">Hidden Destinations
+                </a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="contactus.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="feedback.html">Feedback</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbarhover" href="/pages/quiz.html">Quiz</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="language-dropdown">
+      <button class="language-btn" id="languageBtn">🌐 Language ▾</button>
+      <div class="language-menu" id="languageMenu">
+        <div class="language-option" data-lang="en">🇮🇳 English</div>
+        <div class="language-option" data-lang="hi">🇮🇳 हिंदी</div>
+        <div class="language-option" data-lang="mr">🪔 मराठी</div>
+        <div class="language-option" data-lang="ta">🌺 தமிழ்</div>
+        <div class="language-option" data-lang="bn">🐯 বাংলা</div>
+        <div class="language-option" data-lang="pa">🥁 ਪੰਜਾਬੀ</div>
+        <div class="language-option" data-lang="gu">🦚 ગુજરાતી</div>
+        <div class="language-option" data-lang="te">🌄 తెలుగు</div>
+      </div>
+    </div>
+
+    <!-- Hero Slideshow -->
+    <section class="hero-section">
+      <div class="slideshow-container">
+        <div class="slide active">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Himalayan Landscape" />
+          <div class="slide-overlay">
+            <div class="slide-content">
+              <h2 id="slideTitle1">Nature's Symphony 🌿</h2>
+              <p id="slideDesc1">
+                Where mountains touch the sky and rivers sing eternal songs
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <img
+            src="https://unsplash.com/photos/LtE6W_JVTGc/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzUzNTIwOTk0fA&force=true"
+            alt="Holi Festival" />
+          <div class="slide-overlay">
+            <div class="slide-content">
+              <h2 id="slideTitle2">Festivals of Joy 🎉</h2>
+              <p id="slideDesc2">
+                Colors that paint the soul and celebrations that unite hearts
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Indian Cuisine" />
+          <div class="slide-overlay">
+            <div class="slide-content">
+              <h2 id="slideTitle3">Taste of Tradition 🍲</h2>
+              <p id="slideDesc3">
+                Flavors that tell stories of generations and spices that
+                awaken souls
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Rajasthan Fort" />
+          <div class="slide-overlay">
+            <div class="slide-content">
+              <h2 id="slideTitle4">Living Heritage 🏛️</h2>
+              <p id="slideDesc4">
+                Stones that whisper ancient tales and walls that guard
+                timeless secrets
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Kerala Backwaters" />
+          <div class="slide-overlay">
+            <div class="slide-content">
+              <h2 id="slideTitle5">Backwater Bliss 🌅</h2>
+              <p id="slideDesc5">
+                Serene waters that mirror paradise and gentle giants that roam
+                free
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Hero Slideshow -->
-      <section class="hero-section">
-        <div class="slideshow-container">
-          <div class="slide active">
-            <img
-              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-              alt="Himalayan Landscape"
-            />
-            <div class="slide-overlay">
-              <div class="slide-content">
-                <h2 id="slideTitle1">Nature's Symphony 🌿</h2>
-                <p id="slideDesc1">
-                  Where mountains touch the sky and rivers sing eternal songs
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <img src="https://unsplash.com/photos/LtE6W_JVTGc/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzUzNTIwOTk0fA&force=true" alt="Holi Festival" />
-            <div class="slide-overlay">
-              <div class="slide-content">
-                <h2 id="slideTitle2">Festivals of Joy 🎉</h2>
-                <p id="slideDesc2">
-                  Colors that paint the soul and celebrations that unite hearts
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-              alt="Indian Cuisine"
-            />
-            <div class="slide-overlay">
-              <div class="slide-content">
-                <h2 id="slideTitle3">Taste of Tradition 🍲</h2>
-                <p id="slideDesc3">
-                  Flavors that tell stories of generations and spices that
-                  awaken souls
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-              alt="Rajasthan Fort"
-            />
-            <div class="slide-overlay">
-              <div class="slide-content">
-                <h2 id="slideTitle4">Living Heritage 🏛️</h2>
-                <p id="slideDesc4">
-                  Stones that whisper ancient tales and walls that guard
-                  timeless secrets
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-              alt="Kerala Backwaters"
-            />
-            <div class="slide-overlay">
-              <div class="slide-content">
-                <h2 id="slideTitle5">Backwater Bliss 🌅</h2>
-                <p id="slideDesc5">
-                  Serene waters that mirror paradise and gentle giants that roam
-                  free
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="slide-indicators">
+        <span class="indicator active" onclick="currentSlide(1)"></span>
+        <span class="indicator" onclick="currentSlide(2)"></span>
+        <span class="indicator" onclick="currentSlide(3)"></span>
+        <span class="indicator" onclick="currentSlide(4)"></span>
+        <span class="indicator" onclick="currentSlide(5)"></span>
+      </div>
+    </section>
 
-        <div class="slide-indicators">
-          <span class="indicator active" onclick="currentSlide(1)"></span>
-          <span class="indicator" onclick="currentSlide(2)"></span>
-          <span class="indicator" onclick="currentSlide(3)"></span>
-          <span class="indicator" onclick="currentSlide(4)"></span>
-          <span class="indicator" onclick="currentSlide(5)"></span>
-        </div>
-      </section>
-
-      <!-- Main Content -->
-      <main class="main-content">
-        <!-- About Us Section -->
-        <div class="content-card" id="aboutCard">
-          <div class="lang-content active" data-lang="en">
-            <h2 class="section-title">🧭 About Us</h2>
-            <p class="content-text">
-              <span class="highlight">DeshDarshan</span> is a cultural journey
-              woven into a digital experience. It's more than just a website —
-              it's a living canvas of India's rich heritage, vibrant traditions,
-              soulful music, timeless festivals, and diverse languages. Here,
-              every Indian state is not just represented — it is celebrated.
-            </p>
-            <p class="content-text">
-              Whether you're a student, traveler, cultural enthusiast, or
-              someone seeking to reconnect with India's roots — DeshDarshan is
-              your window into the stories, colors, and spirit of every region.
-            </p>
-          </div>
-
-          <div class="lang-content" data-lang="hi">
-            <h2 class="section-title">🧭 हमारे बारे में</h2>
-            <p class="content-text">
-              <span class="highlight">देशदर्शन</span> एक सांस्कृतिक यात्रा है जो
-              डिजिटल अनुभव में बुनी गई है। यह सिर्फ एक वेबसाइट नहीं है — यह भारत
-              की समृद्ध विरासत, जीवंत परंपराओं, आत्मीय संगीत, कालातीत त्योहारों
-              और विविध भाषाओं का जीवंत कैनवास है।
-            </p>
-            <p class="content-text">
-              चाहे आप छात्र हों, यात्री हों, सांस्कृतिक उत्साही हों, या भारत की
-              जड़ों से फिर से जुड़ना चाहते हों — देशदर्शन हर क्षेत्र की
-              कहानियों, रंगों और आत्मा की आपकी खिड़की है।
-            </p>
-          </div>
-          <div class="lang-content" data-lang="mr">
-            <h2 class="section-title">🧭 आमच्याबद्दल</h2>
-            <p class="content-text">
-              <span class="highlight">देशदर्शन</span> ही एक सांस्कृतिक यात्रा
-              आहे जी डिजिटल अनुभवात गुंफलेली आहे. ही फक्त एक वेबसाइट नाही —
-              भारताच्या समृद्ध वारशाची, उत्साही परंपरांची, आत्म्याला स्पर्श
-              करणाऱ्या संगीतातील, कालातीत सणांची आणि विविध भाषांची एक जिवंत
-              कॅनव्हास आहे. येथे प्रत्येक भारतीय राज्य केवळ सादर केले जाते नाही,
-              तर साजरे केले जाते.
-            </p>
-            <p class="content-text">
-              तुम्ही विद्यार्थी असाल, प्रवासी, सांस्कृतिक उत्साही किंवा
-              भारताच्या मुळाशी पुन्हा जोडायचं इच्छिणारे कोणीही असाल — देशदर्शन
-              ही प्रत्येक प्रांताच्या कथा, रंग आणि आत्म्याची तुमची खिडकी आहे.
-            </p>
-          </div>
-          <div class="lang-content" data-lang="ta">
-            <h2 class="section-title">🧭 எங்களைப் பற்றி</h2>
-            <p class="content-text">
-              <span class="highlight">தேசதர்ஷன்</span> என்பது ஒரு கலாச்சாரப்
-              பயணம், இது டிஜிட்டல் அனுபவமாக மாற்றப்பட்டுள்ளது. இது ஒரு வெறும்
-              வலைத்தளம் அல்ல — இந்தியாவின் பாரம்பரியத்தை, வளமான மரபுகளை, ஆன்மாவை
-              தொடும் இசையை, காலத்தால் அழியாத விழாக்களை, மற்றும் பன்மொழிகளை கொண்ட
-              ஒரு வாழும் தரைச்சட்டமே. இங்கே ஒவ்வொரு இந்திய மாநிலமும் வெறும்
-              காண்பிக்கப்படுவதல்ல — கொண்டாடப்படுகிறது.
-            </p>
-            <p class="content-text">
-              நீங்கள் ஒரு மாணவராக இருந்தாலும், பயணியாக இருந்தாலும், கலாச்சார
-              ஆர்வலராக இருந்தாலும், அல்லது இந்திய வேர்களை மீண்டும் கண்டுபிடிக்க
-              விரும்புபவராக இருந்தாலும் — தேசதர்ஷன் என்பது ஒவ்வொரு மாநிலத்தின்
-              கதைகள், நிறங்கள் மற்றும் ஆன்மாவிற்கான உங்கள் ஜன்னலாகும்.
-            </p>
-          </div>
-          <div class="lang-content" data-lang="bn">
-            <h2 class="section-title">🧭 আমাদের সম্পর্কে</h2>
-            <p class="content-text">
-              <span class="highlight">দেশদর্শন</span> একটি সাংস্কৃতিক যাত্রা যা
-              একটি ডিজিটাল অভিজ্ঞতায় রূপান্তরিত হয়েছে। এটি শুধুমাত্র একটি
-              ওয়েবসাইট নয় — এটি ভারতের সমৃদ্ধ ঐতিহ্য, উজ্জ্বল রীতিনীতি,
-              হৃদয়স্পর্শী সংগীত, চিরন্তন উৎসব এবং বৈচিত্র্যময় ভাষার এক জীবন্ত
-              ক্যানভাস। এখানে প্রতিটি ভারতীয় রাজ্য শুধুমাত্র উপস্থাপন করা হয়
-              না — বরং উদযাপন করা হয়।
-            </p>
-            <p class="content-text">
-              আপনি যদি একজন ছাত্র হন, ভ্রমণকারী, সাংস্কৃতিক অনুরাগী, অথবা ভারতের
-              মূলের সঙ্গে পুনরায় সংযোগ স্থাপন করতে চান — দেশদর্শন হল সেই জানালা
-              যা প্রতিটি অঞ্চলের গল্প, রঙ এবং আত্মাকে তুলে ধরে।
-            </p>
-          </div>
-          <div class="lang-content" data-lang="pa">
-            <h2 class="section-title">🧭 ਸਾਡੇ ਬਾਰੇ</h2>
-            <p class="content-text">
-              <span class="highlight">ਦੇਸ਼ਦਰਸ਼ਨ</span> ਇੱਕ ਸੱਭਿਆਚਾਰਕ ਯਾਤਰਾ ਹੈ ਜੋ
-              ਡਿਜੀਟਲ ਅਨੁਭਵ ਵਿੱਚ ਪਿੰਨੀ ਹੋਈ ਹੈ। ਇਹ ਸਿਰਫ਼ ਇੱਕ ਵੈੱਬਸਾਈਟ ਨਹੀਂ — ਇਹ
-              ਭਾਰਤ ਦੀ ਰੰਗਬਿਰੰਗੀ ਵਿਰਾਸਤ, ਰਿਵਾਇਤੀ ਰੀਤ-ਰਿਵਾਜ, ਰੂਹਾਨੀ ਸੰਗੀਤ, ਸਦੀਵੀ
-              ਤਿਉਹਾਰ ਅਤੇ ਵੱਖ-ਵੱਖ ਭਾਸ਼ਾਵਾਂ ਦੀ ਜੀਉਂਦੀ ਕੈਨਵਸ ਹੈ। ਇੱਥੇ ਹਰ ਰਾਜ ਸਿਰਫ਼
-              ਦਰਸਾਇਆ ਨਹੀਂ ਜਾਂਦਾ — ਸਾਜ਼ਿਆ ਜਾਂਦਾ ਹੈ।
-            </p>
-            <p class="content-text">
-              ਤੁਸੀਂ ਵਿਦਿਆਰਥੀ ਹੋ, ਯਾਤਰੀ ਹੋ, ਸੱਭਿਆਚਾਰਕ ਪ੍ਰੇਮੀ ਹੋ ਜਾਂ ਭਾਰਤ ਨਾਲ ਮੁੜ
-              ਜੁੜਨ ਦੀ ਇੱਛਾ ਰੱਖਦੇ ਹੋ — ਦੇਸ਼ਦਰਸ਼ਨ ਤੁਹਾਡੇ ਲਈ ਹਰ ਖੇਤਰ ਦੀਆਂ ਕਹਾਣੀਆਂ,
-              ਰੰਗ ਅਤੇ ਰੂਹ ਨੂੰ ਵੇਖਣ ਦੀ ਖਿੜਕੀ ਹੈ।
-            </p>
-          </div>
-          <div class="lang-content" data-lang="gu">
-            <h2 class="section-title">🧭 અમારા વિશે</h2>
-            <p class="content-text">
-              <span class="highlight">દેશદર્શન</span> એ એક સાંસ્કૃતિક સફર છે જે
-              ડિજિટલ અનુભવમાં જડાયેલ છે. આ ફક્ત વેબસાઇટ નથી — આ ભારતની સમૃદ્ધ
-              વારસો, જીવંત પરંપરા, આત્માની ગૂંજવતી સંગીત, શાશ્વત તહેવાર અને
-              વિવિધ ભાષાઓનું જીવતું કેનવાસ છે. અહીં દરેક ભારતીય રાજ્યને ફક્ત રજૂ
-              કરવામાં નથી આવ્યું — તેને ઉજવવામાં આવ્યું છે.
-            </p>
-            <p class="content-text">
-              તમે વિદ્યાર્થી હો, પ્રવાસી હો, સાંસ્કૃતિક રસિક હો કે ભારતની મૂળ
-              સાથે ફરીથી જોડાવા માંગતા હો — દેશદર્શન તમારી માટે દરેક પ્રદેશની
-              કહાણી, રંગ અને આત્માને જોવા માટેની વિન્ડો છે.
-            </p>
-          </div>
-          <div class="lang-content" data-lang="te">
-            <h2 class="section-title">🧭 మా గురించి</h2>
-            <p class="content-text">
-              <span class="highlight">దేశదర్శన్</span> అనేది సాంస్కృతిక ప్రయాణం,
-              ఇది డిజిటల్ అనుభవంగా మారింది. ఇది కేవలం ఒక వెబ్‌సైట్ కాదు — ఇది
-              భారతదేశపు గొప్ప వారసత్వం, ఉల్లాసభరిత సంప్రదాయాలు, ఆత్మను తాకే
-              సంగీతం, శాశ్వతమైన పండుగలు మరియు విభిన్న భాషల జీవంతమైన కాన్వాస్.
-              ఇక్కడ ప్రతి భారతీయ రాష్ట్రం కేవలం ప్రదర్శించబడదు — అది
-              జరుపుకుంటారు.
-            </p>
-            <p class="content-text">
-              మీరు విద్యార్థి, ప్రయాణికుడు, సాంస్కృతిక ఆసక్తి గలవాడు లేదా భారతీయ
-              మూలాలను మళ్లీ అన్వేషించాలనుకునే వ్యక్తిగా ఉన్నా — దేశదర్శన్ ప్రతి
-              ప్రాంతం కథలు, రంగులు మరియు ఆత్మను చూపే మీ కిటికీగా ఉంటుంది.
-            </p>
-          </div>
-        </div>
-
-        <!-- What Makes Us Unique -->
-        <div class="content-card" id="uniqueCard">
-          <div class="lang-content active" data-lang="en">
-            <h2 class="section-title">✨ What Makes DeshDarshan Unique?</h2>
-            <p class="content-text">
-              While other platforms may present disconnected content or
-              surface-level visuals, DeshDarshan offers an immersive,
-              multi-sensory experience. As you explore a state, you're greeted
-              in its native language, surrounded by traditional background
-              music, and transported visually through a curated slideshow that
-              reflects local culture, food, attire, and art.
-            </p>
-            <p class="content-text">
-              This is not just information — it's emotion. It's not just travel
-              — it's tradition brought to life. Where others inform, DeshDarshan
-              connects — through sights, sounds, and stories that awaken
-              cultural pride and curiosity.
-            </p>
-          </div>
-
-          <div class="lang-content" data-lang="hi">
-            <h2 class="section-title">✨ देशदर्शन को क्या अनूठा बनाता है?</h2>
-            <p class="content-text">
-              जबकि अन्य प्लेटफॉर्म असंबद्ध सामग्री या सतही दृश्य प्रस्तुत कर
-              सकते हैं, देशदर्शन एक गहन, बहु-संवेदी अनुभव प्रदान करता है। जैसे
-              ही आप किसी राज्य का अन्वेषण करते हैं, आपका स्वागत उसकी मूल भाषा
-              में किया जाता है।
-            </p>
-            <p class="content-text">
-              यह केवल जानकारी नहीं है — यह भावना है। यह केवल यात्रा नहीं है — यह
-              जीवंत परंपरा है। जहाँ अन्य सूचित करते हैं, देशदर्शन जोड़ता है।
-            </p>
-          </div>
-          <!-- Marathi -->
-          <div class="lang-content" data-lang="mr">
-            <h2 class="section-title">✨ देशदर्शन वेगळं कसं आहे?</h2>
-            <p class="content-text">
-              जेव्हा इतर प्लॅटफॉर्म विस्कळीत सामग्री किंवा वरवरचे दृश्य
-              दर्शवतात, तेव्हा देशदर्शन एक सखोल, बहु-इंद्रिय अनुभव देतो. तुम्ही
-              ज्या क्षणी एखाद्या राज्याचा शोध घेता, तिथं तुमचं स्वागत त्या
-              राज्याच्या मूळ भाषेत केलं जातं.
-            </p>
-            <p class="content-text">
-              ही फक्त माहिती नाही — ही भावना आहे. ही केवळ यात्रा नाही — ही जिवंत
-              परंपरा आहे. जिथे इतर माहिती देतात, तिथे देशदर्शन जोडणी करतो.
-            </p>
-          </div>
-          <!-- Tamil -->
-          <div class="lang-content" data-lang="ta">
-            <h2 class="section-title">
-              ✨ தேசதர்ஷனை தனிப்பட்டதாக 만드는து என்ன?
-            </h2>
-            <p class="content-text">
-              மற்ற தளங்கள் சிதறிய தகவல்களையோ மேற்பரப்பான காட்சிகளையோ வழங்கும்
-              போது, தேசதர்ஷன் ஒரு ஆழமான, பலவித உணர்வுகளைக் கொண்ட அனுபவத்தை
-              வழங்குகிறது. நீங்கள் ஒரு மாநிலத்தை ஆராயும் போது, அந்த மாநிலத்தின்
-              தாய்மொழியில் உங்களை வரவேற்கின்றனர்.
-            </p>
-            <p class="content-text">
-              இது வெறும் தகவல் அல்ல — இது உணர்வு. இது வெறும் பயணம் அல்ல — இது
-              உயிரோடு உள்ள பாரம்பரியம். மற்றவர்கள் தகவல் வழங்கும் இடத்தில்,
-              தேசதர்ஷன் நம்மை இணைக்கிறது.
-            </p>
-          </div>
-          <!-- Bengali -->
-          <div class="lang-content" data-lang="bn">
-            <h2 class="section-title">✨ দেশদর্শনকে অনন্য করে তোলে কী?</h2>
-            <p class="content-text">
-              যেখানে অন্যান্য প্ল্যাটফর্মগুলি বিচ্ছিন্ন তথ্য বা পৃষ্ঠতলের দৃশ্য
-              প্রদান করে, দেশদর্শন একটি গভীর, বহু-ইন্দ্রিয় অভিজ্ঞতা প্রদান করে।
-              আপনি যখন একটি রাজ্য ঘুরে দেখেন, তখন আপনাকে সেই রাজ্যের স্থানীয়
-              ভাষায় অভ্যর্থনা জানানো হয়।
-            </p>
-            <p class="content-text">
-              এটি শুধুই তথ্য নয় — এটি একটি অনুভূতি। এটি কেবল ভ্রমণ নয় — এটি
-              জীবন্ত ঐতিহ্য। যেখানে অন্যরা তথ্য দেয়, দেশদর্শন সংযোগ ঘটায়।
-            </p>
-          </div>
-          <!-- Punjabi -->
-          <div class="lang-content" data-lang="pa">
-            <h2 class="section-title">
-              ✨ ਦੇਸ਼ਦਰਸ਼ਨ ਨੂੰ ਵਿਲੱਖਣ ਕੀ ਬਣਾਉਂਦਾ ਹੈ?
-            </h2>
-            <p class="content-text">
-              ਜਦੋਂ ਹੋਰ ਪਲੇਟਫਾਰਮ ਵਿਖਰੇ ਹੋਏ ਸਮੱਗਰੀ ਜਾਂ ਥੋਸ ਦ੍ਰਿਸ਼ ਪੇਸ਼ ਕਰਦੇ ਹਨ,
-              ਦੇਸ਼ਦਰਸ਼ਨ ਇੱਕ ਡੂੰਘਾ, ਬਹੁ-ਇੰਦਰੀਅਤਮਕ ਅਨੁਭਵ ਦਿੰਦਾ ਹੈ। ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ
-              ਕਿਸੇ ਰਾਜ ਦੀ ਯਾਤਰਾ ਕਰਦੇ ਹੋ, ਤੁਹਾਡਾ ਸਵਾਗਤ ਉਸ ਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਕੀਤਾ
-              ਜਾਂਦਾ ਹੈ।
-            </p>
-            <p class="content-text">
-              ਇਹ ਸਿਰਫ ਜਾਣਕਾਰੀ ਨਹੀਂ — ਇਹ ਇੱਕ ਭਾਵਨਾ ਹੈ। ਇਹ ਸਿਰਫ ਯਾਤਰਾ ਨਹੀਂ — ਇਹ
-              ਜੀਵੰਤ ਪਰੰਪਰਾ ਹੈ। ਜਿਥੇ ਹੋਰ ਸੂਚਨਾ ਦਿੰਦੇ ਹਨ, ਉੱਥੇ ਦੇਸ਼ਦਰਸ਼ਨ ਜੋੜਦਾ ਹੈ।
-            </p>
-          </div>
-          <!-- Telugu -->
-          <div class="lang-content" data-lang="te">
-            <h2 class="section-title">✨ దేశదర్శన్ ప్రత్యేకత ఏమిటి?</h2>
-            <p class="content-text">
-              ఇతర ప్లాట్‌ఫారమ్‌లు విడిపోతున్న సమాచారం లేదా ఉపరితల విజువల్స్‌ను
-              అందించగలుగుతాయి, కానీ దేశదర్శన్ ఒక లోతైన, బహుఇంద్రియ అనుభవాన్ని
-              అందిస్తుంది. మీరు ఒక రాష్ట్రాన్ని అన్వేషించేటప్పుడు, మీకు ఆ
-              రాష్ట్ర స్థానిక భాషలో స్వాగతం పలుకుతారు.
-            </p>
-            <p class="content-text">
-              ఇది కేవలం సమాచారం కాదు — ఇది ఒక భావన. ఇది కేవలం ప్రయాణం కాదు — ఇది
-              జీవంతో నిండిన పరంపర. ఇతరులు సమాచారం ఇస్తే, దేశదర్శన్ అనుసంధానాన్ని
-              కల్పిస్తుంది.
-            </p>
-          </div>
-        </div>
-
-        <!-- What You'll Discover -->
-        <div class="content-card" id="discoverCard">
-          <div class="lang-content active" data-lang="en">
-            <h2 class="section-title">🌍 What You'll Discover Here</h2>
-            <p class="content-text">On DeshDarshan, you'll explore:</p>
-            <div class="feature-list">
-
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>Art & Music:</strong> 
-                Classical and folk expressions unique to each state.
-              </div>
-
-             <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>Festivals & Celebrations:</strong> 
-                A peek into how each region celebrates life.
-              </div>
-
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>Fun Facts & Forgotten Legends:</strong> 
-                and timeless tales.
-              </div>
-               
-               <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>Multilingual Experience:</strong> Choose from multiple
-                Indian languages.
-              </div>
-
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>State-wise Culture:</strong> 
-               Dance forms, attire, architecture, rituals, and customs.
-              </div>
-
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>Traditional Food Trails:</strong>
-                Authentic dishes and their regional origins.
-              </div>
-
-            </div>
-          </div>
-
-          <div class="lang-content" data-lang="hi">
-            <h2 class="section-title">🌍 यहाँ आप क्या खोजेंगे</h2>
-            <p class="content-text">देशदर्शन पर, आप अन्वेषण करेंगे:</p>
-            <div class="feature-list">
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>राज्यवार संस्कृति:</strong> नृत्य रूप, पोशाक, वास्तुकला,
-                अनुष्ठान और रीति-रिवाज
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>पारंपरिक भोजन पथ:</strong> प्रामाणिक व्यंजन और उनकी
-                क्षेत्रीय उत्पत्ति
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>त्योहार और उत्सव:</strong> प्रत्येक क्षेत्र जीवन कैसे
-                मनाता है
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>कला और संगीत:</strong> प्रत्येक राज्य की अनूठी शास्त्रीय
-                और लोक अभिव्यक्तियाँ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>मजेदार तथ्य और भूली हुई किंवदंतियाँ:</strong> क्यूरेटेड
-                ट्रिविया और कालातीत कहानियाँ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>बहुभाषी अनुभव:</strong> कई भारतीय भाषाओं में से चुनें
-              </div>
-            </div>
-          </div>
-          <!-- Marathi -->
-          <div class="lang-content" data-lang="mr">
-            <h2 class="section-title">🌍 येथे तुम्ही काय शोधाल</h2>
-            <p class="content-text">देशदर्शनवर, तुम्ही शोधाल:</p>
-            <div class="feature-list">
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>राज्यानुसार संस्कृती:</strong> नृत्य प्रकार, पेहराव,
-                वास्तुकला, विधी आणि परंपरा
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>पारंपरिक खाद्यप्रवास:</strong> अस्सल पदार्थ आणि त्यांचा
-                प्रादेशिक उगम
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>उत्सव आणि सण:</strong> प्रत्येक राज्य कसा साजरा करतो
-                याचे दर्शन
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>कला आणि संगीत:</strong> प्रत्येक राज्यातील शास्त्रीय आणि
-                लोक अभिव्यक्ती
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>गमतीशीर तथ्ये आणि विसरलेल्या कथा:</strong> सल्ल्याने
-                निवडलेली माहिती व पुराणकथा
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>बहुभाषिक अनुभव:</strong> अनेक भारतीय भाषांमधून निवडा
-              </div>
-            </div>
-          </div>
-          <!-- Tamil -->
-          <div class="lang-content" data-lang="ta">
-            <h2 class="section-title">
-              🌍 இங்கே நீங்கள் என்ன கண்டுபிடிப்பீர்கள்
-            </h2>
-            <p class="content-text">தேசதர்ஷனில், நீங்கள் கண்டுபிடிப்பீர்கள்:</p>
-            <div class="feature-list">
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>மாநிலங்களின் கலாச்சாரம்:</strong> நடனங்கள், உடைகள்,
-                கட்டிடக்கலை, சடங்குகள் மற்றும் மரபுகள்
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>பாரம்பரிய உணவுப் பாதைகள்:</strong> அசல் உணவுகள் மற்றும்
-                அவற்றின் பிராந்தியத் தோற்றம்
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>பண்டிகைகள் மற்றும் விழாக்கள்:</strong> ஒவ்வொரு மாநிலமும்
-                எப்படி கொண்டாடுகிறது என்பதை அறிய
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>கலை மற்றும் இசை:</strong> மாநிலத்திற்கு உரிய பாரம்பரிய
-                மற்றும் நாட்டுப்புற வடிவங்கள்
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>சுவாரஸ்யமான தகவல்களும் மறக்கப்பட்ட கதைகளும்:</strong>
-                தேர்ந்தெடுக்கப்பட்ட விவரங்கள் மற்றும் கதைகள்
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>பல்வேறு மொழி அனுபவம்:</strong> பல இந்திய மொழிகளில்
-                தேர்வு செய்யலாம்
-              </div>
-            </div>
-          </div>
-          <!-- Bengali -->
-          <div class="lang-content" data-lang="bn">
-            <h2 class="section-title">🌍 আপনি এখানে কী আবিষ্কার করবেন</h2>
-            <p class="content-text">দেশদর্শনে আপনি আবিষ্কার করবেন:</p>
-            <div class="feature-list">
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>রাজ্যভিত্তিক সংস্কৃতি:</strong> নৃত্য, পোশাক, স্থাপত্য,
-                আচার এবং প্রথা
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>ঐতিহ্যবাহী খাদ্যপথ:</strong> খাঁটি খাবার এবং তাদের
-                আঞ্চলিক উৎস
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>উৎসব ও আনন্দ:</strong> প্রতিটি রাজ্য কীভাবে জীবন উদযাপন
-                করে
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>শিল্প ও সঙ্গীত:</strong> প্রতিটি রাজ্যের বিশেষ লোকজ ও
-                শাস্ত্রীয় রূপ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>মজার তথ্য ও বিস্মৃত কিংবদন্তি:</strong> বাছাইকৃত
-                ট্রিভিয়া এবং প্রাচীন গল্প
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>বহুভাষিক অভিজ্ঞতা:</strong> একাধিক ভারতীয় ভাষা থেকে
-                নির্বাচন করুন
-              </div>
-            </div>
-          </div>
-          <!-- Punjabi -->
-          <div class="lang-content" data-lang="pa">
-            <h2 class="section-title">🌍 ਤੁਸੀਂ ਇੱਥੇ ਕੀ ਖੋਜੋਗੇ</h2>
-            <p class="content-text">ਦੇਸ਼ਦਰਸ਼ਨ 'ਤੇ ਤੁਸੀਂ ਖੋਜੋਗੇ:</p>
-            <div class="feature-list">
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>ਰਾਜ ਅਨੁਸਾਰ ਸੰਸਕ੍ਰਿਤੀ:</strong> ਨ੍ਰਿਤਕ ਰੂਪ, ਪਹਿਰਾਵੇ,
-                ਵਾਸਤੂਕਲਾ, ਰਸਮਾਂ ਅਤੇ ਰਿਵਾਜ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>ਪਾਰੰਪਰਿਕ ਭੋਜਨ ਯਾਤਰਾ:</strong> ਖਰੀ ਖਾਣੇ ਅਤੇ ਉਹਨਾਂ ਦਾ
-                ਖੇਤਰੀ ਉਤਪੱਤੀ ਸਥਾਨ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>ਤਿਉਹਾਰ ਅਤੇ ਉਤਸਵ:</strong> ਹਰ ਰਾਜ ਕਿਸ ਤਰ੍ਹਾਂ ਜੀਵਨ ਮਨਾਉਂਦਾ
-                ਹੈ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>ਕਲਾ ਅਤੇ ਸੰਗੀਤ:</strong> ਹਰ ਰਾਜ ਦੀ ਵਿਲੱਖਣ ਲੋਕ ਅਤੇ ਸ਼ਾਸਤਰੀ
-                ਰੂਪ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>ਮਜ਼ੇਦਾਰ ਤੱਥ ਅਤੇ ਭੁੱਲੇ ਹੋਏ ਦੰਤਕਥਾਵਾਂ:</strong> ਚੁਣੇ ਹੋਏ
-                ਜਾਣਕਾਰੀ ਅਤੇ ਕਹਾਣੀਆਂ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>ਬਹੁਭਾਸ਼ੀ ਅਨੁਭਵ:</strong> ਕਈ ਭਾਰਤੀ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚੋਂ ਚੁਣੋ
-              </div>
-            </div>
-          </div>
-          <!-- Gujarati -->
-          <div class="lang-content" data-lang="gu">
-            <h2 class="section-title">🌍 અહીં તમે શું શોધશો</h2>
-            <p class="content-text">દેશદર્શન પર તમે શોધશો:</p>
-            <div class="feature-list">
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>રાજ્યવાર સંસ્કૃતિ:</strong> નૃત્ય શૈલીઓ, પોશાક,
-                સ્થાપત્ય, વિધિઓ અને પરંપરા
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>પરંપરાગત ભોજન માર્ગો:</strong> ખરા વાનગીઓ અને તેમનું
-                પ્રાદેશિક ઉગમસ્થળ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>ઉત્સવો અને તહેવારો:</strong> દરેક રાજ્ય કેવી રીતે જીવન
-                ઉજવે છે
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>કલા અને સંગીત:</strong> દરેક રાજ્યની વિશિષ્ટ લોક અને
-                શાસ્ત્રીય શૈલીઓ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>મજેદાર તથ્યો અને ભૂલાઈ ગયેલી કથાઓ:</strong> પસંદગી કરેલી
-                માહિતીઓ અને વાર્તાઓ
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>બહુભાષી અનુભવ:</strong> ઘણા ભારતીય ભાષાઓમાંથી પસંદ કરો
-              </div>
-            </div>
-          </div>
-          <!-- Telugu -->
-          <div class="lang-content" data-lang="te">
-            <h2 class="section-title">🌍 మీరు ఇక్కడ ఏమి తెలుసుకుంటారు</h2>
-            <p class="content-text">దేశదర్శన్‌లో, మీరు తెలుసుకుంటారు:</p>
-            <div class="feature-list">
-              <div class="feature-item">
-                <span class="feature-emoji">🎨</span>
-                <strong>రాష్ట్రాల ఆధారిత సంస్కృతి:</strong> నృత్యాలు,
-                వస్త్రధారణ, శిల్పకళ, ఆచారాలు, సంప్రదాయాలు
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🍛</span>
-                <strong>సాంప్రదాయ ఆహార మార్గాలు:</strong> స్వచ్ఛమైన వంటకాలు
-                మరియు వాటి ప్రాంతీయ మూలాలు
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">📅</span>
-                <strong>పండుగలు మరియు వేడుకలు:</strong> ప్రతి రాష్ట్రం జీవితం
-                ఎలా జరుపుకుంటుందో తెలుసుకోండి
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🎶</span>
-                <strong>కళ మరియు సంగీతం:</strong> ప్రతి రాష్ట్రానికి ప్రత్యేకమైన
-                శాస్త్రీయ మరియు ప్రజాప్రయోగాలు
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🧠</span>
-                <strong>చలాకీ విషయాలు మరియు మర్చిపోయిన పురాణాలు:</strong>
-                ఎన్నుకున్న సత్యాలు మరియు కథలు
-              </div>
-              <div class="feature-item">
-                <span class="feature-emoji">🗣️</span>
-                <strong>బహుభాష అనుభవం:</strong> అనేక భారతీయ భాషలలో ఎంపిక
-                చేసుకోండి
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Join the Movement -->
-        <div class="content-card" id="movementCard">
-          <div class="lang-content active" data-lang="en">
-            <h2 class="section-title">🤝 Join the Movement</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >DeshDarshan is not a project — it's a purpose.</span
-              >
-            </p>
-            <p class="content-text">
-              We're building a digital archive that not only informs but also
-              inspires love and pride for Indian culture. In an age of fleeting
-              trends, we aim to preserve timeless values. Whether you're a proud
-              Indian or an explorer from afar, join us in telling stories that
-              matter — where every state tells a story.
-            </p>
-          </div>
-
-          <div class="lang-content" data-lang="hi">
-            <h2 class="section-title">🤝 आंदोलन में शामिल हों</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >देशदर्शन एक परियोजना नहीं है — यह एक उद्देश्य है।</span
-              >
-            </p>
-            <p class="content-text">
-              हम एक डिजिटल संग्रह बना रहे हैं जो न केवल सूचित करता है बल्कि
-              भारतीय संस्कृति के लिए प्रेम और गर्व भी प्रेरित करता है। क्षणिक
-              रुझानों के युग में, हम कालातीत मूल्यों को संरक्षित करने का लक्ष्य
-              रखते हैं।
-            </p>
-          </div>
-          <!-- Marathi -->
-          <div class="lang-content" data-lang="mr">
-            <h2 class="section-title">🤝 चळवळीत सामील व्हा</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >देशदर्शन हा एक प्रकल्प नाही — हा एक उद्देश आहे.</span
-              >
-            </p>
-            <p class="content-text">
-              आम्ही एक डिजिटल संग्रह तयार करत आहोत जो केवळ माहिती देत नाही तर
-              भारतीय संस्कृतीबद्दल प्रेम आणि अभिमानही निर्माण करतो. क्षणभंगुर
-              ट्रेंडच्या युगात, आम्ही कालातीत मूल्यांचे जतन करण्याचा प्रयत्न करत
-              आहोत.
-            </p>
-          </div>
-          <!-- Tamil -->
-          <div class="lang-content" data-lang="ta">
-            <h2 class="section-title">🤝 இயக்கத்தில் சேருங்கள்</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >தேசதர்ஷன் ஒரு திட்டம் அல்ல — இது ஒரு நோக்கம்.</span
-              >
-            </p>
-            <p class="content-text">
-              இந்திய கலாச்சாரத்துக்கான அன்பும் பெருமையும் உருவாக்கும் ஒரு
-              டிஜிட்டல் காப்பகத்தை நாங்கள் உருவாக்குகிறோம். தற்காலிக நுகர்வுத்
-              தொடரின் யுகத்தில், நிலைத்த மதிப்புகளை பாதுகாக்க முயற்சிக்கிறோம்.
-            </p>
-          </div>
-          <!-- Bengali -->
-          <div class="lang-content" data-lang="bn">
-            <h2 class="section-title">🤝 আন্দোলনে যোগ দিন</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >দেশদর্শন একটি প্রকল্প নয় — এটি একটি উদ্দেশ্য।</span
-              >
-            </p>
-            <p class="content-text">
-              আমরা একটি ডিজিটাল সংরক্ষণাগার তৈরি করছি যা শুধু তথ্য দেয় না, বরং
-              ভারতীয় সংস্কৃতির প্রতি ভালোবাসা ও গর্ব জাগিয়ে তোলে। ক্ষণস্থায়ী
-              প্রবণতার যুগে, আমরা চিরন্তন মূল্যবোধ সংরক্ষণের চেষ্টা করছি।
-            </p>
-          </div>
-          <!-- Punjabi -->
-          <div class="lang-content" data-lang="pa">
-            <h2 class="section-title">🤝 ਆੰਦੋਲਨ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >ਦੇਸ਼ਦਰਸ਼ਨ ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ — ਇਹ ਇੱਕ ਉਦੇਸ਼ ਹੈ।</span
-              >
-            </p>
-            <p class="content-text">
-              ਅਸੀਂ ਇੱਕ ਡਿਜੀਟਲ ਆਰਕਾਈਵ ਬਣਾਉਂਦੇ ਹਾਂ ਜੋ ਸਿਰਫ ਜਾਣਕਾਰੀ ਨਹੀਂ ਦਿੰਦਾ,
-              ਸਗੋਂ ਭਾਰਤੀ ਸਭਿਆਚਾਰ ਪ੍ਰਤੀ ਪਿਆਰ ਅਤੇ ਮਾਣ ਨੂੰ ਪ੍ਰੇਰਿਤ ਕਰਦਾ ਹੈ। ਅਸਥਾਈ
-              ਰੁਝਾਨਾਂ ਦੇ ਸਮੇਂ ਵਿੱਚ, ਅਸੀਂ ਸਦੀਵੀ ਮੁੱਲਾਂ ਨੂੰ ਸੰਭਾਲਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ
-              ਰਹੇ ਹਾਂ।
-            </p>
-          </div>
-          <!-- Gujarati -->
-          <div class="lang-content" data-lang="gu">
-            <h2 class="section-title">🤝 આંદોલનમાં જોડાઓ</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >દેશદર્શન એ માત્ર એક પ્રોજેક્ટ નથી — આ એક ઉદ્દેશ છે.</span
-              >
-            </p>
-            <p class="content-text">
-              અમે એક ડિજિટલ આર્કાઇવ બનાવી રહ્યા છીએ જે માત્ર માહિતી આપે છે નહીં
-              પણ ભારતીય સંસ્કૃતિ માટે પ્રેમ અને ગૌરવ જગાવે છે. ક્ષણિક
-              ટ્રેન્ડ્સના યુગમાં, અમે શાશ્વત મૂલ્યોને જાળવવાનો પ્રયત્ન કરીએ છીએ.
-            </p>
-          </div>
-          <!-- Telugu -->
-          <div class="lang-content" data-lang="te">
-            <h2 class="section-title">🤝 ఉద్యమంలో చేరండి</h2>
-            <p class="content-text">
-              <span class="highlight"
-                >దేశదర్శన్ ఒక ప్రాజెక్ట్ కాదు — ఇది ఒక లక్ష్యం.</span
-              >
-            </p>
-            <p class="content-text">
-              మేము ఒక డిజిటల్ ఆర్కైవ్‌ని నిర్మిస్తున్నాము, ఇది కేవలం సమాచారం
-              ఇవ్వదు, భారతీయ సంస్కృతిపై ప్రేమను మరియు గర్వాన్ని
-              స్ఫూర్తివహిస్తుంది. తాత్కాలిక ధోరణుల కాలంలో, శాశ్వతమైన విలువలను
-              కాపాడేందుకు కృషి చేస్తున్నాము.
-            </p>
-          </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="content-card" id="contactCard">
-          <div class="lang-content active" data-lang="en">
-            <h2 class="section-title">📞 Contact & Collaboration</h2>
-            <p class="content-text">
-              Want to share your cultural insights? Got an idea to enhance
-              DeshDarshan? We'd love to hear from you!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 Email</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 Social Media</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="lang-content" data-lang="hi">
-            <h2 class="section-title">📞 संपर्क और सहयोग</h2>
-            <p class="content-text">
-              अपनी सांस्कृतिक अंतर्दृष्टि साझा करना चाहते हैं? देशदर्शन को बेहतर
-              बनाने का कोई विचार है? हम आपसे सुनना पसंद करेंगे!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 ईमेल</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 सोशल मीडिया</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-          <!-- Marathi -->
-          <div class="lang-content" data-lang="mr">
-            <h2 class="section-title">📞 संपर्क आणि सहकार्य</h2>
-            <p class="content-text">
-              आपली सांस्कृतिक अंतर्दृष्टी शेअर करायची आहे का? देशदर्शन
-              सुधारण्यासाठी काही कल्पना आहेत का? आम्हाला तुमचं ऐकायला आवडेल!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 ईमेल</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 सोशल मीडिया</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-          <!-- Tamil -->
-          <div class="lang-content" data-lang="ta">
-            <h2 class="section-title">📞 தொடர்பு மற்றும் ஒத்துழைப்பு</h2>
-            <p class="content-text">
-              உங்கள் பண்பாட்டு உள்ளடக்கங்களை பகிர விரும்புகிறீர்களா? DeshDarshan
-              ஐ மேம்படுத்த புதிய யோசனை இருக்கிறதா? எங்களுடன் பகிரவும்!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 மின்னஞ்சல்</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 சமூக ஊடகம்</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-          <!-- Bengali -->
-          <div class="lang-content" data-lang="bn">
-            <h2 class="section-title">📞 যোগাযোগ এবং সহযোগিতা</h2>
-            <p class="content-text">
-              আপনার সাংস্কৃতিক ধারণা ভাগ করতে চান? DeshDarshan আরও ভালো করার
-              জন্য কোনো ধারণা আছে? আমরা আপনার কাছ থেকে শুনতে আগ্রহী!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 ইমেইল</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 সামাজিক মাধ্যম</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-          <!-- Punjabi -->
-          <div class="lang-content" data-lang="pa">
-            <h2 class="section-title">📞 ਸੰਪਰਕ ਅਤੇ ਸਹਿਯੋਗ</h2>
-            <p class="content-text">
-              ਆਪਣੀ ਸੱਭਿਆਚਾਰਕ ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? DeshDarshan ਨੂੰ
-              ਬਿਹਤਰ ਬਣਾਉਣ ਲਈ ਕੋਈ ਵਿਚਾਰ ਹੈ? ਅਸੀਂ ਤੁਹਾਡੀ ਗੱਲ ਸੁਣਨਾ ਚਾਹੁੰਦੇ ਹਾਂ!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 ਈਮੇਲ</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 ਸੋਸ਼ਲ ਮੀਡੀਆ</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-          <!-- Gujarati -->
-          <div class="lang-content" data-lang="gu">
-            <h2 class="section-title">📞 સંપર્ક અને સહકાર</h2>
-            <p class="content-text">
-              તમારી સાંસ્કૃતિક સમજણ શેર કરવી છે? DeshDarshan ને વધુ ઉત્તમ બનાવવા
-              માટે કોઇ વિચાર છે? અમને તમારી પાસેથી સાંભળવાનો આનંદ થશે!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 ઇમેઇલ</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 સોશિયલ મીડિયા</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-          <!-- Telugu -->
-          <div class="lang-content" data-lang="te">
-            <h2 class="section-title">📞 సంప్రదించండి మరియు సహకరించండి</h2>
-            <p class="content-text">
-              మీ సాంస్కృతిక ఆలోచనలను పంచుకోవాలనుకుంటున్నారా? DeshDarshan ని
-              మెరుగుపరచడానికి మీకు ఏదైనా ఆలోచన ఉందా? మేము మీ అభిప్రాయాలను
-              ఆసక్తిగా వింటాము!
-            </p>
-            <div class="contact-grid">
-              <div class="contact-item">
-                <h3>📩 ఇమెయిల్</h3>
-                <p>hello@deshdarshan.in</p>
-              </div>
-              <div class="contact-item">
-                <h3>🌐 సోషల్ మీడియా</h3>
-                <p>@deshdarshan.in</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-    <!--footer-->
-    <footer id="footer">
-      <div class="footer-content-wrapper">
-        <!-- Section 1: About Desh Darshan -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Desh Darshan</h3>
-          <p>
-            Desh Darshan is your gateway to the vibrant and diverse culture of
-            India. We aim to introduce the world to India's rich heritage,
-            traditions, arts, and history.
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- About Us Section -->
+      <div class="content-card" id="aboutCard">
+        <div class="lang-content active" data-lang="en">
+          <h2 class="section-title">🧭 About Us</h2>
+          <p class="content-text">
+            <span class="highlight">DeshDarshan</span> is a cultural journey
+            woven into a digital experience. It's more than just a website —
+            it's a living canvas of India's rich heritage, vibrant traditions,
+            soulful music, timeless festivals, and diverse languages. Here,
+            every Indian state is not just represented — it is celebrated.
+          </p>
+          <p class="content-text">
+            Whether you're a student, traveler, cultural enthusiast, or
+            someone seeking to reconnect with India's roots — DeshDarshan is
+            your window into the stories, colors, and spirit of every region.
           </p>
         </div>
 
-        <!-- Section 2: Quick Links -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Quick Links</h3>
-          <ul>
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about-us.html" class="footer-link">About Us</a></li>
-            <li>
-              <a href="explore.html" class="footer-link">Explore India</a>
-            </li>
-            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-            <li><a href="contact-us.html" class="footer-link">Contact Us</a></li>
-          </ul>
+        <div class="lang-content" data-lang="hi">
+          <h2 class="section-title">🧭 हमारे बारे में</h2>
+          <p class="content-text">
+            <span class="highlight">देशदर्शन</span> एक सांस्कृतिक यात्रा है जो
+            डिजिटल अनुभव में बुनी गई है। यह सिर्फ एक वेबसाइट नहीं है — यह भारत
+            की समृद्ध विरासत, जीवंत परंपराओं, आत्मीय संगीत, कालातीत त्योहारों
+            और विविध भाषाओं का जीवंत कैनवास है।
+          </p>
+          <p class="content-text">
+            चाहे आप छात्र हों, यात्री हों, सांस्कृतिक उत्साही हों, या भारत की
+            जड़ों से फिर से जुड़ना चाहते हों — देशदर्शन हर क्षेत्र की
+            कहानियों, रंगों और आत्मा की आपकी खिड़की है।
+          </p>
+        </div>
+        <div class="lang-content" data-lang="mr">
+          <h2 class="section-title">🧭 आमच्याबद्दल</h2>
+          <p class="content-text">
+            <span class="highlight">देशदर्शन</span> ही एक सांस्कृतिक यात्रा
+            आहे जी डिजिटल अनुभवात गुंफलेली आहे. ही फक्त एक वेबसाइट नाही —
+            भारताच्या समृद्ध वारशाची, उत्साही परंपरांची, आत्म्याला स्पर्श
+            करणाऱ्या संगीतातील, कालातीत सणांची आणि विविध भाषांची एक जिवंत
+            कॅनव्हास आहे. येथे प्रत्येक भारतीय राज्य केवळ सादर केले जाते नाही,
+            तर साजरे केले जाते.
+          </p>
+          <p class="content-text">
+            तुम्ही विद्यार्थी असाल, प्रवासी, सांस्कृतिक उत्साही किंवा
+            भारताच्या मुळाशी पुन्हा जोडायचं इच्छिणारे कोणीही असाल — देशदर्शन
+            ही प्रत्येक प्रांताच्या कथा, रंग आणि आत्म्याची तुमची खिडकी आहे.
+          </p>
+        </div>
+        <div class="lang-content" data-lang="ta">
+          <h2 class="section-title">🧭 எங்களைப் பற்றி</h2>
+          <p class="content-text">
+            <span class="highlight">தேசதர்ஷன்</span> என்பது ஒரு கலாச்சாரப்
+            பயணம், இது டிஜிட்டல் அனுபவமாக மாற்றப்பட்டுள்ளது. இது ஒரு வெறும்
+            வலைத்தளம் அல்ல — இந்தியாவின் பாரம்பரியத்தை, வளமான மரபுகளை, ஆன்மாவை
+            தொடும் இசையை, காலத்தால் அழியாத விழாக்களை, மற்றும் பன்மொழிகளை கொண்ட
+            ஒரு வாழும் தரைச்சட்டமே. இங்கே ஒவ்வொரு இந்திய மாநிலமும் வெறும்
+            காண்பிக்கப்படுவதல்ல — கொண்டாடப்படுகிறது.
+          </p>
+          <p class="content-text">
+            நீங்கள் ஒரு மாணவராக இருந்தாலும், பயணியாக இருந்தாலும், கலாச்சார
+            ஆர்வலராக இருந்தாலும், அல்லது இந்திய வேர்களை மீண்டும் கண்டுபிடிக்க
+            விரும்புபவராக இருந்தாலும் — தேசதர்ஷன் என்பது ஒவ்வொரு மாநிலத்தின்
+            கதைகள், நிறங்கள் மற்றும் ஆன்மாவிற்கான உங்கள் ஜன்னலாகும்.
+          </p>
+        </div>
+        <div class="lang-content" data-lang="bn">
+          <h2 class="section-title">🧭 আমাদের সম্পর্কে</h2>
+          <p class="content-text">
+            <span class="highlight">দেশদর্শন</span> একটি সাংস্কৃতিক যাত্রা যা
+            একটি ডিজিটাল অভিজ্ঞতায় রূপান্তরিত হয়েছে। এটি শুধুমাত্র একটি
+            ওয়েবসাইট নয় — এটি ভারতের সমৃদ্ধ ঐতিহ্য, উজ্জ্বল রীতিনীতি,
+            হৃদয়স্পর্শী সংগীত, চিরন্তন উৎসব এবং বৈচিত্র্যময় ভাষার এক জীবন্ত
+            ক্যানভাস। এখানে প্রতিটি ভারতীয় রাজ্য শুধুমাত্র উপস্থাপন করা হয়
+            না — বরং উদযাপন করা হয়।
+          </p>
+          <p class="content-text">
+            আপনি যদি একজন ছাত্র হন, ভ্রমণকারী, সাংস্কৃতিক অনুরাগী, অথবা ভারতের
+            মূলের সঙ্গে পুনরায় সংযোগ স্থাপন করতে চান — দেশদর্শন হল সেই জানালা
+            যা প্রতিটি অঞ্চলের গল্প, রঙ এবং আত্মাকে তুলে ধরে।
+          </p>
+        </div>
+        <div class="lang-content" data-lang="pa">
+          <h2 class="section-title">🧭 ਸਾਡੇ ਬਾਰੇ</h2>
+          <p class="content-text">
+            <span class="highlight">ਦੇਸ਼ਦਰਸ਼ਨ</span> ਇੱਕ ਸੱਭਿਆਚਾਰਕ ਯਾਤਰਾ ਹੈ ਜੋ
+            ਡਿਜੀਟਲ ਅਨੁਭਵ ਵਿੱਚ ਪਿੰਨੀ ਹੋਈ ਹੈ। ਇਹ ਸਿਰਫ਼ ਇੱਕ ਵੈੱਬਸਾਈਟ ਨਹੀਂ — ਇਹ
+            ਭਾਰਤ ਦੀ ਰੰਗਬਿਰੰਗੀ ਵਿਰਾਸਤ, ਰਿਵਾਇਤੀ ਰੀਤ-ਰਿਵਾਜ, ਰੂਹਾਨੀ ਸੰਗੀਤ, ਸਦੀਵੀ
+            ਤਿਉਹਾਰ ਅਤੇ ਵੱਖ-ਵੱਖ ਭਾਸ਼ਾਵਾਂ ਦੀ ਜੀਉਂਦੀ ਕੈਨਵਸ ਹੈ। ਇੱਥੇ ਹਰ ਰਾਜ ਸਿਰਫ਼
+            ਦਰਸਾਇਆ ਨਹੀਂ ਜਾਂਦਾ — ਸਾਜ਼ਿਆ ਜਾਂਦਾ ਹੈ।
+          </p>
+          <p class="content-text">
+            ਤੁਸੀਂ ਵਿਦਿਆਰਥੀ ਹੋ, ਯਾਤਰੀ ਹੋ, ਸੱਭਿਆਚਾਰਕ ਪ੍ਰੇਮੀ ਹੋ ਜਾਂ ਭਾਰਤ ਨਾਲ ਮੁੜ
+            ਜੁੜਨ ਦੀ ਇੱਛਾ ਰੱਖਦੇ ਹੋ — ਦੇਸ਼ਦਰਸ਼ਨ ਤੁਹਾਡੇ ਲਈ ਹਰ ਖੇਤਰ ਦੀਆਂ ਕਹਾਣੀਆਂ,
+            ਰੰਗ ਅਤੇ ਰੂਹ ਨੂੰ ਵੇਖਣ ਦੀ ਖਿੜਕੀ ਹੈ।
+          </p>
+        </div>
+        <div class="lang-content" data-lang="gu">
+          <h2 class="section-title">🧭 અમારા વિશે</h2>
+          <p class="content-text">
+            <span class="highlight">દેશદર્શન</span> એ એક સાંસ્કૃતિક સફર છે જે
+            ડિજિટલ અનુભવમાં જડાયેલ છે. આ ફક્ત વેબસાઇટ નથી — આ ભારતની સમૃદ્ધ
+            વારસો, જીવંત પરંપરા, આત્માની ગૂંજવતી સંગીત, શાશ્વત તહેવાર અને
+            વિવિધ ભાષાઓનું જીવતું કેનવાસ છે. અહીં દરેક ભારતીય રાજ્યને ફક્ત રજૂ
+            કરવામાં નથી આવ્યું — તેને ઉજવવામાં આવ્યું છે.
+          </p>
+          <p class="content-text">
+            તમે વિદ્યાર્થી હો, પ્રવાસી હો, સાંસ્કૃતિક રસિક હો કે ભારતની મૂળ
+            સાથે ફરીથી જોડાવા માંગતા હો — દેશદર્શન તમારી માટે દરેક પ્રદેશની
+            કહાણી, રંગ અને આત્માને જોવા માટેની વિન્ડો છે.
+          </p>
+        </div>
+        <div class="lang-content" data-lang="te">
+          <h2 class="section-title">🧭 మా గురించి</h2>
+          <p class="content-text">
+            <span class="highlight">దేశదర్శన్</span> అనేది సాంస్కృతిక ప్రయాణం,
+            ఇది డిజిటల్ అనుభవంగా మారింది. ఇది కేవలం ఒక వెబ్‌సైట్ కాదు — ఇది
+            భారతదేశపు గొప్ప వారసత్వం, ఉల్లాసభరిత సంప్రదాయాలు, ఆత్మను తాకే
+            సంగీతం, శాశ్వతమైన పండుగలు మరియు విభిన్న భాషల జీవంతమైన కాన్వాస్.
+            ఇక్కడ ప్రతి భారతీయ రాష్ట్రం కేవలం ప్రదర్శించబడదు — అది
+            జరుపుకుంటారు.
+          </p>
+          <p class="content-text">
+            మీరు విద్యార్థి, ప్రయాణికుడు, సాంస్కృతిక ఆసక్తి గలవాడు లేదా భారతీయ
+            మూలాలను మళ్లీ అన్వేషించాలనుకునే వ్యక్తిగా ఉన్నా — దేశదర్శన్ ప్రతి
+            ప్రాంతం కథలు, రంగులు మరియు ఆత్మను చూపే మీ కిటికీగా ఉంటుంది.
+          </p>
+        </div>
+      </div>
+
+      <!-- What Makes Us Unique -->
+      <div class="content-card" id="uniqueCard">
+        <div class="lang-content active" data-lang="en">
+          <h2 class="section-title">✨ What Makes DeshDarshan Unique?</h2>
+          <p class="content-text">
+            While other platforms may present disconnected content or
+            surface-level visuals, DeshDarshan offers an immersive,
+            multi-sensory experience. As you explore a state, you're greeted
+            in its native language, surrounded by traditional background
+            music, and transported visually through a curated slideshow that
+            reflects local culture, food, attire, and art.
+          </p>
+          <p class="content-text">
+            This is not just information — it's emotion. It's not just travel
+            — it's tradition brought to life. Where others inform, DeshDarshan
+            connects — through sights, sounds, and stories that awaken
+            cultural pride and curiosity.
+          </p>
         </div>
 
-        <!-- Section 3: Contact Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Contact Us</h3>
-          <ul>
-            <li class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>hello@deshdarshan.in</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+91 1234567890</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>New Delhi, India</span>
-            </li>
-          </ul>
+        <div class="lang-content" data-lang="hi">
+          <h2 class="section-title">✨ देशदर्शन को क्या अनूठा बनाता है?</h2>
+          <p class="content-text">
+            जबकि अन्य प्लेटफॉर्म असंबद्ध सामग्री या सतही दृश्य प्रस्तुत कर
+            सकते हैं, देशदर्शन एक गहन, बहु-संवेदी अनुभव प्रदान करता है। जैसे
+            ही आप किसी राज्य का अन्वेषण करते हैं, आपका स्वागत उसकी मूल भाषा
+            में किया जाता है।
+          </p>
+          <p class="content-text">
+            यह केवल जानकारी नहीं है — यह भावना है। यह केवल यात्रा नहीं है — यह
+            जीवंत परंपरा है। जहाँ अन्य सूचित करते हैं, देशदर्शन जोड़ता है।
+          </p>
         </div>
+        <!-- Marathi -->
+        <div class="lang-content" data-lang="mr">
+          <h2 class="section-title">✨ देशदर्शन वेगळं कसं आहे?</h2>
+          <p class="content-text">
+            जेव्हा इतर प्लॅटफॉर्म विस्कळीत सामग्री किंवा वरवरचे दृश्य
+            दर्शवतात, तेव्हा देशदर्शन एक सखोल, बहु-इंद्रिय अनुभव देतो. तुम्ही
+            ज्या क्षणी एखाद्या राज्याचा शोध घेता, तिथं तुमचं स्वागत त्या
+            राज्याच्या मूळ भाषेत केलं जातं.
+          </p>
+          <p class="content-text">
+            ही फक्त माहिती नाही — ही भावना आहे. ही केवळ यात्रा नाही — ही जिवंत
+            परंपरा आहे. जिथे इतर माहिती देतात, तिथे देशदर्शन जोडणी करतो.
+          </p>
+        </div>
+        <!-- Tamil -->
+        <div class="lang-content" data-lang="ta">
+          <h2 class="section-title">
+            ✨ தேசதர்ஷனை தனிப்பட்டதாக 만드는து என்ன?
+          </h2>
+          <p class="content-text">
+            மற்ற தளங்கள் சிதறிய தகவல்களையோ மேற்பரப்பான காட்சிகளையோ வழங்கும்
+            போது, தேசதர்ஷன் ஒரு ஆழமான, பலவித உணர்வுகளைக் கொண்ட அனுபவத்தை
+            வழங்குகிறது. நீங்கள் ஒரு மாநிலத்தை ஆராயும் போது, அந்த மாநிலத்தின்
+            தாய்மொழியில் உங்களை வரவேற்கின்றனர்.
+          </p>
+          <p class="content-text">
+            இது வெறும் தகவல் அல்ல — இது உணர்வு. இது வெறும் பயணம் அல்ல — இது
+            உயிரோடு உள்ள பாரம்பரியம். மற்றவர்கள் தகவல் வழங்கும் இடத்தில்,
+            தேசதர்ஷன் நம்மை இணைக்கிறது.
+          </p>
+        </div>
+        <!-- Bengali -->
+        <div class="lang-content" data-lang="bn">
+          <h2 class="section-title">✨ দেশদর্শনকে অনন্য করে তোলে কী?</h2>
+          <p class="content-text">
+            যেখানে অন্যান্য প্ল্যাটফর্মগুলি বিচ্ছিন্ন তথ্য বা পৃষ্ঠতলের দৃশ্য
+            প্রদান করে, দেশদর্শন একটি গভীর, বহু-ইন্দ্রিয় অভিজ্ঞতা প্রদান করে।
+            আপনি যখন একটি রাজ্য ঘুরে দেখেন, তখন আপনাকে সেই রাজ্যের স্থানীয়
+            ভাষায় অভ্যর্থনা জানানো হয়।
+          </p>
+          <p class="content-text">
+            এটি শুধুই তথ্য নয় — এটি একটি অনুভূতি। এটি কেবল ভ্রমণ নয় — এটি
+            জীবন্ত ঐতিহ্য। যেখানে অন্যরা তথ্য দেয়, দেশদর্শন সংযোগ ঘটায়।
+          </p>
+        </div>
+        <!-- Punjabi -->
+        <div class="lang-content" data-lang="pa">
+          <h2 class="section-title">
+            ✨ ਦੇਸ਼ਦਰਸ਼ਨ ਨੂੰ ਵਿਲੱਖਣ ਕੀ ਬਣਾਉਂਦਾ ਹੈ?
+          </h2>
+          <p class="content-text">
+            ਜਦੋਂ ਹੋਰ ਪਲੇਟਫਾਰਮ ਵਿਖਰੇ ਹੋਏ ਸਮੱਗਰੀ ਜਾਂ ਥੋਸ ਦ੍ਰਿਸ਼ ਪੇਸ਼ ਕਰਦੇ ਹਨ,
+            ਦੇਸ਼ਦਰਸ਼ਨ ਇੱਕ ਡੂੰਘਾ, ਬਹੁ-ਇੰਦਰੀਅਤਮਕ ਅਨੁਭਵ ਦਿੰਦਾ ਹੈ। ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ
+            ਕਿਸੇ ਰਾਜ ਦੀ ਯਾਤਰਾ ਕਰਦੇ ਹੋ, ਤੁਹਾਡਾ ਸਵਾਗਤ ਉਸ ਦੀ ਮੂਲ ਭਾਸ਼ਾ ਵਿੱਚ ਕੀਤਾ
+            ਜਾਂਦਾ ਹੈ।
+          </p>
+          <p class="content-text">
+            ਇਹ ਸਿਰਫ ਜਾਣਕਾਰੀ ਨਹੀਂ — ਇਹ ਇੱਕ ਭਾਵਨਾ ਹੈ। ਇਹ ਸਿਰਫ ਯਾਤਰਾ ਨਹੀਂ — ਇਹ
+            ਜੀਵੰਤ ਪਰੰਪਰਾ ਹੈ। ਜਿਥੇ ਹੋਰ ਸੂਚਨਾ ਦਿੰਦੇ ਹਨ, ਉੱਥੇ ਦੇਸ਼ਦਰਸ਼ਨ ਜੋੜਦਾ ਹੈ।
+          </p>
+        </div>
+        <!-- Telugu -->
+        <div class="lang-content" data-lang="te">
+          <h2 class="section-title">✨ దేశదర్శన్ ప్రత్యేకత ఏమిటి?</h2>
+          <p class="content-text">
+            ఇతర ప్లాట్‌ఫారమ్‌లు విడిపోతున్న సమాచారం లేదా ఉపరితల విజువల్స్‌ను
+            అందించగలుగుతాయి, కానీ దేశదర్శన్ ఒక లోతైన, బహుఇంద్రియ అనుభవాన్ని
+            అందిస్తుంది. మీరు ఒక రాష్ట్రాన్ని అన్వేషించేటప్పుడు, మీకు ఆ
+            రాష్ట్ర స్థానిక భాషలో స్వాగతం పలుకుతారు.
+          </p>
+          <p class="content-text">
+            ఇది కేవలం సమాచారం కాదు — ఇది ఒక భావన. ఇది కేవలం ప్రయాణం కాదు — ఇది
+            జీవంతో నిండిన పరంపర. ఇతరులు సమాచారం ఇస్తే, దేశదర్శన్ అనుసంధానాన్ని
+            కల్పిస్తుంది.
+          </p>
+        </div>
+      </div>
+
+      <!-- What You'll Discover -->
+      <div class="content-card" id="discoverCard">
+        <div class="lang-content active" data-lang="en">
+          <h2 class="section-title">🌍 What You'll Discover Here</h2>
+          <p class="content-text">On DeshDarshan, you'll explore:</p>
+          <div class="feature-list">
+
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>Art & Music:</strong>
+              Classical and folk expressions unique to each state.
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>Festivals & Celebrations:</strong>
+              A peek into how each region celebrates life.
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>Fun Facts & Forgotten Legends:</strong>
+              and timeless tales.
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>Multilingual Experience:</strong> Choose from multiple
+              Indian languages.
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>State-wise Culture:</strong>
+              Dance forms, attire, architecture, rituals, and customs.
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>Traditional Food Trails:</strong>
+              Authentic dishes and their regional origins.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="lang-content" data-lang="hi">
+          <h2 class="section-title">🌍 यहाँ आप क्या खोजेंगे</h2>
+          <p class="content-text">देशदर्शन पर, आप अन्वेषण करेंगे:</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>राज्यवार संस्कृति:</strong> नृत्य रूप, पोशाक, वास्तुकला,
+              अनुष्ठान और रीति-रिवाज
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>पारंपरिक भोजन पथ:</strong> प्रामाणिक व्यंजन और उनकी
+              क्षेत्रीय उत्पत्ति
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>त्योहार और उत्सव:</strong> प्रत्येक क्षेत्र जीवन कैसे
+              मनाता है
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>कला और संगीत:</strong> प्रत्येक राज्य की अनूठी शास्त्रीय
+              और लोक अभिव्यक्तियाँ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>मजेदार तथ्य और भूली हुई किंवदंतियाँ:</strong> क्यूरेटेड
+              ट्रिविया और कालातीत कहानियाँ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>बहुभाषी अनुभव:</strong> कई भारतीय भाषाओं में से चुनें
+            </div>
+          </div>
+        </div>
+        <!-- Marathi -->
+        <div class="lang-content" data-lang="mr">
+          <h2 class="section-title">🌍 येथे तुम्ही काय शोधाल</h2>
+          <p class="content-text">देशदर्शनवर, तुम्ही शोधाल:</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>राज्यानुसार संस्कृती:</strong> नृत्य प्रकार, पेहराव,
+              वास्तुकला, विधी आणि परंपरा
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>पारंपरिक खाद्यप्रवास:</strong> अस्सल पदार्थ आणि त्यांचा
+              प्रादेशिक उगम
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>उत्सव आणि सण:</strong> प्रत्येक राज्य कसा साजरा करतो
+              याचे दर्शन
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>कला आणि संगीत:</strong> प्रत्येक राज्यातील शास्त्रीय आणि
+              लोक अभिव्यक्ती
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>गमतीशीर तथ्ये आणि विसरलेल्या कथा:</strong> सल्ल्याने
+              निवडलेली माहिती व पुराणकथा
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>बहुभाषिक अनुभव:</strong> अनेक भारतीय भाषांमधून निवडा
+            </div>
+          </div>
+        </div>
+        <!-- Tamil -->
+        <div class="lang-content" data-lang="ta">
+          <h2 class="section-title">
+            🌍 இங்கே நீங்கள் என்ன கண்டுபிடிப்பீர்கள்
+          </h2>
+          <p class="content-text">தேசதர்ஷனில், நீங்கள் கண்டுபிடிப்பீர்கள்:</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>மாநிலங்களின் கலாச்சாரம்:</strong> நடனங்கள், உடைகள்,
+              கட்டிடக்கலை, சடங்குகள் மற்றும் மரபுகள்
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>பாரம்பரிய உணவுப் பாதைகள்:</strong> அசல் உணவுகள் மற்றும்
+              அவற்றின் பிராந்தியத் தோற்றம்
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>பண்டிகைகள் மற்றும் விழாக்கள்:</strong> ஒவ்வொரு மாநிலமும்
+              எப்படி கொண்டாடுகிறது என்பதை அறிய
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>கலை மற்றும் இசை:</strong> மாநிலத்திற்கு உரிய பாரம்பரிய
+              மற்றும் நாட்டுப்புற வடிவங்கள்
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>சுவாரஸ்யமான தகவல்களும் மறக்கப்பட்ட கதைகளும்:</strong>
+              தேர்ந்தெடுக்கப்பட்ட விவரங்கள் மற்றும் கதைகள்
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>பல்வேறு மொழி அனுபவம்:</strong> பல இந்திய மொழிகளில்
+              தேர்வு செய்யலாம்
+            </div>
+          </div>
+        </div>
+        <!-- Bengali -->
+        <div class="lang-content" data-lang="bn">
+          <h2 class="section-title">🌍 আপনি এখানে কী আবিষ্কার করবেন</h2>
+          <p class="content-text">দেশদর্শনে আপনি আবিষ্কার করবেন:</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>রাজ্যভিত্তিক সংস্কৃতি:</strong> নৃত্য, পোশাক, স্থাপত্য,
+              আচার এবং প্রথা
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>ঐতিহ্যবাহী খাদ্যপথ:</strong> খাঁটি খাবার এবং তাদের
+              আঞ্চলিক উৎস
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>উৎসব ও আনন্দ:</strong> প্রতিটি রাজ্য কীভাবে জীবন উদযাপন
+              করে
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>শিল্প ও সঙ্গীত:</strong> প্রতিটি রাজ্যের বিশেষ লোকজ ও
+              শাস্ত্রীয় রূপ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>মজার তথ্য ও বিস্মৃত কিংবদন্তি:</strong> বাছাইকৃত
+              ট্রিভিয়া এবং প্রাচীন গল্প
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>বহুভাষিক অভিজ্ঞতা:</strong> একাধিক ভারতীয় ভাষা থেকে
+              নির্বাচন করুন
+            </div>
+          </div>
+        </div>
+        <!-- Punjabi -->
+        <div class="lang-content" data-lang="pa">
+          <h2 class="section-title">🌍 ਤੁਸੀਂ ਇੱਥੇ ਕੀ ਖੋਜੋਗੇ</h2>
+          <p class="content-text">ਦੇਸ਼ਦਰਸ਼ਨ 'ਤੇ ਤੁਸੀਂ ਖੋਜੋਗੇ:</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>ਰਾਜ ਅਨੁਸਾਰ ਸੰਸਕ੍ਰਿਤੀ:</strong> ਨ੍ਰਿਤਕ ਰੂਪ, ਪਹਿਰਾਵੇ,
+              ਵਾਸਤੂਕਲਾ, ਰਸਮਾਂ ਅਤੇ ਰਿਵਾਜ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>ਪਾਰੰਪਰਿਕ ਭੋਜਨ ਯਾਤਰਾ:</strong> ਖਰੀ ਖਾਣੇ ਅਤੇ ਉਹਨਾਂ ਦਾ
+              ਖੇਤਰੀ ਉਤਪੱਤੀ ਸਥਾਨ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>ਤਿਉਹਾਰ ਅਤੇ ਉਤਸਵ:</strong> ਹਰ ਰਾਜ ਕਿਸ ਤਰ੍ਹਾਂ ਜੀਵਨ ਮਨਾਉਂਦਾ
+              ਹੈ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>ਕਲਾ ਅਤੇ ਸੰਗੀਤ:</strong> ਹਰ ਰਾਜ ਦੀ ਵਿਲੱਖਣ ਲੋਕ ਅਤੇ ਸ਼ਾਸਤਰੀ
+              ਰੂਪ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>ਮਜ਼ੇਦਾਰ ਤੱਥ ਅਤੇ ਭੁੱਲੇ ਹੋਏ ਦੰਤਕਥਾਵਾਂ:</strong> ਚੁਣੇ ਹੋਏ
+              ਜਾਣਕਾਰੀ ਅਤੇ ਕਹਾਣੀਆਂ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>ਬਹੁਭਾਸ਼ੀ ਅਨੁਭਵ:</strong> ਕਈ ਭਾਰਤੀ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚੋਂ ਚੁਣੋ
+            </div>
+          </div>
+        </div>
+        <!-- Gujarati -->
+        <div class="lang-content" data-lang="gu">
+          <h2 class="section-title">🌍 અહીં તમે શું શોધશો</h2>
+          <p class="content-text">દેશદર્શન પર તમે શોધશો:</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>રાજ્યવાર સંસ્કૃતિ:</strong> નૃત્ય શૈલીઓ, પોશાક,
+              સ્થાપત્ય, વિધિઓ અને પરંપરા
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>પરંપરાગત ભોજન માર્ગો:</strong> ખરા વાનગીઓ અને તેમનું
+              પ્રાદેશિક ઉગમસ્થળ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>ઉત્સવો અને તહેવારો:</strong> દરેક રાજ્ય કેવી રીતે જીવન
+              ઉજવે છે
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>કલા અને સંગીત:</strong> દરેક રાજ્યની વિશિષ્ટ લોક અને
+              શાસ્ત્રીય શૈલીઓ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>મજેદાર તથ્યો અને ભૂલાઈ ગયેલી કથાઓ:</strong> પસંદગી કરેલી
+              માહિતીઓ અને વાર્તાઓ
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>બહુભાષી અનુભવ:</strong> ઘણા ભારતીય ભાષાઓમાંથી પસંદ કરો
+            </div>
+          </div>
+        </div>
+        <!-- Telugu -->
+        <div class="lang-content" data-lang="te">
+          <h2 class="section-title">🌍 మీరు ఇక్కడ ఏమి తెలుసుకుంటారు</h2>
+          <p class="content-text">దేశదర్శన్‌లో, మీరు తెలుసుకుంటారు:</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-emoji">🎨</span>
+              <strong>రాష్ట్రాల ఆధారిత సంస్కృతి:</strong> నృత్యాలు,
+              వస్త్రధారణ, శిల్పకళ, ఆచారాలు, సంప్రదాయాలు
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🍛</span>
+              <strong>సాంప్రదాయ ఆహార మార్గాలు:</strong> స్వచ్ఛమైన వంటకాలు
+              మరియు వాటి ప్రాంతీయ మూలాలు
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">📅</span>
+              <strong>పండుగలు మరియు వేడుకలు:</strong> ప్రతి రాష్ట్రం జీవితం
+              ఎలా జరుపుకుంటుందో తెలుసుకోండి
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🎶</span>
+              <strong>కళ మరియు సంగీతం:</strong> ప్రతి రాష్ట్రానికి ప్రత్యేకమైన
+              శాస్త్రీయ మరియు ప్రజాప్రయోగాలు
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🧠</span>
+              <strong>చలాకీ విషయాలు మరియు మర్చిపోయిన పురాణాలు:</strong>
+              ఎన్నుకున్న సత్యాలు మరియు కథలు
+            </div>
+            <div class="feature-item">
+              <span class="feature-emoji">🗣️</span>
+              <strong>బహుభాష అనుభవం:</strong> అనేక భారతీయ భాషలలో ఎంపిక
+              చేసుకోండి
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Join the Movement -->
+      <div class="content-card" id="movementCard">
+        <div class="lang-content active" data-lang="en">
+          <h2 class="section-title">🤝 Join the Movement</h2>
+          <p class="content-text">
+            <span class="highlight">DeshDarshan is not a project — it's a purpose.</span>
+          </p>
+          <p class="content-text">
+            We're building a digital archive that not only informs but also
+            inspires love and pride for Indian culture. In an age of fleeting
+            trends, we aim to preserve timeless values. Whether you're a proud
+            Indian or an explorer from afar, join us in telling stories that
+            matter — where every state tells a story.
+          </p>
+        </div>
+
+        <div class="lang-content" data-lang="hi">
+          <h2 class="section-title">🤝 आंदोलन में शामिल हों</h2>
+          <p class="content-text">
+            <span class="highlight">देशदर्शन एक परियोजना नहीं है — यह एक उद्देश्य है।</span>
+          </p>
+          <p class="content-text">
+            हम एक डिजिटल संग्रह बना रहे हैं जो न केवल सूचित करता है बल्कि
+            भारतीय संस्कृति के लिए प्रेम और गर्व भी प्रेरित करता है। क्षणिक
+            रुझानों के युग में, हम कालातीत मूल्यों को संरक्षित करने का लक्ष्य
+            रखते हैं।
+          </p>
+        </div>
+        <!-- Marathi -->
+        <div class="lang-content" data-lang="mr">
+          <h2 class="section-title">🤝 चळवळीत सामील व्हा</h2>
+          <p class="content-text">
+            <span class="highlight">देशदर्शन हा एक प्रकल्प नाही — हा एक उद्देश आहे.</span>
+          </p>
+          <p class="content-text">
+            आम्ही एक डिजिटल संग्रह तयार करत आहोत जो केवळ माहिती देत नाही तर
+            भारतीय संस्कृतीबद्दल प्रेम आणि अभिमानही निर्माण करतो. क्षणभंगुर
+            ट्रेंडच्या युगात, आम्ही कालातीत मूल्यांचे जतन करण्याचा प्रयत्न करत
+            आहोत.
+          </p>
+        </div>
+        <!-- Tamil -->
+        <div class="lang-content" data-lang="ta">
+          <h2 class="section-title">🤝 இயக்கத்தில் சேருங்கள்</h2>
+          <p class="content-text">
+            <span class="highlight">தேசதர்ஷன் ஒரு திட்டம் அல்ல — இது ஒரு நோக்கம்.</span>
+          </p>
+          <p class="content-text">
+            இந்திய கலாச்சாரத்துக்கான அன்பும் பெருமையும் உருவாக்கும் ஒரு
+            டிஜிட்டல் காப்பகத்தை நாங்கள் உருவாக்குகிறோம். தற்காலிக நுகர்வுத்
+            தொடரின் யுகத்தில், நிலைத்த மதிப்புகளை பாதுகாக்க முயற்சிக்கிறோம்.
+          </p>
+        </div>
+        <!-- Bengali -->
+        <div class="lang-content" data-lang="bn">
+          <h2 class="section-title">🤝 আন্দোলনে যোগ দিন</h2>
+          <p class="content-text">
+            <span class="highlight">দেশদর্শন একটি প্রকল্প নয় — এটি একটি উদ্দেশ্য।</span>
+          </p>
+          <p class="content-text">
+            আমরা একটি ডিজিটাল সংরক্ষণাগার তৈরি করছি যা শুধু তথ্য দেয় না, বরং
+            ভারতীয় সংস্কৃতির প্রতি ভালোবাসা ও গর্ব জাগিয়ে তোলে। ক্ষণস্থায়ী
+            প্রবণতার যুগে, আমরা চিরন্তন মূল্যবোধ সংরক্ষণের চেষ্টা করছি।
+          </p>
+        </div>
+        <!-- Punjabi -->
+        <div class="lang-content" data-lang="pa">
+          <h2 class="section-title">🤝 ਆੰਦੋਲਨ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ</h2>
+          <p class="content-text">
+            <span class="highlight">ਦੇਸ਼ਦਰਸ਼ਨ ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ — ਇਹ ਇੱਕ ਉਦੇਸ਼ ਹੈ।</span>
+          </p>
+          <p class="content-text">
+            ਅਸੀਂ ਇੱਕ ਡਿਜੀਟਲ ਆਰਕਾਈਵ ਬਣਾਉਂਦੇ ਹਾਂ ਜੋ ਸਿਰਫ ਜਾਣਕਾਰੀ ਨਹੀਂ ਦਿੰਦਾ,
+            ਸਗੋਂ ਭਾਰਤੀ ਸਭਿਆਚਾਰ ਪ੍ਰਤੀ ਪਿਆਰ ਅਤੇ ਮਾਣ ਨੂੰ ਪ੍ਰੇਰਿਤ ਕਰਦਾ ਹੈ। ਅਸਥਾਈ
+            ਰੁਝਾਨਾਂ ਦੇ ਸਮੇਂ ਵਿੱਚ, ਅਸੀਂ ਸਦੀਵੀ ਮੁੱਲਾਂ ਨੂੰ ਸੰਭਾਲਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ
+            ਰਹੇ ਹਾਂ।
+          </p>
+        </div>
+        <!-- Gujarati -->
+        <div class="lang-content" data-lang="gu">
+          <h2 class="section-title">🤝 આંદોલનમાં જોડાઓ</h2>
+          <p class="content-text">
+            <span class="highlight">દેશદર્શન એ માત્ર એક પ્રોજેક્ટ નથી — આ એક ઉદ્દેશ છે.</span>
+          </p>
+          <p class="content-text">
+            અમે એક ડિજિટલ આર્કાઇવ બનાવી રહ્યા છીએ જે માત્ર માહિતી આપે છે નહીં
+            પણ ભારતીય સંસ્કૃતિ માટે પ્રેમ અને ગૌરવ જગાવે છે. ક્ષણિક
+            ટ્રેન્ડ્સના યુગમાં, અમે શાશ્વત મૂલ્યોને જાળવવાનો પ્રયત્ન કરીએ છીએ.
+          </p>
+        </div>
+        <!-- Telugu -->
+        <div class="lang-content" data-lang="te">
+          <h2 class="section-title">🤝 ఉద్యమంలో చేరండి</h2>
+          <p class="content-text">
+            <span class="highlight">దేశదర్శన్ ఒక ప్రాజెక్ట్ కాదు — ఇది ఒక లక్ష్యం.</span>
+          </p>
+          <p class="content-text">
+            మేము ఒక డిజిటల్ ఆర్కైవ్‌ని నిర్మిస్తున్నాము, ఇది కేవలం సమాచారం
+            ఇవ్వదు, భారతీయ సంస్కృతిపై ప్రేమను మరియు గర్వాన్ని
+            స్ఫూర్తివహిస్తుంది. తాత్కాలిక ధోరణుల కాలంలో, శాశ్వతమైన విలువలను
+            కాపాడేందుకు కృషి చేస్తున్నాము.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="content-card" id="contactCard">
+        <div class="lang-content active" data-lang="en">
+          <h2 class="section-title">📞 Contact & Collaboration</h2>
+          <p class="content-text">
+            Want to share your cultural insights? Got an idea to enhance
+            DeshDarshan? We'd love to hear from you!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 Email</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 Social Media</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lang-content" data-lang="hi">
+          <h2 class="section-title">📞 संपर्क और सहयोग</h2>
+          <p class="content-text">
+            अपनी सांस्कृतिक अंतर्दृष्टि साझा करना चाहते हैं? देशदर्शन को बेहतर
+            बनाने का कोई विचार है? हम आपसे सुनना पसंद करेंगे!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 ईमेल</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 सोशल मीडिया</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+        <!-- Marathi -->
+        <div class="lang-content" data-lang="mr">
+          <h2 class="section-title">📞 संपर्क आणि सहकार्य</h2>
+          <p class="content-text">
+            आपली सांस्कृतिक अंतर्दृष्टी शेअर करायची आहे का? देशदर्शन
+            सुधारण्यासाठी काही कल्पना आहेत का? आम्हाला तुमचं ऐकायला आवडेल!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 ईमेल</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 सोशल मीडिया</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tamil -->
+        <div class="lang-content" data-lang="ta">
+          <h2 class="section-title">📞 தொடர்பு மற்றும் ஒத்துழைப்பு</h2>
+          <p class="content-text">
+            உங்கள் பண்பாட்டு உள்ளடக்கங்களை பகிர விரும்புகிறீர்களா? DeshDarshan
+            ஐ மேம்படுத்த புதிய யோசனை இருக்கிறதா? எங்களுடன் பகிரவும்!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 மின்னஞ்சல்</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 சமூக ஊடகம்</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+        <!-- Bengali -->
+        <div class="lang-content" data-lang="bn">
+          <h2 class="section-title">📞 যোগাযোগ এবং সহযোগিতা</h2>
+          <p class="content-text">
+            আপনার সাংস্কৃতিক ধারণা ভাগ করতে চান? DeshDarshan আরও ভালো করার
+            জন্য কোনো ধারণা আছে? আমরা আপনার কাছ থেকে শুনতে আগ্রহী!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 ইমেইল</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 সামাজিক মাধ্যম</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+        <!-- Punjabi -->
+        <div class="lang-content" data-lang="pa">
+          <h2 class="section-title">📞 ਸੰਪਰਕ ਅਤੇ ਸਹਿਯੋਗ</h2>
+          <p class="content-text">
+            ਆਪਣੀ ਸੱਭਿਆਚਾਰਕ ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? DeshDarshan ਨੂੰ
+            ਬਿਹਤਰ ਬਣਾਉਣ ਲਈ ਕੋਈ ਵਿਚਾਰ ਹੈ? ਅਸੀਂ ਤੁਹਾਡੀ ਗੱਲ ਸੁਣਨਾ ਚਾਹੁੰਦੇ ਹਾਂ!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 ਈਮੇਲ</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 ਸੋਸ਼ਲ ਮੀਡੀਆ</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+        <!-- Gujarati -->
+        <div class="lang-content" data-lang="gu">
+          <h2 class="section-title">📞 સંપર્ક અને સહકાર</h2>
+          <p class="content-text">
+            તમારી સાંસ્કૃતિક સમજણ શેર કરવી છે? DeshDarshan ને વધુ ઉત્તમ બનાવવા
+            માટે કોઇ વિચાર છે? અમને તમારી પાસેથી સાંભળવાનો આનંદ થશે!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 ઇમેઇલ</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 સોશિયલ મીડિયા</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+        <!-- Telugu -->
+        <div class="lang-content" data-lang="te">
+          <h2 class="section-title">📞 సంప్రదించండి మరియు సహకరించండి</h2>
+          <p class="content-text">
+            మీ సాంస్కృతిక ఆలోచనలను పంచుకోవాలనుకుంటున్నారా? DeshDarshan ని
+            మెరుగుపరచడానికి మీకు ఏదైనా ఆలోచన ఉందా? మేము మీ అభిప్రాయాలను
+            ఆసక్తిగా వింటాము!
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <h3>📩 ఇమెయిల్</h3>
+              <p>hello@deshdarshan.in</p>
+            </div>
+            <div class="contact-item">
+              <h3>🌐 సోషల్ మీడియా</h3>
+              <p>@deshdarshan.in</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!--footer-->
+  <footer id="footer">
+    <div class="footer-content-wrapper">
+      <!-- Section 1: About Desh Darshan -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Desh Darshan</h3>
+        <p>
+          Desh Darshan is your gateway to the vibrant and diverse culture of
+          India. We aim to introduce the world to India's rich heritage,
+          traditions, arts, and history.
+        </p>
+      </div>
+
+      <!-- Section 2: Quick Links -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about us.html" class="footer-link">About Us</a></li>
+          <li>
+            <a href="explore.html" class="footer-link">Explore India</a>
+          </li>
+          <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+          <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Section 3: Contact Us -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Contact Us</h3>
+        <ul>
+          <li class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@deshdarshan.in</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 1234567890</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New Delhi, India</span>
+          </li>
+        </ul>
+      </div>
 
         <!-- Section 4: Follow Us -->
         <div class="footer-section">
@@ -1008,348 +1667,420 @@
       </div>
     </footer>
     <!-- Footer -->
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-      // Slideshow functionality
-      let currentSlideIndex = 0;
-      const slides = document.querySelectorAll(".slide");
-      const indicators = document.querySelectorAll(".indicator");
-      const totalSlides = slides.length;
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Slideshow functionality
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    const indicators = document.querySelectorAll(".indicator");
+    const totalSlides = slides.length;
 
-      function showSlide(index) {
-        slides.forEach((slide) => slide.classList.remove("active"));
-        indicators.forEach((indicator) => indicator.classList.remove("active"));
+    function showSlide(index) {
+      slides.forEach((slide) => slide.classList.remove("active"));
+      indicators.forEach((indicator) => indicator.classList.remove("active"));
 
-        slides[index].classList.add("active");
-        indicators[index].classList.add("active");
+      slides[index].classList.add("active");
+      indicators[index].classList.add("active");
+    }
+
+    function nextSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+      showSlide(currentSlideIndex);
+    }
+
+    function currentSlide(index) {
+      currentSlideIndex = index - 1;
+      showSlide(currentSlideIndex);
+    }
+
+    // Auto-advance slideshow
+    setInterval(nextSlide, 4000);
+
+    // Navbar scroll effect
+    const navbar = document.getElementById("navbar");
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > 100) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
       }
 
-      function nextSlide() {
-        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-        showSlide(currentSlideIndex);
-      }
+      lastScrollTop = scrollTop;
+    });
 
-      function currentSlide(index) {
-        currentSlideIndex = index - 1;
-        showSlide(currentSlideIndex);
-      }
+    // Language dropdown functionality
+    const languageBtn = document.getElementById("languageBtn");
+    const languageMenu = document.getElementById("languageMenu");
+    const languageOptions = document.querySelectorAll(".language-option");
 
-      // Auto-advance slideshow
-      setInterval(nextSlide, 4000);
+    languageBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      languageMenu.classList.toggle("active");
+    });
 
-      // Language dropdown functionality
-      const languageBtn = document.getElementById("languageBtn");
-      const languageMenu = document.getElementById("languageMenu");
-      const languageOptions = document.querySelectorAll(".language-option");
+    document.addEventListener("click", () => {
+      languageMenu.classList.remove("active");
+    });
 
-      languageBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        languageMenu.classList.toggle("active");
-      });
+    // Language switching functionality
+    const translations = {
+      en: {
+        "language-btn": "🌐 Language ▾",
+        logoTitle: "Desh Darshan",
+        navDest: "Famous Destinations",
+        navFacts: "Crazy Facts",
+        navContact: "Contact Us",
+        footerText:
+          "Privacy Policy | All Rights Reserved | Made by Sampada Tiwari ❤",
+        slideTitle1: "Nature's Symphony 🌿",
+        slideDesc1:
+          "Where mountains touch the sky and rivers sing eternal songs",
+        slideTitle2: "Festivals of Joy 🎉",
+        slideDesc2:
+          "Colors that paint the soul and celebrations that unite hearts",
+        slideTitle3: "Taste of Tradition 🍲",
+        slideDesc3:
+          "Flavors that tell stories of generations and spices that awaken souls",
+        slideTitle4: "Living Heritage 🏛️",
+        slideDesc4:
+          "Stones that whisper ancient tales and walls that guard timeless secrets",
+        slideTitle5: "Backwater Bliss 🌅",
+        slideDesc5:
+          "Serene waters that mirror paradise and gentle giants that roam free",
+      },
+      hi: {
+        "language-btn": "🌐 भाषा ▾",
+        logoTitle: "देशदर्शन",
+        navDest: "प्रसिद्ध स्थल",
+        navFacts: "मजेदार तथ्य",
+        navContact: "संपर्क करें",
+        footerText:
+          "गोपनीयता नीति | सर्वाधिकार सुरक्षित | संपदा तिवारी द्वारा निर्मित ❤",
+        slideTitle1: "प्रकृति की स्वर की समता 🌿",
+        slideDesc1: "जहाँ पर्वत आकाश को छूते हैं और नदियाँ अनंत गीत गाती हैं",
+        slideTitle2: "खुशियों के त्योहार 🎉",
+        slideDesc2:
+          "रंग जो आत्मा को रंगते हैं और उत्सव जो दिलों को जोड़ते हैं",
+        slideTitle3: "परंपरा का स्वाद 🍲",
+        slideDesc3:
+          "स्वाद जो पीढ़ियों की कहानियाँ सुनाते हैं और मसाले जो आत्मा को जगाते हैं",
+        slideTitle4: "जीवित विरासत 🏛️",
+        slideDesc4:
+          "पत्थर जो प्राचीन कहानियाँ फुसफुसाते हैं और दीवारें जो कालातीत रहस्य छुपाती हैं",
+        slideTitle5: "बैकवॉटर ब्लिस 🌅",
+        slideDesc5:
+          "शांत जल जो स्वर्ग का प्रतिबिंब हैं और विशाल जीव जो स्वतंत्र घूमते हैं",
+      },
+      mr: {
+        "language-btn": "🌐 भाषा ▾",
+        logoTitle: "देशदर्शन",
+        navDest: "प्रसिद्ध स्थळे",
+        navFacts: "गमतीशीर तथ्ये",
+        navContact: "संपर्क करा",
+        footerText:
+          "गोपनीयता धोरण | सर्व हक्क राखीव | संपदा तिवारी यांनी बनवले ❤",
+        slideTitle1: "निसर्गाची सिम्फनी 🌿",
+        slideDesc1:
+          "जिथे पर्वत आकाशाला स्पर्श करतात आणि नद्या अनंत गाणी गातात",
+        slideTitle2: "आनंदाचे सण 🎉",
+        slideDesc2: "रंग जे आत्म्याला रंगवतात आणि सण जे हृदयांना एकत्र करतात",
+        slideTitle3: "परंपरेचा स्वाद 🍲",
+        slideDesc3:
+          "स्वाद जे पिढ्यांच्या कथा सांगतात आणि मसाले जे आत्म्याला जागृत करतात",
+        slideTitle4: "जिवंत वारसा 🏛️",
+        slideDesc4:
+          "दगड जे प्राचीन कथा सांगतात आणि भिंती जे शाश्वत रहस्ये राखतात",
+        slideTitle5: "बॅकवॉटर ब्लिस 🌅",
+        slideDesc5:
+          "शांत पाणी जे स्वर्गाचे प्रतिबिंब आहे आणि विशाल प्राणी जे मुक्तपणे फिरतात",
+      },
+      ta: {
+        "language-btn": "🌐 மொழி ▾",
+        logoTitle: "தேசதர்ஷன்",
+        navDest: "பிரபலமான இடங்கள்",
+        navFacts: "விசித்திரமான தகவல்கள்",
+        navContact: "தொடர்பு கொள்ள",
+        footerText:
+          "தனியுரிமைக் கொள்கை | அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை | சம்பதா திவாரி உருவாக்கியது ❤",
+        slideTitle1: "இயற்கையின் இசை 🌿",
+        slideDesc1:
+          "மலைகள் வானத்தை தொடும் இடம், நதிகள் என்றென்றும் பாடும் இடம்",
+        slideTitle2: "மகிழ்ச்சியின் விழாக்கள் 🎉",
+        slideDesc2:
+          "ஆன்மாவை வண்ணமயமாக்கும் நிறங்கள், இதயங்களை ஒன்றிணைக்கும் விழாக்கள்",
+        slideTitle3: "பாரம்பரிய சுவை 🍲",
+        slideDesc3:
+          "பெருங்குடி கதைகளை சொல்லும் சுவைகள், ஆன்மாவை எழுப்பும் மசாலா",
+        slideTitle4: "வாழும் பாரம்பரியம் 🏛️",
+        slideDesc4:
+          "பழமையான கதைகளை சொல்வது கற்கள், காலமற்ற ரகசியங்களை பாதுகாக்கும் சுவர்கள்",
+        slideTitle5: "பின்நீர் மகிழ்ச்சி 🌅",
+        slideDesc5:
+          "சாந்தமான நீர் பரதீசை பிரதிபலிக்கிறது, மென்மையான விலங்குகள் சுதந்திரமாக சுற்றுகின்றன",
+      },
+      bn: {
+        "language-btn": "🌐 ভাষা ▾",
+        logoTitle: "দেশদর্শন",
+        navDest: "বিখ্যাত স্থান",
+        navFacts: "মজার তথ্য",
+        navContact: "যোগাযোগ করুন",
+        footerText:
+          "গোপনীয়তা নীতি | সর্বস্বত্ব সংরক্ষিত | সম্পদা তিওয়ারি দ্বারা নির্মিত ❤",
+        slideTitle1: "প্রকৃতির সিম্ফনি 🌿",
+        slideDesc1: "যেখানে পাহাড় আকাশ ছুঁয়েছে এবং নদী চিরন্তন গান গায়",
+        slideTitle2: "আনন্দের উৎসব 🎉",
+        slideDesc2: "রং যা আত্মাকে রাঙায় এবং উৎসব যা হৃদয়কে একত্রিত করে",
+        slideTitle3: "ঐতিহ্যের স্বাদ 🍲",
+        slideDesc3:
+          "স্বাদ যা প্রজন্মের গল্প বলে এবং মশলা যা আত্মাকে জাগিয়ে তোলে",
+        slideTitle4: "জীবন্ত ঐতিহ্য 🏛️",
+        slideDesc4:
+          "পাথর যা প্রাচীন গল্প বলে এবং দেয়াল যা চিরন্তন রহস্য রক্ষা করে",
+        slideTitle5: "ব্যাকওয়াটার ব্লিস 🌅",
+        slideDesc5:
+          "শান্ত জল যা স্বর্গের প্রতিচ্ছবি এবং বিশাল প্রাণী যা মুক্তভাবে ঘোরে",
+      },
+      pa: {
+        "language-btn": "🌐 ਭਾਸ਼ਾ ▾",
+        logoTitle: "ਦੇਸ਼ਦਰਸ਼ਨ",
+        navDest: "ਮਸ਼ਹੂਰ ਥਾਵਾਂ",
+        navFacts: "ਮਜ਼ੇਦਾਰ ਤੱਥ",
+        navContact: "ਸੰਪਰਕ ਕਰੋ",
+        footerText:
+          "ਪਰਦੇਦਾਰੀ ਨੀਤੀ | ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ | ਸੰਪਦਾ ਤਿਵਾਰੀ ਵਲੋਂ ਬਣਾਇਆ ਗਿਆ ❤",
+        slideTitle1: "ਕੁਦਰਤ ਦੀ ਸਿਮਫਨੀ 🌿",
+        slideDesc1:
+          "ਜਿੱਥੇ ਪਹਾੜ ਅਕਾਸ਼ ਨੂੰ ਛੂਹਦੇ ਹਨ ਅਤੇ ਦਰਿਆ ਸਦੀਵੀ ਗੀਤ ਗਾਂਦੇ ਹਨ",
+        slideTitle2: "ਖੁਸ਼ੀਆਂ ਦੇ ਤਿਉਹਾਰ 🎉",
+        slideDesc2:
+          "ਰੰਗ ਜੋ ਆਤਮਾ ਨੂੰ ਰੰਗਦੇ ਹਨ ਅਤੇ ਤਿਉਹਾਰ ਜੋ ਦਿਲਾਂ ਨੂੰ ਜੋੜਦੇ ਹਨ",
+        slideTitle3: "ਪਰੰਪਰਾ ਦਾ ਸਵਾਦ 🍲",
+        slideDesc3:
+          "ਸਵਾਦ ਜੋ ਪੀੜ੍ਹੀਆਂ ਦੀਆਂ ਕਹਾਣੀਆਂ ਦੱਸਦੇ ਹਨ ਅਤੇ ਮਸਾਲੇ ਜੋ ਆਤਮਾ ਨੂੰ ਜਗਾਉਂਦੇ ਹਨ",
+        slideTitle4: "ਜੀਵੰਤ ਵਿਰਾਸਤ 🏛️",
+        slideDesc4:
+          "ਪੱਥਰ ਜੋ ਪੁਰਾਣੀਆਂ ਕਹਾਣੀਆਂ ਸੁਣਾਉਂਦੇ ਹਨ ਅਤੇ ਕੰਧਾਂ ਜੋ ਸਦੀਵੀ ਭੇਦ ਰੱਖਦੀਆਂ ਹਨ",
+        slideTitle5: "ਬੈਕਵਾਟਰ ਖੁਸ਼ੀ 🌅",
+        slideDesc5:
+          "ਸ਼ਾਂਤ ਪਾਣੀ ਜੋ ਸਵਰਗ ਦਾ ਪ੍ਰਤੀਬਿੰਬ ਹੈ ਅਤੇ ਵੱਡੇ ਜੀਵ ਜੋ ਆਜ਼ਾਦੀ ਨਾਲ ਘੁੰਮਦੇ ਹਨ",
+      },
+      gu: {
+        "language-btn": "🌐 ભાષા ▾",
+        logoTitle: "દેશદર્શન",
+        navDest: "પ્રસિદ્ધ સ્થળો",
+        navFacts: "મજેદાર તથ્યો",
+        navContact: "સંપર્ક કરો",
+        footerText:
+          "ગોપનીયતા નીતિ | સર્વાધિકાર સુરક્ષિત | સંપદા તિવારી દ્વારા બનાવાયું ❤",
+        slideTitle1: "પ્રકૃતિની સિમ્ફની 🌿",
+        slideDesc1:
+          "જ્યાં પર્વતો આકાશને સ્પર્શે છે અને નદીઓ શાશ્વત ગીતો ગાય છે",
+        slideTitle2: "આનંદના તહેવારો 🎉",
+        slideDesc2: "રંગો જે આત્માને રંગે છે અને તહેવારો જે દિલોને જોડે છે",
+        slideTitle3: "પરંપરાનો સ્વાદ 🍲",
+        slideDesc3:
+          "સ્વાદો જે પેઢીઓની વાર્તાઓ કહે છે અને મસાલા જે આત્માને જગાડે છે",
+        slideTitle4: "જીવંત વારસો 🏛️",
+        slideDesc4:
+          "પથ્થરો જે પ્રાચીન વાર્તાઓ કહે છે અને દિવાલો જે શાશ્વત રહસ્યો રાખે છે",
+        slideTitle5: "બેકવોટર આનંદ 🌅",
+        slideDesc5:
+          "શાંત પાણી જે સ્વર્ગનું પ્રતિબિંબ છે અને વિશાળ જીવો જે મુક્તપણે ફરતા હોય છે",
+      },
+      te: {
+        "language-btn": "🌐 భాష ▾",
+        logoTitle: "దేశదర్శన్",
+        navDest: "ప్రసిద్ధ ప్రదేశాలు",
+        navFacts: "విచిత్రమైన విషయాలు",
+        navContact: "సంప్రదించండి",
+        footerText:
+          "గోప్యతా విధానం | అన్ని హక్కులు పరిరక్షించబడ్డాయి | సంపద తివారి తయారు చేసింది ❤",
+        slideTitle1: "ప్రకృతి యొక్క సింఫనీ 🌿",
+        slideDesc1:
+          "ఎక్కడ పర్వతాలు ఆకాశాన్ని తాకుతాయో, నదులు శాశ్వత గీతాలు పాడుతాయో",
+        slideTitle2: "ఆనందోత్సవాలు 🎉",
+        slideDesc2: "ఆత్మను రంగించే రంగులు, హృదయాలను కలిపే వేడుకలు",
+        slideTitle3: "పారంపర్య రుచి 🍲",
+        slideDesc3:
+          "రుచులు తరాల కథలు చెబుతాయి, మసాలాలు ఆత్మను మేల్కొలుపుతాయి",
+        slideTitle4: "జీవంత వారసత్వం 🏛️",
+        slideDesc4:
+          "రాళ్లు పురాతన కథలు చెబుతాయి, గోడలు శాశ్వత రహస్యాలను కాపాడుతాయి",
+        slideTitle5: "బ్యాక్వాటర్ ఆనందం 🌅",
+        slideDesc5:
+          "ప్రశాంతమైన నీరు పరదైస్ను ప్రతిబింబిస్తుంది, పెద్ద జంతువులు స్వేచ్ఛగా సంచరిస్తాయి",
+      },
+    };
 
-      document.addEventListener("click", () => {
-        languageMenu.classList.remove("active");
-      });
+    languageOptions.forEach((option) => {
+      option.addEventListener("click", (e) => {
+        const selectedLang = e.target.getAttribute("data-lang");
 
-      // Language switching functionality
-      const translations = {
-        en: {
-          "language-btn": "🌐 Language ▾",
-          logoTitle: "Desh Darshan",
-          navDest: "Famous Destinations",
-          navFacts: "Crazy Facts",
-          navContact: "Contact Us",
-          footerText:
-            "Privacy Policy | All Rights Reserved | Made by Sampada Tiwari ❤",
-          slideTitle1: "Nature's Symphony 🌿",
-          slideDesc1:
-            "Where mountains touch the sky and rivers sing eternal songs",
-          slideTitle2: "Festivals of Joy 🎉",
-          slideDesc2:
-            "Colors that paint the soul and celebrations that unite hearts",
-          slideTitle3: "Taste of Tradition 🍲",
-          slideDesc3:
-            "Flavors that tell stories of generations and spices that awaken souls",
-          slideTitle4: "Living Heritage 🏛️",
-          slideDesc4:
-            "Stones that whisper ancient tales and walls that guard timeless secrets",
-          slideTitle5: "Backwater Bliss 🌅",
-          slideDesc5:
-            "Serene waters that mirror paradise and gentle giants that roam free",
-        },
-        hi: {
-          "language-btn": "🌐 भाषा ▾",
-          logoTitle: "देशदर्शन",
-          navDest: "प्रसिद्ध स्थल",
-          navFacts: "मजेदार तथ्य",
-          navContact: "संपर्क करें",
-          footerText:
-            "गोपनीयता नीति | सर्वाधिकार सुरक्षित | संपदा तिवारी द्वारा निर्मित ❤",
-          slideTitle1: "प्रकृति की स्वर की समता 🌿",
-          slideDesc1: "जहाँ पर्वत आकाश को छूते हैं और नदियाँ अनंत गीत गाती हैं",
-          slideTitle2: "खुशियों के त्योहार 🎉",
-          slideDesc2:
-            "रंग जो आत्मा को रंगते हैं और उत्सव जो दिलों को जोड़ते हैं",
-          slideTitle3: "परंपरा का स्वाद 🍲",
-          slideDesc3:
-            "स्वाद जो पीढ़ियों की कहानियाँ सुनाते हैं और मसाले जो आत्मा को जगाते हैं",
-          slideTitle4: "जीवित विरासत 🏛️",
-          slideDesc4:
-            "पत्थर जो प्राचीन कहानियाँ फुसफुसाते हैं और दीवारें जो कालातीत रहस्य छुपाती हैं",
-          slideTitle5: "बैकवॉटर ब्लिस 🌅",
-          slideDesc5:
-            "शांत जल जो स्वर्ग का प्रतिबिंब हैं और विशाल जीव जो स्वतंत्र घूमते हैं",
-        },
-        mr: {
-          "language-btn": "🌐 भाषा ▾",
-          logoTitle: "देशदर्शन",
-          navDest: "प्रसिद्ध स्थळे",
-          navFacts: "गमतीशीर तथ्ये",
-          navContact: "संपर्क करा",
-          footerText:
-            "गोपनीयता धोरण | सर्व हक्क राखीव | संपदा तिवारी यांनी बनवले ❤",
-          slideTitle1: "निसर्गाची सिम्फनी 🌿",
-          slideDesc1:
-            "जिथे पर्वत आकाशाला स्पर्श करतात आणि नद्या अनंत गाणी गातात",
-          slideTitle2: "आनंदाचे सण 🎉",
-          slideDesc2: "रंग जे आत्म्याला रंगवतात आणि सण जे हृदयांना एकत्र करतात",
-          slideTitle3: "परंपरेचा स्वाद 🍲",
-          slideDesc3:
-            "स्वाद जे पिढ्यांच्या कथा सांगतात आणि मसाले जे आत्म्याला जागृत करतात",
-          slideTitle4: "जिवंत वारसा 🏛️",
-          slideDesc4:
-            "दगड जे प्राचीन कथा सांगतात आणि भिंती जे शाश्वत रहस्ये राखतात",
-          slideTitle5: "बॅकवॉटर ब्लिस 🌅",
-          slideDesc5:
-            "शांत पाणी जे स्वर्गाचे प्रतिबिंब आहे आणि विशाल प्राणी जे मुक्तपणे फिरतात",
-        },
-        ta: {
-          "language-btn": "🌐 மொழி ▾",
-          logoTitle: "தேசதர்ஷன்",
-          navDest: "பிரபலமான இடங்கள்",
-          navFacts: "விசித்திரமான தகவல்கள்",
-          navContact: "தொடர்பு கொள்ள",
-          footerText:
-            "தனியுரிமைக் கொள்கை | அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை | சம்பதா திவாரி உருவாக்கியது ❤",
-          slideTitle1: "இயற்கையின் இசை 🌿",
-          slideDesc1:
-            "மலைகள் வானத்தை தொடும் இடம், நதிகள் என்றென்றும் பாடும் இடம்",
-          slideTitle2: "மகிழ்ச்சியின் விழாக்கள் 🎉",
-          slideDesc2:
-            "ஆன்மாவை வண்ணமயமாக்கும் நிறங்கள், இதயங்களை ஒன்றிணைக்கும் விழாக்கள்",
-          slideTitle3: "பாரம்பரிய சுவை 🍲",
-          slideDesc3:
-            "பெருங்குடி கதைகளை சொல்லும் சுவைகள், ஆன்மாவை எழுப்பும் மசாலா",
-          slideTitle4: "வாழும் பாரம்பரியம் 🏛️",
-          slideDesc4:
-            "பழமையான கதைகளை சொல்வது கற்கள், காலமற்ற ரகசியங்களை பாதுகாக்கும் சுவர்கள்",
-          slideTitle5: "பின்நீர் மகிழ்ச்சி 🌅",
-          slideDesc5:
-            "சாந்தமான நீர் பரதீசை பிரதிபலிக்கிறது, மென்மையான விலங்குகள் சுதந்திரமாக சுற்றுகின்றன",
-        },
-        bn: {
-          "language-btn": "🌐 ভাষা ▾",
-          logoTitle: "দেশদর্শন",
-          navDest: "বিখ্যাত স্থান",
-          navFacts: "মজার তথ্য",
-          navContact: "যোগাযোগ করুন",
-          footerText:
-            "গোপনীয়তা নীতি | সর্বস্বত্ব সংরক্ষিত | সম্পদা তিওয়ারি দ্বারা নির্মিত ❤",
-          slideTitle1: "প্রকৃতির সিম্ফনি 🌿",
-          slideDesc1: "যেখানে পাহাড় আকাশ ছুঁয়েছে এবং নদী চিরন্তন গান গায়",
-          slideTitle2: "আনন্দের উৎসব 🎉",
-          slideDesc2: "রং যা আত্মাকে রাঙায় এবং উৎসব যা হৃদয়কে একত্রিত করে",
-          slideTitle3: "ঐতিহ্যের স্বাদ 🍲",
-          slideDesc3:
-            "স্বাদ যা প্রজন্মের গল্প বলে এবং মশলা যা আত্মাকে জাগিয়ে তোলে",
-          slideTitle4: "জীবন্ত ঐতিহ্য 🏛️",
-          slideDesc4:
-            "পাথর যা প্রাচীন গল্প বলে এবং দেয়াল যা চিরন্তন রহস্য রক্ষা করে",
-          slideTitle5: "ব্যাকওয়াটার ব্লিস 🌅",
-          slideDesc5:
-            "শান্ত জল যা স্বর্গের প্রতিচ্ছবি এবং বিশাল প্রাণী যা মুক্তভাবে ঘোরে",
-        },
-        pa: {
-          "language-btn": "🌐 ਭਾਸ਼ਾ ▾",
-          logoTitle: "ਦੇਸ਼ਦਰਸ਼ਨ",
-          navDest: "ਮਸ਼ਹੂਰ ਥਾਵਾਂ",
-          navFacts: "ਮਜ਼ੇਦਾਰ ਤੱਥ",
-          navContact: "ਸੰਪਰਕ ਕਰੋ",
-          footerText:
-            "ਪਰਦੇਦਾਰੀ ਨੀਤੀ | ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ | ਸੰਪਦਾ ਤਿਵਾਰੀ ਵਲੋਂ ਬਣਾਇਆ ਗਿਆ ❤",
-          slideTitle1: "ਕੁਦਰਤ ਦੀ ਸਿਮਫਨੀ 🌿",
-          slideDesc1:
-            "ਜਿੱਥੇ ਪਹਾੜ ਅਕਾਸ਼ ਨੂੰ ਛੂਹਦੇ ਹਨ ਅਤੇ ਦਰਿਆ ਸਦੀਵੀ ਗੀਤ ਗਾਂਦੇ ਹਨ",
-          slideTitle2: "ਖੁਸ਼ੀਆਂ ਦੇ ਤਿਉਹਾਰ 🎉",
-          slideDesc2:
-            "ਰੰਗ ਜੋ ਆਤਮਾ ਨੂੰ ਰੰਗਦੇ ਹਨ ਅਤੇ ਤਿਉਹਾਰ ਜੋ ਦਿਲਾਂ ਨੂੰ ਜੋੜਦੇ ਹਨ",
-          slideTitle3: "ਪਰੰਪਰਾ ਦਾ ਸਵਾਦ 🍲",
-          slideDesc3:
-            "ਸਵਾਦ ਜੋ ਪੀੜ੍ਹੀਆਂ ਦੀਆਂ ਕਹਾਣੀਆਂ ਦੱਸਦੇ ਹਨ ਅਤੇ ਮਸਾਲੇ ਜੋ ਆਤਮਾ ਨੂੰ ਜਗਾਉਂਦੇ ਹਨ",
-          slideTitle4: "ਜੀਵੰਤ ਵਿਰਾਸਤ 🏛️",
-          slideDesc4:
-            "ਪੱਥਰ ਜੋ ਪੁਰਾਣੀਆਂ ਕਹਾਣੀਆਂ ਸੁਣਾਉਂਦੇ ਹਨ ਅਤੇ ਕੰਧਾਂ ਜੋ ਸਦੀਵੀ ਭੇਦ ਰੱਖਦੀਆਂ ਹਨ",
-          slideTitle5: "ਬੈਕਵਾਟਰ ਖੁਸ਼ੀ 🌅",
-          slideDesc5:
-            "ਸ਼ਾਂਤ ਪਾਣੀ ਜੋ ਸਵਰਗ ਦਾ ਪ੍ਰਤੀਬਿੰਬ ਹੈ ਅਤੇ ਵੱਡੇ ਜੀਵ ਜੋ ਆਜ਼ਾਦੀ ਨਾਲ ਘੁੰਮਦੇ ਹਨ",
-        },
-        gu: {
-          "language-btn": "🌐 ભાષા ▾",
-          logoTitle: "દેશદર્શન",
-          navDest: "પ્રસિદ્ધ સ્થળો",
-          navFacts: "મજેદાર તથ્યો",
-          navContact: "સંપર્ક કરો",
-          footerText:
-            "ગોપનીયતા નીતિ | સર્વાધિકાર સુરક્ષિત | સંપદા તિવારી દ્વારા બનાવાયું ❤",
-          slideTitle1: "પ્રકૃતિની સિમ્ફની 🌿",
-          slideDesc1:
-            "જ્યાં પર્વતો આકાશને સ્પર્શે છે અને નદીઓ શાશ્વત ગીતો ગાય છે",
-          slideTitle2: "આનંદના તહેવારો 🎉",
-          slideDesc2: "રંગો જે આત્માને રંગે છે અને તહેવારો જે દિલોને જોડે છે",
-          slideTitle3: "પરંપરાનો સ્વાદ 🍲",
-          slideDesc3:
-            "સ્વાદો જે પેઢીઓની વાર્તાઓ કહે છે અને મસાલા જે આત્માને જગાડે છે",
-          slideTitle4: "જીવંત વારસો 🏛️",
-          slideDesc4:
-            "પથ્થરો જે પ્રાચીન વાર્તાઓ કહે છે અને દિવાલો જે શાશ્વત રહસ્યો રાખે છે",
-          slideTitle5: "બેકવોટર આનંદ 🌅",
-          slideDesc5:
-            "શાંત પાણી જે સ્વર્ગનું પ્રતિબિંબ છે અને વિશાળ જીવો જે મુક્તપણે ફરતા હોય છે",
-        },
-        te: {
-          "language-btn": "🌐 భాష ▾",
-          logoTitle: "దేశదర్శన్",
-          navDest: "ప్రసిద్ధ ప్రదేశాలు",
-          navFacts: "విచిత్రమైన విషయాలు",
-          navContact: "సంప్రదించండి",
-          footerText:
-            "గోప్యతా విధానం | అన్ని హక్కులు పరిరక్షించబడ్డాయి | సంపద తివారి తయారు చేసింది ❤",
-          slideTitle1: "ప్రకృతి యొక్క సింఫనీ 🌿",
-          slideDesc1:
-            "ఎక్కడ పర్వతాలు ఆకాశాన్ని తాకుతాయో, నదులు శాశ్వత గీతాలు పాడుతాయో",
-          slideTitle2: "ఆనందోత్సవాలు 🎉",
-          slideDesc2: "ఆత్మను రంగించే రంగులు, హృదయాలను కలిపే వేడుకలు",
-          slideTitle3: "పారంపర్య రుచి 🍲",
-          slideDesc3:
-            "రుచులు తరాల కథలు చెబుతాయి, మసాలాలు ఆత్మను మేల్కొలుపుతాయి",
-          slideTitle4: "జీవంత వారసత్వం 🏛️",
-          slideDesc4:
-            "రాళ్లు పురాతన కథలు చెబుతాయి, గోడలు శాశ్వత రహస్యాలను కాపాడుతాయి",
-          slideTitle5: "బ్యాక్వాటర్ ఆనందం 🌅",
-          slideDesc5:
-            "ప్రశాంతమైన నీరు పరదైస్ను ప్రతిబింబిస్తుంది, పెద్ద జంతువులు స్వేచ్ఛగా సంచరిస్తాయి",
-        },
-      };
+        // Hide all language content
+        document.querySelectorAll(".lang-content").forEach((content) => {
+          content.classList.remove("active");
+        });
 
-      languageOptions.forEach((option) => {
-        option.addEventListener("click", (e) => {
-          const selectedLang = e.target.getAttribute("data-lang");
-
-          // Hide all language content
-          document.querySelectorAll(".lang-content").forEach((content) => {
-            content.classList.remove("active");
+        // Show selected language content
+        document
+          .querySelectorAll(`[data-lang="${selectedLang}"]`)
+          .forEach((content) => {
+            content.classList.add("active");
           });
 
-          // Show selected language content
-          document
-            .querySelectorAll(`[data-lang="${selectedLang}"]`)
-            .forEach((content) => {
-              content.classList.add("active");
-            });
+        // Update language button text
+        if (
+          translations[selectedLang] &&
+          translations[selectedLang]["language-btn"]
+        ) {
+          languageBtn.textContent =
+            translations[selectedLang]["language-btn"];
+        }
 
-          // Update language button text
-          if (
-            translations[selectedLang] &&
-            translations[selectedLang]["language-btn"]
-          ) {
-            languageBtn.textContent =
-              translations[selectedLang]["language-btn"];
+        // Update hero slide content
+        for (let i = 1; i <= 5; i++) {
+          if (translations[selectedLang]["slideTitle" + i]) {
+            document.getElementById("slideTitle" + i).textContent =
+              translations[selectedLang]["slideTitle" + i];
           }
+          if (translations[selectedLang]["slideDesc" + i]) {
+            document.getElementById("slideDesc" + i).textContent =
+              translations[selectedLang]["slideDesc" + i];
+          }
+        }
 
-          // Update hero slide content
-          for (let i = 1; i <= 5; i++) {
-            if (translations[selectedLang]["slideTitle" + i]) {
-              document.getElementById("slideTitle" + i).textContent =
-                translations[selectedLang]["slideTitle" + i];
-            }
-            if (translations[selectedLang]["slideDesc" + i]) {
-              document.getElementById("slideDesc" + i).textContent =
-                translations[selectedLang]["slideDesc" + i];
-            }
-          }
+        // Update logo, nav links, and footer
+        if (translations[selectedLang]["logoTitle"]) {
+          document.getElementById("logoTitle").textContent =
+            translations[selectedLang]["logoTitle"];
+        }
+        if (translations[selectedLang]["navDest"]) {
+          document.getElementById("navDest").textContent =
+            translations[selectedLang]["navDest"];
+        }
+        if (translations[selectedLang]["navFacts"]) {
+          document.getElementById("navFacts").textContent =
+            translations[selectedLang]["navFacts"];
+        }
+        if (translations[selectedLang]["navContact"]) {
+          document.getElementById("navContact").textContent =
+            translations[selectedLang]["navContact"];
+        }
+        if (translations[selectedLang]["footerText"]) {
+          document.getElementById("footerText").textContent =
+            translations[selectedLang]["footerText"];
+        }
 
-          // Update logo, nav links, and footer
-          if (translations[selectedLang]["logoTitle"]) {
-            document.getElementById("logoTitle").textContent =
-              translations[selectedLang]["logoTitle"];
-          }
-          if (translations[selectedLang]["navDest"]) {
-            document.getElementById("navDest").textContent =
-              translations[selectedLang]["navDest"];
-          }
-          if (translations[selectedLang]["navFacts"]) {
-            document.getElementById("navFacts").textContent =
-              translations[selectedLang]["navFacts"];
-          }
-          if (translations[selectedLang]["navContact"]) {
-            document.getElementById("navContact").textContent =
-              translations[selectedLang]["navContact"];
-          }
-          if (translations[selectedLang]["footerText"]) {
-            document.getElementById("footerText").textContent =
-              translations[selectedLang]["footerText"];
-          }
-
-          languageMenu.classList.remove("active");
-        });
+        languageMenu.classList.remove("active");
       });
+    });
 
-      // Intersection Observer for scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, observerOptions);
-
-      // Observe all content cards
-      document.querySelectorAll(".content-card").forEach((card) => {
-        observer.observe(card);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
       });
+    }, observerOptions);
 
-      // Observe footer
-      observer.observe(document.getElementById("footer"));
+    // Observe all content cards
+    document.querySelectorAll(".content-card").forEach((card) => {
+      observer.observe(card);
+    });
 
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
+    // Observe footer
+    observer.observe(document.getElementById("footer"));
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       });
+    });
 
-      // Add loading animation
-      window.addEventListener("load", () => {
-        document.body.style.opacity = "1";
+    // Add loading animation
+    window.addEventListener("load", () => {
+      document.body.style.opacity = "1";
+    });
+  </script>
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" title="Go to top">🔝</button>
+
+  <style>
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 30px;
+      z-index: 99;
+      font-size: 30px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    #backToTopBtn:hover {
+      background-color: transparent;
+      transform: translateY(-5px);
+    }
+
+    @media screen and (max-width: 480px) {
+      #backToTopBtn {
+        font-size: 50px;
+        padding: 8px 10px;
+        bottom: 60px;
+        right: 5px;
+      }
+    }
+  </style>
+
+  <script>
+    // Show button on scroll
+    window.onscroll = function () {
+      const btn = document.getElementById("backToTopBtn");
+      if (
+        document.body.scrollTop > 300 ||
+        document.documentElement.scrollTop > 300
+      ) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    // Scroll to top on click
+    document
+      .getElementById("backToTopBtn")
+      .addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
-    </script>
-    <!-- Back to Top Button with Updated Colors (#ff9933) -->
+  </script>
+
+  <!-- Back to Top Button with Updated Colors (#ff9933) -->
 <style>
   /* Base Button Styles */
   #backToTopBtn {
@@ -1431,8 +2162,9 @@
     });
   });
 </script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/navbar-loader.js"></script>
-  </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/navbar-loader.js"></script>
+</body>
 </html>
+
