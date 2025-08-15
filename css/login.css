@@ -473,3 +473,73 @@
                 margin: 0.5rem 0;
             }
         }
+
+     /* Base navigation button styles */
+.nav-button {
+    position: fixed;
+    top: 20px;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #FF6B35;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 1);
+    border-color: #FF8C42;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+.nav-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.2);
+}
+
+
+/* Home button */
+.home-button {
+    left: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #FF6B35;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+    position: fixed;
+    top: 20px;
+    width: 48px;
+    height: 48px;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 1);
+    border-color: #FF8C42;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Icon styles */
+
+.home-button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+
+.home-button:hover img {
+    transform: scale(1.1);
+}
