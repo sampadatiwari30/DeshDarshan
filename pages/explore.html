@@ -7,12 +7,14 @@
     <title>Explore India</title>
     <link rel="icon" href="data:,"> <!-- this line silences the favicon 404 -->
     <!-- Leaflet CSS for map functionality -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="../css/explore.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <!-- Leaflet JS for map functionality -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -21,7 +23,8 @@
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
-            padding-top: 80px; /* Space for fixed navbar */
+            padding-top: 80px;
+            /* Space for fixed navbar */
         }
 
         @keyframes gradientShift {
@@ -61,6 +64,7 @@
             animation: fadeInUp 1.5s ease-out;
         }
 
+
         .language-switcher {
             position: absolute;
             top: 2rem;
@@ -69,21 +73,27 @@
         }
 
         .language-switcher select {
-            padding: 0.8rem 1.2rem;
+            padding: 0.6rem 2.5rem 0.6rem 1rem;
             border: none;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            background-color: #ffffff;
             color: #333;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            font-size: 1rem;
+            appearance: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            /* Custom dropdown arrow */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 50l35 40 35-40' stroke='%23333' stroke-width='15' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
         }
 
         .language-switcher select:hover {
-            background: white;
             transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
@@ -202,6 +212,7 @@
         }
 
         @keyframes pulse {
+
             0%,
             100% {
                 transform: scale(1);
@@ -274,14 +285,18 @@
         }
 
         .btn-signup {
-            background: #ff8c00; /* Orange color */
+            background: #ff8c00;
+            /* Orange color */
             color: white;
         }
 
         .btn-login {
-            background: #ff8c00; /* Orange background fill */
-            color: white; /* White text for contrast */
-            border: 2px solid #ff8c00; /* Orange border */
+            background: #ff8c00;
+            /* Orange background fill */
+            color: white;
+            /* White text for contrast */
+            border: 2px solid #ff8c00;
+            /* Orange border */
         }
 
         .modal-btn:hover {
@@ -290,14 +305,18 @@
         }
 
         .btn-signup:hover {
-            background: #ff7700; /* Darker orange on hover */
+            background: #ff7700;
+            /* Darker orange on hover */
             color: white;
         }
 
         .btn-login:hover {
-            background: #ff7700; /* Darker orange background on hover */
-            border-color: #ff7700; /* Darker orange border on hover */
-            color: white; /* Keep white text on hover */
+            background: #ff7700;
+            /* Darker orange background on hover */
+            border-color: #ff7700;
+            /* Darker orange border on hover */
+            color: white;
+            /* Keep white text on hover */
         }
 
         .close-modal {
@@ -619,9 +638,9 @@
             </div>
         </div>
     </div>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "eaZ3BLaEp3NWiit_Vn0fK"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
     <script>
         // Language translations
         const translations = {
@@ -998,7 +1017,7 @@
                 }
 
                 // Make all cards clickable to show map
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function () {
                     showStateMap(state.name);
                 });
 
@@ -1081,8 +1100,8 @@
 
             // Update modal title and subtitle
             document.getElementById('mapModalTitle').textContent = stateName;
-            const subtitle = isLocked 
-                ? `🔒 Preview Location • Capital: ${stateInfo.capital}` 
+            const subtitle = isLocked
+                ? `🔒 Preview Location • Capital: ${stateInfo.capital}`
                 : `Capital: ${stateInfo.capital}`;
             document.getElementById('mapModalSubtitle').textContent = subtitle;
 
@@ -1099,7 +1118,7 @@
         function hideMapModal() {
             document.getElementById('mapModal').style.display = 'none';
             document.body.style.overflow = 'auto';
-            
+
             // Destroy the current map to prevent memory leaks
             if (currentMap) {
                 currentMap.remove();
@@ -1124,9 +1143,9 @@
 
             // Add marker for the state
             const marker = L.marker([lat, lng]).addTo(currentMap);
-            
+
             // Add popup with state information
-            const popupContent = isLocked 
+            const popupContent = isLocked
                 ? `<div style="text-align: center; font-family: Arial, sans-serif;">
                     <h3 style="margin: 0 0 10px 0; color: #333;">🔒 ${stateName}</h3>
                     <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
@@ -1138,7 +1157,7 @@
                     <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
                     <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}</p>
                 </div>`;
-            
+
             marker.bindPopup(popupContent).openPopup();
 
             // Add a circle to highlight the general area (different colors for locked/unlocked)
@@ -1184,88 +1203,88 @@
     </script>
     <script src="../js/navbar-loader.js"></script>
 
-<!-- Back to Top Button with Updated Colors (#ff9933) -->
-<style>
-  /* Base Button Styles */
-  #backToTopBtn {
-    position: fixed;
-    right: 25px;
-    bottom: 85px;
-    z-index: 1200;
-    background: #ff9832;
-    color: #fff;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: normal;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    line-height: 1;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Visible State */
-  #backToTopBtn.show {
-    opacity: 1;
-    transform: translateY(0);
-    display: flex;
-  }
-  
-  /* Hover Effects */
-  #backToTopBtn:hover {
-    transform: translateY(-5px) scale(1.05); 
-    background: #ffb366; 
-    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    #backToTopBtn {
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
-  }
-</style>
+    <!-- Back to Top Button with Updated Colors (#ff9933) -->
+    <style>
+        /* Base Button Styles */
+        #backToTopBtn {
+            position: fixed;
+            right: 25px;
+            bottom: 85px;
+            z-index: 1200;
+            background: #ff9832;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            line-height: 1;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
 
-<!-- Button HTML (unchanged) -->
-<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+        /* Visible State */
+        #backToTopBtn.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: flex;
+        }
 
-<!-- JavaScript (unchanged) -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const backBtn = document.getElementById('backToTopBtn');
-    const scrollThreshold = document.body.scrollHeight / 3;
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > scrollThreshold) {
-        backBtn.classList.add('show');
-      } else {
-        backBtn.classList.remove('show');
-      }
-    });
+        /* Hover Effects */
+        #backToTopBtn:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: #ffb366;
+            box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+        }
 
-    backBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            #backToTopBtn {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+
+    <!-- Button HTML (unchanged) -->
+    <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+    <!-- JavaScript (unchanged) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const backBtn = document.getElementById('backToTopBtn');
+            const scrollThreshold = document.body.scrollHeight / 3;
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > scrollThreshold) {
+                    backBtn.classList.add('show');
+                } else {
+                    backBtn.classList.remove('show');
+                }
+            });
+
+            backBtn.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 
