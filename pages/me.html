@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Language Selector</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background-color: #f5f5f5;
+      height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+
+    .language-switcher {
+      position: relative;
+      z-index: 1000;
+    }
+
+    .language-switcher select {
+      padding: 0.6rem 2.5rem 0.6rem 1rem;
+      border: none;
+      border-radius: 50px;
+      background-color: #ffffff;
+      color: #333;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      /* Custom dropdown arrow */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 50l35 40 35-40' stroke='%23333' stroke-width='15' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+    }
+
+    .language-switcher select:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .language-switcher select {
+        font-size: 0.9rem;
+        padding: 0.5rem 2rem 0.5rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher">
+    <select id="language" name="language">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="mr">Marathi</option>
+      <option value="ta">Tamil</option>
+      <option value="bn">Bengali</option>
+    </select>
+  </div>
+</body>
+</html>
