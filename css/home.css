@@ -628,7 +628,10 @@ footer {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #1e1e1e;
+    background-image: url('/assets/images/animations/Indian_Flag_Background.jpg');
+    background-size: cover; /* Make the flag fill the entire screen */
+    background-position: center; /* Keep it centered */
+    background-repeat: no-repeat;
     color: #FF9933; /* Initial saffron */
     display: flex;
     justify-content: center;
@@ -637,6 +640,8 @@ footer {
     transition: opacity 0.5s ease, visibility 0.5s ease;
     animation: tricolorText 3s linear infinite;
 }
+
+
 
 #loading-screen.hidden {
     opacity: 0;
