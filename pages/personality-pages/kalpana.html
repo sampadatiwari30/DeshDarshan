@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalpana Chawla - Space Pioneer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-[#fffaf3] text-gray-800">
+
+  <!-- HEADER -->
+  <header class="text-center py-8 bg-gradient-to-r from-blue-500 to-indigo-400 shadow-lg">
+    <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Kalpana Chawla</h1>
+    <p class="text-lg text-white mt-2">First Woman of Indian Origin in Space</p>
+  </header>
+
+  <!-- IMAGE & BIO -->
+  <section class="max-w-5xl mx-auto px-24 py-5 grid md:grid-cols-2 gap-28 items-center">
+    <img src="./img/kalpana.png" 
+         alt="Kalpana Chawla" class="rounded-2xl shadow-lg" />
+    <div>
+      <h2 class="text-3xl font-bold text-blue-500 mb-4">Overview</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Kalpana Chawla (1962–2003) was an astronaut and engineer who became the first woman of Indian origin to go to space.
+        She flew on two NASA missions, including the Space Shuttle Columbia in 1997 and its ill-fated STS-107 mission in 2003.
+      </p>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        Known for her courage, dedication, and passion for space exploration, Kalpana inspired millions across the globe to follow their dreams regardless of obstacles.
+      </p>
+    </div>
+  </section>
+
+  <!-- FUN FACTS -->
+  <section class="bg-white py-10 shadow-inner">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-500 mb-8">Did You Know? 🚀</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-blue-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          🌍 Born in Karnal, India, and later became a U.S. citizen.
+        </div>
+        <div class="bg-blue-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          🛰️ Logged over 30 days in space across two missions.
+        </div>
+        <div class="bg-blue-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          🏅 Awarded the Congressional Space Medal of Honor posthumously.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="max-w-4xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold text-center text-blue-500 mb-6">Quick Quiz 📝</h2>
+    <div id="quiz-card" class="bg-white shadow-lg rounded-xl p-6">
+      <p id="question" class="text-xl font-semibold mb-6">Loading question...</p>
+      <div id="options" class="grid grid-cols-2 gap-4 pt-5 max-w-md mx-auto"></div>
+      <p id="feedback" class="text-lg font-semibold mt-6 min-h-[2rem] text-center"></p>
+      <div class="text-center mt-8">
+        <button id="next-btn"
+          class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition hidden"
+          onclick="nextQuestion()">
+          Next Question
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 bg-gray-100 text-sm text-gray-600">
+    © 2025 Kalpana Chawla Tribute | Designed with ❤️
+  </footer>
+
+  <script>
+    const quizData = [
+      {
+        question: "What was Kalpana Chawla's profession?",
+        options: ["Pilot", "Engineer & Astronaut", "Scientist", "Teacher"],
+        answer: "Engineer & Astronaut"
+      },
+      {
+        question: "In which year did Kalpana first fly to space?",
+        options: ["1997", "2001", "1992", "2003"],
+        answer: "1997"
+      },
+      {
+        question: "Which space shuttle was Kalpana aboard in 2003?",
+        options: ["Discovery", "Columbia", "Challenger", "Atlantis"],
+        answer: "Columbia"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const nextBtn = document.getElementById("next-btn");
+
+    function loadQuestion() {
+      feedbackEl.textContent = "";
+      nextBtn.classList.add("hidden");
+      const current = quizData[currentQuestionIndex];
+      questionEl.textContent = current.question;
+      optionsEl.innerHTML = "";
+      current.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.className = "bg-blue-100 hover:bg-blue-200 px-4 py-2 rounded-lg shadow";
+        btn.onclick = () => selectOption(option);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function selectOption(selected) {
+      const current = quizData[currentQuestionIndex];
+      [...optionsEl.children].forEach(b => b.disabled = true);
+      if (selected === current.answer) {
+        feedbackEl.textContent = "Correct! 🎉";
+        feedbackEl.style.color = "green";
+      } else {
+        feedbackEl.textContent = `Oops! Correct answer: ${current.answer}`;
+        feedbackEl.style.color = "red";
+      }
+      nextBtn.classList.remove("hidden");
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex >= quizData.length) {
+        questionEl.textContent = "You completed the quiz! 🎉";
+        optionsEl.innerHTML = "";
+        feedbackEl.textContent = "";
+        nextBtn.classList.add("hidden");
+        return;
+      }
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
