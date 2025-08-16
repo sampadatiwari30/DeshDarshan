@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Login - Desh Darshan</title>
+    <script src="../js/firebase.js" defer type="module"></script>
     <link rel="stylesheet" href="../css/login.css">
 
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
@@ -95,6 +97,7 @@
             </div>
             <h2 class="login-title">Welcome Back</h2>
             <p class="login-subtitle">Continue your cultural journey with us</p>
+            
             <form id="loginForm" novalidate>
                 <div class="form-group">
                     <label for="fullName" class="form-label">Full Name</label>
@@ -120,6 +123,23 @@
                 <button type="submit" class="login-button" id="loginBtn">
                     Sign In
                 </button>
+
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <button type="button" id="google-login-btn" class="google-btn">
+                    <span class="google-logo">
+                    <svg class="google-icon" viewBox="0 0 533.5 544.3">
+                        <path fill="#4285F4" d="M533.5 278.4c0-18.5-1.6-37.1-5-55.2H272v104.5h146.9c-6.4 34.7-25.7 64.1-54.9 83.5l89 69.4c52-47.8 80.5-118.3 80.5-202.2z"/>
+                        <path fill="#34A853" d="M272 544.3c73.6 0 135.4-24.3 180.5-65.9l-89-69.4c-24.7 16.6-56.4 26.2-91.5 26.2-70.4 0-130-47.6-151.3-111.5l-93.6 72.3c43.3 85.1 132.1 147.3 244.9 147.3z"/>
+                        <path fill="#FBBC04" d="M120.7 323.7c-10.4-30.7-10.4-63.6 0-94.3L27 157c-40.7 79.7-40.7 172 0 251.7l93.7-72.3z"/>
+                        <path fill="#EA4335" d="M272 107.7c38.6-.6 75.5 13.6 104 39.4l77.7-77.7C403.2 23.9 340.2-.2 272 0 159.2 0 70.5 62.2 27.2 147.3l93.6 72.4c21.4-63.9 81-111.5 151.2-112z"/>
+                    </svg>
+                    </span>
+                    <span>Continue with Google</span>
+                </button>
+
             </form>
             <div class="signup-link">
                 New to Desh Darshan?<a href="./signup.html" id="createAccountLink">Create Account</a>
