@@ -1,8 +1,14 @@
+
 {
   "biryani": {
     "name": "Biryani",
     "image": "food_images/biryani_food.jpg",
     "description": "Welcome to the world of Biryani — not just a dish, but a full-blown culinary blockbuster.",
+    "Ingredients": {  
+      "🦸 Heroes": ["🍚 Basmati Rice", "🍖 Chicken/Mutton", "🧅 Onions", "🥛 Yogurt"],
+      "🎭 Sidekicks": ["🌿 Mint Leaves", "🌿 Coriander Leaves", "🧄 Ginger-Garlic Paste", "🌶️ Red Chili Powder", "💛 Turmeric", "🌿 Garam Masala"],
+      "✨ Final Touch": ["🧈 Ghee", "🌰 Cashews & Raisins", "🌸 Saffron", "🥛 Warm Milk"]
+  },
     "sections": [
       {
         "heading": "What Makes Biryani So Special?",
@@ -17,6 +23,8 @@
         "content": "Perfect for festivals, family dinners, or impressing that one friend who “doesn’t usually like spicy food.”\n\nA one-pot meal that’s rich, filling, and deeply satisfying.\n\nEvery bite is different — juicy chicken here, crispy onion there, a surprise hit of clove or mint. It’s like edible jazz."
       }
     ],
+    
+
     "funFact": [
       "Beta, biryani isn't a race — slow cooking wins hearts.",
       "If it’s not layered, it’s just rice with attitude.",
@@ -43,6 +51,14 @@
     "name": "Butter Chicken",
     "image": "food_images/butterchicken_food.jpg",
     "description": "Say hello to Butter Chicken — India’s velvety, tomato-kissed answer to comfort food. It's rich, creamy, and outrageously flavorful, making every bite a smooth, buttery delight.",
+
+  "Ingredients": {
+    "🦸 Heroes": ["🍅 Tomato", "🥛 Hung curd / Greek yogurt"],
+    "🎭 Sidekicks": ["🌶️ Kashmiri Red Chili Powder", "🌿 Coriander & Cumin Powder", "🍃 Kasuri Methi", "🌰 Cashews (Optional)"],
+    "✨ Final Touch": ["🥛 Cream (Optional)"]
+  },
+
+
     "sections": [
       {
         "heading": "What Makes Butter Chicken So Irresistible?",
@@ -57,6 +73,8 @@
         "content": "Mild enough for picky eaters but flavorful enough for spice lovers.\n\nPairs perfectly with naan, rice, or even a sneaky spoon.\n\nThe creaminess, the spice balance, the aroma — it’s culinary magic in every mouthful."
       }
     ],
+    
+
     "funFact": [
       "Beta, butter chicken without butter is just chicken in denial.",
       "If the gravy doesn’t hug the chicken, it’s not love — it’s laziness.",
@@ -82,6 +100,11 @@
     "name": "Masala Dosa",
     "image": "food_images/dosa.jpg",
     "description": "Meet Masala Dosa — South India’s most iconic, crispy golden crepe with a spiced potato hug inside. Crunchy on the outside, soft and savory on the inside, it’s a breakfast legend turned anytime treat.",
+    "Ingredients": {
+      "🦸 Heroes": ["🌾 Rice", "🫘 Black Gram Dal (Urad)", "🥔 Potatoes", "🧅 Onions"],
+      "🎭 Sidekicks": ["🌶️ Green Chilies", "🧄 Ginger", "🍃 Curry Leaves", "💛 Turmeric", "🌿 Mustard Seeds", "🌿 Cumin Seeds"],
+      "✨ Final Touch": ["🛢️ Oil", "🧂 Salt", "🌿 Fresh Coriander"]
+  },
     "sections": [
       {
         "heading": "What Makes Masala Dosa So Special?",
@@ -96,6 +119,8 @@
         "content": "Gluten-free, naturally vegan (unless ghee is added), and packed with flavor.\n\nPerfect as a light meal, weekend brunch, or a street food indulgence.\n\nEvery element — dosa, filling, chutney, and sambar — works together like a culinary symphony."
       }
     ],
+    
+
     "funFact": [
       "Beta, if your batter doesn’t ferment, your dosa won’t flirt with the pan.",
       "A thick dosa is not ‘extra filling’ — it’s just a sad pancake.",
@@ -121,6 +146,12 @@
     "name": "Mithai",
     "image": "food_images/mithai.jpg",
     "description": "Welcome to the colorful world of Mithai — a joyful assortment of traditional Indian sweets that mark every celebration, festival, and special moment. From laddoos and barfis to peda and sandesh, there’s a mithai for every mood.",
+
+    "Ingredients": {
+      "🦸 Heroes": ["🥛 Full-Fat Milk", "🍯 Sugar"],
+      "🎭 Sidekicks": ["🌰 Cashews", "🌰 Almonds", "🌰 Pistachios", "🌿 Cardamom Powder"],
+      "✨ Final Touch": ["🧈 Ghee", "🥈 Silver Leaf (Optional)"]
+    },
     "sections": [
       {
         "heading": "What Makes Mithai So Special?",
@@ -135,6 +166,8 @@
         "content": "There’s incredible variety — from syrup-soaked to dry, creamy to crunchy.\n\nMade with wholesome ingredients and flavors like rose, coconut, pistachio, and cardamom.\n\nThey’re not just desserts — they’re edible emotions shared with family and friends."
       }
     ],
+    
+
     "funFact": [
       "Beta, sugar is not the villain — it’s the festival’s VIP guest.",
       "If your barfi doesn’t melt in the mouth, it’s just a square lie.",
@@ -161,6 +194,12 @@
     "name": "Gujiya",
     "image": "food_images/Gujhiya.jpg",
     "description": "Say hello to Gujiya — the crescent-shaped, golden-crusted sweet treat that defines Indian festivals like Holi and Diwali. Stuffed with a rich, aromatic filling of khoya, dry fruits, and coconut, every bite of gujiya is pure joy.",
+
+    "Ingredients": {
+      "🦸 Heroes": ["🌾 All-Purpose Flour (Maida)", "🥛 Milk", "🥥 Khoya/Mawa"],
+      "🎭 Sidekicks": ["🍯 Sugar", "🌰 Cashews", "🌰 Almonds", "🥥 Coconut (Grated)", "🌿 Cardamom Powder", "🟫 Raisins"],
+      "✨ Final Touch": ["🛢️ Oil for Deep Frying", "🧈 Ghee"]
+    },
     "sections": [
       {
         "heading": "What Makes Gujiya So Special?",
@@ -175,6 +214,8 @@
         "content": "Perfectly sweet, rich, and satisfying — like a dessert dumpling with Indian flair.\n\nA festival essential, especially during Holi, Diwali, and weddings.\n\nCustomizable with chocolate, jaggery, or even baked versions for a modern twist."
       }
     ],
+    
+
     "funFact": [
       "Beta, if it’s leaking, it’s not a gujhiya — it’s gossip in pastry form.",
       "Gujhiya edges must be sealed like family secrets — tightly and forever.",
@@ -198,6 +239,12 @@
     "name": "Gulab Jamun",
     "image": "food_images/gj.jpg",
     "description": "Meet Gulab Jamun — the king of Indian sweets. Soft, spongy, golden-brown balls soaked in fragrant sugar syrup. Whether it’s a wedding, festival, or just a sweet craving, Gulab Jamun never fails to impress.",
+    "Ingredients": {
+      "🦸 Heroes": ["🥛 Milk Powder", "🥛 Milk", "🍯 Sugar", "💧 Water"],
+      "🎭 Sidekicks": ["🌾 All-Purpose Flour", "🥤 Baking Soda", "🌿 Cardamom Powder", "🌹 Rose Water"],
+      "✨ Final Touch": ["🛢️ Oil for Deep Frying", "🌰 Chopped Pistachios"]
+    },
+
     "sections": [
       {
         "heading": "What Makes Gulab Jamun So Special?",
@@ -212,6 +259,8 @@
         "content": "Sweet, juicy, and indulgent — it’s comfort food in dessert form.\n\nCan be served warm, chilled, or with ice cream for a modern twist.\n\nUniversally loved — from grandmothers to kids to international guests."
       }
     ],
+    
+
     "funFact": [
       "Beta, if it’s hard on the outside and dry inside — you made bullets, not gulab jamuns!",
       "Gulab jamun should melt in the mouth, not break your teeth.",
@@ -235,6 +284,12 @@
     "name": "Samosa",
     "image": "food_images/samosa.jpg",
     "description": "Say hello to Samosa — India’s favorite tea-time snack and street food legend. Crisp on the outside, spicy and savory on the inside, this golden triangle is loved by millions across the globe.",
+    "Ingredients": {
+      "🦸 Heroes": ["🌾 All-Purpose Flour", "🥔 Potatoes", "🟢 Green Peas"],
+      "🎭 Sidekicks": ["🌶️ Green Chilies", "🧄 Ginger", "🌿 Cumin Seeds", "🌿 Coriander Seeds", "💛 Turmeric", "🌶️ Red Chili Powder", "🌿 Garam Masala"],
+      "✨ Final Touch": ["🛢️ Oil for Deep Frying", "🌿 Fresh Coriander", "🍋 Lemon Juice"]
+    },
+
     "sections": [
       {
         "heading": "What Makes Samosa So Special?",
@@ -249,6 +304,8 @@
         "content": "Perfect as a snack, appetizer, or even a light meal.\n\nPairs beautifully with chai, chutneys, and rainy days.\n\nCustomizable filling — from classic potato to paneer, keema (minced meat), or even cheese."
       }
     ],
+    
+
     "funFact": [
       "Beta, if there’s air in your samosa, it’s not flaky — it’s fake-y.",
       "A soggy samosa is a broken promise to your ancestors.",
@@ -272,6 +329,11 @@
     "name": "Daal Chawal",
     "image": "food_images/dc.jpg",
     "description": "Welcome to the warm embrace of Daal Chawal — the ultimate comfort food that unites households across India. Simple, soulful, and deeply satisfying, it's a dish that feels like home in every bite.",
+    "Ingredients": {
+      "🦸 Heroes": ["🍚 Rice", "🟡 Yellow Lentils (Toor/Moong Dal)"],
+      "🎭 Sidekicks": ["🧅 Onions", "🍅 Tomatoes", "🌶️ Green Chilies", "🧄 Ginger-Garlic", "💛 Turmeric", "🌶️ Red Chili Powder", "🍃 Curry Leaves"],
+      "✨ Final Touch": ["🧈 Ghee", "🌿 Mustard Seeds", "🌿 Cumin Seeds", "🌿 Fresh Coriander"]
+    },
     "sections": [
       {
         "heading": "What Makes Daal Chawal So Special?",
@@ -286,6 +348,8 @@
         "content": "It’s nutritious, protein-rich, and easy to digest.\n\nPerfect for a light lunch, quick dinner, or rainy day craving.\n\nYou can spice it up or keep it mild — totally customizable to your mood."
       }
     ],
+    
+
     "funFact": [
       "Daal Chawal is one of the first solid meals introduced to Indian toddlers.",
       "Almost every Indian state has its own version — from Gujarati dal to Bengali tok dal.",
