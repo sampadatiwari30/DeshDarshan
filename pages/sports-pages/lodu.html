@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pachisi (Ludo’s Ancestor) – DeshDarshan</title>
+  <style>
+    :root
+    {
+      --primary:#8e1b1b;  /* royal red */
+      --accent:#f4c542;   /* golden */
+      --bg:#fffbf4;
+      --text:#333;
+    }
+    *{box-sizing:border-box}
+    body
+    {
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    header
+    {
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+    header h1
+    {
+      margin:0;
+      font-size:2.3rem
+    }
+    .back
+    {
+      margin-top:10px;
+      padding:8px 16px;
+      border:none;
+      border-radius:6px;
+      background:var(--accent);
+      color:#111;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .hero
+    { 
+      text-align:center; 
+      padding:20px; 
+    }
+    .hero img
+    {
+      max-width:90%;
+      border-radius:12px;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+    }
+    section
+    { 
+      padding:40px 10%; 
+    }
+    h2{ 
+      margin-top:0; color:var(--primary); 
+    }
+    .facts
+    {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; margin-top:20px;
+    }
+    .fact-card
+    {
+      background:#fff; padding:20px; 
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transition:transform .2s;
+    }
+    .fact-card:hover
+    { 
+      transform:scale(1.05); 
+    }
+    .timeline
+    {
+      display:grid; gap:16px; margin-top:16px;
+    }
+    .step
+    {
+      background:#fff; padding:18px; 
+      border-left:6px solid var(--accent);
+      border-radius:10px; 
+      box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .quiz
+    {
+      background:#fff; padding:25px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); margin-top:20px; text-align:center;
+    }
+    .quiz button
+    {
+      background:var(--primary); color:#fff; border:none;
+      padding:10px 18px; margin:8px; border-radius:8px; cursor:pointer;
+    }
+    .quiz button:hover
+    { 
+      background:#b12a2a; 
+    }
+    footer
+    {
+      text-align:center; 
+      padding:20px; 
+      background:var(--primary); color:#fff;
+       margin-top:30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>🎲 Pachisi – The Royal Game that Evolved into Ludo</h1>
+  </header>
+
+  <div class="hero">
+    <img src="./img/pachisi.png" alt="Pachisi board (cross-shaped) with cowrie shells">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      <b>Pachisi</b> is a classic cross-and-circle board game that originated in <b>India</b>, often called the
+      “<i>Game of Kings</i>.” It was famously played on large, embroidered cloth boards in royal courts—
+      most notably by <b>Mughal Emperor Akbar</b>, who staged life-sized games on the courtyards of Fatehpur Sikri.
+      Players moved tokens around a <b>cross-shaped board</b> based on throws of <b>cowrie shells</b>.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">🌀 Traditional Pachisi uses <b>cowrie shells</b> instead of dice; the count of open shells decides the move.</div>
+      <div class="fact-card">✳️ The board is a <b>four-armed cross</b>; each arm is a track leading to the center (the “home”).</div>
+      <div class="fact-card">👑 Akbar reportedly used <b>court attendants as human pieces</b> on giant courtyard boards.</div>
+      <div class="fact-card">🌍 Pachisi inspired Western versions like <b>Parcheesi</b> (USA) and <b>Ludo</b> (UK).</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔁 Evolution → Parcheesi → Ludo</h2>
+    <div class="timeline">
+      <div class="step"><b>16th–18th c.</b> — Pachisi flourishes in Indian courts and households.</div>
+      <div class="step"><b>19th c.</b> — British adapt the game with dice & simplified rules → <b>Ludo</b>.</div>
+      <div class="step"><b>20th c.</b> — American variant <b>Parcheesi</b> popularizes it in the West.</div>
+      <div class="step"><b>Today</b> — Ludo becomes a global family favorite (and a mobile-game hit), but
+        Pachisi remains a cherished part of India’s gaming heritage.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧩 How It’s Played (Classic Pachisi)</h2>
+    <ul>
+      <li>Each player has 4 tokens starting in their arm’s base; goal is to reach the center “home.”</li>
+      <li>Movement is determined by throwing <b>6 or 7 cowries</b> (different open/closed combos = different counts).</li>
+      <li>Landing on an opponent’s token sends it back to base (capture), adding strategy & blocking.</li>
+      <li>Safe squares (often marked) protect tokens from capture.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>What did Pachisi traditionally use to determine moves?</h3>
+      <button onclick="checkAnswer('wrong')">Wooden dice</button>
+      <button onclick="checkAnswer('correct')">Cowrie shells</button>
+      <button onclick="checkAnswer('wrong')">Playing cards</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <h1>DeshDarshan Project</h1>
+  </footer>
+
+  <script>
+    function checkAnswer(option){
+      const result = document.getElementById("result");
+      if(option === 'correct'){
+        result.innerHTML = "✅ Correct! Pachisi used cowrie shells, not dice.";
+        result.style.color = "green";
+      }else{
+        result.innerHTML = "❌ Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+    document.querySelector(".back").addEventListener("click", function(){
+      window.history.back();
+    });
+  </script>
+</body>
+</html>
