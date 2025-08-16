@@ -235,7 +235,7 @@ a {
   transform: translateY(50px);
   opacity: 0;
   transition: all 0.8s ease;
-  margin: 2rem;
+  margin: 5rem 2rem;
   border: orange solid 2px;
 }
 
