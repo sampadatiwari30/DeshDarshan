@@ -45,7 +45,21 @@
             } else if (fieldId === 'phone') {
                 const phoneRegex = /^[\d\s\-\+()]{10,}$/;
                 isValid = field.value.trim() !== '' && phoneRegex.test(field.value.replace(/\s/g, ''));
-            } else {
+            } else if(fieldId === 'message')
+            {
+                var msg=field.value;
+                if(msg.length <10)
+                isValid=false;
+                else
+                isValid=true;
+                if (!isValid) {
+                errorElement.innerText = 'Message must be at least 10 characters long.';
+                }
+               else {
+               isValid = field.value.trim() !== '';
+               }    
+            }
+             else {
                 isValid = field.value.trim() !== '';
             }
 
