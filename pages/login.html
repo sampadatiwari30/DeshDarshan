@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Login - Desh Darshan</title>
+    <script src="../js/firebase.js" defer type="module"></script>
+    <link rel="stylesheet" href="../css/login.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+
+        <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(ellipse at top left, rgba(160, 82, 45, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at top right, rgba(139, 69, 19, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom left, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(205, 133, 63, 0.3) 0%, transparent 50%),
+                linear-gradient(135deg,
+                    #b15819 0%,
+                    #A0522D 15%,
+                    #CD853F 30%,
+                    #D2B48C 45%,
+                    #DEB887 60%,
+                    #F5DEB3 75%,
+                    #F5E6D3 90%,
+                    #FDF5E6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg width='1400' height='900' viewBox='0 0 1400 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='monumentGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23A0522D;stop-opacity:0.12'/%3E%3Cstop offset='30%25' style='stop-color:%23D2B48C;stop-opacity:0.18'/%3E%3Cstop offset='70%25' style='stop-color:%238B4513;stop-opacity:0.25'/%3E%3Cstop offset='100%25' style='stop-color:%23654321;stop-opacity:0.35'/%3E%3C/linearGradient%3E%3ClinearGradient id='domeGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23F5DEB3;stop-opacity:0.4'/%3E%3Cstop offset='50%25' style='stop-color:%23DEB887;stop-opacity:0.3'/%3E%3Cstop offset='100%25' style='stop-color:%23CD853F;stop-opacity:0.2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3C!-- Base platform with steps --%3E%3Crect x='50' y='720' width='1300' height='180' fill='%23654321' fill-opacity='0.15'/%3E%3Crect x='100' y='700' width='1200' height='20' fill='%238B4513' fill-opacity='0.2'/%3E%3Crect x='150' y='680' width='1100' height='20' fill='%23A0522D' fill-opacity='0.25'/%3E%3C!-- Main Taj Mahal structure --%3E%3Crect x='500' y='350' width='400' height='350' fill='url(%23monumentGrad)'/%3E%3C!-- Central arch --%3E%3Cpath d='M600 450 Q700 350 800 450 L800 600 Q700 550 600 600 Z' fill='%23F5DEB3' fill-opacity='0.5'/%3E%3Crect x='680' y='550' width='40' height='100' fill='%23654321' fill-opacity='0.3'/%3E%3C!-- Main dome --%3E%3Cellipse cx='700' cy='320' rx='150' ry='100' fill='url(%23domeGrad)'/%3E%3Cpath d='M550 320 Q700 180 850 320 Q700 220 550 320 Z' fill='%23F5E6D3' fill-opacity='0.4'/%3E%3C!-- Dome finial --%3E%3Crect x='695' y='200' width='10' height='40' fill='%23CD853F' fill-opacity='0.6'/%3E%3Ccircle cx='700' cy='190' r='8' fill='%23DEB887' fill-opacity='0.7'/%3E%3C!-- Side structures --%3E%3Crect x='150' y='400' width='250' height='300' fill='%23A0522D' fill-opacity='0.2'/%3E%3Crect x='1000' y='400' width='250' height='300' fill='%23A0522D' fill-opacity='0.2'/%3E%3C!-- Side domes --%3E%3Cellipse cx='275' cy='380' rx='100' ry='60' fill='%23DEB887' fill-opacity='0.35'/%3E%3Cellipse cx='1125' cy='380' rx='100' ry='60' fill='%23DEB887' fill-opacity='0.35'/%3E%3C!-- Side arches --%3E%3Cpath d='M200 500 Q275 450 350 500 L350 600 Q275 550 200 600 Z' fill='%23F5DEB3' fill-opacity='0.4'/%3E%3Cpath d='M1050 500 Q1125 450 1200 500 L1200 600 Q1125 550 1050 600 Z' fill='%23F5DEB3' fill-opacity='0.4'/%3E%3C!-- Minarets --%3E%3Crect x='80' y='150' width='50' height='550' fill='%23CD853F' fill-opacity='0.3'/%3E%3Crect x='1270' y='150' width='50' height='550' fill='%23CD853F' fill-opacity='0.3'/%3E%3C!-- Minaret domes --%3E%3Cellipse cx='105' cy='130' rx='35' ry='50' fill='%23F5DEB3' fill-opacity='0.5'/%3E%3Cellipse cx='1295' cy='130' rx='35' ry='50' fill='%23F5DEB3' fill-opacity='0.5'/%3E%3C!-- Minaret details --%3E%3Crect x='100' y='300' width='10' height='50' fill='%23A0522D' fill-opacity='0.4'/%3E%3Crect x='1290' y='300' width='10' height='50' fill='%23A0522D' fill-opacity='0.4'/%3E%3C!-- Garden elements --%3E%3Crect x='300' y='650' width='800' height='50' fill='%23228B22' fill-opacity='0.15'/%3E%3C!-- Decorative patterns --%3E%3Ccircle cx='275' cy='520' r='20' fill='%23F5E6D3' fill-opacity='0.4'/%3E%3Ccircle cx='1125' cy='520' r='20' fill='%23F5E6D3' fill-opacity='0.4'/%3E%3Ccircle cx='700' cy='480' r='15' fill='%23DEB887' fill-opacity='0.5'/%3E%3C!-- Additional architectural details --%3E%3Crect x='520' y='600' width='360' height='100' fill='%23A0522D' fill-opacity='0.15'/%3E%3Cpath d='M540 620 L560 640 L540 660 L520 640 Z' fill='%23CD853F' fill-opacity='0.3'/%3E%3Cpath d='M860 620 L880 640 L860 660 L840 640 Z' fill='%23CD853F' fill-opacity='0.3'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            z-index: -2;
+            opacity: 0.7;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+            z-index: 1;
+            background-image:
+                radial-gradient(circle at 15% 85%, rgba(160, 82, 45, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 85% 15%, rgba(139, 69, 19, 0.06) 0%, transparent 60%),
+                radial-gradient(circle at 45% 45%, rgba(205, 133, 63, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(222, 184, 135, 0.05) 0%, transparent 55%),
+                radial-gradient(circle at 25% 25%, rgba(245, 222, 179, 0.03) 0%, transparent 45%),
+                linear-gradient(45deg,
+                    rgba(155, 71, 10, 0.02) 0%,
+                    transparent 25%,
+                    rgba(160, 82, 45, 0.02) 50%,
+                    transparent 75%,
+                    rgba(205, 133, 63, 0.02) 100%);
+            z-index: -1;
+        }
+       
+
+
+    </style>
+  </head>
+
+<body>
+    <!-- Home Button -->
+
+    <button class="home-button" onclick="window.location.href='../'">
+        <img src="../assets/images/icons/home.png" alt="Home">
+    </button>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="login-container" id="loginContainer">
+            <div class="brand-header">
+                <h1 class="brand-name">Desh Darshan</h1>
+                <p class="brand-tagline">Discover India's Heritage</p>
+                <p class="cultural-subtitle">Culture • Cuisine • Traditions</p>
+            </div>
+            <h2 class="login-title">Welcome Back</h2>
+            <p class="login-subtitle">Continue your cultural journey with us</p>
+            
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input"
+                        placeholder="Enter your full name" required>
+                    <div class="error-message">Please enter your full name</div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input"
+                        placeholder="Enter your email address" required>
+                    <div class="error-message">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-input"
+                        placeholder="Enter your password" required>
+                    <div class="error-message">Please enter your password</div>
+                </div>
+                <div class="form-footer">
+                    <a href="#" class="forgot-password" id="forgotPasswordLink">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-button" id="loginBtn">
+                    Sign In
+                </button>
+
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <button type="button" id="google-login-btn" class="google-btn">
+                    <span class="google-logo">
+                    <svg class="google-icon" viewBox="0 0 533.5 544.3">
+                        <path fill="#4285F4" d="M533.5 278.4c0-18.5-1.6-37.1-5-55.2H272v104.5h146.9c-6.4 34.7-25.7 64.1-54.9 83.5l89 69.4c52-47.8 80.5-118.3 80.5-202.2z"/>
+                        <path fill="#34A853" d="M272 544.3c73.6 0 135.4-24.3 180.5-65.9l-89-69.4c-24.7 16.6-56.4 26.2-91.5 26.2-70.4 0-130-47.6-151.3-111.5l-93.6 72.3c43.3 85.1 132.1 147.3 244.9 147.3z"/>
+                        <path fill="#FBBC04" d="M120.7 323.7c-10.4-30.7-10.4-63.6 0-94.3L27 157c-40.7 79.7-40.7 172 0 251.7l93.7-72.3z"/>
+                        <path fill="#EA4335" d="M272 107.7c38.6-.6 75.5 13.6 104 39.4l77.7-77.7C403.2 23.9 340.2-.2 272 0 159.2 0 70.5 62.2 27.2 147.3l93.6 72.4c21.4-63.9 81-111.5 151.2-112z"/>
+                    </svg>
+                    </span>
+                    <span>Continue with Google</span>
+                </button>
+
+            </form>
+            <div class="signup-link">
+                New to Desh Darshan?<a href="./signup.html" id="createAccountLink">Create Account</a>
+
+            </div>
+        </div>
+        <!-- Welcome Card -->
+        <div class="welcome-card" id="welcomeCard">
+            <div class="welcome-icon">🏛</div>
+            <h2 class="welcome-title">Namaste</h2>
+            <p class="welcome-message" id="welcomeMessage">
+                Welcome back to Desh Darshan! Ready to explore India's rich cultural heritage and timeless traditions?
+            </p>
+            <div>
+                <a href="home1.html"><button class="explore-button" id="exploreBtn">Start Exploring</button></a>
+                <button class="back-button" id="backBtn">Back to Login</button>
+            </div>
+        </div>
+    </div>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('loginForm');
+            const loginBtn = document.getElementById('loginBtn');
+            const createAccountLink = document.getElementById('createAccountLink');
+            const loginContainer = document.getElementById('loginContainer');
+            const welcomeCard = document.getElementById('welcomeCard');
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            const exploreBtn = document.getElementById('exploreBtn');
+            const backBtn = document.getElementById('backBtn');
+
+            // Form validation and submission
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Clear previous errors
+                clearErrors();
+
+                // Get form data
+                const formData = new FormData(form);
+                const fullName = formData.get('fullName').trim();
+                const email = formData.get('email').trim();
+                const password = formData.get('password').trim();
+
+                let isValid = true;
+
+                // Validate full name
+                if (!fullName) {
+                    showError('fullName', 'Please enter your full name');
+                    isValid = false;
+                } else if (fullName.length < 2) {
+                    showError('fullName', 'Name must be at least 2 characters long');
+                    isValid = false;
+                }
+
+                // Validate email
+                if (!email) {
+                    showError('email', 'Please enter your email address');
+                    isValid = false;
+                } else if (!isValidEmail(email)) {
+                    showError('email', 'Please enter a valid email address');
+                    isValid = false;
+                }
+
+                // Validate password
+                if (!password) {
+                    showError('password', 'Please enter your password');
+                    isValid = false;
+                } else if (password.length < 6) {
+                    showError('password', 'Password must be at least 6 characters long');
+                    isValid = false;
+                }
+                // If form is valid, proceed with login
+                if (isValid) {
+                    handleLogin(fullName, email, password);
+                }
+            });
+
+            // Handle login process
+            function handleLogin(fullName, email, password) {
+                // Show loading state
+                loginBtn.classList.add('loading');
+                loginBtn.textContent = 'Signing In...';
+                loginBtn.disabled = true;
+
+                // Simulate API call delay
+                setTimeout(() => {
+                    // In a real app, you would validate credentials with a server
+                    // For demo purposes, we'll accept any valid input
+                    showWelcomeCard(fullName);
+                }, 1500);
+            }
+
+            // Show welcome card after successful login
+            function showWelcomeCard(fullName) {
+                // Update welcome message with user's name
+                const firstName = fullName.split(' ')[0];
+                welcomeMessage.textContent = `Welcome back, ${firstName}! Ready to explore India's rich cultural heritage and timeless traditions?`;
+
+                // Hide login container
+                loginContainer.classList.add('hide');
+                
+                // Hide home button after successful login
+                const homeButton = document.querySelector('.home-button');
+                if (homeButton) {
+                    homeButton.style.display = 'none';
+                }
+
+                // Show welcome card after login container is hidden
+                setTimeout(() => {
+                    welcomeCard.classList.add('show');
+                }, 300);
+            }
+
+            // Back to login functionality
+            backBtn.addEventListener('click', function () {
+                // Hide welcome card
+                welcomeCard.classList.remove('show');
+
+                // Show login container after welcome card is hidden
+                setTimeout(() => {
+                    loginContainer.classList.remove('hide');
+                    // Reset form
+                    form.reset();
+                    clearErrors();
+                    // Reset button state
+                    loginBtn.classList.remove('loading');
+                    loginBtn.textContent = 'Sign In';
+                    loginBtn.disabled = false;
+                }, 300);
+            });
+
+            // Explore button functionality
+            exploreBtn.addEventListener('click', function () {
+                // In a real app, this would redirect to the main dashboard
+                console.log('Redirecting to main dashboard...');
+                // You can uncomment the line below when you have a home page
+                // window.location.href = 'home1.html';
+            });
+
+            // Create account link functionality
+            createAccountLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                // In a real app, this would redirect to signup page
+                console.log('Redirecting to signup page...');
+                // You can uncomment the line below when you have a signup page
+                window.location.href = 'signup.html';
+            });
+
+            document.getElementById('forgotPasswordLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                window.location.href = 'forgot-password.html';  // redirect to your page
+            });
+
+
+            // Helper functions
+            function showError(fieldName, message) {
+                const field = document.getElementById(fieldName);
+                const formGroup = field.closest('.form-group');
+                const errorMessage = formGroup.querySelector('.error-message');
+
+                formGroup.classList.add('error');
+                errorMessage.textContent = message;
+
+                // Focus on the first error field
+                if (document.querySelectorAll('.form-group.error').length === 1) {
+                    field.focus();
+                }
+            }
+
+            function clearErrors() {
+                const errorGroups = document.querySelectorAll('.form-group.error');
+                errorGroups.forEach(group => {
+                    group.classList.remove('error');
+                });
+            }
+
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Real-time validation
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    validateField(this);
+                });
+
+                input.addEventListener('input', function () {
+                    // Clear error state when user starts typing
+                    const formGroup = this.closest('.form-group');
+                    if (formGroup.classList.contains('error')) {
+                        formGroup.classList.remove('error');
+                    }
+                });
+            });
+
+            function validateField(field) {
+                const fieldName = field.name;
+                const value = field.value.trim();
+                let isValid = true;
+
+                // Clear previous error
+                const formGroup = field.closest('.form-group');
+                formGroup.classList.remove('error');
+
+                switch (fieldName) {
+                    case 'fullName':
+                        if (!value) {
+                            showError(fieldName, 'Please enter your full name');
+                            isValid = false;
+                        } else if (value.length < 2) {
+                            showError(fieldName, 'Name must be at least 2 characters long');
+                            isValid = false;
+                        }
+                        break;
+                    case 'email':
+                        if (!value) {
+                            showError(fieldName, 'Please enter your email address');
+                            isValid = false;
+                        } else if (!isValidEmail(value)) {
+                            showError(fieldName, 'Please enter a valid email address');
+                            isValid = false;
+                        }
+                        break;
+                    case 'password':
+                        if (!value) {
+                            showError(fieldName, 'Please enter your password');
+                            isValid = false;
+                        } else if (value.length < 6) {
+                            showError(fieldName, 'Password must be at least 6 characters long');
+                            isValid = false;
+                        }
+                        break;
+                }
+
+                return isValid;
+            }
+
+            // Enhanced user experience features
+
+            // Auto-focus first input
+            document.getElementById('fullName').focus();
+
+            // Handle Enter key across form
+            form.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    const inputs = Array.from(form.querySelectorAll('.form-input'));
+                    const currentIndex = inputs.indexOf(document.activeElement);
+
+                    if (currentIndex < inputs.length - 1) {
+                        // Move to next input
+                        e.preventDefault();
+                        inputs[currentIndex + 1].focus();
+                    } else {
+                        // Submit form if on last input
+                        form.dispatchEvent(new Event('submit'));
+                    }
+                }
+            });
+
+            // Add subtle animations on load
+            setTimeout(() => {
+                loginContainer.style.opacity = '1';
+                loginContainer.style.transform = 'translateY(0)';
+            }, 100);
+
+            // Demo data for testing (remove in production)
+            console.log('Demo Login Page Ready!');
+            console.log('For testing: Use any valid email format and password (6+ characters)');
+        });
+    </script>
+
+</body>
+
+</html>

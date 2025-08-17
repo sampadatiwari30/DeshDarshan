@@ -1,0 +1,217 @@
+html,
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+.floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.9);
+  }
+
+  100% {
+    box-shadow: 0 0 0px rgba(255, 165, 0, 0.5);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+.dance-section {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fffaf3 0%, #fff7e6 100%);
+}
+
+.dance-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0;
+}
+
+.dance-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.dance-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dance-subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.dance-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #555;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.history-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 80px 0;
+  margin-top: 80px;
+  border-radius: 50px 50px 0 0;
+}
+
+.history-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.history-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+.history-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .dance-title {
+    font-size: 2.5rem;
+  }
+
+  .dance-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .dance-description {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .history-title {
+    font-size: 2rem;
+  }
+
+  .dance-content {
+    padding: 40px 0;
+  }
+}
+
+/* Back to top button - specific to odissi page */
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+#backToTopBtn:hover {
+  background-color: transparent;
+  transform: translateY(-5px);
+}
+
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    font-size: 50px;
+    padding: 8px 10px;
+    bottom: 60px;
+    right: 5px;
+  }
+}
