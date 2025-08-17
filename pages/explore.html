@@ -2,12 +2,20 @@
 <html lang="en">
 
 <head>
+    
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+<link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore India</title>
     <!-- FIX: Correct favicon path for subfolder -->
     <link rel="icon" href="../assets/images/Desh darshan Logo.png" type="image/png">
     <link rel="icon" href="data:,"> <!-- this line silences the favicon 404 -->
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -22,6 +30,7 @@
     <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/geodata/indiaLow.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -36,8 +45,12 @@
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
+
             background: url("https://img.freepik.com/free-vector/abstract-luxury-beautiful-decorative-yellow-background_1055-6454.jpg") no-repeat center center fixed;
             background-size: cover;
+            padding-top: 80px;
+            /* Space for fixed navbar */
+
         }
 
         @keyframes gradientShift {
@@ -79,6 +92,7 @@
             animation: fadeInUp 1.5s ease-out;
         }
 
+
         .language-switcher {
             position: absolute;
             padding-top: 40px;
@@ -88,21 +102,27 @@
         }
 
         .language-switcher select {
-            padding: 0.8rem 1.2rem;
+            padding: 0.6rem 2.5rem 0.6rem 1rem;
             border: none;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            background-color: #ffffff;
             color: #333;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            font-size: 1rem;
+            appearance: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            /* Custom dropdown arrow */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 50l35 40 35-40' stroke='%23333' stroke-width='15' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
         }
 
         .language-switcher select:hover {
-            background: white;
             transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
@@ -295,14 +315,19 @@
         }
 
         .btn-signup {
-            background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
+
+            background: #ff8c00;
+            /* Orange color */
+            color: white;
         }
 
         .btn-login {
-            background: transparent;
-            color: black;
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            background: #ff8c00;
+            /* Orange background fill */
+            color: white;
+            /* White text for contrast */
+            border: 2px solid #ff8c00;
+
         }
 
         .modal-btn:hover {
@@ -311,13 +336,18 @@
         }
 
         .btn-signup:hover {
-            background: white;
-            color: #5a6fd8;
+            background: #ff7700;
+            /* Darker orange on hover */
+            color: white;
         }
 
         .btn-login:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
+            background: #ff7700;
+            /* Darker orange background on hover */
+            border-color: #ff7700;
+            /* Darker orange border on hover */
+            color: white;
+            /* Keep white text on hover */
         }
 
         .close-modal {
@@ -1030,6 +1060,7 @@
             </div>
         </div>
     </div>
+
     <!--footer-->
     <footer>
         <div class="footer-content-wrapper">
@@ -1119,6 +1150,7 @@
     else{window.addEventListener("load", onLoad)}
 })();
 </script>
+
 
     <script>
 
@@ -1513,6 +1545,7 @@
                     } else {
                         showStateMap(state.name);
                     }
+
                 });
 
                 container.appendChild(card);
@@ -1567,10 +1600,32 @@
             const stateInfo = stateCoordinates[stateName];
             if (!stateInfo) return;
 
+            // Check if this is a locked state (index >= 4)
+            const stateIndex = stateData.findIndex(state => state.name === stateName);
+            const isLocked = stateIndex >= 4;
+
+            // Update modal title and subtitle
+            document.getElementById('mapModalTitle').textContent = stateName;
+            const subtitle = isLocked
+                ? `🔒 Preview Location • Capital: ${stateInfo.capital}`
+                : `Capital: ${stateInfo.capital}`;
+            document.getElementById('mapModalSubtitle').textContent = subtitle;
+
+            // Show the modal
             document.getElementById('mapModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
 
-            // Clean up previous map if exists
+            // Initialize the map after a short delay to ensure the modal is visible
+            setTimeout(() => {
+                initializeMap(stateInfo.lat, stateInfo.lng, stateName, stateInfo.capital, isLocked);
+            }, 100);
+        }
+
+        function hideMapModal() {
+            document.getElementById('mapModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+            // Destroy the current map to prevent memory leaks
             if (currentMap) {
                 currentMap.remove();
                 currentMap = null;
@@ -1610,7 +1665,22 @@
                 maxZoom: 18,
             }).addTo(currentMap);
 
-            const marker = L.marker([stateInfo.lat, stateInfo.lng]).addTo(currentMap);
+            const marker = L.marker([stateInfo.lat, stateInfo.lng]).addTo(currentMap); 
+
+            // Add popup with state information
+            const popupContent = isLocked
+                ? `<div style="text-align: center; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 10px 0; color: #333;">🔒 ${stateName}</h3>
+                    <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
+                    <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}</p>
+                    <p style="margin: 10px 0 0 0; color: #888; font-size: 0.9em; font-style: italic;">Preview Mode - Sign up to unlock full details!</p>
+                </div>`
+                : `<div style="text-align: center; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 10px 0; color: #333;">${stateName}</h3>
+                    <p style="margin: 0; color: #666;"><strong>Capital:</strong> ${capital}</p>
+                    <p style="margin: 5px 0 0 0; color: #666;"><strong>Coordinates:</strong> ${lat.toFixed(4)}, ${lng.toFixed(4)}</p>
+                </div>`;
+
             marker.bindPopup(popupContent).openPopup();
 
             const circleColor = '#667eea';
@@ -2001,88 +2071,88 @@
 
     </script>
 
-<!-- Back to Top Button with Updated Colors (#ff9933) -->
-<style>
-  /* Base Button Styles */
-  #backToTopBtn {
-    position: fixed;
-    right: 25px;
-    bottom: 85px;
-    z-index: 1200;
-    background: #ff9832;
-    color: #fff;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: normal;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    line-height: 1;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Visible State */
-  #backToTopBtn.show {
-    opacity: 1;
-    transform: translateY(0);
-    display: flex;
-  }
-  
-  /* Hover Effects */
-  #backToTopBtn:hover {
-    transform: translateY(-5px) scale(1.05); 
-    background: #ffb366; 
-    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    #backToTopBtn {
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
-  }
-</style>
+    <!-- Back to Top Button with Updated Colors (#ff9933) -->
+    <style>
+        /* Base Button Styles */
+        #backToTopBtn {
+            position: fixed;
+            right: 25px;
+            bottom: 85px;
+            z-index: 1200;
+            background: #ff9832;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            line-height: 1;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
 
-<!-- Button HTML (unchanged) -->
-<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+        /* Visible State */
+        #backToTopBtn.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: flex;
+        }
 
-<!-- JavaScript (unchanged) -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const backBtn = document.getElementById('backToTopBtn');
-    const scrollThreshold = document.body.scrollHeight / 3;
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > scrollThreshold) {
-        backBtn.classList.add('show');
-      } else {
-        backBtn.classList.remove('show');
-      }
-    });
+        /* Hover Effects */
+        #backToTopBtn:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: #ffb366;
+            box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+        }
 
-    backBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            #backToTopBtn {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+
+    <!-- Button HTML (unchanged) -->
+    <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+    <!-- JavaScript (unchanged) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const backBtn = document.getElementById('backToTopBtn');
+            const scrollThreshold = document.body.scrollHeight / 3;
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > scrollThreshold) {
+                    backBtn.classList.add('show');
+                } else {
+                    backBtn.classList.remove('show');
+                }
+            });
+
+            backBtn.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 

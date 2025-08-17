@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="../css/layout.css" />
     <link rel="stylesheet" href="../css/components.css" />
     <link rel="stylesheet" href="../css/feedback.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
@@ -31,6 +37,7 @@
   <body>
 
     <!-- Navigation -->
+
     <!-- Navigation -->
 <nav class="navbar">
   <div class="nav-container">
@@ -44,6 +51,7 @@
       <span></span>
       <span></span>
     </div>
+
 
         <ul class="nav-menu" id="navMenu">
           <li><a href="home1.html">Home</a></li>
@@ -71,6 +79,23 @@
             <label for="name">Name *</label>
             <input type="text" id="name" name="name" required />
             <div class="error-message" id="nameError">Please enter your name</div>
+        <div class="nav-buttons">
+          <a href="contact-us.html"><span>Contact Us</span><i>→</i></a>
+          <a href="feedback.html"><span>Feedback</span><i>→</i></a>
+        </div>
+      </div>
+    </nav> -->
+
+    <div id="navbar-container"></div>
+    
+    <main class="main-content">
+      <div class="container">
+        <div class="form-card">
+          <div class="form-header">
+            <h1>Share Your Feedback</h1>
+            <p class="form-subtitle">
+              Your insights help us improve the DeshDarshan experience!
+            </p>
           </div>
 
           <div class="form-group">
@@ -128,14 +153,16 @@
             India. We aim to introduce the world to India's rich heritage,
             traditions, arts, and history.
           </p>
+          <div class="footer-logo">Desh Darshan</div>
+
         </div>
 
         <!-- Section 2: Quick Links -->
         <div class="footer-section">
           <h3 class="footer-section-title">Quick Links</h3>
           <ul>
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about us.html" class="footer-link">About Us</a></li>
+            <li><a href="../" class="footer-link">Home</a></li>
+            <li><a href="about-us.html" class="footer-link">About Us</a></li>
             <li>
               <a href="explore.html" class="footer-link">Explore India</a>
             </li>
@@ -413,7 +440,8 @@
     });
   });
 </script>
-
+<script src="../js/navbar-loader.js"></script>
+ <script src="./js/navbar.js"></script>
   </body>
 
 </html>
