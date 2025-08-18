@@ -6,7 +6,10 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e3e0de 0%, #dbd9d8 25%, #dbd9d8 50%, #dbd9d8 75%, #dbd9d8 100%);
+            /*background: linear-gradient(135deg, #e3e0de 0%, #dbd9d8 25%, #dbd9d8 50%, #dbd9d8 75%, #dbd9d8 100%);*/
+             background:  linear-gradient(135deg, 
+             rgba(250, 250, 250, 0.9), 
+             rgba(100, 250, 250, 0.9))!important;
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
@@ -35,7 +38,7 @@
         }
 
         .header h1 {
-            color: white;
+            color: rgba(10, 50, 90, 1.0)!important;
             font-size: 3.5rem;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
             margin-bottom: 0.5rem;
@@ -45,7 +48,7 @@
         }
 
         .header p {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(10, 50, 90, 1.0)!important;
             font-size: 1.2rem;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1.5s ease-out;
@@ -62,7 +65,7 @@
             padding: 0.8rem 1.2rem;
             border: none;
             border-radius: 30px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 1.0);
             color: #333;
             font-weight: bold;
             cursor: pointer;

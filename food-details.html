@@ -21,11 +21,21 @@
         <span id="spiceText">Mild 🌶</span>
       </button>
     </div>
-    <img id="fireEffect" src="assets/images/effects/fire.gif" alt="Fire" style="display: none" />
-    <img id="steamEffect" src="assets/images/effects/steam.gif" alt="Steam" style="display: none" />
+    <img
+      id="fireEffect"
+      src="assets/images/animations/fire.gif"
+      alt="Fire"
+      style="display: none"
+    />
+    <img
+      id="steamEffect"
+      src="assets/images/animations/steam.gif"
+      alt="Steam"
+      style="display: none"
+    />
     <img
       id="mediumFireEffect"
-      src="assets/images/effects/lowflame.gif"
+      src="assets/images/animations/lowflame.gif"
       alt="Low Fire"
       style="display: none"
     />
@@ -72,7 +82,7 @@
       <div id="grandmaWrapper" style="display: none">
         <div class="grandma-container">
           <img
-            src="animated-grandma.png"
+            src="assets/images/animations/animated-grandma.png"
             class="animated-grandma"
             alt="Grandma Character"
             id="grandmaImg"
@@ -89,7 +99,93 @@
       <ul id="food-link"></ul>
       <a href="index.html" class="btn btn-primary mt-3">← Back to Home</a>
     </div>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+    <script src="js/food-details.js"></script>
 
-    <script src="food-details.js"></script>
+<!-- Back to Top Button with Updated Colors (#ff9933) -->
+<style>
+  /* Base Button Styles */
+  #backToTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    z-index: 1200;
+    background: #ff9832;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Visible State */
+  #backToTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+  }
+  
+  /* Hover Effects */
+  #backToTopBtn:hover {
+    transform: translateY(-5px) scale(1.05); 
+    background: #ffb366; 
+    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #backToTopBtn {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- Button HTML (unchanged) -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<!-- JavaScript (unchanged) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
+      }
+    });
+
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
   </body>
 </html>

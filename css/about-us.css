@@ -224,6 +224,7 @@ a {
   max-width: 960px;
   margin: 4rem auto;
   padding: 0 2rem;
+  /* gap:12rem; */
 }
 
 .content-card {
@@ -234,6 +235,8 @@ a {
   transform: translateY(50px);
   opacity: 0;
   transition: all 0.8s ease;
+  margin: 5rem 2rem;
+  border: orange solid 2px;
 }
 
 .content-card.visible {
@@ -465,28 +468,7 @@ footer {
   font-size: 0.875rem;
 }
 
-/* Back to Top Button */
-#backToTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 40px;
-  right: 30px;
-  z-index: 99;
-  font-size: 30px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  color: white;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
 
-#backToTopBtn:hover {
-  background-color: transparent;
-  transform: translateY(-5px);
-}
 
 /* Animations */
 @keyframes slideDown {

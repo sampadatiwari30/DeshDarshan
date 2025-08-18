@@ -1,0 +1,62 @@
+/* Festival Details Expandable Section */
+.festival-details {
+    display: none;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.festival-details h4 {
+    color: #4CAF50;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.festival-details p, .festival-details ul {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.festival-details ul {
+    padding-left: 20px;
+}
+
+.read-more-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+.read-more-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+
+
+/* colour of links */
+.itinerary-btn:link,
+.itinerary-btn:visited {
+    color: rgb(255, 5, 0);
+    text-decoration: none; /* optional, removes underline */
+}
+
+.itinerary-btn:hover,
+.itinerary-btn:active {
+    color: rgb(2, 214, 247); /* or any hover color you want */
+}
+
+
+
+
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wrestling – DeshDarshan</title>
+  <style>
+    :root{
+      --primary:#7f1d1d;   /* deep maroon */
+      --accent:#fbbf24;    /* warm golden */
+      --bg:#fff8f5;
+      --text:#222;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    header{
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+    header h1{margin:0;font-size:2.2rem}
+    .back{
+      margin-top:10px;
+      padding:8px 16px;
+      border:none;
+      border-radius:6px;
+      background:var(--accent);
+      color:#111;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .hero{ text-align:center; padding:20px; }
+    .hero img{
+      max-width:90%;
+      border-radius:12px;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+    }
+    section{ padding:40px 10%; }
+    h2{ margin-top:0; color:var(--primary); }
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; margin-top:20px;
+    }
+    .fact-card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transition:transform .2s;
+    }
+    .fact-card:hover{ transform:scale(1.05); }
+    .timeline{ display:grid; gap:16px; margin-top:16px; }
+    .step{
+      background:#fff; padding:18px; border-left:6px solid var(--accent);
+      border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .quiz{
+      background:#fff; padding:25px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); margin-top:20px; text-align:center;
+    }
+    .quiz button{
+      background:var(--primary); color:#fff; border:none;
+      padding:10px 18px; margin:8px; border-radius:8px; cursor:pointer;
+    }
+    .quiz button:hover{ background:#a83232; }
+    footer{
+      text-align:center; padding:20px; background:var(--primary); color:#fff; margin-top:30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>🤼 Wrestling – Kushti/Pehlwani</h1>
+  </header>
+
+  <div class="hero">
+    <img src="./img/wrestling.png" alt="Traditional Indian Wrestling in Akhada">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      Wrestling, or <b>Kushti/Pehlwani</b>, has been practiced in India since ancient times,
+      mentioned in the <b>Mahabharata</b> (Bhima vs Jarasandha) and other epics.  
+      Traditional Indian wrestling is performed in an <b>akhada</b>, with wrestlers called <i>pehlwans</i>, 
+      who train with strict discipline in diet and physical exercise.  
+      Over time, modern freestyle wrestling also developed and India has produced
+      many international champions.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">🏋️ Pehlwans follow a <b>vegetarian high-protein diet</b> like milk, ghee, and almonds.</div>
+      <div class="fact-card">📜 Ancient texts like <b>Manasollasa (12th century)</b> describe wrestling techniques.</div>
+      <div class="fact-card">🥇 India’s first Olympic medal in wrestling came in <b>1952 (K.D. Jadhav)</b>.</div>
+      <div class="fact-card">⛳ Wrestling bouts traditionally take place on <b>mud pits</b>, not mats.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔁 Evolution</h2>
+    <div class="timeline">
+      <div class="step"><b>Vedic Age</b> — Wrestling was part of martial training in kingdoms.</div>
+      <div class="step"><b>Medieval India</b> — Mughals introduced Persian styles, blending into <i>Pehlwani</i>.</div>
+      <div class="step"><b>British Era</b> — Kushti gained patronage in royal courts and rural India.</div>
+      <div class="step"><b>Modern Era</b> — India shines in freestyle wrestling at the Olympics and world stage.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧩 How It’s Played</h2>
+    <ul>
+      <li>Two wrestlers compete to pin the opponent’s shoulders to the ground.</li>
+      <li>In <b>Kushti</b>, matches are fought on mud grounds with oil applied to the body.</li>
+      <li>In <b>freestyle wrestling</b>, matches are on mats, using point-based scoring.</li>
+      <li>Victory can be by pin (fall), technical superiority, or points.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>Who won India’s first Olympic medal in wrestling?</h3>
+      <button onclick="checkAnswer('correct')">K.D. Jadhav</button>
+      <button onclick="checkAnswer('wrong')">Sushil Kumar</button>
+      <button onclick="checkAnswer('wrong')">Bajrang Punia</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <h1>DeshDarshan Project</h1>
+  </footer>
+
+  <script>
+    function checkAnswer(option){
+      const result = document.getElementById("result");
+      if(option === 'correct'){
+        result.innerHTML = "✅ Correct! K.D. Jadhav won bronze in 1952.";
+        result.style.color = "green";
+      }else{
+        result.innerHTML = "❌ Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+    document.querySelector(".back").addEventListener("click", function(){
+      window.history.back();
+    });
+  </script>
+</body>
+</html>
