@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeshDarshan - Sign Up</title>
 
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+
+
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
@@ -81,7 +86,8 @@
 
 <body>
 <!-- Home Button -->
-<button class="home-button" onclick="window.location.href='../pages/home1.html'">
+<button class="home-button" onclick="window.location.href='../'">
+
     <img src="../assets/images/icons/home.png" alt="Home">
 </button>
     <!-- ===== MAIN CONTAINER ===== -->
@@ -475,6 +481,12 @@
                         error.classList.remove('visible');
                         error.textContent = '';
                     });
+
+                        // Hide home button after successful registration
+                    const homeButton = document.querySelector('.home-button');
+                    if (homeButton) {
+                        homeButton.style.display = 'none';
+                    }
 
                     updateSubmitButton();
 
