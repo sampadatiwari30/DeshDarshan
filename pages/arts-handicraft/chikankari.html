@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chikankari Embroidery — Lucknow</title>
+  <style>
+    :root{
+      --brand:#0d7a6b;      /* header & accents */
+      --brand-2:#106f62;    /* darker accent */
+      --accent:#f1c40f;     /* back btn */
+      --paper:#fffef9;
+      --ink:#333;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      margin:0; line-height:1.6;
+    }
+    header{
+      background: linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#fff; text-align:center; padding:1rem 3rem;
+      font-size:1.6rem; font-weight:700; position:relative;
+    }
+    .back-btn {
+      background: #f4d03f;
+      color: black;
+      padding: 9px 12px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+    .container{max-width:1100px; margin:2rem auto; padding:0 18px;}
+    .hero{
+      display:flex; justify-content:center; flex-wrap:wrap; gap:1.25rem; margin-bottom:1.75rem;
+    }
+    .hero img{
+      width:min(480px,100%); aspect-ratio:4/3; object-fit:cover;
+      border-radius:12px; box-shadow:0 10px 24px rgba(0,0,0,.12);
+    }
+    h2{color:var(--brand-2); margin:1.25rem 0 .5rem}
+    .card, .pill{
+      background:#fff; border-radius:12px; padding:1rem;
+      box-shadow:0 6px 16px rgba(0,0,0,.08); margin:.75rem 0;
+    }
+    .grid{
+      display:grid; gap:1rem; margin-top:.75rem;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    }
+    .pill{display:flex; align-items:flex-start; gap:.6rem}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--brand); margin-top:.45rem; flex:0 0 10px}
+    .muted{opacity:.9}
+    /* Quiz */
+    .quiz{background:#e8fff7; border:1px solid #c8f3e6}
+    .quiz h3{margin:.25rem 0 1rem; color:#0a5c51}
+    .quiz label{display:block; text-align:left; margin:.35rem auto; max-width:520px}
+    .quiz input{margin-right:.5rem}
+    .btn{
+      background:var(--brand); color:#fff; border:0; border-radius:8px;
+      padding:.6rem 1rem; cursor:pointer; font-weight:600;
+      box-shadow:0 8px 18px rgba(13,122,107,.18);
+      text-align: center;
+    }
+    .btn:hover{filter:brightness(.95)}
+    .result{font-weight:700; margin-top:.6rem;
+    text-align: center;}
+    footer{
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#111; color:#fff; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    ✨ Chikankari Embroidery — Elegance of Lucknow
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <img src="./img/Chikankari.png" alt="Chikankari kurta close-up">
+    </section>
+
+    <!-- ORIGIN -->
+    <section class="card">
+      <h2>📖 Origin & Heritage</h2>
+      <p class="muted">
+        <b>Chikankari</b> is the celebrated white-on-white embroidery of <b>Lucknow, Uttar Pradesh</b>, with roots traced to the
+        <b>Mughal era</b>. Popular lore credits <b>Empress Nur Jahan</b> for patronage and refinement of this delicate craft.
+        Traditionally worked on fine muslin and mulmul, today Chikankari adorns cotton, chiffon, georgette and silk—retaining
+        its airy elegance and understated luxury.
+      </p>
+    </section>
+
+    <!-- DID YOU KNOW -->
+    <section>
+      <h2>💡 Did You Know?</h2>
+      <div class="grid">
+        <div class="pill"><span class="dot"></span><div>Classic Chikankari appears almost embossed on the surface thanks to <b>shadow work (Bakhiya)</b>.</div></div>
+        <div class="pill"><span class="dot"></span><div>Signature stitches include <b>Tepchi</b>, <b>Bakhiya</b> (shadow), <b>Phanda</b>, <b>Murri</b>, <b>Jaali</b>, and <b>Hool</b>.</div></div>
+        <div class="pill"><span class="dot"></span><div>Artisans map designs using washable patterns; embroidery brings the motifs alive with minute needlework.</div></div>
+        <div class="pill"><span class="dot"></span><div><b>Lucknow Chikan Craft</b> holds a <b>GI (Geographical Indication)</b> tag (2008), protecting regional authenticity.</div></div>
+      </div>
+    </section>
+
+    <!-- UNIQUE FEATURES -->
+    <section>
+      <h2>🌸 What Makes Chikankari Unique</h2>
+      <div class="grid">
+        <div class="card"><b>Shadow Play</b><br/>Reverse stitches create a soft, shadowed effect on the fabric front (Bakhiya).</div>
+        <div class="card"><b>Breathable Elegance</b><br/>Perfect for tropical climates—airy, lightweight, and sophisticated.</div>
+        <div class="card"><b>Jaali Magic</b><br/>Fine drawn-thread work forms lace-like windows without cutting the fabric.</div>
+        <div class="card"><b>Versatility</b><br/>From kurtas and saris to home décor, the craft adapts across styles and fabrics.</div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="card quiz">
+      <h2>📝 Quick Quiz</h2>
+      <h3>Test your Chikankari IQ</h3>
+
+      <form id="quiz-form">
+        <label><input type="radio" name="q1" value="Bakhiya"> The “shadow work” stitch in Chikankari is called <b>Bakhiya</b>.</label>
+        <label><input type="radio" name="q1" value="Tepchi"> The “shadow work” stitch in Chikankari is called <b>Tepchi</b>.</label>
+        <label><input type="radio" name="q1" value="Cross"> The “shadow work” stitch in Chikankari is called <b>Cross Stitch</b>.</label>
+        <hr style="border:none;border-top:1px dashed #bfe8dc; margin: .8rem 0;">
+        <label><input type="radio" name="q2" value="Muslin"> Chikankari historically flourished on <b>muslin/mulmul</b>.</label>
+        <label><input type="radio" name="q2" value="Denim"> Chikankari historically flourished on <b>denim</b>.</label>
+        <label><input type="radio" name="q2" value="Canvas"> Chikankari historically flourished on <b>canvas</b>.</label>
+        <hr style="border:none;border-top:1px dashed #bfe8dc; margin: .8rem 0;">
+        <label><input type="radio" name="q3" value="2008"> Lucknow Chikan Craft received the GI tag in <b>2008</b>.</label>
+        <label><input type="radio" name="q3" value="1991"> Lucknow Chikan Craft received the GI tag in <b>1991</b>.</label>
+        <label><input type="radio" name="q3" value="2018"> Lucknow Chikan Craft received the GI tag in <b>2018</b>.</label>
+
+        <div style="margin-top:1rem;">
+          <button type="button" class="btn" onclick="gradeQuiz()">Submit</button>
+        </div>
+      </form>
+
+      <p id="quiz-result" class="result"></p>
+    </section>
+  </main>
+
+  <footer>DeshDarshan Project</footer>
+
+  <script>
+    function gradeQuiz(){
+      const result = document.getElementById('quiz-result');
+
+      // Collect answers
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+
+      // Validation
+      if(!q1 || !q2 || !q3){
+        result.textContent = "⚠️ Please answer all questions before submitting.";
+        result.style.color = "#c0392b";
+        return;
+      }
+
+      // Correct answers
+      let score = 0;
+      if(q1.value === "Bakhiya") score++;
+      if(q2.value === "Muslin") score++;
+      if(q3.value === "2008") score++;
+
+      // Feedback
+      if(score === 3){
+        result.textContent = "✅ Perfect! 3/3 — You really know your Chikankari! ✨";
+        result.style.color = "#0d7a6b";
+      } else if(score === 2){
+        result.textContent = "👍 Nice! 2/3 — Almost there. Revisit the facts above.";
+        result.style.color = "#0d7a6b";
+      } else {
+        result.textContent = "💡 You scored " + score + "/3 — Scroll up and explore the sections, then try again!";
+        result.style.color = "#c0392b";
+      }
+    }
+  </script>
+</body>
+</html>

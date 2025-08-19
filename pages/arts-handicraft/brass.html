@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brass & Bell Metal Crafts - Assam & Odisha</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: #4a2c2a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .back-btn {
+      background: #f4d03f;
+      color: black;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #4a2c2a;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.8rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fef6e4;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #9c640c;
+    }
+
+    footer{margin-top:2rem; background:#4a2c2a; color:#fff; text-align:center; padding:1rem; font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🔔 Brass & Bell Metal Crafts – Assam & Odisha
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+      <img src="./img/brass.png" alt="Brass Craft Assam">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Tradition</h2>
+    <p>Brass and Bell Metal Crafts hold a special place in the cultural heritage of <b>Assam and Odisha</b>.  
+    In Assam, the town of <b>Sarthebari</b> is famous for its traditional brass and bell metal works, used for making utensils, ceremonial items, and ornaments.  
+    In Odisha, the craft is deeply tied to religious practices, with artisans producing temple bells, lamps, and decorative items for centuries.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🔔 Assam’s bell metal craft is considered one of the oldest metal crafts in India.</div>
+      <div class="fact-box">🍲 Brass utensils are still widely used in Assamese households for their durability and health benefits.</div>
+      <div class="fact-box">🕉️ Odisha’s temples, like Puri Jagannath Temple, use handcrafted bells made by local artisans.</div>
+      <div class="fact-box">🌍 These crafts are eco-friendly and sustainable, with generations of families continuing the tradition.</div>
+    </div>
+
+    <!-- Styles -->
+    <h2>🎨 Popular Creations</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Utensils</b> – Plates, bowls, and water pots made from brass & bell metal.</div>
+      <div class="legend-box"><b>Temple Bells</b> – Famous in Odisha for their distinct sound & purity.</div>
+      <div class="legend-box"><b>Ceremonial Items</b> – Conch holders, lamps, and ritual containers.</div>
+      <div class="legend-box"><b>Decorative Crafts</b> – Ornamental showpieces with fine detailing.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong><br>Which town in Assam is most famous for its Brass & Bell Metal crafts?</p>
+      <form id="quiz-form">
+        <label><input type="radio" name="answer" value="Guwahati"> Guwahati</label><br>
+        <label><input type="radio" name="answer" value="Sarthebari"> Sarthebari</label><br>
+        <label><input type="radio" name="answer" value="Silchar"> Silchar</label><br><br>
+        <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Sarthebari") {
+        result.textContent = "✅ Correct! Sarthebari in Assam is world-famous for Brass & Bell Metal crafts.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Sarthebari.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+  <footer>By DeshDarshan</footer>
+</body>
+</html>

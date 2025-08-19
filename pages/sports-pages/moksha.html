@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moksha Patam – DeshDarshan</title>
+  <style>
+    :root{
+      --primary:#7c2d12;   /* earthy red */
+      --accent:#f59e0b;    /* saffron-yellow */
+      --bg:#fdfaf5;
+      --text:#222;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    header{
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+    header h1{margin:0;font-size:2.2rem}
+    .back{
+      margin-top:10px;
+      padding:8px 16px;
+      border:none;
+      border-radius:6px;
+      background:var(--accent);
+      color:#111;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .hero{ text-align:center; padding:20px; }
+    .hero img{
+      max-width:90%;
+      border-radius:12px;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+    }
+    section{ padding:40px 10%; }
+    h2{ margin-top:0; color:var(--primary); }
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; margin-top:20px;
+    }
+    .fact-card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transition:transform .2s;
+    }
+    .fact-card:hover{ transform:scale(1.05); }
+    .timeline{ display:grid; gap:16px; margin-top:16px; }
+    .step{
+      background:#fff; padding:18px; border-left:6px solid var(--accent);
+      border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .quiz{
+      background:#fff; padding:25px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); margin-top:20px; text-align:center;
+    }
+    .quiz button{
+      background:var(--primary); color:#fff; border:none;
+      padding:10px 18px; margin:8px; border-radius:8px; cursor:pointer;
+    }
+    .quiz button:hover{ background:#9a3d1a; }
+    footer{
+      text-align:center; padding:20px; background:var(--primary); color:#fff; margin-top:30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>🎲 Moksha Patam – The Ancient Snakes & Ladders</h1>
+  </header>
+
+  <div class="hero">
+    <img src="./img/mok.png" alt="Ancient Indian game Moksha Patam">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      <b>Moksha Patam</b>, the ancient Indian board game, is the original form of
+      <b>Snakes and Ladders</b>. It was designed as a moral teaching tool where
+      ladders symbolized virtues like honesty and faith, while snakes represented
+      vices like greed, anger, and lust. The ultimate goal was to reach
+      <i>Moksha</i> (liberation).
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">🐍 The snakes symbolized <b>human flaws</b> dragging players down.</div>
+      <div class="fact-card">🪜 Ladders symbolized <b>virtues</b> that uplift the soul.</div>
+      <div class="fact-card">🇬🇧 The British took Moksha Patam to England in the 19th century and called it <b>Snakes & Ladders</b>.</div>
+      <div class="fact-card">🌍 In the U.S., Milton Bradley adapted it as <b>Chutes and Ladders</b>.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔁 Evolution</h2>
+    <div class="timeline">
+      <div class="step"><b>Ancient India</b> — Created as a spiritual teaching tool for morality & karma.</div>
+      <div class="step"><b>Medieval period</b> — Popularized in temples and households as a children’s game.</div>
+      <div class="step"><b>19th century</b> — British colonists bring it to England, simplifying moral themes.</div>
+      <div class="step"><b>Modern day</b> — Played worldwide as <b>Snakes and Ladders</b> or <b>Chutes and Ladders</b>.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧩 How It’s Played</h2>
+    <ul>
+      <li>Players roll a <b>dice</b> and move their token forward that many spaces.</li>
+      <li>If you land at the bottom of a ladder, you <b>climb up</b>.</li>
+      <li>If you land on the head of a snake, you <b>slide down</b>.</li>
+      <li>The goal is to reach the final square (Moksha), representing <b>liberation</b>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>What did the ladders in Moksha Patam represent?</h3>
+      <button onclick="checkAnswer('correct')">Virtues</button>
+      <button onclick="checkAnswer('wrong')">Wealth</button>
+      <button onclick="checkAnswer('wrong')">Luck</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <h1>DeshDarshan Project</h1>
+  </footer>
+
+  <script>
+    function checkAnswer(option){
+      const result = document.getElementById("result");
+      if(option === 'correct'){
+        result.innerHTML = "✅ Correct! Ladders symbolized virtues that uplift the soul.";
+        result.style.color = "green";
+      }else{
+        result.innerHTML = "❌ Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+    document.querySelector(".back").addEventListener("click", function(){
+      window.history.back();
+    });
+  </script>
+</body>
+</html>

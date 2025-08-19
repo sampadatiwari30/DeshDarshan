@@ -127,6 +127,49 @@ html .navbar .nav-container {
     margin-left: auto !important;
 }
 
+.side-menu{
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left:0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index:1000;
+}
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  margin: 15px 0;
+}
+
+.side-menu a {
+  padding: 10px 25px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.2s;
+}
+
+.side-menu a:hover {
+  background: #575757;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
 /* Ultimate navbar layout fix - this should work on ALL pages */
 .navbar {
     background: rgba(0, 0, 0, 0.9) !important;
@@ -168,6 +211,7 @@ html .navbar .nav-container {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 15px;
     transition: all 0.3s ease-in-out;
 }
 

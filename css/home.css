@@ -22,7 +22,7 @@ body {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   z-index: 0;
 }
 
@@ -155,6 +155,7 @@ body {
 .culture-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .culture-item img {
@@ -322,7 +323,8 @@ a,
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .heritage-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  cursor: pointer;
 }
 
 .heritage-item img {
@@ -531,6 +533,10 @@ footer {
   margin-left: 5px;
 }
 
+.footer-contact-item span:hover{
+  cursor: pointer;
+}
+
 .footer-section {
   flex: 1;
   min-width: 180px;
@@ -549,6 +555,7 @@ footer {
   font-size: 1.2rem;
   font-weight: 750;
   text-shadow: 1px 1px 8px white;
+  cursor: pointer;
 }
 
 .social-icons-container {
@@ -621,7 +628,10 @@ footer {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #1e1e1e;
+    background-image: url('/assets/images/animations/Indian_Flag_Background.jpg');
+    background-size: cover; /* Make the flag fill the entire screen */
+    background-position: center; /* Keep it centered */
+    background-repeat: no-repeat;
     color: #FF9933; /* Initial saffron */
     display: flex;
     justify-content: center;
@@ -630,6 +640,8 @@ footer {
     transition: opacity 0.5s ease, visibility 0.5s ease;
     animation: tricolorText 3s linear infinite;
 }
+
+
 
 #loading-screen.hidden {
     opacity: 0;
