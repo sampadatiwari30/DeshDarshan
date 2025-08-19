@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kantha Embroidery</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #fffef9;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #c0392b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      position: relative;
+    }
+    .back-btn {
+      background: #f4d03f;
+      color: black;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #c0392b;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fdebd0;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #922b21;
+    }
+
+    footer
+    {
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#111; color:#fff; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🌸 Kantha Embroidery – Soul of Bengal
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+        <img src="./img/kantha.png" alt="Kantha Embroidery">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Heritage</h2>
+    <p><b>Kantha Embroidery</b> is a traditional hand embroidery technique from <b>West Bengal and Bangladesh</b>. It dates back more than a thousand years, originating as a way for rural women to recycle old sarees and dhotis into quilts and shawls. The word "Kantha" means "patched cloth." Today, Kantha is admired globally for its simplicity and storytelling motifs.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🌟 Kantha uses a simple running stitch, yet creates intricate patterns and stories.</div>
+      <div class="fact-box">👩‍🎨 Women traditionally stitched Kantha at home, passing the craft through generations.</div>
+      <div class="fact-box">🎨 Motifs often depict folk tales, animals, flowers, and scenes from daily life.</div>
+      <div class="fact-box">🌏 Today, Kantha embroidery is applied not only on quilts but also sarees, scarves, and home décor.</div>
+    </div>
+
+    <!-- Unique Features -->
+    <h2>🌺 Unique Features of Kantha</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Running Stitch</b> – The essence of Kantha, making designs look like delicate hand-drawings.</div>
+      <div class="legend-box"><b>Storytelling</b> – Each piece narrates myths, epics, or village life scenes.</div>
+      <div class="legend-box"><b>Recycling Spirit</b> – Born as an eco-friendly craft from old sarees and cloth layers.</div>
+      <div class="legend-box"><b>Global Fame</b> – Now showcased in international fashion and exhibitions.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong>  
+        The main stitch used in Kantha embroidery is?
+      </p>
+      <form id="quiz-form">
+          <label><input type="radio" name="answer" value="Chain"> Chain Stitch</label><br>
+          <label><input type="radio" name="answer" value="Running"> Running Stitch</label><br>
+          <label><input type="radio" name="answer" value="Cross"> Cross Stitch</label><br><br>
+          <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <footer>DeshDarshan Project</footer>
+
+  <script> 
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Running") {
+        result.textContent = "✅ Correct! Kantha embroidery uses the Running Stitch.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Running Stitch.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
