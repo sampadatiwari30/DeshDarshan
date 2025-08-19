@@ -15,6 +15,40 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="js/dark-theme-toggle.js"></script>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spirit of India</title>
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/destinations.css" />
+  <link rel="icon" href="assets/images/icons/newlogo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body class="homepage">
+  <!-- Navigation Bar Container -->
+  <div id="navbar-container"></div>
+
+  <div id="namaste-overlay">
+    <h2>Namaste 🙏</h2>
+  </div>
+
+  <!-- Hero Section with Slideshow -->
+  <section class="hero">
+    <div class="slideshow-container">
+      <div class="slide active">
+        <img src="assets/images/heroes/beauty.jpg" alt="beauty">
+        <div class="slide-content">
+          <h1 data-translate="hero-title-1">Discover the Beauty of India</h1>
+          <p data-translate="hero-desc-1">Experience the rich heritage, vibrant culture, and timeless traditions</p>
+        </div>
+
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon/favicon-16x16.png">
 <link rel="shortcut icon" href="assets/images/icons/favicon/favicon.ico">
@@ -134,6 +168,7 @@
       <div class="loader">
         <i class="fa-solid fa-spinner"></i>
         <h2>Namaste 🙏<span class="dots"></span></h2>
+
       </div>
     </div>
 
@@ -945,6 +980,9 @@
     </script>
     <script src="js/navbar-loader.js"></script>
     <script src="./js/navbar.js"></script>
+
+    <script defer src="./js/home.js"></script>
+
     <script src="./js/home.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -954,6 +992,7 @@
         }, 6000);
       });
     </script>
+
   </body>
 </html>
 
