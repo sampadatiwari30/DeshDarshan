@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+    
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+<link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
 
 
 
@@ -70,13 +70,12 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1.5s ease-out;
         }
-
-        .explore {
+        .explore{
             color: rgba(15, 14, 14, 0.676);
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             /* animation: scaleIn 1.9s ease-out; */
         }
-
+        
 
 
         .language-switcher {
@@ -611,9 +610,9 @@
         <p id="pageSubtitle">Discover the incredible diversity of Bharat</p>
         <span class="explore">Want to explore all the states?</span>
         <a href="../pages/login.html">
-            <span>You need to login first</span>
-            <i class="fas fa-sign-in-alt"></i>
-        </a>
+                <span>You need to login first</span>
+                <i class="fas fa-sign-in-alt"></i>
+            </a>
 
         <div class="language-switcher">
             <select id="languageSelect">
@@ -657,79 +656,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="footer-content-wrapper">
-            <!-- Section 1: About Desh Darshan -->
-            <div class="footer-section">
-                <h3 class="footer-section-title">Desh Darshan</h3>
-                <p>
-                    Desh Darshan is your gateway to the vibrant and diverse culture of
-                    India. We aim to introduce the world to India's rich heritage,
-                    traditions, arts, and history.
-                </p>
-                <div class="footer-logo">Desh Darshan</div>
-            </div>
-
-            <!-- Section 2: Quick Links -->
-            <div class="footer-section">
-                <h3 class="footer-section-title">Quick Links</h3>
-                <ul>
-                    <li><a href="../" class="footer-link">Home</a></li>
-                    <li><a href="about-us.html" class="footer-link">About Us</a></li>
-                    <li>
-                        <a href="explore.html" class="footer-link">Explore India</a>
-                    </li>
-                    <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-                    <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Section 3: Contact Us -->
-            <div class="footer-section">
-                <h3 class="footer-section-title">Contact Us</h3>
-                <ul>
-                    <li class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>hello@deshdarshan.in</span>
-                    </li>
-                    <li class="footer-contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>+91 1234567890</span>
-                    </li>
-                    <li class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>New Delhi, India</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Section 4: Follow Us -->
-            <div class="footer-section">
-                <h3 class="footer-section-title">Follow Us</h3>
-                <div class="social-icons-container">
-                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-                <div class="newsletter">
-                    <h4>Subscribe to our newsletter</h4>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" />
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="copyright-section">
-            &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-        </div>
-    </footer>
-
     <script>
         (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "eaZ3BLaEp3NWiit_Vn0fK"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
     </script>
