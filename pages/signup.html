@@ -19,6 +19,9 @@
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/signup.css">
+ feature/AnimatedCursor
+    <link rel="stylesheet" href="../css/custom-cursor.css">
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -82,14 +85,27 @@
             z-index: -1;
         }
     </style>
+ main
   </head>
 
 <body>
+ feature/AnimatedCursor
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-dot" id="cursorDot"></div>
+        <div class="cursor-trail" id="cursorTrail"></div>
+        <div class="cursor-trail-2" id="cursorTrail2"></div>
+        <div class="cursor-trail-3" id="cursorTrail3"></div>
+        <div class="cursor-trail-4" id="cursorTrail4"></div>
+        <div class="cursor-magnetic" id="cursorMagnetic"></div>
+    </div>
+
 <!-- Home Button -->
 <button class="home-button" onclick="window.location.href='../'">
 
     <img src="../assets/images/icons/home.png" alt="Home">
 </button>
+ main
     <!-- ===== MAIN CONTAINER ===== -->
     <div class="container">
         <!-- ===== SIGNUP FORM ===== -->
@@ -584,6 +600,7 @@
         // Add real-time password strength checking
         password.addEventListener('input', updatePasswordStrength);
     </script>
+    <script src="../js/custom-cursor.js"></script>
 
 </body>
 

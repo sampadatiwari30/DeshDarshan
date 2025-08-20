@@ -8,10 +8,15 @@
     <title>Login - Desh Darshan</title>
     <script src="../js/firebase.js" defer type="module"></script>
     <link rel="stylesheet" href="../css/login.css">
+ feature/AnimatedCursor
+feature/AnimatedCursor
+    <link rel="stylesheet" href="../css/custom-cursor.css">
+
 
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
     <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+ main
 
         <style>
         body {
@@ -79,14 +84,27 @@
 
 
     </style>
+ main
   </head>
 
 <body>
+ feature/AnimatedCursor
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-dot" id="cursorDot"></div>
+        <div class="cursor-trail" id="cursorTrail"></div>
+        <div class="cursor-trail-2" id="cursorTrail2"></div>
+        <div class="cursor-trail-3" id="cursorTrail3"></div>
+        <div class="cursor-trail-4" id="cursorTrail4"></div>
+        <div class="cursor-magnetic" id="cursorMagnetic"></div>
+    </div>
+
     <!-- Home Button -->
 
     <button class="home-button" onclick="window.location.href='../'">
         <img src="../assets/images/icons/home.png" alt="Home">
     </button>
+ main
     <div class="container">
         <!-- Login Form -->
         <div class="login-container" id="loginContainer">
@@ -415,6 +433,7 @@
             console.log('For testing: Use any valid email format and password (6+ characters)');
         });
     </script>
+    <script src="../js/custom-cursor.js"></script>
 
 </body>
 

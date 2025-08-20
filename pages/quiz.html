@@ -12,14 +12,28 @@
   <link rel="stylesheet" href="../css/layout.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/quiz.css"/>
+ feature/AnimatedCursor
+  <link rel="stylesheet" href="../css/custom-cursor.css"/>
+  <link rel="stylesheet" href="../css/cursor-fix.css"/>
+
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
   <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
 
+ main
   
 </head>
 <body class="indian-bg">
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor">
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+    <div class="cursor-trail-2" id="cursorTrail2"></div>
+    <div class="cursor-trail-3" id="cursorTrail3"></div>
+    <div class="cursor-trail-4" id="cursorTrail4"></div>
+    <div class="cursor-magnetic" id="cursorMagnetic"></div>
+  </div>
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
@@ -326,6 +340,27 @@
       }
     };
   </script>
+ feature/AnimatedCursor
+  <script src="../js/custom-cursor.js"></script>
+  <script>
+    // Ensure cursor is initialized for quiz page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Force cursor: none on body
+      document.body.style.cursor = 'none';
+      document.body.style.setProperty('cursor', 'none', 'important');
+      
+      // Check if cursor elements exist
+      const cursor = document.getElementById('customCursor');
+      if (cursor) {
+        console.log('Quiz: Custom cursor elements found');
+        cursor.style.display = 'block';
+        cursor.style.zIndex = '99999';
+      } else {
+        console.error('Quiz: Custom cursor elements not found');
+      }
+    });
+  </script>
+
 
 <!-- Back to Top Button with Updated Colors (#ff9933) -->
 <style>
@@ -410,5 +445,6 @@
   });
 </script>
 
+ main
 </body>
 </html>

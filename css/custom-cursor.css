@@ -1,0 +1,260 @@
+/* Custom Cursor Styles with Snake Trailing Effect */
+body {
+  cursor: none !important;
+}
+
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999 !important;
+  display: block !important;
+}
+
+/* Main cursor dot - Made larger */
+.cursor-dot {
+  position: fixed !important;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999999 !important;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Snake trailing dots - Made larger */
+.cursor-trail {
+  position: fixed !important;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(45deg, #ffe66d, #ff9ff3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999998 !important;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 25px rgba(255, 230, 109, 0.7);
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Additional trailing dots for snake effect - Made larger */
+.cursor-trail-2 {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #a8e6cf, #ff6b6b);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(168, 230, 207, 0.6);
+  opacity: 1;
+}
+
+.cursor-trail-3 {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #4ecdc4, #ffe66d);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+  opacity: 1;
+}
+
+.cursor-trail-4 {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(45deg, #ff9ff3, #a8e6cf);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9996;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(255, 159, 243, 0.4);
+  opacity: 1;
+}
+
+/* Magnetic cursor for interactive elements - Made larger */
+.cursor-magnetic {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, rgba(78, 205, 196, 0.15) 100%);
+  border: 3px solid rgba(255, 107, 107, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9995;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  backdrop-filter: blur(8px);
+}
+
+/* Interactive elements */
+.interactive-element {
+  cursor: none;
+}
+
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Show default cursor for mobile devices */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+  
+  .interactive-element {
+    cursor: auto;
+  }
+}
+
+/* Smooth transitions for all cursor elements */
+.cursor-dot,
+.cursor-trail,
+.cursor-trail-2,
+.cursor-trail-3,
+.cursor-trail-4,
+.cursor-magnetic {
+  will-change: transform, opacity, background-color, border-color;
+}
+
+/* Loading state for cursor */
+.cursor-loading .cursor-dot {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.8;
+  }
+}
+
+/* Snake movement animation */
+@keyframes snakeTrail {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.6;
+  }
+}
+
+/* Special effects for different element types - Enhanced for larger cursor */
+.cursor-dot.button-hover {
+  background: linear-gradient(45deg, #4ecdc4, #ffe66d) !important;
+  box-shadow: 0 0 40px rgba(78, 205, 196, 0.9) !important;
+  transform: translate(-50%, -50%) scale(1.2) !important;
+}
+
+.cursor-dot.image-hover {
+  background: linear-gradient(45deg, #ffe66d, #ff9ff3) !important;
+  box-shadow: 0 0 40px rgba(255, 230, 109, 0.9) !important;
+  transform: translate(-50%, -50%) scale(1.2) !important;
+}
+
+.cursor-dot.text-hover {
+  background: linear-gradient(45deg, #a8e6cf, #4ecdc4) !important;
+  box-shadow: 0 0 40px rgba(168, 230, 207, 0.9) !important;
+  transform: translate(-50%, -50%) scale(1.2) !important;
+}
+
+.cursor-dot.form-hover {
+  background: linear-gradient(45deg, #ff9ff3, #ff6b6b) !important;
+  box-shadow: 0 0 40px rgba(255, 159, 243, 0.9) !important;
+  transform: translate(-50%, -50%) scale(1.2) !important;
+}
+
+.cursor-dot.interactive-hover {
+  background: linear-gradient(45deg, #ff6b6b, #ffe66d) !important;
+  box-shadow: 0 0 40px rgba(255, 107, 107, 0.9) !important;
+  transform: translate(-50%, -50%) scale(1.2) !important;
+}
+
+/* Trail effects with India theme colors - Enhanced for larger cursor */
+.cursor-trail.button-hover {
+  background: linear-gradient(45deg, #4ecdc4, #a8e6cf) !important;
+  box-shadow: 0 0 35px rgba(78, 205, 196, 0.8) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-trail.image-hover {
+  background: linear-gradient(45deg, #ffe66d, #ff6b6b) !important;
+  box-shadow: 0 0 35px rgba(255, 230, 109, 0.8) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-trail.text-hover {
+  background: linear-gradient(45deg, #a8e6cf, #4ecdc4) !important;
+  box-shadow: 0 0 35px rgba(168, 230, 207, 0.8) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-trail.form-hover {
+  background: linear-gradient(45deg, #ff9ff3, #ffe66d) !important;
+  box-shadow: 0 0 35px rgba(255, 159, 243, 0.8) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-trail.interactive-hover {
+  background: linear-gradient(45deg, #ff6b6b, #ff9ff3) !important;
+  box-shadow: 0 0 35px rgba(255, 107, 107, 0.8) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+/* Magnetic effects with India theme - Enhanced for larger cursor */
+.cursor-magnetic.button-hover {
+  background: radial-gradient(circle, rgba(78, 205, 196, 0.25) 0%, rgba(168, 230, 207, 0.15) 100%) !important;
+  border-color: rgba(78, 205, 196, 0.6) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-magnetic.image-hover {
+  background: radial-gradient(circle, rgba(255, 230, 109, 0.25) 0%, rgba(255, 107, 107, 0.15) 100%) !important;
+  border-color: rgba(255, 230, 109, 0.6) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-magnetic.text-hover {
+  background: radial-gradient(circle, rgba(168, 230, 207, 0.25) 0%, rgba(78, 205, 196, 0.15) 100%) !important;
+  border-color: rgba(168, 230, 207, 0.6) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-magnetic.form-hover {
+  background: radial-gradient(circle, rgba(255, 159, 243, 0.25) 0%, rgba(255, 230, 109, 0.15) 100%) !important;
+  border-color: rgba(255, 159, 243, 0.6) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.cursor-magnetic.interactive-hover {
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.25) 0%, rgba(255, 159, 243, 0.15) 100%) !important;
+  border-color: rgba(255, 107, 107, 0.6) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+} 
