@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bidriware — Karnataka</title>
+  <style>
+    :root{
+      --metal:#2b2b2b;    /* deep black, like oxidized metal */
+      --silver:#c0c0c0;   /* silver inlay */
+      --gold:#d4af37;
+      --cream:#fdfaf6;
+      --ink:#222;
+      --shadow:0 10px 22px rgba(0,0,0,.15);
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family:"Segoe UI", Arial, sans-serif;
+      margin:0; line-height:1.65;
+      color:var(--ink); background:var(--cream);
+    }
+    header{
+      position:relative; text-align:center;
+      padding:1rem 3rem; font-weight:700;
+      font-size:1.5rem; color:#fff;
+      background:linear-gradient(135deg,var(--metal),#000);
+    }
+    .back-btn {
+      background: #1e1a09;  color: rgb(255, 254, 254); padding: 5px 12px;
+      border-radius: 5px; font-size: 0.9rem; text-decoration: none;
+      position: absolute; left: 15px; top: 15px;
+    }
+    .container{max-width:1100px; margin:2rem auto; padding:0 18px;}
+
+    .hero{display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem;}
+    .hero img{
+      width:min(500px,100%); aspect-ratio:4/3; object-fit:cover;
+      border-radius:14px; box-shadow:var(--shadow);
+      outline:4px solid rgba(192,192,192,.25);
+    }
+
+    h2{color:var(--metal); margin:1.1rem 0 .6rem}
+    .card{background:#fff; border-radius:14px; box-shadow:var(--shadow); padding:1rem; margin:.9rem 0;}
+    .muted{opacity:.95}
+
+    .grid{display:grid; gap:1rem; margin-top:.75rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .pill{display:flex; gap:.6rem; align-items:flex-start; background:#fff; border-radius:12px; padding:.9rem; box-shadow:0 6px 14px rgba(0,0,0,.08);}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--silver); margin-top:.45rem; flex:0 0 10px}
+
+    .quiz{background:#f8f8f8; border:1px solid #ddd}
+    .quiz h3{margin:.2rem 0 1rem; color:var(--metal)}
+    .quiz label{display:block; text-align:left; margin:.35rem auto; max-width:560px}
+    .quiz input{margin-right:.5rem}
+    .btn{
+      background:var(--metal); color:#fff; border:0; border-radius:8px;
+      padding:.6rem 1rem; cursor:pointer; font-weight:600;
+      box-shadow:0 8px 18px rgba(0,0,0,.22);
+    }
+    .btn:hover{filter:brightness(.95)}
+    .result{font-weight:700; margin-top:.6rem}
+
+    footer{margin-top:2rem; background:#111; color:#fff; text-align:center; padding:1rem; font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    ⚒️ Bidriware — Karnataka
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <img src="./img/Bidriware.png" alt="Bidriware flower vase"/>
+    </section>
+
+    <!-- ORIGIN -->
+    <section class="card">
+      <h2>📖 Origin & Heritage</h2>
+      <p class="muted">
+        <b>Bidriware</b> is a 14th-century metal craft that flourished in <b>Bidar, Karnataka</b>,
+        during the rule of the Bahmani Sultans. It is a unique combination of <b>blackened alloy of zinc and copper</b>
+        inlaid with thin sheets of pure silver.  
+        The craft was influenced by <b>Persian art</b> brought to India, and blended beautifully with local designs,
+        resulting in intricate motifs of <b>flowers, creepers, geometric patterns, and Islamic calligraphy</b>.
+        Today, Bidriware holds a <b>GI tag</b> and is considered a prized symbol of Indian metal artistry.
+      </p>
+    </section>
+
+    <!-- FACTS -->
+    <section>
+      <h2>💡 Did You Know?</h2>
+      <div class="grid">
+        <div class="pill"><span class="dot"></span><div>The name comes from the town <b>Bidar</b> in Karnataka.</div></div>
+        <div class="pill"><span class="dot"></span><div>Craftsmen use a <b>special soil</b> from Bidar fort to blacken the alloy permanently.</div></div>
+        <div class="pill"><span class="dot"></span><div>The contrast of <b>shiny silver on deep black metal</b> makes Bidriware world-famous.</div></div>
+        <div class="pill"><span class="dot"></span><div>Items range from <b>hookahs, vases, trays</b> to modern jewellery & décor pieces.</div></div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section>
+      <h2>✨ Craft Features & Styles</h2>
+      <div class="grid">
+        <div class="card"><b>Blackened Metal</b><br/>An alloy of zinc & copper treated with fort soil to achieve a jet-black finish.</div>
+        <div class="card"><b>Silver Inlay</b><br/>Fine silver wires or sheets hammered into intricate designs.</div>
+        <div class="card"><b>Persian Influence</b><br/>Motifs of flowers, geometric borders, and Arabic calligraphy.</div>
+        <div class="card"><b>Luxury Craft</b><br/>Bidriware was once patronized by kings, now a <b>heritage souvenir</b>.</div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="card quiz">
+      <h2>📝 Quick Quiz</h2>
+      <h3>Test your Bidriware knowledge</h3>
+
+      <form id="quiz-form">
+        <label>
+          <input type="radio" name="q1" value="Bidar"> Bidriware originated in <b>Bidar, Karnataka</b>.
+        </label>
+        <label>
+          <input type="radio" name="q1" value="Jaipur"> Bidriware originated in <b>Jaipur, Rajasthan</b>.
+        </label>
+
+        <hr style="border:none;border-top:1px dashed #ccc; margin:.9rem 0;">
+
+        <label>
+          <input type="radio" name="q2" value="Soil"> The black color is obtained using <b>special fort soil</b>.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="Paint"> The black color is painted on with <b>black enamel</b>.
+        </label>
+
+        <hr style="border:none;border-top:1px dashed #ccc; margin:.9rem 0;">
+
+        <label>
+          <input type="radio" name="q3" value="Silver"> Bidriware is decorated with <b>silver inlay</b>.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="Gold"> Bidriware is decorated with <b>gold leaf</b>.
+        </label>
+
+        <div style="margin-top:1rem;">
+          <button type="button" class="btn" onclick="gradeQuiz()">Submit</button>
+        </div>
+      </form>
+
+      <p id="quiz-result" class="result"></p>
+    </section>
+  </main>
+
+  <footer>DeshDarshan Project</footer>
+
+  <script>
+    function gradeQuiz(){
+      const result = document.getElementById('quiz-result');
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+
+      if(!q1 || !q2 || !q3){
+        result.textContent = "⚠️ Please answer all questions.";
+        result.style.color = "#b00";
+        return;
+      }
+
+      let score = 0;
+      if(q1.value === "Bidar") score++;
+      if(q2.value === "Soil") score++;
+      if(q3.value === "Silver") score++;
+
+      if(score === 3){
+        result.textContent = "✅ Perfect! 3/3 — Bidriware expert! ⚒️";
+        result.style.color = "#2c7a52";
+      } else if(score === 2){
+        result.textContent = "👍 Good! 2/3 — Well done!";
+        result.style.color = "#2c7a52";
+      } else {
+        result.textContent = "💡 You scored " + score + "/3 — Review above and try again.";
+        result.style.color = "#b00";
+      }
+    }
+  </script>
+</body>
+</html>

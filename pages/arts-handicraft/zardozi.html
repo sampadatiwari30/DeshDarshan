@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zardozi Work - Uttar Pradesh & Rajasthan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: #6c3483;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .back-btn {
+      background: #f4d03f;
+      color: black;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #6c3483;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.8rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fef6e4;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #9c640c;
+    }
+
+    footer{margin-top:2rem; background:#6c3483; color:#fff; text-align:center; padding:1rem; font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    ✨ Zardozi Work – Uttar Pradesh & Rajasthan
+  </header>
+
+  <div class="container">
+    <div class="image-box">
+      <img src="./img/zardozi.png" alt="Zardozi Work UP">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Tradition</h2>
+    <p><b>Zardozi</b> is a form of intricate metal embroidery that flourished during the <b>Mughal period</b> and became a hallmark of royal attire.  
+    The art involves weaving threads of gold and silver onto silk, velvet, and other fabrics to create exquisite designs.  
+    <b>Lucknow (Uttar Pradesh)</b> and <b>Jaipur (Rajasthan)</b> are the main centers where this heritage craft continues to thrive, adorning garments, wall hangings, and ceremonial fabrics.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">👑 Zardozi was once exclusively used for royalty – on thrones, court dresses, and royal tents.</div>
+      <div class="fact-box">💎 The word “Zardozi” comes from Persian: <i>“Zar”</i> meaning gold and <i>“Dozi”</i> meaning embroidery.</div>
+      <div class="fact-box">🕌 Mughal emperors like Akbar were great patrons of this craft.</div>
+      <div class="fact-box">🌍 Today, Zardozi work is exported worldwide and used in haute couture fashion.</div>
+    </div>
+
+    <!-- Styles -->
+    <h2>🎨 Popular Creations</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Lehengas & Sarees</b> – Bridal wear with heavy Zardozi embellishments.</div>
+      <div class="legend-box"><b>Wall Hangings</b> – Decorative art pieces made with gold thread embroidery.</div>
+      <div class="legend-box"><b>Royal Accessories</b> – Purses, belts, and ceremonial fabrics.</div>
+      <div class="legend-box"><b>Religious Textiles</b> – Embellished cloths for temples and dargahs.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong><br>Which Mughal emperor is known for patronizing Zardozi embroidery?</p>
+      <form id="quiz-form">
+        <label><input type="radio" name="answer" value="Akbar"> Akbar</label><br>
+        <label><input type="radio" name="answer" value="Aurangzeb"> Aurangzeb</label><br>
+        <label><input type="radio" name="answer" value="Babur"> Babur</label><br><br>
+        <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Akbar") {
+        result.textContent = "✅ Correct! Emperor Akbar was a great patron of Zardozi embroidery.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Akbar.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+  <footer> DeshDarshan</footer>
+</body>
+</html>
