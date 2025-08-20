@@ -12,6 +12,34 @@
       href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap"
       rel="stylesheet"
     />
+    <style>
+        .ingredient-item {
+          list-style: none;
+          background-color: rgb(250, 241, 213);
+          padding: 8px;
+          border-radius: 20px;
+          width: 500px;
+          margin: 5px;
+        }
+
+        .ingredient-item:hover{
+          border: 2px solid pink;
+          cursor: pointer;
+        }
+
+        .ingredient-category {
+          list-style: none;
+          margin: 5px;
+          margin-top: 10px;
+          width: 500px;
+          list-style: disc; 
+          font-weight: bold;
+          background-image: linear-gradient(to right, rgba(255, 47, 82, 0.692), rgba(255, 3, 171, 0.418)); 
+
+          padding: 10px;
+          border-radius: 50px;
+        }
+    </style>
   </head>
   <body>
     <div id="spiceOverlay"></div>
@@ -64,7 +92,9 @@
       <h5>Did You Know?</h5>
 
       <ul id="food-section"></ul>
-
+      <!-- Adding ingredients -->
+      <h5 style="color: #ff9832; font-weight: bold">Recipe Charms 🪄📜</h5>
+      <ul id="ingredients-list"></ul>
       <section class="dish-slideshow" data-dish="biryani">
         <h2 id="dishTitle">🍛 Build a Dish</h2>
         <div class="slide-container">
