@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kashi Vishwanath Temple – DeshDarshan</title>
+  <style>
+    :root{
+      --primary:#2e3192;   /* deep blue */
+      --accent:#f9a825;    /* saffron gold */
+      --bg:#fafafa;
+      --text:#222;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    header{
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+      position:relative;
+    }
+    header h1{margin:0;font-size:2.2rem}
+    .back{
+      background:var(--accent);
+      color:black;
+      padding:6px 12px;
+      border-radius:10px;
+      font-size:0.9rem;
+      position:absolute;
+      left:10px;
+      top:15px;
+      cursor:pointer;
+    }
+    .hero{ text-align:center; padding:20px; }
+    .hero img{
+      max-width:90%;
+      border-radius:12px;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+    }
+    section{ padding:40px 10%; }
+    h2{ margin-top:0; color:var(--primary); }
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; margin-top:20px;
+    }
+    .fact-card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transition:transform .2s;
+    }
+    .fact-card:hover{ transform:scale(1.05); }
+    .timeline{ display:grid; gap:16px; margin-top:16px; }
+    .step{
+      background:#fff; padding:18px; border-left:6px solid var(--accent);
+      border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .quiz{
+      background:#fff; padding:25px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); margin-top:20px; text-align:center;
+    }
+    .quiz button{
+      background:var(--primary); color:#fff; border:none;
+      padding:10px 18px; margin:8px; border-radius:8px; cursor:pointer;
+    }
+    .quiz button:hover{ background:#3f51b5; }
+    footer{
+      text-align:center; padding:20px; background:var(--primary); color:#fff; margin-top:30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>🛕 Kashi Vishwanath Temple – Varanasi, UP</h1>
+  </header>
+
+  <div class="hero">
+    <img src="./img/kashi.png" alt="Kashi Vishwanath Temple, Varanasi">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      The <b>Kashi Vishwanath Temple</b>, located in <b>Varanasi (Kashi), Uttar Pradesh</b>, is one of the <b>12 Jyotirlingas</b> of Lord Shiva.  
+      Considered the <b>spiritual heart of India</b>, it stands on the western bank of the holy river <b>Ganga</b>.  
+      The temple has been destroyed and rebuilt several times, with the current structure commissioned by <b>Ahilyabai Holkar of Indore in 1780</b>.  
+      Devotees believe that a visit to Kashi and darshan of Lord Vishwanath leads to <b>moksha (liberation)</b>.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">⚱️ The temple’s golden spire and domes are covered with <b>more than 800 kg of pure gold</b>.</div>
+      <div class="fact-card">🌊 A dip in the <b>Ganga at Manikarnika Ghat</b> before visiting the temple is considered highly auspicious.</div>
+      <div class="fact-card">🕉️ Adi Shankaracharya, Goswami Tulsidas, and many saints have visited Kashi Vishwanath.</div>
+      <div class="fact-card">🛕 The temple is also called <b>“The Golden Temple of Varanasi.”</b></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔁 Timeline</h2>
+    <div class="timeline">
+      <div class="step"><b>Ancient Era</b> — Revered as one of the holiest shrines of Lord Shiva.</div>
+      <div class="step"><b>Medieval Period</b> — Destroyed multiple times during invasions.</div>
+      <div class="step"><b>1780</b> — Rebuilt by Ahilyabai Holkar of Indore.</div>
+      <div class="step"><b>Modern Times</b> — Recently redeveloped as part of the <b>Kashi Vishwanath Corridor Project</b>.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌸 Spiritual Significance</h2>
+    <ul>
+      <li>One of the <b>12 Jyotirlingas</b> of Lord Shiva.</li>
+      <li>Belief: A visit ensures <b>moksha (liberation)</b>.</li>
+      <li>The temple is at the heart of <b>Kashi – the city of Shiva</b>.</li>
+      <li>Part of countless traditions, literature, and spiritual discourses in Hinduism.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>Who rebuilt the current structure of the Kashi Vishwanath Temple?</h3>
+      <button onclick="checkAnswer('correct')">Ahilyabai Holkar</button>
+      <button onclick="checkAnswer('wrong')">Akbar</button>
+      <button onclick="checkAnswer('wrong')">Raja Man Singh</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <h1>DeshDarshan Project</h1>
+  </footer>
+
+  <script>
+    function checkAnswer(option){
+      const result = document.getElementById("result");
+      if(option === 'correct'){
+        result.innerHTML = "✅ Correct! Ahilyabai Holkar rebuilt the temple in 1780.";
+        result.style.color = "green";
+      }else{
+        result.innerHTML = "❌ Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+    document.querySelector(".back").addEventListener("click", function(){
+      window.history.back();
+    });
+  </script>
+</body>
+</html>

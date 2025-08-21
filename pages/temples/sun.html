@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sun Temple – Konark, Odisha | DeshDarshan</title>
+  <style>
+    :root{
+      --primary:#c44536;   /* Rust red like stone */
+      --accent:#f2a65a;    /* Warm golden sun */
+      --bg:#fcf8f4;
+      --text:#222;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    header{
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+      position:relative;
+    }
+    header h1{margin:0;font-size:2.1rem}
+    .back{
+      background:var(--accent);
+      color:#1b1b1b;
+      padding:6px 12px;
+      border-radius:10px;
+      font-size:0.9rem;
+      position:absolute;
+      left:10px;
+      top:15px;
+      cursor:pointer;
+      border:none;
+      font-weight:600;
+    }
+    .hero{ text-align:center; padding:20px; }
+    .hero img{
+      max-width:90%;
+      border-radius:12px;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+    }
+    section{ padding:40px 10%; }
+    h2{ margin-top:0; color:var(--primary); }
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; margin-top:20px;
+    }
+    .fact-card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transition:transform .2s;
+    }
+    .fact-card:hover{ transform:scale(1.05); }
+    .timeline{ display:grid; gap:16px; margin-top:16px; }
+    .step{
+      background:#fff; padding:18px; border-left:6px solid var(--accent);
+      border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .quiz{
+      background:#fff; padding:25px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); margin-top:20px; text-align:center;
+    }
+    .quiz button{
+      background:var(--primary); color:#fff; border:none;
+      padding:10px 18px; margin:8px; border-radius:8px; cursor:pointer;
+      font-weight:600;
+    }
+    .quiz button:hover{ filter:brightness(1.1); }
+    footer{
+      text-align:center; padding:20px; background:#8c2f24; color:#fff; margin-top:30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>☀️ Sun Temple – Konark, Odisha</h1>
+  </header>
+
+  <div class="hero">
+    <img src="./img/sun.png" alt="Konark Sun Temple, Odisha">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      The <b>Sun Temple of Konark</b>, a UNESCO World Heritage Site, was built in the <b>13th century</b> by <b>King Narasimhadeva I</b> of the Eastern Ganga dynasty.  
+      Designed as a colossal <b>chariot of Surya (the Sun God)</b>, it originally had 24 intricately carved stone wheels and was drawn by 7 magnificent horses.  
+      Though partially in ruins today, it remains one of India’s most celebrated masterpieces of architecture, sculpture, and symbolism.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">☀️ The temple is aligned so that the <b>first rays of the rising sun</b> would strike the main sanctum.</div>
+      <div class="fact-card">🛞 Each of the <b>24 giant wheels</b> acts like a <b>sundial</b> that can tell time.</div>
+      <div class="fact-card">🎭 The walls depict <b>dancers, musicians, deities, and mythological scenes</b>.</div>
+      <div class="fact-card">🏛️ It is often called the <b>Black Pagoda</b> by European sailors who used it as a navigation landmark.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔁 Timeline</h2>
+    <div class="timeline">
+      <div class="step"><b>13th Century (c.1250 CE)</b> — Constructed by <b>King Narasimhadeva I</b>.</div>
+      <div class="step"><b>Medieval Period</b> — Temple partially collapsed due to invasions and natural decay.</div>
+      <div class="step"><b>Colonial Era</b> — Known as the “Black Pagoda” for sailors.</div>
+      <div class="step"><b>Modern Times</b> — Declared UNESCO World Heritage Site; preservation efforts continue.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌸 Spiritual Significance</h2>
+    <ul>
+      <li>Dedicated to <b>Surya, the Sun God</b>, symbol of power, energy, and life.</li>
+      <li>The chariot form represents the <b>passage of time</b> and cosmic rhythm.</li>
+      <li>Important pilgrimage and cultural site, celebrated in <b>Konark Dance Festival</b>.</li>
+      <li>A fusion of <b>devotion, science, and artistry</b> in stone.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>Who built the Sun Temple at Konark?</h3>
+      <button onclick="checkAnswer('correct')">King Narasimhadeva I</button>
+      <button onclick="checkAnswer('wrong')">Raja Raja Chola</button>
+      <button onclick="checkAnswer('wrong')">Emperor Ashoka</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <h1>DeshDarshan Project</h1>
+  </footer>
+
+  <script>
+    function checkAnswer(option){
+      const result = document.getElementById("result");
+      if(option === 'correct'){
+        result.innerHTML = "✅ Correct! King Narasimhadeva I of the Eastern Ganga dynasty built it in the 13th century.";
+        result.style.color = "green";
+      }else{
+        result.innerHTML = "❌ Not quite, try again!";
+        result.style.color = "red";
+      }
+    }
+    document.querySelector(".back").addEventListener("click", function(){
+      window.history.back();
+    });
+  </script>
+</body>
+</html>
