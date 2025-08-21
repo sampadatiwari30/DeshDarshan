@@ -20,9 +20,38 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("food-name").textContent = food.name;
       document.getElementById("food-img").src = food.image;
       document.getElementById("food-img").alt = food.name;
-      document.getElementById("food-desc").textContent = food.description;
+      document.getElementById("food-desc").textContent = food.description;      
       document.getElementById("food-link").innerHTML = food.Link.join("<br>");
+      
+      //ingredients
+      const ingredientsList = document.getElementById("ingredients-list");
 
+      // just testing with console.log
+      console.log("food.Ingredients:", food.Ingredients);
+      console.log("Object.entries result:", Object.entries(food.Ingredients));
+
+      ingredientsList.innerHTML = '';
+
+      Object.entries(food.Ingredients).forEach(([category, ingredients]) => {
+        //testing with console.log
+        console.log("Category:", category);
+        console.log("Ingredients array:", ingredients);
+        
+        const categoryHeader = document.createElement("li");
+        categoryHeader.innerHTML = `<strong>${category}</strong>`;
+        categoryHeader.classList.add("ingredient-category");
+        ingredientsList.appendChild(categoryHeader);
+        
+        ingredients.forEach(ingredient => {
+          const li = document.createElement("li");
+          li.innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;${ingredient}`;
+          li.classList.add("ingredient-item");
+          li.style.listStyle = "none"; // Remove bullet points from ingredients
+          ingredientsList.appendChild(li);
+        });
+      });
+
+        
       const sectionList = document.getElementById("food-section");
       food.sections.forEach((section) => {
         const li = document.createElement("li");

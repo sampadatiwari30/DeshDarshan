@@ -561,7 +561,6 @@ a,
   margin-top: 2rem;
 }
 
-
 @media (min-width: 768px) {
   .footer-content-wrapper {
     grid-template-columns: repeat(4, 1fr);
