@@ -1,0 +1,127 @@
+/* General Layout */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.navigation {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.navigation a {
+  color: #ffd700;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 500;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+/* Introduction */
+.taj-intro {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.taj-image {
+  width: 65%;
+  max-width: 700px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Sections */
+.taj-section {
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.taj-section h2 {
+  color: #8b0000;
+  margin-bottom: 15px;
+}
+
+.details-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.details-list li {
+  margin: 8px 0;
+}
+
+/* Fact Section */
+.fact-section {
+  text-align: center;
+}
+
+#show-fact {
+  padding: 12px 24px;
+  background: #8b0000;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: background 0.3s ease;
+}
+
+#show-fact:hover {
+  background: #600000;
+}
+
+.fact-box {
+  font-style: italic;
+  font-size: 1rem;
+  color: #444;
+  min-height: 30px;
+}
+
+/* Footer */
+.footer {
+  background: #1c1c1c;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 0.95rem;
+}
