@@ -78,6 +78,54 @@
         font-size: 20px;
       }
     }
+
+    /*Css for Navigation button starts here*/
+    .floating-nav-wrapper 
+    {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      background: #fff; 
+      padding: 10px 0;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .floating-nav 
+    {
+      display: inline-flex;
+      gap: 20px;
+      animation: scroll-nav 25s linear infinite;
+    }
+
+    .floating-nav a
+    {
+      padding: 8px 16px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll-nav 
+    {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* pause when we click */
+    .floating-nav-wrapper:hover .floating-nav {
+      animation-play-state: paused;
+    }
+    /*Css for Navigation Buttons End here*/
+
+
   </style>
 
   <!-- Button HTML -->
@@ -201,8 +249,38 @@
     </div>
   </section>
 
+<!-- Floating Navigation Button for each Session -->
+<section>
+  <div class="floating-nav-wrapper">
+    <nav class="floating-nav">
+      <a href="#festivals">🎎Festivals & Culture</a>
+      <a href="#taste-india">😋Taste</a>
+      <a href="#heritage">🏏Heritage</a>
+      <a href="#dance">🎎Dance</a>
+      <a href="#freedom">🥊Freedom-Fighters</a>
+      <a href="#personalities">🤵Personalities</a>
+      <a href="#sports">🏏Sports & Traditional Games</a>
+      <a href="#Arts">🎨Arts and Handicrafts</a>
+      <a href="#temples">🛕Famous Temples</a>
+    </nav>
+    <!-- Adding this again for Infinite Scrolling -->
+    <nav class="floating-nav">
+      <a href="#festivals">🎎Festivals & Culture</a>
+      <a href="#taste-india">😋Taste</a>
+      <a href="#heritage">🏏Heritage</a>
+      <a href="#dance">🎎Dance</a>
+      <a href="#freedom">🥊Freedom-Fighters</a>
+      <a href="#personalities">🤵Personalities</a>
+      <a href="#sports">🏏Sports & Traditional Games</a>
+      <a href="#Arts">🎨Arts and Handicrafts</a>
+      <a href="#temples">🛕Famous Temples</a>
+    </nav>
+  </div>
+</section>
+<!-- Floating Navigation bar End here -->
+
   <!-- Festivals and Culture Section -->
-  <section class="festivals-culture">
+  <section id="festivals" class="festivals-culture">
     <div class="container">
       <h2 class="section-title" data-translate="festivals-title">Festivals and Culture of India</h2>
       <div class="culture-grid">
@@ -249,9 +327,9 @@
   </section>
 
   <!-- Taste of India Section -->
-  <section class="taste-india">
+  <section id="taste-india" class="taste-india">
     <div class="container">
-      <h2 class="section-title" data-translate="taste-title">The Taste of India</h2>
+      <h2 class="section-title" data-translate="taste-title" class="Taste of India">The Taste of India</h2>
       <div class="food-grid">
         <a href="./food-details.html?food=biryani" class="food-link">
           <div class="food-item">
@@ -306,8 +384,8 @@
   </section>
 
   <!-- Heritage Section -->
-  <section class="heritage-section">
-    <div class="container">
+  <section id="heritage" class="heritage-section">
+    <div class="container" id="Heritage">
       <h2 class="section-title" data-translate="heritage-title">Heritage of India</h2>
       <div class="heritage-grid">
         <div class="heritage-item">
@@ -356,7 +434,7 @@
   </section>
 
   <!-- Dance Culture Section -->
-  <section class="dance-culture">
+  <section id="dance" class="dance-culture">
     <div class="container">
       <h2 class="section-title" data-translate="dance-title">Dance Culture of India</h2>
       <div class="dance-grid">
@@ -417,7 +495,9 @@
       </div>
     </div>
   </section>
-  <section class="dance-culture">
+
+  <!-- Freedom Fighter Session -->
+  <section id="freedom" class="Freedom-Fighters">
     <div class="container">
       <h2 class="section-title" data-translate="dance-title">
         Freedom Fighters of India
@@ -531,9 +611,9 @@
   </style>
 
   <!-- People And Personalities -->
-  <section class="dance-culture">
+  <section id="personalities" class="dance-culture">
     <div class="container">
-      <h2 class="section-title" data-translate="dance-title">People and Personalities</h2>
+      <h2 class="section-title" data-translate="dance-title" class="personalities">🤵People and Personalities</h2>
       <div class="dance-grid">
 
         <a href="./pages/personality-pages/kalam.html" class="dance-link">
@@ -602,9 +682,9 @@
   <!-- people and personalities section ends here -->
 
   <!-- Sports and Traditional Games-->
-  <section class="taste-india">
+  <section id="sports" class="taste-india">
     <div class="container">
-      <h2 class="section-title" data-translate="taste-title">Sports and Traditional Games</h2>
+      <h2 class="section-title" data-translate="taste-title">🏏Sports and Traditional Games</h2>
       <div class="food-grid">
 
         <!-- Board Games which Evolved From India -->
@@ -699,7 +779,7 @@
   <!-- Sports and Traditional Games Session End here -->
 
   <!-- Arts and Handicrafts Session By Aaqeeb-->
-  <section class="dance-culture">
+  <section id="Arts" class="dance-culture">
     <div class="container">
       <h2 class="section-title" data-translate="dance-title">🎨 Arts & Handicrafts</h2>
       <div class="dance-grid">
@@ -860,7 +940,7 @@
   <!-- Arts and Handicrafts Session End here -->
 
   <!-- Famous Temples of India-->
-  <section class="dance-culture">
+  <section id="temples" class="dance-culture">
     <div class="container">
       <h2 class="section-title" data-translate="dance-title">🛕Famous Temples </h2>
       <div class="dance-grid">
@@ -1074,6 +1154,19 @@
         loadingScreen.classList.add("hidden");
       }, 6000);
     });
+
+     //scrolling one
+    document.querySelectorAll('.floating-nav a').forEach(link =>
+    {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetClass = this.getAttribute('data-target');
+        const targetSection = document.querySelector(`.${targetClass}`);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+  });
   </script>
   </body>
 
