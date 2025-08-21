@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akshardham Temple – DeshDarshan</title>
+  <style>
+    :root{
+      --primary:#4a148c;   /* royal purple */
+      --accent:#f59e0b;    /* saffron-gold */
+      --bg:#fdfaf6;
+      --text:#222;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    header{
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+    header h1{margin:0;font-size:2.2rem}
+    .back{
+      background: var(--accent);
+      color: black;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      float: left;
+      margin: 5px;
+      cursor:pointer;
+    }
+    .hero{ text-align:center; padding:20px; }
+    .hero img{
+      max-width:90%;
+      border-radius:12px;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+    }
+    section{ padding:40px 10%; }
+    h2{ margin-top:0; color:var(--primary); }
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; margin-top:20px;
+    }
+    .fact-card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transition:transform .2s;
+    }
+    .fact-card:hover{ transform:scale(1.05); }
+    .timeline{ display:grid; gap:16px; margin-top:16px; }
+    .step{
+      background:#fff; padding:18px; border-left:6px solid var(--accent);
+      border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .quiz{
+      background:#fff; padding:25px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); margin-top:20px; text-align:center;
+    }
+    .quiz button{
+      background:var(--primary); color:#fff; border:none;
+      padding:10px 18px; margin:8px; border-radius:8px; cursor:pointer;
+    }
+    .quiz button:hover{ background:#6a1b9a; }
+    footer{
+      text-align:center; padding:20px; background:var(--primary); color:#fff; margin-top:30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>🛕 Akshardham Temple – Delhi</h1>
+  </header>
+
+  <div class="hero">
+    <img src="./img/akshardham.png" alt="Akshardham Temple, Delhi">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      The <b>Akshardham Temple</b>, located on the banks of the Yamuna in <b>New Delhi</b>, is a modern marvel of Indian architecture and spirituality.  
+      Inaugurated on <b>6 November 2005</b> by <b>Pramukh Swami Maharaj</b>, the temple complex is dedicated to <b>Bhagwan Swaminarayan</b> and reflects the traditions of ancient Hindu culture and timeless values.  
+      Built with pink sandstone and white marble, it is one of the world’s largest Hindu temple complexes.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">✨ The main monument is built entirely from <b>pink sandstone & white marble</b>, without using steel.</div>
+      <div class="fact-card">🌊 The temple features the <b>Yagnapurush Kund</b>, the largest stepwell in the world.</div>
+      <div class="fact-card">🎥 The complex includes a <b>giant IMAX theatre</b> showcasing the life of Swaminarayan.</div>
+      <div class="fact-card">🌸 Over <b>11,000 artisans</b> and volunteers contributed to its construction.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔁 Timeline</h2>
+    <div class="timeline">
+      <div class="step"><b>Ancient Inspiration</b> — Follows traditional Vastu Shastra and Pancharatra Shastra guidelines.</div>
+      <div class="step"><b>2000</b> — Construction work begins under the guidance of Pramukh Swami Maharaj.</div>
+      <div class="step"><b>2005</b> — Inaugurated by A.P.J. Abdul Kalam, then President of India.</div>
+      <div class="step"><b>Today</b> — A major spiritual & cultural landmark attracting millions of visitors annually.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌸 Spiritual Significance</h2>
+    <ul>
+      <li>Dedicated to <b>Bhagwan Swaminarayan</b> and the values of peace, devotion, and harmony.</li>
+      <li>Symbolizes <b>timeless Hindu traditions</b> preserved through intricate carvings and sculptures.</li>
+      <li>The temple inspires visitors with its message of <b>unity, spirituality, and selfless service</b>.</li>
+      <li>Hosts daily <b>Aarti rituals</b> and breathtaking <b>musical fountain shows</b>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>When was the Akshardham Temple in Delhi inaugurated?</h3>
+      <button onclick="checkAnswer('wrong')">1995</button>
+      <button onclick="checkAnswer('correct')">2005</button>
+      <button onclick="checkAnswer('wrong')">2010</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <h1>DeshDarshan Project</h1>
+  </footer>
+
+  <script>
+    function checkAnswer(option){
+      const result = document.getElementById("result");
+      if(option === 'correct'){
+        result.innerHTML = "✅ Correct! Akshardham was inaugurated in 2005.";
+        result.style.color = "green";
+      }else{
+        result.innerHTML = "❌ Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+    document.querySelector(".back").addEventListener("click", function(){
+      window.history.back();
+    });
+  </script>
+</body>
+</html>
