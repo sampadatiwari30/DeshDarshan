@@ -1,6 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- back button css -->
+  <style>
+     .back-btn 
+     {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f78c1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #e6780f;
+      transform: scale(1.05);
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 30px;
+      background-color: #f78c1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      background-color: #e6780f;
+      transform: scale(1.05);
+    }
+  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>APJ Abdul Kalam - People's President</title>
@@ -14,6 +66,14 @@
   <header class="text-center py-8 bg-gradient-to-r from-orange-400 to-yellow-300 shadow-lg">
     <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Dr. A.P.J. Abdul Kalam</h1>
     <p class="text-lg text-white mt-2">The Missile Man of India & People's President</p>
+
+    <!-- Back button -->
+  <button class="back-btn" onclick="window.history.back()"> ← Back to Home</button>
+
+  <!-- Top Button -->
+  <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑ Back to Top
+  </button>
   </header>
 
   <!-- IMAGE & BIO -->
