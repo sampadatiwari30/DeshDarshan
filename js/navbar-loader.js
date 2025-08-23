@@ -54,6 +54,7 @@ function createSmartNavbar() {
                     <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
                     <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
                     <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>
+                    <li><a href="${pathPrefix}pages/Quizz.html">Quiz</a></li>
                 </ul>
             </div>
 
@@ -67,6 +68,7 @@ function createSmartNavbar() {
                     <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
                     <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
                     <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>
+                    <li><a href="${pathPrefix}pages/Quizz.html">Quiz</a></li>
                 </ul>
                 <div class="nav-buttons">
                     <a href="${pathPrefix}pages/login.html" class="btn-login">
