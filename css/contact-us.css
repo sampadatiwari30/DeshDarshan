@@ -274,7 +274,7 @@ input[type="radio"]:focus + label {
 .submit-btn {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(135deg, #ff9933 0%, #e68a00 100%);
+  background: linear-gradient(135deg, #e68a00, #e0a66c, #e68a00);
   color: white;
   border: none;
   border-radius: 12px;
@@ -290,6 +290,7 @@ input[type="radio"]:focus + label {
 
 .submit-btn:hover {
   transform: translateY(-3px);
+  transform: scaleX(1.09);
   box-shadow: 0 12px 25px rgba(255, 153, 51, 0.4);
   background: linear-gradient(135deg, #e68a00 0%, #cc7a00 100%);
 }
