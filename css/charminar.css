@@ -1,0 +1,163 @@
+/* Base */
+* { box-sizing: border-box; }
+:root {
+  --orange: #ffa500;
+  --orange-dark: #e67e00;
+  --bg: #fff8f0;
+  --ink: #333;
+  --ink-soft: #555;
+  --card: #ffffff;
+  --muted: #ffe7c2;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  --radius-xl: 18px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.65;
+}
+
+/* Header/Hero */
+.page-header {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(255,165,0,0.9), rgba(255,140,0,0.85)),
+    url("../assets/images/heritage/Charminar.jpg") center/cover no-repeat;
+  color: #fff;
+  min-height: 48vh;
+  display: grid;
+  place-items: center;
+  padding: 3.5rem 1.25rem;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 960px;
+  width: 100%;
+}
+
+.page-header h1 {
+  margin: 0 0 .35rem;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  letter-spacing: .5px;
+}
+
+.subtitle {
+  margin: 0 0 1.25rem;
+  font-weight: 400;
+  opacity: .95;
+}
+
+.btn {
+  display: inline-block;
+  padding: .85rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .2s ease;
+}
+
+.btn.primary {
+  background: #fff;
+  color: var(--orange-dark);
+  box-shadow: var(--shadow);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+}
+
+/* Layout */
+main {
+  width: min(1100px, 92vw);
+  margin: -2.5rem auto 3rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.25rem;
+  margin: 1.25rem 0;
+  border-left: 6px solid var(--orange);
+}
+
+.lead {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+}
+
+/* Media */
+.hero-media {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+.hero-img {
+  width: 100%;
+  max-width: 980px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 3px solid var(--muted);
+}
+figure figcaption {
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: #6b6b6b;
+}
+
+/* Sections */
+h2 {
+  margin: 0 0 .75rem;
+  color: var(--orange-dark);
+  font-size: 1.6rem;
+}
+
+.points, .facts-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: .5rem 0 0;
+}
+.points li,
+.facts-list li {
+  padding: .4rem 0;
+}
+
+/* Visit */
+.visit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.visit-box {
+  background: #fffaf0;
+  border: 1px solid #ffe0b2;
+  border-radius: 14px;
+  padding: 1rem;
+}
+.visit-box h3 {
+  margin: 0 0 .5rem;
+  color: var(--orange-dark);
+  font-size: 1.05rem;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 1.1rem;
+  background: var(--orange);
+  color: #fff;
+  margin-top: 2rem;
+  box-shadow: 0 -6px 18px rgba(0,0,0,.08);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .visit-grid { grid-template-columns: 1fr; }
+}
