@@ -11,7 +11,7 @@ body {
 /* Header */
 .header {
   text-align: center;
-  background: linear-gradient(to right, #b71c1c, #880e4f);
+  background: #FFA500; /* Changed to pure orange */
   color: #fff;
   padding: 2rem 1rem;
 }
@@ -52,7 +52,7 @@ body {
 
 h2 {
   margin-bottom: 1rem;
-  color: #b71c1c;
+  color: #FFA500; /* Changed to orange */
 }
 
 ul, ol {
@@ -84,7 +84,7 @@ li {
 /* Footer */
 .footer {
   text-align: center;
-  background: #880e4f;
+  background: #FFA500; /* Changed to orange */
   color: #fff;
   padding: 1rem;
   margin-top: 2rem;
