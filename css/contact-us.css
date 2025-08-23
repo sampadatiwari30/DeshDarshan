@@ -80,8 +80,8 @@ input[type="radio"]:focus + label {
   border-radius: 20px;
   box-shadow: 0 25px 50px rgba(139, 69, 19, 0.25),
     0 15px 35px rgba(160, 82, 45, 0.15), 0 5px 15px rgba(205, 133, 63, 0.1);
-  /* border: 2px solid rgba(222, 184, 135, 0.4); */
-  border: #d8636f 2px solid;
+  border: 2px solid rgba(222, 184, 135, 0.4);
+  /* border: #d8636f 2px solid; */
   width: 100%;
   max-width: 550px;
   position: relative;
