@@ -40,35 +40,21 @@ function createSmartNavbar() {
   navbarContainer.innerHTML = `
         <nav class="navbar">
             <div class="nav-container">
-            <div class="nav-toggle" onclick="openmenu()">
-                <i class="fa fa-bars" style="font-size: 24px; cursor: pointer;color:white;margin-right:3px;"></i>
-            </div>
-            <div id="menu" class="side-menu">
-                <span class="close-btn" onclick="closemenu()">&times;</span>
-                <ul>
-                    <li><a href="${pathPrefix}index.html">Home</a></li>
-                    <li><a href="${pathPrefix}pages/explore.html">Explore India</a></li>
-                    <li><a href="${pathPrefix}pages/festival-calendar.html">Festival Calendar</a></li>
-                    <li><a href="${pathPrefix}pages/crazyfacts.html">Crazy Facts</a></li>
-
-                    <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
-                    <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
-                    <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>
-                    <li><a href="${pathPrefix}pages/Quizz.html">Quiz</a></li>
-                </ul>
-            </div>
-
+           
                 <div class="nav-logo">
                 
                     <h2><a href="${pathPrefix}index.html">Desh Darshan</a></h2>
                 </div>
                 <ul class="nav-menu">
+                 <li><a href="${pathPrefix}index.html">Home</a></li>
+                 <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
                     <li><a href="${pathPrefix}pages/explore.html">Explore India</a></li>
                     <li><a href="${pathPrefix}pages/festival-calendar.html">Festival Calendar</a></li>
+                     <li><a href="${pathPrefix}pages/crazyfacts.html">Crazy Facts</a></li>
+                      <li><a href="${pathPrefix}pages/Quizz.html">Quiz</a></li>
                     <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
-                    <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
                     <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>
-                    <li><a href="${pathPrefix}pages/Quizz.html">Quiz</a></li>
+               
                 </ul>
                 <div class="nav-buttons">
                     <a href="${pathPrefix}pages/login.html" class="btn-login">
@@ -80,11 +66,7 @@ function createSmartNavbar() {
                         <i class="fas fa-user-plus"></i>
                     </a>
                 </div>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+              
             </div>
         </nav>
     `;
