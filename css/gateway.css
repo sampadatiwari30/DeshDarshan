@@ -1,0 +1,97 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #fff8f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #ff8000, #ff9900);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Sections */
+main {
+  padding: 2rem 10%;
+}
+
+section {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-left: 6px solid #ff8000;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  color: #ff6600;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+/* Lists */
+ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* Intro Section */
+.intro {
+  text-align: center;
+}
+
+.intro img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 1.2rem;
+  border-radius: 12px;
+  border: 3px solid #ff8000;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Visit Section */
+.visit p {
+  font-size: 1.05rem;
+  background: #fff3e0;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ffcc80;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.2rem;
+  background: #ff8000;
+  color: white;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
