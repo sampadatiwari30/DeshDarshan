@@ -21,9 +21,13 @@
     transition-transform hover: hover:scale-105"> ← Back
     </button>
 
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"  class="fixed bottom-8 right-1 
-    bg-blue-500 text-white font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2 
-    transition-transform  hover:scale-105"> ↑ Top 
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-20 right-5 bg-blue-500 hover:bg-blue-600 text-white font-bold 
+                w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                transition-all duration-300 hover:scale-110 z-50">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
+      </svg>
     </button>
 
     <!-- Buttons End here -->
@@ -158,5 +162,20 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init({ duration: 800, once: true });</script>
+
+    <!-- Code for the Chatbot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+  {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+  window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+    {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+    {const script=document.createElement("script");
+    script.src="https://www.chatbase.co/embed.min.js";
+    script.id="eaZ3BLaEp3NWiit_Vn0fK";
+    script.domain="www.chatbase.co";
+    document.body.appendChild(script)};
+    if(document.readyState==="complete") {onLoad()}
+    else{window.addEventListener("load",onLoad)}})();
+  </script>
 </body>
 </html>
