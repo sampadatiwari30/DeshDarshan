@@ -110,9 +110,9 @@
 
     .top-btn {
       position: fixed;
-      right: 20px;
-      bottom: 30px;
-      background-color: #f78c1f;
+      right: 10px;
+      bottom: 80px;
+      background-color: #f1c40f;
       color: white;
       border: none;
       padding: 12px 20px;
@@ -128,7 +128,7 @@
     }
 
     .top-btn:hover {
-      background-color: #e6780f;
+      background-color: #f1c40f;
       transform: scale(1.05);
     }
 
@@ -205,6 +205,21 @@
     document.querySelector(".back").addEventListener("click", function () {
       window.history.back();   
     });
+  </script>
+
+  <!-- Code for Chat bot -->
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
   </script>
 </body>
 </html>
