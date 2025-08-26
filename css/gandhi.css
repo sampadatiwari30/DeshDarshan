@@ -1,0 +1,151 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #fffaf3;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url("../assets/images/freedom/gandhi-bg.jpg") center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 102, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+/* Intro Section */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 40px;
+  gap: 20px;
+}
+
+.intro img {
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.intro-text h2 {
+  color: #e65c00;
+  margin-bottom: 10px;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+}
+
+/* Key Points */
+.points {
+  background: #fff3e6;
+  padding: 40px;
+}
+
+.points h2 {
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+.points ul {
+  list-style: none;
+}
+
+.points li {
+  margin: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  font-size: 1.05rem;
+}
+
+.points li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #e65c00;
+  font-weight: bold;
+}
+
+/* Quotes Section */
+.quotes {
+  padding: 40px;
+  text-align: center;
+  background: #fffaf0;
+}
+
+.quotes h2 {
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+blockquote {
+  font-style: italic;
+  margin: 15px 0;
+  padding: 10px 20px;
+  border-left: 4px solid #e65c00;
+  background: #fff;
+  display: inline-block;
+}
+
+/* Legacy Section */
+.legacy {
+  padding: 40px;
+  text-align: center;
+}
+
+.legacy h2 {
+  color: #e65c00;
+  margin-bottom: 10px;
+}
+
+.legacy p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Footer */
+footer {
+  background: #e65c00;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.95rem;
+}
