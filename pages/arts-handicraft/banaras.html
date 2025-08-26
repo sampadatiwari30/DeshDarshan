@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banarasi Silk Saree</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffdf8;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #4a1d1d;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .back-btn {
+      background: #f1c40f;
+      color: black;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #5a2323;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fff6e0;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #8b4513;
+    }
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    ✨ Banarasi Silk Saree – Royal Elegance of Varanasi
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+        <img src="./img/banaras1.png" alt="Banarasi Silk Saree">
+        <img src="./img/banaras2.png" alt="Banarasi Silk Saree">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Evolution</h2>
+    <p>The Banarasi Silk Saree, one of India’s finest textiles, originates from Varanasi (Banaras), Uttar Pradesh. Its weaving tradition dates back to the Mughal era, blending Persian artistry with Indian craftsmanship. Known for its rich brocades, zari (gold and silver threads), and intricate motifs, the Banarasi saree has long been associated with royalty and weddings.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🌟 It can take anywhere from 15 days to 6 months to weave a single Banarasi saree, depending on the complexity.</div>
+      <div class="fact-box">👑 Mughal emperors greatly influenced its motifs, introducing floral and foliage patterns.</div>
+      <div class="fact-box">💰 Traditionally, pure Banarasi sarees were woven with real gold and silver threads.</div>
+      <div class="fact-box">🏛️ Banarasi Saree received the <b>GI (Geographical Indication)</b> tag in 2009 to protect its authenticity.</div>
+    </div>
+
+    <!-- Famous Styles -->
+    <h2>👑 Famous Banarasi Styles</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Katan</b> – Pure silk sarees with luxurious finish.</div>
+      <div class="legend-box"><b>Shattir</b> – Modern, lightweight variant with unique designs.</div>
+      <div class="legend-box"><b>Organza with Zari</b> – Sheer silk fabric with intricate zari patterns.</div>
+      <div class="legend-box"><b>Georgette Banarasi</b> – Light and flowy with delicate weaving.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong>  
+        The motifs of Banarasi sarees were largely influenced by which era?
+      </p>
+      <form id="quiz-form">
+          <label><input type="radio" name="answer" value="Maurya"> Maurya Empire</label><br>
+          <label><input type="radio" name="answer" value="Mughal"> Mughal Era</label><br>
+          <label><input type="radio" name="answer" value="British"> British Period</label><br><br>
+          <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script> 
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Mughal") {
+        result.textContent = "✅ Correct! Banarasi motifs were influenced by the Mughal era.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Mughal Era.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+    <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

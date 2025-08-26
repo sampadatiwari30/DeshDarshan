@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kashmiri Pashmina Shawls</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafaf8;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #2f2f2f;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .back-btn {
+      background: #ffc107;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #444;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fff3e0;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #8b4513;
+    }
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🧣 Kashmiri Pashmina Shawls – Jewel of the Himalayas
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+        <img src="./img/shwal1.png" alt="pashmina shawl">
+        <img src="./img/shwal2.png" alt="pashmina shawl">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Evolution</h2>
+    <p>Pashmina, often called the “soft gold” of Kashmir, is a fine type of wool derived from the undercoat of Changthangi goats found in the high-altitude regions of Ladakh. The tradition of weaving Pashmina shawls dates back to the 15th century when Zain-ul-Abidin, a Kashmiri ruler, promoted its art. Over centuries, it became a symbol of luxury and elegance, loved by royalty across the world.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🧵 A genuine Pashmina thread is so fine it cannot be spun on machines — only by hand.</div>
+      <div class="fact-box">❄️ Pashmina wool is obtained from Changthangi goats that survive at altitudes above 12,000 ft in extreme cold.</div>
+      <div class="fact-box">👑 Mughal emperors and European aristocrats treasured Kashmiri Pashmina as a royal fabric.</div>
+      <div class="fact-box">🌍 Pashmina weaving is recognized globally as part of Kashmir’s intangible cultural heritage.</div>
+    </div>
+
+    <!-- Styles -->
+    <h2>👑 Famous Pashmina Shawl Styles</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Kanis Shawl</b> – Woven on traditional looms with wooden sticks called “Tujis”.</div>
+      <div class="legend-box"><b>Sozni Embroidery</b> – Intricate needlework with delicate floral and paisley designs.</div>
+      <div class="legend-box"><b>Jama</b> – Heavy shawls worn by Mughal emperors.</div>
+      <div class="legend-box"><b>Reversible Pashmina</b> – Two different shades woven into one shawl.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong><br>
+        From which animal is authentic Pashmina wool obtained?
+      </p>
+      <form id="quiz-form">
+        <label><input type="radio" name="answer" value="Sheep"> Sheep</label><br>
+        <label><input type="radio" name="answer" value="Changthangi Goat"> Changthangi Goat</label><br>
+        <label><input type="radio" name="answer" value="Yak"> Yak</label><br><br>
+        <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Changthangi Goat") {
+        result.textContent = "✅ Correct! Pashmina wool comes from the Changthangi goat.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Changthangi Goat.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+    <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+  
+</body>
+</html>

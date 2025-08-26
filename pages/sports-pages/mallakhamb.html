@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mallakhamb – DeshDarshan</title>
+  <style>
+    :root{
+      --primary:#1b4b8e;   /* deep blue */
+      --accent:#f0a500;   /* saffron-gold */
+      --bg:#fdfdf8;
+      --text:#222;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    header{
+      background:var(--primary);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+    header h1{margin:0;font-size:2.3rem}
+    .back{
+      margin-top:10px;
+      padding:8px 16px;
+      border:none;
+      border-radius:6px;
+      background:var(--accent);
+      color:#111;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .hero{ text-align:center; padding:20px; }
+    .hero img{
+      max-width:90%;
+      border-radius:12px;
+      box-shadow:0 6px 12px rgba(0,0,0,.2);
+    }
+    section{ padding:40px 10%; }
+    h2{ margin-top:0; color:var(--primary); }
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; margin-top:20px;
+    }
+    .fact-card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transition:transform .2s;
+    }
+    .fact-card:hover{ transform:scale(1.05); }
+    .timeline{ display:grid; gap:16px; margin-top:16px; }
+    .step{
+      background:#fff; padding:18px; border-left:6px solid var(--accent);
+      border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+    .quiz{
+      background:#fff; padding:25px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); margin-top:20px; text-align:center;
+    }
+    .quiz button{
+      background:var(--primary); color:#fff; border:none;
+      padding:10px 18px; margin:8px; border-radius:8px; cursor:pointer;
+    }
+    .quiz button:hover{ background:#2761b5; }
+    footer{
+      text-align:center; padding:20px; background:var(--primary); color:#fff; margin-top:30px;
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 10px;
+      bottom: 80px;
+      background-color: #f0a500;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      background-color: #f0a500;
+      transform: scale(1.05);
+    }
+
+    
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>🤸 Mallakhamb – The Traditional Pole & Rope Sport</h1>
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+
+  </header>
+
+  <div class="hero">
+    <!-- Replace with your asset -->
+    <img src="./img/malla.png" alt="Athletes performing Mallakhamb on a wooden pole">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      <b>Mallakhamb</b> is a traditional Indian sport where gymnasts perform aerial yoga and acrobatic
+      postures on a <b>vertical wooden pole</b>, a <b>rope</b>, or a <b>hanging cane</b>.
+      The name combines <i>“Malla”</i> (wrestler) and <i>“Khamb”</i> (pole).
+      It was historically used to train wrestlers, enhancing their strength, flexibility, and grip.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">🪵 The pole is usually made of <b>teakwood</b>, polished with castor oil for grip.</div>
+      <div class="fact-card">🏅 Mallakhamb was declared the <b>state sport of Madhya Pradesh</b> in 2013.</div>
+      <div class="fact-card">🌍 Today it is practiced in over <b>20 countries</b> worldwide.</div>
+      <div class="fact-card">💪 It combines elements of <b>yoga, gymnastics, and martial arts</b>.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔁 Evolution</h2>
+    <div class="timeline">
+      <div class="step"><b>12th century</b> — Mentions of Mallakhamb appear in classical Indian texts.</div>
+      <div class="step"><b>18th century</b> — Peshwa Bajirao II promotes Mallakhamb to train soldiers.</div>
+      <div class="step"><b>20th century</b> — Modern styles (Pole, Rope, Hanging Mallakhamb) gain recognition.</div>
+      <div class="step"><b>Today</b> — Practiced worldwide as a blend of <b>sport, art, and yoga therapy</b>.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧩 How It’s Played</h2>
+    <ul>
+      <li>Performed on a <b>wooden pole</b> (2.6m high), a <b>rope</b>, or a <b>hanging cane</b>.</li>
+      <li>Players climb, balance, and hold <b>yogic poses</b> while demonstrating strength & grace.</li>
+      <li>Judged on <b>difficulty, balance, flexibility, and execution</b>.</li>
+      <li>Often practiced barefoot, with hands and legs gripping the pole using core strength.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>What does “Mallakhamb” literally mean?</h3>
+      <button onclick="checkAnswer('correct')">Wrestler’s Pole</button>
+      <button onclick="checkAnswer('wrong')">Sacred Rope</button>
+      <button onclick="checkAnswer('wrong')">Warrior’s Gym</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <h1>DeshDarshan Project</h1>
+  </footer>
+
+  <script>
+    function checkAnswer(option){
+      const result = document.getElementById("result");
+      if(option === 'correct'){
+        result.innerHTML = "✅ Correct! Mallakhamb means 'Wrestler’s Pole'.";
+        result.style.color = "green";
+      }else{
+        result.innerHTML = "❌ Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+    document.querySelector(".back").addEventListener("click", function(){
+      window.history.back();
+    });
+  </script>
+
+    <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

@@ -41,6 +41,7 @@ body.homepage {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+   
 }
 
 .nav-container {
@@ -126,6 +127,49 @@ html .navbar .nav-container {
     margin-left: auto !important;
 }
 
+.side-menu{
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left:0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index:1000;
+}
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  margin: 15px 0;
+}
+
+.side-menu a {
+  padding: 10px 25px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.2s;
+}
+
+.side-menu a:hover {
+  background: #575757;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
 /* Ultimate navbar layout fix - this should work on ALL pages */
 .navbar {
     background: rgba(0, 0, 0, 0.9) !important;
@@ -167,6 +211,7 @@ html .navbar .nav-container {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 15px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -310,3 +355,30 @@ html .navbar .nav-container {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
+
+/* Back  button Css for All pages in Dance category */
+ .back-btn 
+ {
+    position: fixed;
+    left: 20px;
+    bottom: 30px;
+    background-color: #ff9832;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    }
+
+    .back-btn:hover 
+    {
+      background-color: #ff9832;
+      transform: scale(1.05);
+    }

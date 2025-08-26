@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kho Kho – DeshDarshan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #fffdf7;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #d35400;
+      color: #fff;
+    }
+    header h1 {
+      font-size: 2.3rem;
+      margin: 0;
+    }
+    .hero {
+      text-align: center;
+      padding: 20px;
+    }
+    .hero img {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    section {
+      padding: 40px 10%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #d35400;
+    }
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .fact-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .fact-card:hover {
+      transform: scale(1.05);
+    }
+    .quiz {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      text-align: center;
+    }
+    .quiz button {
+      background: #d35400;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      margin-top: 10px;
+      margin-right: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .quiz button:hover {
+      background: #e67e22;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #d35400;
+      color: #fff;
+      margin-top: 30px;
+    }
+    .back {
+      margin-top:10px; 
+      padding:8px 16px; 
+      border:none; 
+      border-radius:6px;
+      background:#2980b9; 
+      color:#fff; 
+      font-weight:bold; 
+      cursor:pointer;
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 10px;
+      bottom: 80px;
+      background-color: #2980b9;;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <button class="back">⬅ Back</button>
+    <h1>🏃 Kho Kho – The Chase Game of India</h1>
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+
+  </header>
+
+  <div class="hero">
+    <img src="./img/kho-kho.png" alt="Kho Kho Game">
+  </div>
+
+  <section>
+    <h2>📖 Origin & History</h2>
+    <p>
+      <b>Kho Kho</b> is one of the oldest traditional outdoor games of India, believed to have originated thousands of years ago.  
+      The game is popular for its <b>speed, strategy, and teamwork</b>.  
+      It was officially recognized in 1959 with the formation of the Kho Kho Federation of India.  
+      Played by chasing and tagging opponents, Kho Kho is considered a game that builds agility, reflexes, and coordination.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Did You Know?</h2>
+    <div class="facts">
+      <div class="fact-card">🏃 Kho Kho is played between two teams of 12 players (9 active at a time).</div>
+      <div class="fact-card">🎯 It requires more <b>speed & strategy</b> than stamina alone.</div>
+      <div class="fact-card">🌍 Kho Kho has spread internationally to countries like England, South Africa & Nepal.</div>
+      <div class="fact-card">🏆 India introduced Kho Kho in the <b>South Asian Games</b> in 2016.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌟 Modern Kho Kho</h2>
+    <p>
+      Today, Kho Kho is not just a rural pastime but also an <b>internationally recognized sport</b>.  
+      The <b>Ultimate Kho Kho League</b> was launched in India to promote the game professionally.  
+      Schools across India include it in physical education to develop quick reflexes and team spirit among students.
+    </p>
+  </section>
+
+  <section>
+    <h2>🎯 Quick Quiz</h2>
+    <div class="quiz">
+      <h3>How many players actively play on the field in a Kho Kho team?</h3>
+      <button onclick="checkAnswer('wrong')">12</button>
+      <button onclick="checkAnswer('correct')">9</button>
+      <button onclick="checkAnswer('wrong')">7</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p><h1>DeshDarshan Project</h1></p>
+  </footer>
+
+  <script>
+    function checkAnswer(option) {
+      const result = document.getElementById("result");
+      if(option === 'correct') {
+        result.innerHTML = "✅ Correct! 9 players are active at a time.";
+        result.style.color = "green";
+      } else {
+        result.innerHTML = "❌ Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+
+    document.querySelector(".back").addEventListener("click", function () {
+      window.history.back();
+    });
+  </script>
+
+  <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>
