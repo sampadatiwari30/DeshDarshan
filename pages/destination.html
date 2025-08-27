@@ -13,177 +13,35 @@
     />
 
     <link rel="stylesheet" href="../css/destination.css" />
+    <link rel="stylesheet" href="../css/newnavbar.css" />
+    <link rel="stylesheet" href="../css/newfooter.css" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/icons/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/images/icons/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/icons/favicon/favicon.ico"
+    />
 
     <style>
       /* feedback.css */
       @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Navigation Styles */
-      .navbar {
-        background: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: 1rem 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .nav-container {
-        max-width: 1500px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .nav-logo h2 {
-        color: #ff9b36;
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin: 0;
-        font-family: "Cinzel", serif;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      }
-
-      .nav-menu {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-        margin: 0;
-      }
-
-      .nav-menu a {
-        display: inline-block;
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s ease-in-out;
-        position: relative;
-        padding: 0.5rem 0;
-      }
-
-      .nav-menu a::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #ff9933;
-        transition: width 0.3s ease;
-      }
-
-      .nav-menu a:hover::after {
-        width: 100%;
-      }
-
-      .nav-menu a:hover {
-        color: #ff9933;
-      }
-
-      .nav-buttons {
-        display: flex;
-        gap: 1rem;
-        padding-left: 40px;
-      }
-
-      .nav-buttons a {
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        padding: 0.6rem 1.8rem;
-        border-radius: 16px;
-        font-weight: 600;
-        font-size: 1rem;
-        min-width: 120px;
-        transition: all 0.3s ease;
-        gap: 8px;
-        /* add gap to space arrow from text */
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        background: #ff9933;
-        color: white;
-      }
-
-      /* Slightly darker on hover */
-      .nav-buttons a:hover {
-        background: #e6821c;
-        /* Darker orange shade */
-        color: white;
-      }
-
-      .nav-buttons a span {
-        transition: transform 0.3s ease;
-      }
-
-      .nav-buttons a i {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        opacity: 0;
-        transform: translateX(-10px);
-      }
-
-      /* On hover, move text and show arrow */
-      .nav-buttons a:hover span {
-        transform: translateX(10px);
-      }
-
-      .nav-buttons a:hover i {
-        opacity: 1;
-        transform: translateX(0);
-      }
     </style>
   </head>
 
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <h2>DeshDarshan</h2>
-        </div>
+    <div id="navbar-container"></div>
 
-        <!-- Hamburger Icon -->
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="home1.html">Home</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="crazyfacts.html">Crazy Facts</a></li>
-          <li><a href="explore.html">Explore India</a></li>
-          <li><a href="destination.html">Hidden Destinations</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="learn_lang.html">Learn Languages </a></li>
-        </ul>
-
-        <div class="nav-buttons">
-          <a href="signup.html"><span>Signup</span><i>→</i></a>
-          <a href="login.html"><span>Login</span><i>→</i></a>
-        </div>
-      </div>
-    </nav>
-    <br /><br />
     <!-- Background Music -->
     <audio id="backgroundMusic" loop>
       <source src="../assets/audios/indian-flute.mp3" type="audio/mpeg" />
@@ -263,9 +121,38 @@
         </div>
       </div>
     </div>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") {
+                return target.q;
+              }
+              return (...args) => target(prop, ...args);
+            },
+          });
+        }
+        const onLoad = function () {
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "eaZ3BLaEp3NWiit_Vn0fK";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+        };
+        if (document.readyState === "complete") {
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      })();
+    </script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -633,27 +520,32 @@
         Delhi: [
           {
             title: "Bhuli Bhatiyari Ka Mahal",
-            image: "https://exploreyourway.in/wp-content/uploads/2023/08/Bhuli-Bhatiyari-Ka-Mahal-Ticket-Price.jpg",
+            image:
+              "https://exploreyourway.in/wp-content/uploads/2023/08/Bhuli-Bhatiyari-Ka-Mahal-Ticket-Price.jpg",
             text: "Why hidden: Forgotten 14th-century hunting lodge in Central Ridge forest. Why famous: Known for its eerie legends and Tughlaq-era architecture. Why visit: Quiet ruin exploration, historical curiosity, and rare city-side wilderness.",
           },
           {
             title: "Hijron Ka Khanqah",
-            image: "https://ramaarya.blog/wp-content/uploads/2022/11/hijron_ka_khanqah_1.jpg",
+            image:
+              "https://ramaarya.blog/wp-content/uploads/2022/11/hijron_ka_khanqah_1.jpg",
             text: "Why hidden: Tucked in Mehrauli village, away from main tourist sites. Why famous: 15th-century Sufi shrine maintained by the Hijra community. Why visit: Peaceful marble courtyard, cultural inclusivity, and spiritual ambiance.",
           },
           {
             title: "Santushti Shopping Complex",
-            image: "https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/santushti-shopping-complex-1920-high.jpg",
+            image:
+              "https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/santushti-shopping-complex-1920-high.jpg",
             text: "Why hidden: Exclusive market hidden near diplomatic enclave. Why famous: Curated boutique stores with Indian handicrafts and designer pieces. Why visit: Quiet shopping, artisanal products, and charming garden cafés.",
           },
           {
             title: "Adham Khan’s Tomb",
-            image: "https://static-blog.treebo.com/wp-content/uploads/2018/03/Adham-Khans-Tomb.jpg",
+            image:
+              "https://static-blog.treebo.com/wp-content/uploads/2018/03/Adham-Khans-Tomb.jpg",
             text: "Why hidden: Overlooked Mughal-era tomb near Mehrauli bus stand. Why famous: Built by Akbar for his foster brother, with unique octagonal design. Why visit: Blend of Indo-Islamic architecture and dramatic historical tales.",
           },
           {
             title: "Tughlaqabad Fort",
-            image: "https://assets-news.housing.com/news/wp-content/uploads/2021/07/01195254/Tughlaqabad-Fort-Delhi-A-landmark-of-the-powerful-Tughlaq-Dynasty-shutterstock_157674509.jpg",
+            image:
+              "https://assets-news.housing.com/news/wp-content/uploads/2021/07/01195254/Tughlaqabad-Fort-Delhi-A-landmark-of-the-powerful-Tughlaq-Dynasty-shutterstock_157674509.jpg",
             text: "Why hidden: Massive ruined citadel often skipped by tourists. Why famous: Built by Ghiyas-ud-din Tughlaq in 14th century. Why visit: Panoramic city views, crumbling bastions, and wild overgrown courtyards.",
           },
           {
@@ -663,7 +555,8 @@
           },
           {
             title: "Agrasen ki Baoli",
-            image: "https://s7ap1.scene7.com/is/image/incredibleindia/agrasen-ki-baoli-delhi-delhi-2-attr-hero?qlt=82&ts=1727352154212",
+            image:
+              "https://s7ap1.scene7.com/is/image/incredibleindia/agrasen-ki-baoli-delhi-delhi-2-attr-hero?qlt=82&ts=1727352154212",
             text: "Why hidden: Ancient stepwell tucked among Connaught Place buildings. Why famous: Baoli with mysterious depth and arched corridors. Why visit: Heritage photography, quiet reflection, and historical intrigue.",
           },
         ],
@@ -676,32 +569,38 @@
           },
           {
             title: "Taptapani Hot Springs",
-            image: "https://odishatour.in/wp-content/uploads/2023/11/Bagha-Chanchada-Waterfall-Berhampur-800x450.jpg",
+            image:
+              "https://odishatour.in/wp-content/uploads/2023/11/Bagha-Chanchada-Waterfall-Berhampur-800x450.jpg",
             text: "Why hidden: Forest-enclosed natural sulphur springs in Gajapati. Why famous: Healing properties and tribal legends. Why visit: Warm spring baths, tribal markets, and scenic hill views.",
           },
           {
             title: "Lalitgiri Caves",
-            image: "https://lakshmisharath.com/wp-content/uploads/2017/05/ratnagiri5-op-1024x678.jpg",
+            image:
+              "https://lakshmisharath.com/wp-content/uploads/2017/05/ratnagiri5-op-1024x678.jpg",
             text: "Why hidden: Ancient Buddhist monastery ruins in Cuttack district. Why famous: Archaeological treasures from 1st century BC. Why visit: Peaceful hilltop views, stupas, and historical exploration.",
           },
           {
             title: "Bhitarkanika Mangroves",
-            image: "https://farm2.staticflickr.com/1722/41771684734_56db65cdd6_b.jpg",
+            image:
+              "https://farm2.staticflickr.com/1722/41771684734_56db65cdd6_b.jpg",
             text: "Why hidden: Remote delta region with restricted entry. Why famous: India’s second-largest mangrove ecosystem. Why visit: Crocodile spotting, birdwatching, and serene river channels.",
           },
           {
             title: "Daringbadi",
-            image: "https://www.nomadicweekends.com/wp-content/uploads/2018/12/Daringbadi-Offbeat-Orissa.jpg",
+            image:
+              "https://www.nomadicweekends.com/wp-content/uploads/2018/12/Daringbadi-Offbeat-Orissa.jpg",
             text: "Why hidden: Hill station in Kandhamal known as 'Kashmir of Odisha'. Why famous: Pine forests and coffee plantations. Why visit: Misty mornings, tribal culture, and nature trails.",
           },
           {
             title: "Kapilash Temple",
-            image: "https://external-preview.redd.it/8lN0aB_bNQfK4-o1UInrBF3Xwr94l8gSO5QBcU6egCU.jpg?auto=webp&s=9049b8890e144d3cad9bd023e11b9518cc385d20",
+            image:
+              "https://external-preview.redd.it/8lN0aB_bNQfK4-o1UInrBF3Xwr94l8gSO5QBcU6egCU.jpg?auto=webp&s=9049b8890e144d3cad9bd023e11b9518cc385d20",
             text: "Why hidden: Hilltop shrine in Dhenkanal district. Why famous: Sacred site of Lord Shiva. Why visit: Scenic climbs, panoramic views, and ancient religious heritage.",
           },
           {
             title: "Taratarini Temple",
-            image: "https://www.citybit.in/wp-content/uploads/2023/08/Tara-Tarini-Temple.jpg",
+            image:
+              "https://www.citybit.in/wp-content/uploads/2023/08/Tara-Tarini-Temple.jpg",
             text: "Why hidden: Temple on twin hills by the Rushikulya River. Why famous: One of the oldest Shakti Peethas. Why visit: Spiritual experience, cable car rides, and riverside beauty.",
           },
         ],
@@ -709,37 +608,44 @@
         Gujarat: [
           {
             title: "Mandvi Beach",
-            image: "https://toim.b-cdn.net/pictures/travel_guide/attractions/ahmedpur-mandavi-head-46.jpeg",
+            image:
+              "https://toim.b-cdn.net/pictures/travel_guide/attractions/ahmedpur-mandavi-head-46.jpeg",
             text: "Why hidden: Quieter stretch compared to famous Gir and Diu coasts. Why famous: Golden sands and wooden dhow shipbuilding. Why visit: Camel rides, sunset views, and heritage coastal walks.",
           },
           {
             title: "Polo Forest",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/-flora---fauna/polo-forest/Polo-Forest-Banner1.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/-flora---fauna/polo-forest/Polo-Forest-Banner1.jpg",
             text: "Why hidden: Forested valley on Gujarat–Rajasthan border. Why famous: Ruins of 15th-century Jain and Hindu temples. Why visit: Dense greenery, trekking trails, and heritage ruins.",
           },
           {
             title: "Rani Ki Vav, Patan",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/rani-ki-vav/Rani-Ki-Vav-1.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/rani-ki-vav/Rani-Ki-Vav-1.jpg",
             text: "Why hidden: Often overshadowed by Gir and Somnath attractions. Why famous: UNESCO-listed stepwell masterpiece. Why visit: Intricate sculptures, cool interiors, and historic architecture.",
           },
           {
             title: "Girnar Hills",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/religious-sites/girnar-hill,-pilgrimage-centre/Girnar-Hill,-Pilgrimage-Centre-Banner.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/religious-sites/girnar-hill,-pilgrimage-centre/Girnar-Hill,-Pilgrimage-Centre-Banner.jpg",
             text: "Why hidden: Pilgrimage hill away from typical tourist trails. Why famous: Jain and Hindu temples atop 9999 steps. Why visit: Challenging climbs, panoramic views, and spiritual ambiance.",
           },
           {
             title: "Lakhpat",
-            image: "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/lakhpat-fort/Lakhpat-Fort-2.jpg",
+            image:
+              "https://www.gujarattourism.com/content/dam/gujrattourism/images/heritage-sites/lakhpat-fort/Lakhpat-Fort-2.jpg",
             text: "Why hidden: Ghost town in Kutch with crumbling fort walls. Why famous: Once a bustling trade port. Why visit: Vast salt flats, Sufi shrines, and hauntingly beautiful ruins.",
           },
           {
             title: "Narara Island",
-            image: "https://www.vladi-private-islands.de/fileadmin/_processed_/2/d/csm_narara_island_004_a65c106903.jpg",
+            image:
+              "https://www.vladi-private-islands.de/fileadmin/_processed_/2/d/csm_narara_island_004_a65c106903.jpg",
             text: "Why hidden: Accessible only during low tide. Why famous: Part of the Marine National Park. Why visit: Coral reefs, marine life spotting, and tidal walks.",
           },
           {
             title: "Saputara",
-            image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/ae/e3/68/gira-waterfalls.jpg?w=1200&h=1200&s=1",
+            image:
+              "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/ae/e3/68/gira-waterfalls.jpg?w=1200&h=1200&s=1",
             text: "Why hidden: Gujarat’s only hill station in the Dang district. Why famous: Tribal art and culture of the Dang community. Why visit: Lake views, monsoon clouds, and handicraft markets.",
           },
         ],
@@ -944,86 +850,172 @@
       document.documentElement.style.scrollBehavior = "smooth";
     </script>
     <!-- Back to Top Button with Updated Colors (#ff9933) -->
-<style>
-  /* Base Button Styles */
-  #backToTopBtn {
-    position: fixed;
-    right: 25px;
-    bottom: 85px;
-    z-index: 1200;
-    background: #ff9832;
-    color: #fff;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: normal;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    line-height: 1;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Visible State */
-  #backToTopBtn.show {
-    opacity: 1;
-    transform: translateY(0);
-    display: flex;
-  }
-  
-  /* Hover Effects */
-  #backToTopBtn:hover {
-    transform: translateY(-5px) scale(1.05); 
-    background: #ffb366; 
-    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    #backToTopBtn {
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
-  }
-</style>
-
-<!-- Button HTML (unchanged) -->
-<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
-
-<!-- JavaScript (unchanged) -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const backBtn = document.getElementById('backToTopBtn');
-    const scrollThreshold = document.body.scrollHeight / 3;
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > scrollThreshold) {
-        backBtn.classList.add('show');
-      } else {
-        backBtn.classList.remove('show');
+    <style>
+      /* Base Button Styles */
+      #backToTopBtn {
+        position: fixed;
+        right: 25px;
+        bottom: 85px;
+        z-index: 1200;
+        background: #ff9832;
+        color: #fff;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: normal;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        line-height: 1;
+        text-align: center;
+        padding: 0;
+        margin: 0;
       }
-    });
 
-    backBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      /* Visible State */
+      #backToTopBtn.show {
+        opacity: 1;
+        transform: translateY(0);
+        display: flex;
+      }
+
+      /* Hover Effects */
+      #backToTopBtn:hover {
+        transform: translateY(-5px) scale(1.05);
+        background: #ffb366;
+        box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        #backToTopBtn {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+      }
+    </style>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+      <div class="footer-content-wrapper">
+        <!-- Section 1: About Desh Darshan -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Desh Darshan</h3>
+          <p>
+            Desh Darshan is your gateway to the vibrant and diverse culture of
+            India. We aim to introduce the world to India's rich heritage,
+            traditions, arts, and history.
+          </p>
+          <div class="footer-logo">DeshDarshan</div>
+        </div>
+
+        <!-- Section 2: Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about us.html" class="footer-link">About Us</a></li>
+            <li>
+              <a href="explore.html" class="footer-link">Explore India</a>
+            </li>
+            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Section 3: Contact Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Contact Us</h3>
+          <ul>
+            <li class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>hello@deshdarshan.in</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>+91 1234567890</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>New Delhi, India</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 4: Follow Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Follow Us</h3>
+          <div class="social-icons-container">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+          <div class="newsletter">
+            <h4>Subscribe to our newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright-section">
+        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Button HTML (unchanged) -->
+    <button id="backToTopBtn" title="Go to top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <!-- JavaScript (unchanged) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const backBtn = document.getElementById("backToTopBtn");
+        const scrollThreshold = document.body.scrollHeight / 3;
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > scrollThreshold) {
+            backBtn.classList.add("show");
+          } else {
+            backBtn.classList.remove("show");
+          }
+        });
+
+        backBtn.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
       });
-    });
-  });
-</script>
+    </script>
+
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/newnavbar.js"></script>
+    <script src="../js/newfooter.js"></script>
   </body>
 </html>

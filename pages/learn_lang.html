@@ -1,1465 +1,1613 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Learn Indian Languages - DeshDarshan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-  <link rel="stylesheet" href="../css/base.css" />
-  <link rel="stylesheet" href="../css/layout.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/learn_lang.css"/>
-  <link rel="stylesheet" href="../css/quiz.css"/>
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
-  <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Indian Languages - DeshDarshan</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/learn_lang.css" />
+    <link rel="stylesheet" href="../css/quiz.css" />
 
-</head>
-<body>
+    <link rel="stylesheet" href="../css/newnavbar.css" />
+    <link rel="stylesheet" href="../css/newfooter.css" />
 
-  <!--Navigation Bar -->
-    <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <h2 data-translate="header">Desh Darshan</h2>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/icons/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/images/icons/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/icons/favicon/favicon.ico"
+    />
+  </head>
+  <body>
+    <!--Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <header>
+      <h1><i class="fas fa-language"></i> Learn Indian Languages</h1>
+      <p>Common words and phrases in different regional languages</p>
+    </header>
+
+    <div class="main-container">
+      <div class="language-selector">
+        <select id="languageSelect">
+          <option value="" selected disabled>Select a language to learn</option>
+          <!-- Popular Languages -->
+          <option value="hindi">Hindi</option>
+          <option value="tamil">Tamil</option>
+          <option value="bengali">Bengali</option>
+          <option value="telugu">Telugu</option>
+          <option value="kannada">Kannada</option>
+          <option value="malayalam">Malayalam</option>
+          <option value="punjabi">Punjabi</option>
+          <option value="gujarati">Gujarati</option>
+          <option value="marathi">Marathi</option>
+          <option value="odia">Odia</option>
+
+          <!-- Rare/Classical/Tribal Languages -->
+          <option value="sanskrit">Sanskrit (Classical)</option>
+          <option value="awadhi">Awadhi</option>
+          <option value="khandeshi">Khandeshi</option>
+          <option value="tulu">Tulu</option>
+          <option value="kodava">Kodava</option>
+          <option value="santali">Santali (Tribal)</option>
+          <option value="bodo">Bodo</option>
+          <option value="garo">Garo</option>
+          <option value="khasi">Khasi</option>
+          <option value="mizo">Mizo</option>
+        </select>
       </div>
-      <ul class="nav-menu">
-        <li><a href="about-us.html" data-translate="nav-about">About Us</a></li>
-        <li><a href="explore.html" data-translate="nav-explore">Explore India</a></li>
-        <li><a href="feedback.html" data-translate="nav-feedback">Feedback</a></li>
-        <li><a href="contact-us.html" data-translate="nav-contact">Contact Us</a></li>
-        <li><a href="crazyfacts.html" data-translate="nav-crazyfacts">Crazy Facts</a></li>
-        <li><a href="destination.html" data-translate="nav-destination" style="padding-right: 20px;">Hidden Destinations</a></li>
-      </ul>
-      <div class="nav-buttons">
-        <a href="login.html" class="btn-login">
-          <span>Login</span>
-          <i class="fas fa-sign-in-alt"></i>
-        </a>
-        <a href="signup.html" class="btn-signup">
-          <span>Signup</span>  
-          <i class="fas fa-user-plus"></i>
-        </a>
+
+      <div class="no-language" id="noLanguage">
+        <i
+          class="fas fa-arrow-down"
+          style="font-size: 2em; margin-bottom: 15px"
+        ></i>
+        <p>Select a language from the dropdown to see common phrases</p>
+      </div>
+
+      <!-- Hindi -->
+      <div class="language-card" id="hindi-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <div>
+            <h2 class="language-title">Hindi</h2>
+            <div class="language-meta">
+              हिन्दी • North India • 600M speakers
+            </div>
+          </div>
+        </div>
+
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">नमस्ते (Namaste)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">शुभ प्रभात (Shubh prabhaat)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">शुभ रात्रि (Shubh raatri)</div>
+          </div>
+
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">कृपया (Kripaya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">माफ़ कीजिए (Maaf kijiye)</div>
+          </div>
+
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              आपका नाम क्या है? (Aapka naam kya hai?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...कहाँ है? (...kahan hai?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">यह कितने का है? (Yah kitne ka hai?)</div>
+          </div>
+
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">एक (Ek)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">दो (Do)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">तीन (Teen)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tamil -->
+      <div class="language-card" id="tamil-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Tamil</h2>
+          <div class="language-meta">தமிழ் • Tamil Nadu • 75M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">வணக்கம் (Vanakkam)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">காலை வணக்கம் (Kaalai Vanakkam)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">இரவு வணக்கம் (Iravu Vanakkam)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">நன்றி (Nandri)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">தயவு செய்து (Thayavu Seythu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">மன்னிக்கவும் (Mannikkavum)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              உங்கள் பெயர் என்ன? (Ungal peyar enna?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...எங்கே? (...enge?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">
+              இதன் விலை எவ்வளவு? (Idhan vilai evvalavu?)
+            </div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ஒன்று (Onru)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">இரண்டு (Irantu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">மூன்று (Moonru)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bengali -->
+      <div class="language-card" id="bengali-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Bengali</h2>
+          <div class="language-meta">বাংলা • West Bengal • 230M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">নমস্কার (Nomoskar)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">সুপ্রভাত (Suprabhat)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">শুভ রাত্রি (Shubho ratri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ধন্যবাদ (Dhonnobad)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">অনুগ্রহ করে (Onugroho kore)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">দুঃখিত (Dukkito)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">আপনার নাম কী? (Apnar naam ki?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...কোথায়? (...kothay?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">এটার দাম কত? (Etar dam koto?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">এক (Ek)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">দুই (Dui)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">তিন (Tin)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Telugu -->
+      <div class="language-card" id="telugu-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Telugu</h2>
+          <div class="language-meta">
+            తెలుగు • Andhra/Telangana • 80M speakers
+          </div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">నమస్తే (Namaste)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">శుభోదయం (Shubhodhayam)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">శుభ రాత్రి (Shubha raatri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ధన్యవాదాలు (Dhanyavaadalu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">దయచేసి (Dayachesi)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">క్షమించండి (Kshaminchandi)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">మీ పేరు ఏమిటి? (Mee peru emiti?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...ఎక్కడ? (...ekkada?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ఇది ఎంత? (Idi entha?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ఒకటి (Okati)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">రెండు (Rendu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">మూడు (Moodu)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kannada -->
+      <div class="language-card" id="kannada-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Kannada</h2>
+          <div class="language-meta">ಕನ್ನಡ • Karnataka • 50M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">ನಮಸ್ಕಾರ (Namaskara)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">ಶುಭೋದಯ (Shubhodaya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">ಶುಭ ರಾತ್ರಿ (Shubha raatri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ಧನ್ಯವಾದಗಳು (Dhanyavadagalu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">ದಯವಿಟ್ಟು (Dayavittu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">ಕ್ಷಮಿಸಿ (Kshamisi)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">ನಿಮ್ಮ ಹೆಸರು ಏನು? (Nimma hesaru enu?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...ಎಲ್ಲಿ? (...elli?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ಇದು ಎಷ್ಟು? (Idu eshtu?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ಒಂದು (Ondu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">ಎರಡು (Eradu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">ಮೂರು (Mooru)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Malayalam -->
+      <div class="language-card" id="malayalam-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Malayalam</h2>
+          <div class="language-meta">മലയാളം • Kerala • 38M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">നമസ്കാരം (Namaskaram)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">സുപ്രഭാതം (Suprabhatham)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">ശുഭ രാത്രി (Shubha raathri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">നന്ദി (Nandi)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">ദയവായി (Dayavaayi)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">ക്ഷമിക്കണം (Kshamikkanam)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              നിങ്ങളുടെ പേര് എന്ത്? (Ningalude peru enthu?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...എവിടെ? (...evide?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ഇത് എത്ര? (Ith ethra?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ഒന്ന് (Onnu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">രണ്ട് (Randu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">മൂന്ന് (Moonnu)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Punjabi -->
+      <div class="language-card" id="punjabi-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Punjabi</h2>
+          <div class="language-meta">ਪੰਜਾਬੀ • Punjab • 125M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">ਸਤ ਸ੍ਰੀ ਅਕਾਲ (Sat Sri Akal)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">ਸ਼ੁਭ ਸਵੇਰ (Shubh Saver)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">ਸ਼ੁਭ ਰਾਤ (Shubh Raat)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ਧੰਨਵਾਦ (Dhannvaad)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">ਕਿਰਪਾ ਕਰਕੇ (Kirpa karke)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">ਮਾਫ਼ ਕਰਨਾ (Maaf karna)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ? (Tuhada naam ki hai?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...ਕਿੱਥੇ ਹੈ? (...kithe hai?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ? (Ih kinne da hai?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ਇੱਕ (Ikk)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">ਦੋ (Do)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">ਤਿੰਨ (Tinn)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gujarati -->
+      <div class="language-card" id="gujarati-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Gujarati</h2>
+          <div class="language-meta">ગુજરાતી • Gujarat • 60M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">નમસ્તે (Namaste)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">શુભ સવાર (Shubh Savar)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">શુભ રાત્રિ (Shubh Raatri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">આભાર (Aabhar)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">કૃપા કરીને (Krupa karine)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">માફ કરો (Maaf karo)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              તમારું નામ શું છે? (Tamaru naam shu che?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...ક્યાં છે? (...kya che?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">આના કેટલા થાય? (Aana ketla thay?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">એક (Ek)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">બે (Be)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">ત્રણ (Tran)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marathi -->
+      <div class="language-card" id="marathi-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Marathi</h2>
+          <div class="language-meta">मराठी • Maharashtra • 83M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">नमस्कार (Namaskar)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">शुभ सकाळ (Shubh Sakal)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">शुभ रात्री (Shubh Raatri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">कृपया (Kripaya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">माफ करा (Maaf kara)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">तुमचं नाव काय? (Tumcha naav kaay?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...कुठे आहे? (...kuthe aahe?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">याची किंमत किती? (Yaachi kimat kiti?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">एक (Ek)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">दोन (Don)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">तीन (Teen)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Odia -->
+      <div class="language-card" id="odia-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Odia</h2>
+          <div class="language-meta">ଓଡ଼ିଆ • Odisha • 40M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">ନମସ୍କାର (Namaskar)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">ଶୁଭ ସକାଳ (Shubha Sakal)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">ଶୁଭ ରାତି (Shubha Raati)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ଧନ୍ୟବାଦ (Dhanyabaad)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">ଦୟାକରି (Dayakari)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">ମାଫ କରନ୍ତୁ (Maaf karantu)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">ଆପଣଙ୍କ ନାମ କଣ? (Apananka naam kana?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...କେଉଁଠି? (...keunthi?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ଏହାର ଦାମ କେତେ? (Ehara daam kete?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ଏକ (Eka)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">ଦୁଇ (Dui)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">ତିନି (Tini)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rare/Classical/Tribal Languages -->
+      <!-- Sanskrit (Classical) -->
+      <div class="language-card" id="sanskrit-card">
+        <div class="language-header">
+          <div class="language-flag">📜</div>
+          <div>
+            <h2 class="language-title">Sanskrit</h2>
+            <div class="language-meta">संस्कृतम् • Classical • Scholarly</div>
+          </div>
+        </div>
+
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">नमस्ते (Namaste)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">सुप्रभातम् (Suprabhātam)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">शुभरात्रिः (Shubharātriḥ)</div>
+          </div>
+
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">धन्यवादः (Dhanyavādaḥ)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">कृपया (Kṛpayā)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">क्षम्यताम् (Kṣhamyatām)</div>
+          </div>
+
+          <h3 class="category-title">Wisdom</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Non-violence is supreme</div>
+            <div class="phrase-text">
+              अहिंसा परमो धर्मः (Ahimsā paramo dharmaḥ)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Knowledge is power</div>
+            <div class="phrase-text">
+              विद्या ददाति विनयम् (Vidyā dadāti vinayam)
+            </div>
+          </div>
+
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">भवतः नाम किम्? (Bhavataḥ nāma kim?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...कुत्र अस्ति? (...kutra asti?)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Awadhi -->
+      <div class="language-card" id="awadhi-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Awadhi</h2>
+          <div class="language-meta">अवधी • UP/Bihar • 4M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">राम राम (Ram Ram)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">सुप्रभात (Suprabhaat)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">शुभ रात (Shubh raat)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">कृपया (Kripya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">माफ करि (Maaf kari)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">तोहार नाम का ह? (Tohaar naam ka ha?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...कहाँ बा? (...kahan ba?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ई केतना के बा? (Ee ketna ke ba?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">एक (Ek)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">दू (Doo)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">तीन (Teen)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khandeshi -->
+      <div class="language-card" id="khandeshi-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Khandeshi</h2>
+          <div class="language-meta">खान्देशी • Maharashtra • 2M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">नमस्कार (Namaskar)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">शुभ सकाळ (Shubh sakal)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">शुभ रात्री (Shubh ratri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">कृपया (Kripaya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">माफ करा (Maaf kara)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">तुझं नाव काय? (Tujha naav kaay?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...कुठं आहे? (...kuth aahe?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">याची किंमत किती? (Yaachi kimat kiti?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">एक (Ek)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">दोन (Don)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">तीन (Teen)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tulu -->
+      <div class="language-card" id="tulu-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Tulu</h2>
+          <div class="language-meta">ತುಳು • Karnataka/Kerala • 2M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">ನಮಸ್ಕಾರ (Namaskara)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">ಶುಭೋದಯ (Shubhodaya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">ಶುಭ ರಾತ್ರಿ (Shubha raatri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ಧನ್ಯವಾದ (Dhanyavaada)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">ದಯವಿಟ್ಟು (Dayavittu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">ಕ್ಷಮಿಸಿ (Kshamisi)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">ನಿಂಡ ಪೆರ್ ಎನು? (Ninda per enu?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...ಎಲ್ಲಿ? (...elli?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ಇದು ಎಷ್ಟು? (Idu eshtu?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ಒಂಜಿ (Onji)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">ರಡ್ಡು (Raddhu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">ಮೂಜಿ (Muuji)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kodava -->
+      <div class="language-card" id="kodava-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Kodava</h2>
+          <div class="language-meta">ಕೊಡವ • Kodagu • 200K speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">ಯೆನ್ ಪೊರ್ಲು (Yen porlu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">ಶುಭೋದಯ (Shubhodaya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">ಶುಭ ರಾತ್ರಿ (Shubha raatri)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ಅಪ್ಪುಣ್ಯ (Appunya)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">ದಯವಿಟ್ಟು (Dayavittu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">ಕ್ಷಮಿಸಿ (Kshamisi)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">ನಿಂಡ ಪೆರ್ ಎನು? (Ninda per enu?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...ಎಲ್ಲಿ? (...elli?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">ಇದು ಎಷ್ಟು? (Idu eshtu?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ಒಂಜಿ (Onji)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">ರಡ್ಡು (Raddhu)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">ಮೂಜಿ (Muuji)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Santali -->
+      <div class="language-card" id="santali-card">
+        <div class="language-header">
+          <div class="language-flag">🌳</div>
+          <h2 class="language-title">Santali</h2>
+          <div class="language-meta">ᱥᱟᱱᱛᱟᱲᱤ • Tribal (East) • 7M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">ᱡᱷᱚᱞᱚᱢ (Jhôlôm)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">ᱥᱩᱯᱨᱵᱷᱟᱴ (Suprabhaṭ)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">ᱥᱩᱵᱷ ᱨᱟᱛᱤ (Subh rati)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">ᱥᱩᱵᱷ ᱫᱤᱱ (Subh din)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">ᱫᱚᱭᱟᱠᱳᱨᱤ (Dayakori)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">ᱠᱷᱚᱢᱟ ᱠᱚᱨᱤᱵᱮ (Khomā koribe)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              ᱟᱢᱟᱨ ᱧᱩᱛᱩᱢ ᱫᱚ ᱢᱮᱱᱟᱜᱼᱟ? (Āmār n̄utum do menāga?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">
+              ... ᱚᱠᱚᱭ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ? (... okôy re menāga?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">
+              ᱤᱱᱟᱹ ᱨᱮᱱᱟᱜ ᱫᱟᱢ ᱠᱮᱛᱮ ᱢᱮᱱᱟᱜᱼᱟ? (Inaṛ renāg dam kete menāga?)
+            </div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">ᱢᱤᱫ (Mit')</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">ᱵᱟᱨ (Bar)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">ᱥᱟᱹᱜ (Sāg)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bodo -->
+      <div class="language-card" id="bodo-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Bodo</h2>
+          <div class="language-meta">बर'/बड़ो • Assam • 1.5M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">मोजां (Mojang)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">गुड मोर्निंग (Good morning)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">गुड नाइट (Good night)</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">खुबले (Khublé)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">दया कर (Daya kara)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">माफ कर (Maaf kara)</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              नांगा मुं नाम मुन? (Nanga mung naam mun?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...खौ मं? (...kho man?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">दाम मुन? (Dam mun?)</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">सि (Si)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">नि (Ni)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">थम (Tham)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Garo -->
+      <div class="language-card" id="garo-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Garo</h2>
+          <div class="language-meta">A·chik • Meghalaya • 1M speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">Nameng</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">Senggitcham</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">Minggitcham</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">Khublai</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">Me·chik</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">Map</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">
+              Na·a ming a·gipa? (What is your name?)
+            </div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...ha nokka? (...where is...?)</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">
+              Ani dam katamangipa? (How much does this cost?)
+            </div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">Sa</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">Gni</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">Gitcham</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khasi -->
+      <div class="language-card" id="khasi-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Khasi</h2>
+          <div class="language-meta">
+            Ka Ktien Khasi • Meghalaya • 1M speakers
+          </div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">Kumno</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">Khublei sngewbha</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">Khublei miet</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">Khublei</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">Sngewbha</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">Map</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">Kaei ka kyrteng jong phi?</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">Hangno ka ...?</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">Katno ka dor jong kane?</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">Wein</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">Ar</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">Lai</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mizo -->
+      <div class="language-card" id="mizo-card">
+        <div class="language-header">
+          <div class="language-flag">🇮🇳</div>
+          <h2 class="language-title">Mizo</h2>
+          <div class="language-meta">Mizo ṭawng • Mizoram • 850K speakers</div>
+        </div>
+        <div class="phrases-container">
+          <h3 class="category-title">Greetings</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Hello</div>
+            <div class="phrase-text">Chibai</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good morning</div>
+            <div class="phrase-text">Tunlai chawhmeh</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Good night</div>
+            <div class="phrase-text">Khawngaihna zan</div>
+          </div>
+          <h3 class="category-title">Common Phrases</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">Thank you</div>
+            <div class="phrase-text">Ka lawm e</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Please</div>
+            <div class="phrase-text">Dawng che</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Sorry</div>
+            <div class="phrase-text">Ka ngai lo</div>
+          </div>
+          <h3 class="category-title">Questions</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">What is your name?</div>
+            <div class="phrase-text">I hming a eng?</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Where is...?</div>
+            <div class="phrase-text">...khawng a awm?</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">How much does this cost?</div>
+            <div class="phrase-text">Hei hi eng nge dam?</div>
+          </div>
+          <h3 class="category-title">Numbers</h3>
+          <div class="phrase-card">
+            <div class="phrase-label">One</div>
+            <div class="phrase-text">Pakhat</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Two</div>
+            <div class="phrase-text">Hnih</div>
+          </div>
+          <div class="phrase-card">
+            <div class="phrase-label">Three</div>
+            <div class="phrase-text">Thum</div>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
 
-  <header>
-    <h1><i class="fas fa-language"></i> Learn Indian Languages</h1>
-    <p>Common words and phrases in different regional languages</p>
-  </header>
+    <!-- Footer Section -->
+    <footer id="footer">
+      <div class="footer-content-wrapper">
+        <!-- Section 1: About Desh Darshan -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Desh Darshan</h3>
+          <p>
+            Desh Darshan is your gateway to the vibrant and diverse culture of
+            India. We aim to introduce the world to India's rich heritage,
+            traditions, arts, and history.
+          </p>
+          <div class="footer-logo">DeshDarshan</div>
+        </div>
 
-  <div class="main-container">
-    <div class="language-selector">
-      <select id="languageSelect">
-        <option value="" selected disabled>Select a language to learn</option>
-        <!-- Popular Languages -->
-        <option value="hindi">Hindi</option>
-        <option value="tamil">Tamil</option>
-        <option value="bengali">Bengali</option>
-        <option value="telugu">Telugu</option>
-        <option value="kannada">Kannada</option>
-        <option value="malayalam">Malayalam</option>
-        <option value="punjabi">Punjabi</option>
-        <option value="gujarati">Gujarati</option>
-        <option value="marathi">Marathi</option>
-        <option value="odia">Odia</option>
-        
-        <!-- Rare/Classical/Tribal Languages -->
-        <option value="sanskrit">Sanskrit (Classical)</option>
-        <option value="awadhi">Awadhi</option>
-        <option value="khandeshi">Khandeshi</option>
-        <option value="tulu">Tulu</option>
-        <option value="kodava">Kodava</option>
-        <option value="santali">Santali (Tribal)</option>
-        <option value="bodo">Bodo</option>
-        <option value="garo">Garo</option>
-        <option value="khasi">Khasi</option>
-        <option value="mizo">Mizo</option>
-      </select>
-    </div>
+        <!-- Section 2: Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about us.html" class="footer-link">About Us</a></li>
+            <li>
+              <a href="explore.html" class="footer-link">Explore India</a>
+            </li>
+            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
 
-    <div class="no-language" id="noLanguage">
-      <i class="fas fa-arrow-down" style="font-size: 2em; margin-bottom: 15px;"></i>
-      <p>Select a language from the dropdown to see common phrases</p>
-    </div>
+        <!-- Section 3: Contact Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Contact Us</h3>
+          <ul>
+            <li class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>hello@deshdarshan.in</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>+91 1234567890</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>New Delhi, India</span>
+            </li>
+          </ul>
+        </div>
 
-    <!-- Hindi -->
-    <div class="language-card" id="hindi-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <div>
-          <h2 class="language-title">Hindi</h2>
-          <div class="language-meta">हिन्दी • North India • 600M speakers</div>
+        <!-- Section 4: Follow Us -->
+        <div class="footer-section">
+          <h3 class="footer-section-title">Follow Us</h3>
+          <div class="social-icons-container">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+          <div class="newsletter">
+            <h4>Subscribe to our newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
         </div>
       </div>
-      
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">नमस्ते (Namaste)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">शुभ प्रभात (Shubh prabhaat)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">शुभ रात्रि (Shubh raatri)</div>
-        </div>
-        
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">कृपया (Kripaya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">माफ़ कीजिए (Maaf kijiye)</div>
-        </div>
-        
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">आपका नाम क्या है? (Aapka naam kya hai?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...कहाँ है? (...kahan hai?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">यह कितने का है? (Yah kitne ka hai?)</div>
-        </div>
-        
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">एक (Ek)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">दो (Do)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">तीन (Teen)</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Tamil -->
-    <div class="language-card" id="tamil-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Tamil</h2>
-        <div class="language-meta">தமிழ் • Tamil Nadu • 75M speakers</div>
+      <!-- Copyright -->
+      <div class="copyright-section">
+        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
       </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">வணக்கம் (Vanakkam)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">காலை வணக்கம் (Kaalai Vanakkam)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">இரவு வணக்கம் (Iravu Vanakkam)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">நன்றி (Nandri)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">தயவு செய்து (Thayavu Seythu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">மன்னிக்கவும் (Mannikkavum)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">உங்கள் பெயர் என்ன? (Ungal peyar enna?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...எங்கே? (...enge?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">இதன் விலை எவ்வளவு? (Idhan vilai evvalavu?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ஒன்று (Onru)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">இரண்டு (Irantu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">மூன்று (Moonru)</div>
-        </div>
-      </div>
-    </div>
+    </footer>
 
-    <!-- Bengali -->
-    <div class="language-card" id="bengali-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Bengali</h2>
-        <div class="language-meta">বাংলা • West Bengal • 230M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">নমস্কার (Nomoskar)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">সুপ্রভাত (Suprabhat)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">শুভ রাত্রি (Shubho ratri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ধন্যবাদ (Dhonnobad)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">অনুগ্রহ করে (Onugroho kore)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">দুঃখিত (Dukkito)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">আপনার নাম কী? (Apnar naam ki?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...কোথায়? (...kothay?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">এটার দাম কত? (Etar dam koto?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">এক (Ek)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">দুই (Dui)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">তিন (Tin)</div>
-        </div>
-      </div>
-    </div>
+    <script>
+      document
+        .getElementById("languageSelect")
+        .addEventListener("change", function () {
+          const selectedLanguage = this.value;
+          const noLanguageDiv = document.getElementById("noLanguage");
 
-    <!-- Telugu -->
-    <div class="language-card" id="telugu-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Telugu</h2>
-        <div class="language-meta">తెలుగు • Andhra/Telangana • 80M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">నమస్తే (Namaste)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">శుభోదయం (Shubhodhayam)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">శుభ రాత్రి (Shubha raatri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ధన్యవాదాలు (Dhanyavaadalu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">దయచేసి (Dayachesi)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">క్షమించండి (Kshaminchandi)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">మీ పేరు ఏమిటి? (Mee peru emiti?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...ఎక్కడ? (...ekkada?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ఇది ఎంత? (Idi entha?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ఒకటి (Okati)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">రెండు (Rendu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">మూడు (Moodu)</div>
-        </div>
-      </div>
-    </div>
+          // Hide all cards first
+          document.querySelectorAll(".language-card").forEach((card) => {
+            card.classList.remove("active");
+          });
 
-    <!-- Kannada -->
-    <div class="language-card" id="kannada-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Kannada</h2>
-        <div class="language-meta">ಕನ್ನಡ • Karnataka • 50M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">ನಮಸ್ಕಾರ (Namaskara)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">ಶುಭೋದಯ (Shubhodaya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">ಶುಭ ರಾತ್ರಿ (Shubha raatri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ಧನ್ಯವಾದಗಳು (Dhanyavadagalu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">ದಯವಿಟ್ಟು (Dayavittu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">ಕ್ಷಮಿಸಿ (Kshamisi)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">ನಿಮ್ಮ ಹೆಸರು ಏನು? (Nimma hesaru enu?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...ಎಲ್ಲಿ? (...elli?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ಇದು ಎಷ್ಟು? (Idu eshtu?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ಒಂದು (Ondu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">ಎರಡು (Eradu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">ಮೂರು (Mooru)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Malayalam -->
-    <div class="language-card" id="malayalam-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Malayalam</h2>
-        <div class="language-meta">മലയാളം • Kerala • 38M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">നമസ്കാരം (Namaskaram)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">സുപ്രഭാതം (Suprabhatham)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">ശുഭ രാത്രി (Shubha raathri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">നന്ദി (Nandi)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">ദയവായി (Dayavaayi)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">ക്ഷമിക്കണം (Kshamikkanam)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">നിങ്ങളുടെ പേര് എന്ത്? (Ningalude peru enthu?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...എവിടെ? (...evide?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ഇത് എത്ര? (Ith ethra?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ഒന്ന് (Onnu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">രണ്ട് (Randu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">മൂന്ന് (Moonnu)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Punjabi -->
-    <div class="language-card" id="punjabi-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Punjabi</h2>
-        <div class="language-meta">ਪੰਜਾਬੀ • Punjab • 125M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">ਸਤ ਸ੍ਰੀ ਅਕਾਲ (Sat Sri Akal)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">ਸ਼ੁਭ ਸਵੇਰ (Shubh Saver)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">ਸ਼ੁਭ ਰਾਤ (Shubh Raat)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ਧੰਨਵਾਦ (Dhannvaad)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">ਕਿਰਪਾ ਕਰਕੇ (Kirpa karke)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">ਮਾਫ਼ ਕਰਨਾ (Maaf karna)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ? (Tuhada naam ki hai?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...ਕਿੱਥੇ ਹੈ? (...kithe hai?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ? (Ih kinne da hai?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ਇੱਕ (Ikk)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">ਦੋ (Do)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">ਤਿੰਨ (Tinn)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gujarati -->
-    <div class="language-card" id="gujarati-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Gujarati</h2>
-        <div class="language-meta">ગુજરાતી • Gujarat • 60M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">નમસ્તે (Namaste)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">શુભ સવાર (Shubh Savar)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">શુભ રાત્રિ (Shubh Raatri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">આભાર (Aabhar)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">કૃપા કરીને (Krupa karine)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">માફ કરો (Maaf karo)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">તમારું નામ શું છે? (Tamaru naam shu che?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...ક્યાં છે? (...kya che?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">આના કેટલા થાય? (Aana ketla thay?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">એક (Ek)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">બે (Be)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">ત્રણ (Tran)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Marathi -->
-    <div class="language-card" id="marathi-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Marathi</h2>
-        <div class="language-meta">मराठी • Maharashtra • 83M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">नमस्कार (Namaskar)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">शुभ सकाळ (Shubh Sakal)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">शुभ रात्री (Shubh Raatri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">कृपया (Kripaya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">माफ करा (Maaf kara)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">तुमचं नाव काय? (Tumcha naav kaay?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...कुठे आहे? (...kuthe aahe?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">याची किंमत किती? (Yaachi kimat kiti?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">एक (Ek)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">दोन (Don)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">तीन (Teen)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Odia -->
-    <div class="language-card" id="odia-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Odia</h2>
-        <div class="language-meta">ଓଡ଼ିଆ • Odisha • 40M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">ନମସ୍କାର (Namaskar)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">ଶୁଭ ସକାଳ (Shubha Sakal)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">ଶୁଭ ରାତି (Shubha Raati)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ଧନ୍ୟବାଦ (Dhanyabaad)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">ଦୟାକରି (Dayakari)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">ମାଫ କରନ୍ତୁ (Maaf karantu)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">ଆପଣଙ୍କ ନାମ କଣ? (Apananka naam kana?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...କେଉଁଠି? (...keunthi?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ଏହାର ଦାମ କେତେ? (Ehara daam kete?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ଏକ (Eka)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">ଦୁଇ (Dui)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">ତିନି (Tini)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rare/Classical/Tribal Languages -->
-    <!-- Sanskrit (Classical) -->
-    <div class="language-card" id="sanskrit-card">
-      <div class="language-header">
-        <div class="language-flag">📜</div>
-        <div>
-          <h2 class="language-title">Sanskrit</h2>
-          <div class="language-meta">संस्कृतम् • Classical • Scholarly</div>
-        </div>
-      </div>
-      
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">नमस्ते (Namaste)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">सुप्रभातम् (Suprabhātam)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">शुभरात्रिः (Shubharātriḥ)</div>
-        </div>
-        
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">धन्यवादः (Dhanyavādaḥ)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">कृपया (Kṛpayā)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">क्षम्यताम् (Kṣhamyatām)</div>
-        </div>
-        
-        <h3 class="category-title">Wisdom</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Non-violence is supreme</div>
-          <div class="phrase-text">अहिंसा परमो धर्मः (Ahimsā paramo dharmaḥ)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Knowledge is power</div>
-          <div class="phrase-text">विद्या ददाति विनयम् (Vidyā dadāti vinayam)</div>
-        </div>
-        
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">भवतः नाम किम्? (Bhavataḥ nāma kim?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...कुत्र अस्ति? (...kutra asti?)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Awadhi -->
-    <div class="language-card" id="awadhi-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Awadhi</h2>
-        <div class="language-meta">अवधी • UP/Bihar • 4M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">राम राम (Ram Ram)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">सुप्रभात (Suprabhaat)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">शुभ रात (Shubh raat)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">कृपया (Kripya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">माफ करि (Maaf kari)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">तोहार नाम का ह? (Tohaar naam ka ha?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...कहाँ बा? (...kahan ba?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ई केतना के बा? (Ee ketna ke ba?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">एक (Ek)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">दू (Doo)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">तीन (Teen)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Khandeshi -->
-    <div class="language-card" id="khandeshi-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Khandeshi</h2>
-        <div class="language-meta">खान्देशी • Maharashtra • 2M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">नमस्कार (Namaskar)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">शुभ सकाळ (Shubh sakal)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">शुभ रात्री (Shubh ratri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">धन्यवाद (Dhanyavaad)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">कृपया (Kripaya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">माफ करा (Maaf kara)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">तुझं नाव काय? (Tujha naav kaay?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...कुठं आहे? (...kuth aahe?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">याची किंमत किती? (Yaachi kimat kiti?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">एक (Ek)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">दोन (Don)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">तीन (Teen)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tulu -->
-    <div class="language-card" id="tulu-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Tulu</h2>
-        <div class="language-meta">ತುಳು • Karnataka/Kerala • 2M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">ನಮಸ್ಕಾರ (Namaskara)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">ಶುಭೋದಯ (Shubhodaya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">ಶುಭ ರಾತ್ರಿ (Shubha raatri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ಧನ್ಯವಾದ (Dhanyavaada)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">ದಯವಿಟ್ಟು (Dayavittu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">ಕ್ಷಮಿಸಿ (Kshamisi)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">ನಿಂಡ ಪೆರ್ ಎನು? (Ninda per enu?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...ಎಲ್ಲಿ? (...elli?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ಇದು ಎಷ್ಟು? (Idu eshtu?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ಒಂಜಿ (Onji)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">ರಡ್ಡು (Raddhu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">ಮೂಜಿ (Muuji)</div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Kodava -->
-    <div class="language-card" id="kodava-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Kodava</h2>
-        <div class="language-meta">ಕೊಡವ • Kodagu • 200K speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">ಯೆನ್ ಪೊರ್ಲು (Yen porlu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">ಶುಭೋದಯ (Shubhodaya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">ಶುಭ ರಾತ್ರಿ (Shubha raatri)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ಅಪ್ಪುಣ್ಯ (Appunya)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">ದಯವಿಟ್ಟು (Dayavittu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">ಕ್ಷಮಿಸಿ (Kshamisi)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">ನಿಂಡ ಪೆರ್ ಎನು? (Ninda per enu?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...ಎಲ್ಲಿ? (...elli?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ಇದು ಎಷ್ಟು? (Idu eshtu?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ಒಂಜಿ (Onji)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">ರಡ್ಡು (Raddhu)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">ಮೂಜಿ (Muuji)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Santali -->
-    <div class="language-card" id="santali-card">
-      <div class="language-header">
-        <div class="language-flag">🌳</div>
-        <h2 class="language-title">Santali</h2>
-        <div class="language-meta">ᱥᱟᱱᱛᱟᱲᱤ • Tribal (East) • 7M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">ᱡᱷᱚᱞᱚᱢ (Jhôlôm)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">ᱥᱩᱯᱨᱵᱷᱟᱴ (Suprabhaṭ)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">ᱥᱩᱵᱷ ᱨᱟᱛᱤ (Subh rati)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">ᱥᱩᱵᱷ ᱫᱤᱱ (Subh din)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">ᱫᱚᱭᱟᱠᱳᱨᱤ (Dayakori)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">ᱠᱷᱚᱢᱟ ᱠᱚᱨᱤᱵᱮ (Khomā koribe)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">ᱟᱢᱟᱨ ᱧᱩᱛᱩᱢ ᱫᱚ ᱢᱮᱱᱟᱜᱼᱟ? (Āmār n̄utum do menāga?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">... ᱚᱠᱚᱭ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ? (... okôy re menāga?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">ᱤᱱᱟᱹ ᱨᱮᱱᱟᱜ ᱫᱟᱢ ᱠᱮᱛᱮ ᱢᱮᱱᱟᱜᱼᱟ? (Inaṛ renāg dam kete menāga?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">ᱢᱤᱫ (Mit')</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">ᱵᱟᱨ (Bar)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">ᱥᱟᱹᱜ (Sāg)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bodo -->
-    <div class="language-card" id="bodo-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Bodo</h2>
-        <div class="language-meta">बर'/बड़ो • Assam • 1.5M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">मोजां (Mojang)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">गुड मोर्निंग (Good morning)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">गुड नाइट (Good night)</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">खुबले (Khublé)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">दया कर (Daya kara)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">माफ कर (Maaf kara)</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">नांगा मुं नाम मुन? (Nanga mung naam mun?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...खौ मं? (...kho man?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">दाम मुन? (Dam mun?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">सि (Si)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">नि (Ni)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">थम (Tham)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Garo -->
-    <div class="language-card" id="garo-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Garo</h2>
-        <div class="language-meta">A·chik • Meghalaya • 1M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">Nameng</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">Senggitcham</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">Minggitcham</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">Khublai</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">Me·chik</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">Map</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">Na·a ming a·gipa? (What is your name?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...ha nokka? (...where is...?)</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">Ani dam katamangipa? (How much does this cost?)</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">Sa</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">Gni</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">Gitcham</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Khasi -->
-    <div class="language-card" id="khasi-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Khasi</h2>
-        <div class="language-meta">Ka Ktien Khasi • Meghalaya • 1M speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">Kumno</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">Khublei sngewbha</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">Khublei miet</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">Khublei</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">Sngewbha</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">Map</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">Kaei ka kyrteng jong phi?</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">Hangno ka ...?</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">Katno ka dor jong kane?</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">Wein</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">Ar</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">Lai</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mizo -->
-    <div class="language-card" id="mizo-card">
-      <div class="language-header">
-        <div class="language-flag">🇮🇳</div>
-        <h2 class="language-title">Mizo</h2>
-        <div class="language-meta">Mizo ṭawng • Mizoram • 850K speakers</div>
-      </div>
-      <div class="phrases-container">
-        <h3 class="category-title">Greetings</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Hello</div>
-          <div class="phrase-text">Chibai</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good morning</div>
-          <div class="phrase-text">Tunlai chawhmeh</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Good night</div>
-          <div class="phrase-text">Khawngaihna zan</div>
-        </div>
-        <h3 class="category-title">Common Phrases</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">Thank you</div>
-          <div class="phrase-text">Ka lawm e</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Please</div>
-          <div class="phrase-text">Dawng che</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Sorry</div>
-          <div class="phrase-text">Ka ngai lo</div>
-        </div>
-        <h3 class="category-title">Questions</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">What is your name?</div>
-          <div class="phrase-text">I hming a eng?</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Where is...?</div>
-          <div class="phrase-text">...khawng a awm?</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">How much does this cost?</div>
-          <div class="phrase-text">Hei hi eng nge dam?</div>
-        </div>
-        <h3 class="category-title">Numbers</h3>
-        <div class="phrase-card">
-          <div class="phrase-label">One</div>
-          <div class="phrase-text">Pakhat</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Two</div>
-          <div class="phrase-text">Hnih</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-label">Three</div>
-          <div class="phrase-text">Thum</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('languageSelect').addEventListener('change', function() {
-      const selectedLanguage = this.value;
-      const noLanguageDiv = document.getElementById('noLanguage');
-      
-      // Hide all cards first
-      document.querySelectorAll('.language-card').forEach(card => {
-        card.classList.remove('active');
-      });
-      
-      if (selectedLanguage) {
-        noLanguageDiv.style.display = 'none';
-        const card = document.getElementById(`${selectedLanguage}-card`);
-        if (card) {
-          card.classList.add('active');
+          if (selectedLanguage) {
+            noLanguageDiv.style.display = "none";
+            const card = document.getElementById(`${selectedLanguage}-card`);
+            if (card) {
+              card.classList.add("active");
+            }
+          } else {
+            noLanguageDiv.style.display = "block";
+          }
+        });
+    </script>
+    <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") {
+                return target.q;
+              }
+              return (...args) => target(prop, ...args);
+            },
+          });
         }
-      } else {
-        noLanguageDiv.style.display = 'block';
+        const onLoad = function () {
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "eaZ3BLaEp3NWiit_Vn0fK";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+        };
+        if (document.readyState === "complete") {
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      })();
+    </script>
+
+    <!-- Back to Top Button with Updated Colors (#ff9933) -->
+    <style>
+      /* Base Button Styles */
+      #backToTopBtn {
+        position: fixed;
+        right: 25px;
+        bottom: 85px;
+        z-index: 1200;
+        background: #ff9832;
+        color: #fff;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: normal;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        line-height: 1;
+        text-align: center;
+        padding: 0;
+        margin: 0;
       }
-    });
-  </script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
 
-<!-- Back to Top Button with Updated Colors (#ff9933) -->
-<style>
-  /* Base Button Styles */
-  #backToTopBtn {
-    position: fixed;
-    right: 25px;
-    bottom: 85px;
-    z-index: 1200;
-    background: #ff9832;
-    color: #fff;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: normal;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    line-height: 1;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Visible State */
-  #backToTopBtn.show {
-    opacity: 1;
-    transform: translateY(0);
-    display: flex;
-  }
-  
-  /* Hover Effects */
-  #backToTopBtn:hover {
-    transform: translateY(-5px) scale(1.05); 
-    background: #ffb366; 
-    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    #backToTopBtn {
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
-  }
-</style>
-
-<!-- Button HTML (unchanged) -->
-<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
-
-<!-- JavaScript (unchanged) -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const backBtn = document.getElementById('backToTopBtn');
-    const scrollThreshold = document.body.scrollHeight / 3;
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > scrollThreshold) {
-        backBtn.classList.add('show');
-      } else {
-        backBtn.classList.remove('show');
+      /* Visible State */
+      #backToTopBtn.show {
+        opacity: 1;
+        transform: translateY(0);
+        display: flex;
       }
-    });
 
-    backBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      /* Hover Effects */
+      #backToTopBtn:hover {
+        transform: translateY(-5px) scale(1.05);
+        background: #ffb366;
+        box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        #backToTopBtn {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+      }
+    </style>
+
+    <!-- Button HTML (unchanged) -->
+    <button id="backToTopBtn" title="Go to top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <!-- JavaScript (unchanged) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const backBtn = document.getElementById("backToTopBtn");
+        const scrollThreshold = document.body.scrollHeight / 3;
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > scrollThreshold) {
+            backBtn.classList.add("show");
+          } else {
+            backBtn.classList.remove("show");
+          }
+        });
+
+        backBtn.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
       });
-    });
-  });
-</script>
+    </script>
 
-</body>
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/newnavbar.js"></script>
+    <script src="../js/newfooter.js"></script>
+  </body>
 </html>
