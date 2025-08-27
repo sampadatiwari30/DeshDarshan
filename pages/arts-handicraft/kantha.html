@@ -107,6 +107,11 @@
     .top-btn:hover {
       transform: scale(1.05);
     }
+
+    footer{
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#c0392b; color:#fff; font-weight:600;
+    }
   </style>
 </head>
 <body>
@@ -159,8 +164,6 @@
     </div>
   </div>
 
-  <footer>DeshDarshan Project</footer>
-
   <script> 
     function checkAnswer() {
       const selected = document.querySelector('input[name="answer"]:checked');
@@ -180,10 +183,8 @@
         result.style.color = "red";
       }
     }
-  </script>
 
-    <!-- Code for chat bot -->
-  <script>
+     // code for chat bot
   (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
     {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
     window.chatbase=new Proxy(window.chatbase,{get(target,prop)
@@ -196,6 +197,7 @@
       if(document.readyState==="complete") {onLoad()}
       else{window.addEventListener("load",onLoad)}})();
   </script>
-  
+    <!-- Added Footer -->
+  <footer>Desh Darshan</footer>
 </body>
 </html>
