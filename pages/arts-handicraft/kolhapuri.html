@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolhapuri Chappals - Maharashtra</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: #b03a2e;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .back-btn {
+      background: #f4d03f;
+      color: black;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #b03a2e;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.8rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fef6e4;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #9c640c;
+    }
+
+    footer{margin-top:2rem; background:#b03a2e; color:#fff; text-align:center; padding:1rem; font-weight:600}
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    👡 Kolhapuri Chappals – Maharashtra
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+      <img src="./img/kolhapuri.png" alt="Kolhapuri Chappals">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Tradition</h2>
+    <p><b>Kolhapuri Chappals</b> are handcrafted leather sandals that originated in <b>Kolhapur, Maharashtra</b>.  
+    These iconic footwear pieces date back to the 13th century and were traditionally made for everyday wear by local communities.  
+    Known for their durability, earthy tones, and comfort, Kolhapuris became a fashion statement across India and later, the world.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">👣 Kolhapuris are 100% handmade using vegetable-tanned leather.</div>
+      <div class="fact-box">🌿 The tanning process uses natural ingredients like <b>myrobalan, babul bark, and seeds</b>.</div>
+      <div class="fact-box">💼 Once used as daily wear, they are now featured in global fashion shows.</div>
+      <div class="fact-box">🌍 In the 1970s, Kolhapuris became trendy in the West, especially during the hippie movement.</div>
+    </div>
+
+    <!-- Styles -->
+    <h2>🎨 Popular Styles</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Pukari Style</b> – Open-toe sandals with intricate weaving.</div>
+      <div class="legend-box"><b>Kachkadi</b> – Made from one piece of leather, simple yet sturdy.</div>
+      <div class="legend-box"><b>Bakkalnali</b> – Decorated with punched floral motifs.</div>
+      <div class="legend-box"><b>Modern Kolhapuris</b> – Color-dyed versions for contemporary fashion.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong><br>Kolhapuri Chappals are made from which material?</p>
+      <form id="quiz-form">
+        <label><input type="radio" name="answer" value="Leather"> Leather</label><br>
+        <label><input type="radio" name="answer" value="Wood"> Wood</label><br>
+        <label><input type="radio" name="answer" value="Fabric"> Fabric</label><br><br>
+        <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Leather") {
+        result.textContent = "✅ Correct! Kolhapuri chappals are traditionally made from pure leather.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Leather.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+    <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+  
+  <footer> DeshDarshan</footer>
+</body>
+</html>

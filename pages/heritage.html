@@ -4,30 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heritage Of India</title>
-     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/heritage.css">
     <link rel="stylesheet" href="../css/home1.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Desh Darshan</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="about us.html">About Us</a></li>
-                <li><a href="explore.html">Explore India</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
     <!-- Heritage of India Section -->
      <section class="heritage-section">
       <div class="container">
@@ -36,7 +24,7 @@
         </h2>
         <div class="heritage-grid">
           <div class="heritage-item">
-            <img src="../assets/images/Tajmahal.jpeg" alt="Taj Mahal" />
+            <img src="../assets/images/heritage/Tajmahal.jpeg" alt="Taj Mahal" />
             <div class="heritage-overlay">
             <h3 data-translate="taj-title">Taj Mahal</h3>
             <p data-translate="taj-desc">
@@ -45,7 +33,7 @@
           </div>
         </div>
           <div class="heritage-item">
-            <img src="../assets/images/Qutub Minar.jpeg" alt="Qutub Minar" />
+            <img src="../assets/images/heritage/Qutub Minar.jpeg" alt="Qutub Minar" />
             <div class="heritage-overlay">
             <h3 data-translate="qutub-title">Qutub Minar</h3>
             <p data translate="qutub-desc">
@@ -54,7 +42,7 @@
           </div>
           </div> 
           <div class="heritage-item">
-            <img src="../assets/images/Red fort.jpg" alt="Red Fort" />
+            <img src="../assets/images/heritage/Red fort.jpg" alt="Red Fort" />
             <div class="heritage-overlay">
             <h3 data-translate="redfort-title">Red Fort</h3>
             <p data-translate="redfort-desc">
@@ -63,7 +51,7 @@
               </div>
           </div>
           <div class="heritage-item">
-            <img src="../assets/images/Gate Way Of India.jpg" alt="Gateway of India" />
+            <img src="../assets/images/heritage/Gate Way Of India.jpg" alt="Gateway of India" />
             <div class="heritage-overlay">
             <h3 data-translate="gateway-title">Gateway of India</h3>
             <p data-translate="gateway-desc">
@@ -72,7 +60,7 @@
               </div>
           </div>
           <div class="heritage-item">
-            <img src="../assets/images/Mysore Palace.jpg" alt="Mysore Palace" />
+            <img src="../assets/images/heritage/Mysore Palace.jpg" alt="Mysore Palace" />
             <div class="heritage-overlay">
             <h3 data-translate="mysore-title">Mysore Palace</h3>
             <p data-translate="mysore-desc">
@@ -81,7 +69,7 @@
               </div>
           </div>
           <div class="heritage-item">
-            <img src="../assets/images/Charminar.jpg" alt="Charminar" />
+            <img src="../assets/images/heritage/Charminar.jpg" alt="Charminar" />
             <div class="heritage-overlay">
             <h3 data-translate="charminar-title">Charminar</h3>
             <p data-translate="charminar-desc">
@@ -92,6 +80,93 @@
         </div>
       </div>
      </section>
-    <script src="../js/home1.js"></script>
+    <script src="../js/home1.js"></script>    <script src="../js/navbar-loader.js"></script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+<!-- Back to Top Button with Updated Colors (#ff9933) -->
+<style>
+  /* Base Button Styles */
+  #backToTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    z-index: 1200;
+    background: #ff9832;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Visible State */
+  #backToTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+  }
+  
+  /* Hover Effects */
+  #backToTopBtn:hover {
+    transform: translateY(-5px) scale(1.05); 
+    background: #ffb366; 
+    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #backToTopBtn {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- Button HTML (unchanged) -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<!-- JavaScript (unchanged) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
+      }
+    });
+
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

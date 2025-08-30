@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- back button css -->
+  <style>
+     .back-btn 
+     {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f78c1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #e6780f;
+      transform: scale(1.05);
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 30px;
+      background-color: #f78c1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      bottom: 80px;
+    }
+
+    .top-btn:hover {
+      background-color: #e6780f;
+      transform: scale(1.05);
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APJ Abdul Kalam - People's President</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-[#fffaf3] text-gray-800">
+
+  <!-- HEADER -->
+  <header class="text-center py-8 bg-gradient-to-r from-orange-400 to-yellow-300 shadow-lg">
+    <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Dr. A.P.J. Abdul Kalam</h1>
+    <p class="text-lg text-white mt-2">The Missile Man of India & People's President</p>
+
+    <!-- Back button -->
+  <button class="back-btn" onclick="window.history.back()"> ← Back</button>
+
+  <!-- Top Button -->
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-500 text-white font-bold 
+                w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                transition-all duration-300 hover:scale-110 z-50">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- IMAGE & BIO -->
+  <section class="max-w-5xl mx-auto px-24 py-5 grid md:grid-cols-2 gap-28 items-center">
+    <img src="./img/apj.png" 
+         alt="APJ Abdul Kalam" class="rounded-2xl shadow-lg" />
+    <div>
+      <h2 class="text-3xl font-bold text-orange-500 mb-4">Overview</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Avul Pakir Jainulabdeen Abdul Kalam (1931–2015) was an Indian aerospace scientist and the 11th President of India (2002–2007).
+        Known as the <strong>"Missile Man of India"</strong> for his work on ballistic missile and launch vehicle technology,
+        he played a pivotal role in India's Pokhran-II nuclear tests. Loved by millions, Kalam was admired for his humility,
+        dedication to education, and vision for India's youth.
+      </p>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        His life story continues to inspire generations to dream big, work hard, and remain humble.
+      </p>
+    </div>
+  </section>
+
+  <!-- FUN FACTS -->
+  <section class="bg-white py-10 shadow-inner">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-orange-500 mb-8">Did You Know? 🤔</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-orange-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          📚 Kalam distributed his presidential salary to charity.
+        </div>
+        <div class="bg-orange-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          🚀 He worked on India's first Satellite Launch Vehicle (SLV-III).
+        </div>
+        <div class="bg-orange-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          ✍️ Authored famous books like <em>Wings of Fire</em> and <em>Ignited Minds</em>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="max-w-4xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold text-center text-orange-500 mb-6">Quick Quiz 📝</h2>
+    <div id="quiz-card" class="bg-white shadow-lg rounded-xl p-6">
+      <p id="question" class="text-xl font-semibold mb-6">Loading question...</p>
+      <div id="options" class="grid grid-cols-2 gap-4 pt-5 max-w-md mx-auto"></div>
+      <p id="feedback" class="text-lg font-semibold mt-6 min-h-[2rem] text-center"></p>
+      <div class="text-center mt-8">
+        <button id="next-btn"
+          class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition hidden"
+          onclick="nextQuestion()">
+          Next Question
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 bg-gray-100 text-sm text-gray-600">
+    © 2025 APJ Abdul Kalam Tribute | Designed with ❤️
+  </footer>
+
+  <script>
+    const quizData = [
+      {
+        question: "What is APJ Abdul Kalam popularly known as?",
+        options: ["Iron Man", "Missile Man", "Rocket Man", "Nuclear Man"],
+        answer: "Missile Man"
+      },
+      {
+        question: "Which book did Kalam author?",
+        options: ["Wings of Fire", "The Discovery of India", "My Experiments with Truth", "India 2020"],
+        answer: "Wings of Fire"
+      },
+      {
+        question: "When was Kalam President of India?",
+        options: ["1997-2002", "2002-2007", "2007-2012", "1992-1997"],
+        answer: "2002-2007"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const nextBtn = document.getElementById("next-btn");
+
+    function loadQuestion() {
+      feedbackEl.textContent = "";
+      nextBtn.classList.add("hidden");
+      const current = quizData[currentQuestionIndex];
+      questionEl.textContent = current.question;
+      optionsEl.innerHTML = "";
+      current.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.className = "bg-orange-100 hover:bg-orange-200 px-4 py-2 rounded-lg shadow";
+        btn.onclick = () => selectOption(option);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function selectOption(selected) {
+      const current = quizData[currentQuestionIndex];
+      [...optionsEl.children].forEach(b => b.disabled = true);
+      if (selected === current.answer) {
+        feedbackEl.textContent = "Correct! 🎉";
+        feedbackEl.style.color = "green";
+      } else {
+        feedbackEl.textContent = `Oops! Correct answer: ${current.answer}`;
+        feedbackEl.style.color = "red";
+      }
+      nextBtn.classList.remove("hidden");
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex >= quizData.length) {
+        questionEl.textContent = "You completed the quiz! 🎉";
+        optionsEl.innerHTML = "";
+        feedbackEl.textContent = "";
+        nextBtn.classList.add("hidden");
+        return;
+      }
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

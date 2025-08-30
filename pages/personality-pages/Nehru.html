@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pandit Jawaharlal Nehru - India's First Prime Minister</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-[#fffaf3] text-gray-800">
+
+  <!-- HEADER -->
+  <header class="text-center py-8 bg-gradient-to-r from-blue-400 to-cyan-300 shadow-lg">
+    <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Pandit Jawaharlal Nehru</h1>
+    <p class="text-lg text-white mt-2">India's First Prime Minister & Architect of Modern India</p>
+
+    <!-- Top and Back Button -->
+    <button  onclick="window.history.back()" class="fixed bottom-8 left-1 bg-blue-500 text-white 
+    font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2 
+    transition-transform hover: hover:scale-105"> ← Back
+    </button>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-20 right-5 bg-blue-500 hover:bg-blue-600 text-white font-bold 
+                w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                transition-all duration-300 hover:scale-110 z-50">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+
+    <!-- Buttons End here -->
+  </header>
+
+  <!-- IMAGE & BIO -->
+  <section class="max-w-5xl mx-auto px-24 py-5 grid md:grid-cols-2 gap-28 items-center">
+    <img src="./img/nehru.png" 
+         alt="Pandit Jawaharlal Nehru" class="rounded-2xl shadow-lg" />
+    <div>
+      <h2 class="text-3xl font-bold text-blue-500 mb-4">Overview</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Pandit Jawaharlal Nehru (1889–1964) was the first Prime Minister of independent India, serving from 1947 to 1964.
+        A central figure in Indian politics before and after independence, he was a close associate of Mahatma Gandhi
+        and played a major role in shaping India's democratic and secular framework.
+      </p>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        Fondly known as <strong>Chacha Nehru</strong>, he was deeply loved by children and believed in education, science,
+        and industrial growth as the foundation for India's future.
+      </p>
+    </div>
+  </section>
+
+  <!-- FUN FACTS -->
+  <section class="bg-white py-10 shadow-inner">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-500 mb-8">Did You Know? 🤔</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-blue-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          📅 Children's Day in India is celebrated on his birthday (14 November).
+        </div>
+        <div class="bg-blue-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          📚 Nehru wrote the famous book <em>Discovery of India</em>.
+        </div>
+        <div class="bg-blue-50 p-6 rounded-xl shadow hover:scale-105 transition">
+          🌸 Always wore a red rose on his coat lapel.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="max-w-4xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold text-center text-blue-500 mb-6">Quick Quiz 📝</h2>
+    <div id="quiz-card" class="bg-white shadow-lg rounded-xl p-6">
+      <p id="question" class="text-xl font-semibold mb-6">Loading question...</p>
+      <div id="options" class="grid grid-cols-2 gap-4 pt-5 max-w-md mx-auto"></div>
+      <p id="feedback" class="text-lg font-semibold mt-6 min-h-[2rem] text-center"></p>
+      <div class="text-center mt-8">
+        <button id="next-btn"
+          class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition hidden"
+          onclick="nextQuestion()">
+          Next Question
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 bg-gray-100 text-sm text-gray-600">
+    © 2025 Pandit Nehru Tribute | Designed with ❤️
+  </footer>
+
+  <script>
+    const quizData = [
+      {
+        question: "When is Children's Day celebrated in India?",
+        options: ["14 November", "2 October", "26 January", "15 August"],
+        answer: "14 November"
+      },
+      {
+        question: "What was Pandit Nehru's popular nickname?",
+        options: ["Bapu", "Netaji", "Chacha Nehru", "Gurudev"],
+        answer: "Chacha Nehru"
+      },
+      {
+        question: "Which book did Nehru write?",
+        options: ["Discovery of India", "Wings of Fire", "Hind Swaraj", "My Truth"],
+        answer: "Discovery of India"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const nextBtn = document.getElementById("next-btn");
+
+    function loadQuestion() {
+      feedbackEl.textContent = "";
+      nextBtn.classList.add("hidden");
+      const current = quizData[currentQuestionIndex];
+      questionEl.textContent = current.question;
+      optionsEl.innerHTML = "";
+      current.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.className = "bg-blue-100 hover:bg-blue-200 px-4 py-2 rounded-lg shadow";
+        btn.onclick = () => selectOption(option);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function selectOption(selected) {
+      const current = quizData[currentQuestionIndex];
+      [...optionsEl.children].forEach(b => b.disabled = true);
+      if (selected === current.answer) {
+        feedbackEl.textContent = "Correct! 🎉";
+        feedbackEl.style.color = "green";
+      } else {
+        feedbackEl.textContent = `Oops! Correct answer: ${current.answer}`;
+        feedbackEl.style.color = "red";
+      }
+      nextBtn.classList.remove("hidden");
+    }
+
+    function nextQuestion() 
+    {
+      currentQuestionIndex++;
+      if (currentQuestionIndex >= quizData.length) {
+        questionEl.textContent = "You completed the quiz! 🎉";
+        optionsEl.innerHTML = "";
+        feedbackEl.textContent = "";
+        nextBtn.classList.add("hidden");
+        return;
+      }
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+
+    <!-- Code for the Chatbot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+  {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+  window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+    {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+    {const script=document.createElement("script");
+    script.src="https://www.chatbase.co/embed.min.js";
+    script.id="eaZ3BLaEp3NWiit_Vn0fK";
+    script.domain="www.chatbase.co";
+    document.body.appendChild(script)};
+    if(document.readyState==="complete") {onLoad()}
+    else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

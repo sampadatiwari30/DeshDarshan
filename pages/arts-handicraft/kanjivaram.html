@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanjivaram Silk Saree</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #fffdf8;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #5b2c6f;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .back-btn {
+      background: #f1c40f;
+      color: black;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #5b2c6f;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #f8eaff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #6c3483;
+    }
+
+    footer{
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#5b2c6f; color:#fff; font-weight:600;
+    }
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    ✨ Kanjivaram Silk Saree – Pride of Tamil Nadu
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+        <img src="./img/kanji1.png" alt="Kanjivaram Silk Saree">
+        <img src="./img/kanji2.png" alt="Kanjivaram Silk Saree">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Heritage</h2>
+    <p>Kanjivaram Silk Sarees, also called <b>Kanchipuram Sarees</b>, originate from Kanchipuram, Tamil Nadu – a town known as the “Silk City of India.” These sarees are woven from pure mulberry silk with real gold and silver zari. Their tradition dates back over 400 years and is deeply rooted in South Indian temple culture and Dravidian architecture motifs.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🌟 A pure Kanjivaram saree can last for generations and is often passed down as a family heirloom.</div>
+      <div class="fact-box">👑 The pallu (end-piece) is woven separately and then attached, making it extra strong.</div>
+      <div class="fact-box">🎨 Designs often feature temple borders, checks, stripes, and motifs inspired by mythology.</div>
+      <div class="fact-box">🏛️ In 2005, Kanchipuram Silk Sarees were awarded a <b>GI (Geographical Indication)</b> tag.</div>
+    </div>
+
+    <!-- Unique Features -->
+    <h2>🌺 Unique Features of Kanjivaram</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Durability</b> – The interlocked weaving technique makes it one of the strongest silks in the world.</div>
+      <div class="legend-box"><b>Temple Borders</b> – Inspired by South Indian temple gopurams (towers).</div>
+      <div class="legend-box"><b>Zari Work</b> – Traditionally woven with threads dipped in real gold and silver.</div>
+      <div class="legend-box"><b>Vibrant Colors</b> – Contrasting pallus and borders add striking elegance.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong>  
+        The borders of Kanjivaram Sarees are inspired by what?
+      </p>
+      <form id="quiz-form">
+          <label><input type="radio" name="answer" value="Mountains"> Mountains</label><br>
+          <label><input type="radio" name="answer" value="Temples"> South Indian Temples</label><br>
+          <label><input type="radio" name="answer" value="Animals"> Animals</label><br><br>
+          <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script> 
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Temples") {
+        result.textContent = "✅ Correct! The borders are inspired by South Indian temples.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is South Indian Temples.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+    <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+  <footer>Desh Darshan</footer>
+</body>
+</html>

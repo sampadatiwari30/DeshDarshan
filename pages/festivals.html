@@ -5,84 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festivals</title>
+    <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/festivals.css">
     <link rel="stylesheet" href="../css/home1.css">
-     <link rel="icon" href="assets/images/Desh darshan Logo.png" type="image/png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+
+        <script src="../js/dark-theme-toggle.js"></script>
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Desh Darshan</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="about us.html">About Us</a></li>
-                <li><a href="explore.html">Explore India</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
     <section class="festivals-culture">
         <div class="container"> 
             <h2 class="section-title">Festivals and Culture of India</h2>
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="festival-calendar.html" class="calendar-link-btn">
+                    <i class="fas fa-calendar-alt"></i>
+                    View Interactive Festival Calendar
+                </a>
+            </div>
             <div class="culture-grid">
                 <div class="culture-item">
-                    <a href="festivals/Diwali.html">
-                        <img src="../assets/images/67.jpg" alt="Diwali celebration">
-                    </a>
-            <div class="culture-caption">
-                <h3>Diwali</h3>
-                <p>Festival of lights celebrating the victory of light over darkness</p>
-            </div>
-        </div>
-                <div class="culture-item">
-                    <a href="/festivals/Christmas.html">
-                    <img src="../assets/images/christmas.jpeg" alt="Holi colors">
-                    </a>
+
                     <div class="culture-caption">
                         <h3>Christmas</h3>
                         <p>Celebrating peace, love, and the magic of winter</p>
                     </div>
                 </div>
                 <div class="culture-item">
-                    <a href="/festivals/Navratri.html">
-                    <img src="../assets/images/durga puja.jpeg" alt="Durga Puja">
-                    </a>
+
                     <div class="culture-caption">
                         <h3>Durga Puja</h3>
                         <p>Grand celebration honoring the divine feminine power</p>
                     </div>
                 </div>
                 <div class="culture-item">
-                    <a href="/festivals/Pongal.html">
-                    <img src="../assets/images/pongal.jpg" alt="Ganesh Chaturthi">
-                    </a>
+
                     <div class="culture-caption">
                         <h3>pongal</h3>
                         <p>Joyous festival celebrating Lord Ganesha, the remover of obstacles</p>
                     </div>
                 </div>
                 <div class="culture-item">
-                    <a href="/festivals/Eid.html">
-                    <img src="../assets/images/77.jpg" alt="Eid celebration">
-                    </a>
+
                     <div class="culture-caption">
                         <h3>Eid</h3>
                         <p>Sacred festival marking the end of Ramadan with joy and unity</p>
                     </div>
                 </div>
                 <div class="culture-item">
-                    <a href="/festivals/Makar Sankranti.html">
-                    <img src="../assets/images/baisakhi.jpeg" alt="baisakhi">
-                    </a>
+
                     <div class="culture-caption">
                         <h3>Baisakhi</h3>
                         <p>Where fields bloom and hearts rejoice</p>
@@ -91,7 +67,94 @@
             </div>
         </div>
     </section>
-    <script src="../js/home1.js"></script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+    <script src="../js/home1.js"></script>    <script src="../js/navbar-loader.js"></script>
+
+    <!-- Back to Top Button with Updated Colors (#ff9933) -->
+<style>
+  /* Base Button Styles */
+  #backToTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    z-index: 1200;
+    background: #ff9832;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Visible State */
+  #backToTopBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+  }
+  
+  /* Hover Effects */
+  #backToTopBtn:hover {
+    transform: translateY(-5px) scale(1.05); 
+    background: #ffb366; 
+    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #backToTopBtn {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }
+</style>
+
+<!-- Button HTML (unchanged) -->
+<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+<!-- JavaScript (unchanged) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const backBtn = document.getElementById('backToTopBtn');
+    const scrollThreshold = document.body.scrollHeight / 3;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
+      }
+    });
+
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
 </body>
 
 </html>
