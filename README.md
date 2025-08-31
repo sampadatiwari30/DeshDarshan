@@ -31,25 +31,25 @@ DeshDarshan/
 ## 🗂️ Table of Contents
 
 1. [🌐 Live Demo](#-live-demo)
-2. [🧩 Tech Stack](#-tech-stack)
-3. [📂 Folder Structure](#-folder-structure)
-4. [🤔 Problem Statement](#-problem-statement)
-5. [🌟 Features](#-features)
-6. [🛠️ Installation](#️-installation)
-7. [💵 How to Contribute](#-how-to-contribute)
-8. [📝 Note](#-note)
-9. [💗 Contributors](#-our-contributors)
-10. [🛠️ Troubleshooting](#️-troubleshooting)
-11. [🥑 License](#-license)
-12. [⭐ Star the Repo!](#-star-the-repo)
-13. [🌸 GSSoC Participation](#-for-gssoc-participation-era)
+1. [🧩 Tech Stack](#-tech-stack)
+1. [📂 Folder Structure](#-folder-structure)
+1. [🤔 Problem Statement](#-problem-statement)
+1. [🌟 Features](#-features)
+1. [🛠️ Installation](#️-installation)
+1. [💵 How to Contribute](#-how-to-contribute)
+1. [📝 Note](#-note)
+1. [💗 Contributors](#-our-contributors)
+1. [🛠️ Troubleshooting](#️-troubleshooting)
+1. [🥑 License](#-license)
+1. [⭐ Star the Repo!](#-star-the-repo)
+1. [🌸 GSSoC Participation](#-for-gssoc-participation-era)
 
 ## 🤔 Problem Statement
 
 India's cultural diversity is often reduced to just a few mainstream destinations. DeshDarshan addresses:
 
 - 🏞️ Lack of platforms showcasing lesser-known cultural locations
-- 🎊 No centralized information about regional traditions  
+- 🎊 No centralized information about regional traditions
 - 🎯 Absence of personalized travel recommendations
 
 ## 🌟 Features
@@ -66,12 +66,23 @@ India's cultural diversity is often reduced to just a few mainstream destination
 ## 🛠️ Installation
 
 1. Fork the repository
-2. Clone locally:
+1. Clone locally:
+
 ```bash
 git clone https://github.com/sampadatiwari30/DeshDarshan.git
 cd DeshDarshan
 ```
 
+1. (Optional) Run with local Node server (for contact form & API headers):
+
+```bash
+npm install
+npm run dev
+```
+
+Server runs at: <http://localhost:3000>
+
+Static-only preview: open `index.html` directly in browser (no backend features).
 
 ## 🔑 Firebase Configuration
 
@@ -81,18 +92,20 @@ Update your Firebase SDK configuration in the file:
 js/firebase.js
 ```
 
+Never commit real Firebase or Gmail secrets. Use `.env` for server values and keep `firebaseConfig` keys in a non-committed local copy if sensitive.
+
 To enable Google Sign-In and other Firebase services, update your Firebase SDK configuration inside the project:
 
 ```bash
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",  
-  authDomain: "YOUR_AUTH_DOMAIN",  
-  projectId: "YOUR_PROJECT_ID",  
-  storageBucket: "YOUR_STORAGE_BUCKET",  
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",  
-  appId: "YOUR_APP_ID",  
-  measurementId: "YOUR_MEASUREMENT_ID"  
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 ```
 
@@ -101,60 +114,65 @@ const firebaseConfig = {
 We ❤️ Open Source and beginner-friendly contributions!  
 Follow these steps to get started:
 
-1. Check existing issues or create one describing your feature/bug.  
-2. Comment on the issue to get assigned.  
-3. Fork 🍴 → Clone 👥 → Create a new branch:
+1. Check existing issues or create one describing your feature/bug.
+1. Comment on the issue to get assigned.
+1. Fork 🍴 → Clone 👥 → Create a new branch:
 
 ```bash
 # Fork in your GitHub account
 git clone https://github.com/sampadatiwari30/DeshDarshan.git
 cd DeshDarshan
 ```
+
 ```bash
 # Create a new branch
 git checkout -b feature/your-feature-name
 ```
-```bash 
+
+```bash
 # Make your changes, then:
 git add .
 git commit -m "Add: your-feature-name"
 git push origin feature/your-feature-name
 ```
-4. Create Pull Request to main branch
+
+1. Create Pull Request to main branch
 
 ## 📝 Note
 
 ✅ No need to wait for issue assignment — just comment and start working!
 
-
 ## 💗 Our Contributors
 
 [![Contributors](https://contrib.rocks/image?repo=sampadatiwari30/DeshDarshan)](https://github.com/sampadatiwari30/DeshDarshan/graphs/contributors)
 
-
 ## 🛠️ Troubleshooting
 
 Having trouble setting up the project?
+
 - Double-check that you're opening index.html
 - If images are not loading, check path references.
 - Still stuck? Raise an issue - we're here to help ✨
 - Not sure how to set up the project? Check the README steps again
+- Contact form not working? Ensure you created a `.env` from `.env.example` and enabled Gmail App Passwords.
 
 ## 🥑 License
 
-This project is licensed under the **MIT License**.<br>
+This project is licensed under the **MIT License**.
+
 Feel free to fork, remix, or build upon it — with proper credit 🙏
 
-## ⭐ Star the Repo!
+## ⭐ Star the Repo
 
-If this project inspired you or helped in any way — do leave a ⭐<br>
+If this project inspired you or helped in any way — do leave a ⭐
 It keeps us going and growing!
-
 
 ## 🌸 For GSSoC Participation Era
 
-This repository is a part of **GirlScript Summer of Code!** 💜<br>
-We welcome contributors of all levels.<br>
+This repository is a part of **GirlScript Summer of Code!** 💜
 
-### If you're participating in GSSoC, feel free to raise issues and PRs tagged with **GSSoC label**.<br>
+We welcome contributors of all levels.
+
+### If you're participating in GSSoC, feel free to raise issues and PRs tagged with **GSSoC label**
+
 ## Happy Contributing! 🎉

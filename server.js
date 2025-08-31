@@ -3,20 +3,44 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const helmet = require("helmet");
+const compression = require("compression");
+const morgan = require("morgan");
+const rateLimit = require("express-rate-limit");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
-app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN?.split(",") || "*",
+  })
+);
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  })
+);
+app.use(compression());
+app.use(bodyParser.json({ limit: "200kb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan("tiny"));
+
+// Basic rate limiting for contact form / API abuse prevention
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use("/api/", apiLimiter);
 
 // Serve static files (HTML, CSS, JS, images)
 app.use(express.static(__dirname));
 
-// Gmail SMTP configuration
+// Gmail SMTP configuration (lazy init when needed)
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -51,12 +75,17 @@ app.post("/api/contact", async (req, res) => {
       message,
     } = req.body;
 
-    // Validation
+    // Basic validation
     if (!name || !email || !phone || !state || !collaborationType || !message) {
       return res.status(400).json({
         success: false,
         message: "Please fill in all required fields",
       });
+    }
+
+    // Honeypot (simple spam mitigation)
+    if (req.body.website) {
+      return res.status(200).json({ success: true, message: "Received" });
     }
 
     // Prepare collaboration details based on type
@@ -85,7 +114,7 @@ app.post("/api/contact", async (req, res) => {
     // Email content
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, 
+      to: process.env.GMAIL_USER,
       subject: `New Collaboration Request from ${name} - DeshDarshan`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
