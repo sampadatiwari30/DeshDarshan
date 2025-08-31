@@ -81,6 +81,21 @@
                     rgba(205, 133, 63, 0.02) 100%);
             z-index: -1;
         }
+        #passwordChecklist li {
+    color: red !important;   /* default red */
+    list-style: none;
+    margin-left: 0;
+}
+
+#passwordChecklist li.valid {
+    color: green !important; /* green when valid */
+    font-weight: bold;
+}
+
+        .error-text {
+            color: red;
+            font-size: 0.9em;
+        }
     </style>
   </head>
 
@@ -129,9 +144,15 @@
                     <input type="password" id="password" name="password" class="form-input"
                         placeholder="Create a password" required>
                     <span class="validation-status" id="passwordStatus"></span>
-                    <div class="error-text" id="passwordError"></div>
-                </div>
-
+                    <p class="error-text" id="passwordError"></p>
+                <ul id="passwordChecklist">
+        <li id="checkLength" >At least 8 characters</li>
+        <li id="checkUpper">At least 1 uppercase letter</li>
+        <li id="checkLower">At least 1 lowercase letter</li>
+        <li id="checkNumber">At least 1 number</li>
+        <li id="checkSpecial">At least 1 special character</li>
+    </ul>
+</div>
                 <!-- Confirm Password Field -->
                 <div class="form-group">
                     <label class="form-label" for="confirmPassword">Confirm Password</label>
@@ -225,7 +246,12 @@
         // Get form elements
         const form = document.getElementById('signupForm');
         const submitBtn = document.getElementById('submitBtn');
-
+        //Password checklist elements
+        const checkLength = document.getElementById('checkLength');
+        const checkUpper = document.getElementById('checkUpper');
+        const checkLower = document.getElementById('checkLower');
+        const checkNumber = document.getElementById('checkNumber');
+        const checkSpecial = document.getElementById('checkSpecial');
         // Get all input fields
         const fullName = document.getElementById('fullName');
         const email = document.getElementById('email');
@@ -233,6 +259,7 @@
         const confirmPassword = document.getElementById('confirmPassword');
         const genderInputs = document.querySelectorAll('input[name="gender"]');
         const state = document.getElementById('state');
+        const passwordError = document.getElementById('passwordError');
 
         // Validation state tracker
         const validationState = {
@@ -268,30 +295,31 @@
         }
 
         function validatePassword() {
-            const value = password.value;
+    const value = password.value;
+    const minLength = value.length >= 8;
+    const hasUpper = /[A-Z]/.test(value);
+    const hasLower = /[a-z]/.test(value);
+    const hasNumber = /\d/.test(value);
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
 
-            const minLength = value.length >= 8;
-            const hasUpper = /[A-Z]/.test(value);
-            const hasLower = /[a-z]/.test(value);
-            const hasNumber = /\d/.test(value);
-            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+    // Update checklist colors
+    checkLength.classList.toggle("valid", minLength);
+    checkUpper.classList.toggle("valid", hasUpper);
+    checkLower.classList.toggle("valid", hasLower);
+    checkNumber.classList.toggle("valid", hasNumber);
+    checkSpecial.classList.toggle("valid", hasSpecial);
 
-            const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
+    const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
 
-            let errorMsg = '';
-            if (!isValid) {
-                errorMsg = 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character';
-            }
+    passwordError.textContent = isValid ? "" : "Password does not meet all requirements";
 
-            updateFieldValidation('password', isValid, errorMsg);
+    // Also validate confirm password when password changes
+    if (confirmPassword.value) {
+        validateConfirmPassword();
+    }
 
-            // Also validate confirm password when password changes
-            if (confirmPassword.value) {
-                validateConfirmPassword();
-            }
-
-            return isValid;
-        }
+    return isValid;
+}
 
         function validateConfirmPassword() {
             const value = confirmPassword.value;
@@ -381,8 +409,8 @@
         email.addEventListener('input', validateEmail);
         email.addEventListener('blur', validateEmail);
 
-        phone.addEventListener('input', validatePhone);
-        phone.addEventListener('blur', validatePhone);
+        //phone.addEventListener('input', validatePhone);
+        //phone.addEventListener('blur', validatePhone);
 
         password.addEventListener('input', validatePassword);
         password.addEventListener('blur', validatePassword);
