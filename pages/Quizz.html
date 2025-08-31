@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeshDarshan Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .quiz-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 450px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #fcb69f;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff7e5f;
+    }
+
+    .correct {
+      background: #4CAF50 !important;
+      color: #fff;
+    }
+
+    .wrong {
+      background: #f44336 !important;
+      color: #fff;
+    }
+
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>DeshDarshan Quiz</h1>
+    <div id="quiz"></div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "Which is the national bird of India?",
+        answers: ["Peacock", "Sparrow", "Eagle", "Parrot"],
+        correct: "Peacock"
+      },
+      {
+        question: "Where is the Taj Mahal located?",
+        answers: ["Delhi", "Agra", "Jaipur", "Mumbai"],
+        correct: "Agra"
+      },
+      {
+        question: "Which is the national flower of India?",
+        answers: ["Rose", "Lotus", "Sunflower", "Jasmine"],
+        correct: "Lotus"
+      },
+      {
+        question: "Which dance form is from Kerala?",
+        answers: ["Bharatanatyam", "Kathakali", "Odissi", "Garba"],
+        correct: "Kathakali"
+      },
+      {
+        question: "Who is known as the Father of the Nation?",
+        answers: ["Jawaharlal Nehru", "B. R. Ambedkar", "Mahatma Gandhi", "Subhas Chandra Bose"],
+        correct: "Mahatma Gandhi"
+      }
+    ];
+
+    const quiz = document.getElementById('quiz');
+    const result = document.getElementById('result');
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const data = quizData[currentQuestion];
+      quiz.innerHTML = `
+        <div class="question">${data.question}</div>
+        <div class="answers">
+          ${data.answers.map(ans => `<button onclick="checkAnswer(this, '${data.correct}')">${ans}</button>`).join('')}
+        </div>
+      `;
+    }
+
+    function checkAnswer(button, correct) {
+      const buttons = quiz.querySelectorAll("button");
+
+      if (button.textContent === correct) {
+        button.classList.add("correct");
+        score++;
+      } else {
+        button.classList.add("wrong");
+        // Highlight correct answer
+        buttons.forEach(btn => {
+          if (btn.textContent === correct) btn.classList.add("correct");
+        });
+      }
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+          loadQuestion();
+        } else {
+          quiz.innerHTML = "";
+          result.textContent = `🎉 You scored ${score} / ${quizData.length}`;
+        }
+      }, 1000);
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>
