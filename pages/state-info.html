@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State Info</title>
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+  <header>
+    <h1 id="state-name">Loading...</h1>
+  </header>
+
+  <main>
+    <div id="state-details"></div>
+  </main>
+
+  <!-- Load state data -->
+  <script src="../js/statesData.js"></script>
+<script>
+  // Get state id from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const stateId = urlParams.get("id");
+
+  // Normalize function (converts "Andhra Pradesh" -> "andhra-pradesh")
+  function normalizeName(name) {
+    return name.toLowerCase().replace(/\s+/g, "-");
+  }
+
+  // Find matching state by either short id ("ap") or normalized name ("andhra-pradesh")
+  const state = indianStatesAndUTs.find(
+    s => s.id === stateId || normalizeName(s.name) === stateId
+  );
+
+  if (state) {
+    document.getElementById("state-name").textContent = state.name;
+    document.getElementById("state-details").textContent =
+      state.shortDescription || state.info || "Details not available.";
+  } else {
+    document.getElementById("state-name").textContent = "State Not Found";
+    document.getElementById("state-details").textContent = "No details available.";
+  }
+</script>
+
+</body>
+</html>
+
