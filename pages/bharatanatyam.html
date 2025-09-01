@@ -44,6 +44,9 @@
   <span class="floating-emoji" style="top: 70%; left: 15%">🎼</span>
   <span class="floating-emoji" style="top: 90%; right: 20%">🎬</span>
 
+  <!-- Back button -->
+  <button class="back-btn" onclick="window.history.back()"> ← Back to Home</button>
+
   <!-- CAROUSEL images -->
   <div class="container my-5 position-relative">
     <div class="mx-auto" style="max-width: 800px; position: relative">
@@ -392,6 +395,11 @@
       font-size: 20px;
     }
   }
+  .footer
+  {
+    text-align:center; padding:1.2rem; margin-top:1rem;
+    background:#111; color:#fff; font-weight:600;
+  }
 </style>
 
 <!-- Button HTML (unchanged) -->
@@ -419,7 +427,8 @@
     });
   });
 </script>
-
+  <!-- Added Footer -->
+  <footer class="footer">Desh Darshan</footer>
 </body>
 
 </html>
