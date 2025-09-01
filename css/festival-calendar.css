@@ -204,7 +204,7 @@ body {
 .fc-event {
     background-color: #ff9933 !important;
     border-color: #ff6b35 !important;
-    color: white !important;
+    color: rgb(229, 56, 56) !important;
     border-radius: 6px;
     padding: 2px 6px;
     font-size: 0.85rem;
