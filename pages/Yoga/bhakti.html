@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhakti Yoga</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffdf8;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #6a1b9a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      position: relative;
+    }
+    .back-btn {
+      background: #f1c40f;
+      color: black;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #6a1b9a;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #f9e6ff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #8e24aa;
+    }
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+
+    footer{
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#6a1b9a; color:#fff; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🙏 Bhakti Yoga – The Path of Devotion
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <div class="container">
+    <div class="image-box">
+        <img src="./img/bhakti.png" alt="Radha Krishna Bhakti">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Evolution</h2>
+    <p>
+      Bhakti Yoga, the <b>Yoga of Devotion</b>, is one of the four main paths of yoga in Indian philosophy.  
+      Rooted in the <b>Bhagavad Gita</b> and ancient devotional traditions, it emphasizes love, faith, and surrender to the Divine.  
+      This path encourages cultivating a deep emotional connection with God through prayer, chanting, singing, and service.  
+      Saints like <b>Meerabai, Tulsidas, Chaitanya Mahaprabhu</b> are key figures in the Bhakti movement.
+    </p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🎶 Kirtan and Bhajans (devotional songs) are core practices of Bhakti Yoga.</div>
+      <div class="fact-box">🌸 Bhakti can be directed toward a personal deity like Krishna, Rama, or seen as universal love for all.</div>
+      <div class="fact-box">🙏 The Bhagavad Gita describes Bhakti Yoga as the simplest and most direct path to liberation.</div>
+      <div class="fact-box">❤️ Famous saints like Meerabai expressed Bhakti through poetry and music.</div>
+    </div>
+
+    <!-- Forms of Bhakti -->
+    <h2>🌼 The Nine Forms of Bhakti (Navadha Bhakti)</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Shravana</b> – Listening to divine stories.</div>
+      <div class="legend-box"><b>Kirtana</b> – Singing devotional hymns.</div>
+      <div class="legend-box"><b>Smarana</b> – Remembering God constantly.</div>
+      <div class="legend-box"><b>Padasevana</b> – Serving God’s feet / temples.</div>
+      <div class="legend-box"><b>Archana</b> – Ritual worship.</div>
+      <div class="legend-box"><b>Vandana</b> – Offering prayers.</div>
+      <div class="legend-box"><b>Dasya</b> – Serving as a devotee/servant of God.</div>
+      <div class="legend-box"><b>Sakhya</b> – Friendship with God.</div>
+      <div class="legend-box"><b>Atmanivedana</b> – Complete surrender to God.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong>  
+        Bhakti Yoga is primarily known as the path of?
+      </p>
+      <form id="quiz-form">
+          <label><input type="radio" name="answer" value="Knowledge"> Knowledge & Wisdom</label><br>
+          <label><input type="radio" name="answer" value="Devotion"> Love & Devotion to God</label><br>
+          <label><input type="radio" name="answer" value="Action"> Selfless Action</label><br><br>
+          <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script> 
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Devotion") {
+        result.textContent = "✅ Correct! Bhakti Yoga is the path of Love and Devotion.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Love & Devotion to God.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+  <!-- Chatbot Script -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+  <!-- Footer -->
+  <footer>Desh Darshan</footer>
+</body>
+</html>
