@@ -111,12 +111,39 @@
         font-weight:bold; 
         cursor:pointer;
     }
+
+    /*back button*/
+    .top-btn {
+      position: fixed;
+      right: 10px;
+      bottom: 80px;
+      background-color: #f1c40f;
+      color: #111;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      background-color: #111;
+      transform: scale(1.05);
+    }
+
   </style>
 </head>
 <body>
   <header>
     <button class="back"> ⬅ Back </button>
     <h1>♟️ Chess – India’s Gift to the World </h1>
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
   </header>
 
   <div class="hero">
@@ -187,7 +214,21 @@
   {
     window.history.back();   
   });
+  </script>
 
+  <!-- Code for Chat bot -->
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
   </script>
 </body>
 </html>
