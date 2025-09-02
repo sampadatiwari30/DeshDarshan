@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surya Namaskar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffdf6;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #e65100;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      position: relative;
+    }
+    .back-btn {
+      background: #ffeb3b;
+      color: black;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #e65100;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fff3e0;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #e65100;
+    }
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #ffeb3b;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+
+    footer{
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#e65100; color:#fff; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🌞 Surya Namaskar – The Sun Salutation
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+        <img src="./img/surya.png" alt="Surya Namaskar Steps">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Significance</h2>
+    <p>
+      <b>Surya Namaskar</b> (Sun Salutation) is an ancient yogic practice dedicated to the <b>Sun God</b>,  
+      considered the source of life and energy in Indian tradition.  
+      It consists of a flowing sequence of <b>12 yoga postures</b> performed rhythmically with the breath.  
+      Practiced at sunrise, it energizes the body, sharpens the mind, and uplifts the spirit.
+    </p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🌞 Surya Namaskar is a <b>full-body workout</b>, improving strength, flexibility, and stamina.</div>
+      <div class="fact-box">🧘‍♂️ Each of the 12 poses has a <b>mantra</b> dedicated to the Sun.</div>
+      <div class="fact-box">⏱️ Just 12 rounds equal nearly <b>288 yoga postures</b> in one session!</div>
+      <div class="fact-box">❤️ It improves blood circulation, metabolism, and heart health.</div>
+    </div>
+
+    <!-- Steps -->
+    <h2>🔮 12 Steps of Surya Namaskar</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>1. Pranamasana</b> – Prayer Pose</div>
+      <div class="legend-box"><b>2. Hastauttanasana</b> – Raised Arms Pose</div>
+      <div class="legend-box"><b>3. Hasta Padasana</b> – Hand to Foot Pose</div>
+      <div class="legend-box"><b>4. Ashwa Sanchalanasana</b> – Equestrian Pose</div>
+      <div class="legend-box"><b>5. Dandasana</b> – Stick Pose</div>
+      <div class="legend-box"><b>6. Ashtanga Namaskara</b> – Eight-Limbed Salute</div>
+      <div class="legend-box"><b>7. Bhujangasana</b> – Cobra Pose</div>
+      <div class="legend-box"><b>8. Adho Mukha Svanasana</b> – Downward Dog</div>
+      <div class="legend-box"><b>9. Ashwa Sanchalanasana</b> – Equestrian Pose (other leg)</div>
+      <div class="legend-box"><b>10. Hasta Padasana</b> – Hand to Foot Pose</div>
+      <div class="legend-box"><b>11. Hastauttanasana</b> – Raised Arms Pose</div>
+      <div class="legend-box"><b>12. Pranamasana</b> – Prayer Pose</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong>  
+        How many poses make up one round of Surya Namaskar?
+      </p>
+      <form id="quiz-form">
+          <label><input type="radio" name="answer" value="6"> 6 Poses</label><br>
+          <label><input type="radio" name="answer" value="12"> 12 Poses</label><br>
+          <label><input type="radio" name="answer" value="24"> 24 Poses</label><br><br>
+          <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script> 
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "12") {
+        result.textContent = "✅ Correct! Surya Namaskar has 12 steps in one round.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is 12 poses.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+  <!-- Chatbot Script -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+  <!-- Footer -->
+  <footer>Desh Darshan</footer>
+</body>
+</html>
