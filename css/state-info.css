@@ -1,0 +1,142 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #f6f9fc, #e9f0f7);
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+
+/* Header */
+.site-header {
+  background: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #ff9832;
+}
+
+.site-header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.site-header nav a:hover {
+  color: #ff9832;
+}
+
+/* Hero Section */
+.state-hero {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.state-hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.underline {
+  width: 80px;
+  height: 4px;
+  background: #ff9832;
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+/* State Content */
+.state-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 20px auto;   /* ↓ reduced from 40px to move content upward */
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 24px rgba(0,0,0,0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.state-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.state-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.state-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.state-info p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.back-btn {
+  background: #ff9832;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  align-self: start;
+}
+
+.back-btn:hover {
+  background: #e67e22;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  color: #777;
+  border-top: 1px solid #eee;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .state-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .back-btn {
+    align-self: center;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
