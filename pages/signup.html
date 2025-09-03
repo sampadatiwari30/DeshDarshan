@@ -163,29 +163,33 @@
 
                 <!-- Password Field -->
                 <div class="form-group">
-                    <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-input"
-                        placeholder="Create a password" required>
-                        <div id="rule" class="rule"></div>
-
-                    <!-- <span class="validation-status" id="passwordStatus"></span>
-                    <p class="error-text" id="passwordError"></p>
-                <ul id="passwordChecklist">
-        <li id="checkLength" >At least 8 characters</li>
-        <li id="checkUpper">At least 1 uppercase letter</li>
-        <li id="checkLower">At least 1 lowercase letter</li>
-        <li id="checkNumber">At least 1 number</li>
-        <li id="checkSpecial">At least 1 special character</li>
-    </ul> -->
+    <label class="form-label" for="password">Password</label>
+    <div class="password-wrapper" style="position: relative;">
+        <input type="password" id="password" name="password" class="form-input"
+            placeholder="Create a password" required>
+        <button type="button" class="togglePassword"
+                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+                       border: none; background: none; cursor: pointer; font-size: 1.5rem; padding: 2px 4px;">
+            👁
+        </button>
+    </div>
+    <div id="rule" class="rule"></div>
 </div>
-                <!-- Confirm Password Field -->
-                <div class="form-group">
-                    <label class="form-label" for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
-                        placeholder="Confirm your password" required>
-                   <!-- <span class="validation-status" id="confirmPasswordStatus"></span> -->
-                    <div class="error-text" id="confirmPasswordError"></div>
-                </div>
+
+<!-- Confirm Password Field -->
+<div class="form-group">
+    <label class="form-label" for="confirmPassword">Confirm Password</label>
+    <div class="password-wrapper" style="position: relative;">
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
+            placeholder="Confirm your password" required>
+        <button type="button" class="togglePassword"
+                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+                       border: none; background: none; cursor: pointer; font-size: 1.5rem; padding: 2px 4px;">
+            👁
+        </button>
+    </div>
+    <div class="error-text" id="confirmPasswordError"></div>
+</div>
 
                 <!-- Gender Field -->
                 <div class="form-group">
@@ -289,7 +293,15 @@
         // const checkLower = document.getElementById('checkLower');
         // const checkNumber = document.getElementById('checkNumber');
         // const checkSpecial = document.getElementById('checkSpecial');
-
+        document.querySelectorAll('.togglePassword').forEach(button => {
+    button.addEventListener('click', () => {
+        const input = button.previousElementSibling; // the input field
+        const type = input.type === 'password' ? 'text' : 'password';
+        input.type = type;
+        // Optional: change icon
+        button.textContent = type === 'password' ? '👁' : '🙈';
+    });
+});
         // Get all input fields
         const fullName = document.getElementById('fullName');
         const email = document.getElementById('email');
