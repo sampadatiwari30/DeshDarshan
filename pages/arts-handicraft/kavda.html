@@ -65,13 +65,37 @@
     .btn:hover{filter:brightness(.95)}
     .result{font-weight:700; margin-top:.6rem}
 
-    footer{margin-top:2rem; background:#111; color:#fff; text-align:center; padding:1rem; font-weight:600}
+    footer{margin-top:2rem; background:#b15325; color:#fff; text-align:center; padding:1rem; font-weight:600}
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
   <header>
     <a href="javascript:history.back()" class="back-btn">← Back</a>
     🏺 Khavda Pottery — Kutch, Gujarat
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
   </header>
 
   <main class="container">
@@ -186,5 +210,21 @@
       }
     }
   </script>
+
+    <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+  
 </body>
 </html>

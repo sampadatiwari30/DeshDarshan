@@ -81,6 +81,44 @@
                     rgba(205, 133, 63, 0.02) 100%);
             z-index: -1;
         }
+
+        
+        .rule {
+      right: 0;
+      font-size: 12px;
+      display: none;  /* hidden until needed */
+    }
+
+    .error {
+      color: red;
+    font-size: 0.9em;
+    margin-top: 0.4rem;
+    font-weight: 500;
+
+    }
+
+    .success {
+      color: green;
+      font-size: 0.9em;
+      margin-top: 0.4rem;
+    font-weight: 500;
+    }
+
+        /* #passwordChecklist li {
+    color: red !important;   
+    list-style: none;
+    margin-left: 0;
+}
+
+#passwordChecklist li.valid {
+    color: green !important;
+    font-weight: bold;
+} */
+
+        .error-text {
+            color: red;
+            font-size: 0.9em;
+        } 
     </style>
   </head>
 
@@ -125,21 +163,33 @@
 
                 <!-- Password Field -->
                 <div class="form-group">
-                    <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-input"
-                        placeholder="Create a password" required>
-                    <span class="validation-status" id="passwordStatus"></span>
-                    <div class="error-text" id="passwordError"></div>
-                </div>
+    <label class="form-label" for="password">Password</label>
+    <div class="password-wrapper" style="position: relative;">
+        <input type="password" id="password" name="password" class="form-input"
+            placeholder="Create a password" required>
+        <button type="button" class="togglePassword"
+                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+                       border: none; background: none; cursor: pointer; font-size: 1.5rem; padding: 2px 4px;">
+            👁
+        </button>
+    </div>
+    <div id="rule" class="rule"></div>
+</div>
 
-                <!-- Confirm Password Field -->
-                <div class="form-group">
-                    <label class="form-label" for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
-                        placeholder="Confirm your password" required>
-                    <span class="validation-status" id="confirmPasswordStatus"></span>
-                    <div class="error-text" id="confirmPasswordError"></div>
-                </div>
+<!-- Confirm Password Field -->
+<div class="form-group">
+    <label class="form-label" for="confirmPassword">Confirm Password</label>
+    <div class="password-wrapper" style="position: relative;">
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
+            placeholder="Confirm your password" required>
+        <button type="button" class="togglePassword"
+                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+                       border: none; background: none; cursor: pointer; font-size: 1.5rem; padding: 2px 4px;">
+            👁
+        </button>
+    </div>
+    <div class="error-text" id="confirmPasswordError"></div>
+</div>
 
                 <!-- Gender Field -->
                 <div class="form-group">
@@ -225,7 +275,33 @@
         // Get form elements
         const form = document.getElementById('signupForm');
         const submitBtn = document.getElementById('submitBtn');
+        const passwordInput = document.getElementById("password");
+        const ruleEl = document.getElementById("rule");
 
+        // Rules in order
+            const rules = [
+            { text: "At least 8 characters", test: v => v.length >= 8 },
+            { text: "At least 1 uppercase letter", test: v => /[A-Z]/.test(v) },
+            { text: "At least 1 lowercase letter", test: v => /[a-z]/.test(v) },
+            { text: "At least 1 number", test: v => /[0-9]/.test(v) },
+            { text: "At least 1 special character", test: v => /[^A-Za-z0-9]/.test(v) },
+            ];
+
+        //Password checklist elements
+        // const checkLength = document.getElementById('checkLength');
+        // const checkUpper = document.getElementById('checkUpper');
+        // const checkLower = document.getElementById('checkLower');
+        // const checkNumber = document.getElementById('checkNumber');
+        // const checkSpecial = document.getElementById('checkSpecial');
+        document.querySelectorAll('.togglePassword').forEach(button => {
+    button.addEventListener('click', () => {
+        const input = button.previousElementSibling; // the input field
+        const type = input.type === 'password' ? 'text' : 'password';
+        input.type = type;
+        // Optional: change icon
+        button.textContent = type === 'password' ? '👁' : '🙈';
+    });
+});
         // Get all input fields
         const fullName = document.getElementById('fullName');
         const email = document.getElementById('email');
@@ -233,6 +309,7 @@
         const confirmPassword = document.getElementById('confirmPassword');
         const genderInputs = document.querySelectorAll('input[name="gender"]');
         const state = document.getElementById('state');
+        const passwordError = document.getElementById('passwordError');
 
         // Validation state tracker
         const validationState = {
@@ -267,34 +344,75 @@
             return isValid;
         }
 
-        function validatePassword() {
-            const value = password.value;
+         function checkRules(value) {
+      // find the first failing rule
+            const failingRule = rules.find(r => !r.test(value));
 
-            const minLength = value.length >= 8;
-            const hasUpper = /[A-Z]/.test(value);
-            const hasLower = /[a-z]/.test(value);
-            const hasNumber = /\d/.test(value);
-            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+            if (failingRule) {
+                let errormesage= failingRule.text;
+                ruleEl.textContent = errormesage;
+                ruleEl.className = "error";
+                ruleEl.style.display = "block";
+                passwordInput.style.backgroundColor = "rgba(205, 92, 92, 0.05)";  
+                passwordInput.style.borderColor = "rgba(205, 92, 92, 0.8)"; 
 
-            const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
 
-            let errorMsg = '';
-            if (!isValid) {
-                errorMsg = 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character';
+            } else if (value.length > 0) {
+                ruleEl.textContent = "✅ Good to go!";
+                ruleEl.className = "rule success";
+                ruleEl.style.display = "block";
+                passwordInput.style.backgroundColor = "rgba(144, 238, 144, 0.05)";  
+                passwordInput.style.borderColor = "#228B22";  
+
+            } else {
+                ruleEl.style.display = "none";
             }
-
-            updateFieldValidation('password', isValid, errorMsg);
-
-            // Also validate confirm password when password changes
-            if (confirmPassword.value) {
-                validateConfirmPassword();
-            }
-
-            return isValid;
+           
+        
         }
+
+            passwordInput.addEventListener("input", () => {
+            checkRules(passwordInput.value);
+            });
+
+            passwordInput.addEventListener("focus", () => {
+            checkRules(passwordInput.value);
+            });
+            
+            confirmPassword.addEventListener("input",()=>{
+                validateConfirmPassword();
+            })
+            
+
+    //     function validatePassword() {
+    // const value = password.value;
+    // const minLength = value.length >= 8;
+    // const hasUpper = /[A-Z]/.test(value);
+    // const hasLower = /[a-z]/.test(value);
+    // const hasNumber = /\d/.test(value);
+    // const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+
+    // Update checklist colors
+    // checkLength.classList.toggle("valid", minLength);
+    // checkUpper.classList.toggle("valid", hasUpper);
+    // checkLower.classList.toggle("valid", hasLower);
+    // checkNumber.classList.toggle("valid", hasNumber);
+    // checkSpecial.classList.toggle("valid", hasSpecial);
+
+    // const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
+    // passwordError.textContent = isValid ? "" : "Password does not meet all requirements";
+
+    // Also validate confirm password when password changes
+    // if (confirmPassword.value) {
+    //     validateConfirmPassword();
+    // }
+
+    // return isValid;
+   //     }
 
         function validateConfirmPassword() {
             const value = confirmPassword.value;
+
             const isValid = value === password.value && value.length > 0;
 
             updateFieldValidation('confirmPassword', isValid,
@@ -381,8 +499,8 @@
         email.addEventListener('input', validateEmail);
         email.addEventListener('blur', validateEmail);
 
-        phone.addEventListener('input', validatePhone);
-        phone.addEventListener('blur', validatePhone);
+        //phone.addEventListener('input', validatePhone);
+        //phone.addEventListener('blur', validatePhone);
 
         password.addEventListener('input', validatePassword);
         password.addEventListener('blur', validatePassword);
