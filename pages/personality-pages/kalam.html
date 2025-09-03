@@ -1,6 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- back button css -->
+  <style>
+     .back-btn 
+     {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f78c1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #e6780f;
+      transform: scale(1.05);
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 30px;
+      background-color: #f78c1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      bottom: 80px;
+    }
+
+    .top-btn:hover {
+      background-color: #e6780f;
+      transform: scale(1.05);
+    }
+  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>APJ Abdul Kalam - People's President</title>
@@ -14,6 +67,19 @@
   <header class="text-center py-8 bg-gradient-to-r from-orange-400 to-yellow-300 shadow-lg">
     <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Dr. A.P.J. Abdul Kalam</h1>
     <p class="text-lg text-white mt-2">The Missile Man of India & People's President</p>
+
+    <!-- Back button -->
+  <button class="back-btn" onclick="window.history.back()"> ← Back</button>
+
+  <!-- Top Button -->
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-500 text-white font-bold 
+                w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                transition-all duration-300 hover:scale-110 z-50">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
   </header>
 
   <!-- IMAGE & BIO -->
@@ -144,5 +210,19 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init({ duration: 800, once: true });</script>
+
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
 </body>
 </html>
