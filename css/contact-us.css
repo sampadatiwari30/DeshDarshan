@@ -81,6 +81,7 @@ input[type="radio"]:focus + label {
   box-shadow: 0 25px 50px rgba(139, 69, 19, 0.25),
     0 15px 35px rgba(160, 82, 45, 0.15), 0 5px 15px rgba(205, 133, 63, 0.1);
   border: 2px solid rgba(222, 184, 135, 0.4);
+  /* border: #d8636f 2px solid; */
   width: 100%;
   max-width: 550px;
   position: relative;
@@ -112,7 +113,7 @@ input[type="radio"]:focus + label {
     #a0522d,
     #cd853f,
     #deb887,
-    #f5deb3
+    #f5deb3,
   );
 }
 
@@ -129,7 +130,7 @@ input[type="radio"]:focus + label {
     #a0522d 25%,
     #cd853f 50%,
     #deb887 75%,
-    #654321 100%
+    #8b4513 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -273,7 +274,7 @@ input[type="radio"]:focus + label {
 .submit-btn {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(135deg, #ff9933 0%, #e68a00 100%);
+  background: linear-gradient(135deg, #e68a00, #e0a66c, #e68a00);
   color: white;
   border: none;
   border-radius: 12px;
@@ -289,6 +290,7 @@ input[type="radio"]:focus + label {
 
 .submit-btn:hover {
   transform: translateY(-3px);
+  transform: scaleX(1.09);
   box-shadow: 0 12px 25px rgba(255, 153, 51, 0.4);
   background: linear-gradient(135deg, #e68a00 0%, #cc7a00 100%);
 }
