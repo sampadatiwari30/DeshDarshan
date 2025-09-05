@@ -204,7 +204,7 @@ body {
 .fc-event {
     background-color: #ff9933 !important;
     border-color: #ff6b35 !important;
-    color: rgb(229, 56, 56) !important;
+    color: white !important;
     border-radius: 6px;
     padding: 2px 6px;
     font-size: 0.85rem;
@@ -215,11 +215,12 @@ body {
 
 .fc-event:hover {
     background-color: #ff6b35 !important;
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .fc-list-event:hover {
     background-color: #fff5f5 !important;
+    color: black !important;
 }
 
 /* Modal Styles */
