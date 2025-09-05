@@ -5,7 +5,18 @@ body {
   background: #fff8f0;
   color: #333;
   line-height:1.6;
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fff8e0;
+  color: #333;
+  line-height: 1.5;
+  }
 
 /* Header */
 .header {
@@ -73,4 +84,124 @@ body {
   padding:15px;
   margin-top:40px;
   font-size:0.95rem;
+  background: linear-gradient(90deg, #FFD700, #FF8C00, #FFA500);
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+}
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 3px;
+  text-shadow: 1px 1px 3px #cc5200;
+}
+.header .subtitle {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  margin: 15px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 950px;
+}
+.hero-video {
+  width: 100%;
+  max-height: 320px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.hero-text {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(255, 140, 0, 0.75);
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: #fff;
+}
+.hero-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+.hero-text p {
+  font-size: 1rem;
+}
+
+/* Main Content */
+.content {
+  max-width: 950px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+.details h2,
+.video h2 {
+  color: #FF8C00;
+  margin-bottom: 8px;
+  border-left: 5px solid #FFD700;
+  padding-left: 10px;
+  font-size: 1.5rem;
+}
+.details ul {
+  margin-left: 22px;
+  margin-bottom: 18px;
+}
+.details li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* Video Section */
+.video {
+  margin-top: 25px;
+  text-align: center;
+}
+.video .video-player {
+  width: 100%;
+  max-width: 700px;
+  height: 360px;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+}
+
+/* Reference Section */
+.reference {
+  text-align: center;
+  margin: 20px 0;
+}
+.reference a {
+  color: #FF8C00;
+  font-weight: bold;
+  text-decoration: none;
+}
+.reference a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #222;
+  color: #eee;
+  padding: 12px;
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .hero-video {
+    max-height: 220px;
+  }
+  .hero-text h2 {
+    font-size: 1.4rem;
+  }
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+  .video .video-player {
+    height: 220px;
+  }
 }
