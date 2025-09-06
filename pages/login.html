@@ -111,10 +111,17 @@
                         placeholder="Enter your email address" required>
                     <div class="error-message">Please enter a valid email address</div>
                 </div>
-                <div class="form-group">
+               <div class="form-group">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-input"
-                        placeholder="Enter your password" required>
+                    <div class="password-wrapper" style="position: relative;">
+                        <input type="password" id="password" name="password" class="form-input"
+                            placeholder="Enter your password" required>
+                        <!-- Eye icon button -->
+                        <button type="button" id="togglePassword" 
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: none; cursor: pointer;font-size: 1.5rem;">
+                            👁
+                        </button>
+                    </div>
                     <div class="error-message">Please enter your password</div>
                 </div>
                 <div class="form-footer">
@@ -281,6 +288,15 @@
                 // You can uncomment the line below when you have a home page
                 // window.location.href = 'home1.html';
             });
+            const passwordInput = document.getElementById('password');
+const toggleBtn = document.getElementById('togglePassword');
+
+toggleBtn.addEventListener('click', () => {
+    const type = passwordInput.type === 'password' ? 'text' : 'password';
+    passwordInput.type = type;
+    // Optional: change icon
+    toggleBtn.textContent = type === 'password' ? '👁' : '🙈';
+});
 
             // Create account link functionality
             createAccountLink.addEventListener('click', function (e) {

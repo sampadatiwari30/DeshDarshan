@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State Info</title>
+  <link rel="stylesheet" href="../css/state-info.css">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    align-items: flex-start;   /* push to top */
+    min-height: 100vh;
+    background: #f3f6fb;       /* keep your background */
+  }
+
+  .state-container {
+    margin-top: 40px !important;  /* push just a little from top */
+    max-width: 900px;
+    width: 90%;
+  }
+</style>
+
+</head>
+<body>
+  <div class="state-container">
+    <h1 id="state-name">Loading...</h1>
+    <img id="state-img" class="state-img" alt="State Image">
+    <p id="state-details"></p>
+    <button class="back-btn" onclick="window.location.href='../index.html'">← Back to Home</button>
+  </div>
+
+  <!-- Load state data -->
+  <script src="../js/statesData.js"></script>
+  <script>
+    // Get state id from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const stateId = urlParams.get("id");
+
+    function normalizeName(name) {
+      return name.toLowerCase().replace(/\s+/g, "-");
+    }
+
+    // Find matching state
+    const state = indianStatesAndUTs.find(
+      s => s.id === stateId || normalizeName(s.name) === stateId
+    );
+
+    if (state) {
+      document.getElementById("state-name").textContent = state.name;
+
+      // ✅ Use image path directly from statesData.js
+      const imgEl = document.getElementById("state-img");
+      imgEl.src = state.image || "../assets/images/states/placeholder.jpeg";
+      imgEl.alt = state.name;
+
+      document.getElementById("state-details").textContent =
+        state.shortDescription || "Details not available.";
+    } else {
+      document.getElementById("state-name").textContent = "State Not Found";
+      document.getElementById("state-details").textContent = "No details available.";
+      document.getElementById("state-img").style.display = "none";
+    }
+  </script>
+</body>
+</html>
