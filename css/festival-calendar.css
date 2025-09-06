@@ -188,8 +188,10 @@ body {
     transform: translateY(-2px);
 }
 
+
 .fc-button-primary:disabled {
-    background-color: #ccc !important;
+    background-color: #6c757d !important;
+    color: white !important;
     border-color: #ccc !important;
 }
 
@@ -215,12 +217,19 @@ body {
 
 .fc-event:hover {
     background-color: #ff6b35 !important;
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
-.fc-list-event:hover {
-    background-color: #fff5f5 !important;
+/* Light orange hover effect for all-day/list events in FullCalendar list view */
+.fc-list-table .fc-list-event:hover td {
+  background-color: #ffebcc  !important;
+  color: black !important;
+  cursor: pointer;
 }
+
+
+
+
 
 /* Modal Styles */
 .modal {

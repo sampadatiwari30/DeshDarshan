@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   headings.forEach(h => {
     h.addEventListener("mouseenter", () => h.style.color = "#FFA500");
     h.addEventListener("mouseleave", () => h.style.color = "#FF8C00");
+
 // Subhash Chandra Bose page interactivity
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ Subhash Chandra Bose page loaded!");
