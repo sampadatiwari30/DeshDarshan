@@ -446,3 +446,17 @@ body::after {
 .home-button:hover img {
     transform: scale(1.1);
 }
+#passwordChecklist li {
+    color: red; /* default red if rule not satisfied */
+    list-style: none;
+    margin-left: 0;
+}
+
+#passwordChecklist li.valid {
+    color: green; /* turns green when valid */
+}
+
+.error-text {
+    color: red;
+    font-size: 0.9em;
+}

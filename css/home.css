@@ -79,9 +79,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(2px); /* Adjust blur level here */
-  background: rgba(0, 0, 0, 0.1); /* Optional: adds subtle dark tint */
-  z-index: 1; /* Below content but above images */
+  backdrop-filter: blur(2px);
+  /* Adjust blur level here */
+  background: rgba(0, 0, 0, 0.1);
+  /* Optional: adds subtle dark tint */
+  z-index: 1;
+  /* Below content but above images */
 }
 
 .slideshow-container {
@@ -332,6 +335,7 @@ a,
   font-size: 0.9rem;
   opacity: 0.9;
 }
+
 .dance-card {
   padding: 16px;
   border-radius: 12px;
@@ -340,6 +344,7 @@ a,
   transition: transform 0.2s ease;
   text-align: center;
 }
+
 .dance-card h3 {
   padding: 1rem;
   font-size: 1.2rem;
@@ -368,6 +373,7 @@ a,
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .heritage-item:hover {
   transform: translateY(-10px);
   cursor: pointer;
@@ -412,9 +418,11 @@ a,
   padding: 10px;
   border-radius: 8px;
 }
+
 .comments-list {
   margin-bottom: 10px;
 }
+
 .comment-form input,
 .comment-form textarea {
   width: 100%;
@@ -423,6 +431,7 @@ a,
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
 .comment-form button {
   padding: 6px 16px;
   border: none;
@@ -432,218 +441,170 @@ a,
   cursor: pointer;
 }
 
-/* Footer */
-.footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.footer p {
-  font-size: 0.9rem;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .slide-content h1 {
-    font-size: 2.8rem;
-  }
-
-  .slide-content p {
-    font-size: 1.3rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .culture-grid,
-  .dance-grid,
-  .food-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .slide-content h1 {
-    font-size: 2rem;
-  }
-
-  .slide-content p {
-    font-size: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .food-grid {
-    grid-template-columns: 1fr;
-  }
-}
-#backToTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 99;
-  font-size: 30px;
-  border: none;
-  outline: none;
-  background-color: #ff914d; /* match signup button */
-  color: white;
-  cursor: pointer;
-  padding: 14px 18px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-#backToTopBtn:hover {
-  background-color: #e67a35;
-  transform: scale(1.1);
-}
-
-footer {
-  background-color: black;
-  color: white;
-  padding: 2.5rem 1.5rem;
-  margin-top: auto;
-  width: 100%;
-  box-sizing: border-box;
-  bottom: 0;
-  margin-bottom: 0;
+/* Footer Styles */
+#footer {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 4rem 0 0;
+  position: relative;
 }
 
 .footer-content-wrapper {
-  max-width: 80rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  padding-top: 0px;
+}
+
+.footer-section {
+  margin-bottom: 2rem;
+}
+
+.footer-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ff9933;
+  font-family: "Cinzel", serif;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #ff9933;
+}
+
+.footer-logo {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff9933;
+  margin-top: 1rem;
 }
 
 .footer-section p {
-  font-size: 0.875rem;
-  color: #a0aec0;
-  line-height: 1.625;
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 .footer-section ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
 }
 
-.footer-link,
-.footer-contact-item {
-  color: #a0aec0;
-  transition: color 0.3s ease;
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-link {
+  color: #bbb;
   text-decoration: none;
-  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #ff9933;
+  transform: translateX(5px);
+}
+
+.footer-contact-item {
   display: flex;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.footer-link:hover,
-.footer-contact-item:hover {
-  color: #f7fafc;
-}
-
-.footer-contact-item span {
-  margin-left: 5px;
-}
-
-.footer-contact-item span:hover{
-  cursor: pointer;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 180px;
-}
-
-.footer-section-title {
-  color: white;
-  font-weight: 700;
+  gap: 10px;
   margin-bottom: 1rem;
-  font-size: 1.125rem;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: text-shadow 0.5s ease;
+  color: #bbb;
 }
 
-.footer-section-title:hover {
-  font-size: 1.2rem;
-  font-weight: 750;
-  text-shadow: 1px 1px 8px white;
-  cursor: pointer;
+.footer-contact-item i {
+  color: #ff9933;
+  width: 20px;
+  text-align: center;
 }
 
 .social-icons-container {
-  margin-top: 10px;
   display: flex;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: #4a5568;
-  color: #cbd5e0;
-  border: 1px solid #4a5568;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
-  text-decoration: none;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-}
-
-.social-icon i {
-  font-size: 1.5rem;
-  line-height: 1;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  background-color: rgba(255, 255, 255, 0.804);
-  color: #1a202c;
-  border-color: rgba(255, 255, 255, 0.804);
-  box-shadow: 0 0 15px white;
+  background: #ff9933;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
+
+.newsletter {
+  margin-top: 1.5rem;
+}
+
+.newsletter h4 {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.newsletter-form {
+  display: flex;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.newsletter-form input::placeholder {
+  color: #ccc;
+}
+
+.newsletter-form button {
+  background: #ff9933;
+  color: white;
+  border: none;
+  padding: 0 1.2rem;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #e67e00;
 }
 
 .copyright-section {
-  border-top: 1px solid #4a5568;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
   text-align: center;
-  color: #a0aec0;
-  font-size: 0.875rem;
+  padding: 1.5rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -669,73 +630,126 @@ footer {
 
 /* Loading page */
 #loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-image: url('/assets/images/animations/Indian_Flag_Background.jpg');
-    background-size: cover; /* Make the flag fill the entire screen */
-    background-position: center; /* Keep it centered */
-    background-repeat: no-repeat;
-    color: #FF9933; /* Initial saffron */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    animation: tricolorText 3s linear infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/assets/images/animations/Indian_Flag_Background.jpg');
+  background-size: cover;
+  /* Make the flag fill the entire screen */
+  background-position: center;
+  /* Keep it centered */
+  background-repeat: no-repeat;
+  color: #FF9933;
+  /* Initial saffron */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  animation: tricolorText 3s linear infinite;
 }
 
 
 
 #loading-screen.hidden {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .loader {
-    text-align: center;
+  text-align: center;
 }
 
 .loader i {
-    font-size: 4.5rem;
-    animation: spin 2s linear infinite, tricolorText 3s linear infinite;
+  font-size: 4.5rem;
+  animation: spin 2s linear infinite, tricolorText 3s linear infinite;
 }
 
 .loader h2 {
-    margin-top: 1.5rem;
-    font-size: 2.1rem;
+  margin-top: 1.5rem;
+  font-size: 2.1rem;
 }
 
 .dots::after {
-    content: "";
-    display: inline-block;
-    animation: dots 1.5s steps(5, end) infinite;
+  content: "";
+  display: inline-block;
+  animation: dots 1.5s steps(5, end) infinite;
 }
 
 @keyframes dots {
-    0%   { content: ""; }
-    20%  { content: "."; }
-    40%  { content: ".."; }
-    60%  { content: "..."; }
-    80%  { content: "...."; }
-    100% { content: ""; }
+  0% {
+    content: "";
+  }
+
+  20% {
+    content: ".";
+  }
+
+  40% {
+    content: "..";
+  }
+
+  60% {
+    content: "...";
+  }
+
+  80% {
+    content: "....";
+  }
+
+  100% {
+    content: "";
+  }
 }
 
 /* Spin Animation */
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Tricolor Text Animation */
 @keyframes tricolorText {
-    0%   { color: #FF9933; } /* Saffron */
-    17%  { color: #FFFFFF; } /* White */
-    33%  { color: #138808; } /* Green */
-    50% { color: #FF9933; } /* Back to Saffron */
-    67%  { color: #FFFFFF; } /* White */
-    83%  { color: #138808; } /* Green */
-    100% { color: #FF9933; } /* Back to Saffron */
+  0% {
+    color: #FF9933;
+  }
+
+  /* Saffron */
+  17% {
+    color: #FFFFFF;
+  }
+
+  /* White */
+  33% {
+    color: #138808;
+  }
+
+  /* Green */
+  50% {
+    color: #FF9933;
+  }
+
+  /* Back to Saffron */
+  67% {
+    color: #FFFFFF;
+  }
+
+  /* White */
+  83% {
+    color: #138808;
+  }
+
+  /* Green */
+  100% {
+    color: #FF9933;
+  }
+
+  /* Back to Saffron */
 }

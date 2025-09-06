@@ -41,7 +41,7 @@ function createSmartNavbar() {
         <nav class="navbar">
             <div class="nav-container">
             <div class="nav-toggle" onclick="openmenu()">
-                <i class="fa fa-bars" style="font-size: 24px; cursor: pointer;color:white;margin-right:3px;"></i>
+                <i class="fa fa-bars" style="font-size: 24px; cursor: pointer;color:white;margin-right:50px;"></i>
             </div>
             <div id="menu" class="side-menu">
                 <span class="close-btn" onclick="closemenu()">&times;</span>
@@ -50,7 +50,7 @@ function createSmartNavbar() {
                     <li><a href="${pathPrefix}pages/explore.html">Explore India</a></li>
                     <li><a href="${pathPrefix}pages/festival-calendar.html">Festival Calendar</a></li>
                     <li><a href="${pathPrefix}pages/crazyfacts.html">Crazy Facts</a></li>
-
+                    <li><a href="${pathPrefix}pages/yoga.html">Yoga</a></li>                    
                     <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
                     <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
                     <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>
@@ -77,11 +77,6 @@ function createSmartNavbar() {
                         <span>Signup</span>
                         <i class="fas fa-user-plus"></i>
                     </a>
-                </div>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
                 </div>
             </div>
         </nav>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dhokra Art — Tribal Craft of India</title>
+  <style>
+    :root{
+      --bronze:#7c5832;   /* bronze tone */
+      --gold:#d4a017;
+      --sand:#f9f6f1;
+      --ink:#222;
+      --shadow:0 10px 22px rgba(0,0,0,.15);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:"Segoe UI",Arial,sans-serif;
+      background:var(--sand); color:var(--ink);
+      line-height:1.65;
+    }
+    header{
+      position:relative; text-align:center;
+      padding:1rem 3rem; font-weight:700;
+      font-size:1.5rem; color:#fff;
+      background:linear-gradient(135deg,var(--bronze),#5a3c1c);
+    }
+    .back-btn {
+      background: #ffc107;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container{max-width:1100px; margin:2rem auto; padding:0 18px;}
+
+    .hero{display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem;}
+    .hero img{
+      width:min(500px,100%); aspect-ratio:4/3; object-fit:cover;
+      border-radius:14px; box-shadow:var(--shadow);
+      outline:4px solid rgba(180,140,80,.25);
+    }
+
+    h2{color:var(--bronze); margin:1.1rem 0 .6rem}
+    .card{background:#fff; border-radius:14px; box-shadow:var(--shadow); padding:1rem; margin:.9rem 0;}
+    .muted{opacity:.95}
+
+    .grid{display:grid; gap:1rem; margin-top:.75rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .pill{display:flex; gap:.6rem; align-items:flex-start; background:#fff; border-radius:12px; padding:.9rem; box-shadow:0 6px 14px rgba(0,0,0,.08);}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--gold); margin-top:.45rem; flex:0 0 10px}
+
+    .timeline{border-left:4px solid var(--bronze); margin:1rem 0; padding-left:1rem;}
+    .timeline div{margin:1rem 0; padding-left:.5rem}
+    .timeline b{color:var(--bronze)}
+
+    .quiz{background:#f8f8f8; border:1px solid #ddd}
+    .quiz h3{margin:.2rem 0 1rem; color:var(--bronze)}
+    .quiz label{display:block; text-align:left; margin:.35rem auto; max-width:560px}
+    .quiz input{margin-right:.5rem}
+    .btn{
+      background:var(--bronze); color:#fff; border:0; border-radius:8px;
+      padding:.6rem 1rem; cursor:pointer; font-weight:600;
+      box-shadow:0 8px 18px rgba(0,0,0,.22);
+    }
+    .btn:hover{filter:brightness(.95)}
+    .result{font-weight:700; margin-top:.6rem}
+
+    footer{margin-top:2rem; background:#7c5832; color:#fff; text-align:center; padding:1rem; font-weight:600}
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🐘 Dhokra Art — Chhattisgarh, West Bengal, Odisha
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <img src="./img/dhokra.png" alt="Dhokra tribal figurines"/>
+    </section>
+
+    <!-- ORIGIN -->
+    <section class="card">
+      <h2>📖 Origin & Heritage</h2>
+      <p class="muted">
+        <b>Dhokra Art</b> is one of the <b>oldest known metal casting traditions</b> in India, practiced by tribal communities 
+        across <b>Chhattisgarh, West Bengal, and Odisha</b>. It dates back over <b>4,000 years</b> — 
+        the famous “Dancing Girl” of Mohenjo-daro is a classic example of this technique.  
+        The art is rooted in the <b>lost-wax casting method</b> (cire perdue), which involves making intricate wax models that are 
+        replaced by molten metal to form stunning brass and bronze artifacts.  
+        Known for their <b>folk motifs, tribal deities, animals, and ritual objects</b>, Dhokra pieces embody raw beauty and timeless tradition.
+      </p>
+    </section>
+
+    <!-- FACTS -->
+    <section>
+      <h2>💡 Did You Know?</h2>
+      <div class="grid">
+        <div class="pill"><span class="dot"></span><div>Dhokra art is entirely <b>eco-friendly</b>, made with natural wax, clay, and scrap metals.</div></div>
+        <div class="pill"><span class="dot"></span><div>The craft uses the <b>lost-wax casting technique</b>, unchanged for millennia.</div></div>
+        <div class="pill"><span class="dot"></span><div>The <b>Dancing Girl of Mohenjo-daro</b> (2500 BCE) is the earliest example of this art.</div></div>
+        <div class="pill"><span class="dot"></span><div>Each piece is <b>unique</b> — molds can’t be reused once broken.</div></div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section>
+      <h2>⚒️ Crafting Process</h2>
+      <div class="timeline">
+        <div><b>1. Wax Model:</b> A figure is shaped in beeswax or resin, detailed with threads & designs.</div>
+        <div><b>2. Clay Coating:</b> Layers of fine and coarse clay cover the wax model to form a mold.</div>
+        <div><b>3. Heating:</b> The mold is baked, melting away the wax — leaving a hollow cavity.</div>
+        <div><b>4. Metal Pouring:</b> Molten brass or bronze is poured into the cavity.</div>
+        <div><b>5. Breaking the Mold:</b> Once cooled, the clay mold is broken to reveal the metal figure.</div>
+        <div><b>6. Finishing:</b> The sculpture is polished, detailed, and sometimes darkened with patina.</div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section>
+      <h2>✨ Features of Dhokra Art</h2>
+      <div class="grid">
+        <div class="card"><b>Rustic Appeal</b><br/>Each piece has a tribal, handmade raw beauty.</div>
+        <div class="card"><b>Tribal Themes</b><br/>Depictions of gods, animals, humans, and ritual motifs.</div>
+        <div class="card"><b>Lost-Wax Technique</b><br/>An ancient casting method unique and non-repetitive.</div>
+        <div class="card"><b>Cultural Symbol</b><br/>Used in festivals, marriages, and as sacred offerings.</div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="card quiz">
+      <h2>📝 Quick Quiz</h2>
+      <h3>Test your Dhokra knowledge</h3>
+
+      <form id="quiz-form">
+        <label>
+          <input type="radio" name="q1" value="LostWax"> Dhokra uses the <b>lost-wax casting</b> method.
+        </label>
+        <label>
+          <input type="radio" name="q1" value="StoneCarving"> Dhokra uses <b>stone carving</b>.
+        </label>
+
+        <hr style="border:none;border-top:1px dashed #ccc; margin:.9rem 0;">
+
+        <label>
+          <input type="radio" name="q2" value="Mohenjo"> The <b>Dancing Girl of Mohenjo-daro</b> is an early example.
+        </label>
+        <label>
+          <input type="radio" name="q2" value="Ajanta"> The <b>Ajanta caves paintings</b> are examples of Dhokra art.
+        </label>
+
+        <hr style="border:none;border-top:1px dashed #ccc; margin:.9rem 0;">
+
+        <label>
+          <input type="radio" name="q3" value="Unique"> Each Dhokra piece is <b>unique</b> as molds cannot be reused.
+        </label>
+        <label>
+          <input type="radio" name="q3" value="Reusable"> Molds are <b>reusable</b> for multiple copies.
+        </label>
+
+        <div style="margin-top:1rem;">
+          <button type="button" class="btn" onclick="gradeQuiz()">Submit</button>
+        </div>
+      </form>
+
+      <p id="quiz-result" class="result"></p>
+    </section>
+  </main>
+
+  <footer>DeshDarshan Project</footer>
+
+  <script>
+    function gradeQuiz(){
+      const result = document.getElementById('quiz-result');
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+
+      if(!q1 || !q2 || !q3){
+        result.textContent = "⚠️ Please answer all questions.";
+        result.style.color = "#b00";
+        return;
+      }
+
+      let score = 0;
+      if(q1.value === "LostWax") score++;
+      if(q2.value === "Mohenjo") score++;
+      if(q3.value === "Unique") score++;
+
+      if(score === 3){
+        result.textContent = "✅ Perfect! 3/3 — Dhokra Master! 🐘";
+        result.style.color = "#2c7a52";
+      } else if(score === 2){
+        result.textContent = "👍 Good! 2/3 — Well done!";
+        result.style.color = "#2c7a52";
+      } else {
+        result.textContent = "💡 You scored " + score + "/3 — Review above and try again.";
+        result.style.color = "#b00";
+      }
+    }
+  </script>
+
+    <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+  
+</body>
+</html>

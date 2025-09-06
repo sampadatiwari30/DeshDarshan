@@ -81,6 +81,7 @@ input[type="radio"]:focus + label {
   box-shadow: 0 25px 50px rgba(139, 69, 19, 0.25),
     0 15px 35px rgba(160, 82, 45, 0.15), 0 5px 15px rgba(205, 133, 63, 0.1);
   border: 2px solid rgba(222, 184, 135, 0.4);
+  /* border: #d8636f 2px solid; */
   width: 100%;
   max-width: 550px;
   position: relative;
@@ -112,7 +113,7 @@ input[type="radio"]:focus + label {
     #a0522d,
     #cd853f,
     #deb887,
-    #f5deb3
+    #f5deb3,
   );
 }
 
@@ -129,7 +130,7 @@ input[type="radio"]:focus + label {
     #a0522d 25%,
     #cd853f 50%,
     #deb887 75%,
-    #654321 100%
+    #8b4513 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -273,7 +274,7 @@ input[type="radio"]:focus + label {
 .submit-btn {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(135deg, #ff9933 0%, #e68a00 100%);
+  background: linear-gradient(135deg, #e68a00, #e0a66c, #e68a00);
   color: white;
   border: none;
   border-radius: 12px;
@@ -289,6 +290,7 @@ input[type="radio"]:focus + label {
 
 .submit-btn:hover {
   transform: translateY(-3px);
+  transform: scaleX(1.09);
   box-shadow: 0 12px 25px rgba(255, 153, 51, 0.4);
   background: linear-gradient(135deg, #e68a00 0%, #cc7a00 100%);
 }
@@ -390,6 +392,173 @@ legend {
   color: #654321;
   font-size: 1rem;
   margin-bottom: 12px;
+}
+
+/* Footer Styles */
+#footer {
+  margin-top: 4rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 4rem 0 0;
+  position: relative;
+}
+
+.footer-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section {
+  margin-bottom: 2rem;
+}
+
+.footer-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ff9933;
+  font-family: "Cinzel", serif;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #ff9933;
+}
+
+.footer-logo {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff9933;
+  margin-top: 1rem;
+}
+
+.footer-section p {
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #ff9933;
+  transform: translateX(5px);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  color: #bbb;
+}
+
+.footer-contact-item i {
+  color: #ff9933;
+  width: 20px;
+  text-align: center;
+}
+
+.social-icons-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #ff9933;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
+
+.newsletter {
+  margin-top: 1.5rem;
+}
+
+.newsletter h4 {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.newsletter-form {
+  display: flex;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.newsletter-form input::placeholder {
+  color: #ccc;
+}
+
+.newsletter-form button {
+  background: #ff9933;
+  color: white;
+  border: none;
+  padding: 0 1.2rem;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #e67e00;
+}
+
+.copyright-section {
+  text-align: center;
+  padding: 1.5rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
 
 /* Responsive Design */

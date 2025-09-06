@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iyengar Yoga</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fdfb;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      position: relative;
+    }
+    .back-btn {
+      background: #ffeb3b;
+      color: black;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #1b5e20;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #e8f5e9;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #2e7d32;
+    }
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #ffeb3b;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+
+    footer{
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#1b5e20; color:#fff; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🧘‍♂️ Iyengar Yoga – The Path of Alignment & Precision
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+        <img src="./img/Iyengar.png" alt="Iyengar Yoga Props">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Evolution</h2>
+    <p>
+      Iyengar Yoga was developed by <b>B.K.S. Iyengar</b> in the 20th century.  
+      It emphasizes <b>precision, alignment, and the use of props</b> such as belts, blocks, and ropes to help practitioners achieve the correct posture safely.  
+      This approach makes yoga accessible to people of all ages and abilities, promoting strength, flexibility, and therapeutic benefits.
+    </p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🪑 Iyengar Yoga often uses chairs, blocks, straps, and blankets for support.</div>
+      <div class="fact-box">🧘‍♀️ It focuses on <b>holding poses longer</b> to deepen awareness and stability.</div>
+      <div class="fact-box">🌍 Iyengar Yoga has influenced modern yoga therapy worldwide.</div>
+      <div class="fact-box">📚 B.K.S. Iyengar’s book <b>"Light on Yoga"</b> is considered the Bible of modern yoga.</div>
+    </div>
+
+    <!-- Core Practices -->
+    <h2>🔮 Core Practices of Iyengar Yoga</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Props</b> – Tools like blocks & straps ensure safe and correct alignment.</div>
+      <div class="legend-box"><b>Alignment</b> – Each pose is adjusted to the individual body structure.</div>
+      <div class="legend-box"><b>Holding Asanas</b> – Postures are held for extended periods for deeper benefits.</div>
+      <div class="legend-box"><b>Therapeutic Yoga</b> – Helpful for injuries, chronic pain, and rehabilitation.</div>
+      <div class="legend-box"><b>Breath Control</b> – Pranayama is integrated with precise posture work.</div>
+      <div class="legend-box"><b>Mind-Body Awareness</b> – Enhances focus, patience, and discipline.</div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-box">
+      <p><strong>🎯 Quick Quiz:</strong>  
+        What makes Iyengar Yoga unique?
+      </p>
+      <form id="quiz-form">
+          <label><input type="radio" name="answer" value="Fast Movements"> Fast Movements & Flow</label><br>
+          <label><input type="radio" name="answer" value="Use of Props"> Use of Props for Alignment</label><br>
+          <label><input type="radio" name="answer" value="Meditation Only"> Focus on Meditation Only</label><br><br>
+          <button type="button" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <script> 
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById("quiz-result");
+
+      if (!selected) {
+        result.textContent = "⚠️ Please select an option!";
+        result.style.color = "red";
+        return;
+      }
+
+      if (selected.value === "Use of Props") {
+        result.textContent = "✅ Correct! Iyengar Yoga emphasizes props to achieve perfect alignment.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Oops! The correct answer is Use of Props for Alignment.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+  <!-- Chatbot Script -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+  <!-- Footer -->
+  <footer>Desh Darshan</footer>
+</body>
+</html>

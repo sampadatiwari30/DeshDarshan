@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phulkari Embroidery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdfcf9;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .back-btn {
+      background: #ffcc00;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      float: left;
+      margin: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .image-box img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 1.5rem;
+      color: #444;
+    }
+    .fact-box, .legend-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .fact-grid, .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .quiz-box {
+      background: #fff8e1;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quiz-box strong {
+      color: #b36b00;
+    }
+
+    .top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 30px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-btn:hover {
+      transform: scale(1.05);
+    }
+    
+    footer{
+      text-align:center; padding:1.2rem; margin-top:2rem;
+      background:#333; color:#fff; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
+    🌸 Phulkari Embroidery – Pride of Punjab
+    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+  </header>
+
+  <div class="container">
+    <!-- Images -->
+    <div class="image-box">
+        <img src="./img/pulkari1.png" alt="pulkari">
+        <img src="./img/pulkari2.png" alt="pulkari">
+    </div>
+
+    <!-- Origin -->
+    <h2>📖 Origin & Evolution</h2>
+    <p>Phulkari, meaning “flower work,” is a traditional embroidery style that originated in Punjab around the 15th century. Women used vibrant silk threads on hand-spun cloth to create intricate floral patterns. Originally crafted as dowry items and gifts, Phulkari later became a cultural identity of Punjab.</p>
+
+    <!-- Facts -->
+    <h2>💡 Did You Know?</h2>
+    <div class="fact-grid">
+      <div class="fact-box">🌼 Each stitch in Phulkari is made from the back of the fabric, yet creates beautiful patterns on the front.</div>
+      <div class="fact-box">👩‍🌾 Traditionally, Phulkari was never sold; it was handmade by women for family occasions.</div>
+      <div class="fact-box">🧵 The vibrant silk floss used is called <b>Pat</b>, giving Phulkari its bright, shiny look.</div>
+      <div class="fact-box">🏛️ UNESCO has recognized Phulkari as part of Punjab’s intangible cultural heritage.</div>
+    </div>
+
+    <!-- Legends -->
+    <h2>👑 Famous Phulkari Styles</h2>
+    <div class="legend-grid">
+      <div class="legend-box"><b>Bagh</b> – Dense embroidery covering the entire fabric.</div>
+      <div class="legend-box"><b>Chope</b> – Embroidery gifted to brides during weddings.</div>
+      <div class="legend-box"><b>Tilpatra</b> – Small motifs scattered across the cloth.</div>
+      <div class="legend-box"><b>Sainchi</b> – Depicts daily life, animals, and rural scenes.</div>
+    </div>
+
+    <!-- Quiz -->
+        <div class="quiz-box">
+        <p><strong>🎯 Quick Quiz:</strong>  
+            Which thread is traditionally used in Phulkari embroidery?
+        </p>
+        <form id="quiz-form">
+            <label><input type="radio" name="answer" value="Cotton"> Cotton</label><br>
+            <label><input type="radio" name="answer" value="Pat"> Pat (Silk Floss)</label><br>
+            <label><input type="radio" name="answer" value="Wool"> Wool</label><br><br>
+            <button type="button" onclick="checkAnswer()">Submit</button>
+        </form>
+        <p id="quiz-result" style="font-weight:bold; margin-top:10px;"></p>
+        </div>
+        </div>
+
+        <script> 
+            function checkAnswer()
+            {
+                    const selected = document.querySelector('input[name="answer"]:checked');
+                    const result = document.getElementById("quiz-result");
+
+                    if (!selected) {
+                    result.textContent = "⚠️ Please select an option!";
+                    result.style.color = "red";
+                    return;
+                    }
+
+                    if (selected.value === "Pat") {
+                    result.textContent = "✅ Correct! Phulkari uses Pat (Silk Floss).";
+                    result.style.color = "green";
+                    } else {
+                    result.textContent = "❌ Oops! The correct answer is Pat (Silk Floss).";
+                    result.style.color = "red";
+                    }
+                }
+        </script>
+
+          <!-- Code for chat bot -->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>
+    {if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+    window.chatbase=new Proxy(window.chatbase,{get(target,prop)
+      {if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function()
+      {const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="eaZ3BLaEp3NWiit_Vn0fK";
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)};
+      if(document.readyState==="complete") {onLoad()}
+      else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+  <!-- Added Footer -->
+  <footer>Desh Darshan</footer>
+</body>
+</html>

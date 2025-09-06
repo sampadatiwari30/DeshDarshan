@@ -1,0 +1,307 @@
+[33ma5018db[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmy-fix[m[33m)[m new PR
+[33m597d237[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Fix: corrected Diwali section in festivals/Diwali.html
+[33mded2bdd[m .
+[33m342f434[m Resolve Pongal section merge conflict
+[33mf400320[m Fix: properly wrap Diwali image in <a> tag
+[33m42cee48[m Really fix Diwali section closing </a> tag
+[33mf407b63[m Fix Diwali section: remove duplicate img and correct paths
+[33mba205d6[m Fix duplicate <img> tags in all festival sections
+[33m459ad08[m Fix duplicate img tag in index.html Diwali section
+[33mb295ad6[m Fix Christmas section: remove duplicate img
+[33mc639844[m Fix Diwali section: remove duplicate img
+[33ma960b30[m Some details has been added Festivals section.
+[33ma23adc3[m Festival addition
+[33m9551bea[m Added some festivals information
+[33m36c9936[m Added some new files for festivals section
+[33ma084916[m Added a festival - Diwali
+[33mcbfb430[m Added some content on festival section
+[33m6dfc1a6[m Content added on festivals section
+[33m7e55384[m Avni
+[33m3e86ec5[m Merge pull request #315 from neeru24/deshdarshan-quiz
+[33m567d3b4[m Merge pull request #313 from sampadatiwari30/revert-301-main
+[33md0211e0[m Merge pull request #308 from dev-with-asmie/main
+[33m598d664[m DeshDarshan Quiz - New Feature Addition
+[33m1513ae6[m Revert "Implemented Cursor Trail Effect to 7 Files (Pages)"
+[33m0e1c71f[m Merge pull request #301 from neeru24/main
+[33m81aee7c[m Merge branch 'main' into main
+[33mf858aa1[m Merge pull request #310 from neeru24/patch-1
+[33m7fd7090[m Merge pull request #280 from neeru24/patch-2
+[33m1410439[m Merge branch 'main' of https://github.com/neeru24/DeshDarshan
+[33m61199a4[m Implemented Cursor Trail Effect tothe next 8 pages
+[33m6eb41b8[m Improved Blob Animation with GSAP + Parallax Mouse Interaction
+[33ma16fe83[m fix: Added a unity & diversity section
+[33m689a8e7[m Implemented Cursor Trail Effect to 7 Files (Pages)
+[33m1e17775[m Merge pull request #293 from ankesh15/bug-fix-#274
+[33m18b8a14[m Merge pull request #290 from neeru24/main
+[33m5cfc830[m Merge branch 'main' into main
+[33mebc8a3e[m Merge branch 'main' into patch-2
+[33m161b546[m Merge pull request #259 from neeru24/punjab-page
+[33m2d82f2d[m Merge branch 'main' into punjab-page
+[33m034e879[m Merge pull request #260 from AditiTangri/improve-image-quality
+[33m8642442[m Resolved merge conflicts from upstream/main
+[33mc99a3ce[m Merge pull request #285 from neeru24/patch-5
+[33m013ac79[m Merge pull request #257 from neeru24/patch-1
+[33mf8cff0d[m Merge pull request #292 from neeru24/patch-7
+[33me21bb47[m Merge pull request #298 from aaaditya2005/feature/feedback-form-enhancement
+[33m6608d66[m Merge pull request #295 from neeru24/patch-8
+[33m2bd00ce[m Feat: Enhance UI/UX of the feedback form as contact us page
+[33m4b82650[m Merge branch 'main' into bug-fix-#274
+[33m67ca484[m ✅ PR: Added Footer to CONTACT US Page
+[33mb37bb1a[m ✨ UI Improvement: Enhanced Card Visibility on Explore India Page
+[33me4f043a[m Merge branch 'main' into patch-2
+[33mc765cd3[m Update feedback.html
+[33ma043942[m Merge branch 'main' of https://github.com/neeru24/DeshDarshan
+[33m222c276[m 🔥 Added: Official Logo for DeshDarshan
+[33m2fb0fe4[m Merge pull request #253 from Divyasharma11245/feature/Divya
+[33m2551d76[m Merge pull request #263 from neeru24/explore-page
+[33m8cc9f67[m Merge pull request #282 from neeru24/patch-4
+[33mdd3dc75[m Merge pull request #287 from neeru24/patch-6
+[33m34300ee[m Update login.html
+[33m898bc2b[m undo login.html
+[33m9a53fc1[m Update login.html
+[33m0396a8b[m ✅ PR: Enhanced Background for Login Page
+[33mb1e968a[m 👍 PR: Added Footer to Hidden Destinations Page
+[33mc040919[m Update crazyfacts.html
+[33mfecde3a[m ✅ PR: Added Footer to Crazy Facts Page
+[33m444818e[m Update feedback.html
+[33mbb34843[m Update feedback.html
+[33me7beb6c[m Merge branch 'main' into main
+[33mfa68ace[m Merge branch 'main' into explore-page
+[33mb1fceef[m Merge branch 'main' into punjab-page
+[33ma51ab53[m Merge pull request #217 from priyalnagvekar/taste-of-india-ui
+[33me1f5eb9[m Merge branch 'main' into taste-of-india-ui
+[33m6ef40bd[m Merge pull request #107 from knoxiboy/fix/signup-button-not-working
+[33mda2db83[m Merge pull request #264 from Khushi5155/feature/Explore-India-page
+[33m07d52de[m commit
+[33m5acb9ad[m Update feedback.html
+[33m5ae7e9c[m resolved merge issue
+[33m5034ee6[m fixed bug for css for the feedback form
+[33me382540[m  Resolve Lock/Unlock issue in Explore Page and also Solve Double Explore Page Issue
+[33m7a6d382[m commit chnages
+[33m81a9147[m Fix : Improve Image Quality in 'Heritage of India' Section
+[33me82ac10[m ✨ Added Dedicated Punjab Page with Map, Description, and Styling
+[33mae8970e[m Merge branch 'main' of https://github.com/neeru24/DeshDarshan
+[33m603ec68[m ✨ Added Dedicated Punjab Page with Map, Description, and Styling
+[33m6599b67[m Add files via upload
+[33m0894451[m Update README.md
+[33mf5fb447[m styled the navbar properly at home1 page
+[33m9b5090b[m Merge branch 'main' into fix/signup-button-not-working
+[33m47553af[m Merge pull request #141 from Rupali-gituser/main
+[33mfa0ce4b[m Merge pull request #200 from shreyaB7134/compass-navigation
+[33m90e5a4a[m Merge pull request #251 from devkarx/fix/hamburger-menu
+[33m00fddae[m Merge pull request #215 from ShubhamPrasad3012/main
+[33m19ae78e[m Merge pull request #232 from vanshikakhator/Fixed-the-logo-of-the-social-media
+[33mbe08bf1[m Merge branch 'main' into fix/hamburger-menu
+[33m82625ae[m Fix: Hamburger menu not functional on mobile view
+[33m2d1c07f[m Merge pull request #231 from ShroudAnkit53/bug-fixing
+[33mf028a83[m Merge pull request #238 from Mahesh1215-babu/issue-221-signup-page-redirection
+[33mc84bcaf[m Merge pull request #245 from Samik221B/main
+[33mca3da36[m Added map location for each and every state
+[33m67ca72a[m Add: Signup page redirection (#221)
+[33m1c53273[m Fixed the logo of the social media links
+[33mee3711b[m Styling of Feedback Form
+[33mba81c80[m Merge pull request #224 from vanshikakhator/changedcolor--and-spacingGiven
+[33m32dba83[m Merge pull request #230 from devkarx/fix/responsive-homepage
+[33ma500f2b[m solving conflicts
+[33m5bc3cc0[m Merge branch 'main' into fix/responsive-homepage
+[33m8773610[m Fixed irresponsive homepage
+[33m4839b58[m Merge pull request #202 from Swara595/issue-5-top-destinations
+[33m418f03d[m Merge pull request #219 from kanikagoel12/feature/fix-navbar
+[33m847323e[m Merge pull request #220 from Ankita-Dholkar/feature-ui-enhancement
+[33m03cc73a[m Merge branch 'main' into issue-5-top-destinations
+[33m59ada5e[m Changed the colour and fixes the spacing between logo and text
+[33md479647[m removed conflicts
+[33mdb23a85[m UI enhancement work and correction of closebtn and did you know div overlapping problem
+[33mfc8c02b[m Resolved merge conflict in index.html
+[33md4cd12f[m Fix: removed duplicated navbar on contact us page
+[33mdc0c195[m Fixed the conflicts in html code
+[33m586174f[m Merge pull request #1 from sampadatiwari30/main
+[33mb6edc03[m Updated UI of index.html and style of home.css, Images added
+[33m178c0be[m fixed the red cross alignment in mobile screens
+[33ma5456f0[m Merge branch 'main' into fix/signup-button-not-working
+[33md5eb2ad[m Merge pull request #213 from devkarx/fix/added-images-homepage
+[33me0662f1[m Merge branch 'main' into fix/added-images-homepage
+[33m9265d5a[m Added missing images on homepage
+[33m59a8af5[m Merge pull request #167 from supriya46788/style-added
+[33m4c96eba[m Merge pull request #209 from kaifansariw/feature/your-feature-name
+[33m13d49c3[m Merge pull request #198 from sanjanaaraii/fix/gap-navbar-feedback
+[33mcf06f41[m Merge pull request #137 from radhika-droid/final_improvement_all_pages
+[33m8bd652b[m Added:Change the documentation in What You'll Discover section
+[33m45b99d9[m Merge branch 'main' into final_improvement_all_pages
+[33me9bc5b5[m Update about us.html
+[33m24d7653[m ✨ Added Top Destinations section
+[33m868dbe0[m Resolve folder conflict: restored DeshDarshan with compass feature
+[33m1fe0a5c[m Add Compass Navigation UI – Region Explorer with Geolocation
+[33mfac0a5c[m Gap between hidden destination and buttons in feedback page
+[33ma062817[m Add compass navigation UI: region explorer with geolocation and SVG compass
+[33m4305d9a[m Merge pull request #189 from dhangar007A/feature/signup-container
+[33m6c1298a[m Merge pull request #193 from Ramizalam/main
+[33m4a5fc3d[m Merge branch 'main' into main
+[33m267f29a[m Merge upstream/main and resolve conflict in index.html
+[33m3eb61e6[m Merge pull request #195 from lobby11/enhanced-login-signup-ui
+[33m439196b[m Enhanced login/signup buttons with hover spacing and animations
+[33mf5f7aca[m changes
+[33mc583e4e[m Merge upstream/main and resolve conflict in index.html
+[33m0249449[m fix search function
+[33m1b82af2[m Merged recovery-fix and resolved conflict in signup.html
+[33ma0dfd53[m Recovered lost changes
+[33mde1fc64[m Merge branch 'main' into fix/signup-button-not-working Merge branch 'main' into fix/signup-button-not-working - Synced latest changes - Adjusted signup.js and index.html to current file structure
+[33m443f2f5[m signup-container issue resolved
+[33m8564730[m Merge pull request #184 from sulabhsaluja/main
+[33m69b535c[m Conflices Resolved
+[33mf3e2946[m Merge pull request #166 from Shaesh-Kuiper/Major_Sync_Fix
+[33m4255521[m Final Deployment
+[33m01912a5[m NavBar Border fixed
+[33m5e3bff6[m dance pages added
+[33m24703e5[m footer home1
+[33md041983[m CSS Linked
+[33m86d7101[m css
+[33m1223bf8[m Festivals css
+[33m60ca62d[m home1 changed
+[33ma86bb26[m Footer Links Working
+[33m0a816d4[m new changes
+[33m80537ec[m Merge branch 'main' into Major_Sync_Fix
+[33mecacac3[m Nav-Links Deployed
+[33m8fee85b[m Update about us.html
+[33m94d51c0[m Merge pull request #145 from Swara595/issue-2-enhance-typography
+[33m9a43fa4[m Merge branch 'main' into issue-2-enhance-typography
+[33m848e786[m Added styling
+[33m6a0f55d[m fixed navigation bar of explore india
+[33m4258528[m added navigation bars and fixed styling in food, heritage, festival and dance .html files
+[33m6b90bfa[m fixed feedback.html
+[33md4fe81c[m fixed about us page
+[33m5ec6dc0[m fixed linking issues
+[33m69492f5[m fixed index.html and home.js
+[33m35979f7[m Merge pull request #150 from supriya46788/add-lang
+[33md1378f9[m Merge pull request #160 from SudiptaPaul-31/issue-147-pr-template
+[33mbf04a37[m Merge pull request #164 from pranavpatil005/new
+[33m700c86b[m fixed unlinked images,nav bar links from the homescreen which were not working,added missing updated footer in index.html and home1.html,there were no routes or links assigned in the conctactus page,i fixed them.
+[33mb7b5cd1[m Merge pull request #157 from priyalnagvekar/patch-1
+[33m6e98c86[m pr template added
+[33med461b8[m Merge pull request #155 from SudiptaPaul-31/issue-146-issue-template
+[33mb527075[m Update README.md
+[33m7389df1[m added issue template
+[33mff3cadc[m Merge pull request #154 from SudiptaPaul-31/issue-149-duplicate-image
+[33md010998[m added relavent images acc to place
+[33mde45352[m Merge pull request #153 from priyalnagvekar/improve-readme
+[33me10769c[m Added Different Regional languages
+[33md493b57[m Merge pull request #144 from Swara595/issue-1-contributing-md
+[33mde98516[m Enhance: Typography using Google Fonts Poppins and Montserrat (Fixes #2)
+[33m730e825[m Add: CONTRIBUTING.md file with guidelines (Fixes #1)
+[33m1afc48a[m Merge branch 'main' into main
+[33m0ad0df4[m Merge pull request #140 from piyushhvarma/fix/about-footer-white-line
+[33m5ecd7f6[m added missing image to slideshow
+[33m0a2eb64[m Updated README to be more informative
+[33m09db7bc[m  Added missing image to slideshow
+[33m63a2e6c[m Fix: Removed Unwanted White Line Below Footer in About Us Page
+[33m749517f[m Final improvements across all pages
+[33m292132a[m Merge pull request #134 from Sudharshan2516/Feature
+[33m116f71a[m Merge branch 'main' into Feature
+[33m4789544[m Merge pull request #131 from 001Priyanka/main
+[33m4f2a0be[m Merge pull request #133 from supriya46788/fix-mobile-Nav
+[33md232e77[m New Feature Added
+[33m4749e12[m Fixed Hamburger mobile nav functionality
+[33mdea85f2[m Applied changes after forking fresh repo
+[33m2e0617d[m Merge pull request #128 from RAGHU1242/feature/state-card-hover
+[33md8045e7[m Enhance state cards: show description on hover for cleaner UI
+[33m7388829[m Resolved merge conflicts
+[33m8edf539[m Merge pull request #112 from Piyush-Garg757/fix/external-links
+[33m010449c[m Merge pull request #119 from arpitkushwaha90/enhance-navbar-hover
+[33m88226a6[m Merge pull request #122 from UmaVohra/feedback-fix
+[33me543b5e[m Fixed phone input validation and feedback form improvements(of star rating)
+[33ma631282[m Merge pull request #118 from Samiksha-bajoria/main
+[33m11b3a31[m Merge pull request #114 from shreyapathak08/issue-85-back-to-top
+[33mf701b17[m Resolved feedback page CSS issue
+[33m7ac0934[m added names dance forms
+[33mceb52ec[m editing dance form names
+[33m0d56ec3[m adding dance form names
+[33mc9acd00[m Add Back to Top button to all pages
+[33mf12cb68[m fix: Open external links in new tab
+[33me37a013[m feat: Add favicon
+[33ma562852[m Fix: Signup button not working + UX improvements suggestion (#83)
+[33m8d5aad3[m Merge pull request #105 from supriya46788/fix-contact-form
+[33me4f72cf[m Merge pull request #103 from Minakshichaturvedi/feature/fix-footer
+[33mc13b1df[m Fix: updated contact form functionality
+[33me237efd[m fix: removed backtick bug
+[33m5fae431[m Merge pull request #95 from radhika-droid/feedbackcontactus_pages
+[33m9da80d0[m Merge pull request #96 from Shaesh-Kuiper/fix_css_not_loading
+[33m5869d92[m Added updated contact and feedback pages
+[33mb66bdba[m fixed the css not loading issue
+[33m4ca0665[m Merge pull request #86 from parthasarathi-meta/fix/84-add-new-feature
+[33mdaf65c8[m Merge pull request #68 from DivyaJain-DataAnalyst/main
+[33m149ea69[m Merge pull request #89 from rahul01gupta11/main
+[33m7b27884[m finalised the structure and fixed bugs
+[33m1f7234e[m Restructured files & fixed bugs
+[33m8c83ba7[m Add back button to dance pages and smooth scroll to Dance Culture section
+[33m0f3f8fd[m Added Code_of_Conduct.md
+[33m9edaae3[m Merge pull request #70 from ItsMeRaseeca/main
+[33mb7e09b1[m Merge branch 'main' of https://github.com/ItsMeRaseeca/DeshDarshan
+[33m281eebc[m Add-Dance-Culture-Pages
+[33m68a3915[m Merge branch 'sampadatiwari30:main' into main
+[33mfe5ea1c[m Resolve-conflicts
+[33me62a924[m Added Code_of_Conduct.md
+[33m07e3818[m Add Code_of_Conduct.md
+[33me802ef1[m Merge pull request #79 from piyushpatelcodes/ui-fixes
+[33m77741a7[m Merge branch 'main' into ui-fixes
+[33m5dfb1ed[m redesign in hero section
+[33ma403db4[m Merge pull request #66 from shreyas-krishnan7/main
+[33meb86fa5[m Merge pull request #76 from Rishika12U/fix-sticky-audio-icon
+[33m85a49e8[m Merge branch 'main' into fix-sticky-audio-icon
+[33m59f12f8[m 🐛 Fix #72: Made audio toggle emoji sticky to remove scroll bug
+[33m8f3a9a7[m Merge pull request #57 from Sneha-Amballa/feature/dedicated-buttons
+[33m0c00bd7[m Merge pull request #72 from Rishika12U/audio-toggle-feature
+[33m995bd0c[m Merge pull request #73 from utkarshp2829/hover-fix-clean
+[33m059b2de[m Button's CSS improved and file paths resolved
+[33m15cb973[m Fixed the Login and Sign-Up hovering and css issue
+[33md2d8b5c[m 🔁 Update audio toggle logic and style
+[33m5ccbe56[m Merge branch 'main' into main
+[33m96f3e82[m Dance-Culture-Pages
+[33mb8f5332[m Add audio toggle button with mute/unmute functionality
+[33m4996b78[m Add Code_of_Conduct.md
+[33m1e7ba31[m Add Code_of_Conduct.md
+[33m5a8ae8c[m Add files via upload
+[33mdeea1e0[m Merge pull request #67 from radhika-droid/main
+[33m89a933f[m Fixed login, signup pages and added forgot-password.html
+[33m51d5370[m Merge pull request #64 from khulsamiksha/main
+[33m356f422[m fixed issue #45 - proper routing between pages
+[33m5d748fe[m fixed issue #45 - titled - proper routing between pages
+[33m73e64a2[m Merge pull request #61 from mehershiri/add-footer-contact
+[33m22f3de5[m Added smooth scroll to contact section from header
+[33mf4cb7ce[m Merge pull request #38 from Tushika2024/feature/changes-in-footer
+[33m4f68f98[m Added dance, festivals, and food sections; updated home pages
+[33m6f3d388[m added images
+[33mcd74d20[m Merge branch 'main' into feature/changes-in-footer
+[33m8b7e0c2[m Merge pull request #34 from rahul01gupta11/main
+[33ma3f7514[m Merge pull request #37 from Sangavi853/fix/readability-textshadow
+[33m6274f5d[m conflicts resolved
+[33mc41ee7b[m Merge pull request #39 from Sacchi0504/fix/login-signUp-button-UI
+[33md76a14a[m fix: improved readability with stronger text-shadow
+[33m21a1d9e[m Merge branch 'main' into fix/login-signUp-button-UI
+[33m17e3105[m Added real social handles
+[33m26423d2[m Merge pull request #41 from Baranidharanv06/main
+[33m2c0d29c[m feat: Implement Explore India section with State/UT cards and search (#35)
+[33m78eb56c[m Add:Modifications-in-footer
+[33mca5ca5b[m fix: improved readability with stronger text-shadow and overlay
+[33m96e9173[m fix-login/signUp-button-UI
+[33ma91cbaf[m fix: improved readability with text-shadow on hero section
+[33m265d0d9[m all conflicts solved
+[33ma0fa173[m added hover effects in Navbar and cards
+[33m2725089[m Merge pull request #26 from Rishika12U/fix-scrolltop-bug
+[33mec50dd6[m Merge pull request #28 from RAJVEER42/navbar-glass-effect
+[33m5275781[m ✨ Made navbar glassy with backdrop blur and animation
+[33ma20c6c5[m Fix: Improved scroll-to-top button position on small screens (#18)
+[33m300c562[m Merge pull request #16 from tobiasrahul/feature/Translate-whole-page
+[33m0264bfa[m Merge pull request #24 from Paddu909/fix-password-validation
+[33mef64564[m Merge branch 'main' into feature/Translate-whole-page
+[33m5eacc72[m Fix: Improved password validation with stronger security rules on login and signup pages
+[33m97d5bfd[m Merge pull request #22 from Paddu909/fix-capitalization-homepage
+[33mc875664[m Fix: Corrected inconsistent capitalization in homepage content
+[33me2ca169[m Merge pull request #18 from Rishika12U/scroll-to-top-feature
+[33md3b761c[m Add scroll-to-top button feature with themed styling
+[33m804d510[m Add: Translate-whole-page
+[33mfc17340[m Fix: Added proper name validation across forms
+[33me7de0e3[m Merge pull request #5 from rahul01gupta11/main
+[33m5fa1473[m Update slideshow and styles in home.js and home.css
+[33mb5125fe[m Update README.md
+[33mbe2c601[m Add files via upload
+[33m9e69de8[m Initial commit

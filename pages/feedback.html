@@ -1,521 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feedback Form - DeshDarshan</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/feedback.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Form - DeshDarshan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/feedback.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
 
-  </head>
-  <body>
-    <!-- Navigation -->
-    <!-- <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <h2>Desh Darshan</h2>
+</head>
+
+<body>
+
+  <div id="navbar-container"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="form-card">
+        <div class="form-header">
+          <h1>Share Your Feedback</h1>
+          <p class="form-subtitle">
+            Your insights help us improve the DeshDarshan experience!
+          </p>
         </div>
 
-        
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="home1.html">Home</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="crazyfacts.html">Crazy Facts</a></li>
-          <li><a href="explore.html">Explore India</a></li>
-          <li><a href="destination.html">Hidden Destinations</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-        </ul>
-
-        <div class="nav-buttons">
-          <a href="contact-us.html"><span>Contact Us</span><i>→</i></a>
-          <a href="feedback.html"><span>Feedback</span><i>→</i></a>
-        </div>
-      </div>
-    </nav> -->
-
-    <div id="navbar-container"></div>
-    
-    <main class="main-content">
-      <div class="container">
-        <div class="form-card">
-          <div class="form-header">
-            <h1>Share Your Feedback</h1>
-            <p class="form-subtitle">
-              Your insights help us improve the DeshDarshan experience!
-            </p>
+        <form id="feedbackForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+            <div class="error-message" id="nameError">
+              Please enter your name
+            </div>
           </div>
 
-          <form id="feedbackForm" novalidate>
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Enter your full name"
-                required
-              />
-              <div class="error-message" id="nameError">
-                Please enter your name
-              </div>
+          <div class="form-group">
+            <label for="email">Email ID *</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+            <div class="error-message" id="emailError">
+              Please enter a valid email
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="email">Email ID *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email address"
-                required
-              />
-              <div class="error-message" id="emailError">
-                Please enter a valid email
-              </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (91+)" />
+            <div class="error-message" id="phoneError">
+              Please enter a valid phone number
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Enter your phone number (91+)"
-              />
-              <div class="error-message" id="phoneError">
-                Please enter a valid phone number
-              </div>
+          <div class="form-group">
+            <label for="starRating">Rating *</label>
+            <div class="star-rating-container" id="starRating">
+              <span data-rating="1">★</span>
+              <span data-rating="2">★</span>
+              <span data-rating="3">★</span>
+              <span data-rating="4">★</span>
+              <span data-rating="5">★</span>
             </div>
-
-            <div class="form-group">
-              <label for="starRating">Rating *</label>
-              <div class="star-rating-container" id="starRating">
-                <span data-rating="1">★</span>
-                <span data-rating="2">★</span>
-                <span data-rating="3">★</span>
-                <span data-rating="4">★</span>
-                <span data-rating="5">★</span>
-              </div>
-              <div class="rating-labels">
-                <span>Poor</span>
-                <span>Excellent</span>
-              </div>
-              <div class="error-message" id="ratingError">
-                Please select a rating
-              </div>
+            <div class="rating-labels">
+              <span>Poor</span>
+              <span>Excellent</span>
             </div>
-
-            <div class="form-group">
-              <label for="message">Your Feedback *</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Share your thoughts about your experience with DeshDarshan..."
-                required
-              ></textarea>
-              <div class="error-message" id="messageError">
-                Please enter your message
-              </div>
+            <div class="error-message" id="ratingError">
+              Please select a rating
             </div>
+          </div>
 
-            <button type="submit" class="submit-btn">
-              <span>Submit Feedback</span>
-              <i class="fas fa-paper-plane"></i>
-            </button>
+          <div class="form-group">
+            <label for="message">Your Feedback *</label>
+            <textarea id="message" name="message"
+              placeholder="Share your thoughts about your experience with DeshDarshan..." required></textarea>
+            <div class="error-message" id="messageError">
+              Please enter your message
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Submit Feedback</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div class="popup-overlay" id="successPopup">
+    <div class="popup">
+      <div class="popup-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="popup-message">
+        <h3>Thank You!</h3>
+        <p>
+          Your feedback adds warmth to our colorful yatra across India. Thank
+          you for being part of it! 🌺❤️
+        </p>
+      </div>
+      <button class="popup-close" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-content-wrapper">
+      <!-- Section 1: About Desh Darshan -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Desh Darshan</h3>
+        <p>
+          Desh Darshan is your gateway to the vibrant and diverse culture of
+          India. We aim to introduce the world to India's rich heritage,
+          traditions, arts, and history.
+        </p>
+        <div class="footer-logo">Desh Darshan</div>
+      </div>
+
+      <!-- Section 2: Quick Links -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Quick Links</h3>
+        <ul>
+          <li><a href="../" class="footer-link">Home</a></li>
+          <li><a href="about-us.html" class="footer-link">About Us</a></li>
+          <li>
+            <a href="explore.html" class="footer-link">Explore India</a>
+          </li>
+          <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+          <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Section 3: Contact Us -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Contact Us</h3>
+        <ul>
+          <li class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@deshdarshan.in</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 1234567890</span>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>New Delhi, India</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 4: Follow Us -->
+      <div class="footer-section">
+        <h3 class="footer-section-title">Follow Us</h3>
+        <div class="social-icons-container">
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="newsletter">
+          <h4>Subscribe to our newsletter</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
           </form>
         </div>
       </div>
-    </main>
-
-    <div class="popup-overlay" id="successPopup">
-      <div class="popup">
-        <div class="popup-icon">
-          <i class="fas fa-check-circle"></i>
-        </div>
-        <div class="popup-message">
-          <h3>Thank You!</h3>
-          <p>
-            Your feedback adds warmth to our colorful yatra across India. Thank
-            you for being part of it! 🌺❤️
-          </p>
-        </div>
-        <button class="popup-close" onclick="closePopup()">Close</button>
-      </div>
     </div>
 
-    <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+    <!-- Copyright -->
+    <div class="copyright-section">
+      &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "eaZ3BLaEp3NWiit_Vn0fK"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <!-- for that confetti effect after submiting the form -->
 
-    <!-- Footer -->
-    <footer id="footer">
-      <div class="footer-content-wrapper">
-        <!-- Section 1: About Desh Darshan -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Desh Darshan</h3>
-          <p>
-            Desh Darshan is your gateway to the vibrant and diverse culture of
-            India. We aim to introduce the world to India's rich heritage,
-            traditions, arts, and history.
-          </p>
-          <div class="footer-logo">Desh Darshan</div>
-        </div>
+  <script>
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+    const navButtons = document.querySelector(".nav-buttons");
 
-        <!-- Section 2: Quick Links -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Quick Links</h3>
-          <ul>
-            <li><a href="../" class="footer-link">Home</a></li>
-            <li><a href="about-us.html" class="footer-link">About Us</a></li>
-            <li>
-              <a href="explore.html" class="footer-link">Explore India</a>
-            </li>
-            <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-            <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
-          </ul>
-        </div>
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+      navButtons.classList.toggle("active");
+    });
 
-        <!-- Section 3: Contact Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Contact Us</h3>
-          <ul>
-            <li class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>hello@deshdarshan.in</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+91 1234567890</span>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>New Delhi, India</span>
-            </li>
-          </ul>
-        </div>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-        <!-- Section 4: Follow Us -->
-        <div class="footer-section">
-          <h3 class="footer-section-title">Follow Us</h3>
-          <div class="social-icons-container">
-            <a href="#" class="social-icon" aria-label="Facebook"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Twitter"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a href="#" class="social-icon" aria-label="YouTube"
-              ><i class="fab fa-youtube"></i
-            ></a>
-          </div>
-          <div class="newsletter">
-            <h4>Subscribe to our newsletter</h4>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Your email address" />
-              <button type="submit"><i class="fas fa-paper-plane"></i></button>
-            </form>
-          </div>
-        </div>
-      </div>
+    const form = document.getElementById("feedbackForm");
+    const stars = document.querySelectorAll("#starRating span");
+    let selectedRating = 0;
 
-      <!-- Copyright -->
-      <div class="copyright-section">
-        &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-      </div>
-    </footer>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-    <!-- for that confetti effect after submiting the form -->
-
-    <script>
-      // Mobile Navigation Toggle
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
-      const navButtons = document.querySelector(".nav-buttons");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        navButtons.classList.toggle("active");
+    // --- STAR RATING LOGIC ---
+    stars.forEach((star) => {
+      star.addEventListener("click", () => {
+        selectedRating = parseInt(star.getAttribute("data-rating"));
+        updateStars();
+        // Hide error message on click
+        document.getElementById("ratingError").classList.remove("show");
       });
 
-      // Set current year in footer
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      const form = document.getElementById("feedbackForm");
-      const stars = document.querySelectorAll("#starRating span");
-      let selectedRating = 0;
-
-      // --- STAR RATING LOGIC ---
-      stars.forEach((star) => {
-        star.addEventListener("click", () => {
-          selectedRating = parseInt(star.getAttribute("data-rating"));
-          updateStars();
-          // Hide error message on click
-          document.getElementById("ratingError").classList.remove("show");
-        });
-
-        star.addEventListener("mouseover", () => {
-          highlightStars(parseInt(star.getAttribute("data-rating")));
-        });
+      star.addEventListener("mouseover", () => {
+        highlightStars(parseInt(star.getAttribute("data-rating")));
       });
+    });
 
-      document
-        .getElementById("starRating")
-        .addEventListener("mouseleave", () => {
-          highlightStars(selectedRating);
-        });
-
-      function highlightStars(rating) {
-        stars.forEach((star, index) => {
-          star.classList.toggle("active", index < rating);
-        });
-      }
-
-      function updateStars() {
+    document
+      .getElementById("starRating")
+      .addEventListener("mouseleave", () => {
         highlightStars(selectedRating);
-      }
-
-      // --- FORM VALIDATION & SUBMISSION ---
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        let isValid = true;
-
-        // Clear previous errors
-        document
-          .querySelectorAll(".error")
-          .forEach((el) => el.classList.remove("error"));
-        document
-          .querySelectorAll(".error-message")
-          .forEach((el) => el.classList.remove("show"));
-
-        // Validate Name
-        const nameField = document.getElementById("name");
-        if (
-          !nameField.value.trim() ||
-          !/^[A-Za-z ]{3,}$/.test(nameField.value)
-        ) {
-          showError(nameField, "Please enter a valid name (min 3 letters)");
-          isValid = false;
-        }
-
-        // Validate Email
-        const emailField = document.getElementById("email");
-        if (
-          !emailField.value.trim() ||
-          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)
-        ) {
-          showError(emailField, "Please enter a valid email address");
-          isValid = false;
-        }
-
-        // Validate Phone (optional)
-        const phoneField = document.getElementById("phone");
-        if (
-          phoneField.value.trim() &&
-          !/^[\d\s\-\+()]{10,}$/.test(phoneField.value)
-        ) {
-          showError(phoneField, "Please enter a valid 10-digit phone number");
-          isValid = false;
-        }
-
-        // Validate Star Rating
-        if (selectedRating === 0) {
-          document.getElementById("ratingError").classList.add("show");
-          isValid = false;
-        }
-
-        // Validate Message
-        const messageField = document.getElementById("message");
-        if (!messageField.value.trim()) {
-          showError(messageField, "Please enter your message");
-          isValid = false;
-        }
-
-        // If all valid, show popup
-        if (isValid) {
-          showSuccessPopup();
-        } else {
-          const firstError = document.querySelector(".error");
-          if (firstError) {
-            firstError.scrollIntoView({ behavior: "smooth", block: "center" });
-            firstError.focus();
-          }
-        }
       });
 
-      function showError(field, message) {
-        field.classList.add("error");
-        const errorElement = document.getElementById(field.id + "Error");
-        errorElement.textContent = message;
-        errorElement.classList.add("show");
+    function highlightStars(rating) {
+      stars.forEach((star, index) => {
+        star.classList.toggle("active", index < rating);
+      });
+    }
+
+    function updateStars() {
+      highlightStars(selectedRating);
+    }
+
+    // --- FORM VALIDATION & SUBMISSION ---
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      let isValid = true;
+
+      // Clear previous errors
+      document
+        .querySelectorAll(".error")
+        .forEach((el) => el.classList.remove("error"));
+      document
+        .querySelectorAll(".error-message")
+        .forEach((el) => el.classList.remove("show"));
+
+      // Validate Name
+      const nameField = document.getElementById("name");
+      if (
+        !nameField.value.trim() ||
+        !/^[A-Za-z ]{3,}$/.test(nameField.value)
+      ) {
+        showError(nameField, "Please enter a valid name (min 3 letters)");
+        isValid = false;
       }
 
-      // This is inside your showSuccessPopup function
-      const myCanvas = document.getElementById("confetti-canvas");
-      const myConfetti = confetti.create(myCanvas, { resize: true });
-
-      // --- POPUP LOGIC ---
-      function showSuccessPopup() {
-        const popup = document.getElementById("successPopup");
-        popup.classList.add("show");
-
-        // Later, when you want to fire the confetti...
-        myConfetti({
-          particleCount: 150,
-          spread: 90,
-          origin: { y: 0.6 },
-        });
-
-        document.body.style.overflow = "hidden";
+      // Validate Email
+      const emailField = document.getElementById("email");
+      if (
+        !emailField.value.trim() ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)
+      ) {
+        showError(emailField, "Please enter a valid email address");
+        isValid = false;
       }
 
-      function closePopup() {
-        const popup = document.getElementById("successPopup");
-        popup.classList.remove("show");
-        document.body.style.overflow = "auto";
-        form.reset();
-        selectedRating = 0; // Reset rating
-        updateStars(); // Reset star visuals
+      // Validate Phone (optional)
+      const phoneField = document.getElementById("phone");
+      if (
+        phoneField.value.trim() &&
+        !/^[\d\s\-\+()]{10,}$/.test(phoneField.value)
+      ) {
+        showError(phoneField, "Please enter a valid 10-digit phone number");
+        isValid = false;
       }
 
-      // Close popup on Escape key
-      document.addEventListener("keydown", (e) => {
-        if (
-          e.key === "Escape" &&
-          document.getElementById("successPopup").classList.contains("show")
-        ) {
-          closePopup();
+      // Validate Star Rating
+      if (selectedRating === 0) {
+        document.getElementById("ratingError").classList.add("show");
+        isValid = false;
+      }
+
+      // Validate Message
+      const messageField = document.getElementById("message");
+      if (!messageField.value.trim()) {
+        showError(messageField, "Please enter your message");
+        isValid = false;
+      }
+
+      // If all valid, show popup
+      if (isValid) {
+        showSuccessPopup();
+      } else {
+        const firstError = document.querySelector(".error");
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+          firstError.focus();
+        }
+      }
+    });
+
+    function showError(field, message) {
+      field.classList.add("error");
+      const errorElement = document.getElementById(field.id + "Error");
+      errorElement.textContent = message;
+      errorElement.classList.add("show");
+    }
+
+    // This is inside your showSuccessPopup function
+    const myCanvas = document.getElementById("confetti-canvas");
+    const myConfetti = confetti.create(myCanvas, { resize: true });
+
+    // --- POPUP LOGIC ---
+    function showSuccessPopup() {
+      const popup = document.getElementById("successPopup");
+      popup.classList.add("show");
+
+      // Later, when you want to fire the confetti...
+      myConfetti({
+        particleCount: 150,
+        spread: 90,
+        origin: { y: 0.6 },
+      });
+
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePopup() {
+      const popup = document.getElementById("successPopup");
+      popup.classList.remove("show");
+      document.body.style.overflow = "auto";
+      form.reset();
+      selectedRating = 0; // Reset rating
+      updateStars(); // Reset star visuals
+    }
+
+    // Close popup on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        document.getElementById("successPopup").classList.contains("show")
+      ) {
+        closePopup();
+      }
+    });
+
+    // Remove error on input
+    document.querySelectorAll("input, textarea").forEach((field) => {
+      field.addEventListener("input", function () {
+        this.classList.remove("error");
+        const errorElement = document.getElementById(this.id + "Error");
+        if (errorElement) {
+          errorElement.classList.remove("show");
         }
       });
+    });
+  </script>
 
-      // Remove error on input
-      document.querySelectorAll("input, textarea").forEach((field) => {
-        field.addEventListener("input", function () {
-          this.classList.remove("error");
-          const errorElement = document.getElementById(this.id + "Error");
-          if (errorElement) {
-            errorElement.classList.remove("show");
-          }
-        });
-      });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Back to Top Button with Updated Colors (#ff9933) -->
-<style>
-  /* Base Button Styles */
-  #backToTopBtn {
-    position: fixed;
-    right: 25px;
-    bottom: 85px;
-    z-index: 1200;
-    background: #ff9832;
-    color: #fff;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: normal;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    line-height: 1;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Visible State */
-  #backToTopBtn.show {
-    opacity: 1;
-    transform: translateY(0);
-    display: flex;
-  }
-  
-  /* Hover Effects */
-  #backToTopBtn:hover {
-    transform: translateY(-5px) scale(1.05); 
-    background: #ffb366; 
-    box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
+  <!-- Back to Top Button with Updated Colors (#ff9933) -->
+  <style>
+    /* Base Button Styles */
     #backToTopBtn {
-      bottom: 20px;
-      right: 20px;
+      position: fixed;
+      right: 25px;
+      bottom: 85px;
+      z-index: 1200;
+      background: #ff9832;
+      color: #fff;
+      border: none;
       width: 40px;
       height: 40px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
       font-size: 20px;
+      font-weight: normal;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 10px 30px rgba(255, 152, 50, 0.25);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      line-height: 1;
+      text-align: center;
+      padding: 0;
+      margin: 0;
     }
-  }
-</style>
 
-<!-- Button HTML (unchanged) -->
-<button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+    /* Visible State */
+    #backToTopBtn.show {
+      opacity: 1;
+      transform: translateY(0);
+      display: flex;
+    }
 
-<!-- JavaScript (unchanged) -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const backBtn = document.getElementById('backToTopBtn');
-    const scrollThreshold = document.body.scrollHeight / 3;
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > scrollThreshold) {
-        backBtn.classList.add('show');
-      } else {
-        backBtn.classList.remove('show');
+    /* Hover Effects */
+    #backToTopBtn:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: #ffb366;
+      box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      #backToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
       }
-    });
+    }
+  </style>
 
-    backBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+  <!-- Button HTML (unchanged) -->
+  <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+  <!-- JavaScript (unchanged) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const backBtn = document.getElementById('backToTopBtn');
+      const scrollThreshold = document.body.scrollHeight / 3;
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > scrollThreshold) {
+          backBtn.classList.add('show');
+        } else {
+          backBtn.classList.remove('show');
+        }
+      });
+
+      backBtn.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
     });
-  });
-</script>
-<script src="../js/navbar-loader.js"></script>
- <script src="./js/navbar.js"></script>
-  </body>
+  </script>
+  <script src="../js/navbar-loader.js"></script>
+  <script src="./js/navbar.js"></script>
+</body>
+
 </html>

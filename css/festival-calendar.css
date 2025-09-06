@@ -188,8 +188,10 @@ body {
     transform: translateY(-2px);
 }
 
+
 .fc-button-primary:disabled {
-    background-color: #ccc !important;
+    background-color: #6c757d !important;
+    color: white !important;
     border-color: #ccc !important;
 }
 
@@ -215,12 +217,19 @@ body {
 
 .fc-event:hover {
     background-color: #ff6b35 !important;
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
-.fc-list-event:hover {
-    background-color: #fff5f5 !important;
+/* Light orange hover effect for all-day/list events in FullCalendar list view */
+.fc-list-table .fc-list-event:hover td {
+  background-color: #ffebcc  !important;
+  color: black !important;
+  cursor: pointer;
 }
+
+
+
+
 
 /* Modal Styles */
 .modal {
@@ -253,6 +262,7 @@ body {
         opacity: 0;
         transform: translateY(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -495,50 +505,216 @@ body {
     font-weight: 600;
 }
 
+/* Footer Styles */
+#footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 4rem 0 0;
+    position: relative;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #ff9933;
+    font-family: "Cinzel", serif;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #ff9933;
+}
+
+.footer-logo {
+    font-family: "Cinzel", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff9933;
+    margin-top: 1rem;
+}
+
+.footer-section p {
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-link {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: #ff9933;
+    transform: translateX(5px);
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    color: #bbb;
+}
+
+.footer-contact-item i {
+    color: #ff9933;
+    width: 20px;
+    text-align: center;
+}
+
+.social-icons-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #ff9933;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
+
+.newsletter {
+    margin-top: 1.5rem;
+}
+
+.newsletter h4 {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.newsletter-form {
+    display: flex;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.newsletter-form input::placeholder {
+    color: #ccc;
+}
+
+.newsletter-form button {
+    background: #ff9933;
+    color: white;
+    border: none;
+    padding: 0 1.2rem;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #e67e00;
+}
+
+.copyright-section {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .controls-wrapper {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .filter-section {
         flex-direction: column;
     }
-    
+
     .view-controls {
         justify-content: center;
     }
-    
+
     .festival-details {
         flex-direction: column;
     }
-    
+
     .festival-image {
         height: 200px;
     }
-    
+
     .festival-info {
         padding: 1.5rem;
     }
-    
+
     .festival-info h2 {
         font-size: 1.5rem;
     }
-    
+
     .festival-meta {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .upcoming-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -548,31 +724,31 @@ body {
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-content p {
         font-size: 1rem;
     }
-    
+
     .calendar-controls {
         padding: 1rem 0;
     }
-    
+
     #calendar {
         padding: 1rem;
     }
-    
+
     .fc-toolbar-title {
         font-size: 1.4rem !important;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stat-card {
         padding: 1.5rem;
     }
-    
+
     .stat-card h3 {
         font-size: 2rem;
     }
@@ -597,8 +773,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Empty State */
@@ -621,4 +802,4 @@ body {
 
 .empty-state p {
     font-size: 1rem;
-} 
+}
