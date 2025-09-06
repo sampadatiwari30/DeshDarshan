@@ -4,20 +4,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #fff8f0;
   color: #333;
   line-height: 1.5;
-
-  line-height:1.6;
 }
 
 /* Header */
 .header {
-  background: rgba(255, 140, 0, 0.9); /* Orange with slight transparency */
+  background: rgba(255, 140, 0, 0.9);
   color: white;
   text-align: center;
   padding: 15px 10px;
@@ -51,7 +47,7 @@ body {
   position: absolute;
   bottom: 15px;
   left: 15px;
-  background: rgba(255, 140, 0, 0.8); /* Semi-transparent orange */
+  background: rgba(255, 140, 0, 0.8);
   padding: 12px 15px;
   border-radius: 8px;
   color: #fff;
@@ -94,8 +90,8 @@ body {
 }
 .video .video-player {
   width: 100%;
-  max-width: 700px;
-  height: 360px;
+  max-width: 480px;
+  height: 270px;
   border-radius: 12px;
   box-shadow: 0 5px 12px rgba(0,0,0,0.3);
 }
@@ -139,68 +135,4 @@ body {
     height: 200px;
     max-width: 100%;
   }
-  background: linear-gradient(90deg, #ff8c00, #ff6f00);
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.header h1 { font-size: 3rem; margin-bottom: 10px; }
-.header .subtitle { font-size: 1.2rem; font-weight: 300; }
-
-/* Main content */
-.content { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-
-/* Hero */
-.hero { text-align: center; margin-bottom: 40px; }
-.hero-image {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-/* Sections */
-.details h2, .video h2 { 
-  color: #ff6f00; 
-  margin-bottom: 10px; 
-  border-left: 5px solid #ff8c00; 
-  padding-left: 10px;
-}
-.details ul { margin-left: 25px; margin-bottom: 20px; }
-.details li { margin-bottom: 10px; font-size: 1.05rem; }
-
-/* Video */
-.video { margin-top: 40px; text-align:center; }
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height:0;
-  overflow:hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-.video-container iframe {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}
-
-/* Reference link */
-.reference { text-align:center; margin: 30px 0; }
-.reference a { color: #ff6f00; text-decoration:none; font-weight:bold; }
-.reference a:hover { text-decoration:underline; }
-
-/* Footer */
-.footer {
-  text-align:center;
-  background:#222;
-  color:#eee;
-  padding:15px;
-  margin-top:40px;
-  font-size:0.95rem;
 }
