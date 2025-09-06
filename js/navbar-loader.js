@@ -78,7 +78,7 @@ function createSmartNavbar() {
                         <i class="fas fa-user-plus"></i>
                     </a>
                 </div>
-                <div class="hamburger">
+                <div >
                     <span></span>
                     <span></span>
                     <span></span>
