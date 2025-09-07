@@ -137,8 +137,8 @@ body {
 
 /* Festivals and Culture Section */
 .festivals-culture {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, #fff5f5, #f0f8ff);
+  margin-top: 5rem;
+  background: #fff;
 }
 
 .culture-grid {
@@ -191,8 +191,8 @@ a,
 }
 
 /* Taste of India Section */
-.taste-india {
-  padding: 5rem 0;
+.food {
+  margin-top: 5rem;
   background: #fff;
 }
 
@@ -236,8 +236,8 @@ a,
 
 /* Dance Culture Section */
 .dance-culture {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, #f8f4ff, #fff0f5);
+  margin-top: 5rem;
+  background: #fff;
 }
 
 .dance-grid {
@@ -308,10 +308,66 @@ a,
   align-items: center;
 }
 
+/* Freedom Fighter Section */
+.freedom-fighters {
+  margin-top: 5rem;
+  background: #fff;
+}
+
+.freedom-fighters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.freedom-fighter-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.freedom-fighter-item:hover {
+  transform: translateY(-5px);
+}
+
+.freedom-fighter-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.freedom-fighter-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.freedom-fighter-item:hover .freedom-fighter-overlay {
+  transform: translateY(0);
+}
+
+.freedom-fighter-overlay h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.freedom-fighter-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
 /* Heritage Section */
-.heritage-section {
-  padding: 5rem 0 7rem;
-  background: linear-gradient(135deg, #f0f8ff, #fff5f5);
+.heritage {
+  margin-top: 5rem;
+  background: #fff;
 }
 
 .heritage-grid {
