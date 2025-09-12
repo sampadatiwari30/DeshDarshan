@@ -100,7 +100,7 @@ body {
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   transition: all 0.4s ease;
   background: white;
-  height: 400px;
+  height: 350px;
 }
 
 .dance-item:hover {
