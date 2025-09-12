@@ -3,6 +3,25 @@ let currentSlideIndex = 0;
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const namasteOverlay = document.getElementById("namaste-overlay");
+
+  // Hide after 3 seconds automatically
+  const hideTimeout = setTimeout(() => {
+    namasteOverlay.classList.add("hidden");
+  }, 3000);
+
+  // Hide immediately if user scrolls before timeout
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      namasteOverlay.classList.add("hidden");
+      clearTimeout(hideTimeout); // cancel auto timer
+    }
+  });
+});
+
+
+
 function showSlide(index) {
   // Hide all slides
   slides.forEach((slide) => slide.classList.remove("active"));
