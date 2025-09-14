@@ -5,25 +5,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spirit of India</title>
+
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/destinations.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/dark-theme-toggle.js"></script>
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon/favicon-16x16.png">
   <link rel="shortcut icon" href="assets/images/icons/favicon/favicon.ico">
 
+  <!-- Load third-party libs once -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/CustomEase.min.js" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 
-  <!-- Back to Top Button with Mid-Scroll Appearance -->
+  <script src="js/dark-theme-toggle.js" defer></script>
+
   <style>
     /* Base Button Styles */
     #backToTopBtn {
@@ -110,7 +112,6 @@
       0% {
         transform: translateX(0);
       }
-
       100% {
         transform: translateX(-100%);
       }
@@ -120,63 +121,75 @@
     .floating-nav-wrapper:hover .floating-nav {
       animation-play-state: paused;
     }
-
     /*Css for Navigation Buttons End here*/
+
+    .dance-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+      /* Card shadow */
+      transition: transform 0.3s ease;
+    }
+
+    .dance-item:hover {
+      transform: translateY(-5px);
+      /* Lift effect */
+    }
+
+    .dance-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: blueviolet;
+      /* Overlay shadow */
+      border-radius: 0 0 10px 10px;
+    }
+
+    /* Toast Notification Styles */
+    #toast {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background-color: #e37f33;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      transition: opacity 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .toast-hidden {
+      opacity: 0;
+      transform: translateX(100px);
+      pointer-events: none;
+    }
+
+    .toast-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .toast-icon {
+      margin-right: 12px;
+      font-size: 20px;
+    }
+
+    .toast-message {
+      font-size: 16px;
+    }
   </style>
+</head>
 
-  <!-- Button HTML -->
-  <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
-
-  <!-- JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const backBtn = document.getElementById('backToTopBtn');
-      const scrollThreshold = document.body.scrollHeight / 3; // Appears at 1/3 of page height
-
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > scrollThreshold) {
-          backBtn.classList.add('show');
-        } else {
-          backBtn.classList.remove('show');
-        }
-      });
-
-      backBtn.addEventListener('click', function () {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
-
-  <!-- Button HTML -->
-  <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
-
-  <!-- JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const backBtn = document.getElementById('backToTopBtn');
-      const scrollThreshold = document.body.scrollHeight / 3; // Appears at 1/3 of page height
-
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > scrollThreshold) {
-          backBtn.classList.add('show');
-        } else {
-          backBtn.classList.remove('show');
-        }
-      });
-
-      backBtn.addEventListener('click', function () {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
-
-
+<body>
   <div id="loading-screen">
     <div class="loader">
       <i class="fa-solid fa-spinner"></i>
@@ -184,8 +197,10 @@
     </div>
   </div>
 
-  <!-- Navigation Bar Container -->
   <div id="navbar-container"></div>
+
+  <!-- Back to Top Button (single) -->
+  <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
 
   <!-- Hero Section with Slideshow -->
   <section class="hero">
@@ -281,38 +296,42 @@
       <h2 class="section-title" data-translate="festivals-title">Festivals and Culture of India</h2>
       <div class="culture-grid">
         <div class="culture-item">
-          <img src="assets/images/festivals/diwali.png" alt="Diwali">
+          <img src="assets/images/festivals/diwali.png" alt="Diwali" />
+          <div class="culture-caption">
+            <h3 data-translate="diwali-title">Diwali</h3>
+          </div>
+        </div>
+
+        <div class="culture-item">
+          <img src="assets/images/festivals/christmas.jpg" alt="Christmas" />
           <div class="culture-caption">
             <h3 data-translate="christmas-title">Christmas</h3>
           </div>
         </div>
+
         <div class="culture-item">
-          <img src="assets/images/festivals/christmas.jpg" alt="Christmas">
-          <div class="culture-caption">
-            <h3 data-translate="christmas-title">Christmas</h3>
-          </div>
-        </div>
-        <div class="culture-item">
-          <img src="assets/images/festivals/durga puja.jpeg" alt="Durga Puja">
+          <img src="assets/images/festivals/durga puja.jpeg" alt="Durga Puja" />
           <div class="culture-caption">
             <h3 data-translate="durga-title">Durga Puja</h3>
           </div>
         </div>
+
         <div class="culture-item">
-          <img src="assets/images/festivals/pongal.jpg" alt="Pongal">
+          <img src="assets/images/festivals/pongal.jpg" alt="Pongal" />
           <div class="culture-caption">
             <h3 data-translate="pongal-title">Pongal</h3>
           </div>
         </div>
+
         <div class="culture-item">
-          <img src="assets/images/festivals/eid.png" alt="Eid">
+          <img src="assets/images/festivals/eid.png" alt="Eid" />
           <div class="culture-caption">
             <h3 data-translate="eid-title">Eid</h3>
-
           </div>
         </div>
+
         <div class="culture-item">
-          <img src="assets/images/festivals/baisakhi.jpeg" alt="Baisakhi">
+          <img src="assets/images/festivals/baisakhi.jpeg" alt="Baisakhi" />
           <div class="culture-caption">
             <h3 data-translate="baisakhi-title">Baisakhi</h3>
           </div>
@@ -321,10 +340,8 @@
     </div>
   </section>
 
-
   <!-- Food -->
   <section class="food">
-
     <div class="container">
       <h2 class="section-title" data-translate="food-title">Food</h2>
       <div class="food-grid">
@@ -374,15 +391,29 @@
     </div>
   </section>
 
-
-
   <!-- Heritage Section -->
-  <section class="heritage">
+  <section id="heritage" class="heritage-section">
     <div class="container">
       <h2 class="section-title" data-translate="heritage-title">Heritage</h2>
       <div class="heritage-grid">
+        <a href="./pages/fort.html" class="heritage-link">
+          <div class="heritage-item">
+            <img src="assets/images/heritage/Red fort.jpg" alt="Red Fort" />
+            <div class="heritage-overlay">
+              <h3 data-translate="redfort-title">Red Fort</h3>
+            </div>
+          </div>
+        </a>
 
-        <!-- Charminar -->
+        <a href="./pages/gateway.html" class="heritage-link">
+          <div class="heritage-item">
+            <img src="assets/images/heritage/Gate Way Of India.jpg" alt="Gateway of India" />
+            <div class="heritage-overlay">
+              <h3 data-translate="gateway-title">Gateway of India</h3>
+            </div>
+          </div>
+        </a>
+
         <a href="./pages/minar.html" class="heritage-link">
           <div class="heritage-item">
             <img src="assets/images/heritage/Charminar.jpg" alt="Charminar" />
@@ -392,66 +423,17 @@
           </div>
         </a>
 
-      <!-- Red Fort (Clickable) -->
-      <a href="./pages/fort.html" class="heritage-link">
-       <div class="heritage-item">
-        <img src="assets/images/heritage/Red fort.jpg" alt="Red Fort" />
-
-    <!--Gate Way-->
-     <a href="./pages/gateway.html" class="heritage-link">
-      <div class="heritage-item">
-        <img src="assets/images/heritage/Gate Way Of India.jpg" alt="Gateway of India" />
-        <div class="heritage-overlay">
-          <h3 data-translate="redfort-title">Red Fort</h3>
-        </div>
-       </div>
-
-      </a>
-
-        <!--Red Fort-->
-        <a href="./pages/fort.html" class="heritage-link">
+        <a href="./pages/heritage/taj.html" class="heritage-link">
           <div class="heritage-item">
-            <img src="assets/images/heritage/Red fort.jpg" alt="Red Fort" />
+            <img src="assets/images/heritage/tajmahal.jpg" alt="Taj Mahal" />
             <div class="heritage-overlay">
-              <h3 data-translate="gateway-title">Gateway of India</h3>
-
-        </div>
-</div>
-        </div>
+              <h3 data-translate="taj-title">Taj Mahal</h3>
+            </div>
+          </div>
+        </a>
       </div>
-      </a>
-
-    <!--Gate Way-->
-     <a href="./pages/gateway.html" class="heritage-link">
-      <div class="heritage-item">
-        <img src="assets/images/heritage/Gate Way Of India.jpg" alt="Gateway of India" />
-        <div class="heritage-overlay">
-          <h3 data-translate="gateway-title">Gateway of India</h3>
-
-        </div>
-</div>
-
-        </div>
-      </div>
-</a>
-
-      <!-- Charminar (Clickable) -->
-
-
-      <!-- Charminar (Clickable) -->
-
-      <a href="./pages/minar.html" class="heritage-link">
-      <div class="heritage-item">
-        <img src="assets/images/heritage/Charminar.jpg" alt="Charminar" />
-        <div class="heritage-overlay">
-          <h3 data-translate="charminar-title">Charminar</h3>
-        </div>
-      </div>
-      </a>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Dance Culture Section -->
   <section id="dance" class="dance-culture">
@@ -519,120 +501,80 @@
   <!-- Freedom Fighter Session -->
   <section id="freedom" class="freedom-fighters">
     <div class="container">
-      <h2 class="section-title" data-translate="dance-title">
+      <h2 class="section-title" data-translate="freedom-title">
         Freedom Fighters of India
       </h2>
-      <div class="freedom-fighters-grid">
 
-        <a href="#" class="freedom-fighter-link">
-          <div class="freedom-fighter-item">
-            <img src="./assets/images/freedom/netaji.jpg" alt="Subhash Chnadra Bose" />
-            <div class="freedom-fighter-overlay">
-              <h3 data-translate="subhash-chandra-bose-title">Subhash Chandra Bose</h3>
-              <p data-translate="subhash-chandra-bose-desc">
-                Led the Indian National Army in the fight against British rule
-              </p>
+      <div class="dance-grid">
+        <a href="./pages/freedom/netaji.html" class="dance-link">
+          <div class="dance-item">
+            <img src="./assets/images/freedom/netaji.jpg" alt="Subhash Chandra Bose" />
+            <div class="dance-overlay">
+              <h3>Subhash Chandra Bose</h3>
+              <p>Led the Indian National Army in the fight against British rule</p>
             </div>
           </div>
         </a>
 
-        <a href="#" class="freedom-fighter-link">
-          <div class="freedom-fighter-item">
+        <a href="./pages/freedom/gandhi.html" class="dance-link">
+          <div class="dance-item">
             <img src="./assets/images/freedom/mahatmag.jpg" alt="Mahatma Gandhi" />
-            <div class="freedom-fighter-overlay">
-              <h3 data-translate="mahatma-gandhi-title">Mahatma Gandhi</h3>
-              <p data-translate="mahatma-gandhi-desc">
-                Leader of nonviolent resistance and India’s independence movement
-              </p>
+            <div class="dance-overlay">
+              <h3>Mahatma Gandhi</h3>
+              <p>Leader of nonviolent resistance and India’s independence movement</p>
             </div>
           </div>
         </a>
 
-        <a href="#" class="freedom-fighter-link">
-          <div class="freedom-fighter-item">
+        <a href="./pages/freedom/bhagat.html" class="dance-link">
+          <div class="dance-item">
             <img src="./assets/images/freedom/bhagat1.png" alt="Bhagat Singh" />
-            <div class="freedom-fighter-overlay">
-              <h3 data-translate="bhagat-singh-title">Bhagat Singh</h3>
-              <p data-translate="bhagat-singh-desc">Revolutionary icon who became a martyr at a young age</p>
+            <div class="dance-overlay">
+              <h3>Bhagat Singh</h3>
+              <p>Revolutionary icon who became a martyr at a young age</p>
             </div>
           </div>
         </a>
 
-        <a href="#" class="freedom-fighter-link">
-          <div class="freedom-fighter-item">
-            <img src="./assets/images/freedom/ranilakshmi.jpg" alt="Rani Lakshmi Bai" />
-            <div class="freedom-fighter-overlay">
-              <h3 data-translate="ranilakshmi-title">Rani Lakshmibai</h3>
-              <p data-translate="ranilakshmi-desc">
-                Queen of Jhansi, symbol of bravery in the 1857 Rebellion
-              </p>
+        <a href="./pages/freedom/ranilakshmi.html" class="dance-link">
+          <div class="dance-item">
+            <img src="./assets/images/freedom/ranilakshmi.jpg" alt="Rani Lakshmibai" />
+            <div class="dance-overlay">
+              <h3>Rani Lakshmibai</h3>
+              <p>Queen of Jhansi, symbol of bravery in the 1857 Rebellion</p>
             </div>
           </div>
         </a>
 
-        <a href="#" class="freedom-fighter-link">
-          <div class="freedom-fighter-item">
-            <img src="./assets/images/freedom/allurama.jpg" alt="Alluri Sitarama Raju"
-              style="width:350px;height:350px;top:20px;" />
-            <div class="freedom-fighter-overlay">
-              <h3 data-translate="alluri-sitarama-title">Alluri Sitarama Raju</h3>
-              <p data-translate="alluri-sitarama-desc">
-                Tribal leader who led guerrilla warfare in Andhra Pradesh against British policies
-              </p>
+        <a href="./pages/freedom/alluri.html" class="dance-link">
+          <div class="dance-item">
+            <img src="./assets/images/freedom/allurama.jpg" alt="Alluri Sitarama Raju" style="width:350px;height:350px;top:20px;" />
+            <div class="dance-overlay">
+              <h3>Alluri Sitarama Raju</h3>
+              <p>Tribal leader who led guerrilla warfare in Andhra Pradesh against British policies</p>
             </div>
           </div>
         </a>
 
-        <a href="#" class="freedom-fighter-link">
-          <div class="freedom-fighter-item">
-            <img src="./assets/images/freedom/ChatGPT Image Aug 12, 2025, 05_54_18 PM.png" alt="Dadabhai Naoroji" />
-            <div class="freedom-fighter-overlay">
-              <h3 data-translate="dadabhai-naroji-title">Dadabhai Naoroji</h3>
-              <p data-translate="dadabhai-naroji-desc">
-                Grand Old Man of India; first Indian in the British Parliament, who exposed economic exploitation
-                through the Drain Theory.
-              </p>
+        <!-- Please ensure this exact file exists in your repo. If not, rename your image OR change the src back to the original filename. -->
+        <a href="./pages/freedom/dadabhai.html" class="dance-link">
+          <div class="dance-item">
+            <img src="./assets/images/freedom/dadabhai-naoroji.png" alt="Dadabhai Naoroji" />
+            <div class="dance-overlay">
+              <h3>Dadabhai Naoroji</h3>
+              <p>Grand Old Man of India; first Indian in the British Parliament, who exposed economic exploitation through the Drain Theory.</p>
             </div>
           </div>
         </a>
+
       </div>
     </div>
   </section>
 
-  <style>
-    .dance-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
-      /* Card shadow */
-      transition: transform 0.3s ease;
-    }
-
-    .dance-item:hover {
-      transform: translateY(-5px);
-      /* Lift effect */
-    }
-
-    .dance-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: blueviolet;
-      /* Overlay shadow */
-      border-radius: 0 0 10px 10px;
-    }
-  </style>
-
   <!-- People And Personalities -->
   <section id="personalities" class="dance-culture">
     <div class="container">
-      <h2 class="section-title" data-translate="dance-title" class="personalities">🤵People and Personalities</h2>
+      <h2 class="section-title personalities">🤵People and Personalities</h2>
       <div class="dance-grid">
 
         <a href="./pages/personality-pages/kalam.html" class="dance-link">
@@ -649,8 +591,8 @@
           <div class="dance-item">
             <img src="./assets/images/persons/gandhi.png" alt="Mahatma Gandhi" />
             <div class="dance-overlay">
-              <h3> Mahatma Gandhi </h3>
-              <p> Father of Our Nation </p>
+              <h3>Mahatma Gandhi</h3>
+              <p>Father of Our Nation</p>
             </div>
           </div>
         </a>
@@ -669,8 +611,8 @@
           <div class="dance-item">
             <img src="./assets/images/persons/sarabai.png" alt="Dr. Sarabhai" />
             <div class="dance-overlay">
-              <h3 data-translate="kuchipudi-title">Dr. Vikram Sarabhai</h3>
-              <p data-translate="kuchipudi-desc">Father of the Indian Space Program</p>
+              <h3>Dr. Vikram Sarabhai</h3>
+              <p>Father of the Indian Space Program</p>
             </div>
           </div>
         </a>
@@ -698,7 +640,6 @@
       </div>
     </div>
   </section>
-  <!-- people and personalities section ends here -->
 
   <!-- Sports and Traditional Games-->
   <section id="sports" class="food">
@@ -709,44 +650,29 @@
         <!-- Board Games which Evolved From India -->
         <a href="./pages/sports-pages/chess.html" class="food-link">
           <div class="food-item">
-            <img src="./assets/images/Sports/chess.png" alt="chess" />
-            <h3 data-translate="biryani-title">Chaturanga(Chess)</h3>
+            <img src="./assets/images/Sports/chess.png" alt="chess" loading="lazy" />
+            <h3>Chaturanga(Chess)</h3>
           </div>
         </a>
 
         <a href="./pages/sports-pages/lodu.html" class="food-link">
           <div class="food-item">
-            <img src="./assets/images/Sports/pachisi.png" alt="Pachisi" />
-            <h3 data-translate="butter-title">Pachisi(Ludo)</h3>
+            <img src="./assets/images/Sports/pachisi.png" alt="Pachisi" loading="lazy" />
+            <h3>Pachisi(Ludo)</h3>
           </div>
         </a>
 
         <a href="./pages/sports-pages/moksha.html" class="food-link">
           <div class="food-item">
-            <img src="./assets/images/Sports/moksha.png" alt="Moksha-Patam" />
-            <h3 data-translate="dosa-title">Moksha-Patam</h3>
+            <img src="./assets/images/Sports/moksha.png" alt="Moksha-Patam" loading="lazy" />
+            <h3>Moksha-Patam</h3>
           </div>
         </a>
 
         <a href="./pages/sports-pages/ganjhifa.html" class="food-link">
           <div class="food-item">
-            <img src="./assets/images/Sports/Ganji.png" alt="Ganjifa" />
-            <h3 data-translate="gujhiya-title">Ganjifa</h3>
-          </div>
-        </a>
-
-        <!-- Major Outdoor Games India Given to World  -->
-        <a href="./pages/sports-pages/kabaddi.html" class="food-link">
-          <div class="food-item">
-            <img src="./assets/images/Sports/kabaddi.png" alt="kabaddi" />
-            <h3 data-translate="mithai-title">Kabaddi</h3>
-          </div>
-        </a>
-
-        <a href="./pages/sports-pages/kho.html" class="food-link">
-          <div class="food-item">
-            <img src="./assets/images/Sports/Kho.png" alt="Kho-Kho" />
-            <h3 data-translate="gulab-title">Kho Kho</h3>
+            <img src="./assets/images/Sports/Ganji.png" alt="Ganjifa" loading="lazy" />
+            <h3>Ganjifa</h3>
           </div>
         </a>
 
@@ -796,7 +722,6 @@
       </div>
     </div>
   </section>
-  <!-- Sports and Traditional Games Session End here -->
 
   <!-- Arts and Handicrafts Session By Aaqeeb-->
   <section id="Arts" class="dance-culture">
@@ -807,7 +732,7 @@
         <a href="./pages/arts-handicraft/pulkari.html" class="dance-link">
           <div class="dance-item">
             <img src="https://www.dupattabazaar.com/cdn/shop/products/DB1314D_1024x1024.JPG?v=1610606599"
-              alt="Pulkari" />
+              alt="Pulkari" loading="lazy" />
             <div class="dance-overlay">
               <h3>Phulkari Embroidery</h3>
               <p>Vibrant floral on shawls From Punjab.</p>
@@ -837,7 +762,7 @@
 
         <a href="./pages/arts-handicraft/kanjivaram.html" class="dance-link">
           <div class="dance-item">
-            <img src="./assets/images/arts-handicraft/kangi.png" alt="Banarasi" />
+            <img src="./assets/images/arts-handicraft/kangi.png" alt="Kanjivaram" />
             <div class="dance-overlay">
               <h3>Kanjivaram Silk (Tamil Nadu)</h3>
               <p> Bright-colored silk sarees with gold borders</p>
@@ -847,7 +772,7 @@
 
         <a href="./pages/arts-handicraft/kantha.html" class="dance-link">
           <div class="dance-item">
-            <img src="./assets/images/arts-handicraft/kantha.png" alt="Banarasi" />
+            <img src="./assets/images/arts-handicraft/kantha.png" alt="Kantha" />
             <div class="dance-overlay">
               <h3>Kantha Embroidery (West Bengal) </h3>
               <p>Intricate running stitch on quilts & garments.</p>
@@ -857,7 +782,7 @@
 
         <a href="./pages/arts-handicraft/chikankari.html" class="dance-link">
           <div class="dance-item">
-            <img src="https://ridhfabrics.com/cdn/shop/products/IMG_0469_580x.jpg?v=1592204342" alt="chikantari" />
+            <img src="https://ridhfabrics.com/cdn/shop/products/IMG_0469_580x.jpg?v=1592204342" alt="chikankari" />
             <div class="dance-overlay">
               <h3>Chikankari Embroidery (Lucknow, Uttar Pradesh)</h3>
               <p>Delicate white-on-white embroidery.</p>
@@ -947,13 +872,14 @@
 
         <a href="./pages/arts-handicraft/kolhapuri.html" class="dance-link">
           <div class="dance-item">
-            <img src="./assets/images/arts-handicraft/kolhapuri.png" alt="Banarasi" />
+            <img src="./assets/images/arts-handicraft/kolhapuri.png" alt="Kolhapuri" />
             <div class="dance-overlay">
               <h3>Kolhapuri Chappals (Maharashtra)</h3>
               <p>Hand-made leather popularly known as Kolhapuri Chappals</p>
             </div>
           </div>
         </a>
+
       </div>
     </div>
   </section>
@@ -968,87 +894,87 @@
           <div class="heritage-item">
             <img src="./assets/images/temples/somnath.png" alt="somnath" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Somnath Temple (Gujarat)</h3>
+              <h3>Somnath Temple (Gujarat)</h3>
               <p>One of the 12 Jyotirlingas of Lord Shiva</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/kedarnath.html" class="dance-link">
+        <a href="./pages/temples/kedarnath.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/kedarnath.png" alt="kedarnath" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Kedarnath Temple (Uttarakhand)</h3>
-              <p>Another Jyotirlinga, located in the Himalayas near the Mandakini River.a</p>
+              <h3>Kedarnath Temple (Uttarakhand)</h3>
+              <p>Another Jyotirlinga, located in the Himalayas near the Mandakini River.</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/bridheshwar.html" class="dance-link">
+        <a href="./pages/temples/bridheshwar.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/Brihadeeswarar.png" alt="brihadeeswarar" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Brihadeeswarar Temple (Thanjavur, Tamil Nadu)</h3>
+              <h3>Brihadeeswarar Temple (Thanjavur, Tamil Nadu)</h3>
               <p>A UNESCO World Heritage Site, built by Raja Raja Chola I.</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/jagannath.html" class="dance-link">
+        <a href="./pages/temples/jagannath.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/jagannath.png" alt="jagannath" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Jagannath Temple (Puri, Odisha)</h3>
+              <h3>Jagannath Temple (Puri, Odisha)</h3>
               <p>Known for the annual Rath Yatra (Chariot Festival)</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/minakshi.html" class="dance-link">
+        <a href="./pages/temples/minakshi.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/Meenakshi.png" alt="menakshi" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Meenakshi Amman Temple (Madurai, Tamil Nadu)</h3>
+              <h3>Meenakshi Amman Temple (Madurai, Tamil Nadu)</h3>
               <p>Iconic Dravidian-style temple dedicated to Goddess Meenakshi (Parvati) and Sundareswarar (Shiva)</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/sun.html" class="dance-link">
+        <a href="./pages/temples/sun.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/sun.png" alt="sun" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Sun Temple (Konark, Odisha)</h3>
+              <h3>Sun Temple (Konark, Odisha)</h3>
               <p>Designed as a gigantic chariot of the Sun God with 24 intricately carved wheels</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/akshardham.html" class="dance-link">
+        <a href="./pages/temples/akshardham.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/Akshardham.png" alt="akshardham" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Akshardham Temple (Delhi)</h3>
-              <p>odern architectural marvel, built in 2005</p>
+              <h3>Akshardham Temple (Delhi)</h3>
+              <p>Modern architectural marvel, built in 2005</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/kashi.html" class="dance-link">
+        <a href="./pages/temples/kashi.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/kashi.png" alt="kashi" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Kashi Vishwanath Temple (Varanasi, Uttar Pradesh)</h3>
+              <h3>Kashi Vishwanath Temple (Varanasi, Uttar Pradesh)</h3>
               <p>One of the most sacred Shiva Jyotirlingas</p>
             </div>
           </div>
         </a>
 
-        <a a href="./pages/temples/vaishno.html" class="dance-link">
+        <a href="./pages/temples/vaishno.html" class="dance-link">
           <div class="heritage-item">
             <img src="./assets/images/temples/Vaishno.png" alt="devi" />
             <div class="heritage-overlay">
-              <h3 data-translate="redfort-title">Vaishno Devi Temple (Jammu & Kashmir)</h3>
+              <h3>Vaishno Devi Temple (Jammu & Kashmir)</h3>
               <p>One of the most visited shrines in India</p>
             </div>
           </div>
@@ -1057,7 +983,6 @@
       </div>
     </div>
   </section>
-  <!-- Temples Session End here -->
 
   <!-- Toast Notification -->
   <div id="toast" class="toast-hidden">
@@ -1070,7 +995,6 @@
   <!-- Footer -->
   <footer id="footer">
     <div class="footer-content-wrapper">
-      <!-- Section 1: About Desh Darshan -->
       <div class="footer-section">
         <h3 class="footer-section-title">Desh Darshan</h3>
         <p>
@@ -1081,7 +1005,6 @@
         <div class="footer-logo">Desh Darshan</div>
       </div>
 
-      <!-- Section 2: Quick Links -->
       <div class="footer-section">
         <h3 class="footer-section-title">Quick Links</h3>
         <ul>
@@ -1093,7 +1016,6 @@
         </ul>
       </div>
 
-      <!-- Section 3: Contact Us -->
       <div class="footer-section">
         <h3 class="footer-section-title">Contact Us</h3>
         <ul>
@@ -1112,7 +1034,6 @@
         </ul>
       </div>
 
-      <!-- Section 4: Follow Us -->
       <div class="footer-section">
         <h3 class="footer-section-title">Follow Us</h3>
         <div class="social-icons-container">
@@ -1139,7 +1060,7 @@
   </footer>
 
   <style>
-    /* Toast Notification Styles */
+    /* Toast Notification Styles (duplicate safety kept small) */
     #toast {
       position: fixed;
       top: 100px;
@@ -1178,105 +1099,110 @@
 
   <script>
     // Set current year in copyright
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
 
-    // Newsletter form handling
-    document.getElementById('newsletter-form').addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent form submission and page redirect
-
-      // Get the email value
-      const email = document.getElementById('newsletter-email').value;
-
-      // Validate email (simple validation)
-      if (!validateEmail(email)) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-      // Here you would typically send the data to your server
-      // For demonstration, we'll just show the toast
-
-      // Show toast notification
-      showToast();
-
-      // Clear the form
-      document.getElementById('newsletter-form').reset();
-    });
-
-    // Email validation function
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-
-    // Toast notification function
-    function showToast() {
-      const toast = document.getElementById('toast');
-
-      // Show the toast
-      toast.classList.remove('toast-hidden');
-
-      // Hide the toast after 3 seconds
-      setTimeout(() => {
-        toast.classList.add('toast-hidden');
-      }, 3000);
-    }
-  </script>
-  <!-- Chatbase Script -->
-
-  <script>
-    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "eaZ3BLaEp3NWiit_Vn0fK"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
-  </script>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-  <!-- Back to Top Button Script -->
-  <script>
-
-
-    // Show/hide button based on scroll
-    window.onscroll = function () {
-      const btn = document.getElementById('backToTopBtn');
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btn.style.display = 'block';
-      } else {
-        btn.style.display = 'none';
-      }
-    };
-  </script>
-
-
-  <!-- Original Scripts -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script src="js/navbar-loader.js"></script>
-  <script src="./js/navbar.js"></script>
-  <script src="./js/home.js"></script>
-  <script>
+    // Hide loading screen
     document.addEventListener("DOMContentLoaded", function () {
       const loadingScreen = document.getElementById("loading-screen");
-      setTimeout(() => {
-        loadingScreen.classList.add("hidden");
-      }, 6000);
+      if (loadingScreen) {
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 600);
+      }
     });
 
-    //scrolling one
-    document.querySelectorAll('.floating-nav a').forEach(link => {
-      link.addEventListener('click', function (e) {
+    // Unified Back-to-top logic (single implementation)
+    (function () {
+      const backBtn = document.getElementById('backToTopBtn');
+      if (!backBtn) return;
+      const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+      const check = () => {
+        const threshold = updateThreshold();
+        if (window.scrollY > threshold) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
+      };
+      window.addEventListener('scroll', check);
+      window.addEventListener('resize', check);
+      check();
+      backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+
+    // Floating nav: smooth scroll for href="#id"
+    (function () {
+      document.querySelectorAll('.floating-nav a').forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href') || '';
+          if (href.startsWith('#')) {
+            e.preventDefault();
+            const id = href.slice(1);
+            const target = document.getElementById(id) || document.querySelector(`[name="${id}"]`);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+
+    // Newsletter form handling + toast
+    (function () {
+      const form = document.getElementById('newsletter-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const targetClass = this.getAttribute('data-target');
-        const targetSection = document.querySelector(`.${targetClass}`);
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
+        const emailEl = document.getElementById('newsletter-email');
+        const email = emailEl ? emailEl.value.trim() : '';
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(email)) { alert('Please enter a valid email address.'); return; }
+        const toast = document.getElementById('toast');
+        if (toast) {
+          toast.classList.remove('toast-hidden');
+          setTimeout(() => toast.classList.add('toast-hidden'), 3000);
+        }
+        form.reset();
+      });
+    })();
+
+    // Issue copy (if used in the page)
+    (function () {
+      const btn = document.getElementById('issue-copy-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        const txt = document.getElementById('issue-text') ? document.getElementById('issue-text').textContent : '';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).then(() => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy issue text', 1400);
+          }).catch(() => alert('Copy failed — please select & copy manually.'));
+        } else {
+          alert('Clipboard not supported — select & copy manually.');
         }
       });
-    });
+    })();
+
+    // Chatbase loader (kept)
+    (function () {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = []; } window.chatbase.q.push(arguments); };
+        window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } });
+      }
+      const onLoad = function () {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "eaZ3BLaEp3NWiit_Vn0fK";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") { onLoad(); } else { window.addEventListener("load", onLoad); }
+    })();
   </script>
-  </body>
+
+  <!-- Scripts (deferred) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
+  <script src="js/navbar-loader.js" defer></script>
+  <script src="./js/navbar.js" defer></script>
+  <script src="./js/home.js" defer></script>
+</body>
 
 </html>
