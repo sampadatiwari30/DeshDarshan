@@ -665,146 +665,274 @@
     }
 
 
-    /*footer */
+/* Footer Styles */
+#footer {
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 4rem 0 0;
+    position: relative;
+}
 
-    footer {
-      background-color: black;
-      color: white;
-      padding: 2.5rem 1.5rem;
-      margin-top: auto;
-      width: 100%;
-      box-sizing: border-box;
-      bottom: 0;
-    }
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
 
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #ff9933;
+    font-family: "Cinzel", serif;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #ff9933;
+}
+
+.footer-logo {
+    font-family: "Cinzel", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff9933;
+    margin-top: 1rem;
+}
+
+.footer-section p {
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-link {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: #ff9933;
+    transform: translateX(5px);
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    color: #bbb;
+}
+
+.footer-contact-item i {
+    color: #ff9933;
+    width: 20px;
+    text-align: center;
+}
+
+.social-icons-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #ff9933;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
+
+.newsletter {
+    margin-top: 1.5rem;
+}
+
+.newsletter h4 {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.newsletter-form {
+    display: flex;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.newsletter-form input::placeholder {
+    color: #ccc;
+}
+
+.newsletter-form button {
+    background: #ff9933;
+    color: white;
+    border: none;
+    padding: 0 1.2rem;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #e67e00;
+}
+
+.copyright-section {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+
+  /* Mobile responsiveness for footer */
+@media screen and (max-width: 1024px) {
     .footer-content-wrapper {
-      max-width: 80rem;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding-top: 0px;
-    }
-
-    .footer-section p {
-      font-size: 0.875rem;
-      color: #a0aec0;
-      line-height: 1.625;
-    }
-
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer-link,
-    .footer-contact-item {
-      color: #a0aec0;
-      transition: color 0.3s ease;
-      text-decoration: none;
-      font-size: 0.875rem;
-      display: flex;
-      align-items: center;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .footer-link:hover,
-    .footer-contact-item:hover {
-      color: #f7fafc;
-    }
-
-    .footer-contact-item span {
-      margin-left: 5px;
-    }
-
-    .footer-section {
-      flex: 1;
-      min-width: 180px;
+        padding: 0 15px;
+        gap: 1.5rem;
     }
 
     .footer-section-title {
-      color: white;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: 1.125rem;
-      font-family: Arial, Helvetica, sans-serif;
-      transition: text-shadow 0.5s ease;
+        font-size: 1.2rem;
     }
 
-    .footer-section-title:hover {
-      font-size: 1.2rem;
-      font-weight: 750;
-      text-shadow: 1px 1px 8px white;
+    .footer-logo {
+        font-size: 1.6rem;
+    }
+
+    .newsletter-form input {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .newsletter-form button {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-content-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .footer-section-title {
+        font-size: 1.1rem;
+    }
+
+    .footer-logo {
+        font-size: 1.5rem;
     }
 
     .social-icons-container {
-      margin-top: 10px;
-      display: flex;
-      gap: 1rem;
+        gap: 0.8rem;
+    }
+
+    .newsletter-form input {
+        padding: 0.6rem;
+    }
+
+    .newsletter-form button {
+        padding: 0 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .footer-section-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-logo {
+        font-size: 1.4rem;
+    }
+
+    .footer-section p,
+    .footer-link,
+    .footer-contact-item span,
+    .newsletter h4 {
+        font-size: 0.85rem;
+    }
+
+    .social-icons-container {
+        gap: 0.5rem;
     }
 
     .social-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      background-color: #4a5568;
-      color: #cbd5e0;
-      border: 1px solid #4a5568;
-      transition: background-color 0.3s ease, color 0.3s ease,
-        border-color 0.3s ease;
-      text-decoration: none;
-      border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
     }
 
-    .social-icon i {
-      font-size: 1.5rem;
-      line-height: 1;
+    .newsletter-form {
+        flex-direction: column;
     }
 
-    .social-icon:hover {
-      background-color: rgba(255, 255, 255, 0.804);
-      color: #1a202c;
-      border-color: rgba(255, 255, 255, 0.804);
-      box-shadow: 0 0 15px white;
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
     }
 
-    .copyright-section {
-      border-top: 1px solid #4a5568;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      text-align: center;
-      color: #a0aec0;
-      font-size: 0.875rem;
+    .newsletter-form button {
+        border-radius: 8px;
+        padding: 0.6rem 0;
     }
-
-    @media (min-width: 768px) {
-      .footer-content-wrapper {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (min-width: 640px) {
-      .footer-content-wrapper {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .footer-content-wrapper {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
-    }
+}
 
     /* Animations */
     @keyframes slideDown {
@@ -908,69 +1036,78 @@
     </div>
   </section>
 
-  <!--footer-->
-  <footer id="footer">
-    <div class="footer-content-wrapper">
-      <!-- Section 1: About Desh Darshan -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Desh Darshan</h3>
-        <p>
-          Desh Darshan is your gateway to the vibrant and diverse culture of
-          India. We aim to introduce the world to India's rich heritage,
-          traditions, arts, and history.
-        </p>
-      </div>
+ 
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content-wrapper">
+            <!-- Section 1: About Desh Darshan -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Desh Darshan</h3>
+                <p>
+                    Desh Darshan is your gateway to the vibrant and diverse culture of
+                    India. We aim to introduce the world to India's rich heritage,
+                    traditions, arts, and history.
+                </p>
+                <div class="footer-logo">Desh Darshan</div>
+            </div>
 
-      <!-- Section 2: Quick Links -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Quick Links</h3>
-        <ul>
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="about-us.html" class="footer-link">About Us</a></li>
-          <li>
-            <a href="explore.html" class="footer-link">Explore India</a>
-          </li>
-          <li><a href="feedback.html" class="footer-link">Feedback</a></li>
-          <li><a href="contact-us.html" class="footer-link">Contact Us</a></li>
-        </ul>
-      </div>
+            <!-- Section 2: Quick Links -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul>
+                    <li><a href="../" class="footer-link">Home</a></li>
+                    <li><a href="about-us.html" class="footer-link">About Us</a></li>
+                    <li>
+                        <a href="explore.html" class="footer-link">Explore India</a>
+                    </li>
+                    <li><a href="feedback.html" class="footer-link">Feedback</a></li>
+                    <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
 
-      <!-- Section 3: Contact Us -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Contact Us</h3>
-        <ul>
-          <li class="footer-contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>hello@deshdarshan.in</span>
-          </li>
-          <li class="footer-contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <span>+91 1234567890</span>
-          </li>
-          <li class="footer-contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>New Delhi, India</span>
-          </li>
-        </ul>
-      </div>
+            <!-- Section 3: Contact Us -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Contact Us</h3>
+                <ul>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@deshdarshan.in</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 1234567890</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>New Delhi, India</span>
+                    </li>
+                </ul>
+            </div>
 
-      <!-- Section 4: Follow Us -->
-      <div class="footer-section">
-        <h3 class="footer-section-title">Follow Us</h3>
-        <div class="social-icons-container">
-          <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon" aria-label="Behance"><i class="fab fa-youtube"></i></a>
+            <!-- Section 4: Follow Us -->
+            <div class="footer-section">
+                <h3 class="footer-section-title">Follow Us</h3>
+                <div class="social-icons-container">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="newsletter">
+                    <h4>Subscribe to our newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" />
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!--copyright -->
-    <div class="copyright-section">
-      &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-    </div>
-  </footer>
-  <!-- Footer -->
+
+        <!-- Copyright -->
+        <div class="copyright-section">
+            &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+        </div>
+    </footer>
   <script>
     const facts = [
       {
