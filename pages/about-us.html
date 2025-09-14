@@ -57,8 +57,8 @@
       /* Language Dropdown */
       .language-dropdown {
         position: fixed;
-        top: 20px;
-        right: 20px;
+        bottom: 20px;
+        left: 20px;
         z-index: 1100;
       }
 
@@ -719,11 +719,6 @@
           grid-template-columns: 1fr;
         }
 
-        .language-dropdown {
-          top: 15px;
-          right: 15px;
-        }
-
         .language-btn {
           padding: 0.6rem 1rem;
           font-size: 0.8rem;
@@ -741,6 +736,12 @@
         }
       }
 
+@media screen and (max-width: 480px) {
+  .language-dropdown {
+    bottom: 20px;   
+    left: 10px;
+  }
+}
       /* Loading Animation */
       .loading {
         position: fixed;
