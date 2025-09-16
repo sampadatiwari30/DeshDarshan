@@ -316,7 +316,6 @@
         const validationState = {
             fullName: false,
             email: false,
-            phone: false,
             password: false,
             confirmPassword: false,
             gender: false,
@@ -354,22 +353,25 @@
                 ruleEl.textContent = errormesage;
                 ruleEl.className = "error";
                 ruleEl.style.display = "block";
-                passwordInput.style.backgroundColor = "rgba(205, 92, 92, 0.05)";  
-                passwordInput.style.borderColor = "rgba(205, 92, 92, 0.8)"; 
-
+                passwordInput.style.backgroundColor = "rgba(205, 92, 92, 0.05)";
+                passwordInput.style.borderColor = "rgba(205, 92, 92, 0.8)";
+                validationState.password = false;
 
             } else if (value.length > 0) {
                 ruleEl.textContent = "✅ Good to go!";
                 ruleEl.className = "rule success";
                 ruleEl.style.display = "block";
-                passwordInput.style.backgroundColor = "rgba(144, 238, 144, 0.05)";  
-                passwordInput.style.borderColor = "#228B22";  
+                passwordInput.style.backgroundColor = "rgba(144, 238, 144, 0.05)";
+                passwordInput.style.borderColor = "#228B22";
+                validationState.password = true;
 
             } else {
                 ruleEl.style.display = "none";
+                validationState.password = false;
             }
-           
-        
+
+            updateSubmitButton();
+
         }
 
             passwordInput.addEventListener("input", () => {
@@ -385,31 +387,33 @@
             })
             
 
-    //     function validatePassword() {
-    // const value = password.value;
-    // const minLength = value.length >= 8;
-    // const hasUpper = /[A-Z]/.test(value);
-    // const hasLower = /[a-z]/.test(value);
-    // const hasNumber = /\d/.test(value);
-    // const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+        function validatePassword() {
+            const value = password.value;
+            const minLength = value.length >= 8;
+            const hasUpper = /[A-Z]/.test(value);
+            const hasLower = /[a-z]/.test(value);
+            const hasNumber = /\d/.test(value);
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
 
-    // Update checklist colors
-    // checkLength.classList.toggle("valid", minLength);
-    // checkUpper.classList.toggle("valid", hasUpper);
-    // checkLower.classList.toggle("valid", hasLower);
-    // checkNumber.classList.toggle("valid", hasNumber);
-    // checkSpecial.classList.toggle("valid", hasSpecial);
+            // Update checklist colors
+            // checkLength.classList.toggle("valid", minLength);
+            // checkUpper.classList.toggle("valid", hasUpper);
+            // checkLower.classList.toggle("valid", hasLower);
+            // checkNumber.classList.toggle("valid", hasNumber);
+            // checkSpecial.classList.toggle("valid", hasSpecial);
 
-    // const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
-    // passwordError.textContent = isValid ? "" : "Password does not meet all requirements";
+            const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
+            // passwordError.textContent = isValid ? "" : "Password does not meet all requirements";
 
-    // Also validate confirm password when password changes
-    // if (confirmPassword.value) {
-    //     validateConfirmPassword();
-    // }
+            // Also validate confirm password when password changes
+            if (confirmPassword.value) {
+                validateConfirmPassword();
+            }
 
-    // return isValid;
-   //     }
+            updateFieldValidation('password', isValid, isValid ? '' : 'Password does not meet all requirements');
+
+            return isValid;
+        }
 
         function validateConfirmPassword() {
             const value = confirmPassword.value;
@@ -522,7 +526,6 @@
             // Validate all fields
             const isValidForm = validateFullName() &&
                 validateEmail() &&
-                validatePhone() &&
                 validatePassword() &&
                 validateConfirmPassword() &&
                 validateGender() &&
