@@ -666,8 +666,8 @@
         /* Back to Top Button */
         #backToTopBtn {
             position: fixed;
-            right: 30px;
-            bottom: 30px;
+            right: 25px;
+            bottom: 85px;
             z-index: 1200;
             background: var(--primary);
             color: #fff;
