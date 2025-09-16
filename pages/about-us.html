@@ -2216,25 +2216,53 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 <!-- JavaScript -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const backBtn = document.getElementById('backToTopBtn');
-    const scrollThreshold = document.body.scrollHeight / 3; // Appears at 1/3 of page height
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > scrollThreshold) {
-        backBtn.classList.add('show');
-      } else {
-        backBtn.classList.remove('show');
-      }
-    });
-    
-    backBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
+ (function () {
+  const backBtn = document.getElementById('backToTopBtn');
+  if (!backBtn) return;
+
+  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+
+  const check = () => {
+    const threshold = updateThreshold();
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+
+    // Show button only when not in middle zone
+    if (scrollTop < threshold) {
+      backBtn.classList.add('show');
+      backBtn.textContent = '↓';  // At top → show scroll-to-bottom icon
+      backBtn.setAttribute('aria-label', 'Scroll to bottom');
+    } else if (windowHeight + scrollTop >= docHeight - threshold) {
+      backBtn.classList.add('show');
+      backBtn.textContent = '↑';  // At bottom → show scroll-to-top icon
+      backBtn.setAttribute('aria-label', 'Scroll to top');
+    } else {
+      backBtn.classList.add('show');
+      backBtn.textContent = '↑';  // In middle → default to scroll up
+      backBtn.setAttribute('aria-label', 'Scroll to top');
+    }
+  };
+
+  window.addEventListener('scroll', check);
+  window.addEventListener('resize', check);
+  check();
+
+  backBtn.addEventListener('click', () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+    const threshold = updateThreshold();
+
+    if (scrollTop < threshold) {
+      // Scroll to bottom
+      window.scrollTo({ top: docHeight, behavior: 'smooth' });
+    } else {
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   });
+})();
 </script>
 
     </script>

@@ -33,18 +33,73 @@
     font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2 
     transition-transform hover: hover:scale-105"> ← Back
     </button>
-
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+  <!--scroll to top and bottom -->
+<button id="smartScrollBtn"
           class="fixed bottom-20 right-5 bg-blue-500 hover:bg-blue-600 text-white font-bold 
-                w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
-                transition-all duration-300 hover:scale-110 z-50">
-      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
-      </svg>
-    </button>
+                 w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                 transition-all duration-300 hover:scale-110 z-50"
+          aria-label="Scroll">
+    <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" clip-rule="evenodd"/>
+    </svg>
+</button>
 
     <!-- Buttons End here -->
   </header>
+<script>(function () {
+  const scrollBtn = document.getElementById('smartScrollBtn');
+  const scrollIcon = document.getElementById('scrollIcon');
+  if (!scrollBtn || !scrollIcon) return;
+
+  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+
+  const setIcon = (direction) => {
+    if (direction === 'down') {
+      // ↓ icon path
+      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
+      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+    } else {
+      // ↑ icon path
+      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
+      scrollBtn.setAttribute('aria-label', 'Scroll to top');
+    }
+  };
+
+  const check = () => {
+    const threshold = updateThreshold();
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+
+    if (scrollTop < threshold) {
+      scrollBtn.classList.add('show');
+      setIcon('down');
+    } else if (windowHeight + scrollTop >= docHeight - threshold) {
+      scrollBtn.classList.add('show');
+      setIcon('up');
+    } else {
+      scrollBtn.classList.add('show');
+      setIcon('up');
+    }
+  };
+
+  window.addEventListener('scroll', check);
+  window.addEventListener('resize', check);
+  check();
+
+  scrollBtn.addEventListener('click', () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+    const threshold = updateThreshold();
+
+    if (scrollTop < threshold) {
+      window.scrollTo({ top: docHeight, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+})();</script>
 
   <!-- IMAGE & BIO -->
   <section class="max-w-5xl mx-auto px-24 py-5 grid md:grid-cols-2 gap-28 items-center">

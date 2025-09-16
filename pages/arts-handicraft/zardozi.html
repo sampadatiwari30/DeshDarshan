@@ -107,8 +107,56 @@
   <header>
     <a href="javascript:history.back()" class="back-btn">← Back</a>
     ✨ Zardozi Work – Uttar Pradesh & Rajasthan
-    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
+    <button class="top-btn" aria-label="Scroll">↑ Top</button>
   </header>
+<script>
+  (function () {
+  const topBtn = document.querySelector('.top-btn');
+  if (!topBtn) return;
+
+  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+
+  const check = () => {
+    const threshold = updateThreshold();
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+
+    if (scrollTop < threshold) {
+      topBtn.classList.add('show');
+      topBtn.textContent = '↓ Bottom';  // At top → show scroll-to-bottom
+      topBtn.setAttribute('aria-label', 'Scroll to bottom');
+    } else if (windowHeight + scrollTop >= docHeight - threshold) {
+      topBtn.classList.add('show');
+      topBtn.textContent = '↑ Top';  // At bottom → scroll-to-top
+      topBtn.setAttribute('aria-label', 'Scroll to top');
+    } else {
+      topBtn.classList.add('show');
+      topBtn.textContent = '↑ Top';  // Middle → default to scroll up
+      topBtn.setAttribute('aria-label', 'Scroll to top');
+    }
+  };
+
+  window.addEventListener('scroll', check);
+  window.addEventListener('resize', check);
+  check();
+
+  topBtn.addEventListener('click', () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+    const threshold = updateThreshold();
+
+    if (scrollTop < threshold) {
+      // Scroll to bottom
+      window.scrollTo({ top: docHeight, behavior: 'smooth' });
+    } else {
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+})();
+</script>
 
   <div class="container">
     <div class="image-box">
