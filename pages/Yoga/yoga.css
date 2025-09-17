@@ -589,8 +589,8 @@
         /* Back to Top Button */
         #backToTopBtn {
             position: fixed;
-            right: 30px;
-            bottom: 30px;
+            right: 25px;
+            bottom: 85px;
             z-index: 1200;
             background: var(--primary);
             color: #fff;
@@ -725,3 +725,15 @@
                 height: 180px;
             }
         }
+        /* Make login button smaller and spaced when screen shrinks */
+.btn-login {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 800px) {
+    .btn-login {
+        padding: 0.5em 1em;
+        font-size: 0.85em;
+        margin-left: 1em;
+    }
+}
