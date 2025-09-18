@@ -666,8 +666,8 @@
         /* Back to Top Button */
         #backToTopBtn {
             position: fixed;
-            right: 30px;
-            bottom: 30px;
+            right: 25px;
+            bottom: 85px;
             z-index: 1200;
             background: var(--primary);
             color: #fff;
@@ -697,6 +697,24 @@
             background: var(--primary-dark);
         }
 
+/* Mobile responsiveness for Back to Top button */
+@media screen and (max-width: 768px) {
+  #backToTopBtn {
+    bottom: 100px;   /* closer to bottom on tablets */
+    right: 30px;    /* closer to right edge */
+    font-size: 20px; /* slightly smaller arrow */
+    padding: 8px 12px; /* smaller padding */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    bottom: 90px;    /* mobile bottom spacing */
+    right: 25px;     /* mobile right spacing */
+    font-size: 18px; /* smaller arrow for small screens */
+    padding: 6px 10px; /* compact padding */
+  }
+}
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {

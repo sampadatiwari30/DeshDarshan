@@ -57,8 +57,8 @@
       /* Language Dropdown */
       .language-dropdown {
         position: fixed;
-        top: 20px;
-        right: 20px;
+        bottom: 20px;
+        left: 20px;
         z-index: 1100;
       }
 
@@ -83,15 +83,15 @@
 
       .language-menu {
         position: absolute;
-        top: 100%;
-        right: 0;
+        bottom: 100%;
+        left: 0;
         background: white;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         min-width: 200px;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px);
+        transform: translateY(10px);
         transition: all 0.3s ease;
         margin-top: 10px;
         overflow: hidden;
@@ -684,16 +684,25 @@
     box-shadow: 0 15px 35px rgba(255, 152, 50, 0.35);
   }
   
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    #backToTopBtn {
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
+
+/* Mobile responsiveness for Back to Top button */
+@media screen and (max-width: 768px) {
+  #backToTopBtn {
+    bottom: 100px;   /* closer to bottom on tablets */
+    right: 30px;    /* closer to right edge */
+    font-size: 20px; /* slightly smaller arrow */
+    padding: 8px 12px; /* smaller padding */
   }
+}
+
+@media screen and (max-width: 480px) {
+  #backToTopBtn {
+    bottom: 90px;    /* mobile bottom spacing */
+    right: 25px;     /* mobile right spacing */
+    font-size: 18px; /* smaller arrow for small screens */
+    padding: 6px 10px; /* compact padding */
+  }
+}
 
       /* Responsive Design */
       @media (max-width: 768px) {
@@ -719,11 +728,6 @@
           grid-template-columns: 1fr;
         }
 
-        .language-dropdown {
-          top: 15px;
-          right: 15px;
-        }
-
         .language-btn {
           padding: 0.6rem 1rem;
           font-size: 0.8rem;
@@ -741,6 +745,12 @@
         }
       }
 
+@media screen and (max-width: 480px) {
+  .language-dropdown {
+    bottom: 20px;   
+    left: 10px;
+  }
+}
       /* Loading Animation */
       .loading {
         position: fixed;
@@ -1639,8 +1649,6 @@
                 ><i class="fab fa-facebook-f"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Twitter"
-                ><i class="fab fa-twitter"></i
-                 ><i class="fab fa-twitter"></i
                 ><i class="fab fa-x-twitter"></i
                 ></a>
               <a href="#" class="social-icon" aria-label="Instagram"
