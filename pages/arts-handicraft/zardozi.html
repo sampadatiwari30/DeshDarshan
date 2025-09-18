@@ -107,8 +107,76 @@
   <header>
     <a href="javascript:history.back()" class="back-btn">← Back</a>
     ✨ Zardozi Work – Uttar Pradesh & Rajasthan
-    <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"> ↑ Top </button>
   </header>
+<script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+   <!--scroll to top and bottom -->
+<button id="smartScrollBtn"
+          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
+                 w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                 transition-all duration-300 hover:scale-110 z-50"
+          aria-label="Scroll">
+    <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" clip-rule="evenodd"/>
+    </svg>
+</button>
+
+
+<script>(function () {
+  const scrollBtn = document.getElementById('smartScrollBtn');
+  const scrollIcon = document.getElementById('scrollIcon');
+  if (!scrollBtn || !scrollIcon) return;
+
+  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+
+  const setIcon = (direction) => {
+    if (direction === 'down') {
+      // ↓ icon path
+      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
+      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+    } else {
+      // ↑ icon path
+      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
+      scrollBtn.setAttribute('aria-label', 'Scroll to top');
+    }
+  };
+
+  const check = () => {
+    const threshold = updateThreshold();
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+
+    if (scrollTop < threshold) {
+      scrollBtn.classList.add('show');
+      setIcon('down');
+    } else if (windowHeight + scrollTop >= docHeight - threshold) {
+      scrollBtn.classList.add('show');
+      setIcon('up');
+    } else {
+      scrollBtn.classList.add('show');
+      setIcon('up');
+    }
+  };
+
+  window.addEventListener('scroll', check);
+  window.addEventListener('resize', check);
+  check();
+
+  scrollBtn.addEventListener('click', () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+    const threshold = updateThreshold();
+
+    if (scrollTop < threshold) {
+      window.scrollTo({ top: docHeight, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+})();</script>
 
   <div class="container">
     <div class="image-box">
