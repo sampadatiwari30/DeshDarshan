@@ -36,91 +36,14 @@
             font-weight: 600;
         }
 
-        /* Navigation */
-        .navbar {
-            background: var(--card-bg);
-            padding: 1rem 0;
-            box-shadow: var(--shadow-sm);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .navbar .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar .logo {
-            color:  #ff9832;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            
-        }
-
-        .navbar .logo i {
-            font-size: 1.5rem;
-        }
-
-        .navbar .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .navbar .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .navbar .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        .navbar .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .navbar .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .navbar .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .navbar .nav-links a.active::after {
-            width: 100%;
-        }
-
+      
         /* Hero Section */
         .hero {
             background: var(--gradient-primary);
             color: white;
             text-align: center;
             padding: 150px 0 100px 0;
-            margin-top: 70px;
+            margin-top: 5px;
             position: relative;
             overflow: hidden;
         }
@@ -802,3 +725,15 @@
                 height: 180px;
             }
         }
+        /* Make login button smaller and spaced when screen shrinks */
+.btn-login {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 800px) {
+    .btn-login {
+        padding: 0.5em 1em;
+        font-size: 0.85em;
+        margin-left: 1em;
+    }
+}
