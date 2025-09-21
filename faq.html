@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - DeshDarshan</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        flex-direction: row;
+      }
+
+      /* Left side */
+      .faq-left {
+        background: #fea517;
+        color: #fff;
+        width: 35%;
+        padding: 80px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .faq-left h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .faq-left p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      /* Right side */
+      .faq-right {
+        background: #fff;
+        width: 65%;
+        padding: 80px 60px;
+        overflow-y: auto;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #ddd;
+        padding: 20px 0;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        color: #b2720c;
+      }
+
+      .faq-question i {
+        transition: transform 0.3s ease;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #555;
+        transition: max-height 0.4s ease, padding 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 300px;
+        padding-top: 15px;
+      }
+
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      /* Responsive styles */
+      @media (max-width: 1024px) {
+        body {
+          flex-direction: column;
+          height: auto;
+        }
+        .faq-left,
+        .faq-right {
+          width: 100%;
+          padding: 40px 20px;
+        }
+        .faq-left {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .faq-left h1 {
+          font-size: 26px;
+        }
+        .faq-left p {
+          font-size: 14px;
+        }
+        .faq-question {
+          font-size: 16px;
+        }
+        .faq-answer {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="faq-left">
+      <h1>How can we help you?</h1>
+      <p>
+        DeshDarshan is your cultural guide to India, showcasing its traditions,
+        food, festivals, and attire. Discover the diversity and heritage of
+        India in one place, simplified for learners and explorers alike.
+      </p>
+    </div>
+
+    <div class="faq-right">
+      <div class="faq-item active">
+        <div class="faq-question">
+          <span>What is the main purpose of DeshDarshan?</span>
+          <i>▲</i>
+        </div>
+        <div class="faq-answer">
+          DeshDarshan is a cultural knowledge hub that helps people explore
+          India’s rich heritage, including its traditional clothing, festivals,
+          food, and customs. The website makes it easier for learners,
+          travelers, and culture enthusiasts to understand the diversity of
+          India in one place.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span
+            >What types of traditional wear can I learn about on
+            DeshDarshan?</span
+          >
+          <i>▼</i>
+        </div>
+        <div class="faq-answer">
+          You can explore detailed information about different Indian attire
+          such as sarees, lehengas, dhotis, sherwanis, turbans, and regional
+          variations like Kanjeevaram from Tamil Nadu, Bandhani from Gujarat,
+          and Phulkari from Punjab. Each clothing style represents the
+          traditions of its region.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Does DeshDarshan cover Indian festivals?</span>
+          <i>▼</i>
+        </div>
+        <div class="faq-answer">
+          Yes! DeshDarshan provides insights into all major Indian festivals
+          like Diwali, Holi, Eid, Christmas, Pongal, Bihu, Durga Puja, Onam, and
+          more. The platform explains the history, rituals, food, and cultural
+          significance behind each festival.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I find information about Indian food on DeshDarshan?</span>
+          <i>▼</i>
+        </div>
+        <div class="faq-answer">
+          Absolutely. DeshDarshan highlights India’s famous cuisines region by
+          region — from North Indian thalis and Mughlai delicacies to South
+          Indian dosas and idlis, to Bengal’s sweets and Rajasthan’s royal
+          dishes. It also explains the cultural background and traditions
+          associated with each food type.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Who can benefit from using DeshDarshan?</span>
+          <i>▼</i>
+        </div>
+        <div class="faq-answer">
+          DeshDarshan is designed for students, researchers, travelers, and
+          anyone who wants to explore India’s culture in-depth. Whether you’re
+          preparing for cultural projects, planning a trip, or just curious
+          about traditions, you’ll find valuable, authentic information here.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const faqs = document.querySelectorAll(".faq-item");
+
+      faqs.forEach((faq) => {
+        faq.querySelector(".faq-question").addEventListener("click", () => {
+          faqs.forEach((item) => {
+            if (item !== faq) {
+              item.classList.remove("active");
+              item.querySelector("i").textContent = "▼";
+            }
+          });
+
+          faq.classList.toggle("active");
+          faq.querySelector("i").textContent = faq.classList.contains("active")
+            ? "▲"
+            : "▼";
+        });
+      });
+    </script>
+  </body>
+</html>
