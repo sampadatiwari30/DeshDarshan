@@ -1,0 +1,288 @@
+{
+  "food": {
+    "biryani": {
+      "venues": [
+        {
+          "id": "biryani-1",
+          "name": "Paradise Restaurant",
+          "address": "Secunderabad, Telangana",
+          "description": "Legendary biryani spot known for its authentic Hyderabadi style",
+          "rating": 4.5,
+          "totalRatings": 2847,
+          "coordinates": { "lat": 17.4399, "lng": 78.4983 },
+          "phone": "+91-40-27842020",
+          "priceRange": "₹₹",
+          "specialties": ["Hyderabadi Biryani", "Mutton Biryani", "Chicken Biryani"],
+          "timings": "11:00 AM - 11:00 PM",
+          "website": "https://www.paradisebiryani.com"
+        },
+        {
+          "id": "biryani-2", 
+          "name": "Shadab Restaurant",
+          "address": "Old City, Hyderabad",
+          "description": "Historic restaurant serving traditional biryani for over 50 years",
+          "rating": 4.3,
+          "totalRatings": 1923,
+          "coordinates": { "lat": 17.3850, "lng": 78.4867 },
+          "phone": "+91-40-24565555",
+          "priceRange": "₹₹",
+          "specialties": ["Mutton Biryani", "Chicken Biryani", "Kacchi Biryani"],
+          "timings": "11:00 AM - 10:30 PM",
+          "website": "https://www.shadabrestaurant.com"
+        },
+        {
+          "id": "biryani-3",
+          "name": "Cafe Bahar",
+          "address": "Basheer Bagh, Hyderabad",
+          "description": "Popular local favorite with consistent quality and authentic taste",
+          "rating": 4.2,
+          "totalRatings": 1456,
+          "coordinates": { "lat": 17.3841, "lng": 78.4563 },
+          "phone": "+91-40-23234567",
+          "priceRange": "₹₹",
+          "specialties": ["Chicken Biryani", "Mutton Biryani", "Egg Biryani"],
+          "timings": "11:30 AM - 10:00 PM",
+          "website": null
+        }
+      ]
+    },
+    "masala-dosa": {
+      "venues": [
+        {
+          "id": "dosa-1",
+          "name": "MTR (Mavalli Tiffin Room)",
+          "address": "Lalbagh Road, Bangalore",
+          "description": "Iconic South Indian restaurant serving authentic dosas since 1924",
+          "rating": 4.4,
+          "totalRatings": 3245,
+          "coordinates": { "lat": 12.9507, "lng": 77.5848 },
+          "phone": "+91-80-22220022",
+          "priceRange": "₹₹",
+          "specialties": ["Masala Dosa", "Rava Dosa", "Set Dosa"],
+          "timings": "6:30 AM - 11:00 PM",
+          "website": "https://www.mtrfoods.com"
+        },
+        {
+          "id": "dosa-2",
+          "name": "Udupi Sri Krishna Bhavan",
+          "address": "Commercial Street, Bangalore",
+          "description": "Traditional Udupi restaurant with authentic South Indian flavors",
+          "rating": 4.1,
+          "totalRatings": 1876,
+          "coordinates": { "lat": 12.9716, "lng": 77.5946 },
+          "phone": "+91-80-25588333",
+          "priceRange": "₹",
+          "specialties": ["Masala Dosa", "Onion Dosa", "Paper Dosa"],
+          "timings": "7:00 AM - 10:30 PM",
+          "website": null
+        },
+        {
+          "id": "dosa-3",
+          "name": "Sagar Ratna",
+          "address": "Multiple locations across India",
+          "description": "Popular chain serving authentic South Indian cuisine with consistent quality",
+          "rating": 4.0,
+          "totalRatings": 4521,
+          "coordinates": { "lat": 28.6139, "lng": 77.2090 },
+          "phone": "+91-11-23746000",
+          "priceRange": "₹₹",
+          "specialties": ["Masala Dosa", "Rava Dosa", "Onion Dosa"],
+          "timings": "7:00 AM - 11:00 PM",
+          "website": "https://www.sagarratna.com"
+        }
+      ]
+    },
+    "butter-chicken": {
+      "venues": [
+        {
+          "id": "butter-chicken-1",
+          "name": "Moti Mahal Delux",
+          "address": "Daryaganj, New Delhi",
+          "description": "Birthplace of Butter Chicken - where this iconic dish was first created",
+          "rating": 4.6,
+          "totalRatings": 2156,
+          "coordinates": { "lat": 28.6448, "lng": 77.2160 },
+          "phone": "+91-11-23273731",
+          "priceRange": "₹₹₹",
+          "specialties": ["Butter Chicken", "Tandoori Chicken", "Dal Makhani"],
+          "timings": "12:00 PM - 11:30 PM",
+          "website": "https://www.motimahal.in"
+        },
+        {
+          "id": "butter-chicken-2",
+          "name": "Bukhara",
+          "address": "ITC Maurya, New Delhi",
+          "description": "Award-winning restaurant known for its refined North Indian cuisine",
+          "rating": 4.7,
+          "totalRatings": 1834,
+          "coordinates": { "lat": 28.5562, "lng": 77.1000 },
+          "phone": "+91-11-26112233",
+          "priceRange": "₹₹₹₹",
+          "specialties": ["Butter Chicken", "Dal Bukhara", "Tandoori Raan"],
+          "timings": "7:00 PM - 11:30 PM",
+          "website": "https://www.itchotels.com"
+        }
+      ]
+    }
+  },
+  "dance": {
+    "bharatanatyam": {
+      "venues": [
+        {
+          "id": "bharatanatyam-1",
+          "name": "Kalakshetra Foundation",
+          "address": "Thiruvanmiyur, Chennai",
+          "description": "Premier institution for Bharatanatyam training and performances",
+          "rating": 4.8,
+          "totalRatings": 456,
+          "coordinates": { "lat": 12.9850, "lng": 80.2600 },
+          "phone": "+91-44-24524054",
+          "priceRange": "₹₹₹",
+          "specialties": ["Bharatanatyam Classes", "Classical Performances", "Cultural Events"],
+          "timings": "9:00 AM - 6:00 PM",
+          "website": "https://www.kalakshetra.org"
+        },
+        {
+          "id": "bharatanatyam-2",
+          "name": "Music Academy",
+          "address": "T. T. K. Road, Chennai",
+          "description": "Historic venue hosting classical dance performances and festivals",
+          "rating": 4.5,
+          "totalRatings": 892,
+          "coordinates": { "lat": 13.0067, "lng": 80.2206 },
+          "phone": "+91-44-28112231",
+          "priceRange": "₹₹",
+          "specialties": ["Dance Performances", "Music Concerts", "Cultural Festivals"],
+          "timings": "9:00 AM - 9:00 PM",
+          "website": "https://www.musicacademymadras.in"
+        },
+        {
+          "id": "bharatanatyam-3",
+          "name": "Bharatiya Vidya Bhavan",
+          "address": "Kasturba Gandhi Marg, New Delhi",
+          "description": "Cultural center offering Bharatanatyam classes and performances",
+          "rating": 4.3,
+          "totalRatings": 567,
+          "coordinates": { "lat": 28.6200, "lng": 77.2300 },
+          "phone": "+91-11-23388444",
+          "priceRange": "₹₹",
+          "specialties": ["Dance Classes", "Cultural Programs", "Workshops"],
+          "timings": "9:00 AM - 8:00 PM",
+          "website": "https://www.bhavan.org"
+        }
+      ]
+    },
+    "kathak": {
+      "venues": [
+        {
+          "id": "kathak-1",
+          "name": "Kathak Kendra",
+          "address": "Rabindra Bhavan, New Delhi",
+          "description": "National institute for Kathak dance training and research",
+          "rating": 4.6,
+          "totalRatings": 423,
+          "coordinates": { "lat": 28.6200, "lng": 77.2300 },
+          "phone": "+91-11-23388444",
+          "priceRange": "₹₹",
+          "specialties": ["Kathak Classes", "Research Programs", "Performances"],
+          "timings": "9:00 AM - 6:00 PM",
+          "website": "https://www.kathakkendra.org"
+        },
+        {
+          "id": "kathak-2",
+          "name": "Triveni Kala Sangam",
+          "address": "Tansen Marg, New Delhi",
+          "description": "Cultural center promoting classical arts including Kathak",
+          "rating": 4.4,
+          "totalRatings": 678,
+          "coordinates": { "lat": 28.6200, "lng": 77.2300 },
+          "phone": "+91-11-23718883",
+          "priceRange": "₹₹",
+          "specialties": ["Dance Classes", "Art Exhibitions", "Cultural Events"],
+          "timings": "10:00 AM - 7:00 PM",
+          "website": "https://www.trivenikalasangam.org"
+        }
+      ]
+    }
+  },
+  "festivals": {
+    "diwali": {
+      "experiences": [
+        {
+          "id": "diwali-1",
+          "name": "Golden Temple, Amritsar",
+          "address": "Amritsar, Punjab",
+          "description": "Experience Diwali at the holiest Sikh shrine with spectacular illuminations",
+          "rating": 4.9,
+          "totalRatings": 1234,
+          "coordinates": { "lat": 31.6200, "lng": 74.8765 },
+          "phone": "+91-183-2553954",
+          "priceRange": "Free",
+          "specialties": ["Golden Temple Illumination", "Langar", "Spiritual Experience"],
+          "timings": "24 Hours",
+          "website": "https://www.goldentempleamritsar.org"
+        },
+        {
+          "id": "diwali-2",
+          "name": "Varanasi Ghats",
+          "address": "Varanasi, Uttar Pradesh",
+          "description": "Witness the magical Diwali celebrations along the sacred Ganges",
+          "rating": 4.7,
+          "totalRatings": 2156,
+          "coordinates": { "lat": 25.3176, "lng": 82.9739 },
+          "phone": "+91-542-2503000",
+          "priceRange": "₹",
+          "specialties": ["Ganga Aarti", "Diya Lighting", "Spiritual Ceremonies"],
+          "timings": "5:00 PM - 9:00 PM",
+          "website": null
+        },
+        {
+          "id": "diwali-3",
+          "name": "Jaipur City Palace",
+          "address": "Jaipur, Rajasthan",
+          "description": "Royal Diwali celebrations at the magnificent City Palace",
+          "rating": 4.5,
+          "totalRatings": 1876,
+          "coordinates": { "lat": 26.9255, "lng": 75.8236 },
+          "phone": "+91-141-4088888",
+          "priceRange": "₹₹₹",
+          "specialties": ["Royal Celebrations", "Cultural Programs", "Heritage Experience"],
+          "timings": "6:00 PM - 10:00 PM",
+          "website": "https://www.citypalacejaipur.in"
+        }
+      ]
+    },
+    "holi": {
+      "experiences": [
+        {
+          "id": "holi-1",
+          "name": "Mathura Holi Festival",
+          "address": "Mathura, Uttar Pradesh",
+          "description": "Experience the birthplace of Holi with traditional celebrations",
+          "rating": 4.8,
+          "totalRatings": 3456,
+          "coordinates": { "lat": 27.4924, "lng": 77.6737 },
+          "phone": "+91-565-2500000",
+          "priceRange": "₹",
+          "specialties": ["Traditional Holi", "Temple Celebrations", "Cultural Programs"],
+          "timings": "6:00 AM - 6:00 PM",
+          "website": null
+        },
+        {
+          "id": "holi-2",
+          "name": "Pushkar Holi",
+          "address": "Pushkar, Rajasthan",
+          "description": "Unique Holi celebration in the sacred town of Pushkar",
+          "rating": 4.6,
+          "totalRatings": 1234,
+          "coordinates": { "lat": 26.4897, "lng": 74.5518 },
+          "phone": "+91-145-2772040",
+          "priceRange": "₹",
+          "specialties": ["Sacred Holi", "Temple Rituals", "Cultural Heritage"],
+          "timings": "8:00 AM - 5:00 PM",
+          "website": null
+        }
+      ]
+    }
+  }
+}
