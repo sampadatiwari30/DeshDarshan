@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           "heading": "Why You'll Love It",
-          "content": "Perfect for festivals, family dinners, or impressing that one friend who "doesn't usually like spicy food."\n\nA one-pot meal that's rich, filling, and deeply satisfying.\n\nEvery bite is different — juicy chicken here, crispy onion there, a surprise hit of clove or mint. It's like edible jazz."
-        }
+          "content": "Perfect for festivals, family dinners, or impressing that one friend who doesn't usually like spicy food.",
+        },
       ],
       "funFact": [
         "Beta, biryani isn't a race — slow cooking wins hearts.",
