@@ -9,11 +9,14 @@
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/destinations.css" />
+  <link rel="stylesheet" href="css/facts.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon/favicon-16x16.png">
   <link rel="shortcut icon" href="assets/images/icons/favicon/favicon.ico">
@@ -207,8 +210,73 @@
 
   <div id="navbar-container"></div>
 
-  <!-- Back to Top Button (single) -->
-  <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+
+    <!--scroll to top and bottom -->
+<button id="smartScrollBtn"
+          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
+                 w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                 transition-all duration-300 hover:scale-110 z-50"
+          aria-label="Scroll">
+    <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" clip-rule="evenodd"/>
+    </svg>
+</button>
+
+
+<script>(function () {
+  const scrollBtn = document.getElementById('smartScrollBtn');
+  const scrollIcon = document.getElementById('scrollIcon');
+  if (!scrollBtn || !scrollIcon) return;
+
+  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+
+  const setIcon = (direction) => {
+    if (direction === 'down') {
+      // ↓ icon path
+      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
+      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+    } else {
+      // ↑ icon path
+      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
+      scrollBtn.setAttribute('aria-label', 'Scroll to top');
+    }
+  };
+
+  const check = () => {
+    const threshold = updateThreshold();
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+
+    if (scrollTop < threshold) {
+      scrollBtn.classList.add('show');
+      setIcon('down');
+    } else if (windowHeight + scrollTop >= docHeight - threshold) {
+      scrollBtn.classList.add('show');
+      setIcon('up');
+    } else {
+      scrollBtn.classList.add('show');
+      setIcon('up');
+    }
+  };
+
+  window.addEventListener('scroll', check);
+  window.addEventListener('resize', check);
+  check();
+
+  scrollBtn.addEventListener('click', () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.body.scrollHeight;
+    const threshold = updateThreshold();
+
+    if (scrollTop < threshold) {
+      window.scrollTo({ top: docHeight, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+})();</script>
 
   <!-- Hero Section with Slideshow -->
   <section class="hero">
@@ -987,10 +1055,125 @@
             </div>
           </div>
         </a>
-
       </div>
     </div>
   </section>
+
+
+ <!-- Facts Section starts Here -->
+<section id="Facts">
+  <h2>📜 Interesting Facts About India</h2>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <h3>🗳️ India is the world's largest democracy</h3>
+          <p>It adopted its democratic system after gaining independence in 1947. India holds regular elections where over 900 million eligible voters decide the country's leadership. The Parliament consists of the Lok Sabha and Rajya Sabha. Democracy plays a key role in shaping its diverse society.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>👥 India has the second largest population in the world</h3>
+          <p>With over 1.4 billion people, India represents nearly one-sixth of the world's population. This vast population contributes to its cultural, linguistic, and social diversity.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🚂 The Indian railway network is one of the largest in the world</h3>
+          <p>Spanning over 68,000 kilometers, it connects thousands of cities and villages. Indian Railways is one of the largest employers, with over 1.3 million employees. It carries millions of passengers daily and plays a critical role in transportation and commerce across the country.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🛕 India is the birthplace of four major religions</h3>
+          <p>Hinduism, Buddhism, Jainism, and Sikhism all originated in India and continue to influence millions of people worldwide. Ancient scriptures like the Vedas and Upanishads were written in India. The cultural and philosophical contributions from India continue to shape global thought and spirituality.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🏛️ The Taj Mahal is one of the Seven Wonders of the World</h3>
+          <p>Built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, it is a UNESCO World Heritage Site. The white marble mausoleum is a symbol of love and architectural brilliance. Millions of tourists visit it annually, marveling at its intricate carvings and stunning symmetry.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🗣️ India has 22 officially recognized languages</h3>
+          <p>These include Hindi, Bengali, Telugu, Marathi, Tamil, and others, reflecting the country's rich linguistic diversity. The constitution provides for the use of multiple languages in official matters. Many Indians are multilingual, often speaking three or more languages fluently, which reflects India's multicultural identity.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🌄 India has diverse landscapes</h3>
+          <p>From the snow-capped Himalayas in the north to the tropical beaches in the south, India's landscapes are incredibly varied. This diversity supports unique ecosystems and a wide range of flora and fauna.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🍲 India is known for its diverse cuisine</h3>
+          <p>Indian cuisine varies widely by region, from spicy curries and biryanis to sweet desserts like jalebi and rasgulla. Each state has its own specialties influenced by local culture, climate, and ingredients.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🎨 India has a rich tradition of art and culture</h3>
+          <p>From classical dances like Bharatanatyam and Kathak to intricate handicrafts and paintings, India's cultural heritage is vast. Festivals, music, and theatre are celebrated widely, showcasing centuries of tradition.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🏞️ India is home to several UNESCO World Heritage Sites</h3>
+          <p>India has over 40 UNESCO World Heritage Sites, including monuments, temples, and natural reserves. These sites preserve historical, cultural, and ecological significance and attract millions of visitors annually.</p>
+        </div>
+
+        <!-- Duplicate items for seamless loop -->
+        <div class="carousel-item">
+          <h3>🗳️ India is the world's largest democracy</h3>
+          <p>It adopted its democratic system after gaining independence in 1947. India holds regular elections where over 900 million eligible voters decide the country's leadership. The Parliament consists of the Lok Sabha and Rajya Sabha. Democracy plays a key role in shaping its diverse society.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>👥 India has the second largest population in the world</h3>
+          <p>With over 1.4 billion people, India represents nearly one-sixth of the world's population. This vast population contributes to its cultural, linguistic, and social diversity.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🚂 The Indian railway network is one of the largest in the world</h3>
+          <p>Spanning over 68,000 kilometers, it connects thousands of cities and villages. Indian Railways is one of the largest employers, with over 1.3 million employees. It carries millions of passengers daily and plays a critical role in transportation and commerce across the country.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🛕 India is the birthplace of four major religions</h3>
+          <p>Hinduism, Buddhism, Jainism, and Sikhism all originated in India and continue to influence millions of people worldwide. Ancient scriptures like the Vedas and Upanishads were written in India. The cultural and philosophical contributions from India continue to shape global thought and spirituality.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🏛️ The Taj Mahal is one of the Seven Wonders of the World</h3>
+          <p>Built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, it is a UNESCO World Heritage Site. The white marble mausoleum is a symbol of love and architectural brilliance. Millions of tourists visit it annually, marveling at its intricate carvings and stunning symmetry.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🗣️ India has 22 officially recognized languages</h3>
+          <p>These include Hindi, Bengali, Telugu, Marathi, Tamil, and others, reflecting the country's rich linguistic diversity. The constitution provides for the use of multiple languages in official matters. Many Indians are multilingual, often speaking three or more languages fluently, which reflects India's multicultural identity.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🌄 India has diverse landscapes</h3>
+          <p>From the snow-capped Himalayas in the north to the tropical beaches in the south, India's landscapes are incredibly varied. This diversity supports unique ecosystems and a wide range of flora and fauna.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🍲 India is known for its diverse cuisine</h3>
+          <p>Indian cuisine varies widely by region, from spicy curries and biryanis to sweet desserts like jalebi and rasgulla. Each state has its own specialties influenced by local culture, climate, and ingredients.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🎨 India has a rich tradition of art and culture</h3>
+          <p>From classical dances like Bharatanatyam and Kathak to intricate handicrafts and paintings, India's cultural heritage is vast. Festivals, music, and theatre are celebrated widely, showcasing centuries of tradition.</p>
+        </div>
+
+        <div class="carousel-item">
+          <h3>🏞️ India is home to several UNESCO World Heritage Sites</h3>
+          <p>India has over 40 UNESCO World Heritage Sites, including monuments, temples, and natural reserves. These sites preserve historical, cultural, and ecological significance and attract millions of visitors annually.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+ </section> 
+ <!-- Facts Section Ends Here -->
+
 
   <!-- Toast Notification -->
   <div id="toast" class="toast-hidden">
@@ -1111,7 +1294,55 @@
       if (y) y.textContent = new Date().getFullYear();
     })();
 
+feature/homepage-facts-carousel
+      // Hide the toast after 3 seconds
+      setTimeout(() => {
+        toast.classList.add('toast-hidden');
+      }, 3000);
+
+    
+    }
+  </script>
+  <!-- Chatbase Script -->
+
+  <script>
+    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "eaZ3BLaEp3NWiit_Vn0fK"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+  </script>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+  <!-- Back to Top Button Script -->
+  <script>
+
+
+    // Show/hide button based on scroll
+    window.onscroll = function () {
+      const btn = document.getElementById('backToTopBtn');
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = 'block';
+      } else {
+        btn.style.display = 'none';
+      }
+    };
+  </script>
+
+
+  <!-- Original Scripts -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="js/navbar-loader.js"></script>
+  <script src="./js/navbar.js"></script>
+  <script src="./js/home.js"></script>
+  <script>
+
     // Hide loading screen
+  main
     document.addEventListener("DOMContentLoaded", function () {
       const loadingScreen = document.getElementById("loading-screen");
       if (loadingScreen) {
@@ -1121,21 +1352,6 @@
       }
     });
 
-    // Unified Back-to-top logic (single implementation)
-    (function () {
-      const backBtn = document.getElementById('backToTopBtn');
-      if (!backBtn) return;
-      const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
-      const check = () => {
-        const threshold = updateThreshold();
-        if (window.scrollY > threshold) backBtn.classList.add('show');
-        else backBtn.classList.remove('show');
-      };
-      window.addEventListener('scroll', check);
-      window.addEventListener('resize', check);
-      check();
-      backBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    })();
 
     // Floating nav: smooth scroll for href="#id"
     (function () {
