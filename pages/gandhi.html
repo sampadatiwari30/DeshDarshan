@@ -85,7 +85,22 @@
 <footer class="footer">
   <p>&copy; 2025 Heritage of India | All Rights Reserved</p>
 </footer>
-
+  <script>
+            // Chatbase loader (kept)
+    (function () {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = []; } window.chatbase.q.push(arguments); };
+        window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } });
+      }
+      const onLoad = function () {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "eaZ3BLaEp3NWiit_Vn0fK";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") { onLoad(); } else { window.addEventListener("load", onLoad); }
+    })();
+    </script>
 <script src="../js/gandhi.js"></script>
 </body>
 </html>

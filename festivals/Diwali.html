@@ -154,7 +154,22 @@
 
     The day celebrates the sibling bond between brother and sister. On this day the womenfolk of the family gather, perform a puja with prayers for the well-being of their brothers, then return to a ritual of feeding their brothers with their hands and receiving gifts. According to Pintchman, in some Hindu traditions the women recite tales where sisters protect their brothers from enemies that seek to cause him either bodily or spiritual harm. In historic times, this was a day in autumn when brothers would travel to meet their sisters or invite their sister's family to their village to celebrate their sister-brother bond with the bounty of seasonal harvests.
 </p>
-
+  <script>
+            // Chatbase loader (kept)
+    (function () {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = []; } window.chatbase.q.push(arguments); };
+        window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } });
+      }
+      const onLoad = function () {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "eaZ3BLaEp3NWiit_Vn0fK";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") { onLoad(); } else { window.addEventListener("load", onLoad); }
+    })();
+    </script>
 
 </body>
 </html>
