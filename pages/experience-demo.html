@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience It - DeshDarshan Demo</title>
+    <link rel="stylesheet" href="../css/experience-it.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/home1.css">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/images/icons/favicon/favicon.ico">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8d6 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .demo-header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #ff9933 0%, #ff6b35 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .demo-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .demo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .demo-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-section h2 {
+            color: #ff9933;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .demo-section p {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: #ff9933;
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #ff9933 0%, #ff6b35 100%);
+            color: white;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-demo {
+            background: white;
+            color: #ff9933;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-demo:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: #ff9933;
+        }
+        
+        .btn-demo.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-demo.secondary:hover {
+            background: white;
+            color: #ff9933;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+    
+    <div class="demo-header">
+        <h1 class="demo-title">🌟 Experience It Feature</h1>
+        <p class="demo-subtitle">
+            Transform DeshDarshan from a cultural gallery into an actionable guide. 
+            Discover authentic places to experience India's cultural treasures firsthand.
+        </p>
+    </div>
+    
+    <div class="demo-content">
+        <div class="demo-section">
+            <h2>🎯 The Vision</h2>
+            <p>
+                From a Gallery to a Guide - Bridge the gap between inspiration and action by providing 
+                users with curated recommendations for authentic cultural experiences.
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3 class="feature-title">Where to Taste It</h3>
+                    <p class="feature-description">
+                        Discover authentic restaurants and street food vendors for traditional dishes, 
+                        complete with ratings, reviews, and location details.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💃</div>
+                    <h3 class="feature-title">Where to Watch & Learn</h3>
+                    <p class="feature-description">
+                        Find cultural centers, dance schools, and performance venues to experience 
+                        traditional arts and learn from master practitioners.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎉</div>
+                    <h3 class="feature-title">How to Participate</h3>
+                    <p class="feature-description">
+                        Get information about festivals, celebrations, and cultural events with 
+                        specific locations, dates, and participation details.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>⭐ User-Generated Ratings</h2>
+            <p>
+                Community-driven trust through user ratings and reviews. Each recommended place 
+                displays average star ratings and allows users to submit their own ratings and comments.
+            </p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3 class="feature-title">Star Ratings</h3>
+                    <p class="feature-description">
+                        Interactive 5-star rating system with visual feedback and hover effects 
+                        for easy rating submission.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">User Comments</h3>
+                    <p class="feature-description">
+                        Optional comment system for detailed feedback and personal experiences 
+                        to help other travelers make informed decisions.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3 class="feature-title">Google Maps Integration</h3>
+                    <p class="feature-description">
+                        Direct links to Google Maps for easy navigation and location discovery, 
+                        making it simple to find and visit recommended places.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Live Demo Section -->
+        <div class="demo-section">
+            <h2>🚀 Live Demo</h2>
+            <p>
+                Experience the feature in action! Click the buttons below to see how the 
+                "Experience It" sections work across different content types.
+            </p>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <button class="btn-demo" onclick="showDemo('food', 'biryani')">
+                    🍛 Try Food Demo (Biryani)
+                </button>
+                <button class="btn-demo" onclick="showDemo('dance', 'bharatanatyam')">
+                    💃 Try Dance Demo (Bharatanatyam)
+                </button>
+                <button class="btn-demo" onclick="showDemo('festivals', 'diwali')">
+                    🎆 Try Festival Demo (Diwali)
+                </button>
+            </div>
+            
+            <div id="demo-container">
+                <!-- Demo content will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Experience India?</h2>
+            <p class="cta-description">
+                The "Experience It" feature is now integrated across DeshDarshan, 
+                transforming cultural discovery into actionable experiences.
+            </p>
+            <div class="cta-buttons">
+                <a href="../pages/food.html" class="btn-demo">
+                    🍽️ Explore Food
+                </a>
+                <a href="../pages/dance.html" class="btn-demo secondary">
+                    💃 Discover Dance
+                </a>
+                <a href="../pages/festivals.html" class="btn-demo secondary">
+                    🎉 Join Festivals
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/experience-it.js"></script>
+    <script>
+        function showDemo(contentType, contentId) {
+            const container = document.getElementById('demo-container');
+            container.innerHTML = `
+                <div id="experience-demo-container" data-content-type="${contentType}" data-content-id="${contentId}">
+                    <!-- Experience It content will be loaded here -->
+                </div>
+            `;
+            
+            // Initialize the demo
+            if (window.ExperienceIt) {
+                new ExperienceIt('experience-demo-container', contentType, contentId);
+            }
+        }
+        
+        // Show initial demo
+        document.addEventListener('DOMContentLoaded', function() {
+            showDemo('food', 'biryani');
+        });
+    </script>
+</body>
+</html>

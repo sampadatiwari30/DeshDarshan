@@ -1,0 +1,121 @@
+/* ===== FIX OVERLAYS CSS ===== */
+/* CSS to hide "Namaste 🙏" placeholder text overlays */
+
+/* Hide any element containing "Namaste" text */
+*[data-content*="Namaste"],
+*[title*="Namaste"],
+*[alt*="Namaste"] {
+    display: none !important;
+}
+
+/* Hide common overlay patterns that might contain placeholder text */
+.overlay:contains("Namaste"),
+.card-overlay:contains("Namaste"),
+.image-overlay:contains("Namaste"),
+.placeholder-overlay,
+.debug-overlay,
+.temp-overlay {
+    display: none !important;
+}
+
+/* Hide pseudo-elements that might contain placeholder text */
+*::before,
+*::after {
+    content: none !important;
+}
+
+/* Re-enable legitimate pseudo-elements by overriding specific cases */
+.section-title::after,
+.footer-section h3::after,
+.itinerary-day h2::after,
+.facts-section h2::after,
+.nav-menu a::after,
+.tip-item::before,
+.itinerary-day::before,
+.itinerary-intro::after {
+    content: '' !important;
+    /* Restore original pseudo-element styles as needed */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #ff9933, #ff6b35);
+    border-radius: 2px;
+}
+
+/* Hide any text nodes that might be dynamically added with "Namaste" */
+.card-content *:empty::before,
+.card-content *:empty::after,
+.heritage-item *:empty::before,
+.heritage-item *:empty::after,
+.culture-item *:empty::before,
+.culture-item *:empty::after,
+.dance-item *:empty::before,
+.dance-item *:empty::after,
+.art-item *:empty::before,
+.art-item *:empty::after,
+.food-item *:empty::before,
+.food-item *:empty::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Hide any absolutely positioned elements that might be overlays */
+.card-image::before,
+.card-image::after,
+img::before,
+img::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Ensure clean image display */
+.heritage-item img,
+.culture-item img,
+.dance-item img,
+.art-item img,
+.food-item img,
+.card img {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hide any floating or fixed positioned elements that might be debug overlays */
+[style*="position: fixed"]:contains("Namaste"),
+[style*="position: absolute"]:contains("Namaste"),
+[style*="z-index"]:contains("Namaste") {
+    display: none !important;
+}
+
+/* Additional safety rules for common overlay patterns */
+.debug-info,
+.placeholder-text,
+.temp-content,
+.dev-overlay {
+    display: none !important;
+}
+
+/* Ensure proper card styling without overlays */
+.heritage-item,
+.culture-item,
+.dance-item,
+.art-item,
+.food-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.heritage-item:hover,
+.culture-item:hover,
+.dance-item:hover,
+.art-item:hover,
+.food-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
