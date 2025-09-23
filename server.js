@@ -3,36 +3,89 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
-require("dotenv").config();
+const mongoose = require("mongoose");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const passport = require("passport");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Database connection
+const MONGODB_URI = 'mongodb://localhost:27017/deshdarshan';
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('📦 Connected to MongoDB'))
+.catch(err => console.error('❌ MongoDB connection error:', err));
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Session configuration
+app.use(session({
+  secret: 'deshdarshan-super-secret-session-key-2024',
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: MONGODB_URI,
+    touchAfter: 24 * 3600 // lazy session update
+  }),
+  cookie: {
+    secure: false, // Set to true in production with HTTPS
+    httpOnly: true,
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+  }
+}));
+
+// Passport configuration
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Import Passport configuration
+require('./config/passport');
 
 // Serve static files (HTML, CSS, JS, images)
 app.use(express.static(__dirname));
 
-// Gmail SMTP configuration
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
-  },
-});
+// Import and use auth routes
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
 
-// Verify SMTP connection
-transporter.verify((error, success) => {
-  if (error) {
-    console.log("SMTP connection error:", error);
-  } else {
-    console.log("SMTP server is ready to send emails");
-  }
-});
+// Gmail SMTP configuration (optional - only for contact form)
+let transporter = null;
+let emailEnabled = false;
+
+// Only setup email if credentials are provided
+if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
+  transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
+  });
+
+  // Verify SMTP connection
+  transporter.verify((error, success) => {
+    if (error) {
+      console.log("⚠️  SMTP connection error (email disabled):", error.message);
+      emailEnabled = false;
+    } else {
+      console.log("✅ SMTP server is ready to send emails");
+      emailEnabled = true;
+    }
+  });
+} else {
+  console.log("ℹ️  Email functionality disabled (no credentials provided)");
+  emailEnabled = false;
+}
 
 // Route to handle contact form submission
 app.post("/api/contact", async (req, res) => {
@@ -56,6 +109,14 @@ app.post("/api/contact", async (req, res) => {
       return res.status(400).json({
         success: false,
         message: "Please fill in all required fields",
+      });
+    }
+
+    // Check if email is enabled
+    if (!emailEnabled || !transporter) {
+      return res.status(503).json({
+        success: false,
+        message: "Email service is currently unavailable. Please try again later or contact us directly.",
       });
     }
 

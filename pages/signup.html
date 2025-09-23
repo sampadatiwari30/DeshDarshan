@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeshDarshan - Sign Up</title>
+    <script src="../js/auth.js" defer></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
@@ -123,11 +124,8 @@
   </head>
 
 <body>
-<!-- Home Button -->
-<button class="home-button" onclick="window.location.href='../'">
 
-    <img src="../assets/images/icons/home.png" alt="Home">
-</button>
+  
     <!-- ===== MAIN CONTAINER ===== -->
     <div class="container">
         <!-- ===== SIGNUP FORM ===== -->
@@ -141,14 +139,32 @@
             <h2 class="signup-title">Join Our Journey</h2>
             <p class="signup-subtitle">Begin your cultural exploration with us</p>
 
-            <form id="signupForm" novalidate autocomplete="off">
-                <!-- Full Name Field -->
+            <form id="signupForm" onsubmit="handleSignup(event)" novalidate autocomplete="off">
+                <!-- First Name Field -->
                 <div class="form-group">
-                    <label class="form-label" for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="fullName" class="form-input"
-                        placeholder="Enter your full name" required>
-                    <span class="validation-status" id="fullNameStatus"></span>
-                    <div class="error-text" id="fullNameError"></div>
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" class="form-input"
+                        placeholder="Enter your first name" required>
+                    <span class="validation-status" id="firstNameStatus"></span>
+                    <div class="error-text" id="firstNameError"></div>
+                </div>
+
+                <!-- Last Name Field -->
+                <div class="form-group">
+                    <label class="form-label" for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" class="form-input"
+                        placeholder="Enter your last name" required>
+                    <span class="validation-status" id="lastNameStatus"></span>
+                    <div class="error-text" id="lastNameError"></div>
+                </div>
+
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label class="form-label" for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-input"
+                        placeholder="Choose a username" required>
+                    <span class="validation-status" id="usernameStatus"></span>
+                    <div class="error-text" id="usernameError"></div>
                 </div>
 
                 <!-- Email Field -->
@@ -257,8 +273,13 @@
                     <div class="error-text" id="stateError"></div>
                 </div>
 
+                <!-- Error and Success Messages -->
+                <div class="error-message" id="signupError" style="display: none; color: red; text-align: center; margin: 1rem 0;"></div>
+                <div class="success-message" id="signupSuccess" style="display: none; color: green; text-align: center; margin: 1rem 0;"></div>
+
+                
                 <!-- Submit Button -->
-                <button type="submit" class="signup-button" id="submitBtn" disabled>Begin Your Journey</button>
+                <button type="submit" class="signup-button" id="submitBtn">Begin Your Journey</button>
 
                 <!-- Login Link -->
                 <div class="login-link">
