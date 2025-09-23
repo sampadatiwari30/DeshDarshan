@@ -1,0 +1,129 @@
+/* User Menu Styles */
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #ff9933, #ff6b35);
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(255, 153, 51, 0.3);
+}
+
+.user-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 153, 51, 0.4);
+}
+
+.user-info span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.user-info i {
+  font-size: 1.2rem;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  min-width: 150px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-top: 0.5rem;
+}
+
+.user-menu:hover .user-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.user-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border-radius: 10px;
+  margin: 0.25rem;
+}
+
+.user-dropdown a:hover {
+  background-color: #f8f9fa;
+  color: #ff6b35;
+}
+
+.user-dropdown a i {
+  font-size: 0.9rem;
+  width: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .user-info {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .user-info span {
+    font-size: 0.8rem;
+  }
+  
+  .user-dropdown {
+    min-width: 120px;
+  }
+  
+  .user-dropdown a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for login/signup buttons */
+.nav-buttons .btn-login,
+.nav-buttons .btn-signup {
+  transition: all 0.3s ease;
+}
+
+.nav-buttons .btn-login:hover,
+.nav-buttons .btn-signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide/show animations */
+.nav-buttons .btn-login,
+.nav-buttons .btn-signup,
+.user-menu {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-buttons .btn-login.hidden,
+.nav-buttons .btn-signup.hidden {
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+}
+
+.user-menu.hidden {
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+}
