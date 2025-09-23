@@ -329,6 +329,51 @@ color: #ff6b00;  margin-left: 500px;
   .footer-content-wrapper { grid-template-columns: 1fr; }
 }
 </style>
+.hero-video {
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  object-fit: cover; /* cover like background */
+  position: relative;
+  z-index: -1; /* send behind content if you overlay text */
+  border-radius: 10px; /* optional rounded corners */
+}
+
+/* If video is background with text overlay */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero-container .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-video {
+    height: 70vh; /* reduce height */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-video {
+    height: 50vh; /* smaller video for mobile */
+    border-radius: 0; /* remove round edges for clean fit */
+  }
+  .hero-container .overlay-text {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
+
+
 </head>
 
 <body>
@@ -357,7 +402,10 @@ color: #ff6b00;  margin-left: 500px;
   <h1>Red Fort</h1>
   <p class="tagline">A Symbol of India’s Rich History & Culture</p>
 </div>
-  <img src="../assets/images/heritage/redfort3.jpg" alt="Red Fort" class="hero-img">
+<video class="hero-video" autoplay muted loop playsinline>
+  <source src="../assets/videos/red_fort.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
   
 </section>
 
