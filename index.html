@@ -1298,11 +1298,10 @@
       if (y) y.textContent = new Date().getFullYear();
     })();
 
-feature/homepage-facts-carousel
-      // Hide the toast after 3 seconds
-      setTimeout(() => {
-        toast.classList.add('toast-hidden');
-      }, 3000);
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+      toast.classList.add('toast-hidden');
+    }, 3000);
   </script>
   <!-- Chatbase Script -->
 
@@ -1319,17 +1318,16 @@ feature/homepage-facts-carousel
 
   <!-- Back to Top Button Script -->
   <script>
-
-
-    // Show/hide button based on scroll
-    window.onscroll = function () {
+    // Show/hide legacy backToTop button only if it exists (prevents null access)
+    window.addEventListener('scroll', function () {
       const btn = document.getElementById('backToTopBtn');
+      if (!btn) return;
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         btn.style.display = 'block';
       } else {
         btn.style.display = 'none';
       }
-    };
+    });
   </script>
 
 
@@ -1343,7 +1341,6 @@ feature/homepage-facts-carousel
   <script>
 
     // Hide loading screen
-  main
     document.addEventListener("DOMContentLoaded", function () {
       const loadingScreen = document.getElementById("loading-screen");
       if (loadingScreen) {

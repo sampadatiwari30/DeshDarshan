@@ -54,9 +54,12 @@
             });
         });
         
-        // Remove any absolutely positioned elements that might be debug overlays
+        // Remove any absolutely/fixed positioned elements that might be debug overlays
+        // but explicitly ignore our scroll controls container
         const absoluteElements = document.querySelectorAll('[style*="position: absolute"], [style*="position: fixed"]');
         absoluteElements.forEach(element => {
+            if (element && element.id === 'dd-scroll-controls') return; // keep scroll controls
+            if (element && (element.closest && element.closest('#dd-scroll-controls'))) return; // keep children
             if (element.textContent.includes('Namaste') || element.textContent.includes('🙏')) {
                 console.log('Removing positioned overlay:', element);
                 element.remove();
@@ -122,6 +125,8 @@
             mutations.forEach(function(mutation) {
                 mutation.addedNodes.forEach(function(node) {
                     if (node.nodeType === Node.ELEMENT_NODE) {
+                        // Ignore our scroll controls
+                        if (node.id === 'dd-scroll-controls' || (node.closest && node.closest('#dd-scroll-controls'))) return;
                         // Check if the added element contains "Namaste" text
                         if (node.textContent && 
                             (node.textContent.includes('Namaste') || node.textContent.includes('🙏'))) {

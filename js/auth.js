@@ -3,11 +3,16 @@ class AuthManager {
   constructor() {
     this.baseURL = '/api/auth';
     this.user = null;
+    this.enabled = this._detectAuthAvailability();
     this.init();
   }
 
   async init() {
-    // Check authentication status on page load
+    // Skip auth checks if API is not available (e.g., static/preview mode)
+    if (!this.enabled) {
+      this.updateUIForLoggedOutUser();
+      return;
+    }
     await this.checkAuthStatus();
   }
 
@@ -17,7 +22,13 @@ class AuthManager {
       const response = await fetch(`${this.baseURL}/status`, {
         credentials: 'include' // Important for session cookies
       });
-      const result = await response.json();
+      if (!response.ok) {
+        this.user = null;
+        this.updateUIForLoggedOutUser();
+        return;
+      }
+      let result = null;
+      try { result = await response.json(); } catch (_) { result = null; }
       
       if (result.success && result.authenticated) {
         this.user = result.data.user;
@@ -27,7 +38,7 @@ class AuthManager {
         this.updateUIForLoggedOutUser();
       }
     } catch (error) {
-      console.error('Auth status check error:', error);
+      // In static builds or when backend is down, fail gracefully without noisy logs
       this.user = null;
       this.updateUIForLoggedOutUser();
     }
@@ -35,6 +46,9 @@ class AuthManager {
 
   // Sign up new user
   async signup(userData) {
+    if (!this.enabled) {
+      return { success: false, message: 'Authentication is unavailable in this preview. Please run the backend to enable signup.' };
+    }
     try {
       const response = await fetch(`${this.baseURL}/signup`, {
         method: 'POST',
@@ -45,7 +59,8 @@ class AuthManager {
         body: JSON.stringify(userData)
       });
 
-      const result = await response.json();
+      let result = null;
+      try { result = await response.json(); } catch (_) { result = { success: false, message: 'Unexpected server response.' }; }
 
       if (result.success) {
         // After successful signup, user needs to login
@@ -54,13 +69,15 @@ class AuthManager {
         return { success: false, message: result.message };
       }
     } catch (error) {
-      console.error('Signup error:', error);
       return { success: false, message: 'Network error. Please try again.' };
     }
   }
 
   // Login user
   async login(email, password) {
+    if (!this.enabled) {
+      return { success: false, message: 'Authentication is unavailable in this preview. Please run the backend to enable login.' };
+    }
     try {
       const response = await fetch(`${this.baseURL}/login`, {
         method: 'POST',
@@ -71,7 +88,8 @@ class AuthManager {
         body: JSON.stringify({ email, password })
       });
 
-      const result = await response.json();
+      let result = null;
+      try { result = await response.json(); } catch (_) { result = { success: false, message: 'Unexpected server response.' }; }
 
       if (result.success) {
         this.user = result.data.user;
@@ -81,13 +99,18 @@ class AuthManager {
         return { success: false, message: result.message };
       }
     } catch (error) {
-      console.error('Login error:', error);
       return { success: false, message: 'Network error. Please try again.' };
     }
   }
 
   // Logout user
   async logout() {
+    if (!this.enabled) {
+      // Soft logout in preview mode
+      this.user = null;
+      this.updateUIForLoggedOutUser();
+      return;
+    }
     try {
       await fetch(`${this.baseURL}/logout`, {
         method: 'POST',
@@ -97,7 +120,7 @@ class AuthManager {
         }
       });
     } catch (error) {
-      console.error('Logout error:', error);
+      // Ignore network errors on logout
     } finally {
       this.user = null;
       this.updateUIForLoggedOutUser();
@@ -170,6 +193,19 @@ class AuthManager {
       setTimeout(() => {
         successElement.style.display = 'none';
       }, 5000);
+    }
+  }
+
+  // Detect if auth API should be enabled (disable for file:// or GitHub Pages-like hosts)
+  _detectAuthAvailability() {
+    try {
+      const isFile = window.location.protocol === 'file:';
+      const host = (window.location.hostname || '').toLowerCase();
+      const isGhPages = host.endsWith('github.io');
+      // Enable only when served over http(s) and not on github.io static host
+      return !isFile && !isGhPages;
+    } catch (_) {
+      return false;
     }
   }
 }
