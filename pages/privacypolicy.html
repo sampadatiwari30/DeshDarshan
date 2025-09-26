@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feedback Form - DeshDarshan</title>
+  <title>Privacy Policy - DeshDarshan</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -154,6 +154,8 @@
           </li>
           <li><a href="feedback.html" class="footer-link">Feedback</a></li>
           <li><a href="contactus.html" class="footer-link">Contact Us</a></li>
+          <li><a href="privacypolicy.html" class="footer-link">Privacy Policy</a></li>
+
         </ul>
       </div>
 
@@ -195,16 +197,6 @@
       </div>
     </div>
 
-    <!-- Copyright -->
-    <div class="copyright-section">
-      &copy; <span id="year"></span> Desh Darshan. All rights reserved.
-    </div>
-  </footer>
-  <script>
-    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "eaZ3BLaEp3NWiit_Vn0fK"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-  <!-- for that confetti effect after submiting the form -->
 
   <script>
     // Mobile Navigation Toggle
@@ -225,103 +217,6 @@
     const stars = document.querySelectorAll("#starRating span");
     let selectedRating = 0;
 
-    // --- STAR RATING LOGIC ---
-    stars.forEach((star) => {
-      star.addEventListener("click", () => {
-        selectedRating = parseInt(star.getAttribute("data-rating"));
-        updateStars();
-        // Hide error message on click
-        document.getElementById("ratingError").classList.remove("show");
-      });
-
-      star.addEventListener("mouseover", () => {
-        highlightStars(parseInt(star.getAttribute("data-rating")));
-      });
-    });
-
-    document
-      .getElementById("starRating")
-      .addEventListener("mouseleave", () => {
-        highlightStars(selectedRating);
-      });
-
-    function highlightStars(rating) {
-      stars.forEach((star, index) => {
-        star.classList.toggle("active", index < rating);
-      });
-    }
-
-    function updateStars() {
-      highlightStars(selectedRating);
-    }
-
-    // --- FORM VALIDATION & SUBMISSION ---
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      let isValid = true;
-
-      // Clear previous errors
-      document
-        .querySelectorAll(".error")
-        .forEach((el) => el.classList.remove("error"));
-      document
-        .querySelectorAll(".error-message")
-        .forEach((el) => el.classList.remove("show"));
-
-      // Validate Name
-      const nameField = document.getElementById("name");
-      if (
-        !nameField.value.trim() ||
-        !/^[A-Za-z ]{3,}$/.test(nameField.value)
-      ) {
-        showError(nameField, "Please enter a valid name (min 3 letters)");
-        isValid = false;
-      }
-
-      // Validate Email
-      const emailField = document.getElementById("email");
-      if (
-        !emailField.value.trim() ||
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)
-      ) {
-        showError(emailField, "Please enter a valid email address");
-        isValid = false;
-      }
-
-      // Validate Phone (optional)
-      const phoneField = document.getElementById("phone");
-      if (
-        phoneField.value.trim() &&
-        !/^[\d\s\-\+()]{10,}$/.test(phoneField.value)
-      ) {
-        showError(phoneField, "Please enter a valid 10-digit phone number");
-        isValid = false;
-      }
-
-      // Validate Star Rating
-      if (selectedRating === 0) {
-        document.getElementById("ratingError").classList.add("show");
-        isValid = false;
-      }
-
-      // Validate Message
-      const messageField = document.getElementById("message");
-      if (!messageField.value.trim()) {
-        showError(messageField, "Please enter your message");
-        isValid = false;
-      }
-
-      // If all valid, show popup
-      if (isValid) {
-        showSuccessPopup();
-      } else {
-        const firstError = document.querySelector(".error");
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: "smooth", block: "center" });
-          firstError.focus();
-        }
-      }
-    });
 
     function showError(field, message) {
       field.classList.add("error");
@@ -330,54 +225,6 @@
       errorElement.classList.add("show");
     }
 
-    // This is inside your showSuccessPopup function
-    const myCanvas = document.getElementById("confetti-canvas");
-    const myConfetti = confetti.create(myCanvas, { resize: true });
-
-    // --- POPUP LOGIC ---
-    function showSuccessPopup() {
-      const popup = document.getElementById("successPopup");
-      popup.classList.add("show");
-
-      // Later, when you want to fire the confetti...
-      myConfetti({
-        particleCount: 150,
-        spread: 90,
-        origin: { y: 0.6 },
-      });
-
-      document.body.style.overflow = "hidden";
-    }
-
-    function closePopup() {
-      const popup = document.getElementById("successPopup");
-      popup.classList.remove("show");
-      document.body.style.overflow = "auto";
-      form.reset();
-      selectedRating = 0; // Reset rating
-      updateStars(); // Reset star visuals
-    }
-
-    // Close popup on Escape key
-    document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        document.getElementById("successPopup").classList.contains("show")
-      ) {
-        closePopup();
-      }
-    });
-
-    // Remove error on input
-    document.querySelectorAll("input, textarea").forEach((field) => {
-      field.addEventListener("input", function () {
-        this.classList.remove("error");
-        const errorElement = document.getElementById(this.id + "Error");
-        if (errorElement) {
-          errorElement.classList.remove("show");
-        }
-      });
-    });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
