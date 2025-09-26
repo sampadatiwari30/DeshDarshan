@@ -78,24 +78,33 @@
     }
 
 
-/* Mobile responsiveness for Back to Top button */
-@media screen and (max-width: 768px) {
-  #backToTopBtn {
-    bottom: 100px;   /* closer to bottom on tablets */
-    right: 30px;    /* closer to right edge */
-    font-size: 20px; /* slightly smaller arrow */
-    padding: 8px 12px; /* smaller padding */
-  }
-}
+    /* Mobile responsiveness for Back to Top button */
+    @media screen and (max-width: 768px) {
+      #backToTopBtn {
+        bottom: 100px;
+        /* closer to bottom on tablets */
+        right: 30px;
+        /* closer to right edge */
+        font-size: 20px;
+        /* slightly smaller arrow */
+        padding: 8px 12px;
+        /* smaller padding */
+      }
+    }
 
-@media screen and (max-width: 480px) {
-  #backToTopBtn {
-    bottom: 90px;    /* mobile bottom spacing */
-    right: 25px;     /* mobile right spacing */
-    font-size: 18px; /* smaller arrow for small screens */
-    padding: 6px 10px; /* compact padding */
-  }
-}
+    @media screen and (max-width: 480px) {
+      #backToTopBtn {
+        bottom: 90px;
+        /* mobile bottom spacing */
+        right: 25px;
+        /* mobile right spacing */
+        font-size: 18px;
+        /* smaller arrow for small screens */
+        padding: 6px 10px;
+        /* compact padding */
+      }
+    }
+
     /*Css for Navigation button starts here*/
     .floating-nav-wrapper {
       width: 100%;
@@ -127,6 +136,7 @@
       0% {
         transform: translateX(0);
       }
+
       100% {
         transform: translateX(-100%);
       }
@@ -136,6 +146,7 @@
     .floating-nav-wrapper:hover .floating-nav {
       animation-play-state: paused;
     }
+
     /*Css for Navigation Buttons End here*/
 
     .dance-item {
@@ -215,72 +226,70 @@
   <div id="navbar-container"></div>
 
 
-    <!--scroll to top and bottom -->
-<button id="smartScrollBtn"
-          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
+  <!--scroll to top and bottom -->
+  <button id="smartScrollBtn" class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
                  w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
-                 transition-all duration-300 hover:scale-110 z-50"
-          aria-label="Scroll">
+                 transition-all duration-300 hover:scale-110 z-50" aria-label="Scroll">
     <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" clip-rule="evenodd"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" />
     </svg>
-</button>
+  </button>
 
 
-<script>(function () {
-  const scrollBtn = document.getElementById('smartScrollBtn');
-  const scrollIcon = document.getElementById('scrollIcon');
-  if (!scrollBtn || !scrollIcon) return;
+  <script>(function () {
+      const scrollBtn = document.getElementById('smartScrollBtn');
+      const scrollIcon = document.getElementById('scrollIcon');
+      if (!scrollBtn || !scrollIcon) return;
 
-  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+      const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
 
-  const setIcon = (direction) => {
-    if (direction === 'down') {
-      // ↓ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
-    } else {
-      // ↑ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to top');
-    }
-  };
+      const setIcon = (direction) => {
+        if (direction === 'down') {
+          // ↓ icon path
+          scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
+          scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+        } else {
+          // ↑ icon path
+          scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
+          scrollBtn.setAttribute('aria-label', 'Scroll to top');
+        }
+      };
 
-  const check = () => {
-    const threshold = updateThreshold();
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
+      const check = () => {
+        const threshold = updateThreshold();
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.body.scrollHeight;
 
-    if (scrollTop < threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('down');
-    } else if (windowHeight + scrollTop >= docHeight - threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    } else {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    }
-  };
+        if (scrollTop < threshold) {
+          scrollBtn.classList.add('show');
+          setIcon('down');
+        } else if (windowHeight + scrollTop >= docHeight - threshold) {
+          scrollBtn.classList.add('show');
+          setIcon('up');
+        } else {
+          scrollBtn.classList.add('show');
+          setIcon('up');
+        }
+      };
 
-  window.addEventListener('scroll', check);
-  window.addEventListener('resize', check);
-  check();
+      window.addEventListener('scroll', check);
+      window.addEventListener('resize', check);
+      check();
 
-  scrollBtn.addEventListener('click', () => {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
-    const threshold = updateThreshold();
+      scrollBtn.addEventListener('click', () => {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.body.scrollHeight;
+        const threshold = updateThreshold();
 
-    if (scrollTop < threshold) {
-      window.scrollTo({ top: docHeight, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-})();</script>
+        if (scrollTop < threshold) {
+          window.scrollTo({ top: docHeight, behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    })();</script>
 
   <!-- Hero Section with Slideshow -->
   <section class="hero">
@@ -505,7 +514,9 @@
 
         <a href="./pages/heritage/taj.html" class="heritage-link">
           <div class="heritage-item">
-            <img src="https://assets.architecturaldigest.in/photos/68aee6b6c217baca2192039c/16:9/w_1920,c_limit/Untitled%20design%20-%202025-08-27T163622.470.png" alt="Taj Mahal" />
+            <img
+              src="https://assets.architecturaldigest.in/photos/68aee6b6c217baca2192039c/16:9/w_1920,c_limit/Untitled%20design%20-%202025-08-27T163622.470.png"
+              alt="Taj Mahal" />
             <div class="heritage-overlay">
               <h3 data-translate="taj-title">Taj Mahal</h3>
             </div>
@@ -628,7 +639,8 @@
 
         <a href="./pages/freedom/alluri.html" class="dance-link">
           <div class="dance-item">
-            <img src="./assets/images/freedom/allurama.jpg" alt="Alluri Sitarama Raju" style="width:350px;height:350px;top:20px;" />
+            <img src="./assets/images/freedom/allurama.jpg" alt="Alluri Sitarama Raju"
+              style="width:350px;height:350px;top:20px;" />
             <div class="dance-overlay">
               <h3>Alluri Sitarama Raju</h3>
               <p>Tribal leader who led guerrilla warfare in Andhra Pradesh against British policies</p>
@@ -639,10 +651,12 @@
         <!-- Please ensure this exact file exists in your repo. If not, rename your image OR change the src back to the original filename. -->
         <a href="./pages/freedom/dadabhai.html" class="dance-link">
           <div class="dance-item">
-            <img src="https://cdn.britannica.com/37/181437-050-C8E450A2/indian-nationalist-Dadabhai-Naoroji.jpg" alt="Dadabhai Naoroji" />
+            <img src="https://cdn.britannica.com/37/181437-050-C8E450A2/indian-nationalist-Dadabhai-Naoroji.jpg"
+              alt="Dadabhai Naoroji" />
             <div class="dance-overlay">
               <h3>Dadabhai Naoroji</h3>
-              <p>Grand Old Man of India; first Indian in the British Parliament, who exposed economic exploitation through the Drain Theory.</p>
+              <p>Grand Old Man of India; first Indian in the British Parliament, who exposed economic exploitation
+                through the Drain Theory.</p>
             </div>
           </div>
         </a>
@@ -811,8 +825,8 @@
 
         <a href="./pages/arts-handicraft/pulkari.html" class="dance-link">
           <div class="dance-item">
-            <img src="https://www.dupattabazaar.com/cdn/shop/products/DB1314D_1024x1024.JPG?v=1610606599"
-              alt="Pulkari" loading="lazy" />
+            <img src="https://www.dupattabazaar.com/cdn/shop/products/DB1314D_1024x1024.JPG?v=1610606599" alt="Pulkari"
+              loading="lazy" />
             <div class="dance-overlay">
               <h3>Phulkari Embroidery</h3>
               <p>Vibrant floral on shawls From Punjab.</p>
@@ -1064,119 +1078,155 @@
   </section>
 
 
- <!-- Facts Section starts Here -->
-<section id="Facts">
-  <h2>📜 Interesting Facts About India</h2>
+  <!-- Facts Section starts Here -->
+  <section id="Facts">
+    <h2>📜 Interesting Facts About India</h2>
 
-  <div class="carousel-wrapper">
-    <div class="carousel-container">
-      <div class="carousel-track">
-        <div class="carousel-item">
-          <h3>🗳️ India is the world's largest democracy</h3>
-          <p>It adopted its democratic system after gaining independence in 1947. India holds regular elections where over 900 million eligible voters decide the country's leadership. The Parliament consists of the Lok Sabha and Rajya Sabha. Democracy plays a key role in shaping its diverse society.</p>
+    <div class="carousel-wrapper">
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="carousel-item">
+            <h3>🗳️ India is the world's largest democracy</h3>
+            <p>It adopted its democratic system after gaining independence in 1947. India holds regular elections where
+              over 900 million eligible voters decide the country's leadership. The Parliament consists of the Lok Sabha
+              and Rajya Sabha. Democracy plays a key role in shaping its diverse society.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>👥 India has the second largest population in the world</h3>
+            <p>With over 1.4 billion people, India represents nearly one-sixth of the world's population. This vast
+              population contributes to its cultural, linguistic, and social diversity.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🚂 The Indian railway network is one of the largest in the world</h3>
+            <p>Spanning over 68,000 kilometers, it connects thousands of cities and villages. Indian Railways is one of
+              the largest employers, with over 1.3 million employees. It carries millions of passengers daily and plays
+              a critical role in transportation and commerce across the country.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🛕 India is the birthplace of four major religions</h3>
+            <p>Hinduism, Buddhism, Jainism, and Sikhism all originated in India and continue to influence millions of
+              people worldwide. Ancient scriptures like the Vedas and Upanishads were written in India. The cultural and
+              philosophical contributions from India continue to shape global thought and spirituality.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🏛️ The Taj Mahal is one of the Seven Wonders of the World</h3>
+            <p>Built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, it is a UNESCO World Heritage Site. The
+              white marble mausoleum is a symbol of love and architectural brilliance. Millions of tourists visit it
+              annually, marveling at its intricate carvings and stunning symmetry.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🗣️ India has 22 officially recognized languages</h3>
+            <p>These include Hindi, Bengali, Telugu, Marathi, Tamil, and others, reflecting the country's rich
+              linguistic diversity. The constitution provides for the use of multiple languages in official matters.
+              Many Indians are multilingual, often speaking three or more languages fluently, which reflects India's
+              multicultural identity.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🌄 India has diverse landscapes</h3>
+            <p>From the snow-capped Himalayas in the north to the tropical beaches in the south, India's landscapes are
+              incredibly varied. This diversity supports unique ecosystems and a wide range of flora and fauna.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🍲 India is known for its diverse cuisine</h3>
+            <p>Indian cuisine varies widely by region, from spicy curries and biryanis to sweet desserts like jalebi and
+              rasgulla. Each state has its own specialties influenced by local culture, climate, and ingredients.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🎨 India has a rich tradition of art and culture</h3>
+            <p>From classical dances like Bharatanatyam and Kathak to intricate handicrafts and paintings, India's
+              cultural heritage is vast. Festivals, music, and theatre are celebrated widely, showcasing centuries of
+              tradition.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🏞️ India is home to several UNESCO World Heritage Sites</h3>
+            <p>India has over 40 UNESCO World Heritage Sites, including monuments, temples, and natural reserves. These
+              sites preserve historical, cultural, and ecological significance and attract millions of visitors
+              annually.</p>
+          </div>
+
+          <!-- Duplicate items for seamless loop -->
+          <div class="carousel-item">
+            <h3>🗳️ India is the world's largest democracy</h3>
+            <p>It adopted its democratic system after gaining independence in 1947. India holds regular elections where
+              over 900 million eligible voters decide the country's leadership. The Parliament consists of the Lok Sabha
+              and Rajya Sabha. Democracy plays a key role in shaping its diverse society.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>👥 India has the second largest population in the world</h3>
+            <p>With over 1.4 billion people, India represents nearly one-sixth of the world's population. This vast
+              population contributes to its cultural, linguistic, and social diversity.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🚂 The Indian railway network is one of the largest in the world</h3>
+            <p>Spanning over 68,000 kilometers, it connects thousands of cities and villages. Indian Railways is one of
+              the largest employers, with over 1.3 million employees. It carries millions of passengers daily and plays
+              a critical role in transportation and commerce across the country.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🛕 India is the birthplace of four major religions</h3>
+            <p>Hinduism, Buddhism, Jainism, and Sikhism all originated in India and continue to influence millions of
+              people worldwide. Ancient scriptures like the Vedas and Upanishads were written in India. The cultural and
+              philosophical contributions from India continue to shape global thought and spirituality.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🏛️ The Taj Mahal is one of the Seven Wonders of the World</h3>
+            <p>Built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, it is a UNESCO World Heritage Site. The
+              white marble mausoleum is a symbol of love and architectural brilliance. Millions of tourists visit it
+              annually, marveling at its intricate carvings and stunning symmetry.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🗣️ India has 22 officially recognized languages</h3>
+            <p>These include Hindi, Bengali, Telugu, Marathi, Tamil, and others, reflecting the country's rich
+              linguistic diversity. The constitution provides for the use of multiple languages in official matters.
+              Many Indians are multilingual, often speaking three or more languages fluently, which reflects India's
+              multicultural identity.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🌄 India has diverse landscapes</h3>
+            <p>From the snow-capped Himalayas in the north to the tropical beaches in the south, India's landscapes are
+              incredibly varied. This diversity supports unique ecosystems and a wide range of flora and fauna.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🍲 India is known for its diverse cuisine</h3>
+            <p>Indian cuisine varies widely by region, from spicy curries and biryanis to sweet desserts like jalebi and
+              rasgulla. Each state has its own specialties influenced by local culture, climate, and ingredients.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🎨 India has a rich tradition of art and culture</h3>
+            <p>From classical dances like Bharatanatyam and Kathak to intricate handicrafts and paintings, India's
+              cultural heritage is vast. Festivals, music, and theatre are celebrated widely, showcasing centuries of
+              tradition.</p>
+          </div>
+
+          <div class="carousel-item">
+            <h3>🏞️ India is home to several UNESCO World Heritage Sites</h3>
+            <p>India has over 40 UNESCO World Heritage Sites, including monuments, temples, and natural reserves. These
+              sites preserve historical, cultural, and ecological significance and attract millions of visitors
+              annually.</p>
+          </div>
+
         </div>
-
-        <div class="carousel-item">
-          <h3>👥 India has the second largest population in the world</h3>
-          <p>With over 1.4 billion people, India represents nearly one-sixth of the world's population. This vast population contributes to its cultural, linguistic, and social diversity.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🚂 The Indian railway network is one of the largest in the world</h3>
-          <p>Spanning over 68,000 kilometers, it connects thousands of cities and villages. Indian Railways is one of the largest employers, with over 1.3 million employees. It carries millions of passengers daily and plays a critical role in transportation and commerce across the country.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🛕 India is the birthplace of four major religions</h3>
-          <p>Hinduism, Buddhism, Jainism, and Sikhism all originated in India and continue to influence millions of people worldwide. Ancient scriptures like the Vedas and Upanishads were written in India. The cultural and philosophical contributions from India continue to shape global thought and spirituality.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🏛️ The Taj Mahal is one of the Seven Wonders of the World</h3>
-          <p>Built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, it is a UNESCO World Heritage Site. The white marble mausoleum is a symbol of love and architectural brilliance. Millions of tourists visit it annually, marveling at its intricate carvings and stunning symmetry.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🗣️ India has 22 officially recognized languages</h3>
-          <p>These include Hindi, Bengali, Telugu, Marathi, Tamil, and others, reflecting the country's rich linguistic diversity. The constitution provides for the use of multiple languages in official matters. Many Indians are multilingual, often speaking three or more languages fluently, which reflects India's multicultural identity.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🌄 India has diverse landscapes</h3>
-          <p>From the snow-capped Himalayas in the north to the tropical beaches in the south, India's landscapes are incredibly varied. This diversity supports unique ecosystems and a wide range of flora and fauna.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🍲 India is known for its diverse cuisine</h3>
-          <p>Indian cuisine varies widely by region, from spicy curries and biryanis to sweet desserts like jalebi and rasgulla. Each state has its own specialties influenced by local culture, climate, and ingredients.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🎨 India has a rich tradition of art and culture</h3>
-          <p>From classical dances like Bharatanatyam and Kathak to intricate handicrafts and paintings, India's cultural heritage is vast. Festivals, music, and theatre are celebrated widely, showcasing centuries of tradition.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🏞️ India is home to several UNESCO World Heritage Sites</h3>
-          <p>India has over 40 UNESCO World Heritage Sites, including monuments, temples, and natural reserves. These sites preserve historical, cultural, and ecological significance and attract millions of visitors annually.</p>
-        </div>
-
-        <!-- Duplicate items for seamless loop -->
-        <div class="carousel-item">
-          <h3>🗳️ India is the world's largest democracy</h3>
-          <p>It adopted its democratic system after gaining independence in 1947. India holds regular elections where over 900 million eligible voters decide the country's leadership. The Parliament consists of the Lok Sabha and Rajya Sabha. Democracy plays a key role in shaping its diverse society.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>👥 India has the second largest population in the world</h3>
-          <p>With over 1.4 billion people, India represents nearly one-sixth of the world's population. This vast population contributes to its cultural, linguistic, and social diversity.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🚂 The Indian railway network is one of the largest in the world</h3>
-          <p>Spanning over 68,000 kilometers, it connects thousands of cities and villages. Indian Railways is one of the largest employers, with over 1.3 million employees. It carries millions of passengers daily and plays a critical role in transportation and commerce across the country.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🛕 India is the birthplace of four major religions</h3>
-          <p>Hinduism, Buddhism, Jainism, and Sikhism all originated in India and continue to influence millions of people worldwide. Ancient scriptures like the Vedas and Upanishads were written in India. The cultural and philosophical contributions from India continue to shape global thought and spirituality.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🏛️ The Taj Mahal is one of the Seven Wonders of the World</h3>
-          <p>Built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, it is a UNESCO World Heritage Site. The white marble mausoleum is a symbol of love and architectural brilliance. Millions of tourists visit it annually, marveling at its intricate carvings and stunning symmetry.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🗣️ India has 22 officially recognized languages</h3>
-          <p>These include Hindi, Bengali, Telugu, Marathi, Tamil, and others, reflecting the country's rich linguistic diversity. The constitution provides for the use of multiple languages in official matters. Many Indians are multilingual, often speaking three or more languages fluently, which reflects India's multicultural identity.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🌄 India has diverse landscapes</h3>
-          <p>From the snow-capped Himalayas in the north to the tropical beaches in the south, India's landscapes are incredibly varied. This diversity supports unique ecosystems and a wide range of flora and fauna.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🍲 India is known for its diverse cuisine</h3>
-          <p>Indian cuisine varies widely by region, from spicy curries and biryanis to sweet desserts like jalebi and rasgulla. Each state has its own specialties influenced by local culture, climate, and ingredients.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🎨 India has a rich tradition of art and culture</h3>
-          <p>From classical dances like Bharatanatyam and Kathak to intricate handicrafts and paintings, India's cultural heritage is vast. Festivals, music, and theatre are celebrated widely, showcasing centuries of tradition.</p>
-        </div>
-
-        <div class="carousel-item">
-          <h3>🏞️ India is home to several UNESCO World Heritage Sites</h3>
-          <p>India has over 40 UNESCO World Heritage Sites, including monuments, temples, and natural reserves. These sites preserve historical, cultural, and ecological significance and attract millions of visitors annually.</p>
-        </div>
-
       </div>
     </div>
-  </div>
- </section> 
- <!-- Facts Section Ends Here -->
+  </section>
+  <!-- Facts Section Ends Here -->
 
 
   <!-- Toast Notification -->
@@ -1298,11 +1348,6 @@
       if (y) y.textContent = new Date().getFullYear();
     })();
 
-feature/homepage-facts-carousel
-      // Hide the toast after 3 seconds
-      setTimeout(() => {
-        toast.classList.add('toast-hidden');
-      }, 3000);
   </script>
   <!-- Chatbase Script -->
 
@@ -1343,7 +1388,6 @@ feature/homepage-facts-carousel
   <script>
 
     // Hide loading screen
-  main
     document.addEventListener("DOMContentLoaded", function () {
       const loadingScreen = document.getElementById("loading-screen");
       if (loadingScreen) {
