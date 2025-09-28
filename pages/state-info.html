@@ -1,135 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>State Info</title>
-  <link rel="stylesheet" href="../css/state-info.css">
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;   /* center horizontally */
-    align-items: flex-start;   /* push to top */
-    min-height: 100vh;
-    background: #f3f6fb;       /* keep your background */
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Information - DeshDarshan</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  .state-container {
-    margin-top: 40px !important;  /* push just a little from top */
-    max-width: 900px;
-    width: 90%;
-  }
-</style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 80px; /* Space for fixed navbar */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo h2 {
+            color: #ff9933;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-menu a:hover {
+            color: #ff9933;
+        }
+        .nav-buttons a {
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background-color: #ff9933;
+            color: white;
+            text-decoration: none;
+        }
+        .nav-buttons a:hover {
+            background-color: #e68a00;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            .nav-buttons {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        /* Page-specific Styles */
+         .section-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 3px solid #ff9933;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .fact-icon {
+            color: #ff9933;
+            width: 24px;
+        }
+        .attraction-card {
+            background-size: cover;
+            background-position: center;
+        }
+        .attraction-card .overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            transition: background 0.3s ease;
+        }
+        .attraction-card:hover .overlay {
+            background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.2));
+        }
+
+        /* Footer Styles */
+        #footer { margin-top: 2rem; background: rgba(0, 0, 0, 0.9); color: #fff; padding: 4rem 0 0; }
+        .footer-content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #ff9933; font-family: "Cinzel", serif; position: relative; padding-bottom: 10px; }
+        .footer-section-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 2px; background: #ff9933; }
+        .footer-logo { font-family: "Cinzel", serif; font-size: 1.8rem; font-weight: 700; color: #ff9933; margin-top: 1rem; }
+        .footer-section p { color: #bbb; line-height: 1.6; }
+        .footer-section ul { list-style: none; padding:0; }
+        .footer-section ul li { margin-bottom: 0.8rem; }
+        .footer-link { color: #bbb; text-decoration: none; transition: all 0.3s ease; }
+        .footer-link:hover { color: #ff9933; transform: translateX(5px); }
+        .social-icons-container { display: flex; gap: 1rem; }
+        .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem; transition: all 0.3s ease; text-decoration:none; }
+        .social-icon:hover { background: #ff9933; transform: translateY(-3px); }
+        .copyright-section { text-align: center; padding: 1.5rem 0; background: rgba(0, 0, 0, 0.3); color: #bbb; font-size: 0.9rem; margin-top: 2rem; }
+    </style>
 </head>
-<body>
-  <div class="state-container">
-    <h1 id="state-name">Loading...</h1>
-    <img id="state-img" class="state-img" alt="State Image">
-    <p id="state-details"></p>
-    <button class="back-btn" onclick="window.location.href='../index.html'">← Back to Home</button>
-  </div>
- <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!--scroll to top and bottom -->
-<button id="smartScrollBtn"
-          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
-                 w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
-                 transition-all duration-300 hover:scale-110 z-50"
-          aria-label="Scroll">
-    <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" clip-rule="evenodd"/>
-    </svg>
-</button>
 
-<script>(function () {
-  const scrollBtn = document.getElementById('smartScrollBtn');
-  const scrollIcon = document.getElementById('scrollIcon');
-  if (!scrollBtn || !scrollIcon) return;
+<body class="bg-gray-100">
 
-  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="#">Desh Darshan</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#">Explore India</a></li>
+                <li><a href="#">Festival Calendar</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#">Login</a>
+                <a href="#">Signup</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-  const setIcon = (direction) => {
-    if (direction === 'down') {
-      // ↓ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
-    } else {
-      // ↑ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to top');
-    }
-  };
+    <!-- Main Content: This will be dynamically populated -->
+    <main id="main-content">
+        <!-- State content will be injected here -->
+    </main>
+    
+    <!-- State Not Found Template -->
+    <template id="not-found-template">
+         <section class="flex items-center justify-center" style="min-height: calc(100vh - 80px);">
+            <div class="text-center bg-white p-12 rounded-lg shadow-xl">
+                <h1 class="text-4xl font-bold text-orange-500" style="font-family: 'Cinzel', serif;">State Not Found</h1>
+                <p class="text-gray-600 mt-4">We couldn't find the state you were looking for. Please check the name and try again.</p>
+                <a href="#" class="mt-8 inline-block bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors">
+                    ← Back to Home
+                </a>
+            </div>
+        </section>
+    </template>
 
-  const check = () => {
-    const threshold = updateThreshold();
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
+    <!-- State Info Template -->
+    <template id="state-template">
+        <!-- Hero Section -->
+        <section class="relative h-[60vh] bg-cover bg-center hero-image">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center p-4">
+                <h1 class="text-4xl md:text-6xl font-bold hero-title" style="font-family: 'Cinzel', serif;" data-aos="fade-down"></h1>
+                <p class="text-lg mt-2 max-w-2xl hero-tagline" data-aos="fade-up" data-aos-delay="200"></p>
+            </div>
+        </section>
+        
+        <div class="container mx-auto px-4 -mt-16 relative z-20">
+            <!-- Key Facts -->
+            <section class="p-8 bg-white rounded-lg shadow-lg grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
+                <!-- Facts will be injected here -->
+            </section>
+        </div>
 
-    if (scrollTop < threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('down');
-    } else if (windowHeight + scrollTop >= docHeight - threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    } else {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    }
-  };
+        <div class="container mx-auto px-4">
+             <!-- About Section -->
+            <section class="py-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl section-title mb-6 text-center">About <span class="state-name-placeholder"></span></h2>
+                <p class="max-w-4xl mx-auto text-gray-600 leading-relaxed text-center about-description"></p>
+            </section>
+            
+            <!-- Top Attractions -->
+            <section class="py-16" data-aos="fade-up">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl md:text-4xl section-title mb-10">Top Attractions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 attractions-grid">
+                         <!-- Attraction cards will be injected here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
 
-  window.addEventListener('scroll', check);
-  window.addEventListener('resize', check);
-  check();
 
-  scrollBtn.addEventListener('click', () => {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
-    const threshold = updateThreshold();
+     <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-section">
+                <h3 class="footer-section-title">Desh Darshan</h3>
+                <p>Your gateway to the vibrant and diverse culture of India. We aim to introduce the world to India's rich heritage.</p>
+                <div class="footer-logo">Desh Darshan</div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul>
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Explore India</a></li>
+                    <li><a href="#" class="footer-link">Feedback</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-section-title">Follow Us</h3>
+                <div class="social-icons-container">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-section">
+            &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+        </div>
+    </footer>
 
-    if (scrollTop < threshold) {
-      window.scrollTo({ top: docHeight, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-})();</script>
-  <!-- Load state data -->
-  <script src="../js/statesData.js"></script>
-  <script>
-    // Get state id from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const stateId = urlParams.get("id");
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- DATA ---
+        // This object would typically be in its own statesData.js file
+        const statesData = {
+            "west-bengal": {
+                name: "West Bengal",
+                tagline: "The Land of the Royal Bengal Tiger",
+                image: "https://images.unsplash.com/photo-1595736849449-9803a27a1312?q=80&w=1920&auto=format&fit=crop",
+                description: "Located in eastern India, West Bengal is a state renowned for its rich cultural heritage, historical landmarks, and diverse landscapes. From the bustling metropolis of Kolkata, the cultural capital of India, to the serene tea gardens of Darjeeling and the unique mangrove ecosystem of the Sundarbans, West Bengal offers a captivating experience for every traveler.",
+                keyFacts: [
+                    { icon: "fas fa-city", label: "Capital", value: "Kolkata" },
+                    { icon: "fas fa-users", label: "Population", value: "Approx. 91 Million" },
+                    { icon: "fas fa-language", label: "Language", value: "Bengali" },
+                    { icon: "fas fa-utensils", label: "Cuisine", value: "Rich in fish, sweets" }
+                ],
+                attractions: [
+                    { name: "Kolkata", image: "https://images.unsplash.com/photo-1524293581279-5e7418982336?q=80&w=600&auto=format&fit=crop", description: "The vibrant cultural capital known for its colonial architecture and artistic fervor." },
+                    { name: "Darjeeling", image: "https://images.unsplash.com/photo-1596371683949-64819b9150b2?q=80&w=600&auto=format&fit=crop", description: "Famous for its lush tea plantations and stunning views of the Kanchenjunga." },
+                    { name: "Sundarbans", image: "https://images.unsplash.com/photo-1594274225915-2a2a05fb4fd2?q=80&w=600&auto=format&fit=crop", description: "The world's largest mangrove forest and a UNESCO World Heritage site." }
+                ]
+            },
+            "rajasthan": {
+                name: "Rajasthan",
+                tagline: "The Land of Kings",
+                image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7207?q=80&w=1920&auto=format&fit=crop",
+                description: "Rajasthan, India's largest state by area, is a land of majestic forts, opulent palaces, and vibrant culture. From the golden sands of the Thar Desert to the romantic lakes of Udaipur, it is a state that mesmerizes with its history, colors, and royal hospitality.",
+                keyFacts: [
+                    { icon: "fas fa-city", label: "Capital", value: "Jaipur" },
+                    { icon: "fas fa-fort", label: "Known For", value: "Forts & Palaces" },
+                    { icon: "fas fa-language", label: "Language", value: "Hindi, Rajasthani" },
+                    { icon: "fas fa-landmark", label: "Major Cities", value: "Udaipur, Jodhpur" }
+                ],
+                attractions: [
+                    { name: "Jaipur", image: "https://images.unsplash.com/photo-1599661046223-e0658826437c?q=80&w=600&auto=format&fit=crop", description: "The 'Pink City', famous for Hawa Mahal, Amer Fort, and bustling bazaars." },
+                    { name: "Udaipur", image: "https://images.unsplash.com/photo-1577089907583-991f753c15b4?q=80&w=600&auto=format&fit=crop", description: "The 'City of Lakes', renowned for its romantic setting and stunning palaces." },
+                    { name: "Thar Desert", image: "https://images.unsplash.com/photo-1614601923013-167817a22237?q=80&w=600&auto=format&fit=crop", description: "Experience a camel safari and witness the breathtaking desert sunset." }
+                ]
+            }
+            // Add more states here...
+        };
 
-    function normalizeName(name) {
-      return name.toLowerCase().replace(/\s+/g, "-");
-    }
+        // --- DYNAMIC PAGE LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS
+            AOS.init({ duration: 800, once: true });
 
-    // Find matching state
-    const state = indianStatesAndUTs.find(
-      s => s.id === stateId || normalizeName(s.name) === stateId
-    );
+            // Navbar hamburger menu logic
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Dynamic Year for Footer
+            document.getElementById('year').textContent = new Date().getFullYear();
 
-    if (state) {
-      document.getElementById("state-name").textContent = state.name;
+            // --- STATE CONTENT LOADER ---
+            const mainContent = document.getElementById('main-content');
+            const urlParams = new URLSearchParams(window.location.search);
+            const stateId = urlParams.get("state");
+            const stateData = statesData[stateId];
 
-      // ✅ Use image path directly from statesData.js
-      const imgEl = document.getElementById("state-img");
-      imgEl.src = state.image || "../assets/images/states/placeholder.jpeg";
-      imgEl.alt = state.name;
+            if (stateData) {
+                // Clone the state template
+                const template = document.getElementById('state-template');
+                const stateContent = template.content.cloneNode(true);
 
-      document.getElementById("state-details").textContent =
-        state.shortDescription || "Details not available.";
-    } else {
-      document.getElementById("state-name").textContent = "State Not Found";
-      document.getElementById("state-details").textContent = "No details available.";
-      document.getElementById("state-img").style.display = "none";
-    }
-  </script>
+                // Populate Hero
+                stateContent.querySelector('.hero-image').style.backgroundImage = `url('${stateData.image}')`;
+                stateContent.querySelector('.hero-title').textContent = stateData.name;
+                stateContent.querySelector('.hero-tagline').textContent = stateData.tagline;
+
+                // Populate Key Facts
+                const factsContainer = stateContent.querySelector('.grid');
+                stateData.keyFacts.forEach(fact => {
+                    const factEl = document.createElement('div');
+                    factEl.innerHTML = `<i class="${fact.icon} text-3xl text-orange-400 mb-2"></i><h4 class="font-bold text-gray-700">${fact.label}</h4><p class="text-gray-500">${fact.value}</p>`;
+                    factsContainer.appendChild(factEl);
+                });
+                
+                // Populate About section
+                stateContent.querySelector('.state-name-placeholder').textContent = stateData.name;
+                stateContent.querySelector('.about-description').textContent = stateData.description;
+                
+                // Populate Attractions
+                const attractionsContainer = stateContent.querySelector('.attractions-grid');
+                stateData.attractions.forEach(attraction => {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = 'attraction-card relative h-80 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer';
+                    cardEl.style.backgroundImage = `url('${attraction.image}')`;
+                    cardEl.innerHTML = `
+                        <div class="overlay absolute inset-0 flex flex-col justify-end p-4 text-white">
+                            <h3 class="text-xl font-bold">${attraction.name}</h3>
+                            <p class="text-sm">${attraction.description}</p>
+                        </div>
+                    `;
+                    attractionsContainer.appendChild(cardEl);
+                });
+
+
+                mainContent.appendChild(stateContent);
+            } else {
+                // Clone and append the "not found" template
+                const template = document.getElementById('not-found-template');
+                const notFoundContent = template.content.cloneNode(true);
+                mainContent.appendChild(notFoundContent);
+            }
+        });
+    </script>
 </body>
 </html>

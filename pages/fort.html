@@ -1,259 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Red Fort (Lal Qila) — Heritage of India</title>
-  <link rel="stylesheet" href="../css/fort.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Fort (Lal Qila) - DeshDarshan</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 80px; /* Space for fixed navbar */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo h2 {
+            color: #ff9933;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-menu a:hover {
+            color: #ff9933;
+        }
+        .nav-buttons a {
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background-color: #ff9933;
+            color: white;
+            text-decoration: none;
+        }
+        .nav-buttons a:hover {
+            background-color: #e68a00;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            .nav-buttons {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        /* Page-specific Styles */
+         .section-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 3px solid #ff9933;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .info-card h4 {
+            color: #ff9933;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer Styles */
+        #footer { margin-top: 2rem; background: rgba(0, 0, 0, 0.9); color: #fff; padding: 4rem 0 0; }
+        .footer-content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #ff9933; font-family: "Cinzel", serif; position: relative; padding-bottom: 10px; }
+        .footer-section-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 2px; background: #ff9933; }
+        .footer-logo { font-family: "Cinzel", serif; font-size: 1.8rem; font-weight: 700; color: #ff9933; margin-top: 1rem; }
+        .footer-section p { color: #bbb; line-height: 1.6; }
+        .footer-section ul { list-style: none; padding:0; }
+        .footer-section ul li { margin-bottom: 0.8rem; }
+        .footer-link { color: #bbb; text-decoration: none; transition: all 0.3s ease; }
+        .footer-link:hover { color: #ff9933; transform: translateX(5px); }
+        .social-icons-container { display: flex; gap: 1rem; }
+        .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem; transition: all 0.3s ease; text-decoration:none; }
+        .social-icon:hover { background: #ff9933; transform: translateY(-3px); }
+        .copyright-section { text-align: center; padding: 1.5rem 0; background: rgba(0, 0, 0, 0.3); color: #bbb; font-size: 0.9rem; margin-top: 2rem; }
+    
+        /* Lightbox styles */
+        #lightbox.active { display: flex; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #lightbox {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+    </style>
 </head>
-<body>
-  <!-- Top Bar / Back -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="back-link" href="../index.html" aria-label="Back to Home">← Back</a>
-      <h1 class="title">Red Fort (Lal Qila)</h1>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-media">
-      <!-- Use existing asset path from your repo -->
-      <img src="../assets/images/heritage/Red fort.jpg" alt="Red Fort in Delhi" />
-    </div>
-    <div class="hero-overlay">
-      <div class="hero-actions">
-        <a id="bookTicket" class="btn btn-primary" href="#" role="button">Book Tickets</a>
-        <a class="btn btn-outline" href="#visit">Plan Your Visit</a>
-      </div>
-    </div>
-  </section>
+<body class="bg-gray-100">
 
-  <main>
-    <!-- Overview -->
-    <section class="section container">
-      <h2>Overview</h2>
-      <p>
-        Commissioned by Emperor <strong>Shah Jahan</strong> and completed in <strong>1648</strong>,
-        the Red Fort in Delhi served as the principal residence of the Mughal emperors for nearly two centuries.
-        Its colossal ramparts, intricate pavilions, and ceremonial spaces embody the peak of Mughal architectural expression.
-      </p>
-    </section>
-
-    <!-- Key Highlights (point-wise) -->
-    <section class="section container highlights">
-      <h2>Key Highlights</h2>
-      <ul class="bullet-list">
-        <li>Massive red sandstone walls stretching ~2.5 km.</li>
-        <li>Iconic spaces: <strong>Diwan-i-Aam</strong>, <strong>Diwan-i-Khas</strong>, <strong>Rang Mahal</strong>.</li>
-        <li>Annual Independence Day address by the Prime Minister.</li>
-        <li>Blend of Persian, Timurid, and Hindu architectural elements.</li>
-        <li>Recognized as a <strong>UNESCO World Heritage Site</strong>.</li>
-      </ul>
-    </section>
-
-    <!-- Architecture Cards -->
-    <section class="section container cards">
-      <h2>Architecture & Design</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Symmetry & Axial Planning</h3>
-          <p>Grand gateways and linear courts align ceremonial and private zones with disciplined symmetry.</p>
-        </article>
-        <article class="card">
-          <h3>Marble & Inlay Work</h3>
-          <p>Delicate pietra dura and carved marble screens soften the fort’s powerful sandstone geometry.</p>
-        </article>
-        <article class="card">
-          <h3>Gardens & Water</h3>
-          <p>Charbagh gardens and water channels cool spaces and enhance movement, light, and reflection.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Visitor Info -->
-    <section id="visit" class="section container visit">
-      <h2>Visitor Information</h2>
-      <div class="visit-grid">
-        <div class="visit-item">
-          <h4>Location</h4>
-          <p>Delhi, India</p>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="#">Desh Darshan</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#">Explore India</a></li>
+                <li><a href="#">Festival Calendar</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#">Login</a>
+                <a href="#">Signup</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="visit-item">
-          <h4>Timings</h4>
-          <p>9:30 AM – 4:30 PM (Closed on Mondays)</p>
-        </div>
-        <div class="visit-item">
-          <h4>Entry Fee</h4>
-          <p>₹35 (Indian Citizens), ₹500 (Foreign Nationals)</p>
-        </div>
-        <div class="visit-item">
-          <h4>Best Time</h4>
-          <p>October – March (pleasant weather)</p>
-        </div>
-      </div>
-    </section>
+    </header>
 
-  </main>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[70vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1588133547142-d35978c44d41?q=80&w=1920&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center p-4">
+                <h1 class="text-4xl md:text-6xl font-bold" style="font-family: 'Cinzel', serif;" data-aos="fade-down">Red Fort (Lal Qila)</h1>
+                <p class="text-lg mt-2 max-w-2xl" data-aos="fade-up" data-aos-delay="200">A majestic symbol of Mughal grandeur and India's rich history, standing tall in the heart of Delhi.</p>
+                <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#" class="bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors duration-300 shadow-lg flex items-center justify-center">
+                        <i class="fas fa-ticket-alt mr-2"></i>Book Tickets
+                    </a>
+                    <a href="#visitor-info" class="bg-white/20 text-white font-bold py-3 px-6 rounded-lg hover:bg-white/30 backdrop-blur-sm transition-colors duration-300">
+                        Plan Your Visit
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container mx-auto px-4">
+             <!-- Overview Section -->
+            <section class="py-16 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl section-title mb-6">Overview</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+                    Commissioned by Emperor <strong>Shah Jahan</strong> and completed in <strong>1648</strong>, the Red Fort served as the main residence of the Mughal emperors for nearly 200 years. Its colossal red sandstone walls enclose a complex of palaces, pavilions, and gardens, embodying the zenith of Mughal architectural brilliance. Today, it stands as a UNESCO World Heritage Site and a powerful symbol of India's sovereignty.
+                </p>
+            </section>
+            
+            <!-- Visitor Information -->
+            <section id="visitor-info" class="py-16 bg-white rounded-lg shadow-lg" data-aos="fade-up">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl section-title mb-10 text-center">Visitor Information</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="info-card">
+                            <h4><i class="fas fa-map-marker-alt mr-2"></i>Location</h4>
+                            <p>Old Delhi, India</p>
+                        </div>
+                        <div class="info-card">
+                            <h4><i class="fas fa-clock mr-2"></i>Timings</h4>
+                            <p>9:30 AM – 4:30 PM (Closed Mondays)</p>
+                        </div>
+                        <div class="info-card">
+                            <h4><i class="fas fa-ticket-alt mr-2"></i>Entry Fee</h4>
+                            <p>₹35 (Indians), ₹500 (Foreigners)</p>
+                        </div>
+                        <div class="info-card">
+                            <h4><i class="fas fa-calendar-check mr-2"></i>Best Time to Visit</h4>
+                            <p>October – March</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Architectural Highlights -->
+            <section class="py-16" data-aos="fade-up">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl md:text-4xl section-title mb-10">Architectural Marvels</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                             <i class="fas fa-ruler-combined text-4xl text-orange-500 mb-4"></i>
+                            <h3 class="font-bold text-xl mb-2 text-orange-600">Symmetry & Planning</h3>
+                            <p class="text-gray-600">Grand gateways and linear courts align ceremonial and private zones with disciplined symmetry.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                             <i class="fas fa-gem text-4xl text-orange-500 mb-4"></i>
+                            <h3 class="font-bold text-xl mb-2 text-orange-600">Marble & Inlay Work</h3>
+                            <p class="text-gray-600">Delicate pietra dura and carved marble screens soften the fort’s powerful sandstone geometry.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <i class="fas fa-water text-4xl text-orange-500 mb-4"></i>
+                            <h3 class="font-bold text-xl mb-2 text-orange-600">Gardens & Waterways</h3>
+                            <p class="text-gray-600">Charbagh gardens and channels like the 'Stream of Paradise' cool spaces and enhance the aesthetic.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 Heritage of India</p>
-      <a class="back-top" href="#" aria-label="Back to top">Back to top</a>
+             
+        </div>
+    </main>
+
+     <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-section">
+                <h3 class="footer-section-title">Desh Darshan</h3>
+                <p>Your gateway to the vibrant and diverse culture of India. We aim to introduce the world to India's rich heritage.</p>
+                <div class="footer-logo">Desh Darshan</div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul>
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Explore India</a></li>
+                    <li><a href="#" class="footer-link">Feedback</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-section-title">Follow Us</h3>
+                <div class="social-icons-container">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-section">
+            &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 z-[1100] hidden items-center justify-center p-4">
+        <div class="relative max-w-4xl max-h-full">
+            <img id="lightbox-img" src="" alt="Red Fort Fullscreen View" class="max-w-full max-h-[90vh] rounded-lg">
+            <button id="lightbox-close" class="absolute -top-2 -right-2 text-white bg-orange-500 rounded-full h-8 w-8 flex items-center justify-center text-lg">&times;</button>
+        </div>
     </div>
-  </footer>
 
-  <script src="../js/fort.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Red Fort - Heritage of India</title>
-  <link rel="stylesheet" href="../css/fort.css">
-</head>
-<body>
+        // Navbar hamburger menu logic
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Dynamic Year for Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-<header class="header">
-  <h1>Red Fort</h1>
-  <p class="subtitle">Historic Monument of Delhi | UNESCO World Heritage Site</p>
-</header>
+        // Lightbox Gallery Logic
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
 
-<section class="hero">
-  <video autoplay muted loop class="hero-video">
-    <source src="assets/videos/redfort_ai.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-  <div class="hero-text">
-    <h2>Welcome to the Majestic Red Fort</h2>
-    <p>Experience the grandeur of Mughal architecture and history in Delhi's iconic Lal Qila.</p>
-  </div>
-</section>
+        galleryItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                lightboxImg.src = item.href;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex', 'active');
+            });
+        });
 
-<main class="content">
-  <section class="details">
-    <h2>Key Facts</h2>
-    <ul>
-      <li>Location: Old Delhi, India</li>
-      <li>Constructed: 1639–1648 AD</li>
-      <li>Architect: Ustad Ahmad Lahori</li>
-      <li>Material: Red sandstone</li>
-      <li>UNESCO World Heritage Site since 2007</li>
-    </ul>
-  </section>
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex', 'active');
+        }
 
-  <section class="details">
-    <h2>Historical Significance</h2>
-    <ul>
-      <li>Palace fort of Mughal emperor Shah Jahan.</li>
-      <li>Seat of Mughal power for nearly 200 years.</li>
-      <li>Site of India’s first flag hoisting by PM Nehru on 15 August 1947.</li>
-      <li>Symbol of India's rich cultural heritage.</li>
-    </ul>
-  </section>
-
-  <section class="details">
-    <h2>Architecture</h2>
-    <ul>
-      <li>Walls: 2.5 km long, 18 meters high.</li>
-      <li>Complex includes Diwan-i-Aam, Diwan-i-Khas, Rang Mahal, gardens.</li>
-      <li>Style: Persian, Timurid, Indian.</li>
-      <li>Famous gates: Lahore Gate, Delhi Gate.</li>
-    </ul>
-  </section>
-
-  <section class="details">
-    <h2>Visitor Information</h2>
-    <ul>
-      <li>Timings: 9:30 AM – 4:30 PM (Closed Mondays)</li>
-      <li>Tickets: ₹35 (Indians), ₹500 (Foreigners)</li>
-      <li>Photography allowed</li>
-      <li>Nearby attractions: Jama Masjid, Chandni Chowk</li>
-    </ul>
-  </section>
-
-  <section class="video">
-    <h2>Red Fort Documentary</h2>
-    <video autoplay muted loop width="100%" class="video-player">
-      <source src="../red-fort-video.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-  </section>
-
-  <section class="reference">
-    <p>Read more on <a href="https://en.wikipedia.org/wiki/Red_Fort" target="_blank">Wikipedia: Red Fort</a></p>
-  </section>
-</main>
-
-<footer class="footer">
-  <p>&copy; 2025 Heritage of India | All Rights Reserved</p>
-</footer>
- <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!--scroll to top and bottom -->
-<button id="smartScrollBtn"
-          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
-                 w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
-                 transition-all duration-300 hover:scale-110 z-50"
-          aria-label="Scroll">
-    <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" clip-rule="evenodd"/>
-    </svg>
-</button>
-
-<script>(function () {
-  const scrollBtn = document.getElementById('smartScrollBtn');
-  const scrollIcon = document.getElementById('scrollIcon');
-  if (!scrollBtn || !scrollIcon) return;
-
-  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
-
-  const setIcon = (direction) => {
-    if (direction === 'down') {
-      // ↓ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
-    } else {
-      // ↑ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to top');
-    }
-  };
-
-  const check = () => {
-    const threshold = updateThreshold();
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
-
-    if (scrollTop < threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('down');
-    } else if (windowHeight + scrollTop >= docHeight - threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    } else {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    }
-  };
-
-  window.addEventListener('scroll', check);
-  window.addEventListener('resize', check);
-  check();
-
-  scrollBtn.addEventListener('click', () => {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
-    const threshold = updateThreshold();
-
-    if (scrollTop < threshold) {
-      window.scrollTo({ top: docHeight, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-})();</script>
-<script src="../js/fort.js"></script>
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
+
