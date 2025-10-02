@@ -800,10 +800,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#heritage">Heritage Sites</a></li>
-                        <li><a href="index.html#festivals">Festivals</a></li>
-                        <li><a href="index.html#itineraries">Itineraries</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../pages/heritage.html">Heritage Sites</a></li>
+                        <li><a href="../pages/festivals.html">Festivals</a></li>
+                        <li><a href="./itinerary-gateway.html">Itineraries</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -918,6 +918,22 @@
     
     // Start the slideshow
     showSlides();
+    </script>
+      <script>
+            // Chatbase loader (kept)
+    (function () {
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = []; } window.chatbase.q.push(arguments); };
+        window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } });
+      }
+      const onLoad = function () {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "eaZ3BLaEp3NWiit_Vn0fK";
+        document.body.appendChild(script);
+      };
+      if (document.readyState === "complete") { onLoad(); } else { window.addEventListener("load", onLoad); }
+    })();
     </script>
 </body>
 </html>

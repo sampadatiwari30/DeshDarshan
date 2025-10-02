@@ -148,23 +148,6 @@
             font-weight: bold;
         }
 
-        /* Footer Styles */
-        #footer { margin-top: 2rem; background: rgba(0, 0, 0, 0.9); color: #fff; padding: 4rem 0 0; }
-        .footer-content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .footer-section-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #ff9933; font-family: "Cinzel", serif; position: relative; padding-bottom: 10px; }
-        .footer-section-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 2px; background: #ff9933; }
-        .footer-logo { font-family: "Cinzel", serif; font-size: 1.8rem; font-weight: 700; color: #ff9933; margin-top: 1rem; }
-        .footer-section p { color: #bbb; line-height: 1.6; }
-        .footer-section ul { list-style: none; padding:0; }
-        .footer-section ul li { margin-bottom: 0.8rem; }
-        .footer-link { color: #bbb; text-decoration: none; transition: all 0.3s ease; }
-        .footer-link:hover { color: #ff9933; transform: translateX(5px); }
-        .social-icons-container { display: flex; gap: 1rem; }
-        .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem; transition: all 0.3s ease; text-decoration:none; }
-        .social-icon:hover { background: #ff9933; transform: translateY(-3px); }
-        .copyright-section { text-align: center; padding: 1.5rem 0; background: rgba(0, 0, 0, 0.3); color: #bbb; font-size: 0.9rem; margin-top: 2rem; }
-    </style>
-</head>
 
 <body class="bg-gray-100">
 
@@ -317,16 +300,6 @@
             once: true,
         });
 
-        // Navbar hamburger menu logic
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Dynamic Year for Footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+
 </body>
 </html>
