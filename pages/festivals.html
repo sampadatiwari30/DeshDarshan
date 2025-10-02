@@ -199,7 +199,6 @@
     const windowHeight = window.innerHeight;
     const docHeight = document.body.scrollHeight;
     const threshold = updateThreshold();
-
     if (scrollTop < threshold) {
       window.scrollTo({ top: docHeight, behavior: 'smooth' });
     } else {
