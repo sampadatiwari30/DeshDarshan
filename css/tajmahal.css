@@ -1,127 +1,180 @@
-/* General Layout */
+/* General Layout (Similar modern structure to Gateway CSS) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Georgia", serif; /* Changed font to reflect classical monument style */
+}
+
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f9;
-  color: #333;
-  line-height: 1.6;
+    /* Subtle background, echoing white marble */
+    background: #fcfcfc; 
+    color: #2c3e50; /* Dark text */
+    line-height: 1.7;
 }
 
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
+/* Header (Royal and distinct from orange) */
+header {
+    /* Royal Plum/Deep Burgundy color */
+    background: linear-gradient(90deg, #581845, #75295c); 
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Header */
-.header {
-  background: #1c1c1c;
-  color: #fff;
-  padding: 20px 0;
+header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* Light gold accent */
+    color: #f1c40f; 
 }
 
-.page-title {
-  margin: 0;
-  font-size: 2rem;
-  text-align: center;
-}
-
-.navigation {
-  text-align: center;
-  margin-top: 10px;
-}
-
+/* Navigation Links (If your HTML uses this) */
 .navigation a {
-  color: #ffd700;
-  text-decoration: none;
-  margin: 0 12px;
-  font-weight: 500;
+    color: #ffd700; /* Gold */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 1.05rem;
 }
 
 .navigation a:hover {
-  text-decoration: underline;
+    color: #fff;
+    text-decoration: underline;
 }
 
-/* Introduction */
+/* Main Content */
+main {
+    padding: 3rem 10%;
+}
+
+/* Sections (Similar structure, distinct color scheme) */
+section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    /* Accent border color - Deep Plum */
+    border-left: 6px solid #581845; 
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+section h2 {
+    /* Accent color - Lighter Plum */
+    color: #90376d; 
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Lists */
+ul {
+    list-style: none; /* Removing disc for custom bullets */
+    padding-left: 0;
+}
+
+li {
+    margin: 0.7rem 0;
+    font-size: 1rem;
+    color: #444;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+li::before {
+    content: '▪'; /* Square bullet to mimic inlay */
+    color: #581845;
+    font-size: 1.2em;
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+}
+
+/* Text styling */
+p {
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Intro Section */
 .taj-intro {
-  text-align: center;
-  margin-top: 30px;
+    text-align: center;
 }
 
 .taj-image {
-  width: 65%;
-  max-width: 700px;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    max-width: 85%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 15px;
+    /* Border: Gold/Plum contrast */
+    border: 4px solid #f1c40f; 
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.3);
 }
 
 .intro-text {
-  font-size: 1.1rem;
-  color: #444;
-  max-width: 850px;
-  margin: 0 auto;
+    font-size: 1.2rem;
+    color: #34495e;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-/* Sections */
-.taj-section {
-  margin: 40px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.taj-section h2 {
-  color: #8b0000;
-  margin-bottom: 15px;
-}
-
-.details-list {
-  list-style: disc;
-  padding-left: 20px;
-}
-
-.details-list li {
-  margin: 8px 0;
-}
-
-/* Fact Section */
-.fact-section {
-  text-align: center;
-}
-
+/* Fact Section Button (Using the ID from your HTML) */
 #show-fact {
-  padding: 12px 24px;
-  background: #8b0000;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 15px;
-  transition: background 0.3s ease;
+    padding: 12px 25px;
+    background: #90376d; /* Lighter Plum */
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 #show-fact:hover {
-  background: #600000;
+    background: #581845;
 }
 
 .fact-box {
-  font-style: italic;
-  font-size: 1rem;
-  color: #444;
-  min-height: 30px;
+    font-style: italic;
+    font-size: 1.1rem;
+    /* Light background for the revealed fact */
+    background: #f7f7f7; 
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px dashed #d5d5d5;
 }
 
 /* Footer */
-.footer {
-  background: #1c1c1c;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-  font-size: 0.95rem;
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #581845; /* Deep Plum background */
+    color: white;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+}
+
+/* Responsive Adjustments (Kept identical structure) */
+@media screen and (max-width: 768px) {
+    main {
+        padding: 1rem 5%;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    section {
+        padding: 1rem;
+    }
+    
+    .taj-image {
+        max-width: 100%;
+    }
 }
