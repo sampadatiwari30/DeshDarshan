@@ -228,36 +228,158 @@
   </section>
 
   <section>
-    <h2>🎯 Quick Quiz</h2>
-    <div class="quiz">
-      <h3>Who is known as the "Wizard of Hockey"?</h3>
-      <button onclick="checkAnswer('wrong')">Major Rajyavardhan Singh</button>
-      <button onclick="checkAnswer('wrong')">Balbir Singh Sr.</button>
-      <button onclick="checkAnswer('correct')">Dhyan Chand</button>
-      <p id="result"></p>
+  <h2>🎯 Quick Quiz</h2>
+  <div class="quiz">
+    <h3 id="question">Who is known as the "Wizard of Hockey"?</h3>
+    <div id="options">
+      <button onclick="selectAnswer(0)">Major Rajyavardhan Singh</button>
+      <button onclick="selectAnswer(1)">Balbir Singh Sr.</button>
+      <button onclick="selectAnswer(2)">Dhyan Chand</button>
     </div>
-  </section>
+    <p id="result"></p>
+    <div style="margin-top: 20px;">
+      <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next Question ➡️</button>
+      <button id="scoreBtn" onclick="showScore()" style="display:none; background:#28a745;">Show Score 🏆</button>
+    </div>
+    <div id="scoreDisplay" style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;"></div>
+  </div>
+</section>
 
   <footer>
     <p><h1>DeshDarshan Project</h1></p>
   </footer>
 
   <script>
-    function checkAnswer(option) {
-      const result = document.getElementById("result");
-      if(option === 'correct') {
-        result.innerHTML = "✅ Correct! Dhyan Chand is called the Wizard of Hockey.";
-        result.style.color = "green";
-      } else {
-        result.innerHTML = "❌ Oops! Try again.";
-        result.style.color = "red";
-      }
+  const quizData = [
+    {
+      question: "Who is known as the 'Wizard of Hockey'?",
+      options: ["Major Rajyavardhan Singh", "Balbir Singh Sr.", "Dhyan Chand"],
+      correct: 2,
+      explanation: "Dhyan Chand is called the Wizard of Hockey."
+    },
+    {
+      question: "How many Olympic gold medals has India won in hockey?",
+      options: ["6", "8", "10"],
+      correct: 1,
+      explanation: "India has won 8 Olympic gold medals in hockey."
+    },
+    {
+      question: "When did India win the bronze medal at the Olympics, ending a 41-year wait?",
+      options: ["Tokyo 2020", "Rio 2016", "London 2012"],
+      correct: 0,
+      explanation: "India won bronze at Tokyo 2020 Olympics."
+    },
+    {
+      question: "In which year did India win their first Olympic gold in hockey?",
+      options: ["1924", "1928", "1932"],
+      correct: 1,
+      explanation: "India won their first Olympic gold in 1928."
+    },
+    {
+      question: "At which Olympics was Hitler amazed by Dhyan Chand's skill?",
+      options: ["1932 Los Angeles", "1936 Berlin", "1948 London"],
+      correct: 1,
+      explanation: "Hitler was amazed at the 1936 Berlin Olympics."
     }
+  ];
 
-    document.querySelector(".back").addEventListener("click", function () {
-      window.history.back();
+  let currentQuestion = 0;
+  let score = 0;
+  let answered = false;
+
+  function loadQuestion() {
+    const data = quizData[currentQuestion];
+    document.getElementById("question").textContent = data.question;
+    
+    const optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+    
+    data.options.forEach((option, index) => {
+      const btn = document.createElement("button");
+      btn.textContent = option;
+      btn.onclick = () => selectAnswer(index);
+      optionsDiv.appendChild(btn);
     });
-  </script>
+    
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("scoreBtn").style.display = "none";
+    answered = false;
+  }
+
+  function selectAnswer(selected) {
+    if (answered) return;
+    
+    answered = true;
+    const data = quizData[currentQuestion];
+    const result = document.getElementById("result");
+    const buttons = document.getElementById("options").getElementsByTagName("button");
+    
+    if (selected === data.correct) {
+      result.innerHTML = "✅ Correct! " + data.explanation;
+      result.style.color = "green";
+      score++;
+      buttons[selected].style.background = "#28a745";
+    } else {
+      result.innerHTML = "❌ Incorrect! " + data.explanation;
+      result.style.color = "red";
+      buttons[selected].style.background = "#dc3545";
+      buttons[data.correct].style.background = "#28a745";
+    }
+    
+    for (let btn of buttons) {
+      btn.style.cursor = "not-allowed";
+      btn.style.opacity = "0.7";
+    }
+    
+    if (currentQuestion < quizData.length - 1) {
+      document.getElementById("nextBtn").style.display = "inline-block";
+    } else {
+      document.getElementById("scoreBtn").style.display = "inline-block";
+    }
+  }
+
+  function nextQuestion() {
+    currentQuestion++;
+    loadQuestion();
+  }
+
+  function showScore() {
+    const percentage = (score / quizData.length * 100).toFixed(0);
+    let message = "";
+    
+    if (percentage >= 80) {
+      message = "🏆 Excellent! You're a Hockey Expert!";
+    } else if (percentage >= 60) {
+      message = "👍 Good job! You know your hockey!";
+    } else {
+      message = "📚 Keep learning about Indian Hockey!";
+    }
+    
+    document.getElementById("scoreDisplay").innerHTML = 
+      `${message}<br>Your Score: ${score}/${quizData.length} (${percentage}%)`;
+    
+    document.getElementById("question").textContent = "Quiz Complete!";
+    document.getElementById("options").innerHTML = 
+      '<button onclick="restartQuiz()" style="background:#007bff;">Restart Quiz 🔄</button>';
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("scoreBtn").style.display = "none";
+  }
+
+  function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    document.getElementById("scoreDisplay").innerHTML = "";
+    loadQuestion();
+  }
+
+  // Initialize quiz
+  loadQuestion();
+
+  document.querySelector(".back").addEventListener("click", function () {
+    window.history.back();
+  });
+</script>
 
   <!-- Code for Chat bot -->
   <script>
