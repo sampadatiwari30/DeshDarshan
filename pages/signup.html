@@ -325,9 +325,7 @@
     });
 });
         // Get all input fields
-        const firstName = document.getElementById('firstName');
-        const lastName = document.getElementById('lastName');  
-        const username = document.getElementById('username'); 
+        const fullName = document.getElementById('fullName');
         const email = document.getElementById('email');
         const password = document.getElementById('password');
         const confirmPassword = document.getElementById('confirmPassword');
@@ -337,9 +335,7 @@
 
         // Validation state tracker
         const validationState = {
-            firstName: false,
-            lastName: false,
-            username: false,
+            fullName: false,
             email: false,
             password: false,
             confirmPassword: false,
@@ -348,32 +344,12 @@
         };
 
         // Validation Functions
-        function validateFirstName() {
-            const value = firstName.value.trim();
+        function validateFullName() {
+            const value = fullName.value.trim();
             const isValid = value.length >= 2 && /^[a-zA-Z\s]+$/.test(value);
 
-            updateFieldValidation('firstName', isValid,
-                isValid ? '' : 'Please enter your first name (minimum 2 characters, letters only)');
-
-            return isValid;
-        }
-
-        function validateLastName() {
-            const value = lastName.value.trim();
-            const isValid = value.length >= 2 && /^[a-zA-Z\s]+$/.test(value);
-
-            updateFieldValidation('lastName', isValid,
-                isValid ? '' : 'Please enter your last name (minimum 2 characters, letters only)');
-
-            return isValid;
-        }
-
-        function validateUsername() {
-            const value = username.value.trim();
-            const isValid = value.length >= 3 && /^[a-zA-Z0-9_]+$/.test(value);
-
-            updateFieldValidation('username', isValid,
-                isValid ? '' : 'Username must be at least 3 characters (letters, numbers, underscore only)');
+            updateFieldValidation('fullName', isValid,
+                isValid ? '' : 'Please enter your full name (minimum 2 characters, letters only)');
 
             return isValid;
         }
@@ -543,14 +519,8 @@
         }
 
         // Event Listeners
-        firstName.addEventListener('input', validateFirstName);
-        firstName.addEventListener('blur', validateFirstName);
-
-        lastName.addEventListener('input', validateLastName);
-        lastName.addEventListener('blur', validateLastName);
-
-        username.addEventListener('input', validateUsername);
-        username.addEventListener('blur', validateUsername);
+        fullName.addEventListener('input', validateFullName);
+        fullName.addEventListener('blur', validateFullName);
 
         email.addEventListener('input', validateEmail);
         email.addEventListener('blur', validateEmail);
@@ -575,15 +545,13 @@
             e.preventDefault();
 
             // Validate all fields
-            const isValidForm = validateFirstName() &&
-                validateLastName() &&
-                validateUsername() &&
+            const isValidForm = validateFullName() &&
                 validateEmail() &&
                 validatePassword() &&
                 validateConfirmPassword() &&
                 validateGender() &&
-                validateState();  
-                  
+                validateState();
+
             if (isValidForm) {
                 // Show loading state
                 submitBtn.disabled = true;
