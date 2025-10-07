@@ -1,0 +1,287 @@
+/* --- 1. Global & Typography Reset --- */
+:root {
+    --primary-color: #C0392B; /* Richer, deeper red */
+    --secondary-color: #27AE60; /* Evergreen green */
+    --accent-color: #F1C40F; /* Golden yellow */
+    --background-light: #ECF0F1; /* Soft light gray */
+    --background-paper: #FFFFFF; /* Pure white for content cards */
+    --text-dark: #34495E; /* Dark charcoal for body text */
+    --text-light: #ECF0F1; /* Light text for dark backgrounds */
+    --shadow-subtle: 0 8px 20px rgba(0, 0, 0, 0.1); /* More pronounced, soft shadow */
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+    --border-radius-main: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--background-light) 0%, #DDE3E9 100%); /* Subtle gradient background */
+    color: var(--text-dark);
+    line-height: 1.7; /* Slightly more spacious line height */
+    font-size: 16px;
+    min-height: 100vh;
+}
+
+/* --- 2. Header and Title Styles --- */
+.page-header {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 40px 0;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 25px rgba(192, 57, 43, 0.4); /* Stronger header shadow */
+    text-align: center;
+    position: relative; /* For potential future flourishes */
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; /* Larger main title */
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Text shadow for 3D depth */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between text and icons */
+}
+
+h1 .subtitle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+h1 i {
+    font-size: 2.8rem;
+    color: var(--accent-color);
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin: 40px 0 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--accent-color); /* Thicker border */
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+h3 i {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+/* --- 3. Content and Layout --- */
+.content-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.info-section {
+    padding: 40px 30px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    background: var(--background-paper);
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+.info-section:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: var(--shadow-hover); /* Deeper shadow on hover */
+}
+
+.info-section.initial-section {
+    margin-top: -30px; /* Pull the first section slightly under the header */
+}
+
+p {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    padding: 0 10px;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.intro-paragraph {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    background: #FFF8E1; /* Light yellow background for highlight */
+    padding: 25px;
+    border-radius: var(--border-radius-main);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05); /* Inner shadow for depth */
+}
+
+.quote-card {
+    background: var(--secondary-color);
+    color: var(--text-light);
+    padding: 25px 35px;
+    margin: 35px 20px;
+    border-left: 6px solid var(--accent-color); /* Thicker accent border */
+    border-radius: var(--border-radius-main);
+    font-style: italic;
+    font-size: 1.25rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+.quote-card p {
+    color: var(--text-light);
+    padding: 0;
+    margin-bottom: 0;
+}
+
+
+/* --- 4. Image and Media Card Styling --- */
+.media-card {
+    background: var(--background-paper);
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--shadow-subtle);
+    overflow: hidden; /* Ensures image corners are rounded */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px; /* Space below card when not floating */
+}
+
+.media-card:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    box-shadow: var(--shadow-hover);
+}
+
+.main-image, .gallery-image {
+    width: 100%;
+    height: 280px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures image fills without distortion */
+    display: block;
+}
+
+.media-card-right {
+    float: right;
+    margin: 15px 0 25px 35px; /* Adjust spacing */
+    max-width: 450px; /* Slightly larger image cards */
+}
+
+.media-card-left {
+    float: left;
+    margin: 15px 35px 25px 0; /* Adjust spacing */
+    max-width: 450px; /* Slightly larger image cards */
+}
+
+.media-card .caption {
+    display: block;
+    padding: 12px 15px;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gallery for Cuisine */
+.food-gallery {
+    display: flex;
+    justify-content: center; /* Center the gallery items */
+    gap: 30px; /* More space between items */
+    margin: 40px 0;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.food-gallery .media-card {
+    flex: 1 1 400px; /* Flexible width, allows growth, min-width 400px */
+    max-width: 48%; /* Adjust for 2 columns, with gap */
+}
+
+.food-gallery .gallery-image {
+    height: 300px; /* Taller gallery images */
+}
+
+/* --- 5. Responsiveness --- */
+@media (max-width: 992px) {
+    .content-container {
+        padding: 0 15px;
+    }
+    h1 {
+        font-size: 3rem;
+        flex-direction: column; /* Stack icons and text on smaller screens */
+        gap: 10px;
+    }
+    h1 .subtitle {
+        font-size: 1.5rem;
+        margin-left: 0;
+    }
+    h1 i {
+        font-size: 2.2rem;
+    }
+    h3 {
+        font-size: 1.8rem;
+    }
+    .intro-paragraph {
+        font-size: 1.2rem;
+    }
+    .media-card-right, 
+    .media-card-left {
+        float: none;
+        margin: 25px auto; /* Center image cards vertically */
+        width: 90%;
+        max-width: 500px; /* Allow wider on medium screens */
+        display: block; 
+    }
+    .food-gallery .media-card {
+        max-width: 100%; /* Full width on smaller screens */
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-header {
+        padding: 30px 0;
+    }
+    h1 {
+        font-size: 2.2rem;
+        gap: 5px;
+    }
+    h1 .subtitle {
+        font-size: 1.1rem;
+    }
+    h1 i {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .intro-paragraph {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    p {
+        font-size: 0.95rem;
+        padding: 0 8px;
+    }
+    .quote-card {
+        font-size: 1.05rem;
+        margin: 25px 10px;
+        padding: 20px 25px;
+    }
+    .main-image, .gallery-image {
+        height: 220px;
+    }
+}
