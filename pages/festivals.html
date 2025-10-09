@@ -193,13 +193,11 @@
   window.addEventListener('scroll', check);
   window.addEventListener('resize', check);
   check();
-
   scrollBtn.addEventListener('click', () => {
     const scrollTop = window.scrollY;
     const windowHeight = window.innerHeight;
     const docHeight = document.body.scrollHeight;
     const threshold = updateThreshold();
-
     if (scrollTop < threshold) {
       window.scrollTo({ top: docHeight, behavior: 'smooth' });
     } else {
