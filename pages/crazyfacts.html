@@ -844,10 +844,53 @@
 
 <body>
   <!-- Navigation Bar Container -->
-  <div id="navbar-container">
+  <nav class="navbar mb-3">
+  <div class="nav-container">
+
+    <div class="nav-logo">
+      <h2><a href="index.html">Desh Darshan</a></h2>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="explore.html">Explore India</a></li>
+      <li><a href="festival-calendar.html">Festival Calendar</a></li>
+      <li><a href="crazyfacts.html">Crazy Facts</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-login">
+        <span>Login</span>
+        <i class="fas fa-sign-in-alt"></i>
+      </a>
+      <a href="signup.html" class="btn-signup">
+        <span>Signup</span>
+        <i class="fas fa-user-plus"></i>
+      </a>
+    </div>
 
   </div>
-  <div class="container-fluid">
+</nav>
+
+
+<script>
+function toggleMenu() {
+  document.querySelector('.nav-menu').classList.toggle('active');
+  document.querySelector('.nav-buttons').classList.toggle('active');
+}
+</script>
+
+  <div class="container-fluid" style="margin-top: 100px;">
     <h1 class="main-title">🎪 Crazy Facts 🎪</h1>
   </div>
   <div class="fact-container">

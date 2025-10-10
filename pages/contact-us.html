@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="stylesheet" href="../css/contact-us.css">
   <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
@@ -18,8 +26,56 @@
 </head>
 
 <body>
+
+  
+
+  
   <!-- Navigation Container -->
-  <div id="navbar-container"></div>
+     <nav class="navbar">
+  <div class="nav-container">
+
+    <div class="nav-logo">
+      <h2><a href="index.html">Desh Darshan</a></h2>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="explore.html">Explore India</a></li>
+      <li><a href="festival-calendar.html">Festival Calendar</a></li>
+      <li><a href="crazyfacts.html">Crazy Facts</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-login">
+        <span>Login</span>
+        <i class="fas fa-sign-in-alt"></i>
+      </a>
+      <a href="signup.html" class="btn-signup">
+        <span>Signup</span>
+        <i class="fas fa-user-plus"></i>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<script>
+function toggleMenu() {
+  document.querySelector('.nav-menu').classList.toggle('active');
+  document.querySelector('.nav-buttons').classList.toggle('active');
+}
+</script>
 
   <div class="main-content">
     <div class="container" style="margin-top: 30px;">

@@ -194,6 +194,34 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;

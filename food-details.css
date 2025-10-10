@@ -22,6 +22,8 @@ body::before {
   z-index: -1;
 }
 
+
+
 /* ✅ Improve container readability */
 .food-container {
   max-width: 800px;

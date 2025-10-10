@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Test - 1200px Breakpoint</title>
+    <link rel="stylesheet" href="css/navbar.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200vh; /* Make page scrollable */
+            background: linear-gradient(to bottom, #f0f0f0, #ddd);
+        }
+        .content {
+            padding: 100px 20px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Test Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html">Desh Darshan</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/explore.html">Explore India</a></li>
+                <li><a href="pages/festival-calendar.html">Festival Calendar</a></li>
+                <li><a href="pages/crazyfacts.html">Crazy Facts</a></li>
+                <li><a href="pages/feedback.html">Feedback</a></li>
+                <li><a href="pages/about-us.html">About Us</a></li>
+                <li><a href="pages/contact-us.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="pages/login.html" class="btn-login">
+                    <span>Login</span>
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+                <a href="pages/signup.html" class="btn-signup">
+                    <span>Signup</span>
+                    <i class="fas fa-user-plus"></i>
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Navbar Test Page - 1200px Breakpoint</h1>
+        <p>This page is designed to test the navbar responsiveness on different screen sizes.</p>
+        <p>Resize your browser window to test the navbar behavior:</p>
+        <ul>
+            <li>Large screens (above 1200px) - Full menu visible</li>
+            <li>Medium screens (768px - 1200px) - Hamburger menu appears</li>
+            <li>Small screens (below 768px) - Hamburger menu appears</li>
+        </ul>
+        <p>The hamburger menu now appears at 1200px width and below, preventing any shrinking or overlapping issues.</p>
+    </div>
+
+    <script>
+        // Hamburger functionality for testing
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navButtons = document.querySelector('.nav-buttons');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    navButtons.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        navButtons.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

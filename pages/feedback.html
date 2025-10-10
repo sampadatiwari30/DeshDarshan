@@ -8,11 +8,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/layout.css" />
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/feedback.css" />
-  <link rel="stylesheet" href="../css/navbar.css" />
+
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon/favicon-16x16.png">
@@ -25,37 +26,52 @@
 </head>
 
 <body>
-  <!-- Navigation -->
-  <!-- <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <h2>Desh Darshan</h2>
-        </div>
+  
+   <nav class="navbar">
+  <div class="nav-container">
 
-        
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <div class="nav-logo">
+      <h2><a href="index.html">Desh Darshan</a></h2>
+    </div>
 
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="home1.html">Home</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="crazyfacts.html">Crazy Facts</a></li>
-          <li><a href="explore.html">Explore India</a></li>
-          <li><a href="destination.html">Hidden Destinations</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-        </ul>
+    <!-- Hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-        <div class="nav-buttons">
-          <a href="contact-us.html"><span>Contact Us</span><i>→</i></a>
-          <a href="feedback.html"><span>Feedback</span><i>→</i></a>
-        </div>
-      </div>
-    </nav> -->
+    <ul class="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="explore.html">Explore India</a></li>
+      <li><a href="festival-calendar.html">Festival Calendar</a></li>
+      <li><a href="crazyfacts.html">Crazy Facts</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
 
-  <div id="navbar-container"></div>
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-login">
+        <span>Login</span>
+        <i class="fas fa-sign-in-alt"></i>
+      </a>
+      <a href="signup.html" class="btn-signup">
+        <span>Signup</span>
+        <i class="fas fa-user-plus"></i>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<script>
+function toggleMenu() {
+  document.querySelector('.nav-menu').classList.toggle('active');
+  document.querySelector('.nav-buttons').classList.toggle('active');
+}
+</script>
 
   <main class="main-content">
     <div class="container">
