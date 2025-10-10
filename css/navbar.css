@@ -382,3 +382,353 @@ html .navbar .nav-container {
       background-color: #ff9832;
       transform: scale(1.05);
     }
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLET & MOBILE
+   ============================================ */
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .nav-container {
+        padding: 0px 15px;
+    }
+
+    .nav-menu {
+        gap: 1.5rem !important;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.6rem;
+    }
+
+    .nav-buttons a {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.95rem;
+        min-width: 110px;
+    }
+}
+
+/* Tablet Portrait (768px to 900px) */
+@media (max-width: 900px) and (min-width: 769px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .navbar {
+        padding: 0.8rem 0 !important;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 1.2rem !important;
+        margin: 0 1rem !important;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .nav-buttons {
+        gap: 0.8rem !important;
+    }
+
+    .nav-buttons a {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+        min-width: 100px;
+    }
+
+    .back-btn {
+        left: 15px;
+        bottom: 20px;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile Landscape & Small Tablets (481px to 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    body.homepage {
+        padding-top: 70px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .navbar {
+        padding: 0.8rem 0 !important;
+    }
+
+    .nav-container {
+        padding: 0px 15px !important;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Mobile menu adjustments */
+    .nav-menu {
+        top: 70px;
+        padding: 1.5rem 0;
+        gap: 1.2rem !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-menu a {
+        font-size: 16px;
+        padding: 0.5rem 0;
+    }
+
+    /* Hamburger size adjustment */
+    .hamburger span {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    /* Back button adjustments */
+    .back-btn {
+        left: 15px;
+        bottom: 20px;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    /* Side menu adjustments */
+    .side-menu {
+        padding-top: 50px;
+    }
+
+    .side-menu a {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+
+    .close-btn {
+        font-size: 28px;
+        top: 10px;
+        right: 20px;
+    }
+}
+
+/* Mobile Portrait (320px to 480px) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 65px;
+    }
+
+    body.homepage {
+        padding-top: 65px;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .navbar {
+        padding: 0.7rem 0 !important;
+    }
+
+    .nav-container {
+        padding: 0px 12px !important;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Mobile menu for small screens */
+    .nav-menu {
+        top: 65px;
+        padding: 1.2rem 0;
+        gap: 1rem !important;
+    }
+
+    .nav-menu a {
+        font-size: 15px;
+        padding: 0.4rem 0;
+    }
+
+    /* Hamburger for small screens */
+    .hamburger span {
+        width: 20px;
+        height: 2px;
+        margin: 2.5px 0;
+    }
+
+    /* Back button for mobile */
+    .back-btn {
+        left: 10px;
+        bottom: 15px;
+        padding: 8px 14px;
+        font-size: 13px;
+        gap: 6px;
+    }
+
+    /* Side menu for small screens */
+    .side-menu {
+        padding-top: 45px;
+    }
+
+    .side-menu a {
+        font-size: 15px;
+        padding: 8px 18px;
+    }
+
+    .side-menu li {
+        margin: 12px 0;
+    }
+
+    .close-btn {
+        font-size: 26px;
+        top: 8px;
+        right: 18px;
+    }
+}
+
+/* Extra Small Mobile (320px and below) */
+@media (max-width: 320px) {
+    body {
+        padding-top: 60px;
+    }
+
+    body.homepage {
+        padding-top: 60px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .navbar {
+        padding: 0.6rem 0 !important;
+    }
+
+    .nav-container {
+        padding: 0px 10px !important;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.1rem;
+    }
+
+    .nav-menu {
+        top: 60px;
+        padding: 1rem 0;
+        gap: 0.8rem !important;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+    }
+
+    .hamburger span {
+        width: 18px;
+        height: 2px;
+    }
+
+    .back-btn {
+        left: 8px;
+        bottom: 12px;
+        padding: 7px 12px;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    .side-menu a {
+        font-size: 14px;
+        padding: 7px 15px;
+    }
+}
+
+/* Landscape Mode Fixes for Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .nav-menu {
+        padding: 1rem 0;
+        gap: 0.8rem !important;
+        overflow-y: auto;
+        max-height: calc(100vh - 70px);
+    }
+
+    .nav-menu a {
+        padding: 0.3rem 0;
+    }
+
+    .back-btn {
+        bottom: 10px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .side-menu {
+        overflow-y: auto;
+    }
+}
+
+/* Touch Device Hover Fixes */
+@media (hover: none) and (pointer: coarse) {
+    .nav-menu a:hover {
+        transform: none;
+    }
+
+    .nav-buttons a:hover {
+        transform: none;
+    }
+
+    .nav-buttons a:hover span {
+        transform: none;
+    }
+
+    .nav-buttons a:hover i {
+        opacity: 0;
+    }
+
+    .back-btn:hover {
+        transform: none;
+    }
+}
+
+/* High Resolution Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .navbar {
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Safe Area for Notched Devices (iPhone X, etc.) */
+@supports (padding: max(0px)) {
+    .navbar {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+
+    .back-btn {
+        left: max(20px, env(safe-area-inset-left));
+        bottom: max(30px, env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 480px) {
+    @supports (padding: max(0px)) {
+        .back-btn {
+            left: max(10px, calc(env(safe-area-inset-left) + 10px));
+            bottom: max(15px, calc(env(safe-area-inset-bottom) + 15px));
+        }
+    }
+}

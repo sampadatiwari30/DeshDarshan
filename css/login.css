@@ -649,3 +649,796 @@
 .home-button:hover img {
     transform: scale(1.1);
 }
+
+/* ============================================
+   RESPONSIVE DESIGN - MATCHING NAV CSS
+   ============================================ */
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+    body {
+        padding: 1.2rem;
+        padding-top: 90px;
+    }
+
+    .container {
+        max-width: 420px;
+    }
+
+    .login-container,
+    .welcome-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .brand-name {
+        font-size: 2.5rem;
+    }
+
+    .brand-tagline {
+        font-size: 1rem;
+    }
+
+    .cultural-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .login-title,
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .login-subtitle,
+    .welcome-message {
+        font-size: 0.95rem;
+    }
+
+    .home-button {
+        left: 30px;
+        top: 15px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .home-button img {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* Tablet Portrait (768px to 900px) */
+@media (max-width: 900px) and (min-width: 769px) {
+    body {
+        padding: 1rem;
+        padding-top: 85px;
+    }
+
+    .container {
+        max-width: 400px;
+    }
+
+    .login-container,
+    .welcome-card {
+        padding: 2.3rem 1.8rem;
+        border-radius: 18px;
+    }
+
+    .brand-name {
+        font-size: 2.3rem;
+        letter-spacing: 0.5px;
+    }
+
+    .brand-tagline {
+        font-size: 0.95rem;
+    }
+
+    .cultural-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .login-title,
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+
+    .form-input {
+        padding: 1rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .login-button,
+    .google-btn {
+        padding: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .home-button {
+        left: 25px;
+        top: 15px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .home-button img {
+        width: 21px;
+        height: 21px;
+    }
+
+    .welcome-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile Landscape & Small Tablets (481px to 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 0.8rem;
+        padding-top: 80px;
+        background-attachment: scroll;
+    }
+
+    body::after {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+        max-width: 380px;
+    }
+
+    .login-container,
+    .welcome-card {
+        padding: 2rem 1.6rem;
+        border-radius: 16px;
+        box-shadow:
+            0 20px 40px rgba(139, 69, 19, 0.3),
+            0 10px 25px rgba(160, 82, 45, 0.2);
+    }
+
+    .brand-header {
+        margin-bottom: 2rem;
+    }
+
+    .brand-name {
+        font-size: 2.2rem;
+        letter-spacing: 0.5px;
+    }
+
+    .brand-tagline {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .cultural-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .login-title,
+    .welcome-title {
+        font-size: 1.7rem;
+        margin: 1.2rem 0 0.5rem 0;
+    }
+
+    .login-subtitle,
+    .welcome-message {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.3rem;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-input {
+        padding: 0.95rem 1.1rem;
+        font-size: 0.95rem;
+        border-radius: 10px;
+    }
+
+    .login-button,
+    .google-btn {
+        padding: 1.1rem;
+        font-size: 0.95rem;
+        border-radius: 10px;
+    }
+
+    .google-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .divider {
+        margin: 10px 0;
+    }
+
+    .divider span {
+        font-size: 13px;
+    }
+
+    .forgot-password {
+        font-size: 0.85rem;
+    }
+
+    .signup-link {
+        font-size: 0.9rem;
+    }
+
+    .home-button {
+        left: 20px;
+        top: 15px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .home-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .welcome-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .explore-button,
+    .back-button {
+        padding: 0.9rem 2rem;
+        font-size: 0.95rem;
+        margin-right: 0.8rem;
+    }
+}
+
+/* Mobile Portrait (320px to 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0.6rem;
+        padding-top: 75px;
+        min-height: 100vh;
+        background-size: cover;
+    }
+
+    body::after {
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .login-container,
+    .welcome-card {
+        padding: 1.8rem 1.3rem;
+        border-radius: 14px;
+        box-shadow:
+            0 15px 35px rgba(139, 69, 19, 0.3),
+            0 8px 20px rgba(160, 82, 45, 0.2);
+    }
+
+    .login-container::before,
+    .welcome-card::before {
+        height: 3px;
+    }
+
+    .brand-header {
+        margin-bottom: 1.8rem;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+        letter-spacing: 0.3px;
+        margin-bottom: 0.6rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .cultural-subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+    }
+
+    .login-title,
+    .welcome-title {
+        font-size: 1.5rem;
+        margin: 1rem 0 0.4rem 0;
+    }
+
+    .login-subtitle,
+    .welcome-message {
+        font-size: 0.85rem;
+        margin-bottom: 1.3rem;
+        line-height: 1.5;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-input {
+        padding: 0.9rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+
+    .form-input:focus {
+        transform: none;
+    }
+
+    .login-button,
+    .google-btn {
+        padding: 1rem;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        letter-spacing: 0.3px;
+    }
+
+    .login-button:hover,
+    .google-btn:hover {
+        transform: none;
+    }
+
+    .google-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .divider {
+        margin: 8px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+        border-bottom: 0.5px solid #e0e0e0;
+    }
+
+    .divider span {
+        font-size: 12px;
+    }
+
+    .form-footer {
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .forgot-password {
+        font-size: 0.8rem;
+        padding: 0.2rem 0;
+    }
+
+    .signup-link {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .error-message {
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+    }
+
+    .home-button {
+        left: 15px;
+        top: 12px;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+    }
+
+    .home-button img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .welcome-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        border: 2px solid rgba(245, 230, 211, 0.3);
+    }
+
+    .explore-button,
+    .back-button {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .explore-button:hover,
+    .back-button:hover {
+        transform: none;
+    }
+
+    .login-button.loading::after {
+        width: 16px;
+        height: 16px;
+        right: 0.8rem;
+    }
+}
+
+/* Extra Small Mobile (320px and below) */
+@media (max-width: 320px) {
+    body {
+        padding: 0.5rem;
+        padding-top: 70px;
+    }
+
+    body::after {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .login-container,
+    .welcome-card {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        box-shadow:
+            0 12px 28px rgba(139, 69, 19, 0.3),
+            0 6px 16px rgba(160, 82, 45, 0.2);
+    }
+
+    .login-container::before,
+    .welcome-card::before {
+        height: 2px;
+    }
+
+    .brand-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .brand-name {
+        font-size: 1.8rem;
+        letter-spacing: 0.2px;
+        margin-bottom: 0.5rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .cultural-subtitle {
+        font-size: 0.65rem;
+    }
+
+    .login-title,
+    .welcome-title {
+        font-size: 1.4rem;
+        margin: 0.8rem 0 0.3rem 0;
+    }
+
+    .login-subtitle,
+    .welcome-message {
+        font-size: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-label {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .form-input {
+        padding: 0.8rem 0.9rem;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+
+    .login-button,
+    .google-btn {
+        padding: 0.9rem;
+        font-size: 0.85rem;
+        border-radius: 8px;
+        margin-bottom: 0.9rem;
+        letter-spacing: 0.2px;
+    }
+
+    .google-icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .divider {
+        margin: 6px 0;
+    }
+
+    .divider span {
+        font-size: 11px;
+    }
+
+    .forgot-password {
+        font-size: 0.75rem;
+    }
+
+    .signup-link {
+        font-size: 0.8rem;
+    }
+
+    .error-message {
+        font-size: 0.75rem;
+    }
+
+    .home-button {
+        left: 12px;
+        top: 10px;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
+
+    .home-button img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .welcome-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .explore-button,
+    .back-button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.85rem;
+        margin: 0.4rem 0;
+    }
+
+    .login-button.loading::after {
+        width: 14px;
+        height: 14px;
+        right: 0.6rem;
+    }
+}
+
+/* Landscape Mode Fixes for Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 0.5rem;
+        padding-top: 70px;
+        align-items: flex-start;
+    }
+
+    .container {
+        margin: 0.5rem auto;
+    }
+
+    .login-container,
+    .welcome-card {
+        padding: 1.2rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    .brand-header {
+        margin-bottom: 1rem;
+    }
+
+    .brand-name {
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .cultural-subtitle {
+        font-size: 0.7rem;
+    }
+
+    .login-title,
+    .welcome-title {
+        font-size: 1.4rem;
+        margin: 0.8rem 0 0.3rem 0;
+    }
+
+    .login-subtitle,
+    .welcome-message {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.8rem;
+    }
+
+    .form-input {
+        padding: 0.7rem 0.9rem;
+    }
+
+    .login-button,
+    .google-btn {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .form-footer {
+        margin-bottom: 0.6rem;
+    }
+
+    .welcome-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .explore-button,
+    .back-button {
+        padding: 0.7rem 1.5rem;
+    }
+
+    .home-button {
+        top: 8px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .home-button img {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Touch Device Hover Fixes */
+@media (hover: none) and (pointer: coarse) {
+    .login-button:hover,
+    .google-btn:hover {
+        transform: none;
+    }
+
+    .form-input:focus {
+        transform: none;
+    }
+
+    .explore-button:hover,
+    .back-button:hover {
+        transform: none;
+    }
+
+    .home-button:hover {
+        transform: none;
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .home-button:hover img {
+        transform: none;
+    }
+
+    .signup-link a:hover,
+    .forgot-password:hover {
+        text-decoration: none;
+    }
+}
+
+/* High Resolution Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .login-container,
+    .welcome-card {
+        border-width: 1px;
+    }
+
+    .login-container::before,
+    .welcome-card::before {
+        height: 3px;
+    }
+
+    .home-button {
+        border-width: 1.5px;
+    }
+}
+
+/* Safe Area for Notched Devices (iPhone X, etc.) */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-top: max(80px, calc(env(safe-area-inset-top) + 80px));
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+
+    .home-button {
+        left: max(40px, calc(env(safe-area-inset-left) + 20px));
+        top: max(20px, calc(env(safe-area-inset-top) + 20px));
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding-top: max(80px, calc(env(safe-area-inset-top) + 80px));
+        }
+
+        .home-button {
+            left: max(20px, calc(env(safe-area-inset-left) + 15px));
+            top: max(15px, calc(env(safe-area-inset-top) + 15px));
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding-top: max(75px, calc(env(safe-area-inset-top) + 75px));
+            padding-bottom: max(0.6rem, calc(env(safe-area-inset-bottom) + 0.6rem));
+        }
+
+        .home-button {
+            left: max(15px, calc(env(safe-area-inset-left) + 12px));
+            top: max(12px, calc(env(safe-area-inset-top) + 12px));
+        }
+
+        .explore-button,
+        .back-button {
+            padding-bottom: max(0.85rem, calc(env(safe-area-inset-bottom) + 0.5rem));
+        }
+    }
+
+    @media (max-width: 320px) {
+        body {
+            padding-top: max(70px, calc(env(safe-area-inset-top) + 70px));
+        }
+
+        .home-button {
+            left: max(12px, calc(env(safe-area-inset-left) + 10px));
+            top: max(10px, calc(env(safe-area-inset-top) + 10px));
+        }
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    body::after {
+        background: rgba(0, 0, 0, 0.65);
+    }
+
+    .login-container {
+        background: rgba(245, 230, 211, 0.98);
+    }
+
+    .form-input {
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .login-button::before,
+    .google-btn::before {
+        display: none;
+    }
+
+    .login-container.hide,
+    .welcome-card {
+        transition: none;
+    }
+}
