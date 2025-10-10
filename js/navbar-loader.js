@@ -46,37 +46,51 @@ function createSmartNavbar() {
             <div id="menu" class="side-menu">
                 <span class="close-btn" onclick="closemenu()">&times;</span>
                 <ul>
-                    <li><a href="${pathPrefix}index.html">Home</a></li>
-                    <li><a href="${pathPrefix}pages/explore.html">Explore India</a></li>
-                    <li><a href="${pathPrefix}pages/festival-calendar.html">Festival Calendar</a></li>
-                    <li><a href="${pathPrefix}pages/crazyfacts.html">Crazy Facts</a></li>
-                    <li><a href="${pathPrefix}pages/yoga.html">Yoga</a></li>                    
-                    <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
-                    <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
-                    <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/explore">Explore India</a></li>
+                    <li><a href="/festival-calendar">Festival Calendar</a></li>
+                    <li><a href="/quiz">Crazy Facts</a></li>
+                    <li><a href="/yoga">Yoga</a></li>                    
+                    <li><a href="/feedback">Feedback</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
             </div>
 
                 <div class="nav-logo">
                 
-                    <h2><a href="${pathPrefix}index.html">Desh Darshan</a></h2>
+                    <h2><a href="/">Desh Darshan</a></h2>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="${pathPrefix}pages/explore.html">Explore India</a></li>
-                    <li><a href="${pathPrefix}pages/festival-calendar.html">Festival Calendar</a></li>
-                    <li><a href="${pathPrefix}pages/feedback.html">Feedback</a></li>
-                    <li><a href="${pathPrefix}pages/about-us.html">About Us</a></li>
-                    <li><a href="${pathPrefix}pages/contact-us.html">Contact Us</a></li>
+                    <li><a href="/explore">Explore India</a></li>
+                    <li><a href="/festival-calendar">Festival Calendar</a></li>
+                    <li><a href="/feedback">Feedback</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
                 <div class="nav-buttons">
-                    <a href="${pathPrefix}pages/login.html" class="btn-login">
+                    <a href="/login" class="btn-login" id="loginBtn">
                         <span>Login</span>
                         <i class="fas fa-sign-in-alt"></i>
                     </a>
-                    <a href="${pathPrefix}pages/signup.html" class="btn-signup">
+                    <a href="/signup" class="btn-signup" id="signupBtn">
                         <span>Signup</span>
                         <i class="fas fa-user-plus"></i>
                     </a>
+                    
+                    <!-- User menu (shown when logged in) -->
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-info">
+                            <span id="userName">User</span>
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="user-dropdown">
+                            <a href="#" onclick="handleLogout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
