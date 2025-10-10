@@ -148,7 +148,8 @@
             font-weight: bold;
         }
 
-
+</style>
+</head>
 <body class="bg-gray-100">
 
     <!-- Navigation Bar -->
@@ -301,5 +302,13 @@
         });
 
 
+    if (scrollTop < threshold) {
+      window.scrollTo({ top: docHeight, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    </script>
+
+  <script src="/js/tajmahal.js"></script>
 </body>
 </html>
