@@ -1,165 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taj Mahal - Heritage of India</title>
-  <link rel="stylesheet" href="/css/tajmahal.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taj Mahal - DeshDarshan</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 80px; /* Space for fixed navbar */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo h2 {
+            color: #ff9933;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-menu a:hover {
+            color: #ff9933;
+        }
+        .nav-buttons a {
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background-color: #ff9933;
+            color: white;
+            text-decoration: none;
+        }
+        .nav-buttons a:hover {
+            background-color: #e68a00;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            .nav-buttons {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        /* Page-specific Styles */
+         .section-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 3px solid #ff9933;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .details-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .details-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+</style>
 </head>
-<body>
-  <header class="header">
-    <div class="container">
-      <h1 class="page-title">Taj Mahal</h1>
-      <nav class="navigation">
-        <a href="/index.html">Home</a>
-        <a href="/index.html#heritage-section">Back to Heritage</a>
-      </nav>
-    </div>
-  </header>
+<body class="bg-gray-100">
 
-  <main>
-    <!-- Introduction Section -->
-    <section class="taj-intro container">
-      <img src="/assets/images/heritage/tajmahal.png" alt="Taj Mahal" class="taj-image" />
-      <p class="intro-text">
-        The <strong>Taj Mahal</strong>, located in Agra, Uttar Pradesh, is one of the most iconic monuments in the world. 
-        Commissioned in 1632 by the Mughal Emperor <em>Shah Jahan</em> in memory of his wife <em>Mumtaz Mahal</em>, 
-        it stands as a symbol of eternal love. Recognized as a UNESCO World Heritage Site, the Taj Mahal 
-        is considered one of the finest examples of Mughal architecture.
-      </p>
-    </section>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="#">Desh Darshan</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#">Explore India</a></li>
+                <li><a href="#">Festival Calendar</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#">Login</a>
+                <a href="#">Signup</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-    <!-- History Section -->
-    <section class="taj-section container">
-      <h2>Historical Background</h2>
-      <p>
-        Construction began in 1632 and continued for over two decades. The principal mausoleum was completed in 1648, 
-        while the surrounding structures and gardens were finished in 1653. More than 20,000 artisans and craftsmen 
-        worked under the guidance of chief architect Ustad Ahmad Lahauri.
-      </p>
-    </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[70vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center p-4">
+                <h1 class="text-4xl md:text-6xl font-bold" style="font-family: 'Cinzel', serif;" data-aos="fade-down">Taj Mahal</h1>
+                <p class="text-lg mt-2 max-w-2xl" data-aos="fade-up" data-aos-delay="200">An eternal monument of love, recognized as one of the wonders of the world.</p>
+            </div>
+        </section>
+        
+        <div class="container mx-auto px-4 py-16">
+             <!-- Overview Section -->
+            <section class="flex flex-col md:flex-row gap-12 items-center mb-16" data-aos="fade-up">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop" alt="Close-up of the Taj Mahal" class="rounded-lg shadow-2xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl section-title">Symbol of Eternal Love</h2>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        The <strong>Taj Mahal</strong>, located in Agra, is one of the most iconic monuments in the world. 
+                        Commissioned in 1632 by the Mughal Emperor <em>Shah Jahan</em> in memory of his wife <em>Mumtaz Mahal</em>, 
+                        it stands as a testament to undying love. Recognized as a UNESCO World Heritage Site, the Taj Mahal 
+                        is considered one of the finest examples of Mughal architecture.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Details Grid -->
+            <section class="grid md:grid-cols-2 gap-12" data-aos="fade-up">
+                <!-- Historical Background -->
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl section-title">Historical Background</h3>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        Construction began in 1632 and continued for over two decades. The principal mausoleum was completed in 1648, 
+                        while the surrounding structures and gardens were finished in 1653. More than 20,000 artisans and craftsmen 
+                        worked under the guidance of chief architect Ustad Ahmad Lahauri.
+                    </p>
+                </div>
 
-    <!-- Architecture Section -->
-    <section class="taj-section container">
-      <h2>Architectural Significance</h2>
-      <ul class="details-list">
-        <li>The structure combines elements of Persian, Islamic, and Indian architectural styles.</li>
-        <li>The central dome rises to approximately 73 meters and is flanked by four minarets.</li>
-        <li>Intricate pietra dura (stone inlay) work with semi-precious stones decorates the marble surfaces.</li>
-        <li>The symmetry and proportion of the monument highlight Mughal mastery of design.</li>
-      </ul>
-    </section>
+                <!-- Architectural Significance -->
+                 <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl section-title">Architecture</h3>
+                    <ul class="details-list text-gray-600 leading-relaxed mt-4">
+                        <li>Combines elements of Persian, Islamic, and Indian styles.</li>
+                        <li>The central dome rises to 73 meters and is flanked by four minarets.</li>
+                        <li>Intricate pietra dura (stone inlay) with semi-precious stones decorates the surfaces.</li>
+                        <li>The monument's perfect symmetry is a hallmark of Mughal design mastery.</li>
+                    </ul>
+                </div>
+            </section>
 
-    <!-- Visitor Information -->
-    <section class="taj-section container">
-      <h2>Visitor Information</h2>
-      <ul class="details-list">
-        <li><strong>Location:</strong> Agra, Uttar Pradesh, India</li>
-        <li><strong>Best Time to Visit:</strong> October to March</li>
-        <li><strong>Visiting Hours:</strong> 6:00 AM – 7:00 PM (Closed on Fridays)</li>
-        <li><strong>Entry Fee:</strong> ₹50 (Indians), ₹1,100 (Foreign Nationals)</li>
-      </ul>
-    </section>
+             <!-- Visitor Information -->
+            <section class="py-16" data-aos="fade-up">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl md:text-4xl section-title mb-10">Visitor Information</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <i class="fas fa-map-marker-alt text-3xl text-orange-500 mb-3"></i>
+                            <h4 class="font-bold text-lg">Location</h4>
+                            <p class="text-gray-600">Agra, Uttar Pradesh</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                             <i class="fas fa-calendar-check text-3xl text-orange-500 mb-3"></i>
+                            <h4 class="font-bold text-lg">Best Time to Visit</h4>
+                            <p class="text-gray-600">October to March</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                             <i class="fas fa-clock text-3xl text-orange-500 mb-3"></i>
+                            <h4 class="font-bold text-lg">Visiting Hours</h4>
+                            <p class="text-gray-600">6 AM – 7 PM (Closed Fridays)</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <i class="fas fa-ticket-alt text-3xl text-orange-500 mb-3"></i>
+                            <h4 class="font-bold text-lg">Entry Fee</h4>
+                            <p class="text-gray-600">₹50 (Indians), ₹1,100 (Foreigners)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-    <!-- Interactive Fact -->
-    <section class="taj-section container fact-section">
-      <h2>Did You Know?</h2>
-      <button id="show-fact">Reveal a Historical Fact</button>
-      <p id="fact-box" class="fact-box"></p>
-    </section>
-  </main>
+     <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-section">
+                <h3 class="footer-section-title">Desh Darshan</h3>
+                <p>Your gateway to the vibrant and diverse culture of India. We aim to introduce the world to India's rich heritage.</p>
+                <div class="footer-logo">Desh Darshan</div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul>
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Explore India</a></li>
+                    <li><a href="#" class="footer-link">Feedback</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-section-title">Follow Us</h3>
+                <div class="social-icons-container">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-section">
+            &copy; <span id="year"></span> Desh Darshan. All rights reserved.
+        </div>
+    </footer>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 Heritage of India | Taj Mahal</p>
-    </div>
-  </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
 
-  <script>
-            // Chatbase loader (kept)
-    (function () {
-      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-        window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = []; } window.chatbase.q.push(arguments); };
-        window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } });
-      }
-      const onLoad = function () {
-        const script = document.createElement("script");
-        script.src = "https://www.chatbase.co/embed.min.js";
-        script.id = "eaZ3BLaEp3NWiit_Vn0fK";
-        document.body.appendChild(script);
-      };
-      if (document.readyState === "complete") { onLoad(); } else { window.addEventListener("load", onLoad); }
-    })();
-    </script>
-
- <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!--scroll to top and bottom -->
-<button id="smartScrollBtn"
-          class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
-                 w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
-                 transition-all duration-300 hover:scale-110 z-50"
-          aria-label="Scroll">
-    <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" clip-rule="evenodd"/>
-    </svg>
-</button>
-
-<script>(function () {
-  const scrollBtn = document.getElementById('smartScrollBtn');
-  const scrollIcon = document.getElementById('scrollIcon');
-  if (!scrollBtn || !scrollIcon) return;
-
-  const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
-
-  const setIcon = (direction) => {
-    if (direction === 'down') {
-      // ↓ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
-    } else {
-      // ↑ icon path
-      scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
-      scrollBtn.setAttribute('aria-label', 'Scroll to top');
-    }
-  };
-
-  const check = () => {
-    const threshold = updateThreshold();
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
-
-    if (scrollTop < threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('down');
-    } else if (windowHeight + scrollTop >= docHeight - threshold) {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    } else {
-      scrollBtn.classList.add('show');
-      setIcon('up');
-    }
-  };
-
-  window.addEventListener('scroll', check);
-  window.addEventListener('resize', check);
-  check();
-
-  scrollBtn.addEventListener('click', () => {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
-    const threshold = updateThreshold();
 
     if (scrollTop < threshold) {
       window.scrollTo({ top: docHeight, behavior: 'smooth' });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  });
-})();</script>
+    </script>
 
   <script src="/js/tajmahal.js"></script>
 </body>

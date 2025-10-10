@@ -83,27 +83,27 @@
             z-index: -1;
         }
 
-        
+
         .rule {
-      right: 0;
-      font-size: 12px;
+            right: 0;
+            font-size: 12px;
       display: none;  /* hidden until needed */
-    }
+        }
 
-    .error {
-      color: red;
-    font-size: 0.9em;
-    margin-top: 0.4rem;
-    font-weight: 500;
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 0.4rem;
+            font-weight: 500;
 
-    }
+        }
 
-    .success {
-      color: green;
-      font-size: 0.9em;
-      margin-top: 0.4rem;
-    font-weight: 500;
-    }
+        .success {
+            color: green;
+            font-size: 0.9em;
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
 
         /* #passwordChecklist li {
     color: red !important;   
@@ -119,13 +119,64 @@
         .error-text {
             color: red;
             font-size: 0.9em;
-        } 
+        }
+
+        .password-strength {
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(245, 230, 211, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+        }
+
+        .strength-meter {
+            height: 8px;
+            background: rgba(139, 69, 19, 0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .strength-text {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #654321;
+            text-align: center;
+        }
+
+        .password-requirements {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .password-requirements li {
+            margin: 6px 0;
+            color: #654321;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .req-icon {
+            font-size: 14px;
+            min-width: 20px;
+        }
     </style>
-  </head>
+</head>
 
 <body>
 
-  
+
     <!-- ===== MAIN CONTAINER ===== -->
     <div class="container">
         <!-- ===== SIGNUP FORM ===== -->
@@ -178,34 +229,46 @@
 
 
                 <!-- Password Field -->
-<div class="form-group">
-    <label class="form-label" for="password">Password</label>
-    <div class="password-wrapper" style="position: relative;">
-        <input type="password" id="password" name="password" class="form-input"
-            placeholder="Create a password" required>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="password-wrapper" style="position: relative;">
+                        <input type="password" id="password" name="password" class="form-input"
+                            placeholder="Create a password" required>
         <button type="button" class="togglePassword"
                 style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
                        border: none; background: none; cursor: pointer; font-size: 1.5rem; padding: 2px 4px;">
-            👁
-        </button>
-    </div>
-    <div id="rule" class="rule"></div>
-</div>
+                            👁
+                        </button>
+                    </div>
+                    <div id="passwordStrength" class="password-strength" style="display: none;">
+                        <div class="strength-meter">
+                            <div class="strength-bar" id="strengthBar"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">Password Strength</div>
+                        <ul class="password-requirements">
+                            <li id="req-length"><span class="req-icon">❌</span> At least 8 characters</li>
+                            <li id="req-upper"><span class="req-icon">❌</span> At least 1 uppercase letter</li>
+                            <li id="req-lower"><span class="req-icon">❌</span> At least 1 lowercase letter</li>
+                            <li id="req-number"><span class="req-icon">❌</span> At least 1 number</li>
+                            <li id="req-special"><span class="req-icon">❌</span> At least 1 special character</li>
+                        </ul>
+                    </div>
+                </div>
 
-<!-- Confirm Password Field -->
-<div class="form-group">
-    <label class="form-label" for="confirmPassword">Confirm Password</label>
-    <div class="password-wrapper" style="position: relative;">
-        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
-            placeholder="Confirm your password" required>
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">Confirm Password</label>
+                    <div class="password-wrapper" style="position: relative;">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input"
+                            placeholder="Confirm your password" required>
         <button type="button" class="togglePassword"
                 style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
                        border: none; background: none; cursor: pointer; font-size: 1.5rem; padding: 2px 4px;">
-            👁
-        </button>
-    </div>
-    <div class="error-text" id="confirmPasswordError"></div>
-</div>
+                            👁
+                        </button>
+                    </div>
+                    <div class="error-text" id="confirmPasswordError"></div>
+                </div>
 
                 <!-- Gender Field -->
                 <div class="form-group">
@@ -277,7 +340,7 @@
                 <div class="error-message" id="signupError" style="display: none; color: red; text-align: center; margin: 1rem 0;"></div>
                 <div class="success-message" id="signupSuccess" style="display: none; color: green; text-align: center; margin: 1rem 0;"></div>
 
-                
+
                 <!-- Submit Button -->
                 <button type="submit" class="signup-button" id="submitBtn">Begin Your Journey</button>
 
@@ -288,25 +351,25 @@
             </form>
         </div>
     </div>
-<script>
+    <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eaZ3BLaEp3NWiit_Vn0fK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    </script>
     <!-- ===== FIELD VALIDATIONS ===== -->
     <script>
         // Get form elements
         const form = document.getElementById('signupForm');
         const submitBtn = document.getElementById('submitBtn');
         const passwordInput = document.getElementById("password");
-        const ruleEl = document.getElementById("rule");
+        // const ruleEl = document.getElementById("rule");
 
         // Rules in order
-            const rules = [
-            { text: "At least 8 characters", test: v => v.length >= 8 },
-            { text: "At least 1 uppercase letter", test: v => /[A-Z]/.test(v) },
-            { text: "At least 1 lowercase letter", test: v => /[a-z]/.test(v) },
-            { text: "At least 1 number", test: v => /[0-9]/.test(v) },
-            { text: "At least 1 special character", test: v => /[^A-Za-z0-9]/.test(v) },
-            ];
+        // const rules = [
+        //     { text: "At least 8 characters", test: v => v.length >= 8 },
+        //     { text: "At least 1 uppercase letter", test: v => /[A-Z]/.test(v) },
+        //     { text: "At least 1 lowercase letter", test: v => /[a-z]/.test(v) },
+        //     { text: "At least 1 number", test: v => /[0-9]/.test(v) },
+        //     { text: "At least 1 special character", test: v => /[^A-Za-z0-9]/.test(v) },
+        // ];
 
         //Password checklist elements
         // const checkLength = document.getElementById('checkLength');
@@ -316,26 +379,26 @@
         // const checkSpecial = document.getElementById('checkSpecial');
 
         document.querySelectorAll('.togglePassword').forEach(button => {
-    button.addEventListener('click', () => {
-        const input = button.previousElementSibling; // the input field
-        const type = input.type === 'password' ? 'text' : 'password';
-        input.type = type;
-        // Optional: change icon
-        button.textContent = type === 'password' ? '👁' : '🙈';
-    });
-});
+            button.addEventListener('click', () => {
+                const input = button.previousElementSibling; // the input field
+                const type = input.type === 'password' ? 'text' : 'password';
+                input.type = type;
+                // Optional: change icon
+                button.textContent = type === 'password' ? '👁' : '🙈';
+            });
+        });
         // Get all input fields
-        const fullName = document.getElementById('fullName');
+        // const fullName = document.getElementById('fullName');
         const email = document.getElementById('email');
         const password = document.getElementById('password');
         const confirmPassword = document.getElementById('confirmPassword');
         const genderInputs = document.querySelectorAll('input[name="gender"]');
         const state = document.getElementById('state');
-        const passwordError = document.getElementById('passwordError');
+        // const passwordError = document.getElementById('passwordError');
 
         // Validation state tracker
         const validationState = {
-            fullName: false,
+            // fullName: false,
             email: false,
             password: false,
             confirmPassword: false,
@@ -344,15 +407,15 @@
         };
 
         // Validation Functions
-        function validateFullName() {
-            const value = fullName.value.trim();
-            const isValid = value.length >= 2 && /^[a-zA-Z\s]+$/.test(value);
+        // function validateFullName() {
+        //     const value = fullName.value.trim();
+        //     const isValid = value.length >= 2 && /^[a-zA-Z\s]+$/.test(value);
 
-            updateFieldValidation('fullName', isValid,
-                isValid ? '' : 'Please enter your full name (minimum 2 characters, letters only)');
+        //     updateFieldValidation('fullName', isValid,
+        //         isValid ? '' : 'Please enter your full name (minimum 2 characters, letters only)');
 
-            return isValid;
-        }
+        //     return isValid;
+        // }
 
         function validateEmail() {
             const value = email.value.trim();
@@ -365,76 +428,115 @@
             return isValid;
         }
 
-         function checkRules(value) {
-      // find the first failing rule
-            const failingRule = rules.find(r => !r.test(value));
+        function checkPasswordStrength(value) {
+            const strengthContainer = document.getElementById('passwordStrength');
+            const strengthBar = document.getElementById('strengthBar');
+            const strengthText = document.getElementById('strengthText');
 
-            if (failingRule) {
-                let errormesage= failingRule.text;
-                ruleEl.textContent = errormesage;
-                ruleEl.className = "error";
-                ruleEl.style.display = "block";
-                passwordInput.style.backgroundColor = "rgba(205, 92, 92, 0.05)";
-                passwordInput.style.borderColor = "rgba(205, 92, 92, 0.8)";
-                validationState.password = false;
-
-            } else if (value.length > 0) {
-                ruleEl.textContent = "✅ Good to go!";
-                ruleEl.className = "rule success";
-                ruleEl.style.display = "block";
-                passwordInput.style.backgroundColor = "rgba(144, 238, 144, 0.05)";
-                passwordInput.style.borderColor = "#228B22";
-                validationState.password = true;
-
+            // Show container when user starts typing
+            if (value.length > 0) {
+                strengthContainer.style.display = 'block';
             } else {
-                ruleEl.style.display = "none";
+                strengthContainer.style.display = 'none';
                 validationState.password = false;
+                updateSubmitButton();
+                return;
+            }
+
+            // Define requirements with their IDs
+            const requirements = [
+                { id: 'req-length', test: v => v.length >= 8 },
+                { id: 'req-upper', test: v => /[A-Z]/.test(v) },
+                { id: 'req-lower', test: v => /[a-z]/.test(v) },
+                { id: 'req-number', test: v => /[0-9]/.test(v) },
+                { id: 'req-special', test: v => /[^A-Za-z0-9]/.test(v) }
+            ];
+
+            let passedCount = 0;
+
+            // Check each requirement and update UI
+            requirements.forEach(req => {
+                const el = document.getElementById(req.id);
+                const icon = el.querySelector('.req-icon');
+                const passed = req.test(value);
+
+                if (passed) {
+                    icon.textContent = '✅';
+                    el.style.color = '#228B22';
+                    passedCount++;
+                } else {
+                    icon.textContent = '❌';
+                    el.style.color = '#CD5C5C';
+                }
+            });
+
+            // Calculate strength percentage
+            const percentage = (passedCount / 5) * 100;
+            strengthBar.style.width = percentage + '%';
+
+            // Update strength indicator
+            if (passedCount <= 2) {
+                strengthBar.style.backgroundColor = '#CD5C5C';
+                strengthText.textContent = '🔴 Weak Password';
+                strengthText.style.color = '#CD5C5C';
+                passwordInput.style.borderColor = 'rgba(205, 92, 92, 0.8)';
+                validationState.password = false;
+            } else if (passedCount <= 4) {
+                strengthBar.style.backgroundColor = '#FFA500';
+                strengthText.textContent = '🟡 Medium Password';
+                strengthText.style.color = '#FFA500';
+                passwordInput.style.borderColor = 'rgba(255, 165, 0, 0.8)';
+                validationState.password = false;
+            } else {
+                strengthBar.style.backgroundColor = '#228B22';
+                strengthText.textContent = '🟢 Strong Password';
+                strengthText.style.color = '#228B22';
+                passwordInput.style.borderColor = '#228B22';
+                validationState.password = true;
             }
 
             updateSubmitButton();
-
         }
+        passwordInput.addEventListener("input", () => {
+            checkPasswordStrength(passwordInput.value);
+        });
 
-            passwordInput.addEventListener("input", () => {
-            checkRules(passwordInput.value);
-            });
+        passwordInput.addEventListener("focus", () => {
+            checkPasswordStrength(passwordInput.value);
+        });
 
-            passwordInput.addEventListener("focus", () => {
-            checkRules(passwordInput.value);
-            });
-            
             confirmPassword.addEventListener("input",()=>{
-                validateConfirmPassword();
-            })
-            
+            validateConfirmPassword();
+        })
 
-        function validatePassword() {
-            const value = password.value;
-            const minLength = value.length >= 8;
-            const hasUpper = /[A-Z]/.test(value);
-            const hasLower = /[a-z]/.test(value);
-            const hasNumber = /\d/.test(value);
-            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
 
-            // Update checklist colors
-            // checkLength.classList.toggle("valid", minLength);
-            // checkUpper.classList.toggle("valid", hasUpper);
-            // checkLower.classList.toggle("valid", hasLower);
-            // checkNumber.classList.toggle("valid", hasNumber);
-            // checkSpecial.classList.toggle("valid", hasSpecial);
+        // function validatePassword() {
+        //     const value = password.value;
+        //     const minLength = value.length >= 8;
+        //     const hasUpper = /[A-Z]/.test(value);
+        //     const hasLower = /[a-z]/.test(value);
+        //     const hasNumber = /\d/.test(value);
+        //     const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
 
-            const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
-            // passwordError.textContent = isValid ? "" : "Password does not meet all requirements";
+        //     // Update checklist colors
+        //     // checkLength.classList.toggle("valid", minLength);
+        //     // checkUpper.classList.toggle("valid", hasUpper);
+        //     // checkLower.classList.toggle("valid", hasLower);
+        //     // checkNumber.classList.toggle("valid", hasNumber);
+        //     // checkSpecial.classList.toggle("valid", hasSpecial);
 
-            // Also validate confirm password when password changes
-            if (confirmPassword.value) {
-                validateConfirmPassword();
-            }
+        //     const isValid = minLength && hasUpper && hasLower && hasNumber && hasSpecial;
+        //     // passwordError.textContent = isValid ? "" : "Password does not meet all requirements";
 
-            updateFieldValidation('password', isValid, isValid ? '' : 'Password does not meet all requirements');
+        //     // Also validate confirm password when password changes
+        //     if (confirmPassword.value) {
+        //         validateConfirmPassword();
+        //     }
 
-            return isValid;
-        }
+        //     updateFieldValidation('password', isValid, isValid ? '' : 'Password does not meet all requirements');
+
+        //     return isValid;
+        // }
 
         function validateConfirmPassword() {
             const value = confirmPassword.value;
@@ -519,8 +621,8 @@
         }
 
         // Event Listeners
-        fullName.addEventListener('input', validateFullName);
-        fullName.addEventListener('blur', validateFullName);
+        // fullName.addEventListener('input', validateFullName);
+        // fullName.addEventListener('blur', validateFullName);
 
         email.addEventListener('input', validateEmail);
         email.addEventListener('blur', validateEmail);
@@ -528,8 +630,11 @@
         //phone.addEventListener('input', validatePhone);
         //phone.addEventListener('blur', validatePhone);
 
-        password.addEventListener('input', validatePassword);
-        password.addEventListener('blur', validatePassword);
+        // password.addEventListener('input', validatePassword);
+        // password.addEventListener('blur', validatePassword);
+
+        password.addEventListener('input', () => checkPasswordStrength(password.value));
+        password.addEventListener('blur', () => checkPasswordStrength(password.value));
 
         confirmPassword.addEventListener('input', validateConfirmPassword);
         confirmPassword.addEventListener('blur', validateConfirmPassword);
@@ -545,9 +650,16 @@
             e.preventDefault();
 
             // Validate all fields
-            const isValidForm = validateFullName() &&
+            // const isValidForm = validateFullName() &&
+            //     validateEmail() &&
+            //     validationState.password && 
+            //     validateConfirmPassword() &&
+            //     validateGender() &&
+            //     validateState();
+
+            const isValidForm =
                 validateEmail() &&
-                validatePassword() &&
+                validationState.password && 
                 validateConfirmPassword() &&
                 validateGender() &&
                 validateState();
@@ -625,7 +737,7 @@
                         error.textContent = '';
                     });
 
-                        // Hide home button after successful registration
+                    // Hide home button after successful registration
                     const homeButton = document.querySelector('.home-button');
                     if (homeButton) {
                         homeButton.style.display = 'none';
@@ -712,20 +824,20 @@
             }, 100);
         });
 
-        // Password strength indicator (optional enhancement)
-        function updatePasswordStrength() {
-            const value = password.value;
-            const strengthIndicators = {
-                weak: value.length >= 6,
-                medium: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value),
-                strong: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /\d/.test(value) && /[!@#$%^&*(),.?":{}|<>]/.test(value)
-            };
+        // // Password strength indicator (optional enhancement)
+        // function updatePasswordStrength() {
+        //     const value = password.value;
+        //     const strengthIndicators = {
+        //         weak: value.length >= 6,
+        //         medium: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value),
+        //         strong: value.length >= 8 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /\d/.test(value) && /[!@#$%^&*(),.?":{}|<>]/.test(value)
+        //     };
 
-            // You can add visual strength indicator here if needed
-        }
+        //     // You can add visual strength indicator here if needed
+        // }
 
-        // Add real-time password strength checking
-        password.addEventListener('input', updatePasswordStrength);
+        // // Add real-time password strength checking
+        // password.addEventListener('input', updatePasswordStrength);
     </script>
 
 </body>

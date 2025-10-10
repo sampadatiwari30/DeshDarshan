@@ -29,6 +29,9 @@ header h1 {
 /* Main Content */
 main {
   padding: 2rem 10%;
+  justify-content: center;
+  text-align: center;
+  margin:1rem,
 }
 
 /* Sections */
