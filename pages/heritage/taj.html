@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taj Mahal - DeshDarshan</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taj Mahal - Heritage of India</title>
+  <link rel="stylesheet" href="/css/tajmahal.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="page-title">Taj Mahal</h1>
+      <nav class="navigation">
+        <a href="/index.html">Home</a>
+        <a href="/index.html#heritage-section">Back to Heritage</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <main>
+    <!-- Introduction Section -->
+    <section class="taj-intro container">
+      <img src="/assets/images/heritage/tajmahal.png" alt="Taj Mahal" class="taj-image" />
+      <p class="intro-text">
+        The <strong>Taj Mahal</strong>, located in Agra, Uttar Pradesh, is one of the most iconic monuments in the world. 
+        Commissioned in 1632 by the Mughal Emperor <em>Shah Jahan</em> in memory of his wife <em>Mumtaz Mahal</em>, 
+        it stands as a symbol of eternal love. Recognized as a UNESCO World Heritage Site, the Taj Mahal 
+        is considered one of the finest examples of Mughal architecture.
+      </p>
+    </section>
 
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -147,7 +160,8 @@
             color: #ff9933;
             font-weight: bold;
         }
-
+</style>
+</head>
 
 <body class="bg-gray-100">
 
@@ -301,5 +315,13 @@
         });
 
 
+    if (scrollTop < threshold) {
+      window.scrollTo({ top: docHeight, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    </script>
+
+  <script src="/js/tajmahal.js"></script>
 </body>
 </html>
