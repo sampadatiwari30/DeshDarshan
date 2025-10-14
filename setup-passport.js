@@ -40,3 +40,5 @@ console.log('- Session Secret: deshdarshan-super-secret-session-key-2024');
 console.log('\n🔐 Test the authentication:');
 console.log('- Signup: http://localhost:3000/pages/signup.html');
 console.log('- Login: http://localhost:3000/pages/login.html');
+
+

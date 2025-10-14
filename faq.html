@@ -1,223 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ - DeshDarshan</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQ — DeshDarshan (Polished)</title>
 
-      body {
-        display: flex;
-        height: 100vh;
-        flex-direction: row;
-      }
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
 
-      /* Left side */
-      .faq-left {
-        background: #fea517;
-        color: #fff;
-        width: 35%;
-        padding: 80px 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
+  <style>
+    /* ---------- Reset & variables ---------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --saffron:#ff9b33;
+      --saffron-600:#e88b2a;
+      --indigo:#082047;
+      --muted:#616973;
+      --bg:#fbfcfe;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.7);
+      --shadow: 0 12px 30px rgba(6,18,43,0.08);
+      --focus: 4px;
+      --radius:14px;
+      --maxw:1180px;
+      --ui-contrast: #0f1724;
+    }
+    html,body{height:100%}
+    body{
+      font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(800px 300px at 8% 8%, rgba(255,155,51,0.04), transparent 8%),
+        radial-gradient(700px 240px at 92% 92%, rgba(22,97,63,0.02), transparent 6%),
+        var(--bg);
+      color:var(--ui-contrast);
+      display:flex;
+      justify-content:center;
+      padding:36px;
+    }
 
-      .faq-left h1 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        font-weight: bold;
-      }
+    /* ---------- Layout ---------- */
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+    @media(max-width:980px){ .wrap{grid-template-columns:1fr} .left{order:2} }
 
-      .faq-left p {
-        font-size: 16px;
-        line-height: 1.5;
-      }
+    /* ---------- Left Panel (branding) ---------- */
+    .left{
+      background:linear-gradient(180deg,var(--saffron),#ffc07a);
+      color:#fff;padding:36px;border-radius:var(--radius);box-shadow:var(--shadow);
+      display:flex;flex-direction:column;gap:14px;min-height:240px;
+    }
+    .brand{
+      display:flex;gap:12px;align-items:center;
+    }
+    .logo{
+      width:60px;height:60px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--saffron-600);
+      background:linear-gradient(180deg,#fff3d8,#fff7ea);font-size:20px;box-shadow:0 8px 20px rgba(0,0,0,0.06)
+    }
+    .left h1{font-size:1.45rem;line-height:1.1}
+    .left p{opacity:.95;font-size:.95rem;line-height:1.5}
+    .hint{margin-top:auto;display:flex;gap:10px;align-items:center;color:rgba(255,255,255,0.92)}
+    .kbd{background:rgba(255,255,255,0.15);padding:6px 8px;border-radius:8px;font-weight:700}
 
-      /* Right side */
-      .faq-right {
-        background: #fff;
-        width: 65%;
-        padding: 80px 60px;
-        overflow-y: auto;
-      }
+    /* small tiranga ribbon */
+    .ribbon{
+      position: absolute;left:30px;top:18px;width:72px;height:22px;border-radius:8px;
+      background:linear-gradient(90deg,var(--saffron),#fff,var(--indigo));transform:rotate(-8deg);
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);opacity:.95;
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#111;
+    }
 
-      .faq-item {
-        border-bottom: 1px solid #ddd;
-        padding: 20px 0;
-      }
+    /* ---------- Right Panel (FAQ) ---------- */
+    .panel{background:linear-gradient(180deg,var(--card),#fbfdff);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
 
-      .faq-question {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 600;
-        color: #b2720c;
-      }
+    .topbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    /* search */
+    .search{
+      flex:1;min-width:220px;display:flex;align-items:center;background:#f6f8fb;border-radius:12px;padding:10px 12px;gap:10px;
+      border:1px solid rgba(10,20,40,0.03);transition:transform .12s, box-shadow .14s;
+    }
+    .search:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(6,18,43,0.04)}
+    .search svg{opacity:.7}
+    .search input{border:0;background:transparent;outline:none;font-size:0.96rem;width:100%}
+    .placeholder-muted{color:var(--muted)}
 
-      .faq-question i {
-        transition: transform 0.3s ease;
-      }
+    /* tabs with icons */
+    .tabs{display:flex;gap:8px;align-items:center;padding-left:6px}
+    .tab{
+      display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:transparent;border:0;cursor:pointer;font-weight:700;color:var(--muted);
+      transition:transform .12s,color .12s;
+    }
+    .tab svg{width:18px;height:18px;opacity:.9}
+    .tab[aria-pressed="true"]{color:var(--indigo);transform:translateY(-4px)}
+    .tab[aria-pressed="true"]::after{
+      content:"";position:absolute;height:6px;left:8%;right:8%;bottom:-12px;border-radius:8px;background:linear-gradient(90deg,var(--saffron),#ffd89a);filter:blur(2px);opacity:0.95;
+    }
 
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        font-size: 15px;
-        line-height: 1.6;
-        color: #555;
-        transition: max-height 0.4s ease, padding 0.3s ease;
-      }
+    .controls{margin-left:auto;display:flex;gap:8px}
+    .btn{padding:9px 14px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(6,18,43,0.04);cursor:pointer;font-weight:700;box-shadow:0 6px 18px rgba(6,18,43,0.03)}
+    .btn.secondary{background:transparent;border:1px dashed rgba(6,18,43,0.06);font-weight:700}
 
-      .faq-item.active .faq-answer {
-        max-height: 300px;
-        padding-top: 15px;
-      }
+    /* faq list */
+    .faq-list{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+    .faq-item{
+      border-radius:12px;padding:14px;background:linear-gradient(180deg,#fff,#f8fbff);border:1px solid rgba(6,18,43,0.04);transition:transform .16s, box-shadow .16s;
+      position:relative;overflow:visible;
+    }
+    .faq-item:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(6,18,43,0.06)}
+    .faq-q{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .faq-q button{all:unset;cursor:pointer;display:flex;gap:14px;align-items:center;width:100%}
+    .title{font-weight:800;color:var(--saffron-600);font-size:1rem}
+    .chev{display:inline-block;transition:transform .28s ease,color .14s}
+    .faq-item[aria-expanded="true"] .chev{transform:rotate(180deg);color:var(--indigo)}
 
-      .faq-item.active .faq-question i {
-        transform: rotate(180deg);
-      }
+    /* answer: slide & fade */
+    .faq-a{overflow:hidden;max-height:0;padding:0;transition:max-height .36s cubic-bezier(.2,.95,.2,1),opacity .28s ease,padding .2s;opacity:0}
+    .faq-item[aria-expanded="true"] .faq-a{max-height:520px;padding:10px 0 6px 0;opacity:1}
+    .faq-a p{color:var(--muted);line-height:1.6;font-size:0.96rem}
 
-      /* Responsive styles */
-      @media (max-width: 1024px) {
-        body {
-          flex-direction: column;
-          height: auto;
-        }
-        .faq-left,
-        .faq-right {
-          width: 100%;
-          padding: 40px 20px;
-        }
-        .faq-left {
-          text-align: center;
-        }
-      }
+    /* feedback */
+    .meta{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+    .feedback{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(90deg,#fff,#fbfdff);padding:6px 8px;border-radius:10px;border:1px solid rgba(6,18,43,0.04)}
+    .feedback button{all:unset;cursor:pointer;padding:8px;border-radius:8px;font-size:16px;transition:transform .08s}
+    .feedback button:active{transform:scale(.96)}
+    .count{background:#f1f5f9;padding:4px 8px;border-radius:8px;font-weight:800;color:var(--indigo);margin-left:6px}
 
-      @media (max-width: 600px) {
-        .faq-left h1 {
-          font-size: 26px;
-        }
-        .faq-left p {
-          font-size: 14px;
-        }
-        .faq-question {
-          font-size: 16px;
-        }
-        .faq-answer {
-          font-size: 14px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="faq-left">
-      <h1>How can we help you?</h1>
-      <p>
-        DeshDarshan is your cultural guide to India, showcasing its traditions,
-        food, festivals, and attire. Discover the diversity and heritage of
-        India in one place, simplified for learners and explorers alike.
-      </p>
-    </div>
+    /* mark highlight */
+    mark{background:linear-gradient(90deg,#fff3c4,#ffd8a6);padding:0 4px;border-radius:4px}
 
-    <div class="faq-right">
-      <div class="faq-item active">
-        <div class="faq-question">
-          <span>What is the main purpose of DeshDarshan?</span>
-          <i>▲</i>
-        </div>
-        <div class="faq-answer">
-          DeshDarshan is a cultural knowledge hub that helps people explore
-          India’s rich heritage, including its traditional clothing, festivals,
-          food, and customs. The website makes it easier for learners,
-          travelers, and culture enthusiasts to understand the diversity of
-          India in one place.
-        </div>
-      </div>
+    /* focus states */
+    .focus-ring:focus{box-shadow:0 0 0 var(--focus) rgba(255,155,51,0.12);border-radius:8px;outline:none}
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span
-            >What types of traditional wear can I learn about on
-            DeshDarshan?</span
-          >
-          <i>▼</i>
-        </div>
-        <div class="faq-answer">
-          You can explore detailed information about different Indian attire
-          such as sarees, lehengas, dhotis, sherwanis, turbans, and regional
-          variations like Kanjeevaram from Tamil Nadu, Bandhani from Gujarat,
-          and Phulkari from Punjab. Each clothing style represents the
-          traditions of its region.
-        </div>
-      </div>
+    /* small screens */
+    @media(max-width:980px){
+      .wrap{grid-template-columns:1fr;padding:12px}
+      .search{min-width:unset}
+    }
+  </style>
+</head>
+<body>
+  <div class="ribbon" aria-hidden>DD • India</div>
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Does DeshDarshan cover Indian festivals?</span>
-          <i>▼</i>
-        </div>
-        <div class="faq-answer">
-          Yes! DeshDarshan provides insights into all major Indian festivals
-          like Diwali, Holi, Eid, Christmas, Pongal, Bihu, Durga Puja, Onam, and
-          more. The platform explains the history, rituals, food, and cultural
-          significance behind each festival.
+  <div class="wrap" role="region" aria-label="FAQ Section">
+    <!-- LEFT -->
+    <aside class="left" aria-labelledby="introTitle">
+      <div class="brand">
+        <div class="logo">DD</div>
+        <div>
+          <div style="font-weight:800;font-size:1rem">DeshDarshan</div>
+          <div style="font-size:.85rem;opacity:.95">Cultural guide — India</div>
         </div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Can I find information about Indian food on DeshDarshan?</span>
-          <i>▼</i>
+      <h1 id="introTitle">How can we help you?</h1>
+      <p>Explore festivals, food, clothing and customs. Use search and categories to quickly find short, accurate answers. Your feedback helps us improve content.</p>
+
+      <div class="hint">
+        <div class="kbd">Tab</div>
+        <div style="font-size:.95rem;opacity:.95">to navigate • Enter to open</div>
+      </div>
+    </aside>
+
+    <!-- RIGHT -->
+    <main class="panel" aria-label="FAQ Panel">
+      <div class="topbar" role="toolbar" aria-label="Search and Categories">
+        <div class="search" role="search" title="Search FAQs">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M21 21l-4.35-4.35" stroke="#9aa4b2" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input id="search" placeholder="Search FAQs — try: festivals, food, clothing" aria-label="Search FAQs" />
         </div>
-        <div class="faq-answer">
-          Absolutely. DeshDarshan highlights India’s famous cuisines region by
-          region — from North Indian thalis and Mughlai delicacies to South
-          Indian dosas and idlis, to Bengal’s sweets and Rajasthan’s royal
-          dishes. It also explains the cultural background and traditions
-          associated with each food type.
+
+        <div class="tabs" role="tablist" aria-label="FAQ Categories" id="tabs">
+          <button class="tab" role="tab" data-cat="all" aria-pressed="true">
+            <!-- globe icon -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 2a10 10 0 1 0 0 20" stroke="#b27a2a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            All
+          </button>
+
+          <button class="tab" role="tab" data-cat="general" aria-pressed="false">
+            <!-- info icon -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><circle cx="12" cy="12" r="9" stroke="#b27a2a" stroke-width="1.6"/><path d="M12 10v4" stroke="#b27a2a" stroke-width="1.6" stroke-linecap="round"/></svg>
+            General
+          </button>
+
+          <button class="tab" role="tab" data-cat="festivals" aria-pressed="false">
+            <!-- festival icon -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M3 7h18M4 11h16M6 15h12" stroke="#b27a2a" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Festivals
+          </button>
+
+          <button class="tab" role="tab" data-cat="food" aria-pressed="false">
+            <!-- food icon -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M6 3v18" stroke="#b27a2a" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7h6" stroke="#b27a2a" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Food
+          </button>
+
+          <button class="tab" role="tab" data-cat="clothing" aria-pressed="false">
+            <!-- clothing icon -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 3l4 3v10a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V6l4-3z" stroke="#b27a2a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Clothing
+          </button>
+        </div>
+
+        <div class="controls" role="group" aria-label="Controls">
+          <button class="btn secondary" id="expandAll">Expand All</button>
+          <button class="btn" id="collapseAll">Collapse All</button>
         </div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Who can benefit from using DeshDarshan?</span>
-          <i>▼</i>
-        </div>
-        <div class="faq-answer">
-          DeshDarshan is designed for students, researchers, travelers, and
-          anyone who wants to explore India’s culture in-depth. Whether you’re
-          preparing for cultural projects, planning a trip, or just curious
-          about traditions, you’ll find valuable, authentic information here.
-        </div>
+      <div id="faqList" class="faq-list" aria-live="polite">
+        <!-- Items (hardcoded) -->
+        <article class="faq-item" data-cat="general" tabindex="0" aria-expanded="true">
+          <div class="faq-q">
+            <button aria-controls="a1" class="focus-ring"><span class="title">What is the main purpose of DeshDarshan?</span><span class="chev">▾</span></button>
+          </div>
+          <div id="a1" class="faq-a" role="region" aria-labelledby="">
+            <p>DeshDarshan is a cultural knowledge hub to explore India's heritage — clothing, festivals, food, and customs — explained clearly for learners and travelers.</p>
+            <div class="meta">
+              <div class="feedback" data-id="faq-1">
+                <button class="like" title="Helpful (like)">👍</button><span class="count" aria-hidden>0</span>
+                <button class="dislike" title="Not helpful (dislike)">👎</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item" data-cat="clothing" tabindex="0" aria-expanded="false">
+          <div class="faq-q">
+            <button aria-controls="a2" class="focus-ring"><span class="title">What types of traditional wear can I learn about?</span><span class="chev">▾</span></button>
+          </div>
+          <div id="a2" class="faq-a">
+            <p>Explore sarees, lehengas, dhotis, sherwanis, turbans and regional specialties like Kanjeevaram, Bandhani, and Phulkari, complete with cultural context.</p>
+            <div class="meta">
+              <div class="feedback" data-id="faq-2">
+                <button class="like" title="Helpful (like)">👍</button><span class="count">0</span>
+                <button class="dislike" title="Not helpful (dislike)">👎</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item" data-cat="festivals" tabindex="0" aria-expanded="false">
+          <div class="faq-q">
+            <button aria-controls="a3" class="focus-ring"><span class="title">Does DeshDarshan cover Indian festivals?</span><span class="chev">▾</span></button>
+          </div>
+          <div id="a3" class="faq-a">
+            <p>Yes — Diwali, Holi, Eid, Pongal, Bihu, Durga Puja, Onam and more. Each entry explains history, rituals and the foods associated with the celebrations.</p>
+            <div class="meta">
+              <div class="feedback" data-id="faq-3">
+                <button class="like">👍</button><span class="count">0</span>
+                <button class="dislike">👎</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item" data-cat="food" tabindex="0" aria-expanded="false">
+          <div class="faq-q">
+            <button aria-controls="a4" class="focus-ring"><span class="title">Can I find information about Indian food here?</span><span class="chev">▾</span></button>
+          </div>
+          <div id="a4" class="faq-a">
+            <p>Absolutely. We cover North Indian thalis, South Indian dosas and idlis, Bengal sweets, Rajasthani dishes and the cultural stories behind them.</p>
+            <div class="meta">
+              <div class="feedback" data-id="faq-4">
+                <button class="like">👍</button><span class="count">0</span>
+                <button class="dislike">👎</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item" data-cat="general" tabindex="0" aria-expanded="false">
+          <div class="faq-q">
+            <button aria-controls="a5" class="focus-ring"><span class="title">Who can benefit from using DeshDarshan?</span><span class="chev">▾</span></button>
+          </div>
+          <div id="a5" class="faq-a">
+            <p>Students, researchers, and travelers — anyone curious about India's culture. Great for projects, trip planning, or self-learning.</p>
+            <div class="meta">
+              <div class="feedback" data-id="faq-5">
+                <button class="like">👍</button><span class="count">0</span>
+                <button class="dislike">👎</button>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <script>
-      const faqs = document.querySelectorAll(".faq-item");
+  <script>
+    /* ---------- Tiny JS: search, tabs, toggle, feedback ---------- */
+    const $ = (s, c=document) => c.querySelector(s);
+    const $$ = (s,c=document) => Array.from(c.querySelectorAll(s));
 
-      faqs.forEach((faq) => {
-        faq.querySelector(".faq-question").addEventListener("click", () => {
-          faqs.forEach((item) => {
-            if (item !== faq) {
-              item.classList.remove("active");
-              item.querySelector("i").textContent = "▼";
-            }
-          });
+    const faqList = $('#faqList');
+    const searchInput = $('#search');
+    const tabs = $$('#tabs .tab');
+    const expandAll = $('#expandAll');
+    const collapseAll = $('#collapseAll');
 
-          faq.classList.toggle("active");
-          faq.querySelector("i").textContent = faq.classList.contains("active")
-            ? "▲"
-            : "▼";
-        });
+    // keyboard nav (up/down between articles)
+    faqList.addEventListener('keydown', (e) => {
+      const items = $$('.faq-item');
+      const current = document.activeElement.closest('.faq-item');
+      const idx = items.indexOf(current);
+      if (e.key === 'ArrowDown') { e.preventDefault(); items[Math.min(items.length-1, idx+1)].focus(); }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); items[Math.max(0, idx-1)].focus(); }
+    });
+
+    // toggle on click
+    faqList.addEventListener('click', (e) => {
+      const btn = e.target.closest('.faq-q button');
+      if (!btn) return;
+      const item = btn.closest('.faq-item');
+      toggle(item);
+      btn.focus();
+    });
+
+    // toggle on Enter/Space when article focused
+    faqList.addEventListener('keyup', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && document.activeElement.closest('.faq-item')){
+        const item = document.activeElement.closest('.faq-item');
+        toggle(item);
+      }
+    });
+
+    function toggle(item){
+      if(!item) return;
+      const open = item.getAttribute('aria-expanded') === 'true';
+      item.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if(!open) item.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    expandAll.addEventListener('click', () => $$('.faq-item').forEach(i => i.setAttribute('aria-expanded','true')));
+    collapseAll.addEventListener('click', () => $$('.faq-item').forEach(i => i.setAttribute('aria-expanded','false')));
+
+    // tabs filter
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.setAttribute('aria-pressed','false'));
+      t.setAttribute('aria-pressed','true');
+      filter(searchInput.value.trim(), t.dataset.cat);
+    }));
+
+    // search + highlight
+    function escRx(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+    searchInput.addEventListener('input', () => {
+      const active = $('#tabs .tab[aria-pressed="true"]').dataset.cat;
+      filter(searchInput.value.trim(), active);
+    });
+
+    function filter(q='', cat='all'){
+      const rx = q ? new RegExp(escRx(q), 'gi') : null;
+      $$('.faq-item').forEach(item => {
+        const title = item.querySelector('.title');
+        const ans = item.querySelector('.faq-a p');
+        const catMatch = (cat === 'all') || (item.dataset.cat === cat);
+        if (!q){
+          title.innerHTML = title.textContent;
+          if(ans) ans.innerHTML = ans.textContent;
+          item.style.display = catMatch ? '' : 'none';
+          return;
+        }
+        const combined = (title.textContent + ' ' + (ans ? ans.textContent : ''));
+        if (rx && rx.test(combined)){
+          title.innerHTML = title.textContent.replace(rx, m => `<mark>${m}</mark>`);
+          if(ans) ans.innerHTML = ans.textContent.replace(rx, m => `<mark>${m}</mark>`);
+          item.style.display = catMatch ? '' : 'none';
+        } else {
+          title.innerHTML = title.textContent;
+          if(ans) ans.innerHTML = ans.textContent;
+          item.style.display = 'none';
+        }
       });
-    </script>
-  </body>
-</html>
+    }
+
+    // feedback: localStorage simple counts
+    function loadFeedback(){
+      const data = JSON.parse(localStorage.getItem('faqFeedback') || '{}');
+      $$('.feedback').forEach(f => {
+        const id = f.dataset.id;
+        const cnt = f.querySelector('.count');
+        const val = data[id] || {like:0,dislike:0};
+        cnt.textContent = val.like - val.dislike;
+      });
+    }
+    function saveFeedback(id, kind){
+      const data = JSON.parse(localStorage.getItem('faqFeedback') || '{}');
+      if(!data[id]) data[id] = {like:0,dislike:0};
+      data[id][kind] += 1;
+      localStorage.setItem('faqFeedback', JSON.stringify(data));
+      loadFeedback();
+    }
+    faqList.addEventListener('click', (e) => {
+      const like = e.target.closest('.feedback .like');
+      const dislike = e.target.closest('.feedback .dislike');
+      if (like || dislike){
+        const f = e.target.closest('.feedback');
+        const id = f.dataset.id;
+        if (like) saveFeedback(id,'like'); else saveFeedback(id,'dislike');
+      }
+    });
+
+    // init
+    (function init(){
+      $$('.faq-item').forEach(it => { if(!it.hasAttribute('aria-expanded')) it.setAttribute('aria-expanded','false'); it.setAttribute('tabindex','0'); });
+      loadFeedback();
+      filter('', 'all');
+    })();
+  </script>
+</body>
+</html> 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway of India - Heritage of India</title>
+    <link rel="stylesheet" href="../css/gateway.css"> 
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="header">
+        <h1>Gateway of India</h1>
+        <p class="subtitle">Monumental Arch of Mumbai, Maharashtra</p>
+    </header>
+
+    <section class="hero">
+        <img src="../assets/images/heritage/Gate_Way_Of_India.jpg" alt="Gateway of India" class="hero-image">
+        <div class="hero-text">
+            <h2>The Iconic Arch of Mumbai</h2>
+            <p>Built to commemorate the landing of King George V and Queen Mary in 1911.</p>
+        </div>
+    </section>
+
+    <main class="content">
+
+        <section class="details">
+            <p>
+                The <strong>Gateway of India</strong> is one of India's most unique landmarks, situated on the waterfront at Apollo Bunder in South Mumbai. 
+                It was completed in 1924, though the foundation stone was laid in 1913. 
+                It has historically been a ceremonial entrance and exit point for important people in India.
+            </p>
+        </section>
+
+        <section class="details">
+            <h2>Key Facts</h2>
+            <ul>
+                <li><strong>Location:</strong> Apollo Bunder, Mumbai, Maharashtra, India</li>
+                <li><strong>Construction Started:</strong> 1913</li>
+                <li><strong>Completed:</strong> 1924 (Opened on December 4, 1924)</li>
+                <li><strong>Architect:</strong> George Wittet</li>
+                <li><strong>Material:</strong> Yellow basalt and reinforced concrete</li>
+                <li><strong>Architecture Style:</strong> Indo-Saracenic, combining Hindu and Muslim styles</li>
+            </ul>
+        </section>
+
+        <section class="details">
+            <h2>Historical Significance</h2>
+            <ul>
+                <li>Built to commemorate the landing of King George V and Queen Mary in December 1911.</li>
+                <li>It was the ceremonial entry point for Viceroys and the first symbolic sight of India for visitors.</li>
+                <li>Symbolized the power and grandeur of the British Raj.</li>
+                <li>Paradoxically, it was also the point from which the last British troops departed India in 1948.</li>
+            </ul>
+        </section>
+
+        <section class="details">
+            <h2>Architecture</h2>
+            <ul>
+                <li>A monumental arch, 26 meters (85 feet) high.</li>
+                <li>The central dome is 48 feet in diameter and reaches 83 feet high.</li>
+                <li>Features four turrets and intricate latticework carved into the stone.</li>
+                <li>The design blends Roman triumphal arch style with traditional Gujarati architecture.</li>
+                <li>The words 'King George V and Queen Mary' are inscribed on the arch.</li>
+            </ul>
+        </section>
+
+        <section class="details">
+            <h2>Visitor Information</h2>
+            <ul>
+                <li>Location: Colaba, Mumbai, next to the Taj Mahal Palace Hotel</li>
+                <li>Timings: Open 24 hours (Free to view)</li>
+                <li>Ferry Services: Ferries to Elephanta Caves and Mandwa depart from here.</li>
+                <li>Photography: Allowed and highly encouraged, especially at sunset.</li>
+                <li>Nearby: The Taj Mahal Palace Hotel, Colaba Causeway Market, Elephanta Caves (via ferry).</li>
+            </ul>
+        </section>
+        
+        <section class="reference">
+            <p>
+                Read more on 
+                <a href="https://en.wikipedia.org/wiki/Gateway_of_India" target="_blank">Wikipedia: Gateway of India</a>
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Heritage of India | All Rights Reserved</p>
+    </footer>
+
+    <button id="smartScrollBtn"
+            class="fixed bottom-20 right-5 bg-orange-500 hover:bg-orange-600 text-white font-bold 
+                   w-12 h-12 rounded-full shadow-lg flex items-center justify-center 
+                   transition-all duration-300 hover:scale-110 z-50"
+            aria-label="Scroll">
+        <svg id="scrollIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" clip-rule="evenodd"/>
+        </svg>
+    </button>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/gateway.js"></script> 
+    
+    <script>
+        (function () {
+            const scrollBtn = document.getElementById('smartScrollBtn');
+            const scrollIcon = document.getElementById('scrollIcon');
+            if (!scrollBtn || !scrollIcon) return;
+
+            const updateThreshold = () => Math.max(300, (document.body.scrollHeight || 800) / 3);
+
+            const setIcon = (direction) => {
+                if (direction === 'down') {
+                    // ↓ icon path
+                    scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>`;
+                    scrollBtn.setAttribute('aria-label', 'Scroll to bottom');
+                } else {
+                    // ↑ icon path
+                    scrollIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"/>`;
+                    scrollBtn.setAttribute('aria-label', 'Scroll to top');
+                }
+            };
+
+            const check = () => {
+                const threshold = updateThreshold();
+                const scrollTop = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.body.scrollHeight;
+
+                if (scrollTop < threshold) {
+                    scrollBtn.classList.add('show');
+                    setIcon('down');
+                } else if (windowHeight + scrollTop >= docHeight - threshold) {
+                    scrollBtn.classList.add('show');
+                    setIcon('up');
+                } else {
+                    scrollBtn.classList.add('show');
+                    setIcon('up');
+                }
+            };
+
+            window.addEventListener('scroll', check);
+            window.addEventListener('resize', check);
+            check();
+
+            scrollBtn.addEventListener('click', () => {
+                const scrollTop = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.body.scrollHeight;
+                const threshold = updateThreshold();
+
+                if (scrollTop < threshold) {
+                    window.scrollTo({ top: docHeight, behavior: 'smooth' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        })();
+    </script>
+    
+    <script>
+    (function () {
+        // ... (Your Chatbase loading script)
+    })();
+    </script>
+</body>
+</html>
