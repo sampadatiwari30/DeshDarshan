@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taj Mahal - DeshDarshan</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -12,19 +12,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/tajmahal.css" />
+
     <style>
-        /* Custom Styles */
         body {
             background-color: #f8f9fa;
             font-family: 'Poppins', sans-serif;
-            padding-top: 80px; /* Space for fixed navbar */
+            padding-top: 80px;
         }
 
         /* Navbar Styles */
@@ -95,7 +97,6 @@
             background-color: white;
             transition: all 0.3s ease;
         }
-
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -125,8 +126,7 @@
             .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
 
-        /* Page-specific Styles */
-         .section-title {
+        .section-title {
             font-family: 'Cinzel', serif;
             font-weight: 700;
             color: #333;
@@ -147,8 +147,7 @@
             color: #ff9933;
             font-weight: bold;
         }
-
-</style>
+    </style>
 </head>
 <body class="bg-gray-100">
 
@@ -187,9 +186,9 @@
                 <p class="text-lg mt-2 max-w-2xl" data-aos="fade-up" data-aos-delay="200">An eternal monument of love, recognized as one of the wonders of the world.</p>
             </div>
         </section>
-        
+
         <div class="container mx-auto px-4 py-16">
-             <!-- Overview Section -->
+            <!-- Overview Section -->
             <section class="flex flex-col md:flex-row gap-12 items-center mb-16" data-aos="fade-up">
                 <div class="md:w-1/2">
                     <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop" alt="Close-up of the Taj Mahal" class="rounded-lg shadow-2xl w-full">
@@ -204,10 +203,9 @@
                     </p>
                 </div>
             </section>
-            
+
             <!-- Details Grid -->
             <section class="grid md:grid-cols-2 gap-12" data-aos="fade-up">
-                <!-- Historical Background -->
                 <div class="bg-white p-8 rounded-lg shadow-lg">
                     <h3 class="text-2xl section-title">Historical Background</h3>
                     <p class="text-gray-600 leading-relaxed mt-4">
@@ -216,9 +214,7 @@
                         worked under the guidance of chief architect Ustad Ahmad Lahauri.
                     </p>
                 </div>
-
-                <!-- Architectural Significance -->
-                 <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
                     <h3 class="text-2xl section-title">Architecture</h3>
                     <ul class="details-list text-gray-600 leading-relaxed mt-4">
                         <li>Combines elements of Persian, Islamic, and Indian styles.</li>
@@ -229,7 +225,7 @@
                 </div>
             </section>
 
-             <!-- Visitor Information -->
+            <!-- Visitor Information -->
             <section class="py-16" data-aos="fade-up">
                 <div class="container mx-auto px-4 text-center">
                     <h2 class="text-3xl md:text-4xl section-title mb-10">Visitor Information</h2>
@@ -260,7 +256,7 @@
         </div>
     </main>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <footer id="footer">
         <div class="footer-content-wrapper">
             <div class="footer-section">
@@ -294,21 +290,25 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/tajmahal.js"></script>
     <script>
-        // Initialize AOS
         AOS.init({
             duration: 800,
             once: true,
         });
 
+        // Smooth scroll example fixed
+        const scrollTop = window.scrollY;
+        const threshold = 100;
+        const docHeight = document.body.scrollHeight;
+        if (scrollTop < threshold) {
+            window.scrollTo({ top: docHeight, behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-    if (scrollTop < threshold) {
-      window.scrollTo({ top: docHeight, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-
-  <script src="/js/tajmahal.js"></script>
 </body>
 </html>
