@@ -776,3 +776,22 @@ canvas.confetti-canvas {
     font-size: 3rem;
   }
 }
+#starRating {
+  display: flex;
+  justify-content: center; /* horizontally center */
+  gap: 10px; /* spacing between stars */
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#starRating span {
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  user-select: none;
+}
+
+#starRating span.active {
+  color: #f5c518; /* gold color */
+}
