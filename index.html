@@ -176,6 +176,73 @@
       /* Overlay shadow */
       border-radius: 0 0 10px 10px;
     }
+    #newFactsSection {
+  max-width: 1200px;
+  margin: 60px auto 40px auto;
+  padding: 32px 0;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 36px rgba(210,150,34,0.10);
+}
+#newFactsSection h2 {
+  text-align: center;
+  font-size: 2.1rem;
+  color: black;
+  font-weight:400;
+  margin-bottom: 38px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center4
+}
+.new-carousel-wrapper {
+  width: 100%;
+  padding: 0 10px;
+}
+.new-carousel-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px 36px;
+  justify-items: center;
+}
+.new-carousel-item {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 14px rgba(48,38,8,0.09);
+  padding: 26px 18px;
+  color: #484848;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1rem;
+  min-height: 220px;
+  max-width: 340px;
+  width: 100%;
+  transition: box-shadow 0.17s;
+}
+.new-carousel-item h3 {
+  color: #f5a623;
+  font-size: 1.07rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.new-carousel-item p {
+  font-size: 1rem;
+  color: #222;
+  margin: 0;
+}
+.new-carousel-item:hover {
+  box-shadow: 0 8px 28px rgba(210,150,34,0.16);
+  background: #fff6ea;
+}
+@media (max-width: 900px) {
+  .new-carousel-container { grid-template-columns: 1fr; gap: 18px 10px; }
+  .new-carousel-item { max-width: 98vw; }
+  #newFactsSection { padding: 18px 0; }
+}
+
+
 
     /* Toast Notification Styles */
     #toast {
@@ -1089,41 +1156,46 @@
     </div>
   </section>
 
-  <!-- Facts Section starts Here -->
-  <section id="Facts">
-    <h2>📜 Interesting Facts About India</h2>
+<section id="Facts">
+  <h2>📜 Interesting Facts About India</h2>
+  <div class="facts-grid">
 
-    <div class="facts-grid">
+    <div class="fact-item">
+      <img src="https://www.aljazeera.com/wp-content/uploads/2024/03/AP24075513293998-1710581295.jpg?resize=770%2C513&quality=80" alt="Indian Democracy">
+      <h3>🗳️India is the world's largest democracy</h3>
+      <p>It adopted its democratic system after gaining independence in 1947. India holds regular elections where over 900 million eligible voters decide the country's leadership. The Parliament consists of the Lok Sabha and Rajya Sabha. Democracy plays a key role in shaping its diverse society.</p>
+    </div>
 
-      <div class="fact-item">
-        <img
-          src="https://www.aljazeera.com/wp-content/uploads/2024/03/AP24075513293998-1710581295.jpg?resize=770%2C513&quality=80"
-          alt="Indian Democracy">
-        <p>India is the world's largest democracy with over 900 million eligible voters.</p>
-      </div>
+    <div class="fact-item">
+      <img src="https://captureatrip-cms-storage.s3.ap-south-1.amazonaws.com/Holi_the_Festival_of_Colors_21373178f5.webp" alt="Indian Festivals">
+      <h3>👥India has the second largest population in the world</h3>
+      <p>With over 1.4 billion people, India represents nearly one-sixth of the world's population. This vast population contributes to its cultural, linguistic, and social diversity.</p>
+    </div>
 
-      <div class="fact-item">
-        <img
-          src="https://captureatrip-cms-storage.s3.ap-south-1.amazonaws.com/Holi_the_Festival_of_Colors_21373178f5.webp"
-          alt="Indian Festivals">
-        <p>India celebrates more than 20 major festivals, reflecting its cultural and religious diversity.</p>
-      </div>
+    <div class="fact-item">
+      <img src="https://www.delhitoagratour.com/images/agra-taj-mahal-tour-package-from-hyderabad/1.jpg" alt="Taj Mahal">
+      <h3>🏛️ The Taj Mahal is one of the Seven Wonders of the World</h3>
+      <p>Built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal, it is a UNESCO World Heritage Site. The white marble mausoleum is a symbol of love and architectural brilliance. Millions of tourists visit it annually, marveling at its intricate carvings and stunning symmetry.</p>
+    </div>
 
-      <div class="fact-item">
-        <img src="https://www.delhitoagratour.com/images/agra-taj-mahal-tour-package-from-hyderabad/1.jpg"
-          alt="Taj Mahal">
-        <p>The Taj Mahal, a UNESCO World Heritage Site, is one of the Seven Wonders of the World.</p>
-      </div>
+    <div class="fact-item">
+      <img src="https://tb-static.uber.com/prod/image-proc/processed_images/f54c63b09623528bb72f5e918dfd84ce/9b3aae4cf90f897799a5ed357d60e09d.jpeg" alt="Indian Cuisine">
+      <h3>🎨 India has a rich tradition of art and culture</h3>
+      <p>From classical dances like Bharatanatyam and Kathak to intricate handicrafts and paintings, India's cultural heritage is vast. Festivals, music, and theatre are celebrated widely, showcasing centuries of tradition.</p>
+    </div>
 
-      <div class="fact-item">
-        <img
-          src="https://tb-static.uber.com/prod/image-proc/processed_images/f54c63b09623528bb72f5e918dfd84ce/9b3aae4cf90f897799a5ed357d60e09d.jpeg"
-          alt="Indian Cuisine">
-        <p>India is known for its diverse cuisine, from spicy curries to sweet desserts.</p>
+    <!-- Continue for remaining facts from your carousel: railways, religions, languages, etc.
+         Add corresponding images or leave image blank if none was in main. -->
+
+  </div>
+</section>
+
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Toast Notification -->
   <div id="toast" class="toast-hidden">
@@ -1368,5 +1440,4 @@
   <script src="./js/navbar.js" defer></script>
   <script src="./js/home.js" defer></script>
 </body>
-
 </html>
