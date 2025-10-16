@@ -48,11 +48,17 @@ body.homepage {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0px 20px;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+.logo-img {
+  width: 50px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 50%;
 }
 
 /* Extra specificity for about-us page */
@@ -193,11 +199,13 @@ html .navbar .nav-container {
     color: #ff9933;
     font-size: 1.8rem;
     font-weight: bold;
+    flex-direction: column;
 }
 
 .nav-logo h2 a {
     text-decoration: none;
     color: inherit;
+
 }
 
 .nav-menu {
