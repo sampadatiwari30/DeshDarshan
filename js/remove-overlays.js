@@ -159,11 +159,11 @@
     }
     
     // Run immediately if DOM is ready, otherwise wait
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+    // if (document.readyState === 'loading') {
+    //     document.addEventListener('DOMContentLoaded', init);
+    // } else {
+    //     init();
+    // }
     
     // Also run after a short delay to catch any late-loading overlays
     setTimeout(removeNamasteOverlays, 1000);
