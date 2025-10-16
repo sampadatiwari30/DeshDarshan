@@ -19,10 +19,10 @@
 }
 
 /* Hide pseudo-elements that might contain placeholder text */
-*::before,
-*::after {
+/* *::before ,
+    ::after{
     content: none !important;
-}
+} */
 
 /* Re-enable legitimate pseudo-elements by overriding specific cases */
 .section-title::after,
