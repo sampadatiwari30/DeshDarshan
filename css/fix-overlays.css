@@ -19,8 +19,8 @@
 }
 
 /* Hide pseudo-elements that might contain placeholder text */
-/* *::before,
-*::after {
+/* *::before ,
+    ::after{
     content: none !important;
 } */
 
