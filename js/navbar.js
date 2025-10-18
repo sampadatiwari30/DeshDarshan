@@ -56,3 +56,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Static Scroll-to-Top Button (old logic)
+const scrollBtn = document.getElementById("scrollToTop");
+if (scrollBtn) {
+    scrollBtn.style.display = "block";
+    scrollBtn.style.position = "fixed";
+    scrollBtn.style.bottom = "40px";
+    scrollBtn.style.right = "40px";
+    scrollBtn.style.zIndex = "999";
+
+    scrollBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+// --- 🔁 Dual Scroll-To-Top/Bottom Button ---
+const scrollToggleBtn = document.getElementById("scrollToggleBtn");
+const scrollIcon = document.getElementById("scrollIcon");
+
+if (scrollToggleBtn && scrollIcon) {
+    // Always visible
+    scrollToggleBtn.style.display = "block";
+
+    // Change icon based on scroll position
+    window.addEventListener("scroll", () => {
+        const scrollPosition = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+        if (scrollPosition > maxScroll / 2) {
+            // Show UP arrow when scrolled down
+            scrollIcon.textContent = "⬆️";
+        } else {
+            // Show DOWN arrow when near top
+            scrollIcon.textContent = "⬇️";
+        }
+    });
+
+    // Toggle scroll behavior
+    scrollToggleBtn.addEventListener("click", () => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+        if (scrollIcon.textContent === "⬇️") {
+            window.scrollTo({ top: maxScroll, behavior: "smooth" });
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    });
+}
