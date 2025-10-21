@@ -499,147 +499,173 @@
         }
       }
 
-      /* Footer */
-      #footer {
-        background: var(--dark-bg);
-        color: white;
-        padding: 4rem 0 2rem;
-        margin-top: 5rem;
-        position: relative;
-        overflow: hidden;
-      }
+      /* Footer Styles */
+#footer {
+  margin-top: 4rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 4rem 0 0;
+  position: relative;
+}
 
-      #footer::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path fill="%23ff9833" fill-opacity="0.05" d="M0,20 Q250,80 500,20 T1000,20 V100 H0 Z"></path></svg>');
-        background-size: cover;
-      }
+.footer-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
 
-      .footer-content-wrapper {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        position: relative;
-        z-index: 2;
-      }
+.footer-section {
+  margin-bottom: 2rem;
+}
 
-      .footer-section h3 {
-        color: var(--primary-orange);
-        font-family: "Playfair Display", serif;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        font-size: 1.3rem;
-      }
+.footer-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ff9933;
+  font-family: "Cinzel", serif;
+  position: relative;
+  padding-bottom: 10px;
+}
 
-      .footer-section p,
-      .footer-section ul {
-        color: #ccc;
-        line-height: 1.7;
-      }
+.footer-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #ff9933;
+}
 
-      .footer-section ul {
-        list-style: none;
-      }
+.footer-logo {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff9933;
+  margin-top: 1rem;
+}
 
-      .footer-section ul li {
-        margin-bottom: 0.8rem;
-      }
+.footer-section p {
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
 
-      .footer-link {
-        color: #ccc;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-      }
+.footer-section ul {
+  list-style: none;
+}
 
-      .footer-link:hover {
-        color: var(--primary-orange);
-        transform: translateX(5px);
-      }
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
 
-      .footer-contact-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
 
-      .footer-contact-item i {
-        color: var(--primary-orange);
-        margin-right: 1rem;
-        width: 20px;
-      }
+.footer-link:hover {
+  color: #ff9933;
+  transform: translateX(5px);
+}
 
-      .social-icons-container {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  color: #bbb;
+}
 
-      .footer-social-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        background: var(--primary-orange);
-        color: white;
-        border-radius: 50%;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
+.footer-contact-item i {
+  color: #ff9933;
+  width: 20px;
+  text-align: center;
+}
 
-      .footer-social-icon:hover {
-        background: var(--secondary-orange);
-        transform: translateY(-3px) scale(1.1);
-        box-shadow: 0 5px 15px rgba(255, 152, 51, 0.4);
-      }
+.social-icons-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
 
-      .newsletter-form {
-        display: flex;
-        margin-top: 1rem;
-      }
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
 
-      .newsletter-form input {
-        flex: 1;
-        padding: 0.8rem 1rem;
-        border: 1px solid #444;
-        border-radius: 25px 0 0 25px;
-        background: var(--medium-dark);
-        color: white;
-        outline: none;
-      }
+.social-icon:hover {
+  background: #ff9933;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
 
-      .newsletter-form button {
-        padding: 0.8rem 1.5rem;
-        background: var(--primary-orange);
-        color: white;
-        border: none;
-        border-radius: 0 25px 25px 0;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
+.newsletter {
+  margin-top: 1.5rem;
+}
 
-      .newsletter-form button:hover {
-        background: var(--secondary-orange);
-      }
+.newsletter h4 {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
 
-      .copyright-section {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid #444;
-        color: #999;
-        position: relative;
-        z-index: 2;
-      }
+.newsletter-form {
+  display: flex;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.newsletter-form input::placeholder {
+  color: #ccc;
+}
+
+.newsletter-form button {
+  background: #ff9933;
+  color: white;
+  border: none;
+  padding: 0 1.2rem;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #e67e00;
+}
+
+.copyright-section {
+  text-align: center;
+  padding: 1.5rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
 
       /* Base Button Styles */
   #backToTopBtn {
